@@ -1,0 +1,13 @@
+{
+	"name": "Java support for gauge",
+	"run": {
+		"windows": "gauge-java --start",
+		"linux": "gauge-java --start",
+		"darwin": "gauge-java --start"
+	},
+	"init": {
+        "windows": "gauge-java --init",
+        "linux": "gauge-java --init",
+        "darwin": "gauge-java --init"
+    }
+}
