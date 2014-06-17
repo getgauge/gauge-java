@@ -1,6 +1,7 @@
 package com.thoughtworks.gauge;
 
 import com.google.protobuf.ByteString;
+import main.Spec;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -8,14 +9,12 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.lang.reflect.Method;
 
-import static main.Messages.ExecutionStatus;
-
 public class MethodExecutor {
-    public ExecutionStatus execute(Method method, Object... args) {
+    public Spec.ProtoExecutionResult execute(Method method, Object... args) {
         try {
             Object instance = ClassInstanceManager.get(method.getDeclaringClass());
             method.invoke(instance, args);
-            return ExecutionStatus.newBuilder().setPassed(true).build();
+            return Spec.ProtoExecutionResult.newBuilder().setFailed(false).build();
         } catch (Throwable e) {
             ByteArrayOutputStream imageBytes = new ByteArrayOutputStream();
             try {
@@ -24,7 +23,7 @@ public class MethodExecutor {
             } catch (Exception ex) {
                 System.out.println("Screenshot is not available. " + ex.getMessage());
             }
-            ExecutionStatus.Builder builder = ExecutionStatus.newBuilder().setPassed(false);
+            Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
             if (e.getCause() != null) {
                 builder.setErrorMessage(e.getCause().toString());
                 builder.setStackTrace(formatStackTrace(e.getCause().getStackTrace()));

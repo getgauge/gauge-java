@@ -1,6 +1,7 @@
 package com.thoughtworks.gauge;
 
 import main.Messages;
+import main.Spec;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -19,31 +20,31 @@ public abstract class MethodExecutionMessageProcessor {
     public Messages.Message execute(Set<Method> methods, Messages.Message message, Object... args) {
         MethodExecutor methodExecutor = new MethodExecutor();
         for (Method method : methods) {
-            Messages.ExecutionStatus status = methodExecutor.execute(method, args);
-            if (!status.getPassed()) {
-                return createMessageWithExecutionStatusResponse(message, status);
+            Spec.ProtoExecutionResult result = methodExecutor.execute(method, args);
+            if (result.getFailed()) {
+                return createMessageWithExecutionStatusResponse(message, result);
             }
         }
 
-        Messages.ExecutionStatus passingExecution = Messages.ExecutionStatus.newBuilder().setPassed(true).build();
+        Spec.ProtoExecutionResult passingExecution = Spec.ProtoExecutionResult.newBuilder().setFailed(false).build();
         return createMessageWithExecutionStatusResponse(message, passingExecution);
     }
 
     public Messages.Message executeHooks(Set<Method> beforeSpecHooks, Messages.Message message, SpecificationInfo executionInfo) {
         MethodExecutor methodExecutor = new MethodExecutor();
-        Messages.ExecutionStatus status;
+        Spec.ProtoExecutionResult result;
         for (Method method : beforeSpecHooks) {
             if (methodHasArguments(method, executionInfo)) {
-                status = methodExecutor.execute(method, executionInfo);
+                result = methodExecutor.execute(method, executionInfo);
             } else {
-                status = methodExecutor.execute(method);
+                result = methodExecutor.execute(method);
             }
-            if (!status.getPassed()) {
-                return createMessageWithExecutionStatusResponse(message, status);
+            if (result.getFailed()) {
+                return createMessageWithExecutionStatusResponse(message, result);
             }
         }
 
-        Messages.ExecutionStatus passingExecution = Messages.ExecutionStatus.newBuilder().setPassed(true).build();
+        Spec.ProtoExecutionResult passingExecution = Spec.ProtoExecutionResult.newBuilder().setFailed(false).build();
         return createMessageWithExecutionStatusResponse(message, passingExecution);
     }
 
@@ -71,11 +72,11 @@ public abstract class MethodExecutionMessageProcessor {
     }
 
 
-    private Messages.Message createMessageWithExecutionStatusResponse(Messages.Message receivedMessage, Messages.ExecutionStatus status) {
+    private Messages.Message createMessageWithExecutionStatusResponse(Messages.Message receivedMessage, Spec.ProtoExecutionResult result) {
         return Messages.Message.newBuilder()
                 .setMessageId(receivedMessage.getMessageId())
                 .setMessageType(Messages.Message.MessageType.ExecutionStatusResponse)
-                .setExecutionStatusResponse(Messages.ExecutionStatusResponse.newBuilder().setExecutionStatus(status).build())
+                .setExecutionStatusResponse(Messages.ExecutionStatusResponse.newBuilder().setExecutionResult(result).build())
                 .build();
     }
 }

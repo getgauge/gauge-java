@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static main.Messages.Argument;
+import static main.Spec.Argument;
 import static main.Messages.Message;
 
 public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
