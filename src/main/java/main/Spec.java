@@ -1835,29 +1835,33 @@ public final class Spec {
        */
       Step(0, 1),
       /**
-       * <code>Concept = 2;</code>
+       * <code>Comment = 2;</code>
        */
-      Concept(1, 2),
+      Comment(1, 2),
       /**
-       * <code>Scenario = 3;</code>
+       * <code>Concept = 3;</code>
        */
-      Scenario(2, 3),
+      Concept(2, 3),
       /**
-       * <code>TableDrivenScenario = 4;</code>
+       * <code>Scenario = 4;</code>
        */
-      TableDrivenScenario(3, 4),
+      Scenario(3, 4),
       /**
-       * <code>Comment = 5;</code>
+       * <code>TableDrivenScenario = 5;</code>
        */
-      Comment(4, 5),
+      TableDrivenScenario(4, 5),
       /**
-       * <code>Table = 6;</code>
+       * <code>Context = 6;</code>
        */
-      Table(5, 6),
+      Context(5, 6),
       /**
-       * <code>Tags = 7;</code>
+       * <code>Table = 7;</code>
        */
-      Tags(6, 7),
+      Table(6, 7),
+      /**
+       * <code>Tags = 8;</code>
+       */
+      Tags(7, 8),
       ;
 
       /**
@@ -1865,29 +1869,33 @@ public final class Spec {
        */
       public static final int Step_VALUE = 1;
       /**
-       * <code>Concept = 2;</code>
+       * <code>Comment = 2;</code>
        */
-      public static final int Concept_VALUE = 2;
+      public static final int Comment_VALUE = 2;
       /**
-       * <code>Scenario = 3;</code>
+       * <code>Concept = 3;</code>
        */
-      public static final int Scenario_VALUE = 3;
+      public static final int Concept_VALUE = 3;
       /**
-       * <code>TableDrivenScenario = 4;</code>
+       * <code>Scenario = 4;</code>
        */
-      public static final int TableDrivenScenario_VALUE = 4;
+      public static final int Scenario_VALUE = 4;
       /**
-       * <code>Comment = 5;</code>
+       * <code>TableDrivenScenario = 5;</code>
        */
-      public static final int Comment_VALUE = 5;
+      public static final int TableDrivenScenario_VALUE = 5;
       /**
-       * <code>Table = 6;</code>
+       * <code>Context = 6;</code>
        */
-      public static final int Table_VALUE = 6;
+      public static final int Context_VALUE = 6;
       /**
-       * <code>Tags = 7;</code>
+       * <code>Table = 7;</code>
        */
-      public static final int Tags_VALUE = 7;
+      public static final int Table_VALUE = 7;
+      /**
+       * <code>Tags = 8;</code>
+       */
+      public static final int Tags_VALUE = 8;
 
 
       public final int getNumber() { return value; }
@@ -1895,12 +1903,13 @@ public final class Spec {
       public static ItemType valueOf(int value) {
         switch (value) {
           case 1: return Step;
-          case 2: return Concept;
-          case 3: return Scenario;
-          case 4: return TableDrivenScenario;
-          case 5: return Comment;
-          case 6: return Table;
-          case 7: return Tags;
+          case 2: return Comment;
+          case 3: return Concept;
+          case 4: return Scenario;
+          case 5: return TableDrivenScenario;
+          case 6: return Context;
+          case 7: return Table;
+          case 8: return Tags;
           default: return null;
         }
       }
@@ -17550,7 +17559,7 @@ public final class Spec {
       "oItem\022\025\n\risTableDriven\030\003 \002(\010\022.\n\016preHookF" +
       "ailure\030\004 \001(\0132\026.main.ProtoHookFailure\022/\n\017" +
       "postHookFailure\030\005 \001(\0132\026.main.ProtoHookFa" +
-      "ilure\022\020\n\010fileName\030\006 \002(\t\"\260\003\n\tProtoItem\022*\n" +
+      "ilure\022\020\n\010fileName\030\006 \002(\t\"\275\003\n\tProtoItem\022*\n" +
       "\010itemType\030\001 \002(\0162\030.main.ProtoItem.ItemTyp" +
       "e\022\035\n\004step\030\002 \001(\0132\017.main.ProtoStep\022#\n\007conc" +
       "ept\030\003 \001(\0132\022.main.ProtoConcept\022%\n\010scenari" +
@@ -17558,57 +17567,57 @@ public final class Spec {
       "venScenario\030\005 \001(\0132\036.main.ProtoTableDrive" +
       "nScenario\022#\n\007comment\030\006 \001(\0132\022.main.ProtoC" +
       "omment\022\037\n\005table\030\007 \001(\0132\020.main.ProtoTable\022" +
-      "\035\n\004tags\030\010 \001(\0132\017.main.ProtoTags\"j\n\010ItemTy" +
-      "pe\022\010\n\004Step\020\001\022\013\n\007Concept\020\002\022\014\n\010Scenario\020\003\022" +
-      "\027\n\023TableDrivenScenario\020\004\022\013\n\007Comment\020\005\022\t\n" +
-      "\005Table\020\006\022\010\n\004Tags\020\007\"\301\001\n\rProtoScenario\022\027\n\017" +
-      "scenarioHeading\030\001 \002(\t\022\016\n\006failed\030\002 \002(\010\022&\n" +
-      "\rscenarioItems\030\003 \003(\0132\017.main.ProtoItem\022.\n" +
-      "\016preHookFailure\030\004 \001(\0132\026.main.ProtoHookFa",
-      "ilure\022/\n\017postHookFailure\030\005 \001(\0132\026.main.Pr" +
-      "otoHookFailure\"B\n\030ProtoTableDrivenScenar" +
-      "io\022&\n\tscenarios\030\001 \003(\0132\023.main.ProtoScenar" +
-      "io\"\223\001\n\tProtoStep\022\022\n\nactualText\030\001 \002(\t\022\022\n\n" +
-      "parsedText\030\002 \002(\t\022!\n\tfragments\030\003 \003(\0132\016.ma" +
-      "in.Fragment\022;\n\023stepExecutionResult\030\004 \001(\013" +
-      "2\036.main.ProtoStepExecutionResult\"\244\001\n\014Pro" +
-      "toConcept\022$\n\013conceptStep\030\001 \002(\0132\017.main.Pr" +
-      "otoStep\022\036\n\005steps\030\002 \003(\0132\017.main.ProtoStep\022" +
-      "\016\n\006failed\030\003 \002(\010\022>\n\026conceptExecutionResul",
-      "t\030\004 \001(\0132\036.main.ProtoStepExecutionResult\"" +
-      "\031\n\tProtoTags\022\014\n\004tags\030\001 \003(\t\"\230\001\n\010Fragment\022" +
-      "1\n\014fragmentType\030\001 \002(\0162\033.main.Fragment.Fr" +
-      "agmentType\022\014\n\004text\030\002 \001(\t\022\"\n\tparameter\030\003 " +
-      "\001(\0132\017.main.Parameter\"\'\n\014FragmentType\022\010\n\004" +
-      "Text\020\001\022\r\n\tParameter\020\002\"\263\001\n\tParameter\0224\n\rp" +
-      "arameterType\030\001 \002(\0162\035.main.Parameter.Para" +
-      "meterType\022\r\n\005value\030\002 \001(\t\022\037\n\005table\030\003 \001(\0132" +
-      "\020.main.ProtoTable\"@\n\rParameterType\022\n\n\006St" +
-      "atic\020\001\022\013\n\007Dynamic\020\002\022\013\n\007Special\020\003\022\t\n\005Tabl",
-      "e\020\004\"H\n\010Argument\022\014\n\004type\030\001 \002(\t\022\r\n\005value\030\002" +
-      " \001(\t\022\037\n\005table\030\003 \001(\0132\020.main.ProtoTable\"\034\n" +
-      "\014ProtoComment\022\014\n\004text\030\001 \002(\t\"U\n\nProtoTabl" +
-      "e\022$\n\007headers\030\001 \002(\0132\023.main.ProtoTableRow\022" +
-      "!\n\004rows\030\002 \003(\0132\023.main.ProtoTableRow\"\036\n\rPr" +
-      "otoTableRow\022\r\n\005cells\030\001 \003(\t\"\260\001\n\030ProtoStep" +
-      "ExecutionResult\0223\n\017executionResult\030\001 \002(\013" +
-      "2\032.main.ProtoExecutionResult\022.\n\016preHookF" +
-      "ailure\030\002 \001(\0132\026.main.ProtoHookFailure\022/\n\017" +
-      "postHookFailure\030\003 \001(\0132\026.main.ProtoHookFa",
-      "ilure\"~\n\024ProtoExecutionResult\022\016\n\006failed\030" +
-      "\001 \002(\010\022\030\n\020recoverableError\030\002 \001(\010\022\024\n\014error" +
-      "Message\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(\t\022\022\n\nscr" +
-      "eenShot\030\005 \001(\014\"P\n\020ProtoHookFailure\022\022\n\nsta" +
-      "ckTrace\030\001 \002(\t\022\024\n\014errorMessage\030\002 \002(\t\022\022\n\ns" +
-      "creenShot\030\003 \001(\014\"\313\001\n\020ProtoSuiteResult\022*\n\013" +
-      "specResults\030\001 \003(\0132\025.main.ProtoSpecResult" +
-      "\022.\n\016preHookFailure\030\002 \001(\0132\026.main.ProtoHoo" +
-      "kFailure\022/\n\017postHookFailure\030\003 \001(\0132\026.main" +
-      ".ProtoHookFailure\022\020\n\010isFailed\030\004 \002(\010\022\030\n\020s",
-      "pecsFailedCount\030\005 \002(\005\"{\n\017ProtoSpecResult" +
-      "\022\"\n\tprotoSpec\030\001 \002(\0132\017.main.ProtoSpec\022\025\n\r" +
-      "scenarioCount\030\002 \002(\005\022\033\n\023scenarioFailedCou" +
-      "nt\030\003 \002(\005\022\020\n\010ifFailed\030\004 \002(\010"
+      "\035\n\004tags\030\010 \001(\0132\017.main.ProtoTags\"w\n\010ItemTy" +
+      "pe\022\010\n\004Step\020\001\022\013\n\007Comment\020\002\022\013\n\007Concept\020\003\022\014" +
+      "\n\010Scenario\020\004\022\027\n\023TableDrivenScenario\020\005\022\013\n" +
+      "\007Context\020\006\022\t\n\005Table\020\007\022\010\n\004Tags\020\010\"\301\001\n\rProt" +
+      "oScenario\022\027\n\017scenarioHeading\030\001 \002(\t\022\016\n\006fa" +
+      "iled\030\002 \002(\010\022&\n\rscenarioItems\030\003 \003(\0132\017.main" +
+      ".ProtoItem\022.\n\016preHookFailure\030\004 \001(\0132\026.mai",
+      "n.ProtoHookFailure\022/\n\017postHookFailure\030\005 " +
+      "\001(\0132\026.main.ProtoHookFailure\"B\n\030ProtoTabl" +
+      "eDrivenScenario\022&\n\tscenarios\030\001 \003(\0132\023.mai" +
+      "n.ProtoScenario\"\223\001\n\tProtoStep\022\022\n\nactualT" +
+      "ext\030\001 \002(\t\022\022\n\nparsedText\030\002 \002(\t\022!\n\tfragmen" +
+      "ts\030\003 \003(\0132\016.main.Fragment\022;\n\023stepExecutio" +
+      "nResult\030\004 \001(\0132\036.main.ProtoStepExecutionR" +
+      "esult\"\244\001\n\014ProtoConcept\022$\n\013conceptStep\030\001 " +
+      "\002(\0132\017.main.ProtoStep\022\036\n\005steps\030\002 \003(\0132\017.ma" +
+      "in.ProtoStep\022\016\n\006failed\030\003 \002(\010\022>\n\026conceptE",
+      "xecutionResult\030\004 \001(\0132\036.main.ProtoStepExe" +
+      "cutionResult\"\031\n\tProtoTags\022\014\n\004tags\030\001 \003(\t\"" +
+      "\230\001\n\010Fragment\0221\n\014fragmentType\030\001 \002(\0162\033.mai" +
+      "n.Fragment.FragmentType\022\014\n\004text\030\002 \001(\t\022\"\n" +
+      "\tparameter\030\003 \001(\0132\017.main.Parameter\"\'\n\014Fra" +
+      "gmentType\022\010\n\004Text\020\001\022\r\n\tParameter\020\002\"\263\001\n\tP" +
+      "arameter\0224\n\rparameterType\030\001 \002(\0162\035.main.P" +
+      "arameter.ParameterType\022\r\n\005value\030\002 \001(\t\022\037\n" +
+      "\005table\030\003 \001(\0132\020.main.ProtoTable\"@\n\rParame" +
+      "terType\022\n\n\006Static\020\001\022\013\n\007Dynamic\020\002\022\013\n\007Spec",
+      "ial\020\003\022\t\n\005Table\020\004\"H\n\010Argument\022\014\n\004type\030\001 \002" +
+      "(\t\022\r\n\005value\030\002 \001(\t\022\037\n\005table\030\003 \001(\0132\020.main." +
+      "ProtoTable\"\034\n\014ProtoComment\022\014\n\004text\030\001 \002(\t" +
+      "\"U\n\nProtoTable\022$\n\007headers\030\001 \002(\0132\023.main.P" +
+      "rotoTableRow\022!\n\004rows\030\002 \003(\0132\023.main.ProtoT" +
+      "ableRow\"\036\n\rProtoTableRow\022\r\n\005cells\030\001 \003(\t\"" +
+      "\260\001\n\030ProtoStepExecutionResult\0223\n\017executio" +
+      "nResult\030\001 \002(\0132\032.main.ProtoExecutionResul" +
+      "t\022.\n\016preHookFailure\030\002 \001(\0132\026.main.ProtoHo" +
+      "okFailure\022/\n\017postHookFailure\030\003 \001(\0132\026.mai",
+      "n.ProtoHookFailure\"~\n\024ProtoExecutionResu" +
+      "lt\022\016\n\006failed\030\001 \002(\010\022\030\n\020recoverableError\030\002" +
+      " \001(\010\022\024\n\014errorMessage\030\003 \001(\t\022\022\n\nstackTrace" +
+      "\030\004 \001(\t\022\022\n\nscreenShot\030\005 \001(\014\"P\n\020ProtoHookF" +
+      "ailure\022\022\n\nstackTrace\030\001 \002(\t\022\024\n\014errorMessa" +
+      "ge\030\002 \002(\t\022\022\n\nscreenShot\030\003 \001(\014\"\313\001\n\020ProtoSu" +
+      "iteResult\022*\n\013specResults\030\001 \003(\0132\025.main.Pr" +
+      "otoSpecResult\022.\n\016preHookFailure\030\002 \001(\0132\026." +
+      "main.ProtoHookFailure\022/\n\017postHookFailure" +
+      "\030\003 \001(\0132\026.main.ProtoHookFailure\022\020\n\010isFail",
+      "ed\030\004 \002(\010\022\030\n\020specsFailedCount\030\005 \002(\005\"{\n\017Pr" +
+      "otoSpecResult\022\"\n\tprotoSpec\030\001 \002(\0132\017.main." +
+      "ProtoSpec\022\025\n\rscenarioCount\030\002 \002(\005\022\033\n\023scen" +
+      "arioFailedCount\030\003 \002(\005\022\020\n\010ifFailed\030\004 \002(\010"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
