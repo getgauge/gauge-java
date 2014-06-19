@@ -15446,15 +15446,15 @@ public final class Spec {
      */
     main.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder();
 
-    // required bool isFailed = 4;
+    // required bool failed = 4;
     /**
-     * <code>required bool isFailed = 4;</code>
+     * <code>required bool failed = 4;</code>
      */
-    boolean hasIsFailed();
+    boolean hasFailed();
     /**
-     * <code>required bool isFailed = 4;</code>
+     * <code>required bool failed = 4;</code>
      */
-    boolean getIsFailed();
+    boolean getFailed();
 
     // required int32 specsFailedCount = 5;
     /**
@@ -15553,7 +15553,7 @@ public final class Spec {
             }
             case 32: {
               bitField0_ |= 0x00000004;
-              isFailed_ = input.readBool();
+              failed_ = input.readBool();
               break;
             }
             case 40: {
@@ -15684,20 +15684,20 @@ public final class Spec {
       return postHookFailure_;
     }
 
-    // required bool isFailed = 4;
-    public static final int ISFAILED_FIELD_NUMBER = 4;
-    private boolean isFailed_;
+    // required bool failed = 4;
+    public static final int FAILED_FIELD_NUMBER = 4;
+    private boolean failed_;
     /**
-     * <code>required bool isFailed = 4;</code>
+     * <code>required bool failed = 4;</code>
      */
-    public boolean hasIsFailed() {
+    public boolean hasFailed() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>required bool isFailed = 4;</code>
+     * <code>required bool failed = 4;</code>
      */
-    public boolean getIsFailed() {
-      return isFailed_;
+    public boolean getFailed() {
+      return failed_;
     }
 
     // required int32 specsFailedCount = 5;
@@ -15720,7 +15720,7 @@ public final class Spec {
       specResults_ = java.util.Collections.emptyList();
       preHookFailure_ = main.Spec.ProtoHookFailure.getDefaultInstance();
       postHookFailure_ = main.Spec.ProtoHookFailure.getDefaultInstance();
-      isFailed_ = false;
+      failed_ = false;
       specsFailedCount_ = 0;
     }
     private byte memoizedIsInitialized = -1;
@@ -15728,7 +15728,7 @@ public final class Spec {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasIsFailed()) {
+      if (!hasFailed()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -15771,7 +15771,7 @@ public final class Spec {
         output.writeMessage(3, postHookFailure_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBool(4, isFailed_);
+        output.writeBool(4, failed_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(5, specsFailedCount_);
@@ -15799,7 +15799,7 @@ public final class Spec {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, isFailed_);
+          .computeBoolSize(4, failed_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
@@ -15942,7 +15942,7 @@ public final class Spec {
           postHookFailureBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
-        isFailed_ = false;
+        failed_ = false;
         bitField0_ = (bitField0_ & ~0x00000008);
         specsFailedCount_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -16002,7 +16002,7 @@ public final class Spec {
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.isFailed_ = isFailed_;
+        result.failed_ = failed_;
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000008;
         }
@@ -16055,8 +16055,8 @@ public final class Spec {
         if (other.hasPostHookFailure()) {
           mergePostHookFailure(other.getPostHookFailure());
         }
-        if (other.hasIsFailed()) {
-          setIsFailed(other.getIsFailed());
+        if (other.hasFailed()) {
+          setFailed(other.getFailed());
         }
         if (other.hasSpecsFailedCount()) {
           setSpecsFailedCount(other.getSpecsFailedCount());
@@ -16066,7 +16066,7 @@ public final class Spec {
       }
 
       public final boolean isInitialized() {
-        if (!hasIsFailed()) {
+        if (!hasFailed()) {
           
           return false;
         }
@@ -16588,35 +16588,35 @@ public final class Spec {
         return postHookFailureBuilder_;
       }
 
-      // required bool isFailed = 4;
-      private boolean isFailed_ ;
+      // required bool failed = 4;
+      private boolean failed_ ;
       /**
-       * <code>required bool isFailed = 4;</code>
+       * <code>required bool failed = 4;</code>
        */
-      public boolean hasIsFailed() {
+      public boolean hasFailed() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required bool isFailed = 4;</code>
+       * <code>required bool failed = 4;</code>
        */
-      public boolean getIsFailed() {
-        return isFailed_;
+      public boolean getFailed() {
+        return failed_;
       }
       /**
-       * <code>required bool isFailed = 4;</code>
+       * <code>required bool failed = 4;</code>
        */
-      public Builder setIsFailed(boolean value) {
+      public Builder setFailed(boolean value) {
         bitField0_ |= 0x00000008;
-        isFailed_ = value;
+        failed_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bool isFailed = 4;</code>
+       * <code>required bool failed = 4;</code>
        */
-      public Builder clearIsFailed() {
+      public Builder clearFailed() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        isFailed_ = false;
+        failed_ = false;
         onChanged();
         return this;
       }
@@ -16702,15 +16702,15 @@ public final class Spec {
      */
     int getScenarioFailedCount();
 
-    // required bool ifFailed = 4;
+    // required bool failed = 4;
     /**
-     * <code>required bool ifFailed = 4;</code>
+     * <code>required bool failed = 4;</code>
      */
-    boolean hasIfFailed();
+    boolean hasFailed();
     /**
-     * <code>required bool ifFailed = 4;</code>
+     * <code>required bool failed = 4;</code>
      */
-    boolean getIfFailed();
+    boolean getFailed();
   }
   /**
    * Protobuf type {@code main.ProtoSpecResult}
@@ -16788,7 +16788,7 @@ public final class Spec {
             }
             case 32: {
               bitField0_ |= 0x00000008;
-              ifFailed_ = input.readBool();
+              failed_ = input.readBool();
               break;
             }
           }
@@ -16885,27 +16885,27 @@ public final class Spec {
       return scenarioFailedCount_;
     }
 
-    // required bool ifFailed = 4;
-    public static final int IFFAILED_FIELD_NUMBER = 4;
-    private boolean ifFailed_;
+    // required bool failed = 4;
+    public static final int FAILED_FIELD_NUMBER = 4;
+    private boolean failed_;
     /**
-     * <code>required bool ifFailed = 4;</code>
+     * <code>required bool failed = 4;</code>
      */
-    public boolean hasIfFailed() {
+    public boolean hasFailed() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>required bool ifFailed = 4;</code>
+     * <code>required bool failed = 4;</code>
      */
-    public boolean getIfFailed() {
-      return ifFailed_;
+    public boolean getFailed() {
+      return failed_;
     }
 
     private void initFields() {
       protoSpec_ = main.Spec.ProtoSpec.getDefaultInstance();
       scenarioCount_ = 0;
       scenarioFailedCount_ = 0;
-      ifFailed_ = false;
+      failed_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -16924,7 +16924,7 @@ public final class Spec {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasIfFailed()) {
+      if (!hasFailed()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -16949,7 +16949,7 @@ public final class Spec {
         output.writeInt32(3, scenarioFailedCount_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBool(4, ifFailed_);
+        output.writeBool(4, failed_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -16974,7 +16974,7 @@ public final class Spec {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(4, ifFailed_);
+          .computeBoolSize(4, failed_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -17103,7 +17103,7 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000002);
         scenarioFailedCount_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
-        ifFailed_ = false;
+        failed_ = false;
         bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
@@ -17152,7 +17152,7 @@ public final class Spec {
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
-        result.ifFailed_ = ifFailed_;
+        result.failed_ = failed_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -17178,8 +17178,8 @@ public final class Spec {
         if (other.hasScenarioFailedCount()) {
           setScenarioFailedCount(other.getScenarioFailedCount());
         }
-        if (other.hasIfFailed()) {
-          setIfFailed(other.getIfFailed());
+        if (other.hasFailed()) {
+          setFailed(other.getFailed());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -17198,7 +17198,7 @@ public final class Spec {
           
           return false;
         }
-        if (!hasIfFailed()) {
+        if (!hasFailed()) {
           
           return false;
         }
@@ -17411,35 +17411,35 @@ public final class Spec {
         return this;
       }
 
-      // required bool ifFailed = 4;
-      private boolean ifFailed_ ;
+      // required bool failed = 4;
+      private boolean failed_ ;
       /**
-       * <code>required bool ifFailed = 4;</code>
+       * <code>required bool failed = 4;</code>
        */
-      public boolean hasIfFailed() {
+      public boolean hasFailed() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>required bool ifFailed = 4;</code>
+       * <code>required bool failed = 4;</code>
        */
-      public boolean getIfFailed() {
-        return ifFailed_;
+      public boolean getFailed() {
+        return failed_;
       }
       /**
-       * <code>required bool ifFailed = 4;</code>
+       * <code>required bool failed = 4;</code>
        */
-      public Builder setIfFailed(boolean value) {
+      public Builder setFailed(boolean value) {
         bitField0_ |= 0x00000008;
-        ifFailed_ = value;
+        failed_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required bool ifFailed = 4;</code>
+       * <code>required bool failed = 4;</code>
        */
-      public Builder clearIfFailed() {
+      public Builder clearFailed() {
         bitField0_ = (bitField0_ & ~0x00000008);
-        ifFailed_ = false;
+        failed_ = false;
         onChanged();
         return this;
       }
@@ -17609,15 +17609,15 @@ public final class Spec {
       " \001(\010\022\024\n\014errorMessage\030\003 \001(\t\022\022\n\nstackTrace" +
       "\030\004 \001(\t\022\022\n\nscreenShot\030\005 \001(\014\"P\n\020ProtoHookF" +
       "ailure\022\022\n\nstackTrace\030\001 \002(\t\022\024\n\014errorMessa" +
-      "ge\030\002 \002(\t\022\022\n\nscreenShot\030\003 \001(\014\"\313\001\n\020ProtoSu" +
+      "ge\030\002 \002(\t\022\022\n\nscreenShot\030\003 \001(\014\"\311\001\n\020ProtoSu" +
       "iteResult\022*\n\013specResults\030\001 \003(\0132\025.main.Pr" +
       "otoSpecResult\022.\n\016preHookFailure\030\002 \001(\0132\026." +
       "main.ProtoHookFailure\022/\n\017postHookFailure" +
-      "\030\003 \001(\0132\026.main.ProtoHookFailure\022\020\n\010isFail",
-      "ed\030\004 \002(\010\022\030\n\020specsFailedCount\030\005 \002(\005\"{\n\017Pr" +
-      "otoSpecResult\022\"\n\tprotoSpec\030\001 \002(\0132\017.main." +
-      "ProtoSpec\022\025\n\rscenarioCount\030\002 \002(\005\022\033\n\023scen" +
-      "arioFailedCount\030\003 \002(\005\022\020\n\010ifFailed\030\004 \002(\010"
+      "\030\003 \001(\0132\026.main.ProtoHookFailure\022\016\n\006failed",
+      "\030\004 \002(\010\022\030\n\020specsFailedCount\030\005 \002(\005\"y\n\017Prot" +
+      "oSpecResult\022\"\n\tprotoSpec\030\001 \002(\0132\017.main.Pr" +
+      "otoSpec\022\025\n\rscenarioCount\030\002 \002(\005\022\033\n\023scenar" +
+      "ioFailedCount\030\003 \002(\005\022\016\n\006failed\030\004 \002(\010"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -17725,13 +17725,13 @@ public final class Spec {
           internal_static_main_ProtoSuiteResult_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoSuiteResult_descriptor,
-              new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "IsFailed", "SpecsFailedCount", });
+              new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", });
           internal_static_main_ProtoSpecResult_descriptor =
             getDescriptor().getMessageTypes().get(17);
           internal_static_main_ProtoSpecResult_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoSpecResult_descriptor,
-              new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "IfFailed", });
+              new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", });
           return null;
         }
       };
