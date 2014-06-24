@@ -16880,6 +16880,20 @@ public final class Spec {
      * <code>required bool failed = 4;</code>
      */
     boolean getFailed();
+
+    // repeated int32 failedDataTableRows = 5;
+    /**
+     * <code>repeated int32 failedDataTableRows = 5;</code>
+     */
+    java.util.List<java.lang.Integer> getFailedDataTableRowsList();
+    /**
+     * <code>repeated int32 failedDataTableRows = 5;</code>
+     */
+    int getFailedDataTableRowsCount();
+    /**
+     * <code>repeated int32 failedDataTableRows = 5;</code>
+     */
+    int getFailedDataTableRows(int index);
   }
   /**
    * Protobuf type {@code main.ProtoSpecResult}
@@ -16960,6 +16974,27 @@ public final class Spec {
               failed_ = input.readBool();
               break;
             }
+            case 40: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                failedDataTableRows_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              failedDataTableRows_.add(input.readInt32());
+              break;
+            }
+            case 42: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010) && input.getBytesUntilLimit() > 0) {
+                failedDataTableRows_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                failedDataTableRows_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -16968,6 +17003,9 @@ public final class Spec {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          failedDataTableRows_ = java.util.Collections.unmodifiableList(failedDataTableRows_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -17070,11 +17108,35 @@ public final class Spec {
       return failed_;
     }
 
+    // repeated int32 failedDataTableRows = 5;
+    public static final int FAILEDDATATABLEROWS_FIELD_NUMBER = 5;
+    private java.util.List<java.lang.Integer> failedDataTableRows_;
+    /**
+     * <code>repeated int32 failedDataTableRows = 5;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getFailedDataTableRowsList() {
+      return failedDataTableRows_;
+    }
+    /**
+     * <code>repeated int32 failedDataTableRows = 5;</code>
+     */
+    public int getFailedDataTableRowsCount() {
+      return failedDataTableRows_.size();
+    }
+    /**
+     * <code>repeated int32 failedDataTableRows = 5;</code>
+     */
+    public int getFailedDataTableRows(int index) {
+      return failedDataTableRows_.get(index);
+    }
+
     private void initFields() {
       protoSpec_ = main.Spec.ProtoSpec.getDefaultInstance();
       scenarioCount_ = 0;
       scenarioFailedCount_ = 0;
       failed_ = false;
+      failedDataTableRows_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -17120,6 +17182,9 @@ public final class Spec {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeBool(4, failed_);
       }
+      for (int i = 0; i < failedDataTableRows_.size(); i++) {
+        output.writeInt32(5, failedDataTableRows_.get(i));
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -17144,6 +17209,15 @@ public final class Spec {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, failed_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < failedDataTableRows_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(failedDataTableRows_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getFailedDataTableRowsList().size();
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -17274,6 +17348,8 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000004);
         failed_ = false;
         bitField0_ = (bitField0_ & ~0x00000008);
+        failedDataTableRows_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -17322,6 +17398,11 @@ public final class Spec {
           to_bitField0_ |= 0x00000008;
         }
         result.failed_ = failed_;
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          failedDataTableRows_ = java.util.Collections.unmodifiableList(failedDataTableRows_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.failedDataTableRows_ = failedDataTableRows_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -17349,6 +17430,16 @@ public final class Spec {
         }
         if (other.hasFailed()) {
           setFailed(other.getFailed());
+        }
+        if (!other.failedDataTableRows_.isEmpty()) {
+          if (failedDataTableRows_.isEmpty()) {
+            failedDataTableRows_ = other.failedDataTableRows_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureFailedDataTableRowsIsMutable();
+            failedDataTableRows_.addAll(other.failedDataTableRows_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -17613,6 +17704,72 @@ public final class Spec {
         return this;
       }
 
+      // repeated int32 failedDataTableRows = 5;
+      private java.util.List<java.lang.Integer> failedDataTableRows_ = java.util.Collections.emptyList();
+      private void ensureFailedDataTableRowsIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          failedDataTableRows_ = new java.util.ArrayList<java.lang.Integer>(failedDataTableRows_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <code>repeated int32 failedDataTableRows = 5;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getFailedDataTableRowsList() {
+        return java.util.Collections.unmodifiableList(failedDataTableRows_);
+      }
+      /**
+       * <code>repeated int32 failedDataTableRows = 5;</code>
+       */
+      public int getFailedDataTableRowsCount() {
+        return failedDataTableRows_.size();
+      }
+      /**
+       * <code>repeated int32 failedDataTableRows = 5;</code>
+       */
+      public int getFailedDataTableRows(int index) {
+        return failedDataTableRows_.get(index);
+      }
+      /**
+       * <code>repeated int32 failedDataTableRows = 5;</code>
+       */
+      public Builder setFailedDataTableRows(
+          int index, int value) {
+        ensureFailedDataTableRowsIsMutable();
+        failedDataTableRows_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 failedDataTableRows = 5;</code>
+       */
+      public Builder addFailedDataTableRows(int value) {
+        ensureFailedDataTableRowsIsMutable();
+        failedDataTableRows_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 failedDataTableRows = 5;</code>
+       */
+      public Builder addAllFailedDataTableRows(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureFailedDataTableRowsIsMutable();
+        super.addAll(values, failedDataTableRows_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 failedDataTableRows = 5;</code>
+       */
+      public Builder clearFailedDataTableRows() {
+        failedDataTableRows_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:main.ProtoSpecResult)
     }
 
@@ -17783,10 +17940,11 @@ public final class Spec {
       "\022.\n\016preHookFailure\030\002 \001(\0132\026.main.ProtoHoo" +
       "kFailure\022/\n\017postHookFailure\030\003 \001(\0132\026.main" +
       ".ProtoHookFailure\022\016\n\006failed\030\004 \002(\010\022\030\n\020spe",
-      "csFailedCount\030\005 \002(\005\"y\n\017ProtoSpecResult\022\"" +
-      "\n\tprotoSpec\030\001 \002(\0132\017.main.ProtoSpec\022\025\n\rsc" +
-      "enarioCount\030\002 \002(\005\022\033\n\023scenarioFailedCount" +
-      "\030\003 \002(\005\022\016\n\006failed\030\004 \002(\010"
+      "csFailedCount\030\005 \002(\005\"\226\001\n\017ProtoSpecResult\022" +
+      "\"\n\tprotoSpec\030\001 \002(\0132\017.main.ProtoSpec\022\025\n\rs" +
+      "cenarioCount\030\002 \002(\005\022\033\n\023scenarioFailedCoun" +
+      "t\030\003 \002(\005\022\016\n\006failed\030\004 \002(\010\022\033\n\023failedDataTab" +
+      "leRows\030\005 \003(\005"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -17900,7 +18058,7 @@ public final class Spec {
           internal_static_main_ProtoSpecResult_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoSpecResult_descriptor,
-              new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", });
+              new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", });
           return null;
         }
       };
