@@ -27,11 +27,11 @@ public class ValidateStepProcessor implements IMessageProcessor {
         Method methodImplementation = StepRegistry.get(stepValidateRequest.getStepText());
         if (methodImplementation != null) {
             int implementationParamCount = methodImplementation.getParameterTypes().length;
-            int argumentCount = stepValidateRequest.getNumberOfArguments();
-            if (implementationParamCount == argumentCount) {
+            int numberOfParameters = stepValidateRequest.getNumberOfParameters();
+            if (implementationParamCount == numberOfParameters) {
                 return new stepValidationResult(true);
             } else {
-                return new stepValidationResult(false, String.format("Incorrect number of parameters in step implementation. Found [%d] expected [%d] parameters", implementationParamCount, argumentCount));
+                return new stepValidationResult(false, String.format("Incorrect number of parameters in step implementation. Found [%d] expected [%d] parameters", implementationParamCount, numberOfParameters));
             }
         } else {
             return new stepValidationResult(false, "Step implementation not found");

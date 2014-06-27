@@ -19,43 +19,48 @@ public abstract class MethodExecutionMessageProcessor {
 
     public Messages.Message execute(Set<Method> methods, Messages.Message message, Object... args) {
         MethodExecutor methodExecutor = new MethodExecutor();
+        long totalExecutionTime = 0;
         for (Method method : methods) {
             Spec.ProtoExecutionResult result = methodExecutor.execute(method, args);
+            totalExecutionTime += result.getExecutionTime();
             if (result.getFailed()) {
                 return createMessageWithExecutionStatusResponse(message, result);
             }
         }
 
-        Spec.ProtoExecutionResult passingExecution = Spec.ProtoExecutionResult.newBuilder().setFailed(false).build();
+        Spec.ProtoExecutionResult passingExecution = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(totalExecutionTime).build();
         return createMessageWithExecutionStatusResponse(message, passingExecution);
     }
 
     public Messages.Message executeHooks(Set<Method> beforeSpecHooks, Messages.Message message, SpecificationInfo executionInfo) {
         MethodExecutor methodExecutor = new MethodExecutor();
         Spec.ProtoExecutionResult result;
+        long totalHooksExecutionTime = 0;
         for (Method method : beforeSpecHooks) {
             if (methodHasArguments(method, executionInfo)) {
                 result = methodExecutor.execute(method, executionInfo);
             } else {
                 result = methodExecutor.execute(method);
+                totalHooksExecutionTime += result.getExecutionTime();
             }
             if (result.getFailed()) {
-                return createMessageWithExecutionStatusResponse(message, result);
+                Spec.ProtoExecutionResult failureResult = Spec.ProtoExecutionResult.newBuilder(result).setExecutionTime(totalHooksExecutionTime).build();
+                return createMessageWithExecutionStatusResponse(message, failureResult);
             }
         }
 
-        Spec.ProtoExecutionResult passingExecution = Spec.ProtoExecutionResult.newBuilder().setFailed(false).build();
+        Spec.ProtoExecutionResult passingExecution = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(totalHooksExecutionTime).build();
         return createMessageWithExecutionStatusResponse(message, passingExecution);
     }
 
     private boolean methodHasArguments(Method method, Object... arg) {
-       if (method.getParameterTypes().length != arg.length) {
-           return false;
-       }
+        if (method.getParameterTypes().length != arg.length) {
+            return false;
+        }
         List<Class> argsClassList = createClassList(arg);
         Class<?>[] parameterTypes = method.getParameterTypes();
         boolean isValid = true;
-        for (int i = 0; i < parameterTypes.length; i ++) {
+        for (int i = 0; i < parameterTypes.length; i++) {
             if (!(argsClassList.indexOf(parameterTypes[i]) == i)) {
                 isValid = false;
             }

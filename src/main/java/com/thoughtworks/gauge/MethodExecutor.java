@@ -11,11 +11,14 @@ import java.lang.reflect.Method;
 
 public class MethodExecutor {
     public Spec.ProtoExecutionResult execute(Method method, Object... args) {
+        long startTime = System.currentTimeMillis();
         try {
             Object instance = ClassInstanceManager.get(method.getDeclaringClass());
             method.invoke(instance, args);
-            return Spec.ProtoExecutionResult.newBuilder().setFailed(false).build();
+            long endTime = System.currentTimeMillis();
+            return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(endTime - startTime).build();
         } catch (Throwable e) {
+            long endTime = System.currentTimeMillis();
             ByteArrayOutputStream imageBytes = new ByteArrayOutputStream();
             try {
                 BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
@@ -36,6 +39,7 @@ public class MethodExecutor {
                 builder.setScreenShot(ByteString.copyFrom(imageBytes.toByteArray()));
             }
             builder.setRecoverableError(false);
+            builder.setExecutionTime(endTime - startTime);
             return builder.build();
         }
     }

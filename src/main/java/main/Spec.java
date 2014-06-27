@@ -2009,13 +2009,9 @@ public final class Spec {
        */
       TableDrivenScenario(4, 5),
       /**
-       * <code>Context = 6;</code>
+       * <code>Table = 6;</code>
        */
-      Context(5, 6),
-      /**
-       * <code>Table = 7;</code>
-       */
-      Table(6, 7),
+      Table(5, 6),
       ;
 
       /**
@@ -2039,13 +2035,9 @@ public final class Spec {
        */
       public static final int TableDrivenScenario_VALUE = 5;
       /**
-       * <code>Context = 6;</code>
+       * <code>Table = 6;</code>
        */
-      public static final int Context_VALUE = 6;
-      /**
-       * <code>Table = 7;</code>
-       */
-      public static final int Table_VALUE = 7;
+      public static final int Table_VALUE = 6;
 
 
       public final int getNumber() { return value; }
@@ -2057,8 +2049,7 @@ public final class Spec {
           case 3: return Concept;
           case 4: return Scenario;
           case 5: return TableDrivenScenario;
-          case 6: return Context;
-          case 7: return Table;
+          case 6: return Table;
           default: return null;
         }
       }
@@ -3499,56 +3490,81 @@ public final class Spec {
      */
     boolean getFailed();
 
-    // repeated .main.ProtoItem scenarioItems = 3;
+    // repeated .main.ProtoItem contexts = 3;
     /**
-     * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+     * <code>repeated .main.ProtoItem contexts = 3;</code>
+     */
+    java.util.List<main.Spec.ProtoItem> 
+        getContextsList();
+    /**
+     * <code>repeated .main.ProtoItem contexts = 3;</code>
+     */
+    main.Spec.ProtoItem getContexts(int index);
+    /**
+     * <code>repeated .main.ProtoItem contexts = 3;</code>
+     */
+    int getContextsCount();
+    /**
+     * <code>repeated .main.ProtoItem contexts = 3;</code>
+     */
+    java.util.List<? extends main.Spec.ProtoItemOrBuilder> 
+        getContextsOrBuilderList();
+    /**
+     * <code>repeated .main.ProtoItem contexts = 3;</code>
+     */
+    main.Spec.ProtoItemOrBuilder getContextsOrBuilder(
+        int index);
+
+    // repeated .main.ProtoItem scenarioItems = 4;
+    /**
+     * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
      */
     java.util.List<main.Spec.ProtoItem> 
         getScenarioItemsList();
     /**
-     * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+     * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
      */
     main.Spec.ProtoItem getScenarioItems(int index);
     /**
-     * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+     * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
      */
     int getScenarioItemsCount();
     /**
-     * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+     * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
      */
     java.util.List<? extends main.Spec.ProtoItemOrBuilder> 
         getScenarioItemsOrBuilderList();
     /**
-     * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+     * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
      */
     main.Spec.ProtoItemOrBuilder getScenarioItemsOrBuilder(
         int index);
 
-    // optional .main.ProtoHookFailure preHookFailure = 4;
+    // optional .main.ProtoHookFailure preHookFailure = 5;
     /**
-     * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
      */
     boolean hasPreHookFailure();
     /**
-     * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
      */
     main.Spec.ProtoHookFailure getPreHookFailure();
     /**
-     * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
      */
     main.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder();
 
-    // optional .main.ProtoHookFailure postHookFailure = 5;
+    // optional .main.ProtoHookFailure postHookFailure = 6;
     /**
-     * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
      */
     boolean hasPostHookFailure();
     /**
-     * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
      */
     main.Spec.ProtoHookFailure getPostHookFailure();
     /**
-     * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
      */
     main.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder();
 
@@ -3571,6 +3587,16 @@ public final class Spec {
      */
     com.google.protobuf.ByteString
         getTagsBytes(int index);
+
+    // optional int64 executionTime = 8;
+    /**
+     * <code>optional int64 executionTime = 8;</code>
+     */
+    boolean hasExecutionTime();
+    /**
+     * <code>optional int64 executionTime = 8;</code>
+     */
+    long getExecutionTime();
   }
   /**
    * Protobuf type {@code main.ProtoScenario}
@@ -3635,13 +3661,21 @@ public final class Spec {
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                scenarioItems_ = new java.util.ArrayList<main.Spec.ProtoItem>();
+                contexts_ = new java.util.ArrayList<main.Spec.ProtoItem>();
                 mutable_bitField0_ |= 0x00000004;
+              }
+              contexts_.add(input.readMessage(main.Spec.ProtoItem.PARSER, extensionRegistry));
+              break;
+            }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                scenarioItems_ = new java.util.ArrayList<main.Spec.ProtoItem>();
+                mutable_bitField0_ |= 0x00000008;
               }
               scenarioItems_.add(input.readMessage(main.Spec.ProtoItem.PARSER, extensionRegistry));
               break;
             }
-            case 34: {
+            case 42: {
               main.Spec.ProtoHookFailure.Builder subBuilder = null;
               if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = preHookFailure_.toBuilder();
@@ -3654,7 +3688,7 @@ public final class Spec {
               bitField0_ |= 0x00000004;
               break;
             }
-            case 42: {
+            case 50: {
               main.Spec.ProtoHookFailure.Builder subBuilder = null;
               if (((bitField0_ & 0x00000008) == 0x00000008)) {
                 subBuilder = postHookFailure_.toBuilder();
@@ -3668,11 +3702,16 @@ public final class Spec {
               break;
             }
             case 58: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 tags_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000020;
+                mutable_bitField0_ |= 0x00000040;
               }
               tags_.add(input.readBytes());
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000010;
+              executionTime_ = input.readInt64();
               break;
             }
           }
@@ -3684,9 +3723,12 @@ public final class Spec {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          contexts_ = java.util.Collections.unmodifiableList(contexts_);
+        }
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           scenarioItems_ = java.util.Collections.unmodifiableList(scenarioItems_);
         }
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           tags_ = new com.google.protobuf.UnmodifiableLazyStringList(tags_);
         }
         this.unknownFields = unknownFields.build();
@@ -3780,81 +3822,117 @@ public final class Spec {
       return failed_;
     }
 
-    // repeated .main.ProtoItem scenarioItems = 3;
-    public static final int SCENARIOITEMS_FIELD_NUMBER = 3;
+    // repeated .main.ProtoItem contexts = 3;
+    public static final int CONTEXTS_FIELD_NUMBER = 3;
+    private java.util.List<main.Spec.ProtoItem> contexts_;
+    /**
+     * <code>repeated .main.ProtoItem contexts = 3;</code>
+     */
+    public java.util.List<main.Spec.ProtoItem> getContextsList() {
+      return contexts_;
+    }
+    /**
+     * <code>repeated .main.ProtoItem contexts = 3;</code>
+     */
+    public java.util.List<? extends main.Spec.ProtoItemOrBuilder> 
+        getContextsOrBuilderList() {
+      return contexts_;
+    }
+    /**
+     * <code>repeated .main.ProtoItem contexts = 3;</code>
+     */
+    public int getContextsCount() {
+      return contexts_.size();
+    }
+    /**
+     * <code>repeated .main.ProtoItem contexts = 3;</code>
+     */
+    public main.Spec.ProtoItem getContexts(int index) {
+      return contexts_.get(index);
+    }
+    /**
+     * <code>repeated .main.ProtoItem contexts = 3;</code>
+     */
+    public main.Spec.ProtoItemOrBuilder getContextsOrBuilder(
+        int index) {
+      return contexts_.get(index);
+    }
+
+    // repeated .main.ProtoItem scenarioItems = 4;
+    public static final int SCENARIOITEMS_FIELD_NUMBER = 4;
     private java.util.List<main.Spec.ProtoItem> scenarioItems_;
     /**
-     * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+     * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
      */
     public java.util.List<main.Spec.ProtoItem> getScenarioItemsList() {
       return scenarioItems_;
     }
     /**
-     * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+     * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
      */
     public java.util.List<? extends main.Spec.ProtoItemOrBuilder> 
         getScenarioItemsOrBuilderList() {
       return scenarioItems_;
     }
     /**
-     * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+     * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
      */
     public int getScenarioItemsCount() {
       return scenarioItems_.size();
     }
     /**
-     * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+     * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
      */
     public main.Spec.ProtoItem getScenarioItems(int index) {
       return scenarioItems_.get(index);
     }
     /**
-     * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+     * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
      */
     public main.Spec.ProtoItemOrBuilder getScenarioItemsOrBuilder(
         int index) {
       return scenarioItems_.get(index);
     }
 
-    // optional .main.ProtoHookFailure preHookFailure = 4;
-    public static final int PREHOOKFAILURE_FIELD_NUMBER = 4;
+    // optional .main.ProtoHookFailure preHookFailure = 5;
+    public static final int PREHOOKFAILURE_FIELD_NUMBER = 5;
     private main.Spec.ProtoHookFailure preHookFailure_;
     /**
-     * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
      */
     public boolean hasPreHookFailure() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
      */
     public main.Spec.ProtoHookFailure getPreHookFailure() {
       return preHookFailure_;
     }
     /**
-     * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
      */
     public main.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder() {
       return preHookFailure_;
     }
 
-    // optional .main.ProtoHookFailure postHookFailure = 5;
-    public static final int POSTHOOKFAILURE_FIELD_NUMBER = 5;
+    // optional .main.ProtoHookFailure postHookFailure = 6;
+    public static final int POSTHOOKFAILURE_FIELD_NUMBER = 6;
     private main.Spec.ProtoHookFailure postHookFailure_;
     /**
-     * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
      */
     public boolean hasPostHookFailure() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
      */
     public main.Spec.ProtoHookFailure getPostHookFailure() {
       return postHookFailure_;
     }
     /**
-     * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
      */
     public main.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder() {
       return postHookFailure_;
@@ -3890,13 +3968,31 @@ public final class Spec {
       return tags_.getByteString(index);
     }
 
+    // optional int64 executionTime = 8;
+    public static final int EXECUTIONTIME_FIELD_NUMBER = 8;
+    private long executionTime_;
+    /**
+     * <code>optional int64 executionTime = 8;</code>
+     */
+    public boolean hasExecutionTime() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int64 executionTime = 8;</code>
+     */
+    public long getExecutionTime() {
+      return executionTime_;
+    }
+
     private void initFields() {
       scenarioHeading_ = "";
       failed_ = false;
+      contexts_ = java.util.Collections.emptyList();
       scenarioItems_ = java.util.Collections.emptyList();
       preHookFailure_ = main.Spec.ProtoHookFailure.getDefaultInstance();
       postHookFailure_ = main.Spec.ProtoHookFailure.getDefaultInstance();
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      executionTime_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3910,6 +4006,12 @@ public final class Spec {
       if (!hasFailed()) {
         memoizedIsInitialized = 0;
         return false;
+      }
+      for (int i = 0; i < getContextsCount(); i++) {
+        if (!getContexts(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       for (int i = 0; i < getScenarioItemsCount(); i++) {
         if (!getScenarioItems(i).isInitialized()) {
@@ -3942,17 +4044,23 @@ public final class Spec {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBool(2, failed_);
       }
+      for (int i = 0; i < contexts_.size(); i++) {
+        output.writeMessage(3, contexts_.get(i));
+      }
       for (int i = 0; i < scenarioItems_.size(); i++) {
-        output.writeMessage(3, scenarioItems_.get(i));
+        output.writeMessage(4, scenarioItems_.get(i));
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(4, preHookFailure_);
+        output.writeMessage(5, preHookFailure_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeMessage(5, postHookFailure_);
+        output.writeMessage(6, postHookFailure_);
       }
       for (int i = 0; i < tags_.size(); i++) {
         output.writeBytes(7, tags_.getByteString(i));
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt64(8, executionTime_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -3971,17 +4079,21 @@ public final class Spec {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, failed_);
       }
+      for (int i = 0; i < contexts_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, contexts_.get(i));
+      }
       for (int i = 0; i < scenarioItems_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, scenarioItems_.get(i));
+          .computeMessageSize(4, scenarioItems_.get(i));
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, preHookFailure_);
+          .computeMessageSize(5, preHookFailure_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, postHookFailure_);
+          .computeMessageSize(6, postHookFailure_);
       }
       {
         int dataSize = 0;
@@ -3991,6 +4103,10 @@ public final class Spec {
         }
         size += dataSize;
         size += 1 * getTagsList().size();
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(8, executionTime_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -4100,6 +4216,7 @@ public final class Spec {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getContextsFieldBuilder();
           getScenarioItemsFieldBuilder();
           getPreHookFailureFieldBuilder();
           getPostHookFailureFieldBuilder();
@@ -4115,9 +4232,15 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000001);
         failed_ = false;
         bitField0_ = (bitField0_ & ~0x00000002);
+        if (contextsBuilder_ == null) {
+          contexts_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          contextsBuilder_.clear();
+        }
         if (scenarioItemsBuilder_ == null) {
           scenarioItems_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           scenarioItemsBuilder_.clear();
         }
@@ -4126,15 +4249,17 @@ public final class Spec {
         } else {
           preHookFailureBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         if (postHookFailureBuilder_ == null) {
           postHookFailure_ = main.Spec.ProtoHookFailure.getDefaultInstance();
         } else {
           postHookFailureBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
-        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000020);
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        executionTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -4171,16 +4296,25 @@ public final class Spec {
           to_bitField0_ |= 0x00000002;
         }
         result.failed_ = failed_;
-        if (scenarioItemsBuilder_ == null) {
+        if (contextsBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            scenarioItems_ = java.util.Collections.unmodifiableList(scenarioItems_);
+            contexts_ = java.util.Collections.unmodifiableList(contexts_);
             bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.contexts_ = contexts_;
+        } else {
+          result.contexts_ = contextsBuilder_.build();
+        }
+        if (scenarioItemsBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            scenarioItems_ = java.util.Collections.unmodifiableList(scenarioItems_);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.scenarioItems_ = scenarioItems_;
         } else {
           result.scenarioItems_ = scenarioItemsBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000004;
         }
         if (preHookFailureBuilder_ == null) {
@@ -4188,7 +4322,7 @@ public final class Spec {
         } else {
           result.preHookFailure_ = preHookFailureBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000008;
         }
         if (postHookFailureBuilder_ == null) {
@@ -4196,12 +4330,16 @@ public final class Spec {
         } else {
           result.postHookFailure_ = postHookFailureBuilder_.build();
         }
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
           tags_ = new com.google.protobuf.UnmodifiableLazyStringList(
               tags_);
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.tags_ = tags_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.executionTime_ = executionTime_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -4226,11 +4364,37 @@ public final class Spec {
         if (other.hasFailed()) {
           setFailed(other.getFailed());
         }
+        if (contextsBuilder_ == null) {
+          if (!other.contexts_.isEmpty()) {
+            if (contexts_.isEmpty()) {
+              contexts_ = other.contexts_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureContextsIsMutable();
+              contexts_.addAll(other.contexts_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.contexts_.isEmpty()) {
+            if (contextsBuilder_.isEmpty()) {
+              contextsBuilder_.dispose();
+              contextsBuilder_ = null;
+              contexts_ = other.contexts_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              contextsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getContextsFieldBuilder() : null;
+            } else {
+              contextsBuilder_.addAllMessages(other.contexts_);
+            }
+          }
+        }
         if (scenarioItemsBuilder_ == null) {
           if (!other.scenarioItems_.isEmpty()) {
             if (scenarioItems_.isEmpty()) {
               scenarioItems_ = other.scenarioItems_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureScenarioItemsIsMutable();
               scenarioItems_.addAll(other.scenarioItems_);
@@ -4243,7 +4407,7 @@ public final class Spec {
               scenarioItemsBuilder_.dispose();
               scenarioItemsBuilder_ = null;
               scenarioItems_ = other.scenarioItems_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
               scenarioItemsBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getScenarioItemsFieldBuilder() : null;
@@ -4261,12 +4425,15 @@ public final class Spec {
         if (!other.tags_.isEmpty()) {
           if (tags_.isEmpty()) {
             tags_ = other.tags_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureTagsIsMutable();
             tags_.addAll(other.tags_);
           }
           onChanged();
+        }
+        if (other.hasExecutionTime()) {
+          setExecutionTime(other.getExecutionTime());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -4280,6 +4447,12 @@ public final class Spec {
         if (!hasFailed()) {
           
           return false;
+        }
+        for (int i = 0; i < getContextsCount(); i++) {
+          if (!getContexts(i).isInitialized()) {
+            
+            return false;
+          }
         }
         for (int i = 0; i < getScenarioItemsCount(); i++) {
           if (!getScenarioItems(i).isInitialized()) {
@@ -4428,13 +4601,253 @@ public final class Spec {
         return this;
       }
 
-      // repeated .main.ProtoItem scenarioItems = 3;
+      // repeated .main.ProtoItem contexts = 3;
+      private java.util.List<main.Spec.ProtoItem> contexts_ =
+        java.util.Collections.emptyList();
+      private void ensureContextsIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          contexts_ = new java.util.ArrayList<main.Spec.ProtoItem>(contexts_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          main.Spec.ProtoItem, main.Spec.ProtoItem.Builder, main.Spec.ProtoItemOrBuilder> contextsBuilder_;
+
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public java.util.List<main.Spec.ProtoItem> getContextsList() {
+        if (contextsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(contexts_);
+        } else {
+          return contextsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public int getContextsCount() {
+        if (contextsBuilder_ == null) {
+          return contexts_.size();
+        } else {
+          return contextsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public main.Spec.ProtoItem getContexts(int index) {
+        if (contextsBuilder_ == null) {
+          return contexts_.get(index);
+        } else {
+          return contextsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public Builder setContexts(
+          int index, main.Spec.ProtoItem value) {
+        if (contextsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContextsIsMutable();
+          contexts_.set(index, value);
+          onChanged();
+        } else {
+          contextsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public Builder setContexts(
+          int index, main.Spec.ProtoItem.Builder builderForValue) {
+        if (contextsBuilder_ == null) {
+          ensureContextsIsMutable();
+          contexts_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          contextsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public Builder addContexts(main.Spec.ProtoItem value) {
+        if (contextsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContextsIsMutable();
+          contexts_.add(value);
+          onChanged();
+        } else {
+          contextsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public Builder addContexts(
+          int index, main.Spec.ProtoItem value) {
+        if (contextsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureContextsIsMutable();
+          contexts_.add(index, value);
+          onChanged();
+        } else {
+          contextsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public Builder addContexts(
+          main.Spec.ProtoItem.Builder builderForValue) {
+        if (contextsBuilder_ == null) {
+          ensureContextsIsMutable();
+          contexts_.add(builderForValue.build());
+          onChanged();
+        } else {
+          contextsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public Builder addContexts(
+          int index, main.Spec.ProtoItem.Builder builderForValue) {
+        if (contextsBuilder_ == null) {
+          ensureContextsIsMutable();
+          contexts_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          contextsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public Builder addAllContexts(
+          java.lang.Iterable<? extends main.Spec.ProtoItem> values) {
+        if (contextsBuilder_ == null) {
+          ensureContextsIsMutable();
+          super.addAll(values, contexts_);
+          onChanged();
+        } else {
+          contextsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public Builder clearContexts() {
+        if (contextsBuilder_ == null) {
+          contexts_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          contextsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public Builder removeContexts(int index) {
+        if (contextsBuilder_ == null) {
+          ensureContextsIsMutable();
+          contexts_.remove(index);
+          onChanged();
+        } else {
+          contextsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public main.Spec.ProtoItem.Builder getContextsBuilder(
+          int index) {
+        return getContextsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public main.Spec.ProtoItemOrBuilder getContextsOrBuilder(
+          int index) {
+        if (contextsBuilder_ == null) {
+          return contexts_.get(index);  } else {
+          return contextsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public java.util.List<? extends main.Spec.ProtoItemOrBuilder> 
+           getContextsOrBuilderList() {
+        if (contextsBuilder_ != null) {
+          return contextsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(contexts_);
+        }
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public main.Spec.ProtoItem.Builder addContextsBuilder() {
+        return getContextsFieldBuilder().addBuilder(
+            main.Spec.ProtoItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public main.Spec.ProtoItem.Builder addContextsBuilder(
+          int index) {
+        return getContextsFieldBuilder().addBuilder(
+            index, main.Spec.ProtoItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .main.ProtoItem contexts = 3;</code>
+       */
+      public java.util.List<main.Spec.ProtoItem.Builder> 
+           getContextsBuilderList() {
+        return getContextsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          main.Spec.ProtoItem, main.Spec.ProtoItem.Builder, main.Spec.ProtoItemOrBuilder> 
+          getContextsFieldBuilder() {
+        if (contextsBuilder_ == null) {
+          contextsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              main.Spec.ProtoItem, main.Spec.ProtoItem.Builder, main.Spec.ProtoItemOrBuilder>(
+                  contexts_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          contexts_ = null;
+        }
+        return contextsBuilder_;
+      }
+
+      // repeated .main.ProtoItem scenarioItems = 4;
       private java.util.List<main.Spec.ProtoItem> scenarioItems_ =
         java.util.Collections.emptyList();
       private void ensureScenarioItemsIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           scenarioItems_ = new java.util.ArrayList<main.Spec.ProtoItem>(scenarioItems_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -4442,7 +4855,7 @@ public final class Spec {
           main.Spec.ProtoItem, main.Spec.ProtoItem.Builder, main.Spec.ProtoItemOrBuilder> scenarioItemsBuilder_;
 
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public java.util.List<main.Spec.ProtoItem> getScenarioItemsList() {
         if (scenarioItemsBuilder_ == null) {
@@ -4452,7 +4865,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public int getScenarioItemsCount() {
         if (scenarioItemsBuilder_ == null) {
@@ -4462,7 +4875,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public main.Spec.ProtoItem getScenarioItems(int index) {
         if (scenarioItemsBuilder_ == null) {
@@ -4472,7 +4885,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public Builder setScenarioItems(
           int index, main.Spec.ProtoItem value) {
@@ -4489,7 +4902,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public Builder setScenarioItems(
           int index, main.Spec.ProtoItem.Builder builderForValue) {
@@ -4503,7 +4916,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public Builder addScenarioItems(main.Spec.ProtoItem value) {
         if (scenarioItemsBuilder_ == null) {
@@ -4519,7 +4932,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public Builder addScenarioItems(
           int index, main.Spec.ProtoItem value) {
@@ -4536,7 +4949,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public Builder addScenarioItems(
           main.Spec.ProtoItem.Builder builderForValue) {
@@ -4550,7 +4963,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public Builder addScenarioItems(
           int index, main.Spec.ProtoItem.Builder builderForValue) {
@@ -4564,7 +4977,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public Builder addAllScenarioItems(
           java.lang.Iterable<? extends main.Spec.ProtoItem> values) {
@@ -4578,12 +4991,12 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public Builder clearScenarioItems() {
         if (scenarioItemsBuilder_ == null) {
           scenarioItems_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           scenarioItemsBuilder_.clear();
@@ -4591,7 +5004,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public Builder removeScenarioItems(int index) {
         if (scenarioItemsBuilder_ == null) {
@@ -4604,14 +5017,14 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public main.Spec.ProtoItem.Builder getScenarioItemsBuilder(
           int index) {
         return getScenarioItemsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public main.Spec.ProtoItemOrBuilder getScenarioItemsOrBuilder(
           int index) {
@@ -4621,7 +5034,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public java.util.List<? extends main.Spec.ProtoItemOrBuilder> 
            getScenarioItemsOrBuilderList() {
@@ -4632,14 +5045,14 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public main.Spec.ProtoItem.Builder addScenarioItemsBuilder() {
         return getScenarioItemsFieldBuilder().addBuilder(
             main.Spec.ProtoItem.getDefaultInstance());
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public main.Spec.ProtoItem.Builder addScenarioItemsBuilder(
           int index) {
@@ -4647,7 +5060,7 @@ public final class Spec {
             index, main.Spec.ProtoItem.getDefaultInstance());
       }
       /**
-       * <code>repeated .main.ProtoItem scenarioItems = 3;</code>
+       * <code>repeated .main.ProtoItem scenarioItems = 4;</code>
        */
       public java.util.List<main.Spec.ProtoItem.Builder> 
            getScenarioItemsBuilderList() {
@@ -4660,7 +5073,7 @@ public final class Spec {
           scenarioItemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               main.Spec.ProtoItem, main.Spec.ProtoItem.Builder, main.Spec.ProtoItemOrBuilder>(
                   scenarioItems_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
                   isClean());
           scenarioItems_ = null;
@@ -4668,18 +5081,18 @@ public final class Spec {
         return scenarioItemsBuilder_;
       }
 
-      // optional .main.ProtoHookFailure preHookFailure = 4;
+      // optional .main.ProtoHookFailure preHookFailure = 5;
       private main.Spec.ProtoHookFailure preHookFailure_ = main.Spec.ProtoHookFailure.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           main.Spec.ProtoHookFailure, main.Spec.ProtoHookFailure.Builder, main.Spec.ProtoHookFailureOrBuilder> preHookFailureBuilder_;
       /**
-       * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
        */
       public boolean hasPreHookFailure() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
        */
       public main.Spec.ProtoHookFailure getPreHookFailure() {
         if (preHookFailureBuilder_ == null) {
@@ -4689,7 +5102,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
        */
       public Builder setPreHookFailure(main.Spec.ProtoHookFailure value) {
         if (preHookFailureBuilder_ == null) {
@@ -4701,11 +5114,11 @@ public final class Spec {
         } else {
           preHookFailureBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
        */
       public Builder setPreHookFailure(
           main.Spec.ProtoHookFailure.Builder builderForValue) {
@@ -4715,15 +5128,15 @@ public final class Spec {
         } else {
           preHookFailureBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
        */
       public Builder mergePreHookFailure(main.Spec.ProtoHookFailure value) {
         if (preHookFailureBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
               preHookFailure_ != main.Spec.ProtoHookFailure.getDefaultInstance()) {
             preHookFailure_ =
               main.Spec.ProtoHookFailure.newBuilder(preHookFailure_).mergeFrom(value).buildPartial();
@@ -4734,11 +5147,11 @@ public final class Spec {
         } else {
           preHookFailureBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
-       * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
        */
       public Builder clearPreHookFailure() {
         if (preHookFailureBuilder_ == null) {
@@ -4747,19 +5160,19 @@ public final class Spec {
         } else {
           preHookFailureBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
       /**
-       * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
        */
       public main.Spec.ProtoHookFailure.Builder getPreHookFailureBuilder() {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
         onChanged();
         return getPreHookFailureFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
        */
       public main.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder() {
         if (preHookFailureBuilder_ != null) {
@@ -4769,7 +5182,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>optional .main.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>optional .main.ProtoHookFailure preHookFailure = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           main.Spec.ProtoHookFailure, main.Spec.ProtoHookFailure.Builder, main.Spec.ProtoHookFailureOrBuilder> 
@@ -4785,18 +5198,18 @@ public final class Spec {
         return preHookFailureBuilder_;
       }
 
-      // optional .main.ProtoHookFailure postHookFailure = 5;
+      // optional .main.ProtoHookFailure postHookFailure = 6;
       private main.Spec.ProtoHookFailure postHookFailure_ = main.Spec.ProtoHookFailure.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           main.Spec.ProtoHookFailure, main.Spec.ProtoHookFailure.Builder, main.Spec.ProtoHookFailureOrBuilder> postHookFailureBuilder_;
       /**
-       * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
        */
       public boolean hasPostHookFailure() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
-       * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
        */
       public main.Spec.ProtoHookFailure getPostHookFailure() {
         if (postHookFailureBuilder_ == null) {
@@ -4806,7 +5219,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
        */
       public Builder setPostHookFailure(main.Spec.ProtoHookFailure value) {
         if (postHookFailureBuilder_ == null) {
@@ -4818,11 +5231,11 @@ public final class Spec {
         } else {
           postHookFailureBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
-       * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
        */
       public Builder setPostHookFailure(
           main.Spec.ProtoHookFailure.Builder builderForValue) {
@@ -4832,15 +5245,15 @@ public final class Spec {
         } else {
           postHookFailureBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
-       * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
        */
       public Builder mergePostHookFailure(main.Spec.ProtoHookFailure value) {
         if (postHookFailureBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+          if (((bitField0_ & 0x00000020) == 0x00000020) &&
               postHookFailure_ != main.Spec.ProtoHookFailure.getDefaultInstance()) {
             postHookFailure_ =
               main.Spec.ProtoHookFailure.newBuilder(postHookFailure_).mergeFrom(value).buildPartial();
@@ -4851,11 +5264,11 @@ public final class Spec {
         } else {
           postHookFailureBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
-       * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
        */
       public Builder clearPostHookFailure() {
         if (postHookFailureBuilder_ == null) {
@@ -4864,19 +5277,19 @@ public final class Spec {
         } else {
           postHookFailureBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
       /**
-       * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
        */
       public main.Spec.ProtoHookFailure.Builder getPostHookFailureBuilder() {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         onChanged();
         return getPostHookFailureFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
        */
       public main.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder() {
         if (postHookFailureBuilder_ != null) {
@@ -4886,7 +5299,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>optional .main.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>optional .main.ProtoHookFailure postHookFailure = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           main.Spec.ProtoHookFailure, main.Spec.ProtoHookFailure.Builder, main.Spec.ProtoHookFailureOrBuilder> 
@@ -4905,9 +5318,9 @@ public final class Spec {
       // repeated string tags = 7;
       private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureTagsIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
           tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000040;
          }
       }
       /**
@@ -4977,7 +5390,7 @@ public final class Spec {
        */
       public Builder clearTags() {
         tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -4991,6 +5404,39 @@ public final class Spec {
   }
   ensureTagsIsMutable();
         tags_.add(value);
+        onChanged();
+        return this;
+      }
+
+      // optional int64 executionTime = 8;
+      private long executionTime_ ;
+      /**
+       * <code>optional int64 executionTime = 8;</code>
+       */
+      public boolean hasExecutionTime() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional int64 executionTime = 8;</code>
+       */
+      public long getExecutionTime() {
+        return executionTime_;
+      }
+      /**
+       * <code>optional int64 executionTime = 8;</code>
+       */
+      public Builder setExecutionTime(long value) {
+        bitField0_ |= 0x00000080;
+        executionTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 executionTime = 8;</code>
+       */
+      public Builder clearExecutionTime() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        executionTime_ = 0L;
         onChanged();
         return this;
       }
@@ -6955,27 +7401,17 @@ public final class Spec {
     main.Spec.ProtoStepOrBuilder getStepsOrBuilder(
         int index);
 
-    // required bool failed = 3;
+    // optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;
     /**
-     * <code>required bool failed = 3;</code>
-     */
-    boolean hasFailed();
-    /**
-     * <code>required bool failed = 3;</code>
-     */
-    boolean getFailed();
-
-    // optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;
-    /**
-     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
     boolean hasConceptExecutionResult();
     /**
-     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
     main.Spec.ProtoStepExecutionResult getConceptExecutionResult();
     /**
-     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
     main.Spec.ProtoStepExecutionResultOrBuilder getConceptExecutionResultOrBuilder();
   }
@@ -7051,14 +7487,9 @@ public final class Spec {
               steps_.add(input.readMessage(main.Spec.ProtoStep.PARSER, extensionRegistry));
               break;
             }
-            case 24: {
-              bitField0_ |= 0x00000002;
-              failed_ = input.readBool();
-              break;
-            }
-            case 34: {
+            case 26: {
               main.Spec.ProtoStepExecutionResult.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
                 subBuilder = conceptExecutionResult_.toBuilder();
               }
               conceptExecutionResult_ = input.readMessage(main.Spec.ProtoStepExecutionResult.PARSER, extensionRegistry);
@@ -7066,7 +7497,7 @@ public final class Spec {
                 subBuilder.mergeFrom(conceptExecutionResult_);
                 conceptExecutionResult_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000002;
               break;
             }
           }
@@ -7170,39 +7601,23 @@ public final class Spec {
       return steps_.get(index);
     }
 
-    // required bool failed = 3;
-    public static final int FAILED_FIELD_NUMBER = 3;
-    private boolean failed_;
+    // optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;
+    public static final int CONCEPTEXECUTIONRESULT_FIELD_NUMBER = 3;
+    private main.Spec.ProtoStepExecutionResult conceptExecutionResult_;
     /**
-     * <code>required bool failed = 3;</code>
+     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
-    public boolean hasFailed() {
+    public boolean hasConceptExecutionResult() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required bool failed = 3;</code>
-     */
-    public boolean getFailed() {
-      return failed_;
-    }
-
-    // optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;
-    public static final int CONCEPTEXECUTIONRESULT_FIELD_NUMBER = 4;
-    private main.Spec.ProtoStepExecutionResult conceptExecutionResult_;
-    /**
-     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
-     */
-    public boolean hasConceptExecutionResult() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
     public main.Spec.ProtoStepExecutionResult getConceptExecutionResult() {
       return conceptExecutionResult_;
     }
     /**
-     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+     * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
     public main.Spec.ProtoStepExecutionResultOrBuilder getConceptExecutionResultOrBuilder() {
       return conceptExecutionResult_;
@@ -7211,7 +7626,6 @@ public final class Spec {
     private void initFields() {
       conceptStep_ = main.Spec.ProtoStep.getDefaultInstance();
       steps_ = java.util.Collections.emptyList();
-      failed_ = false;
       conceptExecutionResult_ = main.Spec.ProtoStepExecutionResult.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
@@ -7220,10 +7634,6 @@ public final class Spec {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasConceptStep()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasFailed()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -7257,10 +7667,7 @@ public final class Spec {
         output.writeMessage(2, steps_.get(i));
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBool(3, failed_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(4, conceptExecutionResult_);
+        output.writeMessage(3, conceptExecutionResult_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -7281,11 +7688,7 @@ public final class Spec {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, failed_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, conceptExecutionResult_);
+          .computeMessageSize(3, conceptExecutionResult_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -7418,14 +7821,12 @@ public final class Spec {
         } else {
           stepsBuilder_.clear();
         }
-        failed_ = false;
-        bitField0_ = (bitField0_ & ~0x00000004);
         if (conceptExecutionResultBuilder_ == null) {
           conceptExecutionResult_ = main.Spec.ProtoStepExecutionResult.getDefaultInstance();
         } else {
           conceptExecutionResultBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -7473,10 +7874,6 @@ public final class Spec {
         }
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000002;
-        }
-        result.failed_ = failed_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000004;
         }
         if (conceptExecutionResultBuilder_ == null) {
           result.conceptExecutionResult_ = conceptExecutionResult_;
@@ -7528,9 +7925,6 @@ public final class Spec {
             }
           }
         }
-        if (other.hasFailed()) {
-          setFailed(other.getFailed());
-        }
         if (other.hasConceptExecutionResult()) {
           mergeConceptExecutionResult(other.getConceptExecutionResult());
         }
@@ -7540,10 +7934,6 @@ public final class Spec {
 
       public final boolean isInitialized() {
         if (!hasConceptStep()) {
-          
-          return false;
-        }
-        if (!hasFailed()) {
           
           return false;
         }
@@ -7942,51 +8332,18 @@ public final class Spec {
         return stepsBuilder_;
       }
 
-      // required bool failed = 3;
-      private boolean failed_ ;
-      /**
-       * <code>required bool failed = 3;</code>
-       */
-      public boolean hasFailed() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>required bool failed = 3;</code>
-       */
-      public boolean getFailed() {
-        return failed_;
-      }
-      /**
-       * <code>required bool failed = 3;</code>
-       */
-      public Builder setFailed(boolean value) {
-        bitField0_ |= 0x00000004;
-        failed_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required bool failed = 3;</code>
-       */
-      public Builder clearFailed() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        failed_ = false;
-        onChanged();
-        return this;
-      }
-
-      // optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;
+      // optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;
       private main.Spec.ProtoStepExecutionResult conceptExecutionResult_ = main.Spec.ProtoStepExecutionResult.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           main.Spec.ProtoStepExecutionResult, main.Spec.ProtoStepExecutionResult.Builder, main.Spec.ProtoStepExecutionResultOrBuilder> conceptExecutionResultBuilder_;
       /**
-       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public boolean hasConceptExecutionResult() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public main.Spec.ProtoStepExecutionResult getConceptExecutionResult() {
         if (conceptExecutionResultBuilder_ == null) {
@@ -7996,7 +8353,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public Builder setConceptExecutionResult(main.Spec.ProtoStepExecutionResult value) {
         if (conceptExecutionResultBuilder_ == null) {
@@ -8008,11 +8365,11 @@ public final class Spec {
         } else {
           conceptExecutionResultBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public Builder setConceptExecutionResult(
           main.Spec.ProtoStepExecutionResult.Builder builderForValue) {
@@ -8022,15 +8379,15 @@ public final class Spec {
         } else {
           conceptExecutionResultBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public Builder mergeConceptExecutionResult(main.Spec.ProtoStepExecutionResult value) {
         if (conceptExecutionResultBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
               conceptExecutionResult_ != main.Spec.ProtoStepExecutionResult.getDefaultInstance()) {
             conceptExecutionResult_ =
               main.Spec.ProtoStepExecutionResult.newBuilder(conceptExecutionResult_).mergeFrom(value).buildPartial();
@@ -8041,11 +8398,11 @@ public final class Spec {
         } else {
           conceptExecutionResultBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
-       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public Builder clearConceptExecutionResult() {
         if (conceptExecutionResultBuilder_ == null) {
@@ -8054,19 +8411,19 @@ public final class Spec {
         } else {
           conceptExecutionResultBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
       /**
-       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public main.Spec.ProtoStepExecutionResult.Builder getConceptExecutionResultBuilder() {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         onChanged();
         return getConceptExecutionResultFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public main.Spec.ProtoStepExecutionResultOrBuilder getConceptExecutionResultOrBuilder() {
         if (conceptExecutionResultBuilder_ != null) {
@@ -8076,7 +8433,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 4;</code>
+       * <code>optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           main.Spec.ProtoStepExecutionResult, main.Spec.ProtoStepExecutionResult.Builder, main.Spec.ProtoStepExecutionResultOrBuilder> 
@@ -9483,17 +9840,32 @@ public final class Spec {
     com.google.protobuf.ByteString
         getValueBytes();
 
-    // optional .main.ProtoTable table = 3;
+    // optional string name = 3;
     /**
-     * <code>optional .main.ProtoTable table = 3;</code>
+     * <code>optional string name = 3;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>optional string name = 3;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>optional string name = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    // optional .main.ProtoTable table = 4;
+    /**
+     * <code>optional .main.ProtoTable table = 4;</code>
      */
     boolean hasTable();
     /**
-     * <code>optional .main.ProtoTable table = 3;</code>
+     * <code>optional .main.ProtoTable table = 4;</code>
      */
     main.Spec.ProtoTable getTable();
     /**
-     * <code>optional .main.ProtoTable table = 3;</code>
+     * <code>optional .main.ProtoTable table = 4;</code>
      */
     main.Spec.ProtoTableOrBuilder getTableOrBuilder();
   }
@@ -9565,8 +9937,13 @@ public final class Spec {
               break;
             }
             case 26: {
+              bitField0_ |= 0x00000004;
+              name_ = input.readBytes();
+              break;
+            }
+            case 34: {
               main.Spec.ProtoTable.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
                 subBuilder = table_.toBuilder();
               }
               table_ = input.readMessage(main.Spec.ProtoTable.PARSER, extensionRegistry);
@@ -9574,7 +9951,7 @@ public final class Spec {
                 subBuilder.mergeFrom(table_);
                 table_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               break;
             }
           }
@@ -9630,13 +10007,17 @@ public final class Spec {
        */
       Dynamic(1, 2),
       /**
-       * <code>Special = 3;</code>
+       * <code>Special_String = 3;</code>
        */
-      Special(2, 3),
+      Special_String(2, 3),
       /**
-       * <code>Table = 4;</code>
+       * <code>Special_Table = 4;</code>
        */
-      Table(3, 4),
+      Special_Table(3, 4),
+      /**
+       * <code>Table = 5;</code>
+       */
+      Table(4, 5),
       ;
 
       /**
@@ -9648,13 +10029,17 @@ public final class Spec {
        */
       public static final int Dynamic_VALUE = 2;
       /**
-       * <code>Special = 3;</code>
+       * <code>Special_String = 3;</code>
        */
-      public static final int Special_VALUE = 3;
+      public static final int Special_String_VALUE = 3;
       /**
-       * <code>Table = 4;</code>
+       * <code>Special_Table = 4;</code>
        */
-      public static final int Table_VALUE = 4;
+      public static final int Special_Table_VALUE = 4;
+      /**
+       * <code>Table = 5;</code>
+       */
+      public static final int Table_VALUE = 5;
 
 
       public final int getNumber() { return value; }
@@ -9663,8 +10048,9 @@ public final class Spec {
         switch (value) {
           case 1: return Static;
           case 2: return Dynamic;
-          case 3: return Special;
-          case 4: return Table;
+          case 3: return Special_String;
+          case 4: return Special_Table;
+          case 5: return Table;
           default: return null;
         }
       }
@@ -9776,23 +10162,66 @@ public final class Spec {
       }
     }
 
-    // optional .main.ProtoTable table = 3;
-    public static final int TABLE_FIELD_NUMBER = 3;
-    private main.Spec.ProtoTable table_;
+    // optional string name = 3;
+    public static final int NAME_FIELD_NUMBER = 3;
+    private java.lang.Object name_;
     /**
-     * <code>optional .main.ProtoTable table = 3;</code>
+     * <code>optional string name = 3;</code>
      */
-    public boolean hasTable() {
+    public boolean hasName() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional .main.ProtoTable table = 3;</code>
+     * <code>optional string name = 3;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string name = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional .main.ProtoTable table = 4;
+    public static final int TABLE_FIELD_NUMBER = 4;
+    private main.Spec.ProtoTable table_;
+    /**
+     * <code>optional .main.ProtoTable table = 4;</code>
+     */
+    public boolean hasTable() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional .main.ProtoTable table = 4;</code>
      */
     public main.Spec.ProtoTable getTable() {
       return table_;
     }
     /**
-     * <code>optional .main.ProtoTable table = 3;</code>
+     * <code>optional .main.ProtoTable table = 4;</code>
      */
     public main.Spec.ProtoTableOrBuilder getTableOrBuilder() {
       return table_;
@@ -9801,6 +10230,7 @@ public final class Spec {
     private void initFields() {
       parameterType_ = main.Spec.Parameter.ParameterType.Static;
       value_ = "";
+      name_ = "";
       table_ = main.Spec.ProtoTable.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
@@ -9832,7 +10262,10 @@ public final class Spec {
         output.writeBytes(2, getValueBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, table_);
+        output.writeBytes(3, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, table_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -9853,7 +10286,11 @@ public final class Spec {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, table_);
+          .computeBytesSize(3, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, table_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -9976,12 +10413,14 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000001);
         value_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (tableBuilder_ == null) {
           table_ = main.Spec.ProtoTable.getDefaultInstance();
         } else {
           tableBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -10021,6 +10460,10 @@ public final class Spec {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         if (tableBuilder_ == null) {
           result.table_ = table_;
         } else {
@@ -10048,6 +10491,11 @@ public final class Spec {
         if (other.hasValue()) {
           bitField0_ |= 0x00000002;
           value_ = other.value_;
+          onChanged();
+        }
+        if (other.hasName()) {
+          bitField0_ |= 0x00000004;
+          name_ = other.name_;
           onChanged();
         }
         if (other.hasTable()) {
@@ -10200,18 +10648,92 @@ public final class Spec {
         return this;
       }
 
-      // optional .main.ProtoTable table = 3;
+      // optional string name = 3;
+      private java.lang.Object name_ = "";
+      /**
+       * <code>optional string name = 3;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string name = 3;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string name = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string name = 3;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string name = 3;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string name = 3;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional .main.ProtoTable table = 4;
       private main.Spec.ProtoTable table_ = main.Spec.ProtoTable.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           main.Spec.ProtoTable, main.Spec.ProtoTable.Builder, main.Spec.ProtoTableOrBuilder> tableBuilder_;
       /**
-       * <code>optional .main.ProtoTable table = 3;</code>
+       * <code>optional .main.ProtoTable table = 4;</code>
        */
       public boolean hasTable() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional .main.ProtoTable table = 3;</code>
+       * <code>optional .main.ProtoTable table = 4;</code>
        */
       public main.Spec.ProtoTable getTable() {
         if (tableBuilder_ == null) {
@@ -10221,7 +10743,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>optional .main.ProtoTable table = 3;</code>
+       * <code>optional .main.ProtoTable table = 4;</code>
        */
       public Builder setTable(main.Spec.ProtoTable value) {
         if (tableBuilder_ == null) {
@@ -10233,11 +10755,11 @@ public final class Spec {
         } else {
           tableBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .main.ProtoTable table = 3;</code>
+       * <code>optional .main.ProtoTable table = 4;</code>
        */
       public Builder setTable(
           main.Spec.ProtoTable.Builder builderForValue) {
@@ -10247,15 +10769,15 @@ public final class Spec {
         } else {
           tableBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .main.ProtoTable table = 3;</code>
+       * <code>optional .main.ProtoTable table = 4;</code>
        */
       public Builder mergeTable(main.Spec.ProtoTable value) {
         if (tableBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
               table_ != main.Spec.ProtoTable.getDefaultInstance()) {
             table_ =
               main.Spec.ProtoTable.newBuilder(table_).mergeFrom(value).buildPartial();
@@ -10266,11 +10788,11 @@ public final class Spec {
         } else {
           tableBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
-       * <code>optional .main.ProtoTable table = 3;</code>
+       * <code>optional .main.ProtoTable table = 4;</code>
        */
       public Builder clearTable() {
         if (tableBuilder_ == null) {
@@ -10279,19 +10801,19 @@ public final class Spec {
         } else {
           tableBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
       /**
-       * <code>optional .main.ProtoTable table = 3;</code>
+       * <code>optional .main.ProtoTable table = 4;</code>
        */
       public main.Spec.ProtoTable.Builder getTableBuilder() {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         onChanged();
         return getTableFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .main.ProtoTable table = 3;</code>
+       * <code>optional .main.ProtoTable table = 4;</code>
        */
       public main.Spec.ProtoTableOrBuilder getTableOrBuilder() {
         if (tableBuilder_ != null) {
@@ -10301,7 +10823,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>optional .main.ProtoTable table = 3;</code>
+       * <code>optional .main.ProtoTable table = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           main.Spec.ProtoTable, main.Spec.ProtoTable.Builder, main.Spec.ProtoTableOrBuilder> 
@@ -10326,845 +10848,6 @@ public final class Spec {
     }
 
     // @@protoc_insertion_point(class_scope:main.Parameter)
-  }
-
-  public interface ArgumentOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // required string type = 1;
-    /**
-     * <code>required string type = 1;</code>
-     */
-    boolean hasType();
-    /**
-     * <code>required string type = 1;</code>
-     */
-    java.lang.String getType();
-    /**
-     * <code>required string type = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getTypeBytes();
-
-    // optional string value = 2;
-    /**
-     * <code>optional string value = 2;</code>
-     */
-    boolean hasValue();
-    /**
-     * <code>optional string value = 2;</code>
-     */
-    java.lang.String getValue();
-    /**
-     * <code>optional string value = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getValueBytes();
-
-    // optional .main.ProtoTable table = 3;
-    /**
-     * <code>optional .main.ProtoTable table = 3;</code>
-     */
-    boolean hasTable();
-    /**
-     * <code>optional .main.ProtoTable table = 3;</code>
-     */
-    main.Spec.ProtoTable getTable();
-    /**
-     * <code>optional .main.ProtoTable table = 3;</code>
-     */
-    main.Spec.ProtoTableOrBuilder getTableOrBuilder();
-  }
-  /**
-   * Protobuf type {@code main.Argument}
-   */
-  public static final class Argument extends
-      com.google.protobuf.GeneratedMessage
-      implements ArgumentOrBuilder {
-    // Use Argument.newBuilder() to construct.
-    private Argument(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private Argument(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final Argument defaultInstance;
-    public static Argument getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public Argument getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Argument(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              type_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              value_ = input.readBytes();
-              break;
-            }
-            case 26: {
-              main.Spec.ProtoTable.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = table_.toBuilder();
-              }
-              table_ = input.readMessage(main.Spec.ProtoTable.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(table_);
-                table_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000004;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return main.Spec.internal_static_main_Argument_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return main.Spec.internal_static_main_Argument_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              main.Spec.Argument.class, main.Spec.Argument.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<Argument> PARSER =
-        new com.google.protobuf.AbstractParser<Argument>() {
-      public Argument parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Argument(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Argument> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // required string type = 1;
-    public static final int TYPE_FIELD_NUMBER = 1;
-    private java.lang.Object type_;
-    /**
-     * <code>required string type = 1;</code>
-     */
-    public boolean hasType() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required string type = 1;</code>
-     */
-    public java.lang.String getType() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          type_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string type = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        type_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // optional string value = 2;
-    public static final int VALUE_FIELD_NUMBER = 2;
-    private java.lang.Object value_;
-    /**
-     * <code>optional string value = 2;</code>
-     */
-    public boolean hasValue() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional string value = 2;</code>
-     */
-    public java.lang.String getValue() {
-      java.lang.Object ref = value_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          value_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string value = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getValueBytes() {
-      java.lang.Object ref = value_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        value_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // optional .main.ProtoTable table = 3;
-    public static final int TABLE_FIELD_NUMBER = 3;
-    private main.Spec.ProtoTable table_;
-    /**
-     * <code>optional .main.ProtoTable table = 3;</code>
-     */
-    public boolean hasTable() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional .main.ProtoTable table = 3;</code>
-     */
-    public main.Spec.ProtoTable getTable() {
-      return table_;
-    }
-    /**
-     * <code>optional .main.ProtoTable table = 3;</code>
-     */
-    public main.Spec.ProtoTableOrBuilder getTableOrBuilder() {
-      return table_;
-    }
-
-    private void initFields() {
-      type_ = "";
-      value_ = "";
-      table_ = main.Spec.ProtoTable.getDefaultInstance();
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      if (!hasType()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (hasTable()) {
-        if (!getTable().isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getTypeBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getValueBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, table_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getTypeBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getValueBytes());
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, table_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static main.Spec.Argument parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static main.Spec.Argument parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static main.Spec.Argument parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static main.Spec.Argument parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static main.Spec.Argument parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static main.Spec.Argument parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static main.Spec.Argument parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static main.Spec.Argument parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static main.Spec.Argument parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static main.Spec.Argument parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(main.Spec.Argument prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code main.Argument}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements main.Spec.ArgumentOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return main.Spec.internal_static_main_Argument_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return main.Spec.internal_static_main_Argument_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                main.Spec.Argument.class, main.Spec.Argument.Builder.class);
-      }
-
-      // Construct using main.Spec.Argument.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getTableFieldBuilder();
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        type_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        value_ = "";
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (tableBuilder_ == null) {
-          table_ = main.Spec.ProtoTable.getDefaultInstance();
-        } else {
-          tableBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return main.Spec.internal_static_main_Argument_descriptor;
-      }
-
-      public main.Spec.Argument getDefaultInstanceForType() {
-        return main.Spec.Argument.getDefaultInstance();
-      }
-
-      public main.Spec.Argument build() {
-        main.Spec.Argument result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public main.Spec.Argument buildPartial() {
-        main.Spec.Argument result = new main.Spec.Argument(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.type_ = type_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.value_ = value_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        if (tableBuilder_ == null) {
-          result.table_ = table_;
-        } else {
-          result.table_ = tableBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof main.Spec.Argument) {
-          return mergeFrom((main.Spec.Argument)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(main.Spec.Argument other) {
-        if (other == main.Spec.Argument.getDefaultInstance()) return this;
-        if (other.hasType()) {
-          bitField0_ |= 0x00000001;
-          type_ = other.type_;
-          onChanged();
-        }
-        if (other.hasValue()) {
-          bitField0_ |= 0x00000002;
-          value_ = other.value_;
-          onChanged();
-        }
-        if (other.hasTable()) {
-          mergeTable(other.getTable());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasType()) {
-          
-          return false;
-        }
-        if (hasTable()) {
-          if (!getTable().isInitialized()) {
-            
-            return false;
-          }
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        main.Spec.Argument parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (main.Spec.Argument) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // required string type = 1;
-      private java.lang.Object type_ = "";
-      /**
-       * <code>required string type = 1;</code>
-       */
-      public boolean hasType() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required string type = 1;</code>
-       */
-      public java.lang.String getType() {
-        java.lang.Object ref = type_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          type_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string type = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        java.lang.Object ref = type_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          type_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string type = 1;</code>
-       */
-      public Builder setType(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        type_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string type = 1;</code>
-       */
-      public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        type_ = getDefaultInstance().getType();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string type = 1;</code>
-       */
-      public Builder setTypeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        type_ = value;
-        onChanged();
-        return this;
-      }
-
-      // optional string value = 2;
-      private java.lang.Object value_ = "";
-      /**
-       * <code>optional string value = 2;</code>
-       */
-      public boolean hasValue() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional string value = 2;</code>
-       */
-      public java.lang.String getValue() {
-        java.lang.Object ref = value_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          value_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string value = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getValueBytes() {
-        java.lang.Object ref = value_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          value_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string value = 2;</code>
-       */
-      public Builder setValue(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        value_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string value = 2;</code>
-       */
-      public Builder clearValue() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        value_ = getDefaultInstance().getValue();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string value = 2;</code>
-       */
-      public Builder setValueBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        value_ = value;
-        onChanged();
-        return this;
-      }
-
-      // optional .main.ProtoTable table = 3;
-      private main.Spec.ProtoTable table_ = main.Spec.ProtoTable.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          main.Spec.ProtoTable, main.Spec.ProtoTable.Builder, main.Spec.ProtoTableOrBuilder> tableBuilder_;
-      /**
-       * <code>optional .main.ProtoTable table = 3;</code>
-       */
-      public boolean hasTable() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional .main.ProtoTable table = 3;</code>
-       */
-      public main.Spec.ProtoTable getTable() {
-        if (tableBuilder_ == null) {
-          return table_;
-        } else {
-          return tableBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .main.ProtoTable table = 3;</code>
-       */
-      public Builder setTable(main.Spec.ProtoTable value) {
-        if (tableBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          table_ = value;
-          onChanged();
-        } else {
-          tableBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .main.ProtoTable table = 3;</code>
-       */
-      public Builder setTable(
-          main.Spec.ProtoTable.Builder builderForValue) {
-        if (tableBuilder_ == null) {
-          table_ = builderForValue.build();
-          onChanged();
-        } else {
-          tableBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .main.ProtoTable table = 3;</code>
-       */
-      public Builder mergeTable(main.Spec.ProtoTable value) {
-        if (tableBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              table_ != main.Spec.ProtoTable.getDefaultInstance()) {
-            table_ =
-              main.Spec.ProtoTable.newBuilder(table_).mergeFrom(value).buildPartial();
-          } else {
-            table_ = value;
-          }
-          onChanged();
-        } else {
-          tableBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-      /**
-       * <code>optional .main.ProtoTable table = 3;</code>
-       */
-      public Builder clearTable() {
-        if (tableBuilder_ == null) {
-          table_ = main.Spec.ProtoTable.getDefaultInstance();
-          onChanged();
-        } else {
-          tableBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-      /**
-       * <code>optional .main.ProtoTable table = 3;</code>
-       */
-      public main.Spec.ProtoTable.Builder getTableBuilder() {
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return getTableFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .main.ProtoTable table = 3;</code>
-       */
-      public main.Spec.ProtoTableOrBuilder getTableOrBuilder() {
-        if (tableBuilder_ != null) {
-          return tableBuilder_.getMessageOrBuilder();
-        } else {
-          return table_;
-        }
-      }
-      /**
-       * <code>optional .main.ProtoTable table = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          main.Spec.ProtoTable, main.Spec.ProtoTable.Builder, main.Spec.ProtoTableOrBuilder> 
-          getTableFieldBuilder() {
-        if (tableBuilder_ == null) {
-          tableBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              main.Spec.ProtoTable, main.Spec.ProtoTable.Builder, main.Spec.ProtoTableOrBuilder>(
-                  table_,
-                  getParentForChildren(),
-                  isClean());
-          table_ = null;
-        }
-        return tableBuilder_;
-      }
-
-      // @@protoc_insertion_point(builder_scope:main.Argument)
-    }
-
-    static {
-      defaultInstance = new Argument(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:main.Argument)
   }
 
   public interface ProtoCommentOrBuilder
@@ -14013,6 +13696,16 @@ public final class Spec {
      * <code>optional bytes screenShot = 5;</code>
      */
     com.google.protobuf.ByteString getScreenShot();
+
+    // required int64 executionTime = 6;
+    /**
+     * <code>required int64 executionTime = 6;</code>
+     */
+    boolean hasExecutionTime();
+    /**
+     * <code>required int64 executionTime = 6;</code>
+     */
+    long getExecutionTime();
   }
   /**
    * Protobuf type {@code main.ProtoExecutionResult}
@@ -14088,6 +13781,11 @@ public final class Spec {
             case 42: {
               bitField0_ |= 0x00000010;
               screenShot_ = input.readBytes();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              executionTime_ = input.readInt64();
               break;
             }
           }
@@ -14264,12 +13962,29 @@ public final class Spec {
       return screenShot_;
     }
 
+    // required int64 executionTime = 6;
+    public static final int EXECUTIONTIME_FIELD_NUMBER = 6;
+    private long executionTime_;
+    /**
+     * <code>required int64 executionTime = 6;</code>
+     */
+    public boolean hasExecutionTime() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required int64 executionTime = 6;</code>
+     */
+    public long getExecutionTime() {
+      return executionTime_;
+    }
+
     private void initFields() {
       failed_ = false;
       recoverableError_ = false;
       errorMessage_ = "";
       stackTrace_ = "";
       screenShot_ = com.google.protobuf.ByteString.EMPTY;
+      executionTime_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -14277,6 +13992,10 @@ public final class Spec {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasFailed()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasExecutionTime()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -14301,6 +14020,9 @@ public final class Spec {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeBytes(5, screenShot_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt64(6, executionTime_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -14330,6 +14052,10 @@ public final class Spec {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, screenShot_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, executionTime_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -14457,6 +14183,8 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000008);
         screenShot_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000010);
+        executionTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -14505,6 +14233,10 @@ public final class Spec {
           to_bitField0_ |= 0x00000010;
         }
         result.screenShot_ = screenShot_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.executionTime_ = executionTime_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -14540,12 +14272,19 @@ public final class Spec {
         if (other.hasScreenShot()) {
           setScreenShot(other.getScreenShot());
         }
+        if (other.hasExecutionTime()) {
+          setExecutionTime(other.getExecutionTime());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
         if (!hasFailed()) {
+          
+          return false;
+        }
+        if (!hasExecutionTime()) {
           
           return false;
         }
@@ -14817,6 +14556,39 @@ public final class Spec {
       public Builder clearScreenShot() {
         bitField0_ = (bitField0_ & ~0x00000010);
         screenShot_ = getDefaultInstance().getScreenShot();
+        onChanged();
+        return this;
+      }
+
+      // required int64 executionTime = 6;
+      private long executionTime_ ;
+      /**
+       * <code>required int64 executionTime = 6;</code>
+       */
+      public boolean hasExecutionTime() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>required int64 executionTime = 6;</code>
+       */
+      public long getExecutionTime() {
+        return executionTime_;
+      }
+      /**
+       * <code>required int64 executionTime = 6;</code>
+       */
+      public Builder setExecutionTime(long value) {
+        bitField0_ |= 0x00000020;
+        executionTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 executionTime = 6;</code>
+       */
+      public Builder clearExecutionTime() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        executionTime_ = 0L;
         onChanged();
         return this;
       }
@@ -15634,6 +15406,26 @@ public final class Spec {
      * <code>required int32 specsFailedCount = 5;</code>
      */
     int getSpecsFailedCount();
+
+    // optional int64 executionTime = 6;
+    /**
+     * <code>optional int64 executionTime = 6;</code>
+     */
+    boolean hasExecutionTime();
+    /**
+     * <code>optional int64 executionTime = 6;</code>
+     */
+    long getExecutionTime();
+
+    // required float successRate = 7;
+    /**
+     * <code>required float successRate = 7;</code>
+     */
+    boolean hasSuccessRate();
+    /**
+     * <code>required float successRate = 7;</code>
+     */
+    float getSuccessRate();
   }
   /**
    * Protobuf type {@code main.ProtoSuiteResult}
@@ -15728,6 +15520,16 @@ public final class Spec {
             case 40: {
               bitField0_ |= 0x00000008;
               specsFailedCount_ = input.readInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000010;
+              executionTime_ = input.readInt64();
+              break;
+            }
+            case 61: {
+              bitField0_ |= 0x00000020;
+              successRate_ = input.readFloat();
               break;
             }
           }
@@ -15885,12 +15687,46 @@ public final class Spec {
       return specsFailedCount_;
     }
 
+    // optional int64 executionTime = 6;
+    public static final int EXECUTIONTIME_FIELD_NUMBER = 6;
+    private long executionTime_;
+    /**
+     * <code>optional int64 executionTime = 6;</code>
+     */
+    public boolean hasExecutionTime() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int64 executionTime = 6;</code>
+     */
+    public long getExecutionTime() {
+      return executionTime_;
+    }
+
+    // required float successRate = 7;
+    public static final int SUCCESSRATE_FIELD_NUMBER = 7;
+    private float successRate_;
+    /**
+     * <code>required float successRate = 7;</code>
+     */
+    public boolean hasSuccessRate() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required float successRate = 7;</code>
+     */
+    public float getSuccessRate() {
+      return successRate_;
+    }
+
     private void initFields() {
       specResults_ = java.util.Collections.emptyList();
       preHookFailure_ = main.Spec.ProtoHookFailure.getDefaultInstance();
       postHookFailure_ = main.Spec.ProtoHookFailure.getDefaultInstance();
       failed_ = false;
       specsFailedCount_ = 0;
+      executionTime_ = 0L;
+      successRate_ = 0F;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -15902,6 +15738,10 @@ public final class Spec {
         return false;
       }
       if (!hasSpecsFailedCount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSuccessRate()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -15945,6 +15785,12 @@ public final class Spec {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(5, specsFailedCount_);
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt64(6, executionTime_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeFloat(7, successRate_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -15973,6 +15819,14 @@ public final class Spec {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, specsFailedCount_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, executionTime_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(7, successRate_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -16115,6 +15969,10 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000008);
         specsFailedCount_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
+        executionTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        successRate_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
 
@@ -16176,6 +16034,14 @@ public final class Spec {
           to_bitField0_ |= 0x00000008;
         }
         result.specsFailedCount_ = specsFailedCount_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.executionTime_ = executionTime_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.successRate_ = successRate_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -16230,6 +16096,12 @@ public final class Spec {
         if (other.hasSpecsFailedCount()) {
           setSpecsFailedCount(other.getSpecsFailedCount());
         }
+        if (other.hasExecutionTime()) {
+          setExecutionTime(other.getExecutionTime());
+        }
+        if (other.hasSuccessRate()) {
+          setSuccessRate(other.getSuccessRate());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -16240,6 +16112,10 @@ public final class Spec {
           return false;
         }
         if (!hasSpecsFailedCount()) {
+          
+          return false;
+        }
+        if (!hasSuccessRate()) {
           
           return false;
         }
@@ -16823,6 +16699,72 @@ public final class Spec {
         return this;
       }
 
+      // optional int64 executionTime = 6;
+      private long executionTime_ ;
+      /**
+       * <code>optional int64 executionTime = 6;</code>
+       */
+      public boolean hasExecutionTime() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional int64 executionTime = 6;</code>
+       */
+      public long getExecutionTime() {
+        return executionTime_;
+      }
+      /**
+       * <code>optional int64 executionTime = 6;</code>
+       */
+      public Builder setExecutionTime(long value) {
+        bitField0_ |= 0x00000020;
+        executionTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 executionTime = 6;</code>
+       */
+      public Builder clearExecutionTime() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        executionTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // required float successRate = 7;
+      private float successRate_ ;
+      /**
+       * <code>required float successRate = 7;</code>
+       */
+      public boolean hasSuccessRate() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>required float successRate = 7;</code>
+       */
+      public float getSuccessRate() {
+        return successRate_;
+      }
+      /**
+       * <code>required float successRate = 7;</code>
+       */
+      public Builder setSuccessRate(float value) {
+        bitField0_ |= 0x00000040;
+        successRate_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float successRate = 7;</code>
+       */
+      public Builder clearSuccessRate() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        successRate_ = 0F;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:main.ProtoSuiteResult)
     }
 
@@ -16894,6 +16836,16 @@ public final class Spec {
      * <code>repeated int32 failedDataTableRows = 5;</code>
      */
     int getFailedDataTableRows(int index);
+
+    // optional int64 executionTime = 6;
+    /**
+     * <code>optional int64 executionTime = 6;</code>
+     */
+    boolean hasExecutionTime();
+    /**
+     * <code>optional int64 executionTime = 6;</code>
+     */
+    long getExecutionTime();
   }
   /**
    * Protobuf type {@code main.ProtoSpecResult}
@@ -16993,6 +16945,11 @@ public final class Spec {
                 failedDataTableRows_.add(input.readInt32());
               }
               input.popLimit(limit);
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000010;
+              executionTime_ = input.readInt64();
               break;
             }
           }
@@ -17131,12 +17088,29 @@ public final class Spec {
       return failedDataTableRows_.get(index);
     }
 
+    // optional int64 executionTime = 6;
+    public static final int EXECUTIONTIME_FIELD_NUMBER = 6;
+    private long executionTime_;
+    /**
+     * <code>optional int64 executionTime = 6;</code>
+     */
+    public boolean hasExecutionTime() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional int64 executionTime = 6;</code>
+     */
+    public long getExecutionTime() {
+      return executionTime_;
+    }
+
     private void initFields() {
       protoSpec_ = main.Spec.ProtoSpec.getDefaultInstance();
       scenarioCount_ = 0;
       scenarioFailedCount_ = 0;
       failed_ = false;
       failedDataTableRows_ = java.util.Collections.emptyList();
+      executionTime_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -17185,6 +17159,9 @@ public final class Spec {
       for (int i = 0; i < failedDataTableRows_.size(); i++) {
         output.writeInt32(5, failedDataTableRows_.get(i));
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt64(6, executionTime_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -17218,6 +17195,10 @@ public final class Spec {
         }
         size += dataSize;
         size += 1 * getFailedDataTableRowsList().size();
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, executionTime_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -17350,6 +17331,8 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000008);
         failedDataTableRows_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000010);
+        executionTime_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -17403,6 +17386,10 @@ public final class Spec {
           bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.failedDataTableRows_ = failedDataTableRows_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.executionTime_ = executionTime_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -17440,6 +17427,9 @@ public final class Spec {
             failedDataTableRows_.addAll(other.failedDataTableRows_);
           }
           onChanged();
+        }
+        if (other.hasExecutionTime()) {
+          setExecutionTime(other.getExecutionTime());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -17770,6 +17760,39 @@ public final class Spec {
         return this;
       }
 
+      // optional int64 executionTime = 6;
+      private long executionTime_ ;
+      /**
+       * <code>optional int64 executionTime = 6;</code>
+       */
+      public boolean hasExecutionTime() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional int64 executionTime = 6;</code>
+       */
+      public long getExecutionTime() {
+        return executionTime_;
+      }
+      /**
+       * <code>optional int64 executionTime = 6;</code>
+       */
+      public Builder setExecutionTime(long value) {
+        bitField0_ |= 0x00000020;
+        executionTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 executionTime = 6;</code>
+       */
+      public Builder clearExecutionTime() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        executionTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:main.ProtoSpecResult)
     }
 
@@ -17827,11 +17850,6 @@ public final class Spec {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_main_Parameter_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_main_Argument_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_main_Argument_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_main_ProtoComment_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -17885,7 +17903,7 @@ public final class Spec {
       "oItem\022\025\n\risTableDriven\030\003 \002(\010\022.\n\016preHookF" +
       "ailure\030\004 \001(\0132\026.main.ProtoHookFailure\022/\n\017" +
       "postHookFailure\030\005 \001(\0132\026.main.ProtoHookFa" +
-      "ilure\022\020\n\010fileName\030\006 \002(\t\022\014\n\004tags\030\007 \003(\t\"\224\003" +
+      "ilure\022\020\n\010fileName\030\006 \002(\t\022\014\n\004tags\030\007 \003(\t\"\207\003" +
       "\n\tProtoItem\022*\n\010itemType\030\001 \002(\0162\030.main.Pro" +
       "toItem.ItemType\022\035\n\004step\030\002 \001(\0132\017.main.Pro" +
       "toStep\022#\n\007concept\030\003 \001(\0132\022.main.ProtoConc" +
@@ -17893,58 +17911,60 @@ public final class Spec {
       "io\022;\n\023tableDrivenScenario\030\005 \001(\0132\036.main.P" +
       "rotoTableDrivenScenario\022#\n\007comment\030\006 \001(\013" +
       "2\022.main.ProtoComment\022\037\n\005table\030\007 \001(\0132\020.ma" +
-      "in.ProtoTable\"m\n\010ItemType\022\010\n\004Step\020\001\022\013\n\007C" +
+      "in.ProtoTable\"`\n\010ItemType\022\010\n\004Step\020\001\022\013\n\007C" +
       "omment\020\002\022\013\n\007Concept\020\003\022\014\n\010Scenario\020\004\022\027\n\023T" +
-      "ableDrivenScenario\020\005\022\013\n\007Context\020\006\022\t\n\005Tab" +
-      "le\020\007\"\317\001\n\rProtoScenario\022\027\n\017scenarioHeadin" +
-      "g\030\001 \002(\t\022\016\n\006failed\030\002 \002(\010\022&\n\rscenarioItems" +
-      "\030\003 \003(\0132\017.main.ProtoItem\022.\n\016preHookFailur" +
-      "e\030\004 \001(\0132\026.main.ProtoHookFailure\022/\n\017postH",
-      "ookFailure\030\005 \001(\0132\026.main.ProtoHookFailure" +
-      "\022\014\n\004tags\030\007 \003(\t\"B\n\030ProtoTableDrivenScenar" +
-      "io\022&\n\tscenarios\030\001 \003(\0132\023.main.ProtoScenar" +
-      "io\"\223\001\n\tProtoStep\022\022\n\nactualText\030\001 \002(\t\022\022\n\n" +
-      "parsedText\030\002 \002(\t\022!\n\tfragments\030\003 \003(\0132\016.ma" +
-      "in.Fragment\022;\n\023stepExecutionResult\030\004 \001(\013" +
-      "2\036.main.ProtoStepExecutionResult\"\244\001\n\014Pro" +
-      "toConcept\022$\n\013conceptStep\030\001 \002(\0132\017.main.Pr" +
-      "otoStep\022\036\n\005steps\030\002 \003(\0132\017.main.ProtoStep\022" +
-      "\016\n\006failed\030\003 \002(\010\022>\n\026conceptExecutionResul",
-      "t\030\004 \001(\0132\036.main.ProtoStepExecutionResult\"" +
-      "\031\n\tProtoTags\022\014\n\004tags\030\001 \003(\t\"\230\001\n\010Fragment\022" +
-      "1\n\014fragmentType\030\001 \002(\0162\033.main.Fragment.Fr" +
-      "agmentType\022\014\n\004text\030\002 \001(\t\022\"\n\tparameter\030\003 " +
-      "\001(\0132\017.main.Parameter\"\'\n\014FragmentType\022\010\n\004" +
-      "Text\020\001\022\r\n\tParameter\020\002\"\263\001\n\tParameter\0224\n\rp" +
-      "arameterType\030\001 \002(\0162\035.main.Parameter.Para" +
-      "meterType\022\r\n\005value\030\002 \001(\t\022\037\n\005table\030\003 \001(\0132" +
-      "\020.main.ProtoTable\"@\n\rParameterType\022\n\n\006St" +
-      "atic\020\001\022\013\n\007Dynamic\020\002\022\013\n\007Special\020\003\022\t\n\005Tabl",
-      "e\020\004\"H\n\010Argument\022\014\n\004type\030\001 \002(\t\022\r\n\005value\030\002" +
-      " \001(\t\022\037\n\005table\030\003 \001(\0132\020.main.ProtoTable\"\034\n" +
-      "\014ProtoComment\022\014\n\004text\030\001 \002(\t\"U\n\nProtoTabl" +
-      "e\022$\n\007headers\030\001 \002(\0132\023.main.ProtoTableRow\022" +
-      "!\n\004rows\030\002 \003(\0132\023.main.ProtoTableRow\"\036\n\rPr" +
-      "otoTableRow\022\r\n\005cells\030\001 \003(\t\"\260\001\n\030ProtoStep" +
-      "ExecutionResult\0223\n\017executionResult\030\001 \002(\013" +
-      "2\032.main.ProtoExecutionResult\022.\n\016preHookF" +
-      "ailure\030\002 \001(\0132\026.main.ProtoHookFailure\022/\n\017" +
-      "postHookFailure\030\003 \001(\0132\026.main.ProtoHookFa",
-      "ilure\"~\n\024ProtoExecutionResult\022\016\n\006failed\030" +
-      "\001 \002(\010\022\030\n\020recoverableError\030\002 \001(\010\022\024\n\014error" +
-      "Message\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(\t\022\022\n\nscr" +
-      "eenShot\030\005 \001(\014\"P\n\020ProtoHookFailure\022\022\n\nsta" +
-      "ckTrace\030\001 \002(\t\022\024\n\014errorMessage\030\002 \002(\t\022\022\n\ns" +
-      "creenShot\030\003 \001(\014\"\311\001\n\020ProtoSuiteResult\022*\n\013" +
-      "specResults\030\001 \003(\0132\025.main.ProtoSpecResult" +
-      "\022.\n\016preHookFailure\030\002 \001(\0132\026.main.ProtoHoo" +
-      "kFailure\022/\n\017postHookFailure\030\003 \001(\0132\026.main" +
-      ".ProtoHookFailure\022\016\n\006failed\030\004 \002(\010\022\030\n\020spe",
-      "csFailedCount\030\005 \002(\005\"\226\001\n\017ProtoSpecResult\022" +
-      "\"\n\tprotoSpec\030\001 \002(\0132\017.main.ProtoSpec\022\025\n\rs" +
-      "cenarioCount\030\002 \002(\005\022\033\n\023scenarioFailedCoun" +
-      "t\030\003 \002(\005\022\016\n\006failed\030\004 \002(\010\022\033\n\023failedDataTab" +
-      "leRows\030\005 \003(\005"
+      "ableDrivenScenario\020\005\022\t\n\005Table\020\006\"\211\002\n\rProt" +
+      "oScenario\022\027\n\017scenarioHeading\030\001 \002(\t\022\016\n\006fa" +
+      "iled\030\002 \002(\010\022!\n\010contexts\030\003 \003(\0132\017.main.Prot" +
+      "oItem\022&\n\rscenarioItems\030\004 \003(\0132\017.main.Prot" +
+      "oItem\022.\n\016preHookFailure\030\005 \001(\0132\026.main.Pro",
+      "toHookFailure\022/\n\017postHookFailure\030\006 \001(\0132\026" +
+      ".main.ProtoHookFailure\022\014\n\004tags\030\007 \003(\t\022\025\n\r" +
+      "executionTime\030\010 \001(\003\"B\n\030ProtoTableDrivenS" +
+      "cenario\022&\n\tscenarios\030\001 \003(\0132\023.main.ProtoS" +
+      "cenario\"\223\001\n\tProtoStep\022\022\n\nactualText\030\001 \002(" +
+      "\t\022\022\n\nparsedText\030\002 \002(\t\022!\n\tfragments\030\003 \003(\013" +
+      "2\016.main.Fragment\022;\n\023stepExecutionResult\030" +
+      "\004 \001(\0132\036.main.ProtoStepExecutionResult\"\224\001" +
+      "\n\014ProtoConcept\022$\n\013conceptStep\030\001 \002(\0132\017.ma" +
+      "in.ProtoStep\022\036\n\005steps\030\002 \003(\0132\017.main.Proto",
+      "Step\022>\n\026conceptExecutionResult\030\003 \001(\0132\036.m" +
+      "ain.ProtoStepExecutionResult\"\031\n\tProtoTag" +
+      "s\022\014\n\004tags\030\001 \003(\t\"\230\001\n\010Fragment\0221\n\014fragment" +
+      "Type\030\001 \002(\0162\033.main.Fragment.FragmentType\022" +
+      "\014\n\004text\030\002 \001(\t\022\"\n\tparameter\030\003 \001(\0132\017.main." +
+      "Parameter\"\'\n\014FragmentType\022\010\n\004Text\020\001\022\r\n\tP" +
+      "arameter\020\002\"\333\001\n\tParameter\0224\n\rparameterTyp" +
+      "e\030\001 \002(\0162\035.main.Parameter.ParameterType\022\r" +
+      "\n\005value\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\037\n\005table\030\004 \001" +
+      "(\0132\020.main.ProtoTable\"Z\n\rParameterType\022\n\n",
+      "\006Static\020\001\022\013\n\007Dynamic\020\002\022\022\n\016Special_String" +
+      "\020\003\022\021\n\rSpecial_Table\020\004\022\t\n\005Table\020\005\"\034\n\014Prot" +
+      "oComment\022\014\n\004text\030\001 \002(\t\"U\n\nProtoTable\022$\n\007" +
+      "headers\030\001 \002(\0132\023.main.ProtoTableRow\022!\n\004ro" +
+      "ws\030\002 \003(\0132\023.main.ProtoTableRow\"\036\n\rProtoTa" +
+      "bleRow\022\r\n\005cells\030\001 \003(\t\"\260\001\n\030ProtoStepExecu" +
+      "tionResult\0223\n\017executionResult\030\001 \002(\0132\032.ma" +
+      "in.ProtoExecutionResult\022.\n\016preHookFailur" +
+      "e\030\002 \001(\0132\026.main.ProtoHookFailure\022/\n\017postH" +
+      "ookFailure\030\003 \001(\0132\026.main.ProtoHookFailure",
+      "\"\225\001\n\024ProtoExecutionResult\022\016\n\006failed\030\001 \002(" +
+      "\010\022\030\n\020recoverableError\030\002 \001(\010\022\024\n\014errorMess" +
+      "age\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(\t\022\022\n\nscreenS" +
+      "hot\030\005 \001(\014\022\025\n\rexecutionTime\030\006 \002(\003\"P\n\020Prot" +
+      "oHookFailure\022\022\n\nstackTrace\030\001 \002(\t\022\024\n\014erro" +
+      "rMessage\030\002 \002(\t\022\022\n\nscreenShot\030\003 \001(\014\"\365\001\n\020P" +
+      "rotoSuiteResult\022*\n\013specResults\030\001 \003(\0132\025.m" +
+      "ain.ProtoSpecResult\022.\n\016preHookFailure\030\002 " +
+      "\001(\0132\026.main.ProtoHookFailure\022/\n\017postHookF" +
+      "ailure\030\003 \001(\0132\026.main.ProtoHookFailure\022\016\n\006",
+      "failed\030\004 \002(\010\022\030\n\020specsFailedCount\030\005 \002(\005\022\025" +
+      "\n\rexecutionTime\030\006 \001(\003\022\023\n\013successRate\030\007 \002" +
+      "(\002\"\255\001\n\017ProtoSpecResult\022\"\n\tprotoSpec\030\001 \002(" +
+      "\0132\017.main.ProtoSpec\022\025\n\rscenarioCount\030\002 \002(" +
+      "\005\022\033\n\023scenarioFailedCount\030\003 \002(\005\022\016\n\006failed" +
+      "\030\004 \002(\010\022\033\n\023failedDataTableRows\030\005 \003(\005\022\025\n\re" +
+      "xecutionTime\030\006 \001(\003"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -17968,7 +17988,7 @@ public final class Spec {
           internal_static_main_ProtoScenario_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoScenario_descriptor,
-              new java.lang.String[] { "ScenarioHeading", "Failed", "ScenarioItems", "PreHookFailure", "PostHookFailure", "Tags", });
+              new java.lang.String[] { "ScenarioHeading", "Failed", "Contexts", "ScenarioItems", "PreHookFailure", "PostHookFailure", "Tags", "ExecutionTime", });
           internal_static_main_ProtoTableDrivenScenario_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_main_ProtoTableDrivenScenario_fieldAccessorTable = new
@@ -17986,7 +18006,7 @@ public final class Spec {
           internal_static_main_ProtoConcept_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoConcept_descriptor,
-              new java.lang.String[] { "ConceptStep", "Steps", "Failed", "ConceptExecutionResult", });
+              new java.lang.String[] { "ConceptStep", "Steps", "ConceptExecutionResult", });
           internal_static_main_ProtoTags_descriptor =
             getDescriptor().getMessageTypes().get(6);
           internal_static_main_ProtoTags_fieldAccessorTable = new
@@ -18004,61 +18024,55 @@ public final class Spec {
           internal_static_main_Parameter_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_Parameter_descriptor,
-              new java.lang.String[] { "ParameterType", "Value", "Table", });
-          internal_static_main_Argument_descriptor =
-            getDescriptor().getMessageTypes().get(9);
-          internal_static_main_Argument_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_main_Argument_descriptor,
-              new java.lang.String[] { "Type", "Value", "Table", });
+              new java.lang.String[] { "ParameterType", "Value", "Name", "Table", });
           internal_static_main_ProtoComment_descriptor =
-            getDescriptor().getMessageTypes().get(10);
+            getDescriptor().getMessageTypes().get(9);
           internal_static_main_ProtoComment_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoComment_descriptor,
               new java.lang.String[] { "Text", });
           internal_static_main_ProtoTable_descriptor =
-            getDescriptor().getMessageTypes().get(11);
+            getDescriptor().getMessageTypes().get(10);
           internal_static_main_ProtoTable_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoTable_descriptor,
               new java.lang.String[] { "Headers", "Rows", });
           internal_static_main_ProtoTableRow_descriptor =
-            getDescriptor().getMessageTypes().get(12);
+            getDescriptor().getMessageTypes().get(11);
           internal_static_main_ProtoTableRow_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoTableRow_descriptor,
               new java.lang.String[] { "Cells", });
           internal_static_main_ProtoStepExecutionResult_descriptor =
-            getDescriptor().getMessageTypes().get(13);
+            getDescriptor().getMessageTypes().get(12);
           internal_static_main_ProtoStepExecutionResult_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoStepExecutionResult_descriptor,
               new java.lang.String[] { "ExecutionResult", "PreHookFailure", "PostHookFailure", });
           internal_static_main_ProtoExecutionResult_descriptor =
-            getDescriptor().getMessageTypes().get(14);
+            getDescriptor().getMessageTypes().get(13);
           internal_static_main_ProtoExecutionResult_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoExecutionResult_descriptor,
-              new java.lang.String[] { "Failed", "RecoverableError", "ErrorMessage", "StackTrace", "ScreenShot", });
+              new java.lang.String[] { "Failed", "RecoverableError", "ErrorMessage", "StackTrace", "ScreenShot", "ExecutionTime", });
           internal_static_main_ProtoHookFailure_descriptor =
-            getDescriptor().getMessageTypes().get(15);
+            getDescriptor().getMessageTypes().get(14);
           internal_static_main_ProtoHookFailure_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoHookFailure_descriptor,
               new java.lang.String[] { "StackTrace", "ErrorMessage", "ScreenShot", });
           internal_static_main_ProtoSuiteResult_descriptor =
-            getDescriptor().getMessageTypes().get(16);
+            getDescriptor().getMessageTypes().get(15);
           internal_static_main_ProtoSuiteResult_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoSuiteResult_descriptor,
-              new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", });
+              new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", "ExecutionTime", "SuccessRate", });
           internal_static_main_ProtoSpecResult_descriptor =
-            getDescriptor().getMessageTypes().get(17);
+            getDescriptor().getMessageTypes().get(16);
           internal_static_main_ProtoSpecResult_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ProtoSpecResult_descriptor,
-              new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", });
+              new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", "ExecutionTime", });
           return null;
         }
       };

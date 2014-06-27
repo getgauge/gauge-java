@@ -1,13 +1,13 @@
 package com.thoughtworks.gauge;
 
 import main.Messages;
+import main.Spec;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static main.Spec.Argument;
 import static main.Messages.Message;
 
 public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
@@ -31,7 +31,7 @@ public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implem
     @Override
     public Message process(Messages.Message message) {
         Method method = StepRegistry.get(message.getExecuteStepRequest().getParsedStepText());
-        List<Argument> args = message.getExecuteStepRequest().getArgsList();
+        List<Spec.Parameter> args = message.getExecuteStepRequest().getParametersList();
         if (args != null && args.size() > 0) {
             Object[] parameters = new Object[args.size()];
             Class<?>[] parameterTypes = method.getParameterTypes();
