@@ -1,7 +1,7 @@
 package main
 
 import (
-	"common"
+	"github.com/getgauge/common"
 	"flag"
 	"fmt"
 	"os"
