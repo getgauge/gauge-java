@@ -180,12 +180,12 @@ func runCommand(cmdName string, args []string) {
 	var err error
 	err = cmd.Start()
 	if err != nil {
-		fmt.Printf("Failed to start Java. %s\n", err.Error())
+		fmt.Printf("Failed to start %s. %s\n", cmd.Path, err.Error())
 		os.Exit(1)
 	}
 	err = cmd.Wait()
 	if err != nil {
-		fmt.Printf("Failed to start Java. %s\n", err.Error())
+		fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())
 		os.Exit(1)
 	}
 }
