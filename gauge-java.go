@@ -161,9 +161,12 @@ func createJavaPropertiesFile() {
 	}
 }
 
-func getInstallationPath() string {
-	libsPath := common.GetLibsPath()
-	return path.Join(libsPath, "java")
+func getInstallationPath() (string, error) {
+	libsPath, err := common.GetLibsPath()
+	if (err != nil) {
+		return "", err
+	}
+	return path.Join(libsPath, "java"), nil
 }
 
 func printUsage() {
@@ -195,8 +198,13 @@ func main() {
 	if *start {
 		os.Chdir(getProjectRoot())
 		cp := ""
-		appendClasspath(&cp, path.Join(getInstallationPath(), "*"))
-		appendClasspath(&cp, path.Join(getInstallationPath(), "libs", "*"))
+		javaInstallationPath,err := getInstallationPath()
+		if err != nil {
+			fmt.Println("Could not get installation directory, exiting...")
+			os.Exit(1)
+		}
+		appendClasspath(&cp, path.Join(javaInstallationPath, "*"))
+		appendClasspath(&cp, path.Join(javaInstallationPath, "libs", "*"))
 
 		additionalLibs := getClassPathForVariable(additional_libs_env_name)
 		appendClasspath(&cp, additionalLibs)

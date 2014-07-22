@@ -796,6 +796,794 @@ public final class Api {
     // @@protoc_insertion_point(class_scope:main.GetProjectRootResponse)
   }
 
+  public interface GetInstallationRootRequestOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code main.GetInstallationRootRequest}
+   */
+  public static final class GetInstallationRootRequest extends
+      com.google.protobuf.GeneratedMessage
+      implements GetInstallationRootRequestOrBuilder {
+    // Use GetInstallationRootRequest.newBuilder() to construct.
+    private GetInstallationRootRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private GetInstallationRootRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final GetInstallationRootRequest defaultInstance;
+    public static GetInstallationRootRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public GetInstallationRootRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetInstallationRootRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return main.Api.internal_static_main_GetInstallationRootRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return main.Api.internal_static_main_GetInstallationRootRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              main.Api.GetInstallationRootRequest.class, main.Api.GetInstallationRootRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<GetInstallationRootRequest> PARSER =
+        new com.google.protobuf.AbstractParser<GetInstallationRootRequest>() {
+      public GetInstallationRootRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetInstallationRootRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetInstallationRootRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static main.Api.GetInstallationRootRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Api.GetInstallationRootRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Api.GetInstallationRootRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Api.GetInstallationRootRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Api.GetInstallationRootRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Api.GetInstallationRootRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static main.Api.GetInstallationRootRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static main.Api.GetInstallationRootRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static main.Api.GetInstallationRootRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Api.GetInstallationRootRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(main.Api.GetInstallationRootRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code main.GetInstallationRootRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements main.Api.GetInstallationRootRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return main.Api.internal_static_main_GetInstallationRootRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return main.Api.internal_static_main_GetInstallationRootRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                main.Api.GetInstallationRootRequest.class, main.Api.GetInstallationRootRequest.Builder.class);
+      }
+
+      // Construct using main.Api.GetInstallationRootRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return main.Api.internal_static_main_GetInstallationRootRequest_descriptor;
+      }
+
+      public main.Api.GetInstallationRootRequest getDefaultInstanceForType() {
+        return main.Api.GetInstallationRootRequest.getDefaultInstance();
+      }
+
+      public main.Api.GetInstallationRootRequest build() {
+        main.Api.GetInstallationRootRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public main.Api.GetInstallationRootRequest buildPartial() {
+        main.Api.GetInstallationRootRequest result = new main.Api.GetInstallationRootRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof main.Api.GetInstallationRootRequest) {
+          return mergeFrom((main.Api.GetInstallationRootRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(main.Api.GetInstallationRootRequest other) {
+        if (other == main.Api.GetInstallationRootRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        main.Api.GetInstallationRootRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (main.Api.GetInstallationRootRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:main.GetInstallationRootRequest)
+    }
+
+    static {
+      defaultInstance = new GetInstallationRootRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:main.GetInstallationRootRequest)
+  }
+
+  public interface GetInstallationRootResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string installationRoot = 1;
+    /**
+     * <code>required string installationRoot = 1;</code>
+     */
+    boolean hasInstallationRoot();
+    /**
+     * <code>required string installationRoot = 1;</code>
+     */
+    java.lang.String getInstallationRoot();
+    /**
+     * <code>required string installationRoot = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getInstallationRootBytes();
+  }
+  /**
+   * Protobuf type {@code main.GetInstallationRootResponse}
+   */
+  public static final class GetInstallationRootResponse extends
+      com.google.protobuf.GeneratedMessage
+      implements GetInstallationRootResponseOrBuilder {
+    // Use GetInstallationRootResponse.newBuilder() to construct.
+    private GetInstallationRootResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private GetInstallationRootResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final GetInstallationRootResponse defaultInstance;
+    public static GetInstallationRootResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public GetInstallationRootResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetInstallationRootResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              installationRoot_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return main.Api.internal_static_main_GetInstallationRootResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return main.Api.internal_static_main_GetInstallationRootResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              main.Api.GetInstallationRootResponse.class, main.Api.GetInstallationRootResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<GetInstallationRootResponse> PARSER =
+        new com.google.protobuf.AbstractParser<GetInstallationRootResponse>() {
+      public GetInstallationRootResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetInstallationRootResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetInstallationRootResponse> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string installationRoot = 1;
+    public static final int INSTALLATIONROOT_FIELD_NUMBER = 1;
+    private java.lang.Object installationRoot_;
+    /**
+     * <code>required string installationRoot = 1;</code>
+     */
+    public boolean hasInstallationRoot() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string installationRoot = 1;</code>
+     */
+    public java.lang.String getInstallationRoot() {
+      java.lang.Object ref = installationRoot_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          installationRoot_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string installationRoot = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getInstallationRootBytes() {
+      java.lang.Object ref = installationRoot_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        installationRoot_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      installationRoot_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasInstallationRoot()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getInstallationRootBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getInstallationRootBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static main.Api.GetInstallationRootResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Api.GetInstallationRootResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Api.GetInstallationRootResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Api.GetInstallationRootResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Api.GetInstallationRootResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Api.GetInstallationRootResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static main.Api.GetInstallationRootResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static main.Api.GetInstallationRootResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static main.Api.GetInstallationRootResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Api.GetInstallationRootResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(main.Api.GetInstallationRootResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code main.GetInstallationRootResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements main.Api.GetInstallationRootResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return main.Api.internal_static_main_GetInstallationRootResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return main.Api.internal_static_main_GetInstallationRootResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                main.Api.GetInstallationRootResponse.class, main.Api.GetInstallationRootResponse.Builder.class);
+      }
+
+      // Construct using main.Api.GetInstallationRootResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        installationRoot_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return main.Api.internal_static_main_GetInstallationRootResponse_descriptor;
+      }
+
+      public main.Api.GetInstallationRootResponse getDefaultInstanceForType() {
+        return main.Api.GetInstallationRootResponse.getDefaultInstance();
+      }
+
+      public main.Api.GetInstallationRootResponse build() {
+        main.Api.GetInstallationRootResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public main.Api.GetInstallationRootResponse buildPartial() {
+        main.Api.GetInstallationRootResponse result = new main.Api.GetInstallationRootResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.installationRoot_ = installationRoot_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof main.Api.GetInstallationRootResponse) {
+          return mergeFrom((main.Api.GetInstallationRootResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(main.Api.GetInstallationRootResponse other) {
+        if (other == main.Api.GetInstallationRootResponse.getDefaultInstance()) return this;
+        if (other.hasInstallationRoot()) {
+          bitField0_ |= 0x00000001;
+          installationRoot_ = other.installationRoot_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasInstallationRoot()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        main.Api.GetInstallationRootResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (main.Api.GetInstallationRootResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string installationRoot = 1;
+      private java.lang.Object installationRoot_ = "";
+      /**
+       * <code>required string installationRoot = 1;</code>
+       */
+      public boolean hasInstallationRoot() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string installationRoot = 1;</code>
+       */
+      public java.lang.String getInstallationRoot() {
+        java.lang.Object ref = installationRoot_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          installationRoot_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string installationRoot = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getInstallationRootBytes() {
+        java.lang.Object ref = installationRoot_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          installationRoot_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string installationRoot = 1;</code>
+       */
+      public Builder setInstallationRoot(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        installationRoot_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string installationRoot = 1;</code>
+       */
+      public Builder clearInstallationRoot() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        installationRoot_ = getDefaultInstance().getInstallationRoot();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string installationRoot = 1;</code>
+       */
+      public Builder setInstallationRootBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        installationRoot_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:main.GetInstallationRootResponse)
+    }
+
+    static {
+      defaultInstance = new GetInstallationRootResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:main.GetInstallationRootResponse)
+  }
+
   public interface GetAllStepsRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
@@ -4270,101 +5058,129 @@ public final class Api {
      */
     main.Api.GetProjectRootResponseOrBuilder getProjectRootResponseOrBuilder();
 
-    // optional .main.GetAllStepsRequest allStepsRequest = 5;
+    // optional .main.GetInstallationRootRequest installationRootRequest = 5;
     /**
-     * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+     * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+     */
+    boolean hasInstallationRootRequest();
+    /**
+     * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+     */
+    main.Api.GetInstallationRootRequest getInstallationRootRequest();
+    /**
+     * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+     */
+    main.Api.GetInstallationRootRequestOrBuilder getInstallationRootRequestOrBuilder();
+
+    // optional .main.GetInstallationRootResponse installationRootResponse = 6;
+    /**
+     * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+     */
+    boolean hasInstallationRootResponse();
+    /**
+     * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+     */
+    main.Api.GetInstallationRootResponse getInstallationRootResponse();
+    /**
+     * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+     */
+    main.Api.GetInstallationRootResponseOrBuilder getInstallationRootResponseOrBuilder();
+
+    // optional .main.GetAllStepsRequest allStepsRequest = 7;
+    /**
+     * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
      */
     boolean hasAllStepsRequest();
     /**
-     * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+     * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
      */
     main.Api.GetAllStepsRequest getAllStepsRequest();
     /**
-     * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+     * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
      */
     main.Api.GetAllStepsRequestOrBuilder getAllStepsRequestOrBuilder();
 
-    // optional .main.GetAllStepsResponse allStepsResponse = 6;
+    // optional .main.GetAllStepsResponse allStepsResponse = 8;
     /**
-     * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+     * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
      */
     boolean hasAllStepsResponse();
     /**
-     * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+     * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
      */
     main.Api.GetAllStepsResponse getAllStepsResponse();
     /**
-     * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+     * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
      */
     main.Api.GetAllStepsResponseOrBuilder getAllStepsResponseOrBuilder();
 
-    // optional .main.GetAllSpecsRequest allSpecsRequest = 7;
+    // optional .main.GetAllSpecsRequest allSpecsRequest = 9;
     /**
-     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
      */
     boolean hasAllSpecsRequest();
     /**
-     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
      */
     main.Api.GetAllSpecsRequest getAllSpecsRequest();
     /**
-     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
      */
     main.Api.GetAllSpecsRequestOrBuilder getAllSpecsRequestOrBuilder();
 
-    // optional .main.GetAllSpecsResponse allSpecsResponse = 8;
+    // optional .main.GetAllSpecsResponse allSpecsResponse = 10;
     /**
-     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
      */
     boolean hasAllSpecsResponse();
     /**
-     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
      */
     main.Api.GetAllSpecsResponse getAllSpecsResponse();
     /**
-     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
      */
     main.Api.GetAllSpecsResponseOrBuilder getAllSpecsResponseOrBuilder();
 
-    // optional .main.GetStepValueRequest stepValueRequest = 9;
+    // optional .main.GetStepValueRequest stepValueRequest = 11;
     /**
-     * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+     * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
      */
     boolean hasStepValueRequest();
     /**
-     * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+     * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
      */
     main.Api.GetStepValueRequest getStepValueRequest();
     /**
-     * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+     * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
      */
     main.Api.GetStepValueRequestOrBuilder getStepValueRequestOrBuilder();
 
-    // optional .main.GetStepValueResponse stepValueResponse = 10;
+    // optional .main.GetStepValueResponse stepValueResponse = 12;
     /**
-     * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+     * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
      */
     boolean hasStepValueResponse();
     /**
-     * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+     * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
      */
     main.Api.GetStepValueResponse getStepValueResponse();
     /**
-     * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+     * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
      */
     main.Api.GetStepValueResponseOrBuilder getStepValueResponseOrBuilder();
 
-    // optional .main.ErrorResponse error = 11;
+    // optional .main.ErrorResponse error = 13;
     /**
-     * <code>optional .main.ErrorResponse error = 11;</code>
+     * <code>optional .main.ErrorResponse error = 13;</code>
      */
     boolean hasError();
     /**
-     * <code>optional .main.ErrorResponse error = 11;</code>
+     * <code>optional .main.ErrorResponse error = 13;</code>
      */
     main.Api.ErrorResponse getError();
     /**
-     * <code>optional .main.ErrorResponse error = 11;</code>
+     * <code>optional .main.ErrorResponse error = 13;</code>
      */
     main.Api.ErrorResponseOrBuilder getErrorOrBuilder();
   }
@@ -4462,8 +5278,34 @@ public final class Api {
               break;
             }
             case 42: {
-              main.Api.GetAllStepsRequest.Builder subBuilder = null;
+              main.Api.GetInstallationRootRequest.Builder subBuilder = null;
               if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                subBuilder = installationRootRequest_.toBuilder();
+              }
+              installationRootRequest_ = input.readMessage(main.Api.GetInstallationRootRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(installationRootRequest_);
+                installationRootRequest_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000010;
+              break;
+            }
+            case 50: {
+              main.Api.GetInstallationRootResponse.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                subBuilder = installationRootResponse_.toBuilder();
+              }
+              installationRootResponse_ = input.readMessage(main.Api.GetInstallationRootResponse.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(installationRootResponse_);
+                installationRootResponse_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000020;
+              break;
+            }
+            case 58: {
+              main.Api.GetAllStepsRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000040) == 0x00000040)) {
                 subBuilder = allStepsRequest_.toBuilder();
               }
               allStepsRequest_ = input.readMessage(main.Api.GetAllStepsRequest.PARSER, extensionRegistry);
@@ -4471,12 +5313,12 @@ public final class Api {
                 subBuilder.mergeFrom(allStepsRequest_);
                 allStepsRequest_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000010;
+              bitField0_ |= 0x00000040;
               break;
             }
-            case 50: {
+            case 66: {
               main.Api.GetAllStepsResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000020) == 0x00000020)) {
+              if (((bitField0_ & 0x00000080) == 0x00000080)) {
                 subBuilder = allStepsResponse_.toBuilder();
               }
               allStepsResponse_ = input.readMessage(main.Api.GetAllStepsResponse.PARSER, extensionRegistry);
@@ -4484,12 +5326,12 @@ public final class Api {
                 subBuilder.mergeFrom(allStepsResponse_);
                 allStepsResponse_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000020;
+              bitField0_ |= 0x00000080;
               break;
             }
-            case 58: {
+            case 74: {
               main.Api.GetAllSpecsRequest.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+              if (((bitField0_ & 0x00000100) == 0x00000100)) {
                 subBuilder = allSpecsRequest_.toBuilder();
               }
               allSpecsRequest_ = input.readMessage(main.Api.GetAllSpecsRequest.PARSER, extensionRegistry);
@@ -4497,12 +5339,12 @@ public final class Api {
                 subBuilder.mergeFrom(allSpecsRequest_);
                 allSpecsRequest_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000100;
               break;
             }
-            case 66: {
+            case 82: {
               main.Api.GetAllSpecsResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000080) == 0x00000080)) {
+              if (((bitField0_ & 0x00000200) == 0x00000200)) {
                 subBuilder = allSpecsResponse_.toBuilder();
               }
               allSpecsResponse_ = input.readMessage(main.Api.GetAllSpecsResponse.PARSER, extensionRegistry);
@@ -4510,12 +5352,12 @@ public final class Api {
                 subBuilder.mergeFrom(allSpecsResponse_);
                 allSpecsResponse_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000080;
+              bitField0_ |= 0x00000200;
               break;
             }
-            case 74: {
+            case 90: {
               main.Api.GetStepValueRequest.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000100) == 0x00000100)) {
+              if (((bitField0_ & 0x00000400) == 0x00000400)) {
                 subBuilder = stepValueRequest_.toBuilder();
               }
               stepValueRequest_ = input.readMessage(main.Api.GetStepValueRequest.PARSER, extensionRegistry);
@@ -4523,12 +5365,12 @@ public final class Api {
                 subBuilder.mergeFrom(stepValueRequest_);
                 stepValueRequest_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000400;
               break;
             }
-            case 82: {
+            case 98: {
               main.Api.GetStepValueResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000200) == 0x00000200)) {
+              if (((bitField0_ & 0x00000800) == 0x00000800)) {
                 subBuilder = stepValueResponse_.toBuilder();
               }
               stepValueResponse_ = input.readMessage(main.Api.GetStepValueResponse.PARSER, extensionRegistry);
@@ -4536,12 +5378,12 @@ public final class Api {
                 subBuilder.mergeFrom(stepValueResponse_);
                 stepValueResponse_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000200;
+              bitField0_ |= 0x00000800;
               break;
             }
-            case 90: {
+            case 106: {
               main.Api.ErrorResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000400) == 0x00000400)) {
+              if (((bitField0_ & 0x00001000) == 0x00001000)) {
                 subBuilder = error_.toBuilder();
               }
               error_ = input.readMessage(main.Api.ErrorResponse.PARSER, extensionRegistry);
@@ -4549,7 +5391,7 @@ public final class Api {
                 subBuilder.mergeFrom(error_);
                 error_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000400;
+              bitField0_ |= 0x00001000;
               break;
             }
           }
@@ -4605,33 +5447,41 @@ public final class Api {
        */
       GetProjectRootResponse(1, 2),
       /**
-       * <code>GetAllStepsRequest = 3;</code>
+       * <code>GetInstallationRootRequest = 3;</code>
        */
-      GetAllStepsRequest(2, 3),
+      GetInstallationRootRequest(2, 3),
       /**
-       * <code>GetAllStepResponse = 4;</code>
+       * <code>GetInstallationRootResponse = 4;</code>
        */
-      GetAllStepResponse(3, 4),
+      GetInstallationRootResponse(3, 4),
       /**
-       * <code>GetAllSpecsRequest = 5;</code>
+       * <code>GetAllStepsRequest = 5;</code>
        */
-      GetAllSpecsRequest(4, 5),
+      GetAllStepsRequest(4, 5),
       /**
-       * <code>GetAllSpecsResponse = 6;</code>
+       * <code>GetAllStepResponse = 6;</code>
        */
-      GetAllSpecsResponse(5, 6),
+      GetAllStepResponse(5, 6),
       /**
-       * <code>GetStepValueRequest = 7;</code>
+       * <code>GetAllSpecsRequest = 7;</code>
        */
-      GetStepValueRequest(6, 7),
+      GetAllSpecsRequest(6, 7),
       /**
-       * <code>GetStepValueResponse = 8;</code>
+       * <code>GetAllSpecsResponse = 8;</code>
        */
-      GetStepValueResponse(7, 8),
+      GetAllSpecsResponse(7, 8),
       /**
-       * <code>ErrorResponse = 9;</code>
+       * <code>GetStepValueRequest = 9;</code>
        */
-      ErrorResponse(8, 9),
+      GetStepValueRequest(8, 9),
+      /**
+       * <code>GetStepValueResponse = 10;</code>
+       */
+      GetStepValueResponse(9, 10),
+      /**
+       * <code>ErrorResponse = 11;</code>
+       */
+      ErrorResponse(10, 11),
       ;
 
       /**
@@ -4643,33 +5493,41 @@ public final class Api {
        */
       public static final int GetProjectRootResponse_VALUE = 2;
       /**
-       * <code>GetAllStepsRequest = 3;</code>
+       * <code>GetInstallationRootRequest = 3;</code>
        */
-      public static final int GetAllStepsRequest_VALUE = 3;
+      public static final int GetInstallationRootRequest_VALUE = 3;
       /**
-       * <code>GetAllStepResponse = 4;</code>
+       * <code>GetInstallationRootResponse = 4;</code>
        */
-      public static final int GetAllStepResponse_VALUE = 4;
+      public static final int GetInstallationRootResponse_VALUE = 4;
       /**
-       * <code>GetAllSpecsRequest = 5;</code>
+       * <code>GetAllStepsRequest = 5;</code>
        */
-      public static final int GetAllSpecsRequest_VALUE = 5;
+      public static final int GetAllStepsRequest_VALUE = 5;
       /**
-       * <code>GetAllSpecsResponse = 6;</code>
+       * <code>GetAllStepResponse = 6;</code>
        */
-      public static final int GetAllSpecsResponse_VALUE = 6;
+      public static final int GetAllStepResponse_VALUE = 6;
       /**
-       * <code>GetStepValueRequest = 7;</code>
+       * <code>GetAllSpecsRequest = 7;</code>
        */
-      public static final int GetStepValueRequest_VALUE = 7;
+      public static final int GetAllSpecsRequest_VALUE = 7;
       /**
-       * <code>GetStepValueResponse = 8;</code>
+       * <code>GetAllSpecsResponse = 8;</code>
        */
-      public static final int GetStepValueResponse_VALUE = 8;
+      public static final int GetAllSpecsResponse_VALUE = 8;
       /**
-       * <code>ErrorResponse = 9;</code>
+       * <code>GetStepValueRequest = 9;</code>
        */
-      public static final int ErrorResponse_VALUE = 9;
+      public static final int GetStepValueRequest_VALUE = 9;
+      /**
+       * <code>GetStepValueResponse = 10;</code>
+       */
+      public static final int GetStepValueResponse_VALUE = 10;
+      /**
+       * <code>ErrorResponse = 11;</code>
+       */
+      public static final int ErrorResponse_VALUE = 11;
 
 
       public final int getNumber() { return value; }
@@ -4678,13 +5536,15 @@ public final class Api {
         switch (value) {
           case 1: return GetProjectRootRequest;
           case 2: return GetProjectRootResponse;
-          case 3: return GetAllStepsRequest;
-          case 4: return GetAllStepResponse;
-          case 5: return GetAllSpecsRequest;
-          case 6: return GetAllSpecsResponse;
-          case 7: return GetStepValueRequest;
-          case 8: return GetStepValueResponse;
-          case 9: return ErrorResponse;
+          case 3: return GetInstallationRootRequest;
+          case 4: return GetInstallationRootResponse;
+          case 5: return GetAllStepsRequest;
+          case 6: return GetAllStepResponse;
+          case 7: return GetAllSpecsRequest;
+          case 8: return GetAllSpecsResponse;
+          case 9: return GetStepValueRequest;
+          case 10: return GetStepValueResponse;
+          case 11: return ErrorResponse;
           default: return null;
         }
       }
@@ -4813,155 +5673,199 @@ public final class Api {
       return projectRootResponse_;
     }
 
-    // optional .main.GetAllStepsRequest allStepsRequest = 5;
-    public static final int ALLSTEPSREQUEST_FIELD_NUMBER = 5;
-    private main.Api.GetAllStepsRequest allStepsRequest_;
+    // optional .main.GetInstallationRootRequest installationRootRequest = 5;
+    public static final int INSTALLATIONROOTREQUEST_FIELD_NUMBER = 5;
+    private main.Api.GetInstallationRootRequest installationRootRequest_;
     /**
-     * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+     * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
      */
-    public boolean hasAllStepsRequest() {
+    public boolean hasInstallationRootRequest() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+     * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+     */
+    public main.Api.GetInstallationRootRequest getInstallationRootRequest() {
+      return installationRootRequest_;
+    }
+    /**
+     * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+     */
+    public main.Api.GetInstallationRootRequestOrBuilder getInstallationRootRequestOrBuilder() {
+      return installationRootRequest_;
+    }
+
+    // optional .main.GetInstallationRootResponse installationRootResponse = 6;
+    public static final int INSTALLATIONROOTRESPONSE_FIELD_NUMBER = 6;
+    private main.Api.GetInstallationRootResponse installationRootResponse_;
+    /**
+     * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+     */
+    public boolean hasInstallationRootResponse() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+     */
+    public main.Api.GetInstallationRootResponse getInstallationRootResponse() {
+      return installationRootResponse_;
+    }
+    /**
+     * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+     */
+    public main.Api.GetInstallationRootResponseOrBuilder getInstallationRootResponseOrBuilder() {
+      return installationRootResponse_;
+    }
+
+    // optional .main.GetAllStepsRequest allStepsRequest = 7;
+    public static final int ALLSTEPSREQUEST_FIELD_NUMBER = 7;
+    private main.Api.GetAllStepsRequest allStepsRequest_;
+    /**
+     * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
+     */
+    public boolean hasAllStepsRequest() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
      */
     public main.Api.GetAllStepsRequest getAllStepsRequest() {
       return allStepsRequest_;
     }
     /**
-     * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+     * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
      */
     public main.Api.GetAllStepsRequestOrBuilder getAllStepsRequestOrBuilder() {
       return allStepsRequest_;
     }
 
-    // optional .main.GetAllStepsResponse allStepsResponse = 6;
-    public static final int ALLSTEPSRESPONSE_FIELD_NUMBER = 6;
+    // optional .main.GetAllStepsResponse allStepsResponse = 8;
+    public static final int ALLSTEPSRESPONSE_FIELD_NUMBER = 8;
     private main.Api.GetAllStepsResponse allStepsResponse_;
     /**
-     * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+     * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
      */
     public boolean hasAllStepsResponse() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
-     * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+     * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
      */
     public main.Api.GetAllStepsResponse getAllStepsResponse() {
       return allStepsResponse_;
     }
     /**
-     * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+     * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
      */
     public main.Api.GetAllStepsResponseOrBuilder getAllStepsResponseOrBuilder() {
       return allStepsResponse_;
     }
 
-    // optional .main.GetAllSpecsRequest allSpecsRequest = 7;
-    public static final int ALLSPECSREQUEST_FIELD_NUMBER = 7;
+    // optional .main.GetAllSpecsRequest allSpecsRequest = 9;
+    public static final int ALLSPECSREQUEST_FIELD_NUMBER = 9;
     private main.Api.GetAllSpecsRequest allSpecsRequest_;
     /**
-     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
      */
     public boolean hasAllSpecsRequest() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
-     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
      */
     public main.Api.GetAllSpecsRequest getAllSpecsRequest() {
       return allSpecsRequest_;
     }
     /**
-     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+     * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
      */
     public main.Api.GetAllSpecsRequestOrBuilder getAllSpecsRequestOrBuilder() {
       return allSpecsRequest_;
     }
 
-    // optional .main.GetAllSpecsResponse allSpecsResponse = 8;
-    public static final int ALLSPECSRESPONSE_FIELD_NUMBER = 8;
+    // optional .main.GetAllSpecsResponse allSpecsResponse = 10;
+    public static final int ALLSPECSRESPONSE_FIELD_NUMBER = 10;
     private main.Api.GetAllSpecsResponse allSpecsResponse_;
     /**
-     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
      */
     public boolean hasAllSpecsResponse() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
-     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
      */
     public main.Api.GetAllSpecsResponse getAllSpecsResponse() {
       return allSpecsResponse_;
     }
     /**
-     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+     * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
      */
     public main.Api.GetAllSpecsResponseOrBuilder getAllSpecsResponseOrBuilder() {
       return allSpecsResponse_;
     }
 
-    // optional .main.GetStepValueRequest stepValueRequest = 9;
-    public static final int STEPVALUEREQUEST_FIELD_NUMBER = 9;
+    // optional .main.GetStepValueRequest stepValueRequest = 11;
+    public static final int STEPVALUEREQUEST_FIELD_NUMBER = 11;
     private main.Api.GetStepValueRequest stepValueRequest_;
     /**
-     * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+     * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
      */
     public boolean hasStepValueRequest() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
-     * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+     * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
      */
     public main.Api.GetStepValueRequest getStepValueRequest() {
       return stepValueRequest_;
     }
     /**
-     * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+     * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
      */
     public main.Api.GetStepValueRequestOrBuilder getStepValueRequestOrBuilder() {
       return stepValueRequest_;
     }
 
-    // optional .main.GetStepValueResponse stepValueResponse = 10;
-    public static final int STEPVALUERESPONSE_FIELD_NUMBER = 10;
+    // optional .main.GetStepValueResponse stepValueResponse = 12;
+    public static final int STEPVALUERESPONSE_FIELD_NUMBER = 12;
     private main.Api.GetStepValueResponse stepValueResponse_;
     /**
-     * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+     * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
      */
     public boolean hasStepValueResponse() {
-      return ((bitField0_ & 0x00000200) == 0x00000200);
+      return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
-     * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+     * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
      */
     public main.Api.GetStepValueResponse getStepValueResponse() {
       return stepValueResponse_;
     }
     /**
-     * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+     * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
      */
     public main.Api.GetStepValueResponseOrBuilder getStepValueResponseOrBuilder() {
       return stepValueResponse_;
     }
 
-    // optional .main.ErrorResponse error = 11;
-    public static final int ERROR_FIELD_NUMBER = 11;
+    // optional .main.ErrorResponse error = 13;
+    public static final int ERROR_FIELD_NUMBER = 13;
     private main.Api.ErrorResponse error_;
     /**
-     * <code>optional .main.ErrorResponse error = 11;</code>
+     * <code>optional .main.ErrorResponse error = 13;</code>
      */
     public boolean hasError() {
-      return ((bitField0_ & 0x00000400) == 0x00000400);
+      return ((bitField0_ & 0x00001000) == 0x00001000);
     }
     /**
-     * <code>optional .main.ErrorResponse error = 11;</code>
+     * <code>optional .main.ErrorResponse error = 13;</code>
      */
     public main.Api.ErrorResponse getError() {
       return error_;
     }
     /**
-     * <code>optional .main.ErrorResponse error = 11;</code>
+     * <code>optional .main.ErrorResponse error = 13;</code>
      */
     public main.Api.ErrorResponseOrBuilder getErrorOrBuilder() {
       return error_;
@@ -4972,6 +5876,8 @@ public final class Api {
       messageId_ = 0L;
       projectRootRequest_ = main.Api.GetProjectRootRequest.getDefaultInstance();
       projectRootResponse_ = main.Api.GetProjectRootResponse.getDefaultInstance();
+      installationRootRequest_ = main.Api.GetInstallationRootRequest.getDefaultInstance();
+      installationRootResponse_ = main.Api.GetInstallationRootResponse.getDefaultInstance();
       allStepsRequest_ = main.Api.GetAllStepsRequest.getDefaultInstance();
       allStepsResponse_ = main.Api.GetAllStepsResponse.getDefaultInstance();
       allSpecsRequest_ = main.Api.GetAllSpecsRequest.getDefaultInstance();
@@ -4995,6 +5901,12 @@ public final class Api {
       }
       if (hasProjectRootResponse()) {
         if (!getProjectRootResponse().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasInstallationRootResponse()) {
+        if (!getInstallationRootResponse().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -5043,25 +5955,31 @@ public final class Api {
         output.writeMessage(4, projectRootResponse_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeMessage(5, allStepsRequest_);
+        output.writeMessage(5, installationRootRequest_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
-        output.writeMessage(6, allStepsResponse_);
+        output.writeMessage(6, installationRootResponse_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
-        output.writeMessage(7, allSpecsRequest_);
+        output.writeMessage(7, allStepsRequest_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
-        output.writeMessage(8, allSpecsResponse_);
+        output.writeMessage(8, allStepsResponse_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
-        output.writeMessage(9, stepValueRequest_);
+        output.writeMessage(9, allSpecsRequest_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
-        output.writeMessage(10, stepValueResponse_);
+        output.writeMessage(10, allSpecsResponse_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
-        output.writeMessage(11, error_);
+        output.writeMessage(11, stepValueRequest_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        output.writeMessage(12, stepValueResponse_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        output.writeMessage(13, error_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -5090,31 +6008,39 @@ public final class Api {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, allStepsRequest_);
+          .computeMessageSize(5, installationRootRequest_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, allStepsResponse_);
+          .computeMessageSize(6, installationRootResponse_);
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, allSpecsRequest_);
+          .computeMessageSize(7, allStepsRequest_);
       }
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, allSpecsResponse_);
+          .computeMessageSize(8, allStepsResponse_);
       }
       if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(9, stepValueRequest_);
+          .computeMessageSize(9, allSpecsRequest_);
       }
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(10, stepValueResponse_);
+          .computeMessageSize(10, allSpecsResponse_);
       }
       if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(11, error_);
+          .computeMessageSize(11, stepValueRequest_);
+      }
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, stepValueResponse_);
+      }
+      if (((bitField0_ & 0x00001000) == 0x00001000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, error_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -5226,6 +6152,8 @@ public final class Api {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getProjectRootRequestFieldBuilder();
           getProjectRootResponseFieldBuilder();
+          getInstallationRootRequestFieldBuilder();
+          getInstallationRootResponseFieldBuilder();
           getAllStepsRequestFieldBuilder();
           getAllStepsResponseFieldBuilder();
           getAllSpecsRequestFieldBuilder();
@@ -5257,48 +6185,60 @@ public final class Api {
           projectRootResponseBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (installationRootRequestBuilder_ == null) {
+          installationRootRequest_ = main.Api.GetInstallationRootRequest.getDefaultInstance();
+        } else {
+          installationRootRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        if (installationRootResponseBuilder_ == null) {
+          installationRootResponse_ = main.Api.GetInstallationRootResponse.getDefaultInstance();
+        } else {
+          installationRootResponseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
         if (allStepsRequestBuilder_ == null) {
           allStepsRequest_ = main.Api.GetAllStepsRequest.getDefaultInstance();
         } else {
           allStepsRequestBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000040);
         if (allStepsResponseBuilder_ == null) {
           allStepsResponse_ = main.Api.GetAllStepsResponse.getDefaultInstance();
         } else {
           allStepsResponseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000080);
         if (allSpecsRequestBuilder_ == null) {
           allSpecsRequest_ = main.Api.GetAllSpecsRequest.getDefaultInstance();
         } else {
           allSpecsRequestBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000100);
         if (allSpecsResponseBuilder_ == null) {
           allSpecsResponse_ = main.Api.GetAllSpecsResponse.getDefaultInstance();
         } else {
           allSpecsResponseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000200);
         if (stepValueRequestBuilder_ == null) {
           stepValueRequest_ = main.Api.GetStepValueRequest.getDefaultInstance();
         } else {
           stepValueRequestBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000400);
         if (stepValueResponseBuilder_ == null) {
           stepValueResponse_ = main.Api.GetStepValueResponse.getDefaultInstance();
         } else {
           stepValueResponseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000800);
         if (errorBuilder_ == null) {
           error_ = main.Api.ErrorResponse.getDefaultInstance();
         } else {
           errorBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00001000);
         return this;
       }
 
@@ -5354,53 +6294,69 @@ public final class Api {
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
+        if (installationRootRequestBuilder_ == null) {
+          result.installationRootRequest_ = installationRootRequest_;
+        } else {
+          result.installationRootRequest_ = installationRootRequestBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        if (installationRootResponseBuilder_ == null) {
+          result.installationRootResponse_ = installationRootResponse_;
+        } else {
+          result.installationRootResponse_ = installationRootResponseBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
         if (allStepsRequestBuilder_ == null) {
           result.allStepsRequest_ = allStepsRequest_;
         } else {
           result.allStepsRequest_ = allStepsRequestBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-          to_bitField0_ |= 0x00000020;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
         }
         if (allStepsResponseBuilder_ == null) {
           result.allStepsResponse_ = allStepsResponse_;
         } else {
           result.allStepsResponse_ = allStepsResponseBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-          to_bitField0_ |= 0x00000040;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
         }
         if (allSpecsRequestBuilder_ == null) {
           result.allSpecsRequest_ = allSpecsRequest_;
         } else {
           result.allSpecsRequest_ = allSpecsRequestBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-          to_bitField0_ |= 0x00000080;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
         }
         if (allSpecsResponseBuilder_ == null) {
           result.allSpecsResponse_ = allSpecsResponse_;
         } else {
           result.allSpecsResponse_ = allSpecsResponseBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
-          to_bitField0_ |= 0x00000100;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
         }
         if (stepValueRequestBuilder_ == null) {
           result.stepValueRequest_ = stepValueRequest_;
         } else {
           result.stepValueRequest_ = stepValueRequestBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
-          to_bitField0_ |= 0x00000200;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
         }
         if (stepValueResponseBuilder_ == null) {
           result.stepValueResponse_ = stepValueResponse_;
         } else {
           result.stepValueResponse_ = stepValueResponseBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
-          to_bitField0_ |= 0x00000400;
+        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+          to_bitField0_ |= 0x00001000;
         }
         if (errorBuilder_ == null) {
           result.error_ = error_;
@@ -5434,6 +6390,12 @@ public final class Api {
         }
         if (other.hasProjectRootResponse()) {
           mergeProjectRootResponse(other.getProjectRootResponse());
+        }
+        if (other.hasInstallationRootRequest()) {
+          mergeInstallationRootRequest(other.getInstallationRootRequest());
+        }
+        if (other.hasInstallationRootResponse()) {
+          mergeInstallationRootResponse(other.getInstallationRootResponse());
         }
         if (other.hasAllStepsRequest()) {
           mergeAllStepsRequest(other.getAllStepsRequest());
@@ -5471,6 +6433,12 @@ public final class Api {
         }
         if (hasProjectRootResponse()) {
           if (!getProjectRootResponse().isInitialized()) {
+            
+            return false;
+          }
+        }
+        if (hasInstallationRootResponse()) {
+          if (!getInstallationRootResponse().isInitialized()) {
             
             return false;
           }
@@ -5824,18 +6792,252 @@ public final class Api {
         return projectRootResponseBuilder_;
       }
 
-      // optional .main.GetAllStepsRequest allStepsRequest = 5;
+      // optional .main.GetInstallationRootRequest installationRootRequest = 5;
+      private main.Api.GetInstallationRootRequest installationRootRequest_ = main.Api.GetInstallationRootRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Api.GetInstallationRootRequest, main.Api.GetInstallationRootRequest.Builder, main.Api.GetInstallationRootRequestOrBuilder> installationRootRequestBuilder_;
+      /**
+       * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+       */
+      public boolean hasInstallationRootRequest() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+       */
+      public main.Api.GetInstallationRootRequest getInstallationRootRequest() {
+        if (installationRootRequestBuilder_ == null) {
+          return installationRootRequest_;
+        } else {
+          return installationRootRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+       */
+      public Builder setInstallationRootRequest(main.Api.GetInstallationRootRequest value) {
+        if (installationRootRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          installationRootRequest_ = value;
+          onChanged();
+        } else {
+          installationRootRequestBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+       */
+      public Builder setInstallationRootRequest(
+          main.Api.GetInstallationRootRequest.Builder builderForValue) {
+        if (installationRootRequestBuilder_ == null) {
+          installationRootRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          installationRootRequestBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+       */
+      public Builder mergeInstallationRootRequest(main.Api.GetInstallationRootRequest value) {
+        if (installationRootRequestBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              installationRootRequest_ != main.Api.GetInstallationRootRequest.getDefaultInstance()) {
+            installationRootRequest_ =
+              main.Api.GetInstallationRootRequest.newBuilder(installationRootRequest_).mergeFrom(value).buildPartial();
+          } else {
+            installationRootRequest_ = value;
+          }
+          onChanged();
+        } else {
+          installationRootRequestBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+       */
+      public Builder clearInstallationRootRequest() {
+        if (installationRootRequestBuilder_ == null) {
+          installationRootRequest_ = main.Api.GetInstallationRootRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          installationRootRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+       */
+      public main.Api.GetInstallationRootRequest.Builder getInstallationRootRequestBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getInstallationRootRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+       */
+      public main.Api.GetInstallationRootRequestOrBuilder getInstallationRootRequestOrBuilder() {
+        if (installationRootRequestBuilder_ != null) {
+          return installationRootRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return installationRootRequest_;
+        }
+      }
+      /**
+       * <code>optional .main.GetInstallationRootRequest installationRootRequest = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Api.GetInstallationRootRequest, main.Api.GetInstallationRootRequest.Builder, main.Api.GetInstallationRootRequestOrBuilder> 
+          getInstallationRootRequestFieldBuilder() {
+        if (installationRootRequestBuilder_ == null) {
+          installationRootRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              main.Api.GetInstallationRootRequest, main.Api.GetInstallationRootRequest.Builder, main.Api.GetInstallationRootRequestOrBuilder>(
+                  installationRootRequest_,
+                  getParentForChildren(),
+                  isClean());
+          installationRootRequest_ = null;
+        }
+        return installationRootRequestBuilder_;
+      }
+
+      // optional .main.GetInstallationRootResponse installationRootResponse = 6;
+      private main.Api.GetInstallationRootResponse installationRootResponse_ = main.Api.GetInstallationRootResponse.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Api.GetInstallationRootResponse, main.Api.GetInstallationRootResponse.Builder, main.Api.GetInstallationRootResponseOrBuilder> installationRootResponseBuilder_;
+      /**
+       * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+       */
+      public boolean hasInstallationRootResponse() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+       */
+      public main.Api.GetInstallationRootResponse getInstallationRootResponse() {
+        if (installationRootResponseBuilder_ == null) {
+          return installationRootResponse_;
+        } else {
+          return installationRootResponseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+       */
+      public Builder setInstallationRootResponse(main.Api.GetInstallationRootResponse value) {
+        if (installationRootResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          installationRootResponse_ = value;
+          onChanged();
+        } else {
+          installationRootResponseBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+       */
+      public Builder setInstallationRootResponse(
+          main.Api.GetInstallationRootResponse.Builder builderForValue) {
+        if (installationRootResponseBuilder_ == null) {
+          installationRootResponse_ = builderForValue.build();
+          onChanged();
+        } else {
+          installationRootResponseBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+       */
+      public Builder mergeInstallationRootResponse(main.Api.GetInstallationRootResponse value) {
+        if (installationRootResponseBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020) &&
+              installationRootResponse_ != main.Api.GetInstallationRootResponse.getDefaultInstance()) {
+            installationRootResponse_ =
+              main.Api.GetInstallationRootResponse.newBuilder(installationRootResponse_).mergeFrom(value).buildPartial();
+          } else {
+            installationRootResponse_ = value;
+          }
+          onChanged();
+        } else {
+          installationRootResponseBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+       */
+      public Builder clearInstallationRootResponse() {
+        if (installationRootResponseBuilder_ == null) {
+          installationRootResponse_ = main.Api.GetInstallationRootResponse.getDefaultInstance();
+          onChanged();
+        } else {
+          installationRootResponseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000020);
+        return this;
+      }
+      /**
+       * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+       */
+      public main.Api.GetInstallationRootResponse.Builder getInstallationRootResponseBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getInstallationRootResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+       */
+      public main.Api.GetInstallationRootResponseOrBuilder getInstallationRootResponseOrBuilder() {
+        if (installationRootResponseBuilder_ != null) {
+          return installationRootResponseBuilder_.getMessageOrBuilder();
+        } else {
+          return installationRootResponse_;
+        }
+      }
+      /**
+       * <code>optional .main.GetInstallationRootResponse installationRootResponse = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Api.GetInstallationRootResponse, main.Api.GetInstallationRootResponse.Builder, main.Api.GetInstallationRootResponseOrBuilder> 
+          getInstallationRootResponseFieldBuilder() {
+        if (installationRootResponseBuilder_ == null) {
+          installationRootResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              main.Api.GetInstallationRootResponse, main.Api.GetInstallationRootResponse.Builder, main.Api.GetInstallationRootResponseOrBuilder>(
+                  installationRootResponse_,
+                  getParentForChildren(),
+                  isClean());
+          installationRootResponse_ = null;
+        }
+        return installationRootResponseBuilder_;
+      }
+
+      // optional .main.GetAllStepsRequest allStepsRequest = 7;
       private main.Api.GetAllStepsRequest allStepsRequest_ = main.Api.GetAllStepsRequest.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetAllStepsRequest, main.Api.GetAllStepsRequest.Builder, main.Api.GetAllStepsRequestOrBuilder> allStepsRequestBuilder_;
       /**
-       * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+       * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
        */
       public boolean hasAllStepsRequest() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+       * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
        */
       public main.Api.GetAllStepsRequest getAllStepsRequest() {
         if (allStepsRequestBuilder_ == null) {
@@ -5845,7 +7047,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+       * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
        */
       public Builder setAllStepsRequest(main.Api.GetAllStepsRequest value) {
         if (allStepsRequestBuilder_ == null) {
@@ -5857,11 +7059,11 @@ public final class Api {
         } else {
           allStepsRequestBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
-       * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+       * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
        */
       public Builder setAllStepsRequest(
           main.Api.GetAllStepsRequest.Builder builderForValue) {
@@ -5871,15 +7073,15 @@ public final class Api {
         } else {
           allStepsRequestBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
-       * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+       * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
        */
       public Builder mergeAllStepsRequest(main.Api.GetAllStepsRequest value) {
         if (allStepsRequestBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+          if (((bitField0_ & 0x00000040) == 0x00000040) &&
               allStepsRequest_ != main.Api.GetAllStepsRequest.getDefaultInstance()) {
             allStepsRequest_ =
               main.Api.GetAllStepsRequest.newBuilder(allStepsRequest_).mergeFrom(value).buildPartial();
@@ -5890,11 +7092,11 @@ public final class Api {
         } else {
           allStepsRequestBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
-       * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+       * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
        */
       public Builder clearAllStepsRequest() {
         if (allStepsRequestBuilder_ == null) {
@@ -5903,19 +7105,19 @@ public final class Api {
         } else {
           allStepsRequestBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000040);
         return this;
       }
       /**
-       * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+       * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
        */
       public main.Api.GetAllStepsRequest.Builder getAllStepsRequestBuilder() {
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000040;
         onChanged();
         return getAllStepsRequestFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+       * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
        */
       public main.Api.GetAllStepsRequestOrBuilder getAllStepsRequestOrBuilder() {
         if (allStepsRequestBuilder_ != null) {
@@ -5925,7 +7127,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetAllStepsRequest allStepsRequest = 5;</code>
+       * <code>optional .main.GetAllStepsRequest allStepsRequest = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetAllStepsRequest, main.Api.GetAllStepsRequest.Builder, main.Api.GetAllStepsRequestOrBuilder> 
@@ -5941,18 +7143,18 @@ public final class Api {
         return allStepsRequestBuilder_;
       }
 
-      // optional .main.GetAllStepsResponse allStepsResponse = 6;
+      // optional .main.GetAllStepsResponse allStepsResponse = 8;
       private main.Api.GetAllStepsResponse allStepsResponse_ = main.Api.GetAllStepsResponse.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetAllStepsResponse, main.Api.GetAllStepsResponse.Builder, main.Api.GetAllStepsResponseOrBuilder> allStepsResponseBuilder_;
       /**
-       * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+       * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
        */
       public boolean hasAllStepsResponse() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+       * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
        */
       public main.Api.GetAllStepsResponse getAllStepsResponse() {
         if (allStepsResponseBuilder_ == null) {
@@ -5962,7 +7164,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+       * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
        */
       public Builder setAllStepsResponse(main.Api.GetAllStepsResponse value) {
         if (allStepsResponseBuilder_ == null) {
@@ -5974,11 +7176,11 @@ public final class Api {
         } else {
           allStepsResponseBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
-       * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+       * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
        */
       public Builder setAllStepsResponse(
           main.Api.GetAllStepsResponse.Builder builderForValue) {
@@ -5988,15 +7190,15 @@ public final class Api {
         } else {
           allStepsResponseBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
-       * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+       * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
        */
       public Builder mergeAllStepsResponse(main.Api.GetAllStepsResponse value) {
         if (allStepsResponseBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020) &&
+          if (((bitField0_ & 0x00000080) == 0x00000080) &&
               allStepsResponse_ != main.Api.GetAllStepsResponse.getDefaultInstance()) {
             allStepsResponse_ =
               main.Api.GetAllStepsResponse.newBuilder(allStepsResponse_).mergeFrom(value).buildPartial();
@@ -6007,11 +7209,11 @@ public final class Api {
         } else {
           allStepsResponseBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
-       * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+       * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
        */
       public Builder clearAllStepsResponse() {
         if (allStepsResponseBuilder_ == null) {
@@ -6020,19 +7222,19 @@ public final class Api {
         } else {
           allStepsResponseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
       /**
-       * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+       * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
        */
       public main.Api.GetAllStepsResponse.Builder getAllStepsResponseBuilder() {
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000080;
         onChanged();
         return getAllStepsResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+       * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
        */
       public main.Api.GetAllStepsResponseOrBuilder getAllStepsResponseOrBuilder() {
         if (allStepsResponseBuilder_ != null) {
@@ -6042,7 +7244,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetAllStepsResponse allStepsResponse = 6;</code>
+       * <code>optional .main.GetAllStepsResponse allStepsResponse = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetAllStepsResponse, main.Api.GetAllStepsResponse.Builder, main.Api.GetAllStepsResponseOrBuilder> 
@@ -6058,18 +7260,18 @@ public final class Api {
         return allStepsResponseBuilder_;
       }
 
-      // optional .main.GetAllSpecsRequest allSpecsRequest = 7;
+      // optional .main.GetAllSpecsRequest allSpecsRequest = 9;
       private main.Api.GetAllSpecsRequest allSpecsRequest_ = main.Api.GetAllSpecsRequest.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetAllSpecsRequest, main.Api.GetAllSpecsRequest.Builder, main.Api.GetAllSpecsRequestOrBuilder> allSpecsRequestBuilder_;
       /**
-       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
        */
       public boolean hasAllSpecsRequest() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
-       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
        */
       public main.Api.GetAllSpecsRequest getAllSpecsRequest() {
         if (allSpecsRequestBuilder_ == null) {
@@ -6079,7 +7281,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
        */
       public Builder setAllSpecsRequest(main.Api.GetAllSpecsRequest value) {
         if (allSpecsRequestBuilder_ == null) {
@@ -6091,11 +7293,11 @@ public final class Api {
         } else {
           allSpecsRequestBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
-       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
        */
       public Builder setAllSpecsRequest(
           main.Api.GetAllSpecsRequest.Builder builderForValue) {
@@ -6105,15 +7307,15 @@ public final class Api {
         } else {
           allSpecsRequestBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
-       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
        */
       public Builder mergeAllSpecsRequest(main.Api.GetAllSpecsRequest value) {
         if (allSpecsRequestBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) == 0x00000040) &&
+          if (((bitField0_ & 0x00000100) == 0x00000100) &&
               allSpecsRequest_ != main.Api.GetAllSpecsRequest.getDefaultInstance()) {
             allSpecsRequest_ =
               main.Api.GetAllSpecsRequest.newBuilder(allSpecsRequest_).mergeFrom(value).buildPartial();
@@ -6124,11 +7326,11 @@ public final class Api {
         } else {
           allSpecsRequestBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
-       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
        */
       public Builder clearAllSpecsRequest() {
         if (allSpecsRequestBuilder_ == null) {
@@ -6137,19 +7339,19 @@ public final class Api {
         } else {
           allSpecsRequestBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
       /**
-       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
        */
       public main.Api.GetAllSpecsRequest.Builder getAllSpecsRequestBuilder() {
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000100;
         onChanged();
         return getAllSpecsRequestFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
        */
       public main.Api.GetAllSpecsRequestOrBuilder getAllSpecsRequestOrBuilder() {
         if (allSpecsRequestBuilder_ != null) {
@@ -6159,7 +7361,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 7;</code>
+       * <code>optional .main.GetAllSpecsRequest allSpecsRequest = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetAllSpecsRequest, main.Api.GetAllSpecsRequest.Builder, main.Api.GetAllSpecsRequestOrBuilder> 
@@ -6175,18 +7377,18 @@ public final class Api {
         return allSpecsRequestBuilder_;
       }
 
-      // optional .main.GetAllSpecsResponse allSpecsResponse = 8;
+      // optional .main.GetAllSpecsResponse allSpecsResponse = 10;
       private main.Api.GetAllSpecsResponse allSpecsResponse_ = main.Api.GetAllSpecsResponse.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetAllSpecsResponse, main.Api.GetAllSpecsResponse.Builder, main.Api.GetAllSpecsResponseOrBuilder> allSpecsResponseBuilder_;
       /**
-       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
        */
       public boolean hasAllSpecsResponse() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
-       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
        */
       public main.Api.GetAllSpecsResponse getAllSpecsResponse() {
         if (allSpecsResponseBuilder_ == null) {
@@ -6196,7 +7398,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
        */
       public Builder setAllSpecsResponse(main.Api.GetAllSpecsResponse value) {
         if (allSpecsResponseBuilder_ == null) {
@@ -6208,11 +7410,11 @@ public final class Api {
         } else {
           allSpecsResponseBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
-       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
        */
       public Builder setAllSpecsResponse(
           main.Api.GetAllSpecsResponse.Builder builderForValue) {
@@ -6222,15 +7424,15 @@ public final class Api {
         } else {
           allSpecsResponseBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
-       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
        */
       public Builder mergeAllSpecsResponse(main.Api.GetAllSpecsResponse value) {
         if (allSpecsResponseBuilder_ == null) {
-          if (((bitField0_ & 0x00000080) == 0x00000080) &&
+          if (((bitField0_ & 0x00000200) == 0x00000200) &&
               allSpecsResponse_ != main.Api.GetAllSpecsResponse.getDefaultInstance()) {
             allSpecsResponse_ =
               main.Api.GetAllSpecsResponse.newBuilder(allSpecsResponse_).mergeFrom(value).buildPartial();
@@ -6241,11 +7443,11 @@ public final class Api {
         } else {
           allSpecsResponseBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
-       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
        */
       public Builder clearAllSpecsResponse() {
         if (allSpecsResponseBuilder_ == null) {
@@ -6254,19 +7456,19 @@ public final class Api {
         } else {
           allSpecsResponseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
       /**
-       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
        */
       public main.Api.GetAllSpecsResponse.Builder getAllSpecsResponseBuilder() {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000200;
         onChanged();
         return getAllSpecsResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
        */
       public main.Api.GetAllSpecsResponseOrBuilder getAllSpecsResponseOrBuilder() {
         if (allSpecsResponseBuilder_ != null) {
@@ -6276,7 +7478,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 8;</code>
+       * <code>optional .main.GetAllSpecsResponse allSpecsResponse = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetAllSpecsResponse, main.Api.GetAllSpecsResponse.Builder, main.Api.GetAllSpecsResponseOrBuilder> 
@@ -6292,18 +7494,18 @@ public final class Api {
         return allSpecsResponseBuilder_;
       }
 
-      // optional .main.GetStepValueRequest stepValueRequest = 9;
+      // optional .main.GetStepValueRequest stepValueRequest = 11;
       private main.Api.GetStepValueRequest stepValueRequest_ = main.Api.GetStepValueRequest.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetStepValueRequest, main.Api.GetStepValueRequest.Builder, main.Api.GetStepValueRequestOrBuilder> stepValueRequestBuilder_;
       /**
-       * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+       * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
        */
       public boolean hasStepValueRequest() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
-       * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+       * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
        */
       public main.Api.GetStepValueRequest getStepValueRequest() {
         if (stepValueRequestBuilder_ == null) {
@@ -6313,7 +7515,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+       * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
        */
       public Builder setStepValueRequest(main.Api.GetStepValueRequest value) {
         if (stepValueRequestBuilder_ == null) {
@@ -6325,11 +7527,11 @@ public final class Api {
         } else {
           stepValueRequestBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000400;
         return this;
       }
       /**
-       * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+       * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
        */
       public Builder setStepValueRequest(
           main.Api.GetStepValueRequest.Builder builderForValue) {
@@ -6339,15 +7541,15 @@ public final class Api {
         } else {
           stepValueRequestBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000400;
         return this;
       }
       /**
-       * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+       * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
        */
       public Builder mergeStepValueRequest(main.Api.GetStepValueRequest value) {
         if (stepValueRequestBuilder_ == null) {
-          if (((bitField0_ & 0x00000100) == 0x00000100) &&
+          if (((bitField0_ & 0x00000400) == 0x00000400) &&
               stepValueRequest_ != main.Api.GetStepValueRequest.getDefaultInstance()) {
             stepValueRequest_ =
               main.Api.GetStepValueRequest.newBuilder(stepValueRequest_).mergeFrom(value).buildPartial();
@@ -6358,11 +7560,11 @@ public final class Api {
         } else {
           stepValueRequestBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000400;
         return this;
       }
       /**
-       * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+       * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
        */
       public Builder clearStepValueRequest() {
         if (stepValueRequestBuilder_ == null) {
@@ -6371,19 +7573,19 @@ public final class Api {
         } else {
           stepValueRequestBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
       /**
-       * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+       * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
        */
       public main.Api.GetStepValueRequest.Builder getStepValueRequestBuilder() {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000400;
         onChanged();
         return getStepValueRequestFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+       * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
        */
       public main.Api.GetStepValueRequestOrBuilder getStepValueRequestOrBuilder() {
         if (stepValueRequestBuilder_ != null) {
@@ -6393,7 +7595,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetStepValueRequest stepValueRequest = 9;</code>
+       * <code>optional .main.GetStepValueRequest stepValueRequest = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetStepValueRequest, main.Api.GetStepValueRequest.Builder, main.Api.GetStepValueRequestOrBuilder> 
@@ -6409,18 +7611,18 @@ public final class Api {
         return stepValueRequestBuilder_;
       }
 
-      // optional .main.GetStepValueResponse stepValueResponse = 10;
+      // optional .main.GetStepValueResponse stepValueResponse = 12;
       private main.Api.GetStepValueResponse stepValueResponse_ = main.Api.GetStepValueResponse.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetStepValueResponse, main.Api.GetStepValueResponse.Builder, main.Api.GetStepValueResponseOrBuilder> stepValueResponseBuilder_;
       /**
-       * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+       * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
        */
       public boolean hasStepValueResponse() {
-        return ((bitField0_ & 0x00000200) == 0x00000200);
+        return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
-       * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+       * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
        */
       public main.Api.GetStepValueResponse getStepValueResponse() {
         if (stepValueResponseBuilder_ == null) {
@@ -6430,7 +7632,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+       * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
        */
       public Builder setStepValueResponse(main.Api.GetStepValueResponse value) {
         if (stepValueResponseBuilder_ == null) {
@@ -6442,11 +7644,11 @@ public final class Api {
         } else {
           stepValueResponseBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
-       * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+       * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
        */
       public Builder setStepValueResponse(
           main.Api.GetStepValueResponse.Builder builderForValue) {
@@ -6456,15 +7658,15 @@ public final class Api {
         } else {
           stepValueResponseBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
-       * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+       * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
        */
       public Builder mergeStepValueResponse(main.Api.GetStepValueResponse value) {
         if (stepValueResponseBuilder_ == null) {
-          if (((bitField0_ & 0x00000200) == 0x00000200) &&
+          if (((bitField0_ & 0x00000800) == 0x00000800) &&
               stepValueResponse_ != main.Api.GetStepValueResponse.getDefaultInstance()) {
             stepValueResponse_ =
               main.Api.GetStepValueResponse.newBuilder(stepValueResponse_).mergeFrom(value).buildPartial();
@@ -6475,11 +7677,11 @@ public final class Api {
         } else {
           stepValueResponseBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
-       * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+       * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
        */
       public Builder clearStepValueResponse() {
         if (stepValueResponseBuilder_ == null) {
@@ -6488,19 +7690,19 @@ public final class Api {
         } else {
           stepValueResponseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
       /**
-       * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+       * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
        */
       public main.Api.GetStepValueResponse.Builder getStepValueResponseBuilder() {
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000800;
         onChanged();
         return getStepValueResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+       * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
        */
       public main.Api.GetStepValueResponseOrBuilder getStepValueResponseOrBuilder() {
         if (stepValueResponseBuilder_ != null) {
@@ -6510,7 +7712,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.GetStepValueResponse stepValueResponse = 10;</code>
+       * <code>optional .main.GetStepValueResponse stepValueResponse = 12;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.GetStepValueResponse, main.Api.GetStepValueResponse.Builder, main.Api.GetStepValueResponseOrBuilder> 
@@ -6526,18 +7728,18 @@ public final class Api {
         return stepValueResponseBuilder_;
       }
 
-      // optional .main.ErrorResponse error = 11;
+      // optional .main.ErrorResponse error = 13;
       private main.Api.ErrorResponse error_ = main.Api.ErrorResponse.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.ErrorResponse, main.Api.ErrorResponse.Builder, main.Api.ErrorResponseOrBuilder> errorBuilder_;
       /**
-       * <code>optional .main.ErrorResponse error = 11;</code>
+       * <code>optional .main.ErrorResponse error = 13;</code>
        */
       public boolean hasError() {
-        return ((bitField0_ & 0x00000400) == 0x00000400);
+        return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
-       * <code>optional .main.ErrorResponse error = 11;</code>
+       * <code>optional .main.ErrorResponse error = 13;</code>
        */
       public main.Api.ErrorResponse getError() {
         if (errorBuilder_ == null) {
@@ -6547,7 +7749,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.ErrorResponse error = 11;</code>
+       * <code>optional .main.ErrorResponse error = 13;</code>
        */
       public Builder setError(main.Api.ErrorResponse value) {
         if (errorBuilder_ == null) {
@@ -6559,11 +7761,11 @@ public final class Api {
         } else {
           errorBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00001000;
         return this;
       }
       /**
-       * <code>optional .main.ErrorResponse error = 11;</code>
+       * <code>optional .main.ErrorResponse error = 13;</code>
        */
       public Builder setError(
           main.Api.ErrorResponse.Builder builderForValue) {
@@ -6573,15 +7775,15 @@ public final class Api {
         } else {
           errorBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00001000;
         return this;
       }
       /**
-       * <code>optional .main.ErrorResponse error = 11;</code>
+       * <code>optional .main.ErrorResponse error = 13;</code>
        */
       public Builder mergeError(main.Api.ErrorResponse value) {
         if (errorBuilder_ == null) {
-          if (((bitField0_ & 0x00000400) == 0x00000400) &&
+          if (((bitField0_ & 0x00001000) == 0x00001000) &&
               error_ != main.Api.ErrorResponse.getDefaultInstance()) {
             error_ =
               main.Api.ErrorResponse.newBuilder(error_).mergeFrom(value).buildPartial();
@@ -6592,11 +7794,11 @@ public final class Api {
         } else {
           errorBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00001000;
         return this;
       }
       /**
-       * <code>optional .main.ErrorResponse error = 11;</code>
+       * <code>optional .main.ErrorResponse error = 13;</code>
        */
       public Builder clearError() {
         if (errorBuilder_ == null) {
@@ -6605,19 +7807,19 @@ public final class Api {
         } else {
           errorBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00001000);
         return this;
       }
       /**
-       * <code>optional .main.ErrorResponse error = 11;</code>
+       * <code>optional .main.ErrorResponse error = 13;</code>
        */
       public main.Api.ErrorResponse.Builder getErrorBuilder() {
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00001000;
         onChanged();
         return getErrorFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .main.ErrorResponse error = 11;</code>
+       * <code>optional .main.ErrorResponse error = 13;</code>
        */
       public main.Api.ErrorResponseOrBuilder getErrorOrBuilder() {
         if (errorBuilder_ != null) {
@@ -6627,7 +7829,7 @@ public final class Api {
         }
       }
       /**
-       * <code>optional .main.ErrorResponse error = 11;</code>
+       * <code>optional .main.ErrorResponse error = 13;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           main.Api.ErrorResponse, main.Api.ErrorResponse.Builder, main.Api.ErrorResponseOrBuilder> 
@@ -6664,6 +7866,16 @@ public final class Api {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_main_GetProjectRootResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_main_GetInstallationRootRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_main_GetInstallationRootRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_main_GetInstallationRootResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_main_GetInstallationRootResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_main_GetAllStepsRequest_descriptor;
   private static
@@ -6715,34 +7927,41 @@ public final class Api {
     java.lang.String[] descriptorData = {
       "\n\tapi.proto\022\004main\032\nspec.proto\"\027\n\025GetProj" +
       "ectRootRequest\"-\n\026GetProjectRootResponse" +
-      "\022\023\n\013projectRoot\030\001 \002(\t\"\024\n\022GetAllStepsRequ" +
-      "est\"$\n\023GetAllStepsResponse\022\r\n\005steps\030\001 \003(" +
-      "\t\"\024\n\022GetAllSpecsRequest\"5\n\023GetAllSpecsRe" +
-      "sponse\022\036\n\005specs\030\001 \003(\0132\017.main.ProtoSpec\"\'" +
-      "\n\023GetStepValueRequest\022\020\n\010stepText\030\001 \002(\t\"" +
-      "=\n\024GetStepValueResponse\022\021\n\tstepValue\030\001 \002" +
-      "(\t\022\022\n\nparameters\030\002 \003(\t\"\036\n\rErrorResponse\022" +
-      "\r\n\005error\030\001 \002(\t\"\232\006\n\nAPIMessage\0224\n\013message",
-      "Type\030\001 \002(\0162\037.main.APIMessage.APIMessageT" +
-      "ype\022\021\n\tmessageId\030\002 \002(\003\0227\n\022projectRootReq" +
-      "uest\030\003 \001(\0132\033.main.GetProjectRootRequest\022" +
-      "9\n\023projectRootResponse\030\004 \001(\0132\034.main.GetP" +
-      "rojectRootResponse\0221\n\017allStepsRequest\030\005 " +
-      "\001(\0132\030.main.GetAllStepsRequest\0223\n\020allStep" +
-      "sResponse\030\006 \001(\0132\031.main.GetAllStepsRespon" +
-      "se\0221\n\017allSpecsRequest\030\007 \001(\0132\030.main.GetAl" +
-      "lSpecsRequest\0223\n\020allSpecsResponse\030\010 \001(\0132" +
-      "\031.main.GetAllSpecsResponse\0223\n\020stepValueR",
-      "equest\030\t \001(\0132\031.main.GetStepValueRequest\022" +
-      "5\n\021stepValueResponse\030\n \001(\0132\032.main.GetSte" +
-      "pValueResponse\022\"\n\005error\030\013 \001(\0132\023.main.Err" +
-      "orResponse\"\356\001\n\016APIMessageType\022\031\n\025GetProj" +
-      "ectRootRequest\020\001\022\032\n\026GetProjectRootRespon" +
-      "se\020\002\022\026\n\022GetAllStepsRequest\020\003\022\026\n\022GetAllSt" +
-      "epResponse\020\004\022\026\n\022GetAllSpecsRequest\020\005\022\027\n\023" +
-      "GetAllSpecsResponse\020\006\022\027\n\023GetStepValueReq" +
-      "uest\020\007\022\030\n\024GetStepValueResponse\020\010\022\021\n\rErro" +
-      "rResponse\020\t"
+      "\022\023\n\013projectRoot\030\001 \002(\t\"\034\n\032GetInstallation" +
+      "RootRequest\"7\n\033GetInstallationRootRespon" +
+      "se\022\030\n\020installationRoot\030\001 \002(\t\"\024\n\022GetAllSt" +
+      "epsRequest\"$\n\023GetAllStepsResponse\022\r\n\005ste" +
+      "ps\030\001 \003(\t\"\024\n\022GetAllSpecsRequest\"5\n\023GetAll" +
+      "SpecsResponse\022\036\n\005specs\030\001 \003(\0132\017.main.Prot" +
+      "oSpec\"\'\n\023GetStepValueRequest\022\020\n\010stepText" +
+      "\030\001 \002(\t\"=\n\024GetStepValueResponse\022\021\n\tstepVa",
+      "lue\030\001 \002(\t\022\022\n\nparameters\030\002 \003(\t\"\036\n\rErrorRe" +
+      "sponse\022\r\n\005error\030\001 \002(\t\"\343\007\n\nAPIMessage\0224\n\013" +
+      "messageType\030\001 \002(\0162\037.main.APIMessage.APIM" +
+      "essageType\022\021\n\tmessageId\030\002 \002(\003\0227\n\022project" +
+      "RootRequest\030\003 \001(\0132\033.main.GetProjectRootR" +
+      "equest\0229\n\023projectRootResponse\030\004 \001(\0132\034.ma" +
+      "in.GetProjectRootResponse\022A\n\027installatio" +
+      "nRootRequest\030\005 \001(\0132 .main.GetInstallatio" +
+      "nRootRequest\022C\n\030installationRootResponse" +
+      "\030\006 \001(\0132!.main.GetInstallationRootRespons",
+      "e\0221\n\017allStepsRequest\030\007 \001(\0132\030.main.GetAll" +
+      "StepsRequest\0223\n\020allStepsResponse\030\010 \001(\0132\031" +
+      ".main.GetAllStepsResponse\0221\n\017allSpecsReq" +
+      "uest\030\t \001(\0132\030.main.GetAllSpecsRequest\0223\n\020" +
+      "allSpecsResponse\030\n \001(\0132\031.main.GetAllSpec" +
+      "sResponse\0223\n\020stepValueRequest\030\013 \001(\0132\031.ma" +
+      "in.GetStepValueRequest\0225\n\021stepValueRespo" +
+      "nse\030\014 \001(\0132\032.main.GetStepValueResponse\022\"\n" +
+      "\005error\030\r \001(\0132\023.main.ErrorResponse\"\257\002\n\016AP" +
+      "IMessageType\022\031\n\025GetProjectRootRequest\020\001\022",
+      "\032\n\026GetProjectRootResponse\020\002\022\036\n\032GetInstal" +
+      "lationRootRequest\020\003\022\037\n\033GetInstallationRo" +
+      "otResponse\020\004\022\026\n\022GetAllStepsRequest\020\005\022\026\n\022" +
+      "GetAllStepResponse\020\006\022\026\n\022GetAllSpecsReque" +
+      "st\020\007\022\027\n\023GetAllSpecsResponse\020\010\022\027\n\023GetStep" +
+      "ValueRequest\020\t\022\030\n\024GetStepValueResponse\020\n" +
+      "\022\021\n\rErrorResponse\020\013"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -6761,54 +7980,66 @@ public final class Api {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetProjectRootResponse_descriptor,
               new java.lang.String[] { "ProjectRoot", });
-          internal_static_main_GetAllStepsRequest_descriptor =
+          internal_static_main_GetInstallationRootRequest_descriptor =
             getDescriptor().getMessageTypes().get(2);
+          internal_static_main_GetInstallationRootRequest_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_main_GetInstallationRootRequest_descriptor,
+              new java.lang.String[] { });
+          internal_static_main_GetInstallationRootResponse_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_main_GetInstallationRootResponse_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_main_GetInstallationRootResponse_descriptor,
+              new java.lang.String[] { "InstallationRoot", });
+          internal_static_main_GetAllStepsRequest_descriptor =
+            getDescriptor().getMessageTypes().get(4);
           internal_static_main_GetAllStepsRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetAllStepsRequest_descriptor,
               new java.lang.String[] { });
           internal_static_main_GetAllStepsResponse_descriptor =
-            getDescriptor().getMessageTypes().get(3);
+            getDescriptor().getMessageTypes().get(5);
           internal_static_main_GetAllStepsResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetAllStepsResponse_descriptor,
               new java.lang.String[] { "Steps", });
           internal_static_main_GetAllSpecsRequest_descriptor =
-            getDescriptor().getMessageTypes().get(4);
+            getDescriptor().getMessageTypes().get(6);
           internal_static_main_GetAllSpecsRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetAllSpecsRequest_descriptor,
               new java.lang.String[] { });
           internal_static_main_GetAllSpecsResponse_descriptor =
-            getDescriptor().getMessageTypes().get(5);
+            getDescriptor().getMessageTypes().get(7);
           internal_static_main_GetAllSpecsResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetAllSpecsResponse_descriptor,
               new java.lang.String[] { "Specs", });
           internal_static_main_GetStepValueRequest_descriptor =
-            getDescriptor().getMessageTypes().get(6);
+            getDescriptor().getMessageTypes().get(8);
           internal_static_main_GetStepValueRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetStepValueRequest_descriptor,
               new java.lang.String[] { "StepText", });
           internal_static_main_GetStepValueResponse_descriptor =
-            getDescriptor().getMessageTypes().get(7);
+            getDescriptor().getMessageTypes().get(9);
           internal_static_main_GetStepValueResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetStepValueResponse_descriptor,
               new java.lang.String[] { "StepValue", "Parameters", });
           internal_static_main_ErrorResponse_descriptor =
-            getDescriptor().getMessageTypes().get(8);
+            getDescriptor().getMessageTypes().get(10);
           internal_static_main_ErrorResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ErrorResponse_descriptor,
               new java.lang.String[] { "Error", });
           internal_static_main_APIMessage_descriptor =
-            getDescriptor().getMessageTypes().get(9);
+            getDescriptor().getMessageTypes().get(11);
           internal_static_main_APIMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_APIMessage_descriptor,
-              new java.lang.String[] { "MessageType", "MessageId", "ProjectRootRequest", "ProjectRootResponse", "AllStepsRequest", "AllStepsResponse", "AllSpecsRequest", "AllSpecsResponse", "StepValueRequest", "StepValueResponse", "Error", });
+              new java.lang.String[] { "MessageType", "MessageId", "ProjectRootRequest", "ProjectRootResponse", "InstallationRootRequest", "InstallationRootResponse", "AllStepsRequest", "AllStepsResponse", "AllSpecsRequest", "AllSpecsResponse", "StepValueRequest", "StepValueResponse", "Error", });
           return null;
         }
       };
