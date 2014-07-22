@@ -3402,6 +3402,16 @@ public final class Api {
      */
     com.google.protobuf.ByteString
         getStepTextBytes();
+
+    // optional bool hasInlineTable = 2;
+    /**
+     * <code>optional bool hasInlineTable = 2;</code>
+     */
+    boolean hasHasInlineTable();
+    /**
+     * <code>optional bool hasInlineTable = 2;</code>
+     */
+    boolean getHasInlineTable();
   }
   /**
    * Protobuf type {@code main.GetStepValueRequest}
@@ -3457,6 +3467,11 @@ public final class Api {
             case 10: {
               bitField0_ |= 0x00000001;
               stepText_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              hasInlineTable_ = input.readBool();
               break;
             }
           }
@@ -3542,8 +3557,25 @@ public final class Api {
       }
     }
 
+    // optional bool hasInlineTable = 2;
+    public static final int HASINLINETABLE_FIELD_NUMBER = 2;
+    private boolean hasInlineTable_;
+    /**
+     * <code>optional bool hasInlineTable = 2;</code>
+     */
+    public boolean hasHasInlineTable() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional bool hasInlineTable = 2;</code>
+     */
+    public boolean getHasInlineTable() {
+      return hasInlineTable_;
+    }
+
     private void initFields() {
       stepText_ = "";
+      hasInlineTable_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3564,6 +3596,9 @@ public final class Api {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getStepTextBytes());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(2, hasInlineTable_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -3576,6 +3611,10 @@ public final class Api {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, getStepTextBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, hasInlineTable_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3695,6 +3734,8 @@ public final class Api {
         super.clear();
         stepText_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        hasInlineTable_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -3727,6 +3768,10 @@ public final class Api {
           to_bitField0_ |= 0x00000001;
         }
         result.stepText_ = stepText_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.hasInlineTable_ = hasInlineTable_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -3747,6 +3792,9 @@ public final class Api {
           bitField0_ |= 0x00000001;
           stepText_ = other.stepText_;
           onChanged();
+        }
+        if (other.hasHasInlineTable()) {
+          setHasInlineTable(other.getHasInlineTable());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -3853,6 +3901,39 @@ public final class Api {
         return this;
       }
 
+      // optional bool hasInlineTable = 2;
+      private boolean hasInlineTable_ ;
+      /**
+       * <code>optional bool hasInlineTable = 2;</code>
+       */
+      public boolean hasHasInlineTable() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional bool hasInlineTable = 2;</code>
+       */
+      public boolean getHasInlineTable() {
+        return hasInlineTable_;
+      }
+      /**
+       * <code>optional bool hasInlineTable = 2;</code>
+       */
+      public Builder setHasInlineTable(boolean value) {
+        bitField0_ |= 0x00000002;
+        hasInlineTable_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool hasInlineTable = 2;</code>
+       */
+      public Builder clearHasInlineTable() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        hasInlineTable_ = false;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:main.GetStepValueRequest)
     }
 
@@ -3882,22 +3963,37 @@ public final class Api {
     com.google.protobuf.ByteString
         getStepValueBytes();
 
-    // repeated string parameters = 2;
+    // required string parameterizedStepValue = 2;
     /**
-     * <code>repeated string parameters = 2;</code>
+     * <code>required string parameterizedStepValue = 2;</code>
+     */
+    boolean hasParameterizedStepValue();
+    /**
+     * <code>required string parameterizedStepValue = 2;</code>
+     */
+    java.lang.String getParameterizedStepValue();
+    /**
+     * <code>required string parameterizedStepValue = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getParameterizedStepValueBytes();
+
+    // repeated string parameters = 3;
+    /**
+     * <code>repeated string parameters = 3;</code>
      */
     java.util.List<java.lang.String>
     getParametersList();
     /**
-     * <code>repeated string parameters = 2;</code>
+     * <code>repeated string parameters = 3;</code>
      */
     int getParametersCount();
     /**
-     * <code>repeated string parameters = 2;</code>
+     * <code>repeated string parameters = 3;</code>
      */
     java.lang.String getParameters(int index);
     /**
-     * <code>repeated string parameters = 2;</code>
+     * <code>repeated string parameters = 3;</code>
      */
     com.google.protobuf.ByteString
         getParametersBytes(int index);
@@ -3959,9 +4055,14 @@ public final class Api {
               break;
             }
             case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              bitField0_ |= 0x00000002;
+              parameterizedStepValue_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 parameters_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000004;
               }
               parameters_.add(input.readBytes());
               break;
@@ -3974,7 +4075,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           parameters_ = new com.google.protobuf.UnmodifiableLazyStringList(parameters_);
         }
         this.unknownFields = unknownFields.build();
@@ -4052,30 +4153,73 @@ public final class Api {
       }
     }
 
-    // repeated string parameters = 2;
-    public static final int PARAMETERS_FIELD_NUMBER = 2;
+    // required string parameterizedStepValue = 2;
+    public static final int PARAMETERIZEDSTEPVALUE_FIELD_NUMBER = 2;
+    private java.lang.Object parameterizedStepValue_;
+    /**
+     * <code>required string parameterizedStepValue = 2;</code>
+     */
+    public boolean hasParameterizedStepValue() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string parameterizedStepValue = 2;</code>
+     */
+    public java.lang.String getParameterizedStepValue() {
+      java.lang.Object ref = parameterizedStepValue_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          parameterizedStepValue_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string parameterizedStepValue = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getParameterizedStepValueBytes() {
+      java.lang.Object ref = parameterizedStepValue_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        parameterizedStepValue_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // repeated string parameters = 3;
+    public static final int PARAMETERS_FIELD_NUMBER = 3;
     private com.google.protobuf.LazyStringList parameters_;
     /**
-     * <code>repeated string parameters = 2;</code>
+     * <code>repeated string parameters = 3;</code>
      */
     public java.util.List<java.lang.String>
         getParametersList() {
       return parameters_;
     }
     /**
-     * <code>repeated string parameters = 2;</code>
+     * <code>repeated string parameters = 3;</code>
      */
     public int getParametersCount() {
       return parameters_.size();
     }
     /**
-     * <code>repeated string parameters = 2;</code>
+     * <code>repeated string parameters = 3;</code>
      */
     public java.lang.String getParameters(int index) {
       return parameters_.get(index);
     }
     /**
-     * <code>repeated string parameters = 2;</code>
+     * <code>repeated string parameters = 3;</code>
      */
     public com.google.protobuf.ByteString
         getParametersBytes(int index) {
@@ -4084,6 +4228,7 @@ public final class Api {
 
     private void initFields() {
       stepValue_ = "";
+      parameterizedStepValue_ = "";
       parameters_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
@@ -4092,6 +4237,10 @@ public final class Api {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasStepValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasParameterizedStepValue()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -4105,8 +4254,11 @@ public final class Api {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBytes(1, getStepValueBytes());
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getParameterizedStepValueBytes());
+      }
       for (int i = 0; i < parameters_.size(); i++) {
-        output.writeBytes(2, parameters_.getByteString(i));
+        output.writeBytes(3, parameters_.getByteString(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -4120,6 +4272,10 @@ public final class Api {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, getStepValueBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getParameterizedStepValueBytes());
       }
       {
         int dataSize = 0;
@@ -4248,8 +4404,10 @@ public final class Api {
         super.clear();
         stepValue_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        parameters_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        parameterizedStepValue_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        parameters_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -4282,10 +4440,14 @@ public final class Api {
           to_bitField0_ |= 0x00000001;
         }
         result.stepValue_ = stepValue_;
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.parameterizedStepValue_ = parameterizedStepValue_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
           parameters_ = new com.google.protobuf.UnmodifiableLazyStringList(
               parameters_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.parameters_ = parameters_;
         result.bitField0_ = to_bitField0_;
@@ -4309,10 +4471,15 @@ public final class Api {
           stepValue_ = other.stepValue_;
           onChanged();
         }
+        if (other.hasParameterizedStepValue()) {
+          bitField0_ |= 0x00000002;
+          parameterizedStepValue_ = other.parameterizedStepValue_;
+          onChanged();
+        }
         if (!other.parameters_.isEmpty()) {
           if (parameters_.isEmpty()) {
             parameters_ = other.parameters_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureParametersIsMutable();
             parameters_.addAll(other.parameters_);
@@ -4325,6 +4492,10 @@ public final class Api {
 
       public final boolean isInitialized() {
         if (!hasStepValue()) {
+          
+          return false;
+        }
+        if (!hasParameterizedStepValue()) {
           
           return false;
         }
@@ -4424,42 +4595,116 @@ public final class Api {
         return this;
       }
 
-      // repeated string parameters = 2;
+      // required string parameterizedStepValue = 2;
+      private java.lang.Object parameterizedStepValue_ = "";
+      /**
+       * <code>required string parameterizedStepValue = 2;</code>
+       */
+      public boolean hasParameterizedStepValue() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string parameterizedStepValue = 2;</code>
+       */
+      public java.lang.String getParameterizedStepValue() {
+        java.lang.Object ref = parameterizedStepValue_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          parameterizedStepValue_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string parameterizedStepValue = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getParameterizedStepValueBytes() {
+        java.lang.Object ref = parameterizedStepValue_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          parameterizedStepValue_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string parameterizedStepValue = 2;</code>
+       */
+      public Builder setParameterizedStepValue(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        parameterizedStepValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string parameterizedStepValue = 2;</code>
+       */
+      public Builder clearParameterizedStepValue() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        parameterizedStepValue_ = getDefaultInstance().getParameterizedStepValue();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string parameterizedStepValue = 2;</code>
+       */
+      public Builder setParameterizedStepValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        parameterizedStepValue_ = value;
+        onChanged();
+        return this;
+      }
+
+      // repeated string parameters = 3;
       private com.google.protobuf.LazyStringList parameters_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureParametersIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           parameters_ = new com.google.protobuf.LazyStringArrayList(parameters_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
-       * <code>repeated string parameters = 2;</code>
+       * <code>repeated string parameters = 3;</code>
        */
       public java.util.List<java.lang.String>
           getParametersList() {
         return java.util.Collections.unmodifiableList(parameters_);
       }
       /**
-       * <code>repeated string parameters = 2;</code>
+       * <code>repeated string parameters = 3;</code>
        */
       public int getParametersCount() {
         return parameters_.size();
       }
       /**
-       * <code>repeated string parameters = 2;</code>
+       * <code>repeated string parameters = 3;</code>
        */
       public java.lang.String getParameters(int index) {
         return parameters_.get(index);
       }
       /**
-       * <code>repeated string parameters = 2;</code>
+       * <code>repeated string parameters = 3;</code>
        */
       public com.google.protobuf.ByteString
           getParametersBytes(int index) {
         return parameters_.getByteString(index);
       }
       /**
-       * <code>repeated string parameters = 2;</code>
+       * <code>repeated string parameters = 3;</code>
        */
       public Builder setParameters(
           int index, java.lang.String value) {
@@ -4472,7 +4717,7 @@ public final class Api {
         return this;
       }
       /**
-       * <code>repeated string parameters = 2;</code>
+       * <code>repeated string parameters = 3;</code>
        */
       public Builder addParameters(
           java.lang.String value) {
@@ -4485,7 +4730,7 @@ public final class Api {
         return this;
       }
       /**
-       * <code>repeated string parameters = 2;</code>
+       * <code>repeated string parameters = 3;</code>
        */
       public Builder addAllParameters(
           java.lang.Iterable<java.lang.String> values) {
@@ -4495,16 +4740,16 @@ public final class Api {
         return this;
       }
       /**
-       * <code>repeated string parameters = 2;</code>
+       * <code>repeated string parameters = 3;</code>
        */
       public Builder clearParameters() {
         parameters_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string parameters = 2;</code>
+       * <code>repeated string parameters = 3;</code>
        */
       public Builder addParametersBytes(
           com.google.protobuf.ByteString value) {
@@ -7933,35 +8178,36 @@ public final class Api {
       "epsRequest\"$\n\023GetAllStepsResponse\022\r\n\005ste" +
       "ps\030\001 \003(\t\"\024\n\022GetAllSpecsRequest\"5\n\023GetAll" +
       "SpecsResponse\022\036\n\005specs\030\001 \003(\0132\017.main.Prot" +
-      "oSpec\"\'\n\023GetStepValueRequest\022\020\n\010stepText" +
-      "\030\001 \002(\t\"=\n\024GetStepValueResponse\022\021\n\tstepVa",
-      "lue\030\001 \002(\t\022\022\n\nparameters\030\002 \003(\t\"\036\n\rErrorRe" +
-      "sponse\022\r\n\005error\030\001 \002(\t\"\343\007\n\nAPIMessage\0224\n\013" +
-      "messageType\030\001 \002(\0162\037.main.APIMessage.APIM" +
-      "essageType\022\021\n\tmessageId\030\002 \002(\003\0227\n\022project" +
-      "RootRequest\030\003 \001(\0132\033.main.GetProjectRootR" +
-      "equest\0229\n\023projectRootResponse\030\004 \001(\0132\034.ma" +
-      "in.GetProjectRootResponse\022A\n\027installatio" +
-      "nRootRequest\030\005 \001(\0132 .main.GetInstallatio" +
-      "nRootRequest\022C\n\030installationRootResponse" +
-      "\030\006 \001(\0132!.main.GetInstallationRootRespons",
-      "e\0221\n\017allStepsRequest\030\007 \001(\0132\030.main.GetAll" +
-      "StepsRequest\0223\n\020allStepsResponse\030\010 \001(\0132\031" +
-      ".main.GetAllStepsResponse\0221\n\017allSpecsReq" +
-      "uest\030\t \001(\0132\030.main.GetAllSpecsRequest\0223\n\020" +
-      "allSpecsResponse\030\n \001(\0132\031.main.GetAllSpec" +
-      "sResponse\0223\n\020stepValueRequest\030\013 \001(\0132\031.ma" +
-      "in.GetStepValueRequest\0225\n\021stepValueRespo" +
-      "nse\030\014 \001(\0132\032.main.GetStepValueResponse\022\"\n" +
-      "\005error\030\r \001(\0132\023.main.ErrorResponse\"\257\002\n\016AP" +
-      "IMessageType\022\031\n\025GetProjectRootRequest\020\001\022",
-      "\032\n\026GetProjectRootResponse\020\002\022\036\n\032GetInstal" +
-      "lationRootRequest\020\003\022\037\n\033GetInstallationRo" +
-      "otResponse\020\004\022\026\n\022GetAllStepsRequest\020\005\022\026\n\022" +
-      "GetAllStepResponse\020\006\022\026\n\022GetAllSpecsReque" +
-      "st\020\007\022\027\n\023GetAllSpecsResponse\020\010\022\027\n\023GetStep" +
-      "ValueRequest\020\t\022\030\n\024GetStepValueResponse\020\n" +
-      "\022\021\n\rErrorResponse\020\013"
+      "oSpec\"?\n\023GetStepValueRequest\022\020\n\010stepText" +
+      "\030\001 \002(\t\022\026\n\016hasInlineTable\030\002 \001(\010\"]\n\024GetSte",
+      "pValueResponse\022\021\n\tstepValue\030\001 \002(\t\022\036\n\026par" +
+      "ameterizedStepValue\030\002 \002(\t\022\022\n\nparameters\030" +
+      "\003 \003(\t\"\036\n\rErrorResponse\022\r\n\005error\030\001 \002(\t\"\343\007" +
+      "\n\nAPIMessage\0224\n\013messageType\030\001 \002(\0162\037.main" +
+      ".APIMessage.APIMessageType\022\021\n\tmessageId\030" +
+      "\002 \002(\003\0227\n\022projectRootRequest\030\003 \001(\0132\033.main" +
+      ".GetProjectRootRequest\0229\n\023projectRootRes" +
+      "ponse\030\004 \001(\0132\034.main.GetProjectRootRespons" +
+      "e\022A\n\027installationRootRequest\030\005 \001(\0132 .mai" +
+      "n.GetInstallationRootRequest\022C\n\030installa",
+      "tionRootResponse\030\006 \001(\0132!.main.GetInstall" +
+      "ationRootResponse\0221\n\017allStepsRequest\030\007 \001" +
+      "(\0132\030.main.GetAllStepsRequest\0223\n\020allSteps" +
+      "Response\030\010 \001(\0132\031.main.GetAllStepsRespons" +
+      "e\0221\n\017allSpecsRequest\030\t \001(\0132\030.main.GetAll" +
+      "SpecsRequest\0223\n\020allSpecsResponse\030\n \001(\0132\031" +
+      ".main.GetAllSpecsResponse\0223\n\020stepValueRe" +
+      "quest\030\013 \001(\0132\031.main.GetStepValueRequest\0225" +
+      "\n\021stepValueResponse\030\014 \001(\0132\032.main.GetStep" +
+      "ValueResponse\022\"\n\005error\030\r \001(\0132\023.main.Erro",
+      "rResponse\"\257\002\n\016APIMessageType\022\031\n\025GetProje" +
+      "ctRootRequest\020\001\022\032\n\026GetProjectRootRespons" +
+      "e\020\002\022\036\n\032GetInstallationRootRequest\020\003\022\037\n\033G" +
+      "etInstallationRootResponse\020\004\022\026\n\022GetAllSt" +
+      "epsRequest\020\005\022\026\n\022GetAllStepResponse\020\006\022\026\n\022" +
+      "GetAllSpecsRequest\020\007\022\027\n\023GetAllSpecsRespo" +
+      "nse\020\010\022\027\n\023GetStepValueRequest\020\t\022\030\n\024GetSte" +
+      "pValueResponse\020\n\022\021\n\rErrorResponse\020\013"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -8021,13 +8267,13 @@ public final class Api {
           internal_static_main_GetStepValueRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetStepValueRequest_descriptor,
-              new java.lang.String[] { "StepText", });
+              new java.lang.String[] { "StepText", "HasInlineTable", });
           internal_static_main_GetStepValueResponse_descriptor =
             getDescriptor().getMessageTypes().get(9);
           internal_static_main_GetStepValueResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetStepValueResponse_descriptor,
-              new java.lang.String[] { "StepValue", "Parameters", });
+              new java.lang.String[] { "StepValue", "ParameterizedStepValue", "Parameters", });
           internal_static_main_ErrorResponse_descriptor =
             getDescriptor().getMessageTypes().get(10);
           internal_static_main_ErrorResponse_fieldAccessorTable = new
