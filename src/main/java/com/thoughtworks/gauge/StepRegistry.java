@@ -9,9 +9,11 @@ import java.util.Map;
 public class StepRegistry {
 
     private static Map<String, Method> stepTextToMethodMap = new HashMap<String, Method>();
+    private static Map<String, StepValue> stepTextToStepValue = new HashMap<String, StepValue>();
 
-    public static void addStepImplementation(String stepText, Method method) {
-        stepTextToMethodMap.put(stepText, method);
+    public static void addStepImplementation(StepValue stepValue, Method method) {
+        stepTextToMethodMap.put(stepValue.getStepText(), method);
+        stepTextToStepValue.put(stepValue.getStepText(), stepValue);
     }
 
     public static boolean contains(String stepText) {
@@ -23,6 +25,10 @@ public class StepRegistry {
     }
 
     public static List<String> getAllStepTexts() {
-        return new ArrayList<String>(stepTextToMethodMap.keySet());
+        List<String> stepTexts = new ArrayList<String>();
+        for (StepValue stepValue : stepTextToStepValue.values()) {
+            stepTexts.add(stepValue.getStepAnnotationText());
+        }
+        return stepTexts;
     }
 }

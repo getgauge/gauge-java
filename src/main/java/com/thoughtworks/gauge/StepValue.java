@@ -29,7 +29,4 @@ public class StepValue {
         return parameterizedStepText;
     }
 
-    public String getMethodName() {
-        return null;
-    }
 }
