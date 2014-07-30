@@ -1,5 +1,7 @@
 {
-	"name": "Java support for gauge",
+    "id" : "java",
+	"version" : "0.0.2",
+    "description": "Java support for gauge",
 	"run": {
 		"windows": "gauge-java --start",
 		"linux": "gauge-java --start",
