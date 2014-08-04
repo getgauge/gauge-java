@@ -71,10 +71,11 @@ public class GaugeRuntime {
         }
     }
 
-    private static Socket connect() {
-        String gaugePort = System.getenv("GAUGE_INTERNAL_PORT");
+    private static Socket connect(String portEnvVariable) {
+        String gaugePort = System.getenv(portEnvVariable);
+
         if (gaugePort == null || gaugePort.equalsIgnoreCase("")) {
-            throw new RuntimeException("GAUGE_INTERNAL_PORT not set");
+            throw new RuntimeException(portEnvVariable + " not set");
         }
         int port = Integer.parseInt(gaugePort);
         Socket clientSocket;
@@ -90,6 +91,10 @@ public class GaugeRuntime {
     }
 
     public static void main(String[] args) throws Exception {
+        Socket gaugeSocket = connect(GaugeConstant.GAUGE_INTERNAL_PORT);
+        Socket apiSocket = connect(GaugeConstant.GAUGE_API_PORT);
+        final GaugeConnection gaugeApiConnection = new GaugeConnection(apiSocket);
+
         HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors = new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor());
             put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor());
@@ -105,10 +110,9 @@ public class GaugeRuntime {
             put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor());
         }};
 
-        scanForStepImplementations();
+        scanForStepImplementations(gaugeApiConnection);
 
-        Socket socket = connect();
-        dispatchMessages(socket, messageProcessors);
+        dispatchMessages(gaugeSocket, messageProcessors);
     }
 
     private static void scanForHooks(Reflections reflections) {
@@ -122,32 +126,22 @@ public class GaugeRuntime {
         HooksRegistry.setAfterStepHooks(reflections.getMethodsAnnotatedWith(AfterStep.class));
     }
 
-    private static void scanForStepImplementations() {
+    private static void scanForStepImplementations(GaugeConnection gaugeApiConnection) {
         Configuration config = new ConfigurationBuilder()
                 .setScanners(new MethodAnnotationsScanner())
                 .addUrls(ClasspathHelper.forJavaClassPath());
         Reflections reflections = new Reflections(config);
         Set<Method> stepImplementations = reflections.getMethodsAnnotatedWith(Step.class);
-        StepValueExtractor stepValueExtractor = new StepValueExtractor();
         for (Method method : stepImplementations) {
             Step annotation = method.getAnnotation(Step.class);
             if (annotation != null) {
                 for (String stepName : annotation.value()) {
-                    StepValueExtractor.StepValue stepValue = stepValueExtractor.getValue(stepName);
-                    StepRegistry.addStepImplementation(stepValue.getValue(), method);
+                    StepValue stepValue = gaugeApiConnection.getStepValue(stepName);
+                    StepRegistry.addStepImplementation(stepValue, method);
                 }
             }
         }
         scanForHooks(reflections);
     }
 
-    static class MessageLength {
-        public long length;
-        public CodedInputStream remainingStream;
-
-        public MessageLength(long length, CodedInputStream remainingStream) {
-            this.length = length;
-            this.remainingStream = remainingStream;
-        }
-    }
 }
