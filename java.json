@@ -3,13 +3,13 @@
 	"version" : "0.0.2",
     "description": "Java support for gauge",
 	"run": {
-		"windows": "gauge-java --start",
-		"linux": "gauge-java --start",
-		"darwin": "gauge-java --start"
+		"windows": "bin/gauge-java --start",
+		"linux": "bin/gauge-java --start",
+		"darwin": "bin/gauge-java --start"
 	},
 	"init": {
-        "windows": "gauge-java --init",
-        "linux": "gauge-java --init",
-        "darwin": "gauge-java --init"
+        "windows": "bin/gauge-java --init",
+        "linux": "bin/gauge-java --init",
+        "darwin": "bin/gauge-java --init"
     }
 }

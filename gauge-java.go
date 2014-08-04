@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/getgauge/common"
 	"flag"
 	"fmt"
+	"github.com/getgauge/common"
 	"os"
 	"os/exec"
 	"path"
@@ -20,6 +20,8 @@ const (
 	default_build_dir         = "gauge_bin"
 	main_class_name           = "com.thoughtworks.gauge.GaugeRuntime"
 	step_implementation_class = "StepImplementation.java"
+	skelDir                   = "skel"
+	envDir                    = "env"
 )
 
 func appendClasspath(source *string, classpath string) {
@@ -34,6 +36,7 @@ func appendClasspath(source *string, classpath string) {
 	}
 }
 
+var pluginDir = ""
 var projectRoot = ""
 var start = flag.Bool("start", false, "Start the java runner")
 var initialize = flag.Bool("init", false, "Initialize the java runner")
@@ -131,42 +134,34 @@ func createStepImplementationClass() {
 	if common.FileExists(destFile) {
 		showMessage("skip", destFile)
 	} else {
-		srcFile, err := common.GetSkeletonFilePath(path.Join("java", step_implementation_class))
-		if err != nil {
-			showMessage("error", fmt.Sprintf("Failed to find %s. %s", step_implementation_class, err.Error()))
+		srcFile := path.Join(pluginDir, skelDir, step_implementation_class)
+		if !common.FileExists(srcFile) {
+			showMessage("error", fmt.Sprintf("%s Does not exist.\n", step_implementation_class))
 			return
 		}
-		err = common.CopyFile(srcFile, destFile)
+		err := common.CopyFile(srcFile, destFile)
 		if err != nil {
-			showMessage("error", fmt.Sprintf("Failed to copy %s. %s", srcFile, err.Error()))
+			showMessage("error", fmt.Sprintf("Failed to copy %s. %s \n", srcFile, err.Error()))
 		}
 	}
 }
 
 func createJavaPropertiesFile() {
-	destFile := path.Join("env", "default", "java.properties")
+	destFile := path.Join(envDir, "default", "java.properties")
 	showMessage("create", destFile)
 	if common.FileExists(destFile) {
 		showMessage("skip", destFile)
 	} else {
-		srcFile, err := common.GetSkeletonFilePath(path.Join("env", "java.properties"))
-		if err != nil {
-			showMessage("error", fmt.Sprintf("Failed to find env/java.properties. %s", err.Error()))
+		srcFile := path.Join(pluginDir, skelDir, envDir, "java.properties")
+		if !common.FileExists(srcFile) {
+			showMessage("error", fmt.Sprintf("java.properties does not exist at %s. \n", srcFile))
 			return
 		}
-		err = common.CopyFile(srcFile, destFile)
+		err := common.CopyFile(srcFile, destFile)
 		if err != nil {
-			showMessage("error", fmt.Sprintf("Failed to copy %s. %s", srcFile, err.Error()))
+			showMessage("error", fmt.Sprintf("Failed to copy %s. %s \n", srcFile, err.Error()))
 		}
 	}
-}
-
-func getInstallationPath() (string, error) {
-	libsPath, err := common.GetLibsPath()
-	if (err != nil) {
-		return "", err
-	}
-	return path.Join(libsPath, "java"), nil
 }
 
 func printUsage() {
@@ -195,16 +190,23 @@ func runCommand(cmdName string, args []string) {
 
 func main() {
 	flag.Parse()
+	var err error
+	pluginDir, err = os.Getwd()
+	if err != nil {
+		fmt.Printf("Failed to find current working directory: %s \n", err)
+		os.Exit(1)
+	}
+	projectRoot = os.Getenv("gauge_project_root")
+	if projectRoot == "" {
+		fmt.Println("Could not find gauge_project_root env. Java Runner exiting...")
+		os.Exit(1)
+	}
+
 	if *start {
-		os.Chdir(getProjectRoot())
+		os.Chdir(projectRoot)
 		cp := ""
-		javaInstallationPath,err := getInstallationPath()
-		if err != nil {
-			fmt.Println("Could not get installation directory, exiting...")
-			os.Exit(1)
-		}
-		appendClasspath(&cp, path.Join(javaInstallationPath, "*"))
-		appendClasspath(&cp, path.Join(javaInstallationPath, "libs", "*"))
+		appendClasspath(&cp, path.Join(pluginDir, "*"))
+		appendClasspath(&cp, path.Join(pluginDir, "libs", "*"))
 
 		additionalLibs := getClassPathForVariable(additional_libs_env_name)
 		appendClasspath(&cp, additionalLibs)
@@ -235,6 +237,7 @@ func main() {
 		args = append(args, main_class_name)
 		runCommand(javaPath, args)
 	} else if *initialize {
+		os.Chdir(projectRoot)
 		funcs := []initializerFunc{createSrcDirectory, createLibsDirectory, createStepImplementationClass, createJavaPropertiesFile}
 		for _, f := range funcs {
 			f()
