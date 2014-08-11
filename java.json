@@ -11,5 +11,6 @@
         "windows": "bin/gauge-java --init",
         "linux": "bin/gauge-java --init",
         "darwin": "bin/gauge-java --init"
-    }
+    },
+    "lib": "libs"
 }

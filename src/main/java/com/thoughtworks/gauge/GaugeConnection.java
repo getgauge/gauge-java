@@ -57,6 +57,12 @@ public class GaugeConnection {
         return steps;
     }
 
+    public String getLibPath(String language) throws IOException {
+        Api.APIMessage message = getLibPathRequest(language);
+        Api.APIMessage response = getAPIResponse(message);
+        return response.getLibPathResponse().getPath();
+    }
+
     private Api.APIMessage getAPIResponse(Api.APIMessage message) throws IOException {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         CodedOutputStream cos = CodedOutputStream.newInstance(stream);
@@ -131,8 +137,17 @@ public class GaugeConnection {
         Api.GetStepValueRequest stepValueRequest = Api.GetStepValueRequest.newBuilder().setStepText(stepText).setHasInlineTable(hasInlineTable).build();
         return Api.APIMessage.newBuilder()
                 .setMessageType(Api.APIMessage.APIMessageType.GetStepValueRequest)
-                .setMessageId(3)
+                .setMessageId(4)
                 .setStepValueRequest(stepValueRequest)
+                .build();
+    }
+
+    private Api.APIMessage getLibPathRequest(String language) {
+        Api.GetLanguagePluginLibPathRequest libPathRequest = Api.GetLanguagePluginLibPathRequest.newBuilder().setLanguage(language).build();
+        return Api.APIMessage.newBuilder()
+                .setMessageType(Api.APIMessage.APIMessageType.GetLanguagePluginLibPathRequest)
+                .setMessageId(5)
+                .setLibPathRequest(libPathRequest)
                 .build();
     }
 
