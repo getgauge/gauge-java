@@ -13,7 +13,6 @@ public class StepImplementation {
 
     @Step("Step that takes a table <table>")
     public void stepWithTable(Table table) {
-        System.out.println("inside java");
         for (String columns : table.getColumnNames()) {
             System.out.println(columns);
         }
