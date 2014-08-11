@@ -273,7 +273,7 @@ func build(destination string, classpath string) {
 	os.Mkdir(destination, 0755)
 	args := []string{"-encoding", "UTF-8", "-d", destination, "-cp", classpath}
 	javaFiles := make([]string, 0)
-	srcDir := path.Join("src", "test", "java")
+	srcDir := path.Join("src")
 	filepath.Walk(srcDir, func(currentPath string, info os.FileInfo, err error) error {
 		if strings.Contains(currentPath, ".java") {
 			javaFiles = append(javaFiles, currentPath)
