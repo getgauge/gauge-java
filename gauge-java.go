@@ -90,6 +90,7 @@ func getClassPathForVariable(envVariableName string) string {
 	if len(value) > 0 {
 		paths := strings.Split(value, ",")
 		for _, p := range paths {
+			p = strings.TrimSpace(p)
 			abs, err := filepath.Abs(p)
 			if err == nil {
 				appendClasspath(&cp, abs)
@@ -174,7 +175,7 @@ func runCommand(cmdName string, args []string) {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	//TODO: move to logs
-	//fmt.Println(cmd.Args)
+	/*fmt.Println(cmd.Args)*/
 	var err error
 	err = cmd.Start()
 	if err != nil {
