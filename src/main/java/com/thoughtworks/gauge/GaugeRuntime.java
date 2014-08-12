@@ -107,6 +107,9 @@ public class GaugeRuntime {
             put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor());
             put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor());
             put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor());
+            put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer());
+            put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer());
+            put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer());
             put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor());
         }};
 

@@ -11922,6 +11922,933 @@ public final class Messages {
     // @@protoc_insertion_point(class_scope:main.StepNamesResponse)
   }
 
+  public interface ScenarioDataStoreInitRequestOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code main.ScenarioDataStoreInitRequest}
+   */
+  public static final class ScenarioDataStoreInitRequest extends
+      com.google.protobuf.GeneratedMessage
+      implements ScenarioDataStoreInitRequestOrBuilder {
+    // Use ScenarioDataStoreInitRequest.newBuilder() to construct.
+    private ScenarioDataStoreInitRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ScenarioDataStoreInitRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ScenarioDataStoreInitRequest defaultInstance;
+    public static ScenarioDataStoreInitRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ScenarioDataStoreInitRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ScenarioDataStoreInitRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return main.Messages.internal_static_main_ScenarioDataStoreInitRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return main.Messages.internal_static_main_ScenarioDataStoreInitRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              main.Messages.ScenarioDataStoreInitRequest.class, main.Messages.ScenarioDataStoreInitRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ScenarioDataStoreInitRequest> PARSER =
+        new com.google.protobuf.AbstractParser<ScenarioDataStoreInitRequest>() {
+      public ScenarioDataStoreInitRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ScenarioDataStoreInitRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ScenarioDataStoreInitRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static main.Messages.ScenarioDataStoreInitRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Messages.ScenarioDataStoreInitRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Messages.ScenarioDataStoreInitRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Messages.ScenarioDataStoreInitRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Messages.ScenarioDataStoreInitRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Messages.ScenarioDataStoreInitRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static main.Messages.ScenarioDataStoreInitRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static main.Messages.ScenarioDataStoreInitRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static main.Messages.ScenarioDataStoreInitRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Messages.ScenarioDataStoreInitRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(main.Messages.ScenarioDataStoreInitRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code main.ScenarioDataStoreInitRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements main.Messages.ScenarioDataStoreInitRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return main.Messages.internal_static_main_ScenarioDataStoreInitRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return main.Messages.internal_static_main_ScenarioDataStoreInitRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                main.Messages.ScenarioDataStoreInitRequest.class, main.Messages.ScenarioDataStoreInitRequest.Builder.class);
+      }
+
+      // Construct using main.Messages.ScenarioDataStoreInitRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return main.Messages.internal_static_main_ScenarioDataStoreInitRequest_descriptor;
+      }
+
+      public main.Messages.ScenarioDataStoreInitRequest getDefaultInstanceForType() {
+        return main.Messages.ScenarioDataStoreInitRequest.getDefaultInstance();
+      }
+
+      public main.Messages.ScenarioDataStoreInitRequest build() {
+        main.Messages.ScenarioDataStoreInitRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public main.Messages.ScenarioDataStoreInitRequest buildPartial() {
+        main.Messages.ScenarioDataStoreInitRequest result = new main.Messages.ScenarioDataStoreInitRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof main.Messages.ScenarioDataStoreInitRequest) {
+          return mergeFrom((main.Messages.ScenarioDataStoreInitRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(main.Messages.ScenarioDataStoreInitRequest other) {
+        if (other == main.Messages.ScenarioDataStoreInitRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        main.Messages.ScenarioDataStoreInitRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (main.Messages.ScenarioDataStoreInitRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:main.ScenarioDataStoreInitRequest)
+    }
+
+    static {
+      defaultInstance = new ScenarioDataStoreInitRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:main.ScenarioDataStoreInitRequest)
+  }
+
+  public interface SpecDataStoreInitRequestOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code main.SpecDataStoreInitRequest}
+   */
+  public static final class SpecDataStoreInitRequest extends
+      com.google.protobuf.GeneratedMessage
+      implements SpecDataStoreInitRequestOrBuilder {
+    // Use SpecDataStoreInitRequest.newBuilder() to construct.
+    private SpecDataStoreInitRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private SpecDataStoreInitRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final SpecDataStoreInitRequest defaultInstance;
+    public static SpecDataStoreInitRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public SpecDataStoreInitRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SpecDataStoreInitRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return main.Messages.internal_static_main_SpecDataStoreInitRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return main.Messages.internal_static_main_SpecDataStoreInitRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              main.Messages.SpecDataStoreInitRequest.class, main.Messages.SpecDataStoreInitRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<SpecDataStoreInitRequest> PARSER =
+        new com.google.protobuf.AbstractParser<SpecDataStoreInitRequest>() {
+      public SpecDataStoreInitRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SpecDataStoreInitRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SpecDataStoreInitRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static main.Messages.SpecDataStoreInitRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Messages.SpecDataStoreInitRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Messages.SpecDataStoreInitRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Messages.SpecDataStoreInitRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Messages.SpecDataStoreInitRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Messages.SpecDataStoreInitRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static main.Messages.SpecDataStoreInitRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static main.Messages.SpecDataStoreInitRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static main.Messages.SpecDataStoreInitRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Messages.SpecDataStoreInitRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(main.Messages.SpecDataStoreInitRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code main.SpecDataStoreInitRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements main.Messages.SpecDataStoreInitRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return main.Messages.internal_static_main_SpecDataStoreInitRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return main.Messages.internal_static_main_SpecDataStoreInitRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                main.Messages.SpecDataStoreInitRequest.class, main.Messages.SpecDataStoreInitRequest.Builder.class);
+      }
+
+      // Construct using main.Messages.SpecDataStoreInitRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return main.Messages.internal_static_main_SpecDataStoreInitRequest_descriptor;
+      }
+
+      public main.Messages.SpecDataStoreInitRequest getDefaultInstanceForType() {
+        return main.Messages.SpecDataStoreInitRequest.getDefaultInstance();
+      }
+
+      public main.Messages.SpecDataStoreInitRequest build() {
+        main.Messages.SpecDataStoreInitRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public main.Messages.SpecDataStoreInitRequest buildPartial() {
+        main.Messages.SpecDataStoreInitRequest result = new main.Messages.SpecDataStoreInitRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof main.Messages.SpecDataStoreInitRequest) {
+          return mergeFrom((main.Messages.SpecDataStoreInitRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(main.Messages.SpecDataStoreInitRequest other) {
+        if (other == main.Messages.SpecDataStoreInitRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        main.Messages.SpecDataStoreInitRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (main.Messages.SpecDataStoreInitRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:main.SpecDataStoreInitRequest)
+    }
+
+    static {
+      defaultInstance = new SpecDataStoreInitRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:main.SpecDataStoreInitRequest)
+  }
+
+  public interface SuiteDataStoreInitRequestOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code main.SuiteDataStoreInitRequest}
+   */
+  public static final class SuiteDataStoreInitRequest extends
+      com.google.protobuf.GeneratedMessage
+      implements SuiteDataStoreInitRequestOrBuilder {
+    // Use SuiteDataStoreInitRequest.newBuilder() to construct.
+    private SuiteDataStoreInitRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private SuiteDataStoreInitRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final SuiteDataStoreInitRequest defaultInstance;
+    public static SuiteDataStoreInitRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public SuiteDataStoreInitRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SuiteDataStoreInitRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return main.Messages.internal_static_main_SuiteDataStoreInitRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return main.Messages.internal_static_main_SuiteDataStoreInitRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              main.Messages.SuiteDataStoreInitRequest.class, main.Messages.SuiteDataStoreInitRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<SuiteDataStoreInitRequest> PARSER =
+        new com.google.protobuf.AbstractParser<SuiteDataStoreInitRequest>() {
+      public SuiteDataStoreInitRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SuiteDataStoreInitRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SuiteDataStoreInitRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static main.Messages.SuiteDataStoreInitRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Messages.SuiteDataStoreInitRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Messages.SuiteDataStoreInitRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Messages.SuiteDataStoreInitRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Messages.SuiteDataStoreInitRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Messages.SuiteDataStoreInitRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static main.Messages.SuiteDataStoreInitRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static main.Messages.SuiteDataStoreInitRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static main.Messages.SuiteDataStoreInitRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Messages.SuiteDataStoreInitRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(main.Messages.SuiteDataStoreInitRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code main.SuiteDataStoreInitRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements main.Messages.SuiteDataStoreInitRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return main.Messages.internal_static_main_SuiteDataStoreInitRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return main.Messages.internal_static_main_SuiteDataStoreInitRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                main.Messages.SuiteDataStoreInitRequest.class, main.Messages.SuiteDataStoreInitRequest.Builder.class);
+      }
+
+      // Construct using main.Messages.SuiteDataStoreInitRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return main.Messages.internal_static_main_SuiteDataStoreInitRequest_descriptor;
+      }
+
+      public main.Messages.SuiteDataStoreInitRequest getDefaultInstanceForType() {
+        return main.Messages.SuiteDataStoreInitRequest.getDefaultInstance();
+      }
+
+      public main.Messages.SuiteDataStoreInitRequest build() {
+        main.Messages.SuiteDataStoreInitRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public main.Messages.SuiteDataStoreInitRequest buildPartial() {
+        main.Messages.SuiteDataStoreInitRequest result = new main.Messages.SuiteDataStoreInitRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof main.Messages.SuiteDataStoreInitRequest) {
+          return mergeFrom((main.Messages.SuiteDataStoreInitRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(main.Messages.SuiteDataStoreInitRequest other) {
+        if (other == main.Messages.SuiteDataStoreInitRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        main.Messages.SuiteDataStoreInitRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (main.Messages.SuiteDataStoreInitRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:main.SuiteDataStoreInitRequest)
+    }
+
+    static {
+      defaultInstance = new SuiteDataStoreInitRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:main.SuiteDataStoreInitRequest)
+  }
+
   public interface MessageOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -12190,6 +13117,48 @@ public final class Messages {
      * <code>optional .main.KillProcessRequest killProcessRequest = 18;</code>
      */
     main.Messages.KillProcessRequestOrBuilder getKillProcessRequestOrBuilder();
+
+    // optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;
+    /**
+     * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     */
+    boolean hasScenarioDataStoreInitRequest();
+    /**
+     * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     */
+    main.Messages.ScenarioDataStoreInitRequest getScenarioDataStoreInitRequest();
+    /**
+     * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     */
+    main.Messages.ScenarioDataStoreInitRequestOrBuilder getScenarioDataStoreInitRequestOrBuilder();
+
+    // optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;
+    /**
+     * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     */
+    boolean hasSpecDataStoreInitRequest();
+    /**
+     * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     */
+    main.Messages.SpecDataStoreInitRequest getSpecDataStoreInitRequest();
+    /**
+     * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     */
+    main.Messages.SpecDataStoreInitRequestOrBuilder getSpecDataStoreInitRequestOrBuilder();
+
+    // optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;
+    /**
+     * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     */
+    boolean hasSuiteDataStoreInitRequest();
+    /**
+     * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     */
+    main.Messages.SuiteDataStoreInitRequest getSuiteDataStoreInitRequest();
+    /**
+     * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     */
+    main.Messages.SuiteDataStoreInitRequestOrBuilder getSuiteDataStoreInitRequestOrBuilder();
   }
   /**
    * Protobuf type {@code main.Message}
@@ -12471,6 +13440,45 @@ public final class Messages {
               bitField0_ |= 0x00020000;
               break;
             }
+            case 154: {
+              main.Messages.ScenarioDataStoreInitRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00040000) == 0x00040000)) {
+                subBuilder = scenarioDataStoreInitRequest_.toBuilder();
+              }
+              scenarioDataStoreInitRequest_ = input.readMessage(main.Messages.ScenarioDataStoreInitRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(scenarioDataStoreInitRequest_);
+                scenarioDataStoreInitRequest_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00040000;
+              break;
+            }
+            case 162: {
+              main.Messages.SpecDataStoreInitRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00080000) == 0x00080000)) {
+                subBuilder = specDataStoreInitRequest_.toBuilder();
+              }
+              specDataStoreInitRequest_ = input.readMessage(main.Messages.SpecDataStoreInitRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(specDataStoreInitRequest_);
+                specDataStoreInitRequest_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00080000;
+              break;
+            }
+            case 170: {
+              main.Messages.SuiteDataStoreInitRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00100000) == 0x00100000)) {
+                subBuilder = suiteDataStoreInitRequest_.toBuilder();
+              }
+              suiteDataStoreInitRequest_ = input.readMessage(main.Messages.SuiteDataStoreInitRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(suiteDataStoreInitRequest_);
+                suiteDataStoreInitRequest_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00100000;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -12579,6 +13587,18 @@ public final class Messages {
        * <code>SuiteExecutionResult = 15;</code>
        */
       SuiteExecutionResult(15, 15),
+      /**
+       * <code>ScenarioDataStoreInit = 16;</code>
+       */
+      ScenarioDataStoreInit(16, 16),
+      /**
+       * <code>SpecDataStoreInit = 17;</code>
+       */
+      SpecDataStoreInit(17, 17),
+      /**
+       * <code>SuiteDataStoreInit = 18;</code>
+       */
+      SuiteDataStoreInit(18, 18),
       ;
 
       /**
@@ -12645,6 +13665,18 @@ public final class Messages {
        * <code>SuiteExecutionResult = 15;</code>
        */
       public static final int SuiteExecutionResult_VALUE = 15;
+      /**
+       * <code>ScenarioDataStoreInit = 16;</code>
+       */
+      public static final int ScenarioDataStoreInit_VALUE = 16;
+      /**
+       * <code>SpecDataStoreInit = 17;</code>
+       */
+      public static final int SpecDataStoreInit_VALUE = 17;
+      /**
+       * <code>SuiteDataStoreInit = 18;</code>
+       */
+      public static final int SuiteDataStoreInit_VALUE = 18;
 
 
       public final int getNumber() { return value; }
@@ -12667,6 +13699,9 @@ public final class Messages {
           case 13: return StepNamesResponse;
           case 14: return KillProcessRequest;
           case 15: return SuiteExecutionResult;
+          case 16: return ScenarioDataStoreInit;
+          case 17: return SpecDataStoreInit;
+          case 18: return SuiteDataStoreInit;
           default: return null;
         }
       }
@@ -13125,6 +14160,72 @@ public final class Messages {
       return killProcessRequest_;
     }
 
+    // optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;
+    public static final int SCENARIODATASTOREINITREQUEST_FIELD_NUMBER = 19;
+    private main.Messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest_;
+    /**
+     * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     */
+    public boolean hasScenarioDataStoreInitRequest() {
+      return ((bitField0_ & 0x00040000) == 0x00040000);
+    }
+    /**
+     * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     */
+    public main.Messages.ScenarioDataStoreInitRequest getScenarioDataStoreInitRequest() {
+      return scenarioDataStoreInitRequest_;
+    }
+    /**
+     * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     */
+    public main.Messages.ScenarioDataStoreInitRequestOrBuilder getScenarioDataStoreInitRequestOrBuilder() {
+      return scenarioDataStoreInitRequest_;
+    }
+
+    // optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;
+    public static final int SPECDATASTOREINITREQUEST_FIELD_NUMBER = 20;
+    private main.Messages.SpecDataStoreInitRequest specDataStoreInitRequest_;
+    /**
+     * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     */
+    public boolean hasSpecDataStoreInitRequest() {
+      return ((bitField0_ & 0x00080000) == 0x00080000);
+    }
+    /**
+     * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     */
+    public main.Messages.SpecDataStoreInitRequest getSpecDataStoreInitRequest() {
+      return specDataStoreInitRequest_;
+    }
+    /**
+     * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     */
+    public main.Messages.SpecDataStoreInitRequestOrBuilder getSpecDataStoreInitRequestOrBuilder() {
+      return specDataStoreInitRequest_;
+    }
+
+    // optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;
+    public static final int SUITEDATASTOREINITREQUEST_FIELD_NUMBER = 21;
+    private main.Messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest_;
+    /**
+     * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     */
+    public boolean hasSuiteDataStoreInitRequest() {
+      return ((bitField0_ & 0x00100000) == 0x00100000);
+    }
+    /**
+     * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     */
+    public main.Messages.SuiteDataStoreInitRequest getSuiteDataStoreInitRequest() {
+      return suiteDataStoreInitRequest_;
+    }
+    /**
+     * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     */
+    public main.Messages.SuiteDataStoreInitRequestOrBuilder getSuiteDataStoreInitRequestOrBuilder() {
+      return suiteDataStoreInitRequest_;
+    }
+
     private void initFields() {
       messageType_ = main.Messages.Message.MessageType.ExecutionStarting;
       messageId_ = 0L;
@@ -13144,6 +14245,9 @@ public final class Messages {
       stepNamesResponse_ = main.Messages.StepNamesResponse.getDefaultInstance();
       suiteExecutionResult_ = main.Messages.SuiteExecutionResult.getDefaultInstance();
       killProcessRequest_ = main.Messages.KillProcessRequest.getDefaultInstance();
+      scenarioDataStoreInitRequest_ = main.Messages.ScenarioDataStoreInitRequest.getDefaultInstance();
+      specDataStoreInitRequest_ = main.Messages.SpecDataStoreInitRequest.getDefaultInstance();
+      suiteDataStoreInitRequest_ = main.Messages.SuiteDataStoreInitRequest.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -13297,6 +14401,15 @@ public final class Messages {
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
         output.writeMessage(18, killProcessRequest_);
       }
+      if (((bitField0_ & 0x00040000) == 0x00040000)) {
+        output.writeMessage(19, scenarioDataStoreInitRequest_);
+      }
+      if (((bitField0_ & 0x00080000) == 0x00080000)) {
+        output.writeMessage(20, specDataStoreInitRequest_);
+      }
+      if (((bitField0_ & 0x00100000) == 0x00100000)) {
+        output.writeMessage(21, suiteDataStoreInitRequest_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -13377,6 +14490,18 @@ public final class Messages {
       if (((bitField0_ & 0x00020000) == 0x00020000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(18, killProcessRequest_);
+      }
+      if (((bitField0_ & 0x00040000) == 0x00040000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(19, scenarioDataStoreInitRequest_);
+      }
+      if (((bitField0_ & 0x00080000) == 0x00080000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(20, specDataStoreInitRequest_);
+      }
+      if (((bitField0_ & 0x00100000) == 0x00100000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(21, suiteDataStoreInitRequest_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -13507,6 +14632,9 @@ public final class Messages {
           getStepNamesResponseFieldBuilder();
           getSuiteExecutionResultFieldBuilder();
           getKillProcessRequestFieldBuilder();
+          getScenarioDataStoreInitRequestFieldBuilder();
+          getSpecDataStoreInitRequestFieldBuilder();
+          getSuiteDataStoreInitRequestFieldBuilder();
         }
       }
       private static Builder create() {
@@ -13615,6 +14743,24 @@ public final class Messages {
           killProcessRequestBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00020000);
+        if (scenarioDataStoreInitRequestBuilder_ == null) {
+          scenarioDataStoreInitRequest_ = main.Messages.ScenarioDataStoreInitRequest.getDefaultInstance();
+        } else {
+          scenarioDataStoreInitRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00040000);
+        if (specDataStoreInitRequestBuilder_ == null) {
+          specDataStoreInitRequest_ = main.Messages.SpecDataStoreInitRequest.getDefaultInstance();
+        } else {
+          specDataStoreInitRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00080000);
+        if (suiteDataStoreInitRequestBuilder_ == null) {
+          suiteDataStoreInitRequest_ = main.Messages.SuiteDataStoreInitRequest.getDefaultInstance();
+        } else {
+          suiteDataStoreInitRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00100000);
         return this;
       }
 
@@ -13779,6 +14925,30 @@ public final class Messages {
         } else {
           result.killProcessRequest_ = killProcessRequestBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
+          to_bitField0_ |= 0x00040000;
+        }
+        if (scenarioDataStoreInitRequestBuilder_ == null) {
+          result.scenarioDataStoreInitRequest_ = scenarioDataStoreInitRequest_;
+        } else {
+          result.scenarioDataStoreInitRequest_ = scenarioDataStoreInitRequestBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
+          to_bitField0_ |= 0x00080000;
+        }
+        if (specDataStoreInitRequestBuilder_ == null) {
+          result.specDataStoreInitRequest_ = specDataStoreInitRequest_;
+        } else {
+          result.specDataStoreInitRequest_ = specDataStoreInitRequestBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
+          to_bitField0_ |= 0x00100000;
+        }
+        if (suiteDataStoreInitRequestBuilder_ == null) {
+          result.suiteDataStoreInitRequest_ = suiteDataStoreInitRequest_;
+        } else {
+          result.suiteDataStoreInitRequest_ = suiteDataStoreInitRequestBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -13848,6 +15018,15 @@ public final class Messages {
         }
         if (other.hasKillProcessRequest()) {
           mergeKillProcessRequest(other.getKillProcessRequest());
+        }
+        if (other.hasScenarioDataStoreInitRequest()) {
+          mergeScenarioDataStoreInitRequest(other.getScenarioDataStoreInitRequest());
+        }
+        if (other.hasSpecDataStoreInitRequest()) {
+          mergeSpecDataStoreInitRequest(other.getSpecDataStoreInitRequest());
+        }
+        if (other.hasSuiteDataStoreInitRequest()) {
+          mergeSuiteDataStoreInitRequest(other.getSuiteDataStoreInitRequest());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -15959,6 +17138,357 @@ public final class Messages {
         return killProcessRequestBuilder_;
       }
 
+      // optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;
+      private main.Messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest_ = main.Messages.ScenarioDataStoreInitRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Messages.ScenarioDataStoreInitRequest, main.Messages.ScenarioDataStoreInitRequest.Builder, main.Messages.ScenarioDataStoreInitRequestOrBuilder> scenarioDataStoreInitRequestBuilder_;
+      /**
+       * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       */
+      public boolean hasScenarioDataStoreInitRequest() {
+        return ((bitField0_ & 0x00040000) == 0x00040000);
+      }
+      /**
+       * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       */
+      public main.Messages.ScenarioDataStoreInitRequest getScenarioDataStoreInitRequest() {
+        if (scenarioDataStoreInitRequestBuilder_ == null) {
+          return scenarioDataStoreInitRequest_;
+        } else {
+          return scenarioDataStoreInitRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       */
+      public Builder setScenarioDataStoreInitRequest(main.Messages.ScenarioDataStoreInitRequest value) {
+        if (scenarioDataStoreInitRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          scenarioDataStoreInitRequest_ = value;
+          onChanged();
+        } else {
+          scenarioDataStoreInitRequestBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00040000;
+        return this;
+      }
+      /**
+       * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       */
+      public Builder setScenarioDataStoreInitRequest(
+          main.Messages.ScenarioDataStoreInitRequest.Builder builderForValue) {
+        if (scenarioDataStoreInitRequestBuilder_ == null) {
+          scenarioDataStoreInitRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          scenarioDataStoreInitRequestBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00040000;
+        return this;
+      }
+      /**
+       * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       */
+      public Builder mergeScenarioDataStoreInitRequest(main.Messages.ScenarioDataStoreInitRequest value) {
+        if (scenarioDataStoreInitRequestBuilder_ == null) {
+          if (((bitField0_ & 0x00040000) == 0x00040000) &&
+              scenarioDataStoreInitRequest_ != main.Messages.ScenarioDataStoreInitRequest.getDefaultInstance()) {
+            scenarioDataStoreInitRequest_ =
+              main.Messages.ScenarioDataStoreInitRequest.newBuilder(scenarioDataStoreInitRequest_).mergeFrom(value).buildPartial();
+          } else {
+            scenarioDataStoreInitRequest_ = value;
+          }
+          onChanged();
+        } else {
+          scenarioDataStoreInitRequestBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00040000;
+        return this;
+      }
+      /**
+       * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       */
+      public Builder clearScenarioDataStoreInitRequest() {
+        if (scenarioDataStoreInitRequestBuilder_ == null) {
+          scenarioDataStoreInitRequest_ = main.Messages.ScenarioDataStoreInitRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          scenarioDataStoreInitRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00040000);
+        return this;
+      }
+      /**
+       * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       */
+      public main.Messages.ScenarioDataStoreInitRequest.Builder getScenarioDataStoreInitRequestBuilder() {
+        bitField0_ |= 0x00040000;
+        onChanged();
+        return getScenarioDataStoreInitRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       */
+      public main.Messages.ScenarioDataStoreInitRequestOrBuilder getScenarioDataStoreInitRequestOrBuilder() {
+        if (scenarioDataStoreInitRequestBuilder_ != null) {
+          return scenarioDataStoreInitRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return scenarioDataStoreInitRequest_;
+        }
+      }
+      /**
+       * <code>optional .main.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Messages.ScenarioDataStoreInitRequest, main.Messages.ScenarioDataStoreInitRequest.Builder, main.Messages.ScenarioDataStoreInitRequestOrBuilder> 
+          getScenarioDataStoreInitRequestFieldBuilder() {
+        if (scenarioDataStoreInitRequestBuilder_ == null) {
+          scenarioDataStoreInitRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              main.Messages.ScenarioDataStoreInitRequest, main.Messages.ScenarioDataStoreInitRequest.Builder, main.Messages.ScenarioDataStoreInitRequestOrBuilder>(
+                  scenarioDataStoreInitRequest_,
+                  getParentForChildren(),
+                  isClean());
+          scenarioDataStoreInitRequest_ = null;
+        }
+        return scenarioDataStoreInitRequestBuilder_;
+      }
+
+      // optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;
+      private main.Messages.SpecDataStoreInitRequest specDataStoreInitRequest_ = main.Messages.SpecDataStoreInitRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Messages.SpecDataStoreInitRequest, main.Messages.SpecDataStoreInitRequest.Builder, main.Messages.SpecDataStoreInitRequestOrBuilder> specDataStoreInitRequestBuilder_;
+      /**
+       * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       */
+      public boolean hasSpecDataStoreInitRequest() {
+        return ((bitField0_ & 0x00080000) == 0x00080000);
+      }
+      /**
+       * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       */
+      public main.Messages.SpecDataStoreInitRequest getSpecDataStoreInitRequest() {
+        if (specDataStoreInitRequestBuilder_ == null) {
+          return specDataStoreInitRequest_;
+        } else {
+          return specDataStoreInitRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       */
+      public Builder setSpecDataStoreInitRequest(main.Messages.SpecDataStoreInitRequest value) {
+        if (specDataStoreInitRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          specDataStoreInitRequest_ = value;
+          onChanged();
+        } else {
+          specDataStoreInitRequestBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00080000;
+        return this;
+      }
+      /**
+       * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       */
+      public Builder setSpecDataStoreInitRequest(
+          main.Messages.SpecDataStoreInitRequest.Builder builderForValue) {
+        if (specDataStoreInitRequestBuilder_ == null) {
+          specDataStoreInitRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          specDataStoreInitRequestBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00080000;
+        return this;
+      }
+      /**
+       * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       */
+      public Builder mergeSpecDataStoreInitRequest(main.Messages.SpecDataStoreInitRequest value) {
+        if (specDataStoreInitRequestBuilder_ == null) {
+          if (((bitField0_ & 0x00080000) == 0x00080000) &&
+              specDataStoreInitRequest_ != main.Messages.SpecDataStoreInitRequest.getDefaultInstance()) {
+            specDataStoreInitRequest_ =
+              main.Messages.SpecDataStoreInitRequest.newBuilder(specDataStoreInitRequest_).mergeFrom(value).buildPartial();
+          } else {
+            specDataStoreInitRequest_ = value;
+          }
+          onChanged();
+        } else {
+          specDataStoreInitRequestBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00080000;
+        return this;
+      }
+      /**
+       * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       */
+      public Builder clearSpecDataStoreInitRequest() {
+        if (specDataStoreInitRequestBuilder_ == null) {
+          specDataStoreInitRequest_ = main.Messages.SpecDataStoreInitRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          specDataStoreInitRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00080000);
+        return this;
+      }
+      /**
+       * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       */
+      public main.Messages.SpecDataStoreInitRequest.Builder getSpecDataStoreInitRequestBuilder() {
+        bitField0_ |= 0x00080000;
+        onChanged();
+        return getSpecDataStoreInitRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       */
+      public main.Messages.SpecDataStoreInitRequestOrBuilder getSpecDataStoreInitRequestOrBuilder() {
+        if (specDataStoreInitRequestBuilder_ != null) {
+          return specDataStoreInitRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return specDataStoreInitRequest_;
+        }
+      }
+      /**
+       * <code>optional .main.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Messages.SpecDataStoreInitRequest, main.Messages.SpecDataStoreInitRequest.Builder, main.Messages.SpecDataStoreInitRequestOrBuilder> 
+          getSpecDataStoreInitRequestFieldBuilder() {
+        if (specDataStoreInitRequestBuilder_ == null) {
+          specDataStoreInitRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              main.Messages.SpecDataStoreInitRequest, main.Messages.SpecDataStoreInitRequest.Builder, main.Messages.SpecDataStoreInitRequestOrBuilder>(
+                  specDataStoreInitRequest_,
+                  getParentForChildren(),
+                  isClean());
+          specDataStoreInitRequest_ = null;
+        }
+        return specDataStoreInitRequestBuilder_;
+      }
+
+      // optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;
+      private main.Messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest_ = main.Messages.SuiteDataStoreInitRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Messages.SuiteDataStoreInitRequest, main.Messages.SuiteDataStoreInitRequest.Builder, main.Messages.SuiteDataStoreInitRequestOrBuilder> suiteDataStoreInitRequestBuilder_;
+      /**
+       * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       */
+      public boolean hasSuiteDataStoreInitRequest() {
+        return ((bitField0_ & 0x00100000) == 0x00100000);
+      }
+      /**
+       * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       */
+      public main.Messages.SuiteDataStoreInitRequest getSuiteDataStoreInitRequest() {
+        if (suiteDataStoreInitRequestBuilder_ == null) {
+          return suiteDataStoreInitRequest_;
+        } else {
+          return suiteDataStoreInitRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       */
+      public Builder setSuiteDataStoreInitRequest(main.Messages.SuiteDataStoreInitRequest value) {
+        if (suiteDataStoreInitRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          suiteDataStoreInitRequest_ = value;
+          onChanged();
+        } else {
+          suiteDataStoreInitRequestBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00100000;
+        return this;
+      }
+      /**
+       * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       */
+      public Builder setSuiteDataStoreInitRequest(
+          main.Messages.SuiteDataStoreInitRequest.Builder builderForValue) {
+        if (suiteDataStoreInitRequestBuilder_ == null) {
+          suiteDataStoreInitRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          suiteDataStoreInitRequestBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00100000;
+        return this;
+      }
+      /**
+       * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       */
+      public Builder mergeSuiteDataStoreInitRequest(main.Messages.SuiteDataStoreInitRequest value) {
+        if (suiteDataStoreInitRequestBuilder_ == null) {
+          if (((bitField0_ & 0x00100000) == 0x00100000) &&
+              suiteDataStoreInitRequest_ != main.Messages.SuiteDataStoreInitRequest.getDefaultInstance()) {
+            suiteDataStoreInitRequest_ =
+              main.Messages.SuiteDataStoreInitRequest.newBuilder(suiteDataStoreInitRequest_).mergeFrom(value).buildPartial();
+          } else {
+            suiteDataStoreInitRequest_ = value;
+          }
+          onChanged();
+        } else {
+          suiteDataStoreInitRequestBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00100000;
+        return this;
+      }
+      /**
+       * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       */
+      public Builder clearSuiteDataStoreInitRequest() {
+        if (suiteDataStoreInitRequestBuilder_ == null) {
+          suiteDataStoreInitRequest_ = main.Messages.SuiteDataStoreInitRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          suiteDataStoreInitRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00100000);
+        return this;
+      }
+      /**
+       * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       */
+      public main.Messages.SuiteDataStoreInitRequest.Builder getSuiteDataStoreInitRequestBuilder() {
+        bitField0_ |= 0x00100000;
+        onChanged();
+        return getSuiteDataStoreInitRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       */
+      public main.Messages.SuiteDataStoreInitRequestOrBuilder getSuiteDataStoreInitRequestOrBuilder() {
+        if (suiteDataStoreInitRequestBuilder_ != null) {
+          return suiteDataStoreInitRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return suiteDataStoreInitRequest_;
+        }
+      }
+      /**
+       * <code>optional .main.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Messages.SuiteDataStoreInitRequest, main.Messages.SuiteDataStoreInitRequest.Builder, main.Messages.SuiteDataStoreInitRequestOrBuilder> 
+          getSuiteDataStoreInitRequestFieldBuilder() {
+        if (suiteDataStoreInitRequestBuilder_ == null) {
+          suiteDataStoreInitRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              main.Messages.SuiteDataStoreInitRequest, main.Messages.SuiteDataStoreInitRequest.Builder, main.Messages.SuiteDataStoreInitRequestOrBuilder>(
+                  suiteDataStoreInitRequest_,
+                  getParentForChildren(),
+                  isClean());
+          suiteDataStoreInitRequest_ = null;
+        }
+        return suiteDataStoreInitRequestBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:main.Message)
     }
 
@@ -16071,6 +17601,21 @@ public final class Messages {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_main_StepNamesResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_main_ScenarioDataStoreInitRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_main_ScenarioDataStoreInitRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_main_SpecDataStoreInitRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_main_SpecDataStoreInitRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_main_SuiteDataStoreInitRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_main_SuiteDataStoreInitRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_main_Message_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -16122,45 +17667,54 @@ public final class Messages {
       "\0132\023.main.ExecutionInfo\"C\n\024SuiteExecution" +
       "Result\022+\n\013suiteResult\030\001 \002(\0132\026.main.Proto" +
       "SuiteResult\"\022\n\020StepNamesRequest\"\"\n\021StepN" +
-      "amesResponse\022\r\n\005steps\030\001 \003(\t\"\352\013\n\007Message\022" +
-      ".\n\013messageType\030\001 \002(\0162\031.main.Message.Mess",
-      "ageType\022\021\n\tmessageId\030\002 \002(\003\022@\n\030executionS" +
-      "tartingRequest\030\003 \001(\0132\036.main.ExecutionSta" +
-      "rtingRequest\022H\n\034specExecutionStartingReq" +
-      "uest\030\004 \001(\0132\".main.SpecExecutionStartingR" +
-      "equest\022D\n\032specExecutionEndingRequest\030\005 \001" +
-      "(\0132 .main.SpecExecutionEndingRequest\022P\n " +
-      "scenarioExecutionStartingRequest\030\006 \001(\0132&" +
-      ".main.ScenarioExecutionStartingRequest\022L" +
-      "\n\036scenarioExecutionEndingRequest\030\007 \001(\0132$" +
-      ".main.ScenarioExecutionEndingRequest\022H\n\034",
-      "stepExecutionStartingRequest\030\010 \001(\0132\".mai" +
-      "n.StepExecutionStartingRequest\022D\n\032stepEx" +
-      "ecutionEndingRequest\030\t \001(\0132 .main.StepEx" +
-      "ecutionEndingRequest\0224\n\022executeStepReque" +
-      "st\030\n \001(\0132\030.main.ExecuteStepRequest\022<\n\026ex" +
-      "ecutionEndingRequest\030\013 \001(\0132\034.main.Execut" +
-      "ionEndingRequest\0226\n\023stepValidateRequest\030" +
-      "\014 \001(\0132\031.main.StepValidateRequest\0228\n\024step" +
-      "ValidateResponse\030\r \001(\0132\032.main.StepValida" +
-      "teResponse\022>\n\027executionStatusResponse\030\016 ",
-      "\001(\0132\035.main.ExecutionStatusResponse\0220\n\020st" +
-      "epNamesRequest\030\017 \001(\0132\026.main.StepNamesReq" +
-      "uest\0222\n\021stepNamesResponse\030\020 \001(\0132\027.main.S" +
-      "tepNamesResponse\0228\n\024suiteExecutionResult" +
-      "\030\021 \001(\0132\032.main.SuiteExecutionResult\0224\n\022ki" +
-      "llProcessRequest\030\022 \001(\0132\030.main.KillProces" +
-      "sRequest\"\235\003\n\013MessageType\022\025\n\021ExecutionSta" +
-      "rting\020\000\022\031\n\025SpecExecutionStarting\020\001\022\027\n\023Sp" +
-      "ecExecutionEnding\020\002\022\035\n\031ScenarioExecution" +
-      "Starting\020\003\022\033\n\027ScenarioExecutionEnding\020\004\022",
-      "\031\n\025StepExecutionStarting\020\005\022\027\n\023StepExecut" +
-      "ionEnding\020\006\022\017\n\013ExecuteStep\020\007\022\023\n\017Executio" +
-      "nEnding\020\010\022\027\n\023StepValidateRequest\020\t\022\030\n\024St" +
-      "epValidateResponse\020\n\022\033\n\027ExecutionStatusR" +
-      "esponse\020\013\022\024\n\020StepNamesRequest\020\014\022\025\n\021StepN" +
-      "amesResponse\020\r\022\026\n\022KillProcessRequest\020\016\022\030" +
-      "\n\024SuiteExecutionResult\020\017"
+      "amesResponse\022\r\n\005steps\030\001 \003(\t\"\036\n\034ScenarioD" +
+      "ataStoreInitRequest\"\032\n\030SpecDataStoreInit",
+      "Request\"\033\n\031SuiteDataStoreInitRequest\"\204\016\n" +
+      "\007Message\022.\n\013messageType\030\001 \002(\0162\031.main.Mes" +
+      "sage.MessageType\022\021\n\tmessageId\030\002 \002(\003\022@\n\030e" +
+      "xecutionStartingRequest\030\003 \001(\0132\036.main.Exe" +
+      "cutionStartingRequest\022H\n\034specExecutionSt" +
+      "artingRequest\030\004 \001(\0132\".main.SpecExecution" +
+      "StartingRequest\022D\n\032specExecutionEndingRe" +
+      "quest\030\005 \001(\0132 .main.SpecExecutionEndingRe" +
+      "quest\022P\n scenarioExecutionStartingReques" +
+      "t\030\006 \001(\0132&.main.ScenarioExecutionStarting",
+      "Request\022L\n\036scenarioExecutionEndingReques" +
+      "t\030\007 \001(\0132$.main.ScenarioExecutionEndingRe" +
+      "quest\022H\n\034stepExecutionStartingRequest\030\010 " +
+      "\001(\0132\".main.StepExecutionStartingRequest\022" +
+      "D\n\032stepExecutionEndingRequest\030\t \001(\0132 .ma" +
+      "in.StepExecutionEndingRequest\0224\n\022execute" +
+      "StepRequest\030\n \001(\0132\030.main.ExecuteStepRequ" +
+      "est\022<\n\026executionEndingRequest\030\013 \001(\0132\034.ma" +
+      "in.ExecutionEndingRequest\0226\n\023stepValidat" +
+      "eRequest\030\014 \001(\0132\031.main.StepValidateReques",
+      "t\0228\n\024stepValidateResponse\030\r \001(\0132\032.main.S" +
+      "tepValidateResponse\022>\n\027executionStatusRe" +
+      "sponse\030\016 \001(\0132\035.main.ExecutionStatusRespo" +
+      "nse\0220\n\020stepNamesRequest\030\017 \001(\0132\026.main.Ste" +
+      "pNamesRequest\0222\n\021stepNamesResponse\030\020 \001(\013" +
+      "2\027.main.StepNamesResponse\0228\n\024suiteExecut" +
+      "ionResult\030\021 \001(\0132\032.main.SuiteExecutionRes" +
+      "ult\0224\n\022killProcessRequest\030\022 \001(\0132\030.main.K" +
+      "illProcessRequest\022H\n\034scenarioDataStoreIn" +
+      "itRequest\030\023 \001(\0132\".main.ScenarioDataStore",
+      "InitRequest\022@\n\030specDataStoreInitRequest\030" +
+      "\024 \001(\0132\036.main.SpecDataStoreInitRequest\022B\n" +
+      "\031suiteDataStoreInitRequest\030\025 \001(\0132\037.main." +
+      "SuiteDataStoreInitRequest\"\347\003\n\013MessageTyp" +
+      "e\022\025\n\021ExecutionStarting\020\000\022\031\n\025SpecExecutio" +
+      "nStarting\020\001\022\027\n\023SpecExecutionEnding\020\002\022\035\n\031" +
+      "ScenarioExecutionStarting\020\003\022\033\n\027ScenarioE" +
+      "xecutionEnding\020\004\022\031\n\025StepExecutionStartin" +
+      "g\020\005\022\027\n\023StepExecutionEnding\020\006\022\017\n\013ExecuteS" +
+      "tep\020\007\022\023\n\017ExecutionEnding\020\010\022\027\n\023StepValida",
+      "teRequest\020\t\022\030\n\024StepValidateResponse\020\n\022\033\n" +
+      "\027ExecutionStatusResponse\020\013\022\024\n\020StepNamesR" +
+      "equest\020\014\022\025\n\021StepNamesResponse\020\r\022\026\n\022KillP" +
+      "rocessRequest\020\016\022\030\n\024SuiteExecutionResult\020" +
+      "\017\022\031\n\025ScenarioDataStoreInit\020\020\022\025\n\021SpecData" +
+      "StoreInit\020\021\022\026\n\022SuiteDataStoreInit\020\022"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -16287,12 +17841,30 @@ public final class Messages {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_StepNamesResponse_descriptor,
               new java.lang.String[] { "Steps", });
-          internal_static_main_Message_descriptor =
+          internal_static_main_ScenarioDataStoreInitRequest_descriptor =
             getDescriptor().getMessageTypes().get(20);
+          internal_static_main_ScenarioDataStoreInitRequest_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_main_ScenarioDataStoreInitRequest_descriptor,
+              new java.lang.String[] { });
+          internal_static_main_SpecDataStoreInitRequest_descriptor =
+            getDescriptor().getMessageTypes().get(21);
+          internal_static_main_SpecDataStoreInitRequest_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_main_SpecDataStoreInitRequest_descriptor,
+              new java.lang.String[] { });
+          internal_static_main_SuiteDataStoreInitRequest_descriptor =
+            getDescriptor().getMessageTypes().get(22);
+          internal_static_main_SuiteDataStoreInitRequest_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_main_SuiteDataStoreInitRequest_descriptor,
+              new java.lang.String[] { });
+          internal_static_main_Message_descriptor =
+            getDescriptor().getMessageTypes().get(23);
           internal_static_main_Message_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_Message_descriptor,
-              new java.lang.String[] { "MessageType", "MessageId", "ExecutionStartingRequest", "SpecExecutionStartingRequest", "SpecExecutionEndingRequest", "ScenarioExecutionStartingRequest", "ScenarioExecutionEndingRequest", "StepExecutionStartingRequest", "StepExecutionEndingRequest", "ExecuteStepRequest", "ExecutionEndingRequest", "StepValidateRequest", "StepValidateResponse", "ExecutionStatusResponse", "StepNamesRequest", "StepNamesResponse", "SuiteExecutionResult", "KillProcessRequest", });
+              new java.lang.String[] { "MessageType", "MessageId", "ExecutionStartingRequest", "SpecExecutionStartingRequest", "SpecExecutionEndingRequest", "ScenarioExecutionStartingRequest", "ScenarioExecutionEndingRequest", "StepExecutionStartingRequest", "StepExecutionEndingRequest", "ExecuteStepRequest", "ExecutionEndingRequest", "StepValidateRequest", "StepValidateResponse", "ExecutionStatusResponse", "StepNamesRequest", "StepNamesResponse", "SuiteExecutionResult", "KillProcessRequest", "ScenarioDataStoreInitRequest", "SpecDataStoreInitRequest", "SuiteDataStoreInitRequest", });
           return null;
         }
       };
