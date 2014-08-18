@@ -9,6 +9,8 @@ import (
 	"path"
 	"path/filepath"
 	"strings"
+	"syscall"
+	"os/signal"
 )
 
 const (
@@ -22,6 +24,7 @@ const (
 	step_implementation_class = "StepImplementation.java"
 	skelDir                   = "skel"
 	envDir                    = "env"
+	JavaDebugOptsTemplate     = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=%s"
 )
 
 func appendClasspath(source *string, classpath string) {
@@ -171,6 +174,15 @@ func printUsage() {
 }
 
 func runCommand(cmdName string, args []string) {
+	cmd := runCommandAsync(cmdName, args)
+	err := cmd.Wait()
+	if err != nil {
+		fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())
+		os.Exit(1)
+	}
+}
+
+func runCommandAsync(cmdName string, args []string) *exec.Cmd {
 	cmd := exec.Command(cmdName, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
@@ -182,11 +194,7 @@ func runCommand(cmdName string, args []string) {
 		fmt.Printf("Failed to start %s. %s\n", cmd.Path, err.Error())
 		os.Exit(1)
 	}
-	err = cmd.Wait()
-	if err != nil {
-		fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())
-		os.Exit(1)
-	}
+	return cmd
 }
 
 func main() {
@@ -231,12 +239,33 @@ func main() {
 		}
 
 		javaPath := getExecPathFrom(java_home, alternate_java_home, "java")
-		args := []string{"-classpath", cp}
+		args := []string{}
+		javaDebugPort := os.Getenv(common.GaugeDebugOptsEnv)
+		if javaDebugPort != "" {
+			value := fmt.Sprintf(JavaDebugOptsTemplate, javaDebugPort)
+			fmt.Println(value)
+			args = append(args, value)
+		}
+		args = append(args, "-classpath", cp)
 		if os.Getenv(jvm_args_env_name) != "" {
 			args = append(args, os.Getenv(jvm_args_env_name))
 		}
 		args = append(args, main_class_name)
-		runCommand(javaPath, args)
+		sigc := make(chan os.Signal, 2)
+		signal.Notify(sigc, syscall.SIGTERM)
+		cmd := runCommandAsync(javaPath, args)
+
+		go func() {
+			<-sigc
+			cmd.Process.Kill()
+		}()
+
+		err := cmd.Wait()
+		if (err != nil) {
+			fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())
+			os.Exit(1)
+		}
+
 	} else if *initialize {
 		os.Chdir(projectRoot)
 		funcs := []initializerFunc{createSrcDirectory, createLibsDirectory, createStepImplementationClass, createJavaPropertiesFile}
