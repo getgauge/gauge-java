@@ -57,9 +57,12 @@ public class GaugeConnection {
         return steps;
     }
 
-    public String getLibPath(String language) throws IOException {
+    public String getLibPath(String language) throws IOException, PluginNotInstalledException {
         Api.APIMessage message = getLibPathRequest(language);
         Api.APIMessage response = getAPIResponse(message);
+        if (response.getMessageType().equals(Api.APIMessage.APIMessageType.ErrorResponse)) {
+            throw new PluginNotInstalledException(response.getError().getError());
+        }
         return response.getLibPathResponse().getPath();
     }
 
