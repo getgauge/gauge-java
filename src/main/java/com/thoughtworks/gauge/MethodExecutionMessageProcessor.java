@@ -41,8 +41,8 @@ public abstract class MethodExecutionMessageProcessor {
                 result = methodExecutor.execute(method, executionInfo);
             } else {
                 result = methodExecutor.execute(method);
-                totalHooksExecutionTime += result.getExecutionTime();
             }
+            totalHooksExecutionTime += result.getExecutionTime();
             if (result.getFailed()) {
                 Spec.ProtoExecutionResult failureResult = Spec.ProtoExecutionResult.newBuilder(result).setExecutionTime(totalHooksExecutionTime).build();
                 return createMessageWithExecutionStatusResponse(message, failureResult);
