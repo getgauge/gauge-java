@@ -7376,29 +7376,29 @@ public final class Spec {
      */
     main.Spec.ProtoStepOrBuilder getConceptStepOrBuilder();
 
-    // repeated .main.ProtoStep steps = 2;
+    // repeated .main.ProtoItem steps = 2;
     /**
-     * <code>repeated .main.ProtoStep steps = 2;</code>
+     * <code>repeated .main.ProtoItem steps = 2;</code>
      */
-    java.util.List<main.Spec.ProtoStep> 
+    java.util.List<main.Spec.ProtoItem> 
         getStepsList();
     /**
-     * <code>repeated .main.ProtoStep steps = 2;</code>
+     * <code>repeated .main.ProtoItem steps = 2;</code>
      */
-    main.Spec.ProtoStep getSteps(int index);
+    main.Spec.ProtoItem getSteps(int index);
     /**
-     * <code>repeated .main.ProtoStep steps = 2;</code>
+     * <code>repeated .main.ProtoItem steps = 2;</code>
      */
     int getStepsCount();
     /**
-     * <code>repeated .main.ProtoStep steps = 2;</code>
+     * <code>repeated .main.ProtoItem steps = 2;</code>
      */
-    java.util.List<? extends main.Spec.ProtoStepOrBuilder> 
+    java.util.List<? extends main.Spec.ProtoItemOrBuilder> 
         getStepsOrBuilderList();
     /**
-     * <code>repeated .main.ProtoStep steps = 2;</code>
+     * <code>repeated .main.ProtoItem steps = 2;</code>
      */
-    main.Spec.ProtoStepOrBuilder getStepsOrBuilder(
+    main.Spec.ProtoItemOrBuilder getStepsOrBuilder(
         int index);
 
     // optional .main.ProtoStepExecutionResult conceptExecutionResult = 3;
@@ -7481,10 +7481,10 @@ public final class Spec {
             }
             case 18: {
               if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                steps_ = new java.util.ArrayList<main.Spec.ProtoStep>();
+                steps_ = new java.util.ArrayList<main.Spec.ProtoItem>();
                 mutable_bitField0_ |= 0x00000002;
               }
-              steps_.add(input.readMessage(main.Spec.ProtoStep.PARSER, extensionRegistry));
+              steps_.add(input.readMessage(main.Spec.ProtoItem.PARSER, extensionRegistry));
               break;
             }
             case 26: {
@@ -7565,38 +7565,38 @@ public final class Spec {
       return conceptStep_;
     }
 
-    // repeated .main.ProtoStep steps = 2;
+    // repeated .main.ProtoItem steps = 2;
     public static final int STEPS_FIELD_NUMBER = 2;
-    private java.util.List<main.Spec.ProtoStep> steps_;
+    private java.util.List<main.Spec.ProtoItem> steps_;
     /**
-     * <code>repeated .main.ProtoStep steps = 2;</code>
+     * <code>repeated .main.ProtoItem steps = 2;</code>
      */
-    public java.util.List<main.Spec.ProtoStep> getStepsList() {
+    public java.util.List<main.Spec.ProtoItem> getStepsList() {
       return steps_;
     }
     /**
-     * <code>repeated .main.ProtoStep steps = 2;</code>
+     * <code>repeated .main.ProtoItem steps = 2;</code>
      */
-    public java.util.List<? extends main.Spec.ProtoStepOrBuilder> 
+    public java.util.List<? extends main.Spec.ProtoItemOrBuilder> 
         getStepsOrBuilderList() {
       return steps_;
     }
     /**
-     * <code>repeated .main.ProtoStep steps = 2;</code>
+     * <code>repeated .main.ProtoItem steps = 2;</code>
      */
     public int getStepsCount() {
       return steps_.size();
     }
     /**
-     * <code>repeated .main.ProtoStep steps = 2;</code>
+     * <code>repeated .main.ProtoItem steps = 2;</code>
      */
-    public main.Spec.ProtoStep getSteps(int index) {
+    public main.Spec.ProtoItem getSteps(int index) {
       return steps_.get(index);
     }
     /**
-     * <code>repeated .main.ProtoStep steps = 2;</code>
+     * <code>repeated .main.ProtoItem steps = 2;</code>
      */
-    public main.Spec.ProtoStepOrBuilder getStepsOrBuilder(
+    public main.Spec.ProtoItemOrBuilder getStepsOrBuilder(
         int index) {
       return steps_.get(index);
     }
@@ -8092,23 +8092,23 @@ public final class Spec {
         return conceptStepBuilder_;
       }
 
-      // repeated .main.ProtoStep steps = 2;
-      private java.util.List<main.Spec.ProtoStep> steps_ =
+      // repeated .main.ProtoItem steps = 2;
+      private java.util.List<main.Spec.ProtoItem> steps_ =
         java.util.Collections.emptyList();
       private void ensureStepsIsMutable() {
         if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          steps_ = new java.util.ArrayList<main.Spec.ProtoStep>(steps_);
+          steps_ = new java.util.ArrayList<main.Spec.ProtoItem>(steps_);
           bitField0_ |= 0x00000002;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          main.Spec.ProtoStep, main.Spec.ProtoStep.Builder, main.Spec.ProtoStepOrBuilder> stepsBuilder_;
+          main.Spec.ProtoItem, main.Spec.ProtoItem.Builder, main.Spec.ProtoItemOrBuilder> stepsBuilder_;
 
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
-      public java.util.List<main.Spec.ProtoStep> getStepsList() {
+      public java.util.List<main.Spec.ProtoItem> getStepsList() {
         if (stepsBuilder_ == null) {
           return java.util.Collections.unmodifiableList(steps_);
         } else {
@@ -8116,7 +8116,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
       public int getStepsCount() {
         if (stepsBuilder_ == null) {
@@ -8126,9 +8126,9 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
-      public main.Spec.ProtoStep getSteps(int index) {
+      public main.Spec.ProtoItem getSteps(int index) {
         if (stepsBuilder_ == null) {
           return steps_.get(index);
         } else {
@@ -8136,10 +8136,10 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
       public Builder setSteps(
-          int index, main.Spec.ProtoStep value) {
+          int index, main.Spec.ProtoItem value) {
         if (stepsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -8153,10 +8153,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
       public Builder setSteps(
-          int index, main.Spec.ProtoStep.Builder builderForValue) {
+          int index, main.Spec.ProtoItem.Builder builderForValue) {
         if (stepsBuilder_ == null) {
           ensureStepsIsMutable();
           steps_.set(index, builderForValue.build());
@@ -8167,9 +8167,9 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
-      public Builder addSteps(main.Spec.ProtoStep value) {
+      public Builder addSteps(main.Spec.ProtoItem value) {
         if (stepsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -8183,10 +8183,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
       public Builder addSteps(
-          int index, main.Spec.ProtoStep value) {
+          int index, main.Spec.ProtoItem value) {
         if (stepsBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -8200,10 +8200,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
       public Builder addSteps(
-          main.Spec.ProtoStep.Builder builderForValue) {
+          main.Spec.ProtoItem.Builder builderForValue) {
         if (stepsBuilder_ == null) {
           ensureStepsIsMutable();
           steps_.add(builderForValue.build());
@@ -8214,10 +8214,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
       public Builder addSteps(
-          int index, main.Spec.ProtoStep.Builder builderForValue) {
+          int index, main.Spec.ProtoItem.Builder builderForValue) {
         if (stepsBuilder_ == null) {
           ensureStepsIsMutable();
           steps_.add(index, builderForValue.build());
@@ -8228,10 +8228,10 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
       public Builder addAllSteps(
-          java.lang.Iterable<? extends main.Spec.ProtoStep> values) {
+          java.lang.Iterable<? extends main.Spec.ProtoItem> values) {
         if (stepsBuilder_ == null) {
           ensureStepsIsMutable();
           super.addAll(values, steps_);
@@ -8242,7 +8242,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
       public Builder clearSteps() {
         if (stepsBuilder_ == null) {
@@ -8255,7 +8255,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
       public Builder removeSteps(int index) {
         if (stepsBuilder_ == null) {
@@ -8268,16 +8268,16 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
-      public main.Spec.ProtoStep.Builder getStepsBuilder(
+      public main.Spec.ProtoItem.Builder getStepsBuilder(
           int index) {
         return getStepsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
-      public main.Spec.ProtoStepOrBuilder getStepsOrBuilder(
+      public main.Spec.ProtoItemOrBuilder getStepsOrBuilder(
           int index) {
         if (stepsBuilder_ == null) {
           return steps_.get(index);  } else {
@@ -8285,9 +8285,9 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
-      public java.util.List<? extends main.Spec.ProtoStepOrBuilder> 
+      public java.util.List<? extends main.Spec.ProtoItemOrBuilder> 
            getStepsOrBuilderList() {
         if (stepsBuilder_ != null) {
           return stepsBuilder_.getMessageOrBuilderList();
@@ -8296,33 +8296,33 @@ public final class Spec {
         }
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
-      public main.Spec.ProtoStep.Builder addStepsBuilder() {
+      public main.Spec.ProtoItem.Builder addStepsBuilder() {
         return getStepsFieldBuilder().addBuilder(
-            main.Spec.ProtoStep.getDefaultInstance());
+            main.Spec.ProtoItem.getDefaultInstance());
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
-      public main.Spec.ProtoStep.Builder addStepsBuilder(
+      public main.Spec.ProtoItem.Builder addStepsBuilder(
           int index) {
         return getStepsFieldBuilder().addBuilder(
-            index, main.Spec.ProtoStep.getDefaultInstance());
+            index, main.Spec.ProtoItem.getDefaultInstance());
       }
       /**
-       * <code>repeated .main.ProtoStep steps = 2;</code>
+       * <code>repeated .main.ProtoItem steps = 2;</code>
        */
-      public java.util.List<main.Spec.ProtoStep.Builder> 
+      public java.util.List<main.Spec.ProtoItem.Builder> 
            getStepsBuilderList() {
         return getStepsFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          main.Spec.ProtoStep, main.Spec.ProtoStep.Builder, main.Spec.ProtoStepOrBuilder> 
+          main.Spec.ProtoItem, main.Spec.ProtoItem.Builder, main.Spec.ProtoItemOrBuilder> 
           getStepsFieldBuilder() {
         if (stepsBuilder_ == null) {
           stepsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              main.Spec.ProtoStep, main.Spec.ProtoStep.Builder, main.Spec.ProtoStepOrBuilder>(
+              main.Spec.ProtoItem, main.Spec.ProtoItem.Builder, main.Spec.ProtoItemOrBuilder>(
                   steps_,
                   ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
@@ -18761,7 +18761,7 @@ public final class Spec {
       "\004 \001(\0132\036.main.ProtoStepExecutionResult\"\224\001" +
       "\n\014ProtoConcept\022$\n\013conceptStep\030\001 \002(\0132\017.ma" +
       "in.ProtoStep\022\036\n\005steps\030\002 \003(\0132\017.main.Proto",
-      "Step\022>\n\026conceptExecutionResult\030\003 \001(\0132\036.m" +
+      "Item\022>\n\026conceptExecutionResult\030\003 \001(\0132\036.m" +
       "ain.ProtoStepExecutionResult\"\031\n\tProtoTag" +
       "s\022\014\n\004tags\030\001 \003(\t\"\230\001\n\010Fragment\0221\n\014fragment" +
       "Type\030\001 \002(\0162\033.main.Fragment.FragmentType\022" +
