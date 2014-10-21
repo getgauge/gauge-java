@@ -13,3 +13,8 @@ tags
 src/src
 *.exe
 .idea/
+
+#go deps
+src/github.com
+tmp
+deploy

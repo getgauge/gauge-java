@@ -6,11 +6,11 @@ import (
 	"github.com/getgauge/common"
 	"os"
 	"os/exec"
+	"os/signal"
 	"path"
 	"path/filepath"
 	"strings"
 	"syscall"
-	"os/signal"
 )
 
 const (
@@ -261,7 +261,7 @@ func main() {
 		}()
 
 		err := cmd.Wait()
-		if (err != nil) {
+		if err != nil {
 			fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())
 			os.Exit(1)
 		}
