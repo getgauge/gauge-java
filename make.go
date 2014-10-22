@@ -16,13 +16,11 @@ import (
 )
 
 const (
-	DEPS_DIR    = "deps"
 	BUILD_DIR   = "tmp"
 	CGO_ENABLED = "CGO_ENABLED"
 )
 
 const (
-	commonDep         = "github.com/getgauge/common"
 	dotGauge          = ".gauge"
 	plugins           = "plugins"
 	GOARCH            = "GOARCH"
@@ -186,7 +184,7 @@ func executeCommand(command string, arg ...string) (string, error) {
 
 func compileGoPackage(packageName string) {
 	setGoEnv()
-	runProcess("go", BUILD_DIR, "get", commonDep)
+	runProcess("go", BUILD_DIR, "get", "./..")
 	runProcess("go", BUILD_DIR, "install", "-v", packageName)
 }
 
@@ -229,7 +227,7 @@ func copyFiles(files map[string]string, installDir string) {
 	}
 }
 
-func copyGaugeJavaFiles(destDir string) error {
+func copyGaugeJavaFiles(destDir string) {
 	files := make(map[string]string)
 	if getOS() == "windows" {
 		files[filepath.Join(getBinDir(), "gauge-java.exe")] = bin
@@ -243,7 +241,6 @@ func copyGaugeJavaFiles(destDir string) error {
 	files[filepath.Join("libs")] = filepath.Join("libs")
 	files[filepath.Join("build", "jar")] = filepath.Join("libs")
 	copyFiles(files, destDir)
-	return nil
 }
 
 func getGaugeJavaVersion() string {
