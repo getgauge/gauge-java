@@ -230,7 +230,7 @@ func copyFiles(files map[string]string, installDir string) {
 
 func copyGaugeJavaFiles(destDir string) {
 	files := make(map[string]string)
-	if getOS() == "windows" {
+	if getGOOS() == "windows" {
 		files[filepath.Join(getBinDir(), "gauge-java.exe")] = bin
 	} else {
 		files[filepath.Join(getBinDir(), gaugeJava)] = bin
@@ -254,7 +254,7 @@ func getGaugeJavaVersion() string {
 
 func getBinDir() string {
 	if *binDir == "" {
-		return platformBinDir
+		return filepath.Join(bin, fmt.Sprintf("%s_%s", getGOOS(), getGOARCH()))
 	}
 	return path.Join(bin, *binDir)
 }
@@ -346,7 +346,6 @@ func createGaugeDistro(forAllPlatforms bool) {
 	if forAllPlatforms {
 		for _, platformEnv := range platformEnvs {
 			setEnv(platformEnv)
-			*binDir = fmt.Sprintf("%s_%s", platformEnv[GOOS], platformEnv[GOARCH])
 			fmt.Printf("Creating distro for platform => OS:%s ARCH:%s \n", platformEnv[GOOS], platformEnv[GOARCH])
 			createDistro()
 		}
@@ -356,7 +355,7 @@ func createGaugeDistro(forAllPlatforms bool) {
 }
 
 func createDistro() {
-	packageName := fmt.Sprintf("%s-%s-%s.%s", gaugeJava, getGaugeJavaVersion(), getOS(), getArch())
+	packageName := fmt.Sprintf("%s-%s-%s.%s", gaugeJava, getGaugeJavaVersion(), getGOOS(), getArch())
 	distroDir := filepath.Join(deploy, packageName)
 	copyGaugeJavaFiles(distroDir)
 	createZip(deploy, packageName)
@@ -454,15 +453,24 @@ func getUserHome() string {
 }
 
 func getArch() string {
-	arch := os.Getenv("GOARCH")
+	arch := getGOARCH()
 	if arch == X86 {
 		return "x86"
 	}
 	return "x86_64"
 }
 
-func getOS() string {
-	os := os.Getenv("GOOS")
+func getGOARCH() string {
+	goArch := os.Getenv(GOARCH)
+	if goArch == "" {
+		return runtime.GOARCH
+
+	}
+	return goArch
+}
+
+func getGOOS() string {
+	os := os.Getenv(GOOS)
 	if os == "" {
 		return runtime.GOOS
 
