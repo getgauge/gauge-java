@@ -184,7 +184,7 @@ func executeCommand(command string, arg ...string) (string, error) {
 
 func compileGoPackage(packageName string) {
 	setGoEnv()
-	runProcess("go", BUILD_DIR, "get", "./..")
+	runProcess("go", BUILD_DIR, "get", "-d", "./..")
 	runProcess("go", BUILD_DIR, "install", "-v", packageName)
 }
 
