@@ -18,6 +18,7 @@ const (
 	java_home                 = "JAVA_HOME"
 	additional_libs_env_name  = "gauge_additional_libs"
 	custom_build_path         = "gauge_custom_build_path"
+	custom_compile_dir        = "gauge_custom_compile_dir"
 	jvm_args_env_name         = "gauge_jvm_args"
 	default_build_dir         = "gauge_bin"
 	main_class_name           = "com.thoughtworks.gauge.GaugeRuntime"
@@ -303,13 +304,28 @@ func build(destination string, classpath string) {
 	os.Mkdir(destination, 0755)
 	args := []string{"-encoding", "UTF-8", "-d", destination, "-cp", classpath}
 	javaFiles := make([]string, 0)
-	srcDir := path.Join("src")
-	filepath.Walk(srcDir, func(currentPath string, info os.FileInfo, err error) error {
-		if strings.Contains(currentPath, ".java") {
-			javaFiles = append(javaFiles, currentPath)
+
+	srcDir := make([]string, 0)
+
+	value := os.Getenv(custom_compile_dir)
+	if len(value) > 0 {
+		paths := strings.Split(value, ",")
+		for _, src := range paths {
+			src = strings.TrimSpace(src)
+			srcDir = append(srcDir, path.Join(src))
 		}
-		return nil
-	})
+	} else {
+		srcDir = append(srcDir, path.Join("src"))
+	}
+
+	for _, srcDirItem := range srcDir {
+		filepath.Walk(srcDirItem, func(currentPath string, info os.FileInfo, err error) error {
+			if strings.Contains(currentPath, ".java") {
+				javaFiles = append(javaFiles, currentPath)
+			}
+			return nil
+		})
+	}
 
 	args = append(args, javaFiles...)
 	javac := getExecPathFrom(java_home, alternate_java_home, "javac")
