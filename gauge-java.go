@@ -44,15 +44,6 @@ var projectRoot = ""
 var start = flag.Bool("start", false, "Start the java runner")
 var initialize = flag.Bool("init", false, "Initialize the java runner")
 
-func getProjectRoot() string {
-	pwd, err := common.GetProjectRoot()
-	if err != nil {
-		panic(err)
-	}
-
-	return pwd
-}
-
 func getIntelliJClasspath() string {
 	intellijOutDir := path.Join("out", "production")
 	if !common.DirExists(intellijOutDir) {
@@ -205,9 +196,9 @@ func main() {
 		fmt.Printf("Failed to find current working directory: %s \n", err)
 		os.Exit(1)
 	}
-	projectRoot = os.Getenv("GAUGE_PROJECT_ROOT")
+	projectRoot = os.Getenv(common.GaugeProjectRootEnv)
 	if projectRoot == "" {
-		fmt.Println("Could not find GAUGE_PROJECT_ROOT env. Java Runner exiting...")
+		fmt.Printf("Could not find %s env. Java Runner exiting...", common.GaugeProjectRootEnv)
 		os.Exit(1)
 	}
 
