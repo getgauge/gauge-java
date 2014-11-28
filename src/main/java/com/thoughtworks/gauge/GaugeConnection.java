@@ -57,6 +57,20 @@ public class GaugeConnection {
         return steps;
     }
 
+    public List<ConceptInfo> fetchAllConcepts() throws IOException {
+        Api.APIMessage message = getConceptRequest();
+        Api.APIMessage response = getAPIResponse(message);
+        Api.GetAllConceptsResponse allConceptsResponse = response.getAllConceptsResponse();
+        List<ConceptInfo> conceptsInfo = new ArrayList<ConceptInfo>();
+        for (Api.ConceptInfo conceptInfoResponse : allConceptsResponse.getConceptsList()) {
+            Spec.ProtoStepValue protoStepValue = conceptInfoResponse.getStepValue();
+            StepValue stepValue = new StepValue(protoStepValue.getStepValue(), protoStepValue.getParameterizedStepValue(), protoStepValue.getParametersList());
+            ConceptInfo conceptInfo = new ConceptInfo(stepValue,conceptInfoResponse.getFilepath(),conceptInfoResponse.getLineNumber());
+            conceptsInfo.add(conceptInfo);
+        }
+        return conceptsInfo;
+    }
+
     public String getLibPath(String language) throws IOException, PluginNotInstalledException {
         Api.APIMessage message = getLibPathRequest(language);
         Api.APIMessage response = getAPIResponse(message);
@@ -151,6 +165,15 @@ public class GaugeConnection {
                 .setMessageType(Api.APIMessage.APIMessageType.GetLanguagePluginLibPathRequest)
                 .setMessageId(5)
                 .setLibPathRequest(libPathRequest)
+                .build();
+    }
+
+    private Api.APIMessage getConceptRequest() {
+        Api.GetAllConceptsRequest conceptRequest = Api.GetAllConceptsRequest.newBuilder().build();
+        return Api.APIMessage.newBuilder()
+                .setMessageType(Api.APIMessage.APIMessageType.GetAllConceptsRequest)
+                .setMessageId(6)
+                .setAllConceptsRequest(conceptRequest)
                 .build();
     }
 
