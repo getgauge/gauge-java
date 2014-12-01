@@ -3574,6 +3574,1777 @@ public final class Api {
     // @@protoc_insertion_point(class_scope:main.GetAllSpecsResponse)
   }
 
+  public interface GetAllConceptsRequestOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code main.GetAllConceptsRequest}
+   */
+  public static final class GetAllConceptsRequest extends
+      com.google.protobuf.GeneratedMessage
+      implements GetAllConceptsRequestOrBuilder {
+    // Use GetAllConceptsRequest.newBuilder() to construct.
+    private GetAllConceptsRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private GetAllConceptsRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final GetAllConceptsRequest defaultInstance;
+    public static GetAllConceptsRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public GetAllConceptsRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetAllConceptsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return main.Api.internal_static_main_GetAllConceptsRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return main.Api.internal_static_main_GetAllConceptsRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              main.Api.GetAllConceptsRequest.class, main.Api.GetAllConceptsRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<GetAllConceptsRequest> PARSER =
+        new com.google.protobuf.AbstractParser<GetAllConceptsRequest>() {
+      public GetAllConceptsRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetAllConceptsRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetAllConceptsRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static main.Api.GetAllConceptsRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Api.GetAllConceptsRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Api.GetAllConceptsRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Api.GetAllConceptsRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Api.GetAllConceptsRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Api.GetAllConceptsRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static main.Api.GetAllConceptsRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static main.Api.GetAllConceptsRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static main.Api.GetAllConceptsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Api.GetAllConceptsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(main.Api.GetAllConceptsRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code main.GetAllConceptsRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements main.Api.GetAllConceptsRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return main.Api.internal_static_main_GetAllConceptsRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return main.Api.internal_static_main_GetAllConceptsRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                main.Api.GetAllConceptsRequest.class, main.Api.GetAllConceptsRequest.Builder.class);
+      }
+
+      // Construct using main.Api.GetAllConceptsRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return main.Api.internal_static_main_GetAllConceptsRequest_descriptor;
+      }
+
+      public main.Api.GetAllConceptsRequest getDefaultInstanceForType() {
+        return main.Api.GetAllConceptsRequest.getDefaultInstance();
+      }
+
+      public main.Api.GetAllConceptsRequest build() {
+        main.Api.GetAllConceptsRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public main.Api.GetAllConceptsRequest buildPartial() {
+        main.Api.GetAllConceptsRequest result = new main.Api.GetAllConceptsRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof main.Api.GetAllConceptsRequest) {
+          return mergeFrom((main.Api.GetAllConceptsRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(main.Api.GetAllConceptsRequest other) {
+        if (other == main.Api.GetAllConceptsRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        main.Api.GetAllConceptsRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (main.Api.GetAllConceptsRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:main.GetAllConceptsRequest)
+    }
+
+    static {
+      defaultInstance = new GetAllConceptsRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:main.GetAllConceptsRequest)
+  }
+
+  public interface GetAllConceptsResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // repeated .main.ConceptInfo concepts = 1;
+    /**
+     * <code>repeated .main.ConceptInfo concepts = 1;</code>
+     */
+    java.util.List<main.Api.ConceptInfo> 
+        getConceptsList();
+    /**
+     * <code>repeated .main.ConceptInfo concepts = 1;</code>
+     */
+    main.Api.ConceptInfo getConcepts(int index);
+    /**
+     * <code>repeated .main.ConceptInfo concepts = 1;</code>
+     */
+    int getConceptsCount();
+    /**
+     * <code>repeated .main.ConceptInfo concepts = 1;</code>
+     */
+    java.util.List<? extends main.Api.ConceptInfoOrBuilder> 
+        getConceptsOrBuilderList();
+    /**
+     * <code>repeated .main.ConceptInfo concepts = 1;</code>
+     */
+    main.Api.ConceptInfoOrBuilder getConceptsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code main.GetAllConceptsResponse}
+   */
+  public static final class GetAllConceptsResponse extends
+      com.google.protobuf.GeneratedMessage
+      implements GetAllConceptsResponseOrBuilder {
+    // Use GetAllConceptsResponse.newBuilder() to construct.
+    private GetAllConceptsResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private GetAllConceptsResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final GetAllConceptsResponse defaultInstance;
+    public static GetAllConceptsResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public GetAllConceptsResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetAllConceptsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                concepts_ = new java.util.ArrayList<main.Api.ConceptInfo>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              concepts_.add(input.readMessage(main.Api.ConceptInfo.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          concepts_ = java.util.Collections.unmodifiableList(concepts_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return main.Api.internal_static_main_GetAllConceptsResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return main.Api.internal_static_main_GetAllConceptsResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              main.Api.GetAllConceptsResponse.class, main.Api.GetAllConceptsResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<GetAllConceptsResponse> PARSER =
+        new com.google.protobuf.AbstractParser<GetAllConceptsResponse>() {
+      public GetAllConceptsResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetAllConceptsResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetAllConceptsResponse> getParserForType() {
+      return PARSER;
+    }
+
+    // repeated .main.ConceptInfo concepts = 1;
+    public static final int CONCEPTS_FIELD_NUMBER = 1;
+    private java.util.List<main.Api.ConceptInfo> concepts_;
+    /**
+     * <code>repeated .main.ConceptInfo concepts = 1;</code>
+     */
+    public java.util.List<main.Api.ConceptInfo> getConceptsList() {
+      return concepts_;
+    }
+    /**
+     * <code>repeated .main.ConceptInfo concepts = 1;</code>
+     */
+    public java.util.List<? extends main.Api.ConceptInfoOrBuilder> 
+        getConceptsOrBuilderList() {
+      return concepts_;
+    }
+    /**
+     * <code>repeated .main.ConceptInfo concepts = 1;</code>
+     */
+    public int getConceptsCount() {
+      return concepts_.size();
+    }
+    /**
+     * <code>repeated .main.ConceptInfo concepts = 1;</code>
+     */
+    public main.Api.ConceptInfo getConcepts(int index) {
+      return concepts_.get(index);
+    }
+    /**
+     * <code>repeated .main.ConceptInfo concepts = 1;</code>
+     */
+    public main.Api.ConceptInfoOrBuilder getConceptsOrBuilder(
+        int index) {
+      return concepts_.get(index);
+    }
+
+    private void initFields() {
+      concepts_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      for (int i = 0; i < getConceptsCount(); i++) {
+        if (!getConcepts(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < concepts_.size(); i++) {
+        output.writeMessage(1, concepts_.get(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < concepts_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, concepts_.get(i));
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static main.Api.GetAllConceptsResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Api.GetAllConceptsResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Api.GetAllConceptsResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Api.GetAllConceptsResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Api.GetAllConceptsResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Api.GetAllConceptsResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static main.Api.GetAllConceptsResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static main.Api.GetAllConceptsResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static main.Api.GetAllConceptsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Api.GetAllConceptsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(main.Api.GetAllConceptsResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code main.GetAllConceptsResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements main.Api.GetAllConceptsResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return main.Api.internal_static_main_GetAllConceptsResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return main.Api.internal_static_main_GetAllConceptsResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                main.Api.GetAllConceptsResponse.class, main.Api.GetAllConceptsResponse.Builder.class);
+      }
+
+      // Construct using main.Api.GetAllConceptsResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getConceptsFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (conceptsBuilder_ == null) {
+          concepts_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          conceptsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return main.Api.internal_static_main_GetAllConceptsResponse_descriptor;
+      }
+
+      public main.Api.GetAllConceptsResponse getDefaultInstanceForType() {
+        return main.Api.GetAllConceptsResponse.getDefaultInstance();
+      }
+
+      public main.Api.GetAllConceptsResponse build() {
+        main.Api.GetAllConceptsResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public main.Api.GetAllConceptsResponse buildPartial() {
+        main.Api.GetAllConceptsResponse result = new main.Api.GetAllConceptsResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (conceptsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            concepts_ = java.util.Collections.unmodifiableList(concepts_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.concepts_ = concepts_;
+        } else {
+          result.concepts_ = conceptsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof main.Api.GetAllConceptsResponse) {
+          return mergeFrom((main.Api.GetAllConceptsResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(main.Api.GetAllConceptsResponse other) {
+        if (other == main.Api.GetAllConceptsResponse.getDefaultInstance()) return this;
+        if (conceptsBuilder_ == null) {
+          if (!other.concepts_.isEmpty()) {
+            if (concepts_.isEmpty()) {
+              concepts_ = other.concepts_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureConceptsIsMutable();
+              concepts_.addAll(other.concepts_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.concepts_.isEmpty()) {
+            if (conceptsBuilder_.isEmpty()) {
+              conceptsBuilder_.dispose();
+              conceptsBuilder_ = null;
+              concepts_ = other.concepts_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              conceptsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getConceptsFieldBuilder() : null;
+            } else {
+              conceptsBuilder_.addAllMessages(other.concepts_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getConceptsCount(); i++) {
+          if (!getConcepts(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        main.Api.GetAllConceptsResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (main.Api.GetAllConceptsResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // repeated .main.ConceptInfo concepts = 1;
+      private java.util.List<main.Api.ConceptInfo> concepts_ =
+        java.util.Collections.emptyList();
+      private void ensureConceptsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          concepts_ = new java.util.ArrayList<main.Api.ConceptInfo>(concepts_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          main.Api.ConceptInfo, main.Api.ConceptInfo.Builder, main.Api.ConceptInfoOrBuilder> conceptsBuilder_;
+
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public java.util.List<main.Api.ConceptInfo> getConceptsList() {
+        if (conceptsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(concepts_);
+        } else {
+          return conceptsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public int getConceptsCount() {
+        if (conceptsBuilder_ == null) {
+          return concepts_.size();
+        } else {
+          return conceptsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public main.Api.ConceptInfo getConcepts(int index) {
+        if (conceptsBuilder_ == null) {
+          return concepts_.get(index);
+        } else {
+          return conceptsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public Builder setConcepts(
+          int index, main.Api.ConceptInfo value) {
+        if (conceptsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConceptsIsMutable();
+          concepts_.set(index, value);
+          onChanged();
+        } else {
+          conceptsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public Builder setConcepts(
+          int index, main.Api.ConceptInfo.Builder builderForValue) {
+        if (conceptsBuilder_ == null) {
+          ensureConceptsIsMutable();
+          concepts_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          conceptsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public Builder addConcepts(main.Api.ConceptInfo value) {
+        if (conceptsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConceptsIsMutable();
+          concepts_.add(value);
+          onChanged();
+        } else {
+          conceptsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public Builder addConcepts(
+          int index, main.Api.ConceptInfo value) {
+        if (conceptsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureConceptsIsMutable();
+          concepts_.add(index, value);
+          onChanged();
+        } else {
+          conceptsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public Builder addConcepts(
+          main.Api.ConceptInfo.Builder builderForValue) {
+        if (conceptsBuilder_ == null) {
+          ensureConceptsIsMutable();
+          concepts_.add(builderForValue.build());
+          onChanged();
+        } else {
+          conceptsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public Builder addConcepts(
+          int index, main.Api.ConceptInfo.Builder builderForValue) {
+        if (conceptsBuilder_ == null) {
+          ensureConceptsIsMutable();
+          concepts_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          conceptsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public Builder addAllConcepts(
+          java.lang.Iterable<? extends main.Api.ConceptInfo> values) {
+        if (conceptsBuilder_ == null) {
+          ensureConceptsIsMutable();
+          super.addAll(values, concepts_);
+          onChanged();
+        } else {
+          conceptsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public Builder clearConcepts() {
+        if (conceptsBuilder_ == null) {
+          concepts_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          conceptsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public Builder removeConcepts(int index) {
+        if (conceptsBuilder_ == null) {
+          ensureConceptsIsMutable();
+          concepts_.remove(index);
+          onChanged();
+        } else {
+          conceptsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public main.Api.ConceptInfo.Builder getConceptsBuilder(
+          int index) {
+        return getConceptsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public main.Api.ConceptInfoOrBuilder getConceptsOrBuilder(
+          int index) {
+        if (conceptsBuilder_ == null) {
+          return concepts_.get(index);  } else {
+          return conceptsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public java.util.List<? extends main.Api.ConceptInfoOrBuilder> 
+           getConceptsOrBuilderList() {
+        if (conceptsBuilder_ != null) {
+          return conceptsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(concepts_);
+        }
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public main.Api.ConceptInfo.Builder addConceptsBuilder() {
+        return getConceptsFieldBuilder().addBuilder(
+            main.Api.ConceptInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public main.Api.ConceptInfo.Builder addConceptsBuilder(
+          int index) {
+        return getConceptsFieldBuilder().addBuilder(
+            index, main.Api.ConceptInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .main.ConceptInfo concepts = 1;</code>
+       */
+      public java.util.List<main.Api.ConceptInfo.Builder> 
+           getConceptsBuilderList() {
+        return getConceptsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          main.Api.ConceptInfo, main.Api.ConceptInfo.Builder, main.Api.ConceptInfoOrBuilder> 
+          getConceptsFieldBuilder() {
+        if (conceptsBuilder_ == null) {
+          conceptsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              main.Api.ConceptInfo, main.Api.ConceptInfo.Builder, main.Api.ConceptInfoOrBuilder>(
+                  concepts_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          concepts_ = null;
+        }
+        return conceptsBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:main.GetAllConceptsResponse)
+    }
+
+    static {
+      defaultInstance = new GetAllConceptsResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:main.GetAllConceptsResponse)
+  }
+
+  public interface ConceptInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required .main.ProtoStepValue stepValue = 1;
+    /**
+     * <code>required .main.ProtoStepValue stepValue = 1;</code>
+     */
+    boolean hasStepValue();
+    /**
+     * <code>required .main.ProtoStepValue stepValue = 1;</code>
+     */
+    main.Spec.ProtoStepValue getStepValue();
+    /**
+     * <code>required .main.ProtoStepValue stepValue = 1;</code>
+     */
+    main.Spec.ProtoStepValueOrBuilder getStepValueOrBuilder();
+
+    // required string filepath = 2;
+    /**
+     * <code>required string filepath = 2;</code>
+     */
+    boolean hasFilepath();
+    /**
+     * <code>required string filepath = 2;</code>
+     */
+    java.lang.String getFilepath();
+    /**
+     * <code>required string filepath = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getFilepathBytes();
+
+    // required int32 lineNumber = 3;
+    /**
+     * <code>required int32 lineNumber = 3;</code>
+     */
+    boolean hasLineNumber();
+    /**
+     * <code>required int32 lineNumber = 3;</code>
+     */
+    int getLineNumber();
+  }
+  /**
+   * Protobuf type {@code main.ConceptInfo}
+   */
+  public static final class ConceptInfo extends
+      com.google.protobuf.GeneratedMessage
+      implements ConceptInfoOrBuilder {
+    // Use ConceptInfo.newBuilder() to construct.
+    private ConceptInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ConceptInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ConceptInfo defaultInstance;
+    public static ConceptInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ConceptInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ConceptInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              main.Spec.ProtoStepValue.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = stepValue_.toBuilder();
+              }
+              stepValue_ = input.readMessage(main.Spec.ProtoStepValue.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(stepValue_);
+                stepValue_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              filepath_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              lineNumber_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return main.Api.internal_static_main_ConceptInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return main.Api.internal_static_main_ConceptInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              main.Api.ConceptInfo.class, main.Api.ConceptInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ConceptInfo> PARSER =
+        new com.google.protobuf.AbstractParser<ConceptInfo>() {
+      public ConceptInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ConceptInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ConceptInfo> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required .main.ProtoStepValue stepValue = 1;
+    public static final int STEPVALUE_FIELD_NUMBER = 1;
+    private main.Spec.ProtoStepValue stepValue_;
+    /**
+     * <code>required .main.ProtoStepValue stepValue = 1;</code>
+     */
+    public boolean hasStepValue() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required .main.ProtoStepValue stepValue = 1;</code>
+     */
+    public main.Spec.ProtoStepValue getStepValue() {
+      return stepValue_;
+    }
+    /**
+     * <code>required .main.ProtoStepValue stepValue = 1;</code>
+     */
+    public main.Spec.ProtoStepValueOrBuilder getStepValueOrBuilder() {
+      return stepValue_;
+    }
+
+    // required string filepath = 2;
+    public static final int FILEPATH_FIELD_NUMBER = 2;
+    private java.lang.Object filepath_;
+    /**
+     * <code>required string filepath = 2;</code>
+     */
+    public boolean hasFilepath() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string filepath = 2;</code>
+     */
+    public java.lang.String getFilepath() {
+      java.lang.Object ref = filepath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          filepath_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string filepath = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilepathBytes() {
+      java.lang.Object ref = filepath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filepath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required int32 lineNumber = 3;
+    public static final int LINENUMBER_FIELD_NUMBER = 3;
+    private int lineNumber_;
+    /**
+     * <code>required int32 lineNumber = 3;</code>
+     */
+    public boolean hasLineNumber() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 lineNumber = 3;</code>
+     */
+    public int getLineNumber() {
+      return lineNumber_;
+    }
+
+    private void initFields() {
+      stepValue_ = main.Spec.ProtoStepValue.getDefaultInstance();
+      filepath_ = "";
+      lineNumber_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasStepValue()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasFilepath()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasLineNumber()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getStepValue().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, stepValue_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getFilepathBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, lineNumber_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, stepValue_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getFilepathBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, lineNumber_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static main.Api.ConceptInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Api.ConceptInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Api.ConceptInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static main.Api.ConceptInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static main.Api.ConceptInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Api.ConceptInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static main.Api.ConceptInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static main.Api.ConceptInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static main.Api.ConceptInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static main.Api.ConceptInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(main.Api.ConceptInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code main.ConceptInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements main.Api.ConceptInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return main.Api.internal_static_main_ConceptInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return main.Api.internal_static_main_ConceptInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                main.Api.ConceptInfo.class, main.Api.ConceptInfo.Builder.class);
+      }
+
+      // Construct using main.Api.ConceptInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getStepValueFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (stepValueBuilder_ == null) {
+          stepValue_ = main.Spec.ProtoStepValue.getDefaultInstance();
+        } else {
+          stepValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        filepath_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        lineNumber_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return main.Api.internal_static_main_ConceptInfo_descriptor;
+      }
+
+      public main.Api.ConceptInfo getDefaultInstanceForType() {
+        return main.Api.ConceptInfo.getDefaultInstance();
+      }
+
+      public main.Api.ConceptInfo build() {
+        main.Api.ConceptInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public main.Api.ConceptInfo buildPartial() {
+        main.Api.ConceptInfo result = new main.Api.ConceptInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (stepValueBuilder_ == null) {
+          result.stepValue_ = stepValue_;
+        } else {
+          result.stepValue_ = stepValueBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.filepath_ = filepath_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.lineNumber_ = lineNumber_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof main.Api.ConceptInfo) {
+          return mergeFrom((main.Api.ConceptInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(main.Api.ConceptInfo other) {
+        if (other == main.Api.ConceptInfo.getDefaultInstance()) return this;
+        if (other.hasStepValue()) {
+          mergeStepValue(other.getStepValue());
+        }
+        if (other.hasFilepath()) {
+          bitField0_ |= 0x00000002;
+          filepath_ = other.filepath_;
+          onChanged();
+        }
+        if (other.hasLineNumber()) {
+          setLineNumber(other.getLineNumber());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasStepValue()) {
+          
+          return false;
+        }
+        if (!hasFilepath()) {
+          
+          return false;
+        }
+        if (!hasLineNumber()) {
+          
+          return false;
+        }
+        if (!getStepValue().isInitialized()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        main.Api.ConceptInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (main.Api.ConceptInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required .main.ProtoStepValue stepValue = 1;
+      private main.Spec.ProtoStepValue stepValue_ = main.Spec.ProtoStepValue.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Spec.ProtoStepValue, main.Spec.ProtoStepValue.Builder, main.Spec.ProtoStepValueOrBuilder> stepValueBuilder_;
+      /**
+       * <code>required .main.ProtoStepValue stepValue = 1;</code>
+       */
+      public boolean hasStepValue() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required .main.ProtoStepValue stepValue = 1;</code>
+       */
+      public main.Spec.ProtoStepValue getStepValue() {
+        if (stepValueBuilder_ == null) {
+          return stepValue_;
+        } else {
+          return stepValueBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .main.ProtoStepValue stepValue = 1;</code>
+       */
+      public Builder setStepValue(main.Spec.ProtoStepValue value) {
+        if (stepValueBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          stepValue_ = value;
+          onChanged();
+        } else {
+          stepValueBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .main.ProtoStepValue stepValue = 1;</code>
+       */
+      public Builder setStepValue(
+          main.Spec.ProtoStepValue.Builder builderForValue) {
+        if (stepValueBuilder_ == null) {
+          stepValue_ = builderForValue.build();
+          onChanged();
+        } else {
+          stepValueBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .main.ProtoStepValue stepValue = 1;</code>
+       */
+      public Builder mergeStepValue(main.Spec.ProtoStepValue value) {
+        if (stepValueBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              stepValue_ != main.Spec.ProtoStepValue.getDefaultInstance()) {
+            stepValue_ =
+              main.Spec.ProtoStepValue.newBuilder(stepValue_).mergeFrom(value).buildPartial();
+          } else {
+            stepValue_ = value;
+          }
+          onChanged();
+        } else {
+          stepValueBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .main.ProtoStepValue stepValue = 1;</code>
+       */
+      public Builder clearStepValue() {
+        if (stepValueBuilder_ == null) {
+          stepValue_ = main.Spec.ProtoStepValue.getDefaultInstance();
+          onChanged();
+        } else {
+          stepValueBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>required .main.ProtoStepValue stepValue = 1;</code>
+       */
+      public main.Spec.ProtoStepValue.Builder getStepValueBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getStepValueFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .main.ProtoStepValue stepValue = 1;</code>
+       */
+      public main.Spec.ProtoStepValueOrBuilder getStepValueOrBuilder() {
+        if (stepValueBuilder_ != null) {
+          return stepValueBuilder_.getMessageOrBuilder();
+        } else {
+          return stepValue_;
+        }
+      }
+      /**
+       * <code>required .main.ProtoStepValue stepValue = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Spec.ProtoStepValue, main.Spec.ProtoStepValue.Builder, main.Spec.ProtoStepValueOrBuilder> 
+          getStepValueFieldBuilder() {
+        if (stepValueBuilder_ == null) {
+          stepValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              main.Spec.ProtoStepValue, main.Spec.ProtoStepValue.Builder, main.Spec.ProtoStepValueOrBuilder>(
+                  stepValue_,
+                  getParentForChildren(),
+                  isClean());
+          stepValue_ = null;
+        }
+        return stepValueBuilder_;
+      }
+
+      // required string filepath = 2;
+      private java.lang.Object filepath_ = "";
+      /**
+       * <code>required string filepath = 2;</code>
+       */
+      public boolean hasFilepath() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string filepath = 2;</code>
+       */
+      public java.lang.String getFilepath() {
+        java.lang.Object ref = filepath_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          filepath_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string filepath = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilepathBytes() {
+        java.lang.Object ref = filepath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filepath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string filepath = 2;</code>
+       */
+      public Builder setFilepath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        filepath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string filepath = 2;</code>
+       */
+      public Builder clearFilepath() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        filepath_ = getDefaultInstance().getFilepath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string filepath = 2;</code>
+       */
+      public Builder setFilepathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        filepath_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required int32 lineNumber = 3;
+      private int lineNumber_ ;
+      /**
+       * <code>required int32 lineNumber = 3;</code>
+       */
+      public boolean hasLineNumber() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 lineNumber = 3;</code>
+       */
+      public int getLineNumber() {
+        return lineNumber_;
+      }
+      /**
+       * <code>required int32 lineNumber = 3;</code>
+       */
+      public Builder setLineNumber(int value) {
+        bitField0_ |= 0x00000004;
+        lineNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 lineNumber = 3;</code>
+       */
+      public Builder clearLineNumber() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        lineNumber_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:main.ConceptInfo)
+    }
+
+    static {
+      defaultInstance = new ConceptInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:main.ConceptInfo)
+  }
+
   public interface GetStepValueRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
@@ -6298,6 +8069,34 @@ public final class Api {
      * <code>optional .main.ErrorResponse error = 15;</code>
      */
     main.Api.ErrorResponseOrBuilder getErrorOrBuilder();
+
+    // optional .main.GetAllConceptsRequest allConceptsRequest = 16;
+    /**
+     * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+     */
+    boolean hasAllConceptsRequest();
+    /**
+     * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+     */
+    main.Api.GetAllConceptsRequest getAllConceptsRequest();
+    /**
+     * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+     */
+    main.Api.GetAllConceptsRequestOrBuilder getAllConceptsRequestOrBuilder();
+
+    // optional .main.GetAllConceptsResponse allConceptsResponse = 17;
+    /**
+     * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+     */
+    boolean hasAllConceptsResponse();
+    /**
+     * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+     */
+    main.Api.GetAllConceptsResponse getAllConceptsResponse();
+    /**
+     * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+     */
+    main.Api.GetAllConceptsResponseOrBuilder getAllConceptsResponseOrBuilder();
   }
   /**
    * Protobuf type {@code main.APIMessage}
@@ -6535,6 +8334,32 @@ public final class Api {
               bitField0_ |= 0x00004000;
               break;
             }
+            case 130: {
+              main.Api.GetAllConceptsRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00008000) == 0x00008000)) {
+                subBuilder = allConceptsRequest_.toBuilder();
+              }
+              allConceptsRequest_ = input.readMessage(main.Api.GetAllConceptsRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(allConceptsRequest_);
+                allConceptsRequest_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00008000;
+              break;
+            }
+            case 138: {
+              main.Api.GetAllConceptsResponse.Builder subBuilder = null;
+              if (((bitField0_ & 0x00010000) == 0x00010000)) {
+                subBuilder = allConceptsResponse_.toBuilder();
+              }
+              allConceptsResponse_ = input.readMessage(main.Api.GetAllConceptsResponse.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(allConceptsResponse_);
+                allConceptsResponse_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00010000;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6631,6 +8456,14 @@ public final class Api {
        * <code>ErrorResponse = 13;</code>
        */
       ErrorResponse(12, 13),
+      /**
+       * <code>GetAllConceptsRequest = 14;</code>
+       */
+      GetAllConceptsRequest(13, 14),
+      /**
+       * <code>GetAllConceptsResponse = 15;</code>
+       */
+      GetAllConceptsResponse(14, 15),
       ;
 
       /**
@@ -6685,6 +8518,14 @@ public final class Api {
        * <code>ErrorResponse = 13;</code>
        */
       public static final int ErrorResponse_VALUE = 13;
+      /**
+       * <code>GetAllConceptsRequest = 14;</code>
+       */
+      public static final int GetAllConceptsRequest_VALUE = 14;
+      /**
+       * <code>GetAllConceptsResponse = 15;</code>
+       */
+      public static final int GetAllConceptsResponse_VALUE = 15;
 
 
       public final int getNumber() { return value; }
@@ -6704,6 +8545,8 @@ public final class Api {
           case 11: return GetLanguagePluginLibPathRequest;
           case 12: return GetLanguagePluginLibPathResponse;
           case 13: return ErrorResponse;
+          case 14: return GetAllConceptsRequest;
+          case 15: return GetAllConceptsResponse;
           default: return null;
         }
       }
@@ -7074,6 +8917,50 @@ public final class Api {
       return error_;
     }
 
+    // optional .main.GetAllConceptsRequest allConceptsRequest = 16;
+    public static final int ALLCONCEPTSREQUEST_FIELD_NUMBER = 16;
+    private main.Api.GetAllConceptsRequest allConceptsRequest_;
+    /**
+     * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+     */
+    public boolean hasAllConceptsRequest() {
+      return ((bitField0_ & 0x00008000) == 0x00008000);
+    }
+    /**
+     * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+     */
+    public main.Api.GetAllConceptsRequest getAllConceptsRequest() {
+      return allConceptsRequest_;
+    }
+    /**
+     * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+     */
+    public main.Api.GetAllConceptsRequestOrBuilder getAllConceptsRequestOrBuilder() {
+      return allConceptsRequest_;
+    }
+
+    // optional .main.GetAllConceptsResponse allConceptsResponse = 17;
+    public static final int ALLCONCEPTSRESPONSE_FIELD_NUMBER = 17;
+    private main.Api.GetAllConceptsResponse allConceptsResponse_;
+    /**
+     * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+     */
+    public boolean hasAllConceptsResponse() {
+      return ((bitField0_ & 0x00010000) == 0x00010000);
+    }
+    /**
+     * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+     */
+    public main.Api.GetAllConceptsResponse getAllConceptsResponse() {
+      return allConceptsResponse_;
+    }
+    /**
+     * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+     */
+    public main.Api.GetAllConceptsResponseOrBuilder getAllConceptsResponseOrBuilder() {
+      return allConceptsResponse_;
+    }
+
     private void initFields() {
       messageType_ = main.Api.APIMessage.APIMessageType.GetProjectRootRequest;
       messageId_ = 0L;
@@ -7090,6 +8977,8 @@ public final class Api {
       libPathRequest_ = main.Api.GetLanguagePluginLibPathRequest.getDefaultInstance();
       libPathResponse_ = main.Api.GetLanguagePluginLibPathResponse.getDefaultInstance();
       error_ = main.Api.ErrorResponse.getDefaultInstance();
+      allConceptsRequest_ = main.Api.GetAllConceptsRequest.getDefaultInstance();
+      allConceptsResponse_ = main.Api.GetAllConceptsResponse.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -7158,6 +9047,12 @@ public final class Api {
           return false;
         }
       }
+      if (hasAllConceptsResponse()) {
+        if (!getAllConceptsResponse().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -7209,6 +9104,12 @@ public final class Api {
       }
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
         output.writeMessage(15, error_);
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        output.writeMessage(16, allConceptsRequest_);
+      }
+      if (((bitField0_ & 0x00010000) == 0x00010000)) {
+        output.writeMessage(17, allConceptsResponse_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -7278,6 +9179,14 @@ public final class Api {
       if (((bitField0_ & 0x00004000) == 0x00004000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(15, error_);
+      }
+      if (((bitField0_ & 0x00008000) == 0x00008000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(16, allConceptsRequest_);
+      }
+      if (((bitField0_ & 0x00010000) == 0x00010000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(17, allConceptsResponse_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -7400,6 +9309,8 @@ public final class Api {
           getLibPathRequestFieldBuilder();
           getLibPathResponseFieldBuilder();
           getErrorFieldBuilder();
+          getAllConceptsRequestFieldBuilder();
+          getAllConceptsResponseFieldBuilder();
         }
       }
       private static Builder create() {
@@ -7490,6 +9401,18 @@ public final class Api {
           errorBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00004000);
+        if (allConceptsRequestBuilder_ == null) {
+          allConceptsRequest_ = main.Api.GetAllConceptsRequest.getDefaultInstance();
+        } else {
+          allConceptsRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00008000);
+        if (allConceptsResponseBuilder_ == null) {
+          allConceptsResponse_ = main.Api.GetAllConceptsResponse.getDefaultInstance();
+        } else {
+          allConceptsResponseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00010000);
         return this;
       }
 
@@ -7630,6 +9553,22 @@ public final class Api {
         } else {
           result.error_ = errorBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
+          to_bitField0_ |= 0x00008000;
+        }
+        if (allConceptsRequestBuilder_ == null) {
+          result.allConceptsRequest_ = allConceptsRequest_;
+        } else {
+          result.allConceptsRequest_ = allConceptsRequestBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
+          to_bitField0_ |= 0x00010000;
+        }
+        if (allConceptsResponseBuilder_ == null) {
+          result.allConceptsResponse_ = allConceptsResponse_;
+        } else {
+          result.allConceptsResponse_ = allConceptsResponseBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -7690,6 +9629,12 @@ public final class Api {
         }
         if (other.hasError()) {
           mergeError(other.getError());
+        }
+        if (other.hasAllConceptsRequest()) {
+          mergeAllConceptsRequest(other.getAllConceptsRequest());
+        }
+        if (other.hasAllConceptsResponse()) {
+          mergeAllConceptsResponse(other.getAllConceptsResponse());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -7754,6 +9699,12 @@ public final class Api {
         }
         if (hasError()) {
           if (!getError().isInitialized()) {
+            
+            return false;
+          }
+        }
+        if (hasAllConceptsResponse()) {
+          if (!getAllConceptsResponse().isInitialized()) {
             
             return false;
           }
@@ -9370,6 +11321,240 @@ public final class Api {
         return errorBuilder_;
       }
 
+      // optional .main.GetAllConceptsRequest allConceptsRequest = 16;
+      private main.Api.GetAllConceptsRequest allConceptsRequest_ = main.Api.GetAllConceptsRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Api.GetAllConceptsRequest, main.Api.GetAllConceptsRequest.Builder, main.Api.GetAllConceptsRequestOrBuilder> allConceptsRequestBuilder_;
+      /**
+       * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+       */
+      public boolean hasAllConceptsRequest() {
+        return ((bitField0_ & 0x00008000) == 0x00008000);
+      }
+      /**
+       * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+       */
+      public main.Api.GetAllConceptsRequest getAllConceptsRequest() {
+        if (allConceptsRequestBuilder_ == null) {
+          return allConceptsRequest_;
+        } else {
+          return allConceptsRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+       */
+      public Builder setAllConceptsRequest(main.Api.GetAllConceptsRequest value) {
+        if (allConceptsRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          allConceptsRequest_ = value;
+          onChanged();
+        } else {
+          allConceptsRequestBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00008000;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+       */
+      public Builder setAllConceptsRequest(
+          main.Api.GetAllConceptsRequest.Builder builderForValue) {
+        if (allConceptsRequestBuilder_ == null) {
+          allConceptsRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          allConceptsRequestBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00008000;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+       */
+      public Builder mergeAllConceptsRequest(main.Api.GetAllConceptsRequest value) {
+        if (allConceptsRequestBuilder_ == null) {
+          if (((bitField0_ & 0x00008000) == 0x00008000) &&
+              allConceptsRequest_ != main.Api.GetAllConceptsRequest.getDefaultInstance()) {
+            allConceptsRequest_ =
+              main.Api.GetAllConceptsRequest.newBuilder(allConceptsRequest_).mergeFrom(value).buildPartial();
+          } else {
+            allConceptsRequest_ = value;
+          }
+          onChanged();
+        } else {
+          allConceptsRequestBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00008000;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+       */
+      public Builder clearAllConceptsRequest() {
+        if (allConceptsRequestBuilder_ == null) {
+          allConceptsRequest_ = main.Api.GetAllConceptsRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          allConceptsRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00008000);
+        return this;
+      }
+      /**
+       * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+       */
+      public main.Api.GetAllConceptsRequest.Builder getAllConceptsRequestBuilder() {
+        bitField0_ |= 0x00008000;
+        onChanged();
+        return getAllConceptsRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+       */
+      public main.Api.GetAllConceptsRequestOrBuilder getAllConceptsRequestOrBuilder() {
+        if (allConceptsRequestBuilder_ != null) {
+          return allConceptsRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return allConceptsRequest_;
+        }
+      }
+      /**
+       * <code>optional .main.GetAllConceptsRequest allConceptsRequest = 16;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Api.GetAllConceptsRequest, main.Api.GetAllConceptsRequest.Builder, main.Api.GetAllConceptsRequestOrBuilder> 
+          getAllConceptsRequestFieldBuilder() {
+        if (allConceptsRequestBuilder_ == null) {
+          allConceptsRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              main.Api.GetAllConceptsRequest, main.Api.GetAllConceptsRequest.Builder, main.Api.GetAllConceptsRequestOrBuilder>(
+                  allConceptsRequest_,
+                  getParentForChildren(),
+                  isClean());
+          allConceptsRequest_ = null;
+        }
+        return allConceptsRequestBuilder_;
+      }
+
+      // optional .main.GetAllConceptsResponse allConceptsResponse = 17;
+      private main.Api.GetAllConceptsResponse allConceptsResponse_ = main.Api.GetAllConceptsResponse.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Api.GetAllConceptsResponse, main.Api.GetAllConceptsResponse.Builder, main.Api.GetAllConceptsResponseOrBuilder> allConceptsResponseBuilder_;
+      /**
+       * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+       */
+      public boolean hasAllConceptsResponse() {
+        return ((bitField0_ & 0x00010000) == 0x00010000);
+      }
+      /**
+       * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+       */
+      public main.Api.GetAllConceptsResponse getAllConceptsResponse() {
+        if (allConceptsResponseBuilder_ == null) {
+          return allConceptsResponse_;
+        } else {
+          return allConceptsResponseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+       */
+      public Builder setAllConceptsResponse(main.Api.GetAllConceptsResponse value) {
+        if (allConceptsResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          allConceptsResponse_ = value;
+          onChanged();
+        } else {
+          allConceptsResponseBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00010000;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+       */
+      public Builder setAllConceptsResponse(
+          main.Api.GetAllConceptsResponse.Builder builderForValue) {
+        if (allConceptsResponseBuilder_ == null) {
+          allConceptsResponse_ = builderForValue.build();
+          onChanged();
+        } else {
+          allConceptsResponseBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00010000;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+       */
+      public Builder mergeAllConceptsResponse(main.Api.GetAllConceptsResponse value) {
+        if (allConceptsResponseBuilder_ == null) {
+          if (((bitField0_ & 0x00010000) == 0x00010000) &&
+              allConceptsResponse_ != main.Api.GetAllConceptsResponse.getDefaultInstance()) {
+            allConceptsResponse_ =
+              main.Api.GetAllConceptsResponse.newBuilder(allConceptsResponse_).mergeFrom(value).buildPartial();
+          } else {
+            allConceptsResponse_ = value;
+          }
+          onChanged();
+        } else {
+          allConceptsResponseBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00010000;
+        return this;
+      }
+      /**
+       * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+       */
+      public Builder clearAllConceptsResponse() {
+        if (allConceptsResponseBuilder_ == null) {
+          allConceptsResponse_ = main.Api.GetAllConceptsResponse.getDefaultInstance();
+          onChanged();
+        } else {
+          allConceptsResponseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00010000);
+        return this;
+      }
+      /**
+       * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+       */
+      public main.Api.GetAllConceptsResponse.Builder getAllConceptsResponseBuilder() {
+        bitField0_ |= 0x00010000;
+        onChanged();
+        return getAllConceptsResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+       */
+      public main.Api.GetAllConceptsResponseOrBuilder getAllConceptsResponseOrBuilder() {
+        if (allConceptsResponseBuilder_ != null) {
+          return allConceptsResponseBuilder_.getMessageOrBuilder();
+        } else {
+          return allConceptsResponse_;
+        }
+      }
+      /**
+       * <code>optional .main.GetAllConceptsResponse allConceptsResponse = 17;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          main.Api.GetAllConceptsResponse, main.Api.GetAllConceptsResponse.Builder, main.Api.GetAllConceptsResponseOrBuilder> 
+          getAllConceptsResponseFieldBuilder() {
+        if (allConceptsResponseBuilder_ == null) {
+          allConceptsResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              main.Api.GetAllConceptsResponse, main.Api.GetAllConceptsResponse.Builder, main.Api.GetAllConceptsResponseOrBuilder>(
+                  allConceptsResponse_,
+                  getParentForChildren(),
+                  isClean());
+          allConceptsResponse_ = null;
+        }
+        return allConceptsResponseBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:main.APIMessage)
     }
 
@@ -9422,6 +11607,21 @@ public final class Api {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_main_GetAllSpecsResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_main_GetAllConceptsRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_main_GetAllConceptsRequest_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_main_GetAllConceptsResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_main_GetAllConceptsResponse_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_main_ConceptInfo_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_main_ConceptInfo_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_main_GetStepValueRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -9468,44 +11668,53 @@ public final class Api {
       "epsRequest\"=\n\023GetAllStepsResponse\022&\n\010all" +
       "Steps\030\001 \003(\0132\024.main.ProtoStepValue\"\024\n\022Get" +
       "AllSpecsRequest\"5\n\023GetAllSpecsResponse\022\036" +
-      "\n\005specs\030\001 \003(\0132\017.main.ProtoSpec\"?\n\023GetSte" +
-      "pValueRequest\022\020\n\010stepText\030\001 \002(\t\022\026\n\016hasIn",
-      "lineTable\030\002 \001(\010\"?\n\024GetStepValueResponse\022" +
-      "\'\n\tstepValue\030\001 \002(\0132\024.main.ProtoStepValue" +
-      "\"3\n\037GetLanguagePluginLibPathRequest\022\020\n\010l" +
-      "anguage\030\001 \002(\t\"0\n GetLanguagePluginLibPat" +
-      "hResponse\022\014\n\004path\030\001 \002(\t\"\036\n\rErrorResponse" +
-      "\022\r\n\005error\030\001 \002(\t\"\256\t\n\nAPIMessage\0224\n\013messag" +
-      "eType\030\001 \002(\0162\037.main.APIMessage.APIMessage" +
-      "Type\022\021\n\tmessageId\030\002 \002(\003\0227\n\022projectRootRe" +
-      "quest\030\003 \001(\0132\033.main.GetProjectRootRequest" +
-      "\0229\n\023projectRootResponse\030\004 \001(\0132\034.main.Get",
-      "ProjectRootResponse\022A\n\027installationRootR" +
-      "equest\030\005 \001(\0132 .main.GetInstallationRootR" +
-      "equest\022C\n\030installationRootResponse\030\006 \001(\013" +
-      "2!.main.GetInstallationRootResponse\0221\n\017a" +
-      "llStepsRequest\030\007 \001(\0132\030.main.GetAllStepsR" +
-      "equest\0223\n\020allStepsResponse\030\010 \001(\0132\031.main." +
-      "GetAllStepsResponse\0221\n\017allSpecsRequest\030\t" +
-      " \001(\0132\030.main.GetAllSpecsRequest\0223\n\020allSpe" +
-      "csResponse\030\n \001(\0132\031.main.GetAllSpecsRespo" +
-      "nse\0223\n\020stepValueRequest\030\013 \001(\0132\031.main.Get",
-      "StepValueRequest\0225\n\021stepValueResponse\030\014 " +
-      "\001(\0132\032.main.GetStepValueResponse\022=\n\016libPa" +
-      "thRequest\030\r \001(\0132%.main.GetLanguagePlugin" +
-      "LibPathRequest\022?\n\017libPathResponse\030\016 \001(\0132" +
-      "&.main.GetLanguagePluginLibPathResponse\022" +
-      "\"\n\005error\030\017 \001(\0132\023.main.ErrorResponse\"\372\002\n\016" +
-      "APIMessageType\022\031\n\025GetProjectRootRequest\020" +
-      "\001\022\032\n\026GetProjectRootResponse\020\002\022\036\n\032GetInst" +
-      "allationRootRequest\020\003\022\037\n\033GetInstallation" +
-      "RootResponse\020\004\022\026\n\022GetAllStepsRequest\020\005\022\026",
-      "\n\022GetAllStepResponse\020\006\022\026\n\022GetAllSpecsReq" +
-      "uest\020\007\022\027\n\023GetAllSpecsResponse\020\010\022\027\n\023GetSt" +
-      "epValueRequest\020\t\022\030\n\024GetStepValueResponse" +
-      "\020\n\022#\n\037GetLanguagePluginLibPathRequest\020\013\022" +
-      "$\n GetLanguagePluginLibPathResponse\020\014\022\021\n" +
-      "\rErrorResponse\020\r"
+      "\n\005specs\030\001 \003(\0132\017.main.ProtoSpec\"\027\n\025GetAll" +
+      "ConceptsRequest\"=\n\026GetAllConceptsRespons",
+      "e\022#\n\010concepts\030\001 \003(\0132\021.main.ConceptInfo\"\\" +
+      "\n\013ConceptInfo\022\'\n\tstepValue\030\001 \002(\0132\024.main." +
+      "ProtoStepValue\022\020\n\010filepath\030\002 \002(\t\022\022\n\nline" +
+      "Number\030\003 \002(\005\"?\n\023GetStepValueRequest\022\020\n\010s" +
+      "tepText\030\001 \002(\t\022\026\n\016hasInlineTable\030\002 \001(\010\"?\n" +
+      "\024GetStepValueResponse\022\'\n\tstepValue\030\001 \002(\013" +
+      "2\024.main.ProtoStepValue\"3\n\037GetLanguagePlu" +
+      "ginLibPathRequest\022\020\n\010language\030\001 \002(\t\"0\n G" +
+      "etLanguagePluginLibPathResponse\022\014\n\004path\030" +
+      "\001 \002(\t\"\036\n\rErrorResponse\022\r\n\005error\030\001 \002(\t\"\331\n",
+      "\n\nAPIMessage\0224\n\013messageType\030\001 \002(\0162\037.main" +
+      ".APIMessage.APIMessageType\022\021\n\tmessageId\030" +
+      "\002 \002(\003\0227\n\022projectRootRequest\030\003 \001(\0132\033.main" +
+      ".GetProjectRootRequest\0229\n\023projectRootRes" +
+      "ponse\030\004 \001(\0132\034.main.GetProjectRootRespons" +
+      "e\022A\n\027installationRootRequest\030\005 \001(\0132 .mai" +
+      "n.GetInstallationRootRequest\022C\n\030installa" +
+      "tionRootResponse\030\006 \001(\0132!.main.GetInstall" +
+      "ationRootResponse\0221\n\017allStepsRequest\030\007 \001" +
+      "(\0132\030.main.GetAllStepsRequest\0223\n\020allSteps",
+      "Response\030\010 \001(\0132\031.main.GetAllStepsRespons" +
+      "e\0221\n\017allSpecsRequest\030\t \001(\0132\030.main.GetAll" +
+      "SpecsRequest\0223\n\020allSpecsResponse\030\n \001(\0132\031" +
+      ".main.GetAllSpecsResponse\0223\n\020stepValueRe" +
+      "quest\030\013 \001(\0132\031.main.GetStepValueRequest\0225" +
+      "\n\021stepValueResponse\030\014 \001(\0132\032.main.GetStep" +
+      "ValueResponse\022=\n\016libPathRequest\030\r \001(\0132%." +
+      "main.GetLanguagePluginLibPathRequest\022?\n\017" +
+      "libPathResponse\030\016 \001(\0132&.main.GetLanguage" +
+      "PluginLibPathResponse\022\"\n\005error\030\017 \001(\0132\023.m",
+      "ain.ErrorResponse\0227\n\022allConceptsRequest\030" +
+      "\020 \001(\0132\033.main.GetAllConceptsRequest\0229\n\023al" +
+      "lConceptsResponse\030\021 \001(\0132\034.main.GetAllCon" +
+      "ceptsResponse\"\261\003\n\016APIMessageType\022\031\n\025GetP" +
+      "rojectRootRequest\020\001\022\032\n\026GetProjectRootRes" +
+      "ponse\020\002\022\036\n\032GetInstallationRootRequest\020\003\022" +
+      "\037\n\033GetInstallationRootResponse\020\004\022\026\n\022GetA" +
+      "llStepsRequest\020\005\022\026\n\022GetAllStepResponse\020\006" +
+      "\022\026\n\022GetAllSpecsRequest\020\007\022\027\n\023GetAllSpecsR" +
+      "esponse\020\010\022\027\n\023GetStepValueRequest\020\t\022\030\n\024Ge",
+      "tStepValueResponse\020\n\022#\n\037GetLanguagePlugi" +
+      "nLibPathRequest\020\013\022$\n GetLanguagePluginLi" +
+      "bPathResponse\020\014\022\021\n\rErrorResponse\020\r\022\031\n\025Ge" +
+      "tAllConceptsRequest\020\016\022\032\n\026GetAllConceptsR" +
+      "esponse\020\017"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -9560,42 +11769,60 @@ public final class Api {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetAllSpecsResponse_descriptor,
               new java.lang.String[] { "Specs", });
-          internal_static_main_GetStepValueRequest_descriptor =
+          internal_static_main_GetAllConceptsRequest_descriptor =
             getDescriptor().getMessageTypes().get(8);
+          internal_static_main_GetAllConceptsRequest_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_main_GetAllConceptsRequest_descriptor,
+              new java.lang.String[] { });
+          internal_static_main_GetAllConceptsResponse_descriptor =
+            getDescriptor().getMessageTypes().get(9);
+          internal_static_main_GetAllConceptsResponse_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_main_GetAllConceptsResponse_descriptor,
+              new java.lang.String[] { "Concepts", });
+          internal_static_main_ConceptInfo_descriptor =
+            getDescriptor().getMessageTypes().get(10);
+          internal_static_main_ConceptInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_main_ConceptInfo_descriptor,
+              new java.lang.String[] { "StepValue", "Filepath", "LineNumber", });
+          internal_static_main_GetStepValueRequest_descriptor =
+            getDescriptor().getMessageTypes().get(11);
           internal_static_main_GetStepValueRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetStepValueRequest_descriptor,
               new java.lang.String[] { "StepText", "HasInlineTable", });
           internal_static_main_GetStepValueResponse_descriptor =
-            getDescriptor().getMessageTypes().get(9);
+            getDescriptor().getMessageTypes().get(12);
           internal_static_main_GetStepValueResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetStepValueResponse_descriptor,
               new java.lang.String[] { "StepValue", });
           internal_static_main_GetLanguagePluginLibPathRequest_descriptor =
-            getDescriptor().getMessageTypes().get(10);
+            getDescriptor().getMessageTypes().get(13);
           internal_static_main_GetLanguagePluginLibPathRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetLanguagePluginLibPathRequest_descriptor,
               new java.lang.String[] { "Language", });
           internal_static_main_GetLanguagePluginLibPathResponse_descriptor =
-            getDescriptor().getMessageTypes().get(11);
+            getDescriptor().getMessageTypes().get(14);
           internal_static_main_GetLanguagePluginLibPathResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetLanguagePluginLibPathResponse_descriptor,
               new java.lang.String[] { "Path", });
           internal_static_main_ErrorResponse_descriptor =
-            getDescriptor().getMessageTypes().get(12);
+            getDescriptor().getMessageTypes().get(15);
           internal_static_main_ErrorResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_ErrorResponse_descriptor,
               new java.lang.String[] { "Error", });
           internal_static_main_APIMessage_descriptor =
-            getDescriptor().getMessageTypes().get(13);
+            getDescriptor().getMessageTypes().get(16);
           internal_static_main_APIMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_APIMessage_descriptor,
-              new java.lang.String[] { "MessageType", "MessageId", "ProjectRootRequest", "ProjectRootResponse", "InstallationRootRequest", "InstallationRootResponse", "AllStepsRequest", "AllStepsResponse", "AllSpecsRequest", "AllSpecsResponse", "StepValueRequest", "StepValueResponse", "LibPathRequest", "LibPathResponse", "Error", });
+              new java.lang.String[] { "MessageType", "MessageId", "ProjectRootRequest", "ProjectRootResponse", "InstallationRootRequest", "InstallationRootResponse", "AllStepsRequest", "AllStepsResponse", "AllSpecsRequest", "AllSpecsResponse", "StepValueRequest", "StepValueResponse", "LibPathRequest", "LibPathResponse", "Error", "AllConceptsRequest", "AllConceptsResponse", });
           return null;
         }
       };
