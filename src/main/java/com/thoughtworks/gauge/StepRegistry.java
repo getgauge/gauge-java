@@ -10,6 +10,7 @@ public class StepRegistry {
 
     private static Map<String, Method> stepTextToMethodMap = new HashMap<String, Method>();
     private static Map<String, StepValue> stepTextToStepValue = new HashMap<String, StepValue>();
+    private static Map<String, String> allStepvaluesAndTexts;
 
     public static void addStepImplementation(StepValue stepValue, Method method) {
         stepTextToMethodMap.put(stepValue.getStepText(), method);
@@ -30,5 +31,14 @@ public class StepRegistry {
             stepTexts.add(stepValue.getStepAnnotationText());
         }
         return stepTexts;
+    }
+
+    public static String getStepAnnotationFor(String stepText) {
+        for (StepValue stepValue : stepTextToStepValue.values()) {
+            if (stepValue.getStepText().equals(stepText)){
+                return stepValue.getStepAnnotationText();
+            }
+        }
+        return null;
     }
 }

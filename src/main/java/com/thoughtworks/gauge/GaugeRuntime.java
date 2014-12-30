@@ -111,6 +111,8 @@ public class GaugeRuntime {
             put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer());
             put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer());
             put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor());
+            put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor());
+            put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor());
         }};
 
         scanForStepImplementations(gaugeApiConnection);
