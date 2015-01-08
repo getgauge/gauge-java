@@ -30,7 +30,11 @@ public class RefactorRequestProcessor implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
         Messages.RefactorRequest refactorRequest = message.getRefactorRequest();
         JavaParser.setCacheParser(true);
-        Element element = findJavaFile(refactorRequest.getOldStepValue().getParameterizedStepValue(), refactorRequest.getNewStepValue(), refactorRequest.getParamPositionsList());
+        String fileName = StepRegistry.getFileName(StepRegistry.get(refactorRequest.getOldStepValue().getStepValue()));
+        if (fileName == null){
+            return getMessage(message, false, "Step Implementation Not Found");
+        }
+        Element element = refactorJavaFile(refactorRequest.getOldStepValue().getParameterizedStepValue(), refactorRequest.getNewStepValue(), refactorRequest.getParamPositionsList(), fileName);
         if (element == null){
            return getMessage(message, false, "Step Implementation Not Found");
         }
@@ -57,10 +61,10 @@ public class RefactorRequestProcessor implements IMessageProcessor {
                     .build();
     }
 
-    private Element findJavaFile(String oldStepValue, Spec.ProtoStepValue newStepValue, List<Messages.ParameterPosition> paramPositions) {
+    private Element refactorJavaFile(String oldStepValue, Spec.ProtoStepValue newStepValue, List<Messages.ParameterPosition> paramPositions, String fileName) {
         File workingDir = new File(System.getProperty("user.dir"));
-        List<JavaParseWorker> javaFiles = parseAllJavaFiles(workingDir);
-        for (JavaParseWorker javaFile : javaFiles) {
+        List<JavaParseWorker> javaParseWorkers = parseAllJavaFiles(workingDir, fileName);
+        for (JavaParseWorker javaFile : javaParseWorkers) {
             CompilationUnit compilationUnit = javaFile.getCompilationUnit();
             MethodVisitor methodVisitor = new MethodVisitor(oldStepValue, newStepValue, paramPositions);
             methodVisitor.visit(compilationUnit, null);
@@ -72,21 +76,23 @@ public class RefactorRequestProcessor implements IMessageProcessor {
         return null;
     }
 
-    private List<JavaParseWorker> parseAllJavaFiles(File workingDir) {
+    private List<JavaParseWorker> parseAllJavaFiles(File workingDir, String fileName) {
         ArrayList<JavaParseWorker> javaFiles = new ArrayList<JavaParseWorker>();
         File[] allFiles = workingDir.listFiles();
         for (File file : allFiles) {
             if (file.isDirectory()) {
-                javaFiles.addAll(parseAllJavaFiles(file));
+                javaFiles.addAll(parseAllJavaFiles(file, fileName));
             } else {
-                if (file.getName().toLowerCase().endsWith(".java")) {
-                    JavaParseWorker worker = new JavaParseWorker(file);
-                    worker.start();
-                    javaFiles.add(worker);
+                try {
+                    if (file.getName().toLowerCase().endsWith(".java") && file.getCanonicalPath().contains(fileName)) {
+                        JavaParseWorker worker = new JavaParseWorker(file);
+                        worker.start();
+                        javaFiles.add(worker);
+                    }
+                } catch (IOException ignored) {
                 }
             }
         }
-
         return javaFiles;
     }
 

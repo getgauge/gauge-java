@@ -9,12 +9,13 @@ import java.util.Map;
 public class StepRegistry {
 
     private static Map<String, Method> stepTextToMethodMap = new HashMap<String, Method>();
+    private static Map<Method, String> methodToFileMap = new HashMap<Method, String>();
     private static Map<String, StepValue> stepTextToStepValue = new HashMap<String, StepValue>();
-    private static Map<String, String> allStepvaluesAndTexts;
 
-    public static void addStepImplementation(StepValue stepValue, Method method) {
+    public static void addStepImplementation(StepValue stepValue, Method method, String fileName) {
         stepTextToMethodMap.put(stepValue.getStepText(), method);
         stepTextToStepValue.put(stepValue.getStepText(), stepValue);
+        methodToFileMap.put(method,fileName);
     }
 
     public static boolean contains(String stepText) {
@@ -23,6 +24,9 @@ public class StepRegistry {
 
     public static Method get(String stepText) {
         return stepTextToMethodMap.get(stepText);
+    }
+    public static String getFileName(Method method) {
+        return methodToFileMap.get(method);
     }
 
     public static List<String> getAllStepTexts() {
