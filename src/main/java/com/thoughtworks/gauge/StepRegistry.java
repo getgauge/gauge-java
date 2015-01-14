@@ -1,10 +1,7 @@
 package com.thoughtworks.gauge;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class StepRegistry {
 
@@ -37,12 +34,35 @@ public class StepRegistry {
         return stepTexts;
     }
 
-    public static String getStepAnnotationFor(String stepText) {
-        for (StepValue stepValue : stepTextToStepValue.values()) {
-            if (stepValue.getStepText().equals(stepText)){
-                return stepValue.getStepAnnotationText();
+    public static List<String> getStepAnnotationFor(Set<String> stepTexts) {
+        List<String> stepValues = new ArrayList<String>();
+        for (String stepText : stepTexts) {
+            for (StepValue stepValue : stepTextToStepValue.values()) {
+                if (stepValue.getStepText().equals(stepText)){
+                    stepValues.add(stepValue.getStepAnnotationText());
+                }
             }
         }
-        return null;
+        return stepValues;
+    }
+
+    public static Set<String> getAliasStepTexts(String stepText) {
+        Method stepTextMethod = stepTextToMethodMap.get(stepText);
+        for (Method method : stepTextToMethodMap.values()) {
+            if (method.equals(stepTextMethod)) {
+                return getKeysByValue(stepTextToMethodMap, method);
+            }
+        }
+        return new HashSet<String>();
+    }
+
+    private static <T, E> Set<T> getKeysByValue(Map<T, E> map, E value) {
+        Set<T> keys = new HashSet<T>();
+        for (Map.Entry<T, E> entry : map.entrySet()) {
+            if (value.equals(entry.getValue())) {
+                keys.add(entry.getKey());
+            }
+        }
+        return keys;
     }
 }

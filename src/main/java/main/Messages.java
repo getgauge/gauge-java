@@ -15499,20 +15499,35 @@ public final class Messages {
      */
     boolean getIsStepPresent();
 
-    // optional string stepName = 2;
+    // repeated string stepName = 2;
     /**
-     * <code>optional string stepName = 2;</code>
+     * <code>repeated string stepName = 2;</code>
      */
-    boolean hasStepName();
+    java.util.List<java.lang.String>
+    getStepNameList();
     /**
-     * <code>optional string stepName = 2;</code>
+     * <code>repeated string stepName = 2;</code>
      */
-    java.lang.String getStepName();
+    int getStepNameCount();
     /**
-     * <code>optional string stepName = 2;</code>
+     * <code>repeated string stepName = 2;</code>
+     */
+    java.lang.String getStepName(int index);
+    /**
+     * <code>repeated string stepName = 2;</code>
      */
     com.google.protobuf.ByteString
-        getStepNameBytes();
+        getStepNameBytes(int index);
+
+    // required bool hasAlias = 3;
+    /**
+     * <code>required bool hasAlias = 3;</code>
+     */
+    boolean hasHasAlias();
+    /**
+     * <code>required bool hasAlias = 3;</code>
+     */
+    boolean getHasAlias();
   }
   /**
    * Protobuf type {@code main.GetStepNameResponse}
@@ -15571,8 +15586,16 @@ public final class Messages {
               break;
             }
             case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                stepName_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              stepName_.add(input.readBytes());
+              break;
+            }
+            case 24: {
               bitField0_ |= 0x00000002;
-              stepName_ = input.readBytes();
+              hasAlias_ = input.readBool();
               break;
             }
           }
@@ -15583,6 +15606,9 @@ public final class Messages {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          stepName_ = new com.google.protobuf.UnmodifiableLazyStringList(stepName_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -15631,52 +15657,56 @@ public final class Messages {
       return isStepPresent_;
     }
 
-    // optional string stepName = 2;
+    // repeated string stepName = 2;
     public static final int STEPNAME_FIELD_NUMBER = 2;
-    private java.lang.Object stepName_;
+    private com.google.protobuf.LazyStringList stepName_;
     /**
-     * <code>optional string stepName = 2;</code>
+     * <code>repeated string stepName = 2;</code>
      */
-    public boolean hasStepName() {
+    public java.util.List<java.lang.String>
+        getStepNameList() {
+      return stepName_;
+    }
+    /**
+     * <code>repeated string stepName = 2;</code>
+     */
+    public int getStepNameCount() {
+      return stepName_.size();
+    }
+    /**
+     * <code>repeated string stepName = 2;</code>
+     */
+    public java.lang.String getStepName(int index) {
+      return stepName_.get(index);
+    }
+    /**
+     * <code>repeated string stepName = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStepNameBytes(int index) {
+      return stepName_.getByteString(index);
+    }
+
+    // required bool hasAlias = 3;
+    public static final int HASALIAS_FIELD_NUMBER = 3;
+    private boolean hasAlias_;
+    /**
+     * <code>required bool hasAlias = 3;</code>
+     */
+    public boolean hasHasAlias() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional string stepName = 2;</code>
+     * <code>required bool hasAlias = 3;</code>
      */
-    public java.lang.String getStepName() {
-      java.lang.Object ref = stepName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          stepName_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string stepName = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getStepNameBytes() {
-      java.lang.Object ref = stepName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        stepName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public boolean getHasAlias() {
+      return hasAlias_;
     }
 
     private void initFields() {
       isStepPresent_ = false;
-      stepName_ = "";
+      stepName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      hasAlias_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -15684,6 +15714,10 @@ public final class Messages {
       if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasIsStepPresent()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasHasAlias()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -15697,8 +15731,11 @@ public final class Messages {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBool(1, isStepPresent_);
       }
+      for (int i = 0; i < stepName_.size(); i++) {
+        output.writeBytes(2, stepName_.getByteString(i));
+      }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getStepNameBytes());
+        output.writeBool(3, hasAlias_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -15713,9 +15750,18 @@ public final class Messages {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, isStepPresent_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < stepName_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(stepName_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getStepNameList().size();
+      }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getStepNameBytes());
+          .computeBoolSize(3, hasAlias_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -15835,8 +15881,10 @@ public final class Messages {
         super.clear();
         isStepPresent_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
-        stepName_ = "";
+        stepName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
+        hasAlias_ = false;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -15869,10 +15917,16 @@ public final class Messages {
           to_bitField0_ |= 0x00000001;
         }
         result.isStepPresent_ = isStepPresent_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          stepName_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              stepName_);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.stepName_ = stepName_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.hasAlias_ = hasAlias_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -15892,10 +15946,18 @@ public final class Messages {
         if (other.hasIsStepPresent()) {
           setIsStepPresent(other.getIsStepPresent());
         }
-        if (other.hasStepName()) {
-          bitField0_ |= 0x00000002;
-          stepName_ = other.stepName_;
+        if (!other.stepName_.isEmpty()) {
+          if (stepName_.isEmpty()) {
+            stepName_ = other.stepName_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureStepNameIsMutable();
+            stepName_.addAll(other.stepName_);
+          }
           onChanged();
+        }
+        if (other.hasHasAlias()) {
+          setHasAlias(other.getHasAlias());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -15903,6 +15965,10 @@ public final class Messages {
 
       public final boolean isInitialized() {
         if (!hasIsStepPresent()) {
+          
+          return false;
+        }
+        if (!hasHasAlias()) {
           
           return false;
         }
@@ -15961,76 +16027,128 @@ public final class Messages {
         return this;
       }
 
-      // optional string stepName = 2;
-      private java.lang.Object stepName_ = "";
-      /**
-       * <code>optional string stepName = 2;</code>
-       */
-      public boolean hasStepName() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+      // repeated string stepName = 2;
+      private com.google.protobuf.LazyStringList stepName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureStepNameIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          stepName_ = new com.google.protobuf.LazyStringArrayList(stepName_);
+          bitField0_ |= 0x00000002;
+         }
       }
       /**
-       * <code>optional string stepName = 2;</code>
+       * <code>repeated string stepName = 2;</code>
        */
-      public java.lang.String getStepName() {
-        java.lang.Object ref = stepName_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          stepName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public java.util.List<java.lang.String>
+          getStepNameList() {
+        return java.util.Collections.unmodifiableList(stepName_);
       }
       /**
-       * <code>optional string stepName = 2;</code>
+       * <code>repeated string stepName = 2;</code>
+       */
+      public int getStepNameCount() {
+        return stepName_.size();
+      }
+      /**
+       * <code>repeated string stepName = 2;</code>
+       */
+      public java.lang.String getStepName(int index) {
+        return stepName_.get(index);
+      }
+      /**
+       * <code>repeated string stepName = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getStepNameBytes() {
-        java.lang.Object ref = stepName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          stepName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getStepNameBytes(int index) {
+        return stepName_.getByteString(index);
       }
       /**
-       * <code>optional string stepName = 2;</code>
+       * <code>repeated string stepName = 2;</code>
        */
       public Builder setStepName(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureStepNameIsMutable();
+        stepName_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string stepName = 2;</code>
+       */
+      public Builder addStepName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
-        stepName_ = value;
+  ensureStepNameIsMutable();
+        stepName_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>optional string stepName = 2;</code>
+       * <code>repeated string stepName = 2;</code>
+       */
+      public Builder addAllStepName(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureStepNameIsMutable();
+        super.addAll(values, stepName_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string stepName = 2;</code>
        */
       public Builder clearStepName() {
+        stepName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
-        stepName_ = getDefaultInstance().getStepName();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string stepName = 2;</code>
+       * <code>repeated string stepName = 2;</code>
        */
-      public Builder setStepNameBytes(
+      public Builder addStepNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
-        stepName_ = value;
+  ensureStepNameIsMutable();
+        stepName_.add(value);
+        onChanged();
+        return this;
+      }
+
+      // required bool hasAlias = 3;
+      private boolean hasAlias_ ;
+      /**
+       * <code>required bool hasAlias = 3;</code>
+       */
+      public boolean hasHasAlias() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required bool hasAlias = 3;</code>
+       */
+      public boolean getHasAlias() {
+        return hasAlias_;
+      }
+      /**
+       * <code>required bool hasAlias = 3;</code>
+       */
+      public Builder setHasAlias(boolean value) {
+        bitField0_ |= 0x00000004;
+        hasAlias_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool hasAlias = 3;</code>
+       */
+      public Builder clearHasAlias() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        hasAlias_ = false;
         onChanged();
         return this;
       }
@@ -21751,61 +21869,61 @@ public final class Messages {
       "epValue\022/\n\016paramPositions\030\003 \003(\0132\027.main.P" +
       "arameterPosition\"2\n\020RefactorResponse\022\017\n\007" +
       "success\030\001 \002(\010\022\r\n\005error\030\002 \001(\t\"\'\n\022GetStepN" +
-      "ameRequest\022\021\n\tstepValue\030\001 \002(\t\">\n\023GetStep" +
+      "ameRequest\022\021\n\tstepValue\030\001 \002(\t\"P\n\023GetStep" +
       "NameResponse\022\025\n\risStepPresent\030\001 \002(\010\022\020\n\010s",
-      "tepName\030\002 \001(\t\"\244\020\n\007Message\022.\n\013messageType" +
-      "\030\001 \002(\0162\031.main.Message.MessageType\022\021\n\tmes" +
-      "sageId\030\002 \002(\003\022@\n\030executionStartingRequest" +
-      "\030\003 \001(\0132\036.main.ExecutionStartingRequest\022H" +
-      "\n\034specExecutionStartingRequest\030\004 \001(\0132\".m" +
-      "ain.SpecExecutionStartingRequest\022D\n\032spec" +
-      "ExecutionEndingRequest\030\005 \001(\0132 .main.Spec" +
-      "ExecutionEndingRequest\022P\n scenarioExecut" +
-      "ionStartingRequest\030\006 \001(\0132&.main.Scenario" +
-      "ExecutionStartingRequest\022L\n\036scenarioExec",
-      "utionEndingRequest\030\007 \001(\0132$.main.Scenario" +
-      "ExecutionEndingRequest\022H\n\034stepExecutionS" +
-      "tartingRequest\030\010 \001(\0132\".main.StepExecutio" +
-      "nStartingRequest\022D\n\032stepExecutionEndingR" +
-      "equest\030\t \001(\0132 .main.StepExecutionEndingR" +
-      "equest\0224\n\022executeStepRequest\030\n \001(\0132\030.mai" +
-      "n.ExecuteStepRequest\022<\n\026executionEndingR" +
-      "equest\030\013 \001(\0132\034.main.ExecutionEndingReque" +
-      "st\0226\n\023stepValidateRequest\030\014 \001(\0132\031.main.S" +
-      "tepValidateRequest\0228\n\024stepValidateRespon",
-      "se\030\r \001(\0132\032.main.StepValidateResponse\022>\n\027" +
-      "executionStatusResponse\030\016 \001(\0132\035.main.Exe" +
-      "cutionStatusResponse\0220\n\020stepNamesRequest" +
-      "\030\017 \001(\0132\026.main.StepNamesRequest\0222\n\021stepNa" +
-      "mesResponse\030\020 \001(\0132\027.main.StepNamesRespon" +
-      "se\0228\n\024suiteExecutionResult\030\021 \001(\0132\032.main." +
-      "SuiteExecutionResult\0224\n\022killProcessReque" +
-      "st\030\022 \001(\0132\030.main.KillProcessRequest\022H\n\034sc" +
-      "enarioDataStoreInitRequest\030\023 \001(\0132\".main." +
-      "ScenarioDataStoreInitRequest\022@\n\030specData",
-      "StoreInitRequest\030\024 \001(\0132\036.main.SpecDataSt" +
-      "oreInitRequest\022B\n\031suiteDataStoreInitRequ" +
-      "est\030\025 \001(\0132\037.main.SuiteDataStoreInitReque" +
-      "st\0221\n\017stepNameRequest\030\026 \001(\0132\030.main.GetSt" +
-      "epNameRequest\0223\n\020stepNameResponse\030\027 \001(\0132" +
-      "\031.main.GetStepNameResponse\022.\n\017refactorRe" +
-      "quest\030\030 \001(\0132\025.main.RefactorRequest\0220\n\020re" +
-      "factorResponse\030\031 \001(\0132\026.main.RefactorResp" +
-      "onse\"\275\004\n\013MessageType\022\025\n\021ExecutionStartin" +
-      "g\020\000\022\031\n\025SpecExecutionStarting\020\001\022\027\n\023SpecEx",
-      "ecutionEnding\020\002\022\035\n\031ScenarioExecutionStar" +
-      "ting\020\003\022\033\n\027ScenarioExecutionEnding\020\004\022\031\n\025S" +
-      "tepExecutionStarting\020\005\022\027\n\023StepExecutionE" +
-      "nding\020\006\022\017\n\013ExecuteStep\020\007\022\023\n\017ExecutionEnd" +
-      "ing\020\010\022\027\n\023StepValidateRequest\020\t\022\030\n\024StepVa" +
-      "lidateResponse\020\n\022\033\n\027ExecutionStatusRespo" +
-      "nse\020\013\022\024\n\020StepNamesRequest\020\014\022\025\n\021StepNames" +
-      "Response\020\r\022\026\n\022KillProcessRequest\020\016\022\030\n\024Su" +
-      "iteExecutionResult\020\017\022\031\n\025ScenarioDataStor" +
-      "eInit\020\020\022\025\n\021SpecDataStoreInit\020\021\022\026\n\022SuiteD",
-      "ataStoreInit\020\022\022\023\n\017StepNameRequest\020\023\022\024\n\020S" +
-      "tepNameResponse\020\024\022\023\n\017RefactorRequest\020\025\022\024" +
-      "\n\020RefactorResponse\020\026"
+      "tepName\030\002 \003(\t\022\020\n\010hasAlias\030\003 \002(\010\"\244\020\n\007Mess" +
+      "age\022.\n\013messageType\030\001 \002(\0162\031.main.Message." +
+      "MessageType\022\021\n\tmessageId\030\002 \002(\003\022@\n\030execut" +
+      "ionStartingRequest\030\003 \001(\0132\036.main.Executio" +
+      "nStartingRequest\022H\n\034specExecutionStartin" +
+      "gRequest\030\004 \001(\0132\".main.SpecExecutionStart" +
+      "ingRequest\022D\n\032specExecutionEndingRequest" +
+      "\030\005 \001(\0132 .main.SpecExecutionEndingRequest" +
+      "\022P\n scenarioExecutionStartingRequest\030\006 \001" +
+      "(\0132&.main.ScenarioExecutionStartingReque",
+      "st\022L\n\036scenarioExecutionEndingRequest\030\007 \001" +
+      "(\0132$.main.ScenarioExecutionEndingRequest" +
+      "\022H\n\034stepExecutionStartingRequest\030\010 \001(\0132\"" +
+      ".main.StepExecutionStartingRequest\022D\n\032st" +
+      "epExecutionEndingRequest\030\t \001(\0132 .main.St" +
+      "epExecutionEndingRequest\0224\n\022executeStepR" +
+      "equest\030\n \001(\0132\030.main.ExecuteStepRequest\022<" +
+      "\n\026executionEndingRequest\030\013 \001(\0132\034.main.Ex" +
+      "ecutionEndingRequest\0226\n\023stepValidateRequ" +
+      "est\030\014 \001(\0132\031.main.StepValidateRequest\0228\n\024",
+      "stepValidateResponse\030\r \001(\0132\032.main.StepVa" +
+      "lidateResponse\022>\n\027executionStatusRespons" +
+      "e\030\016 \001(\0132\035.main.ExecutionStatusResponse\0220" +
+      "\n\020stepNamesRequest\030\017 \001(\0132\026.main.StepName" +
+      "sRequest\0222\n\021stepNamesResponse\030\020 \001(\0132\027.ma" +
+      "in.StepNamesResponse\0228\n\024suiteExecutionRe" +
+      "sult\030\021 \001(\0132\032.main.SuiteExecutionResult\0224" +
+      "\n\022killProcessRequest\030\022 \001(\0132\030.main.KillPr" +
+      "ocessRequest\022H\n\034scenarioDataStoreInitReq" +
+      "uest\030\023 \001(\0132\".main.ScenarioDataStoreInitR",
+      "equest\022@\n\030specDataStoreInitRequest\030\024 \001(\013" +
+      "2\036.main.SpecDataStoreInitRequest\022B\n\031suit" +
+      "eDataStoreInitRequest\030\025 \001(\0132\037.main.Suite" +
+      "DataStoreInitRequest\0221\n\017stepNameRequest\030" +
+      "\026 \001(\0132\030.main.GetStepNameRequest\0223\n\020stepN" +
+      "ameResponse\030\027 \001(\0132\031.main.GetStepNameResp" +
+      "onse\022.\n\017refactorRequest\030\030 \001(\0132\025.main.Ref" +
+      "actorRequest\0220\n\020refactorResponse\030\031 \001(\0132\026" +
+      ".main.RefactorResponse\"\275\004\n\013MessageType\022\025" +
+      "\n\021ExecutionStarting\020\000\022\031\n\025SpecExecutionSt",
+      "arting\020\001\022\027\n\023SpecExecutionEnding\020\002\022\035\n\031Sce" +
+      "narioExecutionStarting\020\003\022\033\n\027ScenarioExec" +
+      "utionEnding\020\004\022\031\n\025StepExecutionStarting\020\005" +
+      "\022\027\n\023StepExecutionEnding\020\006\022\017\n\013ExecuteStep" +
+      "\020\007\022\023\n\017ExecutionEnding\020\010\022\027\n\023StepValidateR" +
+      "equest\020\t\022\030\n\024StepValidateResponse\020\n\022\033\n\027Ex" +
+      "ecutionStatusResponse\020\013\022\024\n\020StepNamesRequ" +
+      "est\020\014\022\025\n\021StepNamesResponse\020\r\022\026\n\022KillProc" +
+      "essRequest\020\016\022\030\n\024SuiteExecutionResult\020\017\022\031" +
+      "\n\025ScenarioDataStoreInit\020\020\022\025\n\021SpecDataSto",
+      "reInit\020\021\022\026\n\022SuiteDataStoreInit\020\022\022\023\n\017Step" +
+      "NameRequest\020\023\022\024\n\020StepNameResponse\020\024\022\023\n\017R" +
+      "efactorRequest\020\025\022\024\n\020RefactorResponse\020\026"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -21979,7 +22097,7 @@ public final class Messages {
           internal_static_main_GetStepNameResponse_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_main_GetStepNameResponse_descriptor,
-              new java.lang.String[] { "IsStepPresent", "StepName", });
+              new java.lang.String[] { "IsStepPresent", "StepName", "HasAlias", });
           internal_static_main_Message_descriptor =
             getDescriptor().getMessageTypes().get(28);
           internal_static_main_Message_fieldAccessorTable = new
