@@ -31,19 +31,24 @@ public class RefactorRequestProcessor implements IMessageProcessor {
         Messages.RefactorRequest refactorRequest = message.getRefactorRequest();
         JavaParser.setCacheParser(true);
         String fileName = StepRegistry.getFileName(StepRegistry.get(refactorRequest.getOldStepValue().getStepValue()));
-        if (fileName == null){
+        if (fileName == null) {
             return getMessage(message, false, "Step Implementation Not Found");
         }
-        Element element = refactorJavaFile(refactorRequest.getOldStepValue().getParameterizedStepValue(), refactorRequest.getNewStepValue(), refactorRequest.getParamPositionsList(), fileName);
-        if (element == null){
-           return getMessage(message, false, "Step Implementation Not Found");
-        }
         try {
+            Element element = refactorJavaFile(refactorRequest.getOldStepValue().getParameterizedStepValue(),
+                                               refactorRequest.getNewStepValue(),
+                                               refactorRequest.getParamPositionsList(),
+                                               fileName);
+            if (element == null) {
+                return getMessage(message, false, "Step Implementation Not Found");
+            }
             new RefactorFile(element).refactor();
         } catch (IOException e) {
-            return getMessage(message,false,"Unable to read/write file while refactoring");
+            return getMessage(message, false, "Unable to read/write file while refactoring");
+        } catch (Exception e) {
+            return getMessage(message, false, "Unable to perform java refactoring: \n" + e.toString());
         }
-        return getMessage(message,true,"");
+        return getMessage(message, true, "");
     }
 
     private Messages.Message getMessage(Messages.Message message, boolean success, String errorMessage) {
@@ -63,25 +68,27 @@ public class RefactorRequestProcessor implements IMessageProcessor {
 
     private Element refactorJavaFile(String oldStepValue, Spec.ProtoStepValue newStepValue, List<Messages.ParameterPosition> paramPositions, String fileName) {
         File workingDir = new File(System.getProperty("user.dir"));
-        List<JavaParseWorker> javaParseWorkers = parseAllJavaFiles(workingDir, fileName);
-        for (JavaParseWorker javaFile : javaParseWorkers) {
-            CompilationUnit compilationUnit = javaFile.getCompilationUnit();
-            MethodVisitor methodVisitor = new MethodVisitor(oldStepValue, newStepValue, paramPositions);
-            methodVisitor.visit(compilationUnit, null);
-            if (methodVisitor.refactored) {
-                methodVisitor.element.file = javaFile.getJavaFile();
-                return methodVisitor.element;
+        List<JavaParseWorker> javaParseWorkers = parseJavaFiles(workingDir, fileName);
+        try {
+            for (JavaParseWorker javaFile : javaParseWorkers) {
+                CompilationUnit compilationUnit = javaFile.getCompilationUnit();
+                MethodVisitor methodVisitor = new MethodVisitor(oldStepValue, newStepValue, paramPositions);
+                methodVisitor.visit(compilationUnit, null);
+                if (methodVisitor.refactored) {
+                    methodVisitor.element.file = javaFile.getJavaFile();
+                    return methodVisitor.element;
+                }
             }
-        }
+        }catch (Exception ignored){}
         return null;
     }
 
-    private List<JavaParseWorker> parseAllJavaFiles(File workingDir, String fileName) {
+    private List<JavaParseWorker> parseJavaFiles(File workingDir, String fileName) {
         ArrayList<JavaParseWorker> javaFiles = new ArrayList<JavaParseWorker>();
         File[] allFiles = workingDir.listFiles();
         for (File file : allFiles) {
             if (file.isDirectory()) {
-                javaFiles.addAll(parseAllJavaFiles(file, fileName));
+                javaFiles.addAll(parseJavaFiles(file, fileName));
             } else {
                 try {
                     if (file.getName().toLowerCase().endsWith(".java") && file.getCanonicalPath().contains(fileName)) {
@@ -163,24 +170,30 @@ public class RefactorRequestProcessor implements IMessageProcessor {
 
         @Override
         public void visit(MethodDeclaration methodDeclaration, Object arg) {
-            for (AnnotationExpr annotationExpr : methodDeclaration.getAnnotations()) {
-                if (!(annotationExpr instanceof SingleMemberAnnotationExpr))
-                    continue;
-
-                SingleMemberAnnotationExpr annotation = (SingleMemberAnnotationExpr) annotationExpr;
-                if (annotation.getMemberValue() instanceof BinaryExpr) {
-                    ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
-                    try {
-                        Object result = engine.eval(annotation.getMemberValue().toString());
-                        refactor(methodDeclaration,new StringLiteralExpr(result.toString()),annotation);
-                    } catch (ScriptException e) {
+            try {
+                List<AnnotationExpr> annotations = methodDeclaration.getAnnotations();
+                if (annotations == null)
+                    return;
+                for (AnnotationExpr annotationExpr : annotations) {
+                    if (!(annotationExpr instanceof SingleMemberAnnotationExpr))
                         continue;
+
+                    SingleMemberAnnotationExpr annotation = (SingleMemberAnnotationExpr) annotationExpr;
+                    if (annotation.getMemberValue() instanceof BinaryExpr) {
+                        ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
+                        try {
+                            Object result = engine.eval(annotation.getMemberValue().toString());
+                            refactor(methodDeclaration, new StringLiteralExpr(result.toString()), annotation);
+                        } catch (ScriptException e) {
+                            continue;
+                        }
+                    }
+                    if (annotation.getMemberValue() instanceof StringLiteralExpr) {
+                        StringLiteralExpr memberValue = (StringLiteralExpr) annotation.getMemberValue();
+                        refactor(methodDeclaration, memberValue, annotation);
                     }
                 }
-                if (annotation.getMemberValue() instanceof StringLiteralExpr) {
-                    StringLiteralExpr memberValue = (StringLiteralExpr) annotation.getMemberValue();
-                    refactor(methodDeclaration, memberValue, annotation);
-                }
+            } catch (Exception ignored) {
             }
         }
 
@@ -191,13 +204,13 @@ public class RefactorRequestProcessor implements IMessageProcessor {
                 List<Parameter> parameters = methodDeclaration.getParameters();
                 for (int i = 0, paramPositionsSize = paramPositions.size(); i < paramPositionsSize; i++) {
                     if (paramPositions.get(i).getOldPosition() < 0)
-                        newParameters.set(i,new Parameter(new ClassOrInterfaceType("String"), new VariableDeclaratorId(newStepValue.getParameters(i))));
+                        newParameters.set(i, new Parameter(new ClassOrInterfaceType("String"), new VariableDeclaratorId(newStepValue.getParameters(i))));
                     else
-                        newParameters.set(paramPositions.get(i).getNewPosition(),parameters.get(paramPositions.get(i).getOldPosition()));
+                        newParameters.set(paramPositions.get(i).getNewPosition(), parameters.get(paramPositions.get(i).getOldPosition()));
                 }
                 methodDeclaration.setParameters(newParameters);
                 annotation.setMemberValue(memberValue);
-                this.element = new Element(methodDeclaration.getBeginLine(),methodDeclaration.getEndLine(),methodDeclaration.getBeginColumn(),methodDeclaration.getEndColumn(),methodDeclaration.toString(), null);
+                this.element = new Element(methodDeclaration.getBeginLine(), methodDeclaration.getEndLine(), methodDeclaration.getBeginColumn(), methodDeclaration.getEndColumn(), methodDeclaration.toString(), null);
                 this.refactored = true;
             }
         }
