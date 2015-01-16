@@ -19,14 +19,21 @@ public class MethodExecutor {
             return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(endTime - startTime).build();
         } catch (Throwable e) {
             long endTime = System.currentTimeMillis();
-            ByteArrayOutputStream imageBytes = new ByteArrayOutputStream();
-            try {
-                BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-                ImageIO.write(image, "png", imageBytes);
-            } catch (Exception ex) {
-                System.out.println("Screenshot is not available. " + ex.getMessage());
-            }
+            String screenshotEnabled = System.getenv(GaugeConstant.SCREENSHOT_ENABLED);
             Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
+            if (screenshotEnabled==null || screenshotEnabled.toLowerCase()!="false")
+            {
+                ByteArrayOutputStream imageBytes = new ByteArrayOutputStream();
+                try {
+                    BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+                    ImageIO.write(image, "png", imageBytes);
+                    if (imageBytes.size() > 0) {
+                        builder.setScreenShot(ByteString.copyFrom(imageBytes.toByteArray()));
+                    }
+                } catch (Exception ex) {
+                    System.out.println("Screenshot is not available. " + ex.getMessage());
+                }
+            }
             if (e.getCause() != null) {
                 builder.setErrorMessage(e.getCause().toString());
                 builder.setStackTrace(formatStackTrace(e.getCause().getStackTrace()));
@@ -35,9 +42,6 @@ public class MethodExecutor {
                 builder.setStackTrace(formatStackTrace(e.getStackTrace()));
             }
 
-            if (imageBytes.size() > 0) {
-                builder.setScreenShot(ByteString.copyFrom(imageBytes.toByteArray()));
-            }
             builder.setRecoverableError(false);
             builder.setExecutionTime(endTime - startTime);
             return builder.build();
