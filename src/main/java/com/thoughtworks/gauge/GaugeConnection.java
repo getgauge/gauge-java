@@ -132,6 +132,20 @@ public class GaugeConnection {
         return new StepValue(stepValue, parameterizedStepValue, parametersList);
     }
 
+
+    /**
+     * Sends a request to gauge to perform a step name refactoring on the project. 
+     * @param oldName old Step Name
+     * @param newName New Step Name
+     * @return RefactoringResponse message
+     * @throws Exception On failure in connecting to gauge core or if invalid message is received.
+     */
+    public Api.PerformRefactoringResponse sendPerformRefactoringRequest(String oldName, String newName) throws Exception {
+        Api.APIMessage refactoringRequest = createPerformRefactoringRequest(oldName, newName);
+        Api.APIMessage response = getAPIResponse(refactoringRequest);
+        return response.getPerformRefactoringResponse();
+    }
+
     private Api.APIMessage getStepRequest() {
         Api.GetAllStepsRequest stepRequest = Api.GetAllStepsRequest.newBuilder().build();
         return Api.APIMessage.newBuilder()
@@ -177,6 +191,17 @@ public class GaugeConnection {
                 .build();
     }
 
+    private Api.APIMessage createPerformRefactoringRequest(String oldName, String newName) {
+        Api.PerformRefactoringRequest performRefactoringRequest = Api.PerformRefactoringRequest.newBuilder()
+                .setOldStep(oldName)
+                .setNewStep(newName)
+                .build();
+        return Api.APIMessage.newBuilder()
+                .setMessageType(Api.APIMessage.APIMessageType.PerformRefactoringRequest)
+                .setMessageId(7)
+                .setPerformRefactoringRequest(performRefactoringRequest)
+                .build();
+    }
 
     private static MessageLength getMessageLength(InputStream is) throws IOException {
         CodedInputStream codedInputStream = CodedInputStream.newInstance(is);
