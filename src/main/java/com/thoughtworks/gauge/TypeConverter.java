@@ -1,6 +1,6 @@
 package com.thoughtworks.gauge;
 
-import main.Spec;
+import gauge.messages.Spec;
 
 import java.util.ArrayList;
 import java.util.List;

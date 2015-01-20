@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -71,7 +71,7 @@ public final class WireFormat {
   }
 
   /**
-   * Lite equivalent to {@link Descriptors.FieldDescriptor.JavaType}.  This is
+   * Lite equivalent to {@link com.google.protobuf.Descriptors.FieldDescriptor.JavaType}.  This is
    * only here to support the lite runtime and should not be used by users.
    */
   public enum JavaType {
@@ -101,7 +101,7 @@ public final class WireFormat {
   }
 
   /**
-   * Lite equivalent to {@link Descriptors.FieldDescriptor.Type}.  This is
+   * Lite equivalent to {@link com.google.protobuf.Descriptors.FieldDescriptor.Type}.  This is
    * only here to support the lite runtime and should not be used by users.
    */
   public enum FieldType {

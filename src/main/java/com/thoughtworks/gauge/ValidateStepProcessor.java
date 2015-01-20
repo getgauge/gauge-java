@@ -1,25 +1,21 @@
 package com.thoughtworks.gauge;
 
-import main.Messages;
+import gauge.messages.Messages;
 
 import java.lang.reflect.Method;
-
-import static main.Messages.Message;
-import static main.Messages.Message.MessageType;
-import static main.Messages.StepValidateResponse;
 
 public class ValidateStepProcessor implements IMessageProcessor {
 
     @Override
-    public Message process(Message message) {
+    public Messages.Message process(Messages.Message message) {
         stepValidationResult validationResult = validateStep(message.getStepValidateRequest());
-        StepValidateResponse stepValidationResponse = StepValidateResponse.newBuilder().setIsValid(validationResult.isValid())
+        Messages.StepValidateResponse stepValidationResponse = Messages.StepValidateResponse.newBuilder().setIsValid(validationResult.isValid())
                 .setErrorMessage(validationResult.getErrorMessage())
                 .build();
-        return Message.newBuilder()
+        return Messages.Message.newBuilder()
                 .setMessageId(message.getMessageId())
                 .setStepValidateResponse(stepValidationResponse)
-                .setMessageType(MessageType.StepValidateResponse)
+                .setMessageType(Messages.Message.MessageType.StepValidateResponse)
                 .build();
     }
 

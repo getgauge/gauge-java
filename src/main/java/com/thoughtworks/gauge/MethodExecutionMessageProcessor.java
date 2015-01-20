@@ -1,7 +1,7 @@
 package com.thoughtworks.gauge;
 
-import main.Messages;
-import main.Spec;
+import gauge.messages.Messages;
+import gauge.messages.Spec;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

@@ -1,6 +1,7 @@
 package com.thoughtworks.gauge;
 
-import main.Messages;
+
+import gauge.messages.Messages;
 
 public class ExecutionInfoMapper {
     public SpecificationInfo executionInfoFrom(Messages.ExecutionInfo currentExecutionInfo) {

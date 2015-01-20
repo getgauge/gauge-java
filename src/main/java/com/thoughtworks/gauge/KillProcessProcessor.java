@@ -1,6 +1,6 @@
 package com.thoughtworks.gauge;
 
-import main.Messages;
+import gauge.messages.Messages;
 
 public class KillProcessProcessor implements IMessageProcessor {
     @Override

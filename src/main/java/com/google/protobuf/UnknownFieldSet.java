@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -49,8 +49,8 @@ import java.util.TreeMap;
  * and then messages containing those fields are read by old software that was
  * compiled before the new types were added.
  *
- * <p>Every {@link Message} contains an {@code UnknownFieldSet} (and every
- * {@link Message.Builder} contains an {@link Builder}).
+ * <p>Every {@link com.google.protobuf.Message} contains an {@code UnknownFieldSet} (and every
+ * {@link com.google.protobuf.Message.Builder} contains an {@link com.google.protobuf.UnknownFieldSet.Builder}).
  *
  * <p>Most users will never need to use this class.
  *
@@ -59,13 +59,13 @@ import java.util.TreeMap;
 public final class UnknownFieldSet implements MessageLite {
   private UnknownFieldSet() {}
 
-  /** Create a new {@link Builder}. */
+  /** Create a new {@link com.google.protobuf.UnknownFieldSet.Builder}. */
   public static Builder newBuilder() {
     return Builder.create();
   }
 
   /**
-   * Create a new {@link Builder} and initialize it to be a copy
+   * Create a new {@link com.google.protobuf.UnknownFieldSet.Builder} and initialize it to be a copy
    * of {@code copyFrom}.
    */
   public static Builder newBuilder(final UnknownFieldSet copyFrom) {
@@ -90,6 +90,7 @@ public final class UnknownFieldSet implements MessageLite {
     this.fields = fields;
   }
   private Map<Integer, Field> fields;
+
 
   @Override
   public boolean equals(final Object other) {
@@ -134,7 +135,7 @@ public final class UnknownFieldSet implements MessageLite {
   /**
    * Converts the set to a string in protocol buffer text format. This is
    * just a trivial wrapper around
-   * {@link TextFormat#printToString(UnknownFieldSet)}.
+   * {@link com.google.protobuf.TextFormat#printToString(com.google.protobuf.UnknownFieldSet)}.
    */
   @Override
   public String toString() {
@@ -143,7 +144,7 @@ public final class UnknownFieldSet implements MessageLite {
 
   /**
    * Serializes the message to a {@code ByteString} and returns it. This is
-   * just a trivial wrapper around {@link #writeTo(CodedOutputStream)}.
+   * just a trivial wrapper around {@link #writeTo(com.google.protobuf.CodedOutputStream)}.
    */
   public ByteString toByteString() {
     try {
@@ -160,7 +161,7 @@ public final class UnknownFieldSet implements MessageLite {
 
   /**
    * Serializes the message to a {@code byte} array and returns it.  This is
-   * just a trivial wrapper around {@link #writeTo(CodedOutputStream)}.
+   * just a trivial wrapper around {@link #writeTo(com.google.protobuf.CodedOutputStream)}.
    */
   public byte[] toByteArray() {
     try {
@@ -178,7 +179,7 @@ public final class UnknownFieldSet implements MessageLite {
 
   /**
    * Serializes the message and writes it to {@code output}.  This is just a
-   * trivial wrapper around {@link #writeTo(CodedOutputStream)}.
+   * trivial wrapper around {@link #writeTo(com.google.protobuf.CodedOutputStream)}.
    */
   public void writeTo(final OutputStream output) throws IOException {
     final CodedOutputStream codedOutput = CodedOutputStream.newInstance(output);
@@ -266,16 +267,16 @@ public final class UnknownFieldSet implements MessageLite {
   }
 
   /**
-   * Builder for {@link UnknownFieldSet}s.
+   * Builder for {@link com.google.protobuf.UnknownFieldSet}s.
    *
-   * <p>Note that this class maintains {@link Field.Builder}s for all fields
-   * in the set.  Thus, adding one element to an existing {@link Field} does not
+   * <p>Note that this class maintains {@link com.google.protobuf.UnknownFieldSet.Field.Builder}s for all fields
+   * in the set.  Thus, adding one element to an existing {@link com.google.protobuf.UnknownFieldSet.Field} does not
    * require making a copy.  This is important for efficient parsing of
-   * unknown repeated fields.  However, it implies that {@link Field}s cannot
-   * be constructed independently, nor can two {@link UnknownFieldSet}s share
+   * unknown repeated fields.  However, it implies that {@link com.google.protobuf.UnknownFieldSet.Field}s cannot
+   * be constructed independently, nor can two {@link com.google.protobuf.UnknownFieldSet}s share
    * the same {@code Field} object.
    *
-   * <p>Use {@link UnknownFieldSet#newBuilder()} to construct a {@code Builder}.
+   * <p>Use {@link com.google.protobuf.UnknownFieldSet#newBuilder()} to construct a {@code Builder}.
    */
   public static final class Builder implements MessageLite.Builder {
     // This constructor should never be called directly (except from 'create').
@@ -321,7 +322,7 @@ public final class UnknownFieldSet implements MessageLite {
     }
 
     /**
-     * Build the {@link UnknownFieldSet} and return it.
+     * Build the {@link com.google.protobuf.UnknownFieldSet} and return it.
      *
      * <p>Once {@code build()} has been called, the {@code Builder} will no
      * longer be usable.  Calling any method after {@code build()} will result
@@ -365,6 +366,22 @@ public final class UnknownFieldSet implements MessageLite {
     /** Reset the builder to an empty set. */
     public Builder clear() {
       reinitialize();
+      return this;
+    }
+    
+    /** Clear fields from the set with a given field number. */
+    public Builder clearField(final int number) {
+      if (number == 0) {
+        throw new IllegalArgumentException("Zero is not a valid field number.");
+      }
+      if (lastField != null && lastFieldNumber == number) {
+        // Discard this.
+        lastField = null;
+        lastFieldNumber = 0;
+      }
+      if (fields.containsKey(number)) {
+        fields.remove(number);
+      }
       return this;
     }
 
@@ -502,7 +519,7 @@ public final class UnknownFieldSet implements MessageLite {
     /**
      * Parse {@code data} as an {@code UnknownFieldSet} and merge it with the
      * set being built.  This is just a small wrapper around
-     * {@link #mergeFrom(CodedInputStream)}.
+     * {@link #mergeFrom(com.google.protobuf.CodedInputStream)}.
      */
     public Builder mergeFrom(final ByteString data)
         throws InvalidProtocolBufferException {
@@ -523,7 +540,7 @@ public final class UnknownFieldSet implements MessageLite {
     /**
      * Parse {@code data} as an {@code UnknownFieldSet} and merge it with the
      * set being built.  This is just a small wrapper around
-     * {@link #mergeFrom(CodedInputStream)}.
+     * {@link #mergeFrom(com.google.protobuf.CodedInputStream)}.
      */
     public Builder mergeFrom(final byte[] data)
         throws InvalidProtocolBufferException {
@@ -544,7 +561,7 @@ public final class UnknownFieldSet implements MessageLite {
     /**
      * Parse an {@code UnknownFieldSet} from {@code input} and merge it with the
      * set being built.  This is just a small wrapper around
-     * {@link #mergeFrom(CodedInputStream)}.
+     * {@link #mergeFrom(com.google.protobuf.CodedInputStream)}.
      */
     public Builder mergeFrom(final InputStream input) throws IOException {
       final CodedInputStream codedInput = CodedInputStream.newInstance(input);
@@ -649,20 +666,20 @@ public final class UnknownFieldSet implements MessageLite {
    * wire types.
    *
    * <p>{@code Field} is an immutable class.  To construct one, you must use a
-   * {@link Builder}.
+   * {@link com.google.protobuf.UnknownFieldSet.Field.Builder}.
    *
-   * @see UnknownFieldSet
+   * @see com.google.protobuf.UnknownFieldSet
    */
   public static final class Field {
     private Field() {}
 
-    /** Construct a new {@link Builder}. */
+    /** Construct a new {@link com.google.protobuf.UnknownFieldSet.Field.Builder}. */
     public static Builder newBuilder() {
       return Builder.create();
     }
 
     /**
-     * Construct a new {@link Builder} and initialize it to a copy of
+     * Construct a new {@link com.google.protobuf.UnknownFieldSet.Field.Builder} and initialize it to a copy of
      * {@code copyFrom}.
      */
     public static Builder newBuilder(final Field copyFrom) {
@@ -689,7 +706,7 @@ public final class UnknownFieldSet implements MessageLite {
 
     /**
      * Get the list of embedded group values for this field.  These are
-     * represented using {@link UnknownFieldSet}s rather than {@link Message}s
+     * represented using {@link com.google.protobuf.UnknownFieldSet}s rather than {@link com.google.protobuf.Message}s
      * since the group's type is presumably unknown.
      */
     public List<UnknownFieldSet> getGroupList()      { return group;           }
@@ -713,7 +730,7 @@ public final class UnknownFieldSet implements MessageLite {
 
     /**
      * Returns the array of objects to be used to uniquely identify this
-     * {@link Field} instance.
+     * {@link com.google.protobuf.UnknownFieldSet.Field} instance.
      */
     private Object[] getIdentityArray() {
       return new Object[] {
@@ -804,9 +821,9 @@ public final class UnknownFieldSet implements MessageLite {
     private List<UnknownFieldSet> group;
 
     /**
-     * Used to build a {@link Field} within an {@link UnknownFieldSet}.
+     * Used to build a {@link com.google.protobuf.UnknownFieldSet.Field} within an {@link com.google.protobuf.UnknownFieldSet}.
      *
-     * <p>Use {@link Field#newBuilder()} to construct a {@code Builder}.
+     * <p>Use {@link com.google.protobuf.UnknownFieldSet.Field#newBuilder()} to construct a {@code Builder}.
      */
     public static final class Builder {
       // This constructor should never be called directly (except from 'create').

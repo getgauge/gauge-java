@@ -1,8 +1,8 @@
 package com.thoughtworks.gauge;
 
 
-import main.Messages;
-import main.Spec;
+import gauge.messages.Messages;
+import gauge.messages.Spec;
 import org.walkmod.javalang.JavaParser;
 import org.walkmod.javalang.ast.CompilationUnit;
 import org.walkmod.javalang.ast.body.MethodDeclaration;

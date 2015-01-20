@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -31,6 +31,9 @@
 package com.google.protobuf;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * The classes contained within are used internally by the Protocol Buffer
@@ -98,6 +101,51 @@ public class Internal {
           "Java VM does not support a standard character set.", e);
     }
   }
+  /**
+   * Helper called by generated code to construct default values for bytes
+   * fields.
+   * <p>
+   * This is like {@link #bytesDefaultValue}, but returns a byte array. 
+   */
+  public static byte[] byteArrayDefaultValue(String bytes) {
+    try {
+      return bytes.getBytes("ISO-8859-1");
+    } catch (UnsupportedEncodingException e) {
+      // This should never happen since all JVMs are required to implement
+      // ISO-8859-1.
+      throw new IllegalStateException(
+          "Java VM does not support a standard character set.", e);
+    }
+  }
+
+  /**
+   * Helper called by generated code to construct default values for bytes
+   * fields.
+   * <p>
+   * This is like {@link #bytesDefaultValue}, but returns a ByteBuffer. 
+   */
+  public static ByteBuffer byteBufferDefaultValue(String bytes) {
+    return ByteBuffer.wrap(byteArrayDefaultValue(bytes));
+  }
+
+  /**
+   * Create a new ByteBuffer and copy all the content of {@code source}
+   * ByteBuffer to the new ByteBuffer. The new ByteBuffer's limit and
+   * capacity will be source.capacity(), and its position will be 0.
+   * Note that the state of {@code source} ByteBuffer won't be changed.
+   */
+  public static ByteBuffer copyByteBuffer(ByteBuffer source) {
+    // Make a duplicate of the source ByteBuffer and read data from the
+    // duplicate. This is to avoid affecting the source ByteBuffer's state.
+    ByteBuffer temp = source.duplicate();
+    // We want to copy all the data in the source ByteBuffer, not just the
+    // remaining bytes.
+    temp.clear();
+    ByteBuffer result = ByteBuffer.allocate(temp.capacity());
+    result.put(temp);
+    result.clear();
+    return result;
+  }
 
   /**
    * Helper called by generated code to determine if a byte array is a valid
@@ -122,13 +170,42 @@ public class Internal {
    * Table 3-7. <em>Well Formed UTF-8 Byte Sequences</em>.
    *
    * <p>As of 2011-02, this method simply returns the result of {@link
-   * ByteString#isValidUtf8()}.  Calling that method directly is preferred.
+   * com.google.protobuf.ByteString#isValidUtf8()}.  Calling that method directly is preferred.
    *
    * @param byteString the string to check
    * @return whether the byte array is round trippable
    */
   public static boolean isValidUtf8(ByteString byteString) {
     return byteString.isValidUtf8();
+  }
+  
+  /**
+   * Like {@link #isValidUtf8(com.google.protobuf.ByteString)} but for byte arrays.
+   */
+  public static boolean isValidUtf8(byte[] byteArray) {
+    return Utf8.isValidUtf8(byteArray);
+  }
+
+  /**
+   * Helper method to get the UTF-8 bytes of a string.
+   */
+  public static byte[] toByteArray(String value) {
+    try {
+      return value.getBytes("UTF-8");
+    } catch (UnsupportedEncodingException e) {
+      throw new RuntimeException("UTF-8 not supported?", e);
+    }
+  }
+  
+  /**
+   * Helper method to convert a byte array to a string using UTF-8 encoding.
+   */
+  public static String toStringUtf8(byte[] bytes) {
+    try {
+      return new String(bytes, "UTF-8");
+    } catch (UnsupportedEncodingException e) {
+      throw new RuntimeException("UTF-8 not supported?", e);
+    }
   }
 
   /**
@@ -141,13 +218,173 @@ public class Internal {
   }
 
   /**
-   * Interface for an object which maps integers to {@link EnumLite}s.
-   * {@link Descriptors.EnumDescriptor} implements this interface by mapping
-   * numbers to {@link Descriptors.EnumValueDescriptor}s.  Additionally,
+   * Interface for an object which maps integers to {@link com.google.protobuf.Internal.EnumLite}s.
+   * {@link com.google.protobuf.Descriptors.EnumDescriptor} implements this interface by mapping
+   * numbers to {@link com.google.protobuf.Descriptors.EnumValueDescriptor}s.  Additionally,
    * every generated enum type has a static method internalGetValueMap() which
    * returns an implementation of this type that maps numbers to enum values.
    */
   public interface EnumLiteMap<T extends EnumLite> {
     T findValueByNumber(int number);
   }
+
+  /**
+   * Helper method for implementing {@link com.google.protobuf.MessageLite#hashCode()} for longs.
+   * @see Long#hashCode()
+   */
+  public static int hashLong(long n) {
+    return (int) (n ^ (n >>> 32));
+  }
+
+  /**
+   * Helper method for implementing {@link com.google.protobuf.MessageLite#hashCode()} for
+   * booleans.
+   * @see Boolean#hashCode()
+   */
+  public static int hashBoolean(boolean b) {
+    return b ? 1231 : 1237;
+  }
+
+  /**
+   * Helper method for implementing {@link com.google.protobuf.MessageLite#hashCode()} for enums.
+   * <p>
+   * This is needed because {@link Enum#hashCode()} is final, but we
+   * need to use the field number as the hash code to ensure compatibility
+   * between statically and dynamically generated enum objects.
+   */
+  public static int hashEnum(EnumLite e) {
+    return e.getNumber();
+  }
+
+  /**
+   * Helper method for implementing {@link com.google.protobuf.MessageLite#hashCode()} for
+   * enum lists.
+   */
+  public static int hashEnumList(List<? extends EnumLite> list) {
+    int hash = 1;
+    for (EnumLite e : list) {
+      hash = 31 * hash + hashEnum(e);
+    }
+    return hash;
+  }
+  
+  /**
+   * Helper method for implementing {@link com.google.protobuf.MessageLite#equals()} for bytes field.
+   */
+  public static boolean equals(List<byte[]> a, List<byte[]> b) {
+    if (a.size() != b.size()) return false;
+    for (int i = 0; i < a.size(); ++i) {
+      if (!Arrays.equals(a.get(i), b.get(i))) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**
+   * Helper method for implementing {@link com.google.protobuf.MessageLite#hashCode()} for bytes field.
+   */
+  public static int hashCode(List<byte[]> list) {
+    int hash = 1;
+    for (byte[] bytes : list) {
+      hash = 31 * hash + hashCode(bytes);
+    }
+    return hash;
+  }
+  
+  /**
+   * Helper method for implementing {@link com.google.protobuf.MessageLite#hashCode()} for bytes field.
+   */
+  public static int hashCode(byte[] bytes) {
+    // The hash code for a byte array should be the same as the hash code for a
+    // ByteString with the same content. This is to ensure that the generated
+    // hashCode() method will return the same value as the pure reflection
+    // based hashCode() method.
+    return LiteralByteString.hashCode(bytes);
+  }
+  
+  /**
+   * Helper method for implementing {@link com.google.protobuf.MessageLite#equals()} for bytes
+   * field.
+   */
+  public static boolean equalsByteBuffer(ByteBuffer a, ByteBuffer b) {
+    if (a.capacity() != b.capacity()) {
+      return false;
+    }
+    // ByteBuffer.equals() will only compare the remaining bytes, but we want to
+    // compare all the content.
+    return a.duplicate().clear().equals(b.duplicate().clear());
+  }
+  
+  /**
+   * Helper method for implementing {@link com.google.protobuf.MessageLite#equals()} for bytes
+   * field.
+   */
+  public static boolean equalsByteBuffer(
+      List<ByteBuffer> a, List<ByteBuffer> b) {
+    if (a.size() != b.size()) {
+      return false;
+    }
+    for (int i = 0; i < a.size(); ++i) {
+      if (!equalsByteBuffer(a.get(i), b.get(i))) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**
+   * Helper method for implementing {@link com.google.protobuf.MessageLite#hashCode()} for bytes
+   * field.
+   */
+  public static int hashCodeByteBuffer(List<ByteBuffer> list) {
+    int hash = 1;
+    for (ByteBuffer bytes : list) {
+      hash = 31 * hash + hashCodeByteBuffer(bytes);
+    }
+    return hash;
+  }
+  
+  private static final int DEFAULT_BUFFER_SIZE = 4096;
+  
+  /**
+   * Helper method for implementing {@link com.google.protobuf.MessageLite#hashCode()} for bytes
+   * field.
+   */
+  public static int hashCodeByteBuffer(ByteBuffer bytes) {
+    if (bytes.hasArray()) {
+      // Fast path.
+      int h = LiteralByteString.hashCode(bytes.capacity(), bytes.array(),
+          bytes.arrayOffset(), bytes.capacity());
+      return h == 0 ? 1 : h;
+    } else {
+      // Read the data into a temporary byte array before calculating the
+      // hash value.
+      final int bufferSize = bytes.capacity() > DEFAULT_BUFFER_SIZE
+          ? DEFAULT_BUFFER_SIZE : bytes.capacity();
+      final byte[] buffer = new byte[bufferSize];
+      final ByteBuffer duplicated = bytes.duplicate();
+      duplicated.clear();
+      int h = bytes.capacity();
+      while (duplicated.remaining() > 0) {
+        final int length = duplicated.remaining() <= bufferSize ?
+            duplicated.remaining() : bufferSize;
+        duplicated.get(buffer, 0, length);
+        h = LiteralByteString.hashCode(h, buffer, 0, length);
+      }
+      return h == 0 ? 1 : h;
+    }
+  }
+  
+  /**
+   * An empty byte array constant used in generated code.
+   */
+  public static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
+  
+  /**
+   * An empty byte array constant used in generated code.
+   */
+  public static final ByteBuffer EMPTY_BYTE_BUFFER =
+      ByteBuffer.wrap(EMPTY_BYTE_ARRAY);
+
 }

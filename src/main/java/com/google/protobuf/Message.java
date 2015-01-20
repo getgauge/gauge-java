@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -35,13 +35,12 @@ package com.google.protobuf;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Map;
 
 /**
  * Abstract interface implemented by Protocol Message objects.
  * <p>
- * See also {@link MessageLite}, which defines most of the methods that typical
- * users care about.  {@link Message} adds to it methods that are not available
+ * See also {@link com.google.protobuf.MessageLite}, which defines most of the methods that typical
+ * users care about.  {@link com.google.protobuf.Message} adds to it methods that are not available
  * in the "lite" runtime.  The biggest added features are introspection and
  * reflection -- i.e., getting descriptors for the message type and accessing
  * the field values dynamically.
@@ -52,6 +51,7 @@ public interface Message extends MessageLite, MessageOrBuilder {
 
   // (From MessageLite, re-declared here only for return type covariance.)
   Parser<? extends Message> getParserForType();
+
 
   // -----------------------------------------------------------------
   // Comparison and hashing
@@ -76,7 +76,7 @@ public interface Message extends MessageLite, MessageOrBuilder {
    * inheriting {@code Object.hashCode()} is incorrect.
    *
    * @return the hash code value for this message
-   * @see Map#hashCode()
+   * @see java.util.Map#hashCode()
    */
   @Override
   int hashCode();
@@ -87,7 +87,7 @@ public interface Message extends MessageLite, MessageOrBuilder {
   /**
    * Converts the message to a string in protocol buffer text format. This is
    * just a trivial wrapper around {@link
-   * TextFormat#printToString(MessageOrBuilder)}.
+   * com.google.protobuf.TextFormat#printToString(com.google.protobuf.MessageOrBuilder)}.
    */
   @Override
   String toString();
@@ -137,7 +137,7 @@ public interface Message extends MessageLite, MessageOrBuilder {
 
     /**
      * Get the message's type's descriptor.
-     * See {@link Message#getDescriptorForType()}.
+     * See {@link com.google.protobuf.Message#getDescriptorForType()}.
      */
     Descriptors.Descriptor getDescriptorForType();
 
@@ -169,7 +169,7 @@ public interface Message extends MessageLite, MessageOrBuilder {
     /**
      * Sets a field to the given value.  The value must be of the correct type
      * for this field, i.e. the same type that
-     * {@link Message#getField(Descriptors.FieldDescriptor)} would return.
+     * {@link com.google.protobuf.Message#getField(com.google.protobuf.Descriptors.FieldDescriptor)} would return.
      */
     Builder setField(Descriptors.FieldDescriptor field, Object value);
 
@@ -180,9 +180,15 @@ public interface Message extends MessageLite, MessageOrBuilder {
     Builder clearField(Descriptors.FieldDescriptor field);
 
     /**
+     * Clears the oneof.  This is exactly equivalent to calling the generated
+     * "clear" accessor method corresponding to the oneof.
+     */
+    Builder clearOneof(Descriptors.OneofDescriptor oneof);
+
+    /**
      * Sets an element of a repeated field to the given value.  The value must
      * be of the correct type for this field, i.e. the same type that
-     * {@link Message#getRepeatedField(Descriptors.FieldDescriptor,int)} would
+     * {@link com.google.protobuf.Message#getRepeatedField(com.google.protobuf.Descriptors.FieldDescriptor,int)} would
      * return.
      * @throws IllegalArgumentException The field is not a repeated field, or
      *           {@code field.getContainingType() != getDescriptorForType()}.
@@ -197,11 +203,11 @@ public interface Message extends MessageLite, MessageOrBuilder {
      */
     Builder addRepeatedField(Descriptors.FieldDescriptor field, Object value);
 
-    /** Set the {@link UnknownFieldSet} for this message. */
+    /** Set the {@link com.google.protobuf.UnknownFieldSet} for this message. */
     Builder setUnknownFields(UnknownFieldSet unknownFields);
 
     /**
-     * Merge some unknown fields into the {@link UnknownFieldSet} for this
+     * Merge some unknown fields into the {@link com.google.protobuf.UnknownFieldSet} for this
      * message.
      */
     Builder mergeUnknownFields(UnknownFieldSet unknownFields);

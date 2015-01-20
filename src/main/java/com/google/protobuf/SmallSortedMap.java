@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -367,7 +367,7 @@ class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
   }
 
   /**
-   * @return a {@link SortedMap} to which overflow entries mappings can be
+   * @return a {@link java.util.SortedMap} to which overflow entries mappings can be
    *         added or removed.
    * @throws UnsupportedOperationException if {@link #makeImmutable()} has been
    *         called.

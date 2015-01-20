@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -41,9 +41,9 @@ import java.util.Map;
 
 /**
  * A class which represents an arbitrary set of fields of some message type.
- * This is used to implement {@link DynamicMessage}, and also to represent
- * extensions in {@link GeneratedMessage}.  This class is package-private,
- * since outside users should probably be using {@link DynamicMessage}.
+ * This is used to implement {@link com.google.protobuf.DynamicMessage}, and also to represent
+ * extensions in {@link com.google.protobuf.GeneratedMessage}.  This class is package-private,
+ * since outside users should probably be using {@link com.google.protobuf.DynamicMessage}.
  *
  * @author kenton@google.com Kenton Varda
  */
@@ -51,7 +51,7 @@ final class FieldSet<FieldDescriptorType extends
       FieldSet.FieldDescriptorLite<FieldDescriptorType>> {
   /**
    * Interface for a FieldDescriptor or lite extension descriptor.  This
-   * prevents FieldSet from depending on {@link Descriptors.FieldDescriptor}.
+   * prevents FieldSet from depending on {@link com.google.protobuf.Descriptors.FieldDescriptor}.
    */
   public interface FieldDescriptorLite<T extends FieldDescriptorLite<T>>
       extends Comparable<T> {
@@ -65,7 +65,7 @@ final class FieldSet<FieldDescriptorType extends
     // If getLiteJavaType() == MESSAGE, this merges a message object of the
     // type into a builder of the type.  Returns {@code to}.
     MessageLite.Builder internalMergeFrom(
-        MessageLite.Builder to, MessageLite from);
+            MessageLite.Builder to, MessageLite from);
   }
 
   private final SmallSortedMap<FieldDescriptorType, Object> fields;
@@ -87,14 +87,14 @@ final class FieldSet<FieldDescriptorType extends
   }
 
   /** Construct a new FieldSet. */
-  public static <T extends FieldSet.FieldDescriptorLite<T>>
+  public static <T extends FieldDescriptorLite<T>>
       FieldSet<T> newFieldSet() {
     return new FieldSet<T>();
   }
 
   /** Get an immutable empty FieldSet. */
   @SuppressWarnings("unchecked")
-  public static <T extends FieldSet.FieldDescriptorLite<T>>
+  public static <T extends FieldDescriptorLite<T>>
       FieldSet<T> emptySet() {
     return DEFAULT_INSTANCE;
   }
@@ -146,9 +146,10 @@ final class FieldSet<FieldDescriptorType extends
     return clone;
   }
 
+
   // =================================================================
 
-  /** See {@link Message.Builder#clear()}. */
+  /** See {@link com.google.protobuf.Message.Builder#clear()}. */
   public void clear() {
     fields.clear();
     hasLazyField = false;
@@ -202,7 +203,7 @@ final class FieldSet<FieldDescriptorType extends
 
   /**
    * Useful for implementing
-   * {@link Message#hasField(Descriptors.FieldDescriptor)}.
+   * {@link com.google.protobuf.Message#hasField(com.google.protobuf.Descriptors.FieldDescriptor)}.
    */
   public boolean hasField(final FieldDescriptorType descriptor) {
     if (descriptor.isRepeated()) {
@@ -215,7 +216,7 @@ final class FieldSet<FieldDescriptorType extends
 
   /**
    * Useful for implementing
-   * {@link Message#getField(Descriptors.FieldDescriptor)}.  This method
+   * {@link com.google.protobuf.Message#getField(com.google.protobuf.Descriptors.FieldDescriptor)}.  This method
    * returns {@code null} if the field is not set; in this case it is up
    * to the caller to fetch the field's default value.
    */
@@ -229,7 +230,7 @@ final class FieldSet<FieldDescriptorType extends
 
   /**
    * Useful for implementing
-   * {@link Message.Builder#setField(Descriptors.FieldDescriptor,Object)}.
+   * {@link com.google.protobuf.Message.Builder#setField(com.google.protobuf.Descriptors.FieldDescriptor,Object)}.
    */
   @SuppressWarnings({"unchecked", "rawtypes"})
   public void setField(final FieldDescriptorType descriptor,
@@ -260,7 +261,7 @@ final class FieldSet<FieldDescriptorType extends
 
   /**
    * Useful for implementing
-   * {@link Message.Builder#clearField(Descriptors.FieldDescriptor)}.
+   * {@link com.google.protobuf.Message.Builder#clearField(com.google.protobuf.Descriptors.FieldDescriptor)}.
    */
   public void clearField(final FieldDescriptorType descriptor) {
     fields.remove(descriptor);
@@ -271,7 +272,7 @@ final class FieldSet<FieldDescriptorType extends
 
   /**
    * Useful for implementing
-   * {@link Message#getRepeatedFieldCount(Descriptors.FieldDescriptor)}.
+   * {@link com.google.protobuf.Message#getRepeatedFieldCount(com.google.protobuf.Descriptors.FieldDescriptor)}.
    */
   public int getRepeatedFieldCount(final FieldDescriptorType descriptor) {
     if (!descriptor.isRepeated()) {
@@ -289,7 +290,7 @@ final class FieldSet<FieldDescriptorType extends
 
   /**
    * Useful for implementing
-   * {@link Message#getRepeatedField(Descriptors.FieldDescriptor,int)}.
+   * {@link com.google.protobuf.Message#getRepeatedField(com.google.protobuf.Descriptors.FieldDescriptor,int)}.
    */
   public Object getRepeatedField(final FieldDescriptorType descriptor,
                                  final int index) {
@@ -309,7 +310,7 @@ final class FieldSet<FieldDescriptorType extends
 
   /**
    * Useful for implementing
-   * {@link Message.Builder#setRepeatedField(Descriptors.FieldDescriptor,int,Object)}.
+   * {@link com.google.protobuf.Message.Builder#setRepeatedField(com.google.protobuf.Descriptors.FieldDescriptor,int,Object)}.
    */
   @SuppressWarnings("unchecked")
   public void setRepeatedField(final FieldDescriptorType descriptor,
@@ -331,7 +332,7 @@ final class FieldSet<FieldDescriptorType extends
 
   /**
    * Useful for implementing
-   * {@link Message.Builder#addRepeatedField(Descriptors.FieldDescriptor,Object)}.
+   * {@link com.google.protobuf.Message.Builder#addRepeatedField(com.google.protobuf.Descriptors.FieldDescriptor,Object)}.
    */
   @SuppressWarnings("unchecked")
   public void addRepeatedField(final FieldDescriptorType descriptor,
@@ -376,10 +377,13 @@ final class FieldSet<FieldDescriptorType extends
       case DOUBLE:       isValid = value instanceof Double    ; break;
       case BOOLEAN:      isValid = value instanceof Boolean   ; break;
       case STRING:       isValid = value instanceof String    ; break;
-      case BYTE_STRING:  isValid = value instanceof ByteString; break;
+      case BYTE_STRING:
+        isValid = value instanceof ByteString || value instanceof byte[];
+        break;
       case ENUM:
         // TODO(kenton):  Caller must do type checking here, I guess.
-        isValid = value instanceof Internal.EnumLite;
+        isValid =
+            (value instanceof Integer || value instanceof Internal.EnumLite);
         break;
       case MESSAGE:
         // TODO(kenton):  Caller must do type checking here, I guess.
@@ -405,7 +409,7 @@ final class FieldSet<FieldDescriptorType extends
   // Parsing and serialization
 
   /**
-   * See {@link Message#isInitialized()}.  Note:  Since {@code FieldSet}
+   * See {@link com.google.protobuf.Message#isInitialized()}.  Note:  Since {@code FieldSet}
    * itself does not have any way of knowing about required fields that
    * aren't actually present in the set, it is up to the caller to check
    * that all required fields are present.
@@ -458,7 +462,7 @@ final class FieldSet<FieldDescriptorType extends
    * Given a field type, return the wire type.
    *
    * @returns One of the {@code WIRETYPE_} constants defined in
-   *          {@link WireFormat}.
+   *          {@link com.google.protobuf.WireFormat}.
    */
   static int getWireFormatForFieldType(final WireFormat.FieldType type,
                                        boolean isPacked) {
@@ -470,8 +474,8 @@ final class FieldSet<FieldDescriptorType extends
   }
 
   /**
-   * Like {@link Message.Builder#mergeFrom(Message)}, but merges from another 
-   * {@link FieldSet}.
+   * Like {@link com.google.protobuf.Message.Builder#mergeFrom(com.google.protobuf.Message)}, but merges from another
+   * {@link com.google.protobuf.FieldSet}.
    */
   public void mergeFrom(final FieldSet<FieldDescriptorType> other) {
     for (int i = 0; i < other.fields.getNumArrayEntries(); i++) {
@@ -480,6 +484,17 @@ final class FieldSet<FieldDescriptorType extends
     for (final Map.Entry<FieldDescriptorType, Object> entry :
              other.fields.getOverflowEntries()) {
       mergeFromField(entry);
+    }
+  }
+
+  private Object cloneIfMutable(Object value) {
+    if (value instanceof byte[]) {
+      byte[] bytes = (byte[]) value;
+      byte[] copy = new byte[bytes.length];
+      System.arraycopy(bytes, 0, copy, 0, bytes.length);
+      return copy;
+    } else {
+      return value;
     }
   }
 
@@ -495,28 +510,26 @@ final class FieldSet<FieldDescriptorType extends
     if (descriptor.isRepeated()) {
       Object value = getField(descriptor);
       if (value == null) {
-        // Our list is empty, but we still need to make a defensive copy of
-        // the other list since we don't know if the other FieldSet is still
-        // mutable.
-        fields.put(descriptor, new ArrayList((List) otherValue));
-      } else {
-        // Concatenate the lists.
-        ((List) value).addAll((List) otherValue);
+        value = new ArrayList();
       }
+      for (Object element : (List) otherValue) {
+        ((List) value).add(cloneIfMutable(element));
+      }
+      fields.put(descriptor, value);
     } else if (descriptor.getLiteJavaType() == WireFormat.JavaType.MESSAGE) {
       Object value = getField(descriptor);
       if (value == null) {
-        fields.put(descriptor, otherValue);
+        fields.put(descriptor, cloneIfMutable(otherValue));
       } else {
         // Merge the messages.
-        fields.put(
-            descriptor,
-            descriptor.internalMergeFrom(
+          value = descriptor.internalMergeFrom(
                 ((MessageLite) value).toBuilder(), (MessageLite) otherValue)
-            .build());
+                .build();
+
+        fields.put(descriptor, value);
       }
     } else {
-      fields.put(descriptor, otherValue);
+      fields.put(descriptor, cloneIfMutable(otherValue));
     }
   }
 
@@ -524,19 +537,22 @@ final class FieldSet<FieldDescriptorType extends
   //   other class.  Probably WireFormat.
 
   /**
-   * Read a field of any primitive type from a CodedInputStream.  Enums,
-   * groups, and embedded messages are not handled by this method.
+   * Read a field of any primitive type for immutable messages from a
+   * CodedInputStream. Enums, groups, and embedded messages are not handled by
+   * this method.
    *
    * @param input The stream from which to read.
    * @param type Declared type of the field.
+   * @param checkUtf8 When true, check that the input is valid utf8.
    * @return An object representing the field's value, of the exact
    *         type which would be returned by
-   *         {@link Message#getField(Descriptors.FieldDescriptor)} for
+   *         {@link com.google.protobuf.Message#getField(com.google.protobuf.Descriptors.FieldDescriptor)} for
    *         this field.
    */
   public static Object readPrimitiveField(
       CodedInputStream input,
-      final WireFormat.FieldType type) throws IOException {
+      final WireFormat.FieldType type,
+      boolean checkUtf8) throws IOException {
     switch (type) {
       case DOUBLE  : return input.readDouble  ();
       case FLOAT   : return input.readFloat   ();
@@ -546,7 +562,11 @@ final class FieldSet<FieldDescriptorType extends
       case FIXED64 : return input.readFixed64 ();
       case FIXED32 : return input.readFixed32 ();
       case BOOL    : return input.readBool    ();
-      case STRING  : return input.readString  ();
+      case STRING  : if (checkUtf8) {
+                       return input.readStringRequireUtf8();
+                     } else {
+                       return input.readString();
+                     }
       case BYTES   : return input.readBytes   ();
       case UINT32  : return input.readUInt32  ();
       case SFIXED32: return input.readSFixed32();
@@ -571,7 +591,8 @@ final class FieldSet<FieldDescriptorType extends
       "There is no way to get here, but the compiler thinks otherwise.");
   }
 
-  /** See {@link Message#writeTo(CodedOutputStream)}. */
+
+  /** See {@link com.google.protobuf.Message#writeTo(com.google.protobuf.CodedOutputStream)}. */
   public void writeTo(final CodedOutputStream output)
                       throws IOException {
     for (int i = 0; i < fields.getNumArrayEntries(); i++) {
@@ -605,8 +626,12 @@ final class FieldSet<FieldDescriptorType extends
     final FieldDescriptorType descriptor = entry.getKey();
     if (descriptor.getLiteJavaType() == WireFormat.JavaType.MESSAGE &&
         !descriptor.isRepeated() && !descriptor.isPacked()) {
+      Object value = entry.getValue();
+      if (value instanceof LazyField) {
+        value = ((LazyField) value).getValue();
+      }
       output.writeMessageSetExtension(entry.getKey().getNumber(),
-                                      (MessageLite) entry.getValue());
+                                      (MessageLite) value);
     } else {
       writeField(descriptor, entry.getValue(), output);
     }
@@ -620,7 +645,7 @@ final class FieldSet<FieldDescriptorType extends
    * @param number The field's number.
    * @param value  Object representing the field's value.  Must be of the exact
    *               type which would be returned by
-   *               {@link Message#getField(Descriptors.FieldDescriptor)} for
+   *               {@link com.google.protobuf.Message#getField(com.google.protobuf.Descriptors.FieldDescriptor)} for
    *               this field.
    */
   private static void writeElement(final CodedOutputStream output,
@@ -630,7 +655,7 @@ final class FieldSet<FieldDescriptorType extends
     // Special case for groups, which need a start and end tag; other fields
     // can just use writeTag() and writeFieldNoTag().
     if (type == WireFormat.FieldType.GROUP) {
-      output.writeGroup(number, (MessageLite) value);
+        output.writeGroup(number, (MessageLite) value);
     } else {
       output.writeTag(number, getWireFormatForFieldType(type, false));
       writeElementNoTag(output, type, value);
@@ -644,7 +669,7 @@ final class FieldSet<FieldDescriptorType extends
    * @param type The field's type.
    * @param value  Object representing the field's value.  Must be of the exact
    *               type which would be returned by
-   *               {@link Message#getField(Descriptors.FieldDescriptor)} for
+   *               {@link com.google.protobuf.Message#getField(com.google.protobuf.Descriptors.FieldDescriptor)} for
    *               this field.
    */
   private static void writeElementNoTag(
@@ -663,7 +688,13 @@ final class FieldSet<FieldDescriptorType extends
       case STRING  : output.writeStringNoTag  ((String     ) value); break;
       case GROUP   : output.writeGroupNoTag   ((MessageLite) value); break;
       case MESSAGE : output.writeMessageNoTag ((MessageLite) value); break;
-      case BYTES   : output.writeBytesNoTag   ((ByteString ) value); break;
+      case BYTES:
+        if (value instanceof ByteString) {
+          output.writeBytesNoTag((ByteString) value);
+        } else {
+          output.writeByteArrayNoTag((byte[]) value);
+        }
+        break;
       case UINT32  : output.writeUInt32NoTag  ((Integer    ) value); break;
       case SFIXED32: output.writeSFixed32NoTag((Integer    ) value); break;
       case SFIXED64: output.writeSFixed64NoTag((Long       ) value); break;
@@ -671,7 +702,11 @@ final class FieldSet<FieldDescriptorType extends
       case SINT64  : output.writeSInt64NoTag  ((Long       ) value); break;
 
       case ENUM:
-        output.writeEnumNoTag(((Internal.EnumLite) value).getNumber());
+        if (value instanceof Internal.EnumLite) {
+          output.writeEnumNoTag(((Internal.EnumLite) value).getNumber());
+        } else {
+          output.writeEnumNoTag(((Integer) value).intValue());
+        }
         break;
     }
   }
@@ -712,7 +747,7 @@ final class FieldSet<FieldDescriptorType extends
   }
 
   /**
-   * See {@link Message#getSerializedSize()}.  It's up to the caller to cache
+   * See {@link com.google.protobuf.Message#getSerializedSize()}.  It's up to the caller to cache
    * the resulting size if desired.
    */
   public int getSerializedSize() {
@@ -770,7 +805,7 @@ final class FieldSet<FieldDescriptorType extends
    * @param number The field's number.
    * @param value  Object representing the field's value.  Must be of the exact
    *               type which would be returned by
-   *               {@link Message#getField(Descriptors.FieldDescriptor)} for
+   *               {@link com.google.protobuf.Message#getField(com.google.protobuf.Descriptors.FieldDescriptor)} for
    *               this field.
    */
   private static int computeElementSize(
@@ -778,7 +813,9 @@ final class FieldSet<FieldDescriptorType extends
       final int number, final Object value) {
     int tagSize = CodedOutputStream.computeTagSize(number);
     if (type == WireFormat.FieldType.GROUP) {
-      tagSize *= 2;
+      // Only count the end group tag for proto2 messages as for proto1 the end
+      // group tag will be counted as a part of getSerializedSize().
+        tagSize *= 2;
     }
     return tagSize + computeElementSizeNoTag(type, value);
   }
@@ -790,7 +827,7 @@ final class FieldSet<FieldDescriptorType extends
    * @param type   The field's type.
    * @param value  Object representing the field's value.  Must be of the exact
    *               type which would be returned by
-   *               {@link Message#getField(Descriptors.FieldDescriptor)} for
+   *               {@link com.google.protobuf.Message#getField(com.google.protobuf.Descriptors.FieldDescriptor)} for
    *               this field.
    */
   private static int computeElementSizeNoTag(
@@ -808,7 +845,12 @@ final class FieldSet<FieldDescriptorType extends
       case BOOL    : return CodedOutputStream.computeBoolSizeNoTag    ((Boolean    )value);
       case STRING  : return CodedOutputStream.computeStringSizeNoTag  ((String     )value);
       case GROUP   : return CodedOutputStream.computeGroupSizeNoTag   ((MessageLite)value);
-      case BYTES   : return CodedOutputStream.computeBytesSizeNoTag   ((ByteString )value);
+      case BYTES   :
+        if (value instanceof ByteString) {
+          return CodedOutputStream.computeBytesSizeNoTag((ByteString) value);
+        } else {
+          return CodedOutputStream.computeByteArraySizeNoTag((byte[]) value);
+        }
       case UINT32  : return CodedOutputStream.computeUInt32SizeNoTag  ((Integer    )value);
       case SFIXED32: return CodedOutputStream.computeSFixed32SizeNoTag((Integer    )value);
       case SFIXED64: return CodedOutputStream.computeSFixed64SizeNoTag((Long       )value);
@@ -823,8 +865,12 @@ final class FieldSet<FieldDescriptorType extends
         }
 
       case ENUM:
-        return CodedOutputStream.computeEnumSizeNoTag(
-            ((Internal.EnumLite) value).getNumber());
+        if (value instanceof Internal.EnumLite) {
+          return CodedOutputStream.computeEnumSizeNoTag(
+              ((Internal.EnumLite) value).getNumber());
+        } else {
+          return CodedOutputStream.computeEnumSizeNoTag((Integer) value);
+        }
     }
 
     throw new RuntimeException(

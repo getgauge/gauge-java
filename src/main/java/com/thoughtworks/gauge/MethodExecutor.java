@@ -1,7 +1,7 @@
 package com.thoughtworks.gauge;
 
 import com.google.protobuf.ByteString;
-import main.Spec;
+import gauge.messages.Spec;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

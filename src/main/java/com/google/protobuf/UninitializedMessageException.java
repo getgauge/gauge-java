@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -38,7 +38,7 @@ import java.util.List;
  * fields.  This is a {@code RuntimeException} because it normally represents
  * a programming error:  it happens when some code which constructs a message
  * fails to set all the fields.  {@code parseFrom()} methods <b>do not</b>
- * throw this; they throw an {@link InvalidProtocolBufferException} if
+ * throw this; they throw an {@link com.google.protobuf.InvalidProtocolBufferException} if
  * required fields are missing, because it is not a programming error to
  * receive an incomplete message.  In other words,
  * {@code UninitializedMessageException} should never be thrown by correct
@@ -73,7 +73,7 @@ public class UninitializedMessageException extends RuntimeException {
   }
 
   /**
-   * Converts this exception to an {@link InvalidProtocolBufferException}.
+   * Converts this exception to an {@link com.google.protobuf.InvalidProtocolBufferException}.
    * When a parsed message is missing required fields, this should be thrown
    * instead of {@code UninitializedMessageException}.
    */

@@ -1,6 +1,6 @@
 package com.thoughtworks.gauge;
 
-import main.Messages;
+import gauge.messages.Messages;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class StepNameRequestProcessor implements IMessageProcessor {
         return Messages.Message.newBuilder()
                 .setMessageId(message.getMessageId())
                 .setMessageType(Messages.Message.MessageType.StepNameResponse)
-                .setStepNameResponse(Messages.GetStepNameResponse.newBuilder().addAllStepName(stepAnnotations).setIsStepPresent(isStepPresent).setHasAlias(hasAlias).build())
+                .setStepNameResponse(Messages.StepNameResponse.newBuilder().addAllStepName(stepAnnotations).setIsStepPresent(isStepPresent).setHasAlias(hasAlias).build())
                 .build();
     }
 }

@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -35,6 +35,8 @@ import java.io.InputStream;
 /**
  * Abstract interface for parsing Protocol Messages.
  *
+ * The implementation should be stateless and thread-safe.
+ *
  * @author liujisi@google.com (Pherl Liu)
  */
 public interface Parser<MessageType> {
@@ -42,7 +44,7 @@ public interface Parser<MessageType> {
    * Parses a message of {@code MessageType} from the input.
    *
    * <p>Note:  The caller should call
-   * {@link CodedInputStream#checkLastTagWas(int)} after calling this to
+   * {@link com.google.protobuf.CodedInputStream#checkLastTagWas(int)} after calling this to
    * verify that the last tag seen was the appropriate end-group tag,
    * or zero for EOF.
    */
@@ -50,7 +52,7 @@ public interface Parser<MessageType> {
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseFrom(CodedInputStream)}, but also parses extensions.
+   * Like {@link #parseFrom(com.google.protobuf.CodedInputStream)}, but also parses extensions.
    * The extensions that you want to be able to parse must be registered in
    * {@code extensionRegistry}. Extensions not in the registry will be treated
    * as unknown fields.
@@ -60,7 +62,7 @@ public interface Parser<MessageType> {
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseFrom(CodedInputStream)}, but does not throw an
+   * Like {@link #parseFrom(com.google.protobuf.CodedInputStream)}, but does not throw an
    * exception if the message is missing required fields. Instead, a partial
    * message is returned.
    */
@@ -68,7 +70,7 @@ public interface Parser<MessageType> {
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseFrom(CodedInputStream input, ExtensionRegistryLite)},
+   * Like {@link #parseFrom(com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite)},
    * but does not throw an exception if the message is missing required fields.
    * Instead, a partial message is returned.
    */
@@ -81,7 +83,7 @@ public interface Parser<MessageType> {
 
   /**
    * Parses {@code data} as a message of {@code MessageType}.
-   * This is just a small wrapper around {@link #parseFrom(CodedInputStream)}.
+   * This is just a small wrapper around {@link #parseFrom(com.google.protobuf.CodedInputStream)}.
    */
   public MessageType parseFrom(ByteString data)
       throws InvalidProtocolBufferException;
@@ -89,14 +91,14 @@ public interface Parser<MessageType> {
   /**
    * Parses {@code data} as a message of {@code MessageType}.
    * This is just a small wrapper around
-   * {@link #parseFrom(CodedInputStream, ExtensionRegistryLite)}.
+   * {@link #parseFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite)}.
    */
   public MessageType parseFrom(ByteString data,
                                ExtensionRegistryLite extensionRegistry)
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseFrom(ByteString)}, but does not throw an
+   * Like {@link #parseFrom(com.google.protobuf.ByteString)}, but does not throw an
    * exception if the message is missing required fields. Instead, a partial
    * message is returned.
    */
@@ -104,7 +106,7 @@ public interface Parser<MessageType> {
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseFrom(ByteString, ExtensionRegistryLite)},
+   * Like {@link #parseFrom(com.google.protobuf.ByteString, com.google.protobuf.ExtensionRegistryLite)},
    * but does not throw an exception if the message is missing required fields.
    * Instead, a partial message is returned.
    */
@@ -114,7 +116,7 @@ public interface Parser<MessageType> {
 
   /**
    * Parses {@code data} as a message of {@code MessageType}.
-   * This is just a small wrapper around {@link #parseFrom(CodedInputStream)}.
+   * This is just a small wrapper around {@link #parseFrom(com.google.protobuf.CodedInputStream)}.
    */
   public MessageType parseFrom(byte[] data, int off, int len)
       throws InvalidProtocolBufferException;
@@ -122,7 +124,7 @@ public interface Parser<MessageType> {
   /**
    * Parses {@code data} as a message of {@code MessageType}.
    * This is just a small wrapper around
-   * {@link #parseFrom(CodedInputStream, ExtensionRegistryLite)}.
+   * {@link #parseFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite)}.
    */
   public MessageType parseFrom(byte[] data, int off, int len,
                                ExtensionRegistryLite extensionRegistry)
@@ -130,7 +132,7 @@ public interface Parser<MessageType> {
 
   /**
    * Parses {@code data} as a message of {@code MessageType}.
-   * This is just a small wrapper around {@link #parseFrom(CodedInputStream)}.
+   * This is just a small wrapper around {@link #parseFrom(com.google.protobuf.CodedInputStream)}.
    */
   public MessageType parseFrom(byte[] data)
       throws InvalidProtocolBufferException;
@@ -138,7 +140,7 @@ public interface Parser<MessageType> {
   /**
    * Parses {@code data} as a message of {@code MessageType}.
    * This is just a small wrapper around
-   * {@link #parseFrom(CodedInputStream, ExtensionRegistryLite)}.
+   * {@link #parseFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite)}.
    */
   public MessageType parseFrom(byte[] data,
                                ExtensionRegistryLite extensionRegistry)
@@ -153,7 +155,7 @@ public interface Parser<MessageType> {
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseFrom(ByteString, ExtensionRegistryLite)},
+   * Like {@link #parseFrom(com.google.protobuf.ByteString, com.google.protobuf.ExtensionRegistryLite)},
    * but does not throw an exception if the message is missing required fields.
    * Instead, a partial message is returned.
    */
@@ -170,7 +172,7 @@ public interface Parser<MessageType> {
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseFrom(byte[], ExtensionRegistryLite)},
+   * Like {@link #parseFrom(byte[], com.google.protobuf.ExtensionRegistryLite)},
    * but does not throw an exception if the message is missing required fields.
    * Instead, a partial message is returned.
    */
@@ -180,12 +182,12 @@ public interface Parser<MessageType> {
 
   /**
    * Parse a message of {@code MessageType} from {@code input}.
-   * This is just a small wrapper around {@link #parseFrom(CodedInputStream)}.
+   * This is just a small wrapper around {@link #parseFrom(com.google.protobuf.CodedInputStream)}.
    * Note that this method always reads the <i>entire</i> input (unless it
    * throws an exception).  If you want it to stop earlier, you will need to
    * wrap your input in some wrapper stream that limits reading.  Or, use
-   * {@link MessageLite#writeDelimitedTo(java.io.OutputStream)} to write your
-   * message and {@link #parseDelimitedFrom(InputStream)} to read it.
+   * {@link com.google.protobuf.MessageLite#writeDelimitedTo(java.io.OutputStream)} to write your
+   * message and {@link #parseDelimitedFrom(java.io.InputStream)} to read it.
    * <p>
    * Despite usually reading the entire input, this does not close the stream.
    */
@@ -195,14 +197,14 @@ public interface Parser<MessageType> {
   /**
    * Parses a message of {@code MessageType} from {@code input}.
    * This is just a small wrapper around
-   * {@link #parseFrom(CodedInputStream, ExtensionRegistryLite)}.
+   * {@link #parseFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite)}.
    */
   public MessageType parseFrom(InputStream input,
                                ExtensionRegistryLite extensionRegistry)
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseFrom(InputStream)}, but does not throw an
+   * Like {@link #parseFrom(java.io.InputStream)}, but does not throw an
    * exception if the message is missing required fields. Instead, a partial
    * message is returned.
    */
@@ -210,7 +212,7 @@ public interface Parser<MessageType> {
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseFrom(InputStream, ExtensionRegistryLite)},
+   * Like {@link #parseFrom(java.io.InputStream, com.google.protobuf.ExtensionRegistryLite)},
    * but does not throw an exception if the message is missing required fields.
    * Instead, a partial message is returned.
    */
@@ -219,10 +221,10 @@ public interface Parser<MessageType> {
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseFrom(InputStream)}, but does not read util EOF.
+   * Like {@link #parseFrom(java.io.InputStream)}, but does not read util EOF.
    * Instead, the size of message (encoded as a varint) is read first,
    * then the message data. Use
-   * {@link MessageLite#writeDelimitedTo(java.io.OutputStream)} to write
+   * {@link com.google.protobuf.MessageLite#writeDelimitedTo(java.io.OutputStream)} to write
    * messages in this format.
    *
    * @return True if successful, or false if the stream is at EOF when the
@@ -233,14 +235,14 @@ public interface Parser<MessageType> {
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseDelimitedFrom(InputStream)} but supporting extensions.
+   * Like {@link #parseDelimitedFrom(java.io.InputStream)} but supporting extensions.
    */
   public MessageType parseDelimitedFrom(InputStream input,
                                         ExtensionRegistryLite extensionRegistry)
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseDelimitedFrom(InputStream)}, but does not throw an
+   * Like {@link #parseDelimitedFrom(java.io.InputStream)}, but does not throw an
    * exception if the message is missing required fields. Instead, a partial
    * message is returned.
    */
@@ -248,12 +250,12 @@ public interface Parser<MessageType> {
       throws InvalidProtocolBufferException;
 
   /**
-   * Like {@link #parseDelimitedFrom(InputStream, ExtensionRegistryLite)},
+   * Like {@link #parseDelimitedFrom(java.io.InputStream, com.google.protobuf.ExtensionRegistryLite)},
    * but does not throw an exception if the message is missing required fields.
    * Instead, a partial message is returned.
    */
   public MessageType parsePartialDelimitedFrom(
-      InputStream input,
-      ExtensionRegistryLite extensionRegistry)
+          InputStream input,
+          ExtensionRegistryLite extensionRegistry)
       throws InvalidProtocolBufferException;
 }

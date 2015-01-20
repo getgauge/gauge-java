@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -34,7 +34,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import java.io.ByteArrayInputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,7 +45,7 @@ import java.util.Stack;
 /**
  * Class to represent {@code ByteStrings} formed by concatenation of other
  * ByteStrings, without copying the data in the pieces. The concatenation is
- * represented as a tree whose leaf nodes are each a {@link LiteralByteString}.
+ * represented as a tree whose leaf nodes are each a {@link com.google.protobuf.LiteralByteString}.
  *
  * <p>Most of the operation here is inspired by the now-famous paper <a
  * href="http://www.cs.ubc.ca/local/reading/proceedings/spe91-95/spe/vol25/issue12/spe986.pdf">
@@ -70,9 +69,9 @@ import java.util.Stack;
 class RopeByteString extends ByteString {
 
   /**
-   * BAP95. Let Fn be the nth Fibonacci number. A {@link RopeByteString} of
+   * BAP95. Let Fn be the nth Fibonacci number. A {@link com.google.protobuf.RopeByteString} of
    * depth n is "balanced", i.e flat enough, if its length is at least Fn+2,
-   * e.g. a "balanced" {@link RopeByteString} of depth 1 must have length at
+   * e.g. a "balanced" {@link com.google.protobuf.RopeByteString} of depth 1 must have length at
    * least 2, of depth 4 must have length >= 8, etc.
    *
    * <p>There's nothing special about using the Fibonacci numbers for this, but
@@ -137,11 +136,11 @@ class RopeByteString extends ByteString {
   /**
    * Concatenate the given strings while performing various optimizations to
    * slow the growth rate of tree depth and tree node count. The result is
-   * either a {@link LiteralByteString} or a {@link RopeByteString}
+   * either a {@link com.google.protobuf.LiteralByteString} or a {@link com.google.protobuf.RopeByteString}
    * depending on which optimizations, if any, were applied.
    *
    * <p>Small pieces of length less than {@link
-   * ByteString#CONCATENATE_BY_COPY_SIZE} may be copied by value here, as in
+   * com.google.protobuf.ByteString#CONCATENATE_BY_COPY_SIZE} may be copied by value here, as in
    * BAP95.  Large pieces are referenced without copy.
    *
    * @param left  string on the left
@@ -158,7 +157,7 @@ class RopeByteString extends ByteString {
       result = right;
     } else {
       int newLength = left.size() + right.size();
-      if (newLength < CONCATENATE_BY_COPY_SIZE) {
+      if (newLength < ByteString.CONCATENATE_BY_COPY_SIZE) {
         // Optimization from BAP95: For short (leaves in paper, but just short
         // here) total length, do a copy of data to a new leaf.
         result = concatenateBytes(left, right);
@@ -221,7 +220,7 @@ class RopeByteString extends ByteString {
 
   /**
    * Create a new RopeByteString for testing only while bypassing all the
-   * defenses of {@link #concatenate(ByteString, ByteString)}. This allows
+   * defenses of {@link #concatenate(com.google.protobuf.ByteString, com.google.protobuf.ByteString)}. This allows
    * testing trees of specific structure. We are also able to insert empty
    * leaves, though these are dis-allowed, so that we can make sure the
    * implementation can withstand their presence.
@@ -298,8 +297,8 @@ class RopeByteString extends ByteString {
    *
    * <p>Substrings of {@code length < 2} should result in at most a single
    * recursive call chain, terminating at a leaf node. Thus the result will be a
-   * {@link LiteralByteString}. {@link #RopeByteString(ByteString,
-   * ByteString)}.
+   * {@link com.google.protobuf.LiteralByteString}. {@link #RopeByteString(com.google.protobuf.ByteString,
+   * com.google.protobuf.ByteString)}.
    *
    * @param beginIndex start at this index
    * @param endIndex   the last character is the one before this index
@@ -325,7 +324,7 @@ class RopeByteString extends ByteString {
     ByteString result;
     if (substringLength == 0) {
       // Empty substring
-      result = EMPTY;
+      result = ByteString.EMPTY;
     } else if (substringLength == totalLength) {
       // The whole string
       result = this;
@@ -399,6 +398,20 @@ class RopeByteString extends ByteString {
   public void writeTo(OutputStream outputStream) throws IOException {
     left.writeTo(outputStream);
     right.writeTo(outputStream);
+  }
+
+  @Override
+  void writeToInternal(OutputStream out, int sourceOffset,
+      int numberToWrite) throws IOException {
+    if (sourceOffset + numberToWrite <= leftLength) {
+      left.writeToInternal(out, sourceOffset, numberToWrite);
+    } else if (sourceOffset >= leftLength) {
+      right.writeToInternal(out, sourceOffset - leftLength, numberToWrite);
+    } else {
+      int numberToWriteInLeft = leftLength - sourceOffset;
+      left.writeToInternal(out, sourceOffset, numberToWriteInLeft);
+      right.writeToInternal(out, 0, numberToWrite - numberToWriteInLeft);
+    }
   }
 
   @Override
@@ -697,7 +710,7 @@ class RopeByteString extends ByteString {
    * iterator is the same as the depth of the tree being traversed.
    *
    * <p>This iterator is used to implement
-   * {@link RopeByteString#equalsFragments(ByteString)}.
+   * {@link com.google.protobuf.RopeByteString#equalsFragments(com.google.protobuf.ByteString)}.
    */
   private static class PieceIterator implements Iterator<LiteralByteString> {
 
@@ -765,7 +778,7 @@ class RopeByteString extends ByteString {
     return new RopeByteIterator();
   }
 
-  private class RopeByteIterator implements ByteString.ByteIterator {
+  private class RopeByteIterator implements ByteIterator {
 
     private final PieceIterator pieces;
     private ByteIterator bytes;
@@ -799,8 +812,8 @@ class RopeByteString extends ByteString {
   }
 
   /**
-   * This class is the {@link RopeByteString} equivalent for
-   * {@link ByteArrayInputStream}.
+   * This class is the {@link com.google.protobuf.RopeByteString} equivalent for
+   * {@link java.io.ByteArrayInputStream}.
    */
   private class RopeInputStream extends InputStream {
     // Iterates through the pieces of the rope

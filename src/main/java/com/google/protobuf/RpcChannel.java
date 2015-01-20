@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -32,10 +32,10 @@ package com.google.protobuf;
 
 /**
  * <p>Abstract interface for an RPC channel.  An {@code RpcChannel} represents a
- * communication line to a {@link Service} which can be used to call that
- * {@link Service}'s methods.  The {@link Service} may be running on another
+ * communication line to a {@link com.google.protobuf.Service} which can be used to call that
+ * {@link com.google.protobuf.Service}'s methods.  The {@link com.google.protobuf.Service} may be running on another
  * machine.  Normally, you should not call an {@code RpcChannel} directly, but
- * instead construct a stub {@link Service} wrapping it.  Example:
+ * instead construct a stub {@link com.google.protobuf.Service} wrapping it.  Example:
  *
  * <pre>
  *   RpcChannel channel = rpcImpl.newChannel("remotehost.example.com:1234");

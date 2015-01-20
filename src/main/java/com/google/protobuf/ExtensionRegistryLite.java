@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -35,11 +35,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Equivalent to {@link ExtensionRegistry} but supports only "lite" types.
+ * Equivalent to {@link com.google.protobuf.ExtensionRegistry} but supports only "lite" types.
  * <p>
  * If all of your types are lite types, then you only need to use
  * {@code ExtensionRegistryLite}.  Similarly, if all your types are regular
- * types, then you only need {@link ExtensionRegistry}.  Typically it does not
+ * types, then you only need {@link com.google.protobuf.ExtensionRegistry}.  Typically it does not
  * make sense to mix the two, since if you have any regular types in your
  * program, you then require the full runtime and lose all the benefits of
  * the lite runtime, so you might as well make all your types be regular types.

@@ -1,7 +1,8 @@
 package com.thoughtworks.gauge;
 
-import main.Messages;
-import main.Spec;
+
+import gauge.messages.Messages;
+import gauge.messages.Spec;
 
 public class DataStoreInitializer implements IMessageProcessor {
     @Override

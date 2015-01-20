@@ -1,6 +1,6 @@
 package com.thoughtworks.gauge;
 
-import main.Messages;
+import gauge.messages.Messages;
 
 import java.lang.reflect.Method;
 import java.util.Set;

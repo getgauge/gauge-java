@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -128,7 +128,7 @@ final class Utf8 {
    * to be checked extends from index {@code index}, inclusive, to
    * {@code limit}, exclusive.
    *
-   * @param state either {@link Utf8#COMPLETE} (if this is the initial decoding
+   * @param state either {@link com.google.protobuf.Utf8#COMPLETE} (if this is the initial decoding
    * operation) or the value returned from a call to a partial decoding method
    * for the previous bytes
    *

@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -91,20 +91,20 @@ public interface MessageLite extends MessageLiteOrBuilder {
   /**
    * Serializes the message to a {@code ByteString} and returns it. This is
    * just a trivial wrapper around
-   * {@link #writeTo(CodedOutputStream)}.
+   * {@link #writeTo(com.google.protobuf.CodedOutputStream)}.
    */
   ByteString toByteString();
 
   /**
    * Serializes the message to a {@code byte} array and returns it.  This is
    * just a trivial wrapper around
-   * {@link #writeTo(CodedOutputStream)}.
+   * {@link #writeTo(com.google.protobuf.CodedOutputStream)}.
    */
   byte[] toByteArray();
 
   /**
    * Serializes the message and writes it to {@code output}.  This is just a
-   * trivial wrapper around {@link #writeTo(CodedOutputStream)}.  This does
+   * trivial wrapper around {@link #writeTo(com.google.protobuf.CodedOutputStream)}.  This does
    * not flush or close the stream.
    * <p>
    * NOTE:  Protocol Buffers are not self-delimiting.  Therefore, if you write
@@ -114,19 +114,20 @@ public interface MessageLite extends MessageLiteOrBuilder {
    * of the message before the data, then making sure to limit the input to
    * that size on the receiving end (e.g. by wrapping the InputStream in one
    * which limits the input).  Alternatively, just use
-   * {@link #writeDelimitedTo(OutputStream)}.
+   * {@link #writeDelimitedTo(java.io.OutputStream)}.
    */
   void writeTo(OutputStream output) throws IOException;
 
   /**
-   * Like {@link #writeTo(OutputStream)}, but writes the size of the message
+   * Like {@link #writeTo(java.io.OutputStream)}, but writes the size of the message
    * as a varint before writing the data.  This allows more data to be written
    * to the stream after the message without the need to delimit the message
-   * data yourself.  Use {@link Builder#mergeDelimitedFrom(InputStream)} (or
+   * data yourself.  Use {@link com.google.protobuf.MessageLite.Builder#mergeDelimitedFrom(java.io.InputStream)} (or
    * the static method {@code YourMessageType.parseDelimitedFrom(InputStream)})
    * to parse messages written by this method.
    */
   void writeDelimitedTo(OutputStream output) throws IOException;
+
 
   // =================================================================
   // Builders
@@ -152,7 +153,7 @@ public interface MessageLite extends MessageLiteOrBuilder {
     /**
      * Constructs the message based on the state of the Builder. Subsequent
      * changes to the Builder will not affect the returned message.
-     * @throws UninitializedMessageException The message is missing one or more
+     * @throws com.google.protobuf.UninitializedMessageException The message is missing one or more
      *         required fields (i.e. {@link #isInitialized()} returns false).
      *         Use {@link #buildPartial()} to bypass this check.
      */
@@ -177,7 +178,7 @@ public interface MessageLite extends MessageLiteOrBuilder {
      *
      * <p>Warning:  This does not verify that all required fields are present in
      * the input message.  If you call {@link #build()} without setting all
-     * required fields, it will throw an {@link UninitializedMessageException},
+     * required fields, it will throw an {@link com.google.protobuf.UninitializedMessageException},
      * which is a {@code RuntimeException} and thus might not be caught.  There
      * are a few good ways to deal with this:
      * <ul>
@@ -188,14 +189,14 @@ public interface MessageLite extends MessageLiteOrBuilder {
      * </ul>
      *
      * <p>Note:  The caller should call
-     * {@link CodedInputStream#checkLastTagWas(int)} after calling this to
+     * {@link com.google.protobuf.CodedInputStream#checkLastTagWas(int)} after calling this to
      * verify that the last tag seen was the appropriate end-group tag,
      * or zero for EOF.
      */
     Builder mergeFrom(CodedInputStream input) throws IOException;
 
     /**
-     * Like {@link Builder#mergeFrom(CodedInputStream)}, but also
+     * Like {@link com.google.protobuf.MessageLite.Builder#mergeFrom(com.google.protobuf.CodedInputStream)}, but also
      * parses extensions.  The extensions that you want to be able to parse
      * must be registered in {@code extensionRegistry}.  Extensions not in
      * the registry will be treated as unknown fields.
@@ -210,7 +211,7 @@ public interface MessageLite extends MessageLiteOrBuilder {
     /**
      * Parse {@code data} as a message of this type and merge it with the
      * message being built.  This is just a small wrapper around
-     * {@link #mergeFrom(CodedInputStream)}.
+     * {@link #mergeFrom(com.google.protobuf.CodedInputStream)}.
      *
      * @return this
      */
@@ -219,7 +220,7 @@ public interface MessageLite extends MessageLiteOrBuilder {
     /**
      * Parse {@code data} as a message of this type and merge it with the
      * message being built.  This is just a small wrapper around
-     * {@link #mergeFrom(CodedInputStream,ExtensionRegistryLite)}.
+     * {@link #mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite)}.
      *
      * @return this
      */
@@ -230,7 +231,7 @@ public interface MessageLite extends MessageLiteOrBuilder {
     /**
      * Parse {@code data} as a message of this type and merge it with the
      * message being built.  This is just a small wrapper around
-     * {@link #mergeFrom(CodedInputStream)}.
+     * {@link #mergeFrom(com.google.protobuf.CodedInputStream)}.
      *
      * @return this
      */
@@ -239,7 +240,7 @@ public interface MessageLite extends MessageLiteOrBuilder {
     /**
      * Parse {@code data} as a message of this type and merge it with the
      * message being built.  This is just a small wrapper around
-     * {@link #mergeFrom(CodedInputStream)}.
+     * {@link #mergeFrom(com.google.protobuf.CodedInputStream)}.
      *
      * @return this
      */
@@ -249,7 +250,7 @@ public interface MessageLite extends MessageLiteOrBuilder {
     /**
      * Parse {@code data} as a message of this type and merge it with the
      * message being built.  This is just a small wrapper around
-     * {@link #mergeFrom(CodedInputStream,ExtensionRegistryLite)}.
+     * {@link #mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite)}.
      *
      * @return this
      */
@@ -260,7 +261,7 @@ public interface MessageLite extends MessageLiteOrBuilder {
     /**
      * Parse {@code data} as a message of this type and merge it with the
      * message being built.  This is just a small wrapper around
-     * {@link #mergeFrom(CodedInputStream,ExtensionRegistryLite)}.
+     * {@link #mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite)}.
      *
      * @return this
      */
@@ -271,12 +272,12 @@ public interface MessageLite extends MessageLiteOrBuilder {
     /**
      * Parse a message of this type from {@code input} and merge it with the
      * message being built.  This is just a small wrapper around
-     * {@link #mergeFrom(CodedInputStream)}.  Note that this method always
+     * {@link #mergeFrom(com.google.protobuf.CodedInputStream)}.  Note that this method always
      * reads the <i>entire</i> input (unless it throws an exception).  If you
      * want it to stop earlier, you will need to wrap your input in some
      * wrapper stream that limits reading.  Or, use
-     * {@link MessageLite#writeDelimitedTo(OutputStream)} to write your message
-     * and {@link #mergeDelimitedFrom(InputStream)} to read it.
+     * {@link com.google.protobuf.MessageLite#writeDelimitedTo(java.io.OutputStream)} to write your message
+     * and {@link #mergeDelimitedFrom(java.io.InputStream)} to read it.
      * <p>
      * Despite usually reading the entire input, this does not close the stream.
      *
@@ -287,7 +288,7 @@ public interface MessageLite extends MessageLiteOrBuilder {
     /**
      * Parse a message of this type from {@code input} and merge it with the
      * message being built.  This is just a small wrapper around
-     * {@link #mergeFrom(CodedInputStream,ExtensionRegistryLite)}.
+     * {@link #mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite)}.
      *
      * @return this
      */
@@ -296,10 +297,10 @@ public interface MessageLite extends MessageLiteOrBuilder {
                       throws IOException;
 
     /**
-     * Like {@link #mergeFrom(InputStream)}, but does not read until EOF.
+     * Like {@link #mergeFrom(java.io.InputStream)}, but does not read until EOF.
      * Instead, the size of the message (encoded as a varint) is read first,
      * then the message data.  Use
-     * {@link MessageLite#writeDelimitedTo(OutputStream)} to write messages in
+     * {@link com.google.protobuf.MessageLite#writeDelimitedTo(java.io.OutputStream)} to write messages in
      * this format.
      *
      * @return True if successful, or false if the stream is at EOF when the
@@ -310,7 +311,7 @@ public interface MessageLite extends MessageLiteOrBuilder {
                                throws IOException;
 
     /**
-     * Like {@link #mergeDelimitedFrom(InputStream)} but supporting extensions.
+     * Like {@link #mergeDelimitedFrom(java.io.InputStream)} but supporting extensions.
      */
     boolean mergeDelimitedFrom(InputStream input,
                                ExtensionRegistryLite extensionRegistry)

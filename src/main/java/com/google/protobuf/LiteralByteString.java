@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
- * This class implements a {@link com.google.protobuf.ByteString} backed by a
+ * This class implements a {@link ByteString} backed by a
  * single array of bytes, contiguous in memory. It supports substring by
  * pointing to only a sub-range of the underlying byte array, meaning that a
  * substring will reference the full byte-array of the string it's made from,
@@ -98,7 +98,7 @@ class LiteralByteString extends ByteString {
 
     ByteString result;
     if (substringLength == 0) {
-      result = EMPTY;
+      result = ByteString.EMPTY;
     } else {
       result = new BoundedByteString(bytes, getOffsetIntoBytes() + beginIndex,
           substringLength);
@@ -140,6 +140,13 @@ class LiteralByteString extends ByteString {
  @Override
   public void writeTo(OutputStream outputStream) throws IOException {
     outputStream.write(toByteArray());
+  }
+
+  @Override
+  void writeToInternal(OutputStream outputStream, int sourceOffset,
+      int numberToWrite) throws IOException {
+    outputStream.write(bytes, getOffsetIntoBytes() + sourceOffset,
+        numberToWrite);
   }
 
   @Override
@@ -235,7 +242,7 @@ class LiteralByteString extends ByteString {
 
   /**
    * Compute the hashCode using the traditional algorithm from {@link
-   * ByteString}.
+   * com.google.protobuf.ByteString}.
    *
    * @return hashCode value
    */
@@ -261,12 +268,19 @@ class LiteralByteString extends ByteString {
 
   @Override
   protected int partialHash(int h, int offset, int length) {
-    byte[] thisBytes = bytes;
-    for (int i = getOffsetIntoBytes() + offset, limit = i + length; i < limit;
-        i++) {
-      h = h * 31 + thisBytes[i];
+    return hashCode(h, bytes, getOffsetIntoBytes() + offset, length);
+  }
+  
+  static int hashCode(int h, byte[] bytes, int offset, int length) {
+    for (int i = offset; i < offset + length; i++) {
+      h = h * 31 + bytes[i];
     }
     return h;
+  }
+  
+  static int hashCode(byte[] bytes) {
+    int h = hashCode(bytes.length, bytes, 0, bytes.length);
+    return h == 0 ? 1 : h;
   }
 
   // =================================================================
@@ -282,8 +296,7 @@ class LiteralByteString extends ByteString {
   public CodedInputStream newCodedInput() {
     // We trust CodedInputStream not to modify the bytes, or to give anyone
     // else access to them.
-    return CodedInputStream
-        .newInstance(bytes, getOffsetIntoBytes(), size());  // No copy
+    return CodedInputStream.newInstance(this);
   }
 
   // =================================================================

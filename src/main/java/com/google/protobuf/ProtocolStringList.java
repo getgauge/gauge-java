@@ -30,23 +30,19 @@
 
 package com.google.protobuf;
 
+import java.util.List;
+
 /**
- * Thrown by blocking RPC methods when a failure occurs.
- *
- * @author cpovirk@google.com (Chris Povirk)
+ * An interface extending {@code List<String>} used for repeated string fields
+ * to provide optional access to the data as a list of ByteStrings. The
+ * underlying implementation stores values as either ByteStrings or Strings
+ * (see {@link com.google.protobuf.LazyStringArrayList}) depending on how the value was initialized
+ * or last read, and it is often more efficient to deal with lists of
+ * ByteStrings when handling protos that have been deserialized from bytes.
  */
-public class ServiceException extends Exception {
-  private static final long serialVersionUID = -1219262335729891920L;
+public interface ProtocolStringList extends List<String> {
 
-  public ServiceException(final String message) {
-    super(message);
-  }
+  /** Returns a view of the data as a list of ByteStrings. */
+  List<ByteString> asByteStringList();
 
-  public ServiceException(final Throwable cause) {
-    super(cause);
-  }
-
-  public ServiceException(final String message, final Throwable cause) {
-    super(message, cause);
-  }
 }

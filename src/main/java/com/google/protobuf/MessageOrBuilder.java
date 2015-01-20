@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -34,8 +34,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Base interface for methods common to {@link Message} and
- * {@link Message.Builder} to provide type equivalency.
+ * Base interface for methods common to {@link com.google.protobuf.Message} and
+ * {@link com.google.protobuf.Message.Builder} to provide type equivalency.
  *
  * @author jonp@google.com (Jon Perlow)
  */
@@ -48,7 +48,7 @@ public interface MessageOrBuilder extends MessageLiteOrBuilder {
   /**
    * Returns a list of field paths (e.g. "foo.bar.baz") of required fields
    * which are not set in this message.  You should call
-   * {@link MessageLiteOrBuilder#isInitialized()} first to check if there
+   * {@link com.google.protobuf.MessageLiteOrBuilder#isInitialized()} first to check if there
    * are any missing fields, as that method is likely to be much faster
    * than this one even when the message is fully-initialized.
    */
@@ -57,7 +57,7 @@ public interface MessageOrBuilder extends MessageLiteOrBuilder {
   /**
    * Returns a comma-delimited list of required fields which are not set
    * in this message object.  You should call
-   * {@link MessageLiteOrBuilder#isInitialized()} first to check if there
+   * {@link com.google.protobuf.MessageLiteOrBuilder#isInitialized()} first to check if there
    * are any missing fields, as that method is likely to be much faster
    * than this one even when the message is fully-initialized.
    */
@@ -76,9 +76,9 @@ public interface MessageOrBuilder extends MessageLiteOrBuilder {
    * Returns a collection of all the fields in this message which are set
    * and their corresponding values.  A singular ("required" or "optional")
    * field is set iff hasField() returns true for that field.  A "repeated"
-   * field is set iff getRepeatedFieldSize() is greater than zero.  The
+   * field is set iff getRepeatedFieldCount() is greater than zero.  The
    * values are exactly what would be returned by calling
-   * {@link #getField(Descriptors.FieldDescriptor)} for each field.  The map
+   * {@link #getField(com.google.protobuf.Descriptors.FieldDescriptor)} for each field.  The map
    * is guaranteed to be a sorted map, so iterating over it will return fields
    * in order by field number.
    * <br>
@@ -87,6 +87,20 @@ public interface MessageOrBuilder extends MessageLiteOrBuilder {
    * unmodifiable.
    */
   Map<Descriptors.FieldDescriptor, Object> getAllFields();
+
+  /**
+   * Returns true if the given oneof is set.
+   * @throws IllegalArgumentException if
+   *           {@code oneof.getContainingType() != getDescriptorForType()}.
+   */
+  boolean hasOneof(Descriptors.OneofDescriptor oneof);
+
+  /**
+   * Obtains the FieldDescriptor if the given oneof is set. Returns null
+   * if no field is set.
+   */
+  Descriptors.FieldDescriptor getOneofFieldDescriptor(
+          Descriptors.OneofDescriptor oneof);
 
   /**
    * Returns true if the given field is set.  This is exactly equivalent to
@@ -124,6 +138,6 @@ public interface MessageOrBuilder extends MessageLiteOrBuilder {
    */
   Object getRepeatedField(Descriptors.FieldDescriptor field, int index);
 
-  /** Get the {@link UnknownFieldSet} for this message. */
+  /** Get the {@link com.google.protobuf.UnknownFieldSet} for this message. */
   UnknownFieldSet getUnknownFields();
 }

@@ -2,8 +2,8 @@ package com.thoughtworks.gauge;
 
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
-import main.Api;
-import main.Spec;
+import gauge.messages.Api;
+import gauge.messages.Spec;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -50,7 +50,7 @@ public class GaugeConnection {
         Api.APIMessage response = getAPIResponse(message);
         Api.GetAllStepsResponse allStepsResponse = response.getAllStepsResponse();
         List<StepValue> steps = new ArrayList<StepValue>();
-        for (main.Spec.ProtoStepValue stepValueResponse : allStepsResponse.getAllStepsList()) {
+        for (Spec.ProtoStepValue stepValueResponse : allStepsResponse.getAllStepsList()) {
             StepValue stepValue = new StepValue(stepValueResponse.getStepValue(), stepValueResponse.getParameterizedStepValue(), stepValueResponse.getParametersList());
             steps.add(stepValue);
         }

@@ -1,6 +1,6 @@
 // Protocol Buffers - Google's data interchange format
 // Copyright 2008 Google Inc.  All rights reserved.
-// http://code.google.com/p/protobuf/
+// https://developers.google.com/protocol-buffers/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -33,10 +33,10 @@ package com.google.protobuf;
 /**
  * {@code SingleFieldBuilder} implements a structure that a protocol
  * message uses to hold a single field of another protocol message. It supports
- * the classical use case of setting an immutable {@link Message} as the value
+ * the classical use case of setting an immutable {@link com.google.protobuf.Message} as the value
  * of the field and is highly optimized around this.
  * <br>
- * It also supports the additional use case of setting a {@link Message.Builder}
+ * It also supports the additional use case of setting a {@link com.google.protobuf.Message.Builder}
  * as the field and deferring conversion of that {@code Builder}
  * to an immutable {@code Message}. In this way, it's possible to maintain
  * a tree of {@code Builder}'s that acts as a fully read/write data
@@ -100,7 +100,7 @@ public class SingleFieldBuilder
   /**
    * Get the message for the field. If the message is currently stored
    * as a {@code Builder}, it is converted to a {@code Message} by
-   * calling {@link Message.Builder#buildPartial} on it. If no message has
+   * calling {@link com.google.protobuf.Message.Builder#buildPartial} on it. If no message has
    * been set, returns the default instance of the message.
    *
    * @return the message for the field
@@ -128,7 +128,7 @@ public class SingleFieldBuilder
 
   /**
    * Gets a builder for the field. If no builder has been created yet, a
-   * builder is created on demand by calling {@link Message#toBuilder}.
+   * builder is created on demand by calling {@link com.google.protobuf.Message#toBuilder}.
    *
    * @return The builder for the field
    */

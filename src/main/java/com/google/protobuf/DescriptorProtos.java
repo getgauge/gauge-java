@@ -8,10 +8,10 @@ public final class DescriptorProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface FileDescriptorSetOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FileDescriptorSetOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.FileDescriptorSet)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .google.protobuf.FileDescriptorProto file = 1;
     /**
      * <code>repeated .google.protobuf.FileDescriptorProto file = 1;</code>
      */
@@ -45,8 +45,9 @@ public final class DescriptorProtos {
    * </pre>
    */
   public static final class FileDescriptorSet extends
-      com.google.protobuf.GeneratedMessage
-      implements FileDescriptorSetOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.FileDescriptorSet)
+      FileDescriptorSetOrBuilder {
     // Use FileDescriptorSet.newBuilder() to construct.
     private FileDescriptorSet(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -117,14 +118,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_FileDescriptorSet_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileDescriptorSet_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_FileDescriptorSet_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileDescriptorSet_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.FileDescriptorSet.class, com.google.protobuf.DescriptorProtos.FileDescriptorSet.Builder.class);
+              com.google.protobuf.DescriptorProtos.FileDescriptorSet.class, com.google.protobuf.DescriptorProtos.FileDescriptorSet.Builder.class);
     }
 
     public static com.google.protobuf.Parser<FileDescriptorSet> PARSER =
@@ -142,7 +143,6 @@ public final class DescriptorProtos {
       return PARSER;
     }
 
-    // repeated .google.protobuf.FileDescriptorProto file = 1;
     public static final int FILE_FIELD_NUMBER = 1;
     private java.util.List<com.google.protobuf.DescriptorProtos.FileDescriptorProto> file_;
     /**
@@ -184,7 +184,8 @@ public final class DescriptorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getFileCount(); i++) {
         if (!getFile(i).isInitialized()) {
@@ -302,18 +303,19 @@ public final class DescriptorProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.protobuf.DescriptorProtos.FileDescriptorSetOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.FileDescriptorSet)
+        com.google.protobuf.DescriptorProtos.FileDescriptorSetOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_FileDescriptorSet_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileDescriptorSet_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_FileDescriptorSet_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileDescriptorSet_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.FileDescriptorSet.class, com.google.protobuf.DescriptorProtos.FileDescriptorSet.Builder.class);
+                com.google.protobuf.DescriptorProtos.FileDescriptorSet.class, com.google.protobuf.DescriptorProtos.FileDescriptorSet.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.FileDescriptorSet.newBuilder()
@@ -327,7 +329,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getFileFieldBuilder();
         }
       }
@@ -352,11 +354,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_FileDescriptorSet_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileDescriptorSet_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.FileDescriptorSet getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.FileDescriptorSet.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.FileDescriptorSet build() {
@@ -393,7 +395,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.FileDescriptorSet other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.FileDescriptorSet.getDefaultInstance()) return this;
         if (fileBuilder_ == null) {
           if (!other.file_.isEmpty()) {
             if (file_.isEmpty()) {
@@ -413,7 +415,7 @@ public final class DescriptorProtos {
               file_ = other.file_;
               bitField0_ = (bitField0_ & ~0x00000001);
               fileBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getFileFieldBuilder() : null;
             } else {
               fileBuilder_.addAllMessages(other.file_);
@@ -453,7 +455,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // repeated .google.protobuf.FileDescriptorProto file = 1;
       private java.util.List<com.google.protobuf.DescriptorProtos.FileDescriptorProto> file_ =
         java.util.Collections.emptyList();
       private void ensureFileIsMutable() {
@@ -595,7 +596,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.FileDescriptorProto> values) {
         if (fileBuilder_ == null) {
           ensureFileIsMutable();
-          super.addAll(values, file_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, file_);
           onChanged();
         } else {
           fileBuilder_.addAllMessages(values);
@@ -704,10 +706,10 @@ public final class DescriptorProtos {
     // @@protoc_insertion_point(class_scope:google.protobuf.FileDescriptorSet)
   }
 
-  public interface FileDescriptorProtoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FileDescriptorProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.FileDescriptorProto)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional string name = 1;
     /**
      * <code>optional string name = 1;</code>
      *
@@ -734,7 +736,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // optional string package = 2;
     /**
      * <code>optional string package = 2;</code>
      *
@@ -761,7 +762,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getPackageBytes();
 
-    // repeated string dependency = 3;
     /**
      * <code>repeated string dependency = 3;</code>
      *
@@ -769,8 +769,8 @@ public final class DescriptorProtos {
      * Names of files imported by this file.
      * </pre>
      */
-    java.util.List<java.lang.String>
-    getDependencyList();
+    com.google.protobuf.ProtocolStringList
+        getDependencyList();
     /**
      * <code>repeated string dependency = 3;</code>
      *
@@ -797,7 +797,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getDependencyBytes(int index);
 
-    // repeated int32 public_dependency = 10;
     /**
      * <code>repeated int32 public_dependency = 10;</code>
      *
@@ -823,7 +822,6 @@ public final class DescriptorProtos {
      */
     int getPublicDependency(int index);
 
-    // repeated int32 weak_dependency = 11;
     /**
      * <code>repeated int32 weak_dependency = 11;</code>
      *
@@ -852,7 +850,6 @@ public final class DescriptorProtos {
      */
     int getWeakDependency(int index);
 
-    // repeated .google.protobuf.DescriptorProto message_type = 4;
     /**
      * <code>repeated .google.protobuf.DescriptorProto message_type = 4;</code>
      *
@@ -897,7 +894,6 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.DescriptorProtoOrBuilder getMessageTypeOrBuilder(
         int index);
 
-    // repeated .google.protobuf.EnumDescriptorProto enum_type = 5;
     /**
      * <code>repeated .google.protobuf.EnumDescriptorProto enum_type = 5;</code>
      */
@@ -922,7 +918,6 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.EnumDescriptorProtoOrBuilder getEnumTypeOrBuilder(
         int index);
 
-    // repeated .google.protobuf.ServiceDescriptorProto service = 6;
     /**
      * <code>repeated .google.protobuf.ServiceDescriptorProto service = 6;</code>
      */
@@ -947,7 +942,6 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.ServiceDescriptorProtoOrBuilder getServiceOrBuilder(
         int index);
 
-    // repeated .google.protobuf.FieldDescriptorProto extension = 7;
     /**
      * <code>repeated .google.protobuf.FieldDescriptorProto extension = 7;</code>
      */
@@ -972,7 +966,6 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.FieldDescriptorProtoOrBuilder getExtensionOrBuilder(
         int index);
 
-    // optional .google.protobuf.FileOptions options = 8;
     /**
      * <code>optional .google.protobuf.FileOptions options = 8;</code>
      */
@@ -986,7 +979,6 @@ public final class DescriptorProtos {
      */
     com.google.protobuf.DescriptorProtos.FileOptionsOrBuilder getOptionsOrBuilder();
 
-    // optional .google.protobuf.SourceCodeInfo source_code_info = 9;
     /**
      * <code>optional .google.protobuf.SourceCodeInfo source_code_info = 9;</code>
      *
@@ -1029,8 +1021,9 @@ public final class DescriptorProtos {
    * </pre>
    */
   public static final class FileDescriptorProto extends
-      com.google.protobuf.GeneratedMessage
-      implements FileDescriptorProtoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.FileDescriptorProto)
+      FileDescriptorProtoOrBuilder {
     // Use FileDescriptorProto.newBuilder() to construct.
     private FileDescriptorProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -1077,21 +1070,24 @@ public final class DescriptorProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              package_ = input.readBytes();
+              package_ = bs;
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 dependency_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000004;
               }
-              dependency_.add(input.readBytes());
+              dependency_.add(bs);
               break;
             }
             case 34: {
@@ -1203,7 +1199,7 @@ public final class DescriptorProtos {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          dependency_ = new com.google.protobuf.UnmodifiableLazyStringList(dependency_);
+          dependency_ = dependency_.getUnmodifiableView();
         }
         if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
           messageType_ = java.util.Collections.unmodifiableList(messageType_);
@@ -1229,14 +1225,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_FileDescriptorProto_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileDescriptorProto_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_FileDescriptorProto_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileDescriptorProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.FileDescriptorProto.class, com.google.protobuf.DescriptorProtos.FileDescriptorProto.Builder.class);
+              com.google.protobuf.DescriptorProtos.FileDescriptorProto.class, com.google.protobuf.DescriptorProtos.FileDescriptorProto.Builder.class);
     }
 
     public static com.google.protobuf.Parser<FileDescriptorProto> PARSER =
@@ -1255,7 +1251,6 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // optional string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -1310,7 +1305,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional string package = 2;
     public static final int PACKAGE_FIELD_NUMBER = 2;
     private java.lang.Object package_;
     /**
@@ -1365,7 +1359,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // repeated string dependency = 3;
     public static final int DEPENDENCY_FIELD_NUMBER = 3;
     private com.google.protobuf.LazyStringList dependency_;
     /**
@@ -1375,7 +1368,7 @@ public final class DescriptorProtos {
      * Names of files imported by this file.
      * </pre>
      */
-    public java.util.List<java.lang.String>
+    public com.google.protobuf.ProtocolStringList
         getDependencyList() {
       return dependency_;
     }
@@ -1411,7 +1404,6 @@ public final class DescriptorProtos {
       return dependency_.getByteString(index);
     }
 
-    // repeated int32 public_dependency = 10;
     public static final int PUBLIC_DEPENDENCY_FIELD_NUMBER = 10;
     private java.util.List<java.lang.Integer> publicDependency_;
     /**
@@ -1446,7 +1438,6 @@ public final class DescriptorProtos {
       return publicDependency_.get(index);
     }
 
-    // repeated int32 weak_dependency = 11;
     public static final int WEAK_DEPENDENCY_FIELD_NUMBER = 11;
     private java.util.List<java.lang.Integer> weakDependency_;
     /**
@@ -1484,7 +1475,6 @@ public final class DescriptorProtos {
       return weakDependency_.get(index);
     }
 
-    // repeated .google.protobuf.DescriptorProto message_type = 4;
     public static final int MESSAGE_TYPE_FIELD_NUMBER = 4;
     private java.util.List<com.google.protobuf.DescriptorProtos.DescriptorProto> messageType_;
     /**
@@ -1540,7 +1530,6 @@ public final class DescriptorProtos {
       return messageType_.get(index);
     }
 
-    // repeated .google.protobuf.EnumDescriptorProto enum_type = 5;
     public static final int ENUM_TYPE_FIELD_NUMBER = 5;
     private java.util.List<com.google.protobuf.DescriptorProtos.EnumDescriptorProto> enumType_;
     /**
@@ -1576,7 +1565,6 @@ public final class DescriptorProtos {
       return enumType_.get(index);
     }
 
-    // repeated .google.protobuf.ServiceDescriptorProto service = 6;
     public static final int SERVICE_FIELD_NUMBER = 6;
     private java.util.List<com.google.protobuf.DescriptorProtos.ServiceDescriptorProto> service_;
     /**
@@ -1612,7 +1600,6 @@ public final class DescriptorProtos {
       return service_.get(index);
     }
 
-    // repeated .google.protobuf.FieldDescriptorProto extension = 7;
     public static final int EXTENSION_FIELD_NUMBER = 7;
     private java.util.List<com.google.protobuf.DescriptorProtos.FieldDescriptorProto> extension_;
     /**
@@ -1648,7 +1635,6 @@ public final class DescriptorProtos {
       return extension_.get(index);
     }
 
-    // optional .google.protobuf.FileOptions options = 8;
     public static final int OPTIONS_FIELD_NUMBER = 8;
     private com.google.protobuf.DescriptorProtos.FileOptions options_;
     /**
@@ -1670,7 +1656,6 @@ public final class DescriptorProtos {
       return options_;
     }
 
-    // optional .google.protobuf.SourceCodeInfo source_code_info = 9;
     public static final int SOURCE_CODE_INFO_FIELD_NUMBER = 9;
     private com.google.protobuf.DescriptorProtos.SourceCodeInfo sourceCodeInfo_;
     /**
@@ -1729,7 +1714,8 @@ public final class DescriptorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getMessageTypeCount(); i++) {
         if (!getMessageType(i).isInitialized()) {
@@ -1955,18 +1941,19 @@ public final class DescriptorProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.protobuf.DescriptorProtos.FileDescriptorProtoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.FileDescriptorProto)
+        com.google.protobuf.DescriptorProtos.FileDescriptorProtoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_FileDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileDescriptorProto_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_FileDescriptorProto_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileDescriptorProto_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.FileDescriptorProto.class, com.google.protobuf.DescriptorProtos.FileDescriptorProto.Builder.class);
+                com.google.protobuf.DescriptorProtos.FileDescriptorProto.class, com.google.protobuf.DescriptorProtos.FileDescriptorProto.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.FileDescriptorProto.newBuilder()
@@ -1980,7 +1967,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getMessageTypeFieldBuilder();
           getEnumTypeFieldBuilder();
           getServiceFieldBuilder();
@@ -2050,11 +2037,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_FileDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileDescriptorProto_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.FileDescriptorProto getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.FileDescriptorProto.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.FileDescriptorProto build() {
@@ -2078,8 +2065,7 @@ public final class DescriptorProtos {
         }
         result.package_ = package_;
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          dependency_ = new com.google.protobuf.UnmodifiableLazyStringList(
-              dependency_);
+          dependency_ = dependency_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.dependency_ = dependency_;
@@ -2160,7 +2146,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.FileDescriptorProto other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.FileDescriptorProto.getDefaultInstance()) return this;
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -2220,7 +2206,7 @@ public final class DescriptorProtos {
               messageType_ = other.messageType_;
               bitField0_ = (bitField0_ & ~0x00000020);
               messageTypeBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getMessageTypeFieldBuilder() : null;
             } else {
               messageTypeBuilder_.addAllMessages(other.messageType_);
@@ -2246,7 +2232,7 @@ public final class DescriptorProtos {
               enumType_ = other.enumType_;
               bitField0_ = (bitField0_ & ~0x00000040);
               enumTypeBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getEnumTypeFieldBuilder() : null;
             } else {
               enumTypeBuilder_.addAllMessages(other.enumType_);
@@ -2272,7 +2258,7 @@ public final class DescriptorProtos {
               service_ = other.service_;
               bitField0_ = (bitField0_ & ~0x00000080);
               serviceBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getServiceFieldBuilder() : null;
             } else {
               serviceBuilder_.addAllMessages(other.service_);
@@ -2298,7 +2284,7 @@ public final class DescriptorProtos {
               extension_ = other.extension_;
               bitField0_ = (bitField0_ & ~0x00000100);
               extensionBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getExtensionFieldBuilder() : null;
             } else {
               extensionBuilder_.addAllMessages(other.extension_);
@@ -2368,7 +2354,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // optional string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 1;</code>
@@ -2390,9 +2375,12 @@ public final class DescriptorProtos {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2466,7 +2454,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional string package = 2;
       private java.lang.Object package_ = "";
       /**
        * <code>optional string package = 2;</code>
@@ -2488,9 +2475,12 @@ public final class DescriptorProtos {
       public java.lang.String getPackage() {
         java.lang.Object ref = package_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          package_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            package_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -2564,7 +2554,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // repeated string dependency = 3;
       private com.google.protobuf.LazyStringList dependency_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureDependencyIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
@@ -2579,9 +2568,9 @@ public final class DescriptorProtos {
        * Names of files imported by this file.
        * </pre>
        */
-      public java.util.List<java.lang.String>
+      public com.google.protobuf.ProtocolStringList
           getDependencyList() {
-        return java.util.Collections.unmodifiableList(dependency_);
+        return dependency_.getUnmodifiableView();
       }
       /**
        * <code>repeated string dependency = 3;</code>
@@ -2658,7 +2647,8 @@ public final class DescriptorProtos {
       public Builder addAllDependency(
           java.lang.Iterable<java.lang.String> values) {
         ensureDependencyIsMutable();
-        super.addAll(values, dependency_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, dependency_);
         onChanged();
         return this;
       }
@@ -2693,7 +2683,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // repeated int32 public_dependency = 10;
       private java.util.List<java.lang.Integer> publicDependency_ = java.util.Collections.emptyList();
       private void ensurePublicDependencyIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
@@ -2769,7 +2758,8 @@ public final class DescriptorProtos {
       public Builder addAllPublicDependency(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensurePublicDependencyIsMutable();
-        super.addAll(values, publicDependency_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, publicDependency_);
         onChanged();
         return this;
       }
@@ -2787,7 +2777,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // repeated int32 weak_dependency = 11;
       private java.util.List<java.lang.Integer> weakDependency_ = java.util.Collections.emptyList();
       private void ensureWeakDependencyIsMutable() {
         if (!((bitField0_ & 0x00000010) == 0x00000010)) {
@@ -2869,7 +2858,8 @@ public final class DescriptorProtos {
       public Builder addAllWeakDependency(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureWeakDependencyIsMutable();
-        super.addAll(values, weakDependency_);
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, weakDependency_);
         onChanged();
         return this;
       }
@@ -2888,7 +2878,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // repeated .google.protobuf.DescriptorProto message_type = 4;
       private java.util.List<com.google.protobuf.DescriptorProtos.DescriptorProto> messageType_ =
         java.util.Collections.emptyList();
       private void ensureMessageTypeIsMutable() {
@@ -3070,7 +3059,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.DescriptorProto> values) {
         if (messageTypeBuilder_ == null) {
           ensureMessageTypeIsMutable();
-          super.addAll(values, messageType_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, messageType_);
           onChanged();
         } else {
           messageTypeBuilder_.addAllMessages(values);
@@ -3200,7 +3190,6 @@ public final class DescriptorProtos {
         return messageTypeBuilder_;
       }
 
-      // repeated .google.protobuf.EnumDescriptorProto enum_type = 5;
       private java.util.List<com.google.protobuf.DescriptorProtos.EnumDescriptorProto> enumType_ =
         java.util.Collections.emptyList();
       private void ensureEnumTypeIsMutable() {
@@ -3342,7 +3331,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.EnumDescriptorProto> values) {
         if (enumTypeBuilder_ == null) {
           ensureEnumTypeIsMutable();
-          super.addAll(values, enumType_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, enumType_);
           onChanged();
         } else {
           enumTypeBuilder_.addAllMessages(values);
@@ -3440,7 +3430,6 @@ public final class DescriptorProtos {
         return enumTypeBuilder_;
       }
 
-      // repeated .google.protobuf.ServiceDescriptorProto service = 6;
       private java.util.List<com.google.protobuf.DescriptorProtos.ServiceDescriptorProto> service_ =
         java.util.Collections.emptyList();
       private void ensureServiceIsMutable() {
@@ -3582,7 +3571,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.ServiceDescriptorProto> values) {
         if (serviceBuilder_ == null) {
           ensureServiceIsMutable();
-          super.addAll(values, service_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, service_);
           onChanged();
         } else {
           serviceBuilder_.addAllMessages(values);
@@ -3680,7 +3670,6 @@ public final class DescriptorProtos {
         return serviceBuilder_;
       }
 
-      // repeated .google.protobuf.FieldDescriptorProto extension = 7;
       private java.util.List<com.google.protobuf.DescriptorProtos.FieldDescriptorProto> extension_ =
         java.util.Collections.emptyList();
       private void ensureExtensionIsMutable() {
@@ -3822,7 +3811,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.FieldDescriptorProto> values) {
         if (extensionBuilder_ == null) {
           ensureExtensionIsMutable();
-          super.addAll(values, extension_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, extension_);
           onChanged();
         } else {
           extensionBuilder_.addAllMessages(values);
@@ -3920,7 +3910,6 @@ public final class DescriptorProtos {
         return extensionBuilder_;
       }
 
-      // optional .google.protobuf.FileOptions options = 8;
       private com.google.protobuf.DescriptorProtos.FileOptions options_ = com.google.protobuf.DescriptorProtos.FileOptions.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.google.protobuf.DescriptorProtos.FileOptions, com.google.protobuf.DescriptorProtos.FileOptions.Builder, com.google.protobuf.DescriptorProtos.FileOptionsOrBuilder> optionsBuilder_;
@@ -4029,7 +4018,7 @@ public final class DescriptorProtos {
         if (optionsBuilder_ == null) {
           optionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.google.protobuf.DescriptorProtos.FileOptions, com.google.protobuf.DescriptorProtos.FileOptions.Builder, com.google.protobuf.DescriptorProtos.FileOptionsOrBuilder>(
-                  options_,
+                  getOptions(),
                   getParentForChildren(),
                   isClean());
           options_ = null;
@@ -4037,7 +4026,6 @@ public final class DescriptorProtos {
         return optionsBuilder_;
       }
 
-      // optional .google.protobuf.SourceCodeInfo source_code_info = 9;
       private com.google.protobuf.DescriptorProtos.SourceCodeInfo sourceCodeInfo_ = com.google.protobuf.DescriptorProtos.SourceCodeInfo.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.google.protobuf.DescriptorProtos.SourceCodeInfo, com.google.protobuf.DescriptorProtos.SourceCodeInfo.Builder, com.google.protobuf.DescriptorProtos.SourceCodeInfoOrBuilder> sourceCodeInfoBuilder_;
@@ -4209,7 +4197,7 @@ public final class DescriptorProtos {
         if (sourceCodeInfoBuilder_ == null) {
           sourceCodeInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.google.protobuf.DescriptorProtos.SourceCodeInfo, com.google.protobuf.DescriptorProtos.SourceCodeInfo.Builder, com.google.protobuf.DescriptorProtos.SourceCodeInfoOrBuilder>(
-                  sourceCodeInfo_,
+                  getSourceCodeInfo(),
                   getParentForChildren(),
                   isClean());
           sourceCodeInfo_ = null;
@@ -4228,10 +4216,10 @@ public final class DescriptorProtos {
     // @@protoc_insertion_point(class_scope:google.protobuf.FileDescriptorProto)
   }
 
-  public interface DescriptorProtoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface DescriptorProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.DescriptorProto)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional string name = 1;
     /**
      * <code>optional string name = 1;</code>
      */
@@ -4246,7 +4234,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // repeated .google.protobuf.FieldDescriptorProto field = 2;
     /**
      * <code>repeated .google.protobuf.FieldDescriptorProto field = 2;</code>
      */
@@ -4271,7 +4258,6 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.FieldDescriptorProtoOrBuilder getFieldOrBuilder(
         int index);
 
-    // repeated .google.protobuf.FieldDescriptorProto extension = 6;
     /**
      * <code>repeated .google.protobuf.FieldDescriptorProto extension = 6;</code>
      */
@@ -4296,7 +4282,6 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.FieldDescriptorProtoOrBuilder getExtensionOrBuilder(
         int index);
 
-    // repeated .google.protobuf.DescriptorProto nested_type = 3;
     /**
      * <code>repeated .google.protobuf.DescriptorProto nested_type = 3;</code>
      */
@@ -4321,7 +4306,6 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.DescriptorProtoOrBuilder getNestedTypeOrBuilder(
         int index);
 
-    // repeated .google.protobuf.EnumDescriptorProto enum_type = 4;
     /**
      * <code>repeated .google.protobuf.EnumDescriptorProto enum_type = 4;</code>
      */
@@ -4346,7 +4330,6 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.EnumDescriptorProtoOrBuilder getEnumTypeOrBuilder(
         int index);
 
-    // repeated .google.protobuf.DescriptorProto.ExtensionRange extension_range = 5;
     /**
      * <code>repeated .google.protobuf.DescriptorProto.ExtensionRange extension_range = 5;</code>
      */
@@ -4371,7 +4354,30 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRangeOrBuilder getExtensionRangeOrBuilder(
         int index);
 
-    // optional .google.protobuf.MessageOptions options = 7;
+    /**
+     * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+     */
+    java.util.List<com.google.protobuf.DescriptorProtos.OneofDescriptorProto> 
+        getOneofDeclList();
+    /**
+     * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+     */
+    com.google.protobuf.DescriptorProtos.OneofDescriptorProto getOneofDecl(int index);
+    /**
+     * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+     */
+    int getOneofDeclCount();
+    /**
+     * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+     */
+    java.util.List<? extends com.google.protobuf.DescriptorProtos.OneofDescriptorProtoOrBuilder> 
+        getOneofDeclOrBuilderList();
+    /**
+     * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+     */
+    com.google.protobuf.DescriptorProtos.OneofDescriptorProtoOrBuilder getOneofDeclOrBuilder(
+        int index);
+
     /**
      * <code>optional .google.protobuf.MessageOptions options = 7;</code>
      */
@@ -4393,8 +4399,9 @@ public final class DescriptorProtos {
    * </pre>
    */
   public static final class DescriptorProto extends
-      com.google.protobuf.GeneratedMessage
-      implements DescriptorProtoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.DescriptorProto)
+      DescriptorProtoOrBuilder {
     // Use DescriptorProto.newBuilder() to construct.
     private DescriptorProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -4441,8 +4448,9 @@ public final class DescriptorProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 18: {
@@ -4458,7 +4466,7 @@ public final class DescriptorProtos {
                 nestedType_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.DescriptorProto>();
                 mutable_bitField0_ |= 0x00000008;
               }
-              nestedType_.add(input.readMessage(PARSER, extensionRegistry));
+              nestedType_.add(input.readMessage(com.google.protobuf.DescriptorProtos.DescriptorProto.PARSER, extensionRegistry));
               break;
             }
             case 34: {
@@ -4498,6 +4506,14 @@ public final class DescriptorProtos {
               bitField0_ |= 0x00000002;
               break;
             }
+            case 66: {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                oneofDecl_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.OneofDescriptorProto>();
+                mutable_bitField0_ |= 0x00000040;
+              }
+              oneofDecl_.add(input.readMessage(com.google.protobuf.DescriptorProtos.OneofDescriptorProto.PARSER, extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -4521,20 +4537,23 @@ public final class DescriptorProtos {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           extension_ = java.util.Collections.unmodifiableList(extension_);
         }
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+          oneofDecl_ = java.util.Collections.unmodifiableList(oneofDecl_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_DescriptorProto_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_DescriptorProto_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_DescriptorProto_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_DescriptorProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.DescriptorProto.class, com.google.protobuf.DescriptorProtos.DescriptorProto.Builder.class);
+              com.google.protobuf.DescriptorProtos.DescriptorProto.class, com.google.protobuf.DescriptorProtos.DescriptorProto.Builder.class);
     }
 
     public static com.google.protobuf.Parser<DescriptorProto> PARSER =
@@ -4552,10 +4571,10 @@ public final class DescriptorProtos {
       return PARSER;
     }
 
-    public interface ExtensionRangeOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
+    public interface ExtensionRangeOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:google.protobuf.DescriptorProto.ExtensionRange)
+        com.google.protobuf.MessageOrBuilder {
 
-      // optional int32 start = 1;
       /**
        * <code>optional int32 start = 1;</code>
        */
@@ -4565,7 +4584,6 @@ public final class DescriptorProtos {
        */
       int getStart();
 
-      // optional int32 end = 2;
       /**
        * <code>optional int32 end = 2;</code>
        */
@@ -4579,8 +4597,9 @@ public final class DescriptorProtos {
      * Protobuf type {@code google.protobuf.DescriptorProto.ExtensionRange}
      */
     public static final class ExtensionRange extends
-        com.google.protobuf.GeneratedMessage
-        implements ExtensionRangeOrBuilder {
+        com.google.protobuf.GeneratedMessage implements
+        // @@protoc_insertion_point(message_implements:google.protobuf.DescriptorProto.ExtensionRange)
+        ExtensionRangeOrBuilder {
       // Use ExtensionRange.newBuilder() to construct.
       private ExtensionRange(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
@@ -4650,14 +4669,14 @@ public final class DescriptorProtos {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_DescriptorProto_ExtensionRange_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_DescriptorProto_ExtensionRange_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_DescriptorProto_ExtensionRange_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_DescriptorProto_ExtensionRange_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange.class, com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange.Builder.class);
+                com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange.class, com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange.Builder.class);
       }
 
       public static com.google.protobuf.Parser<ExtensionRange> PARSER =
@@ -4676,7 +4695,6 @@ public final class DescriptorProtos {
       }
 
       private int bitField0_;
-      // optional int32 start = 1;
       public static final int START_FIELD_NUMBER = 1;
       private int start_;
       /**
@@ -4692,7 +4710,6 @@ public final class DescriptorProtos {
         return start_;
       }
 
-      // optional int32 end = 2;
       public static final int END_FIELD_NUMBER = 2;
       private int end_;
       /**
@@ -4715,7 +4732,8 @@ public final class DescriptorProtos {
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
 
         memoizedIsInitialized = 1;
         return true;
@@ -4829,18 +4847,19 @@ public final class DescriptorProtos {
        * Protobuf type {@code google.protobuf.DescriptorProto.ExtensionRange}
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRangeOrBuilder {
+          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:google.protobuf.DescriptorProto.ExtensionRange)
+          com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRangeOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return internal_static_google_protobuf_DescriptorProto_ExtensionRange_descriptor;
+          return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_DescriptorProto_ExtensionRange_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return internal_static_google_protobuf_DescriptorProto_ExtensionRange_fieldAccessorTable
+          return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_DescriptorProto_ExtensionRange_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                      com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange.class, com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange.Builder.class);
+                  com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange.class, com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange.Builder.class);
         }
 
         // Construct using com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange.newBuilder()
@@ -4854,7 +4873,7 @@ public final class DescriptorProtos {
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
-          if (alwaysUseFieldBuilders) {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           }
         }
         private static Builder create() {
@@ -4876,11 +4895,11 @@ public final class DescriptorProtos {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return internal_static_google_protobuf_DescriptorProto_ExtensionRange_descriptor;
+          return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_DescriptorProto_ExtensionRange_descriptor;
         }
 
         public com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange getDefaultInstanceForType() {
-          return getDefaultInstance();
+          return com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange.getDefaultInstance();
         }
 
         public com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange build() {
@@ -4918,7 +4937,7 @@ public final class DescriptorProtos {
         }
 
         public Builder mergeFrom(com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange other) {
-          if (other == getDefaultInstance()) return this;
+          if (other == com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange.getDefaultInstance()) return this;
           if (other.hasStart()) {
             setStart(other.getStart());
           }
@@ -4952,7 +4971,6 @@ public final class DescriptorProtos {
         }
         private int bitField0_;
 
-        // optional int32 start = 1;
         private int start_ ;
         /**
          * <code>optional int32 start = 1;</code>
@@ -4985,7 +5003,6 @@ public final class DescriptorProtos {
           return this;
         }
 
-        // optional int32 end = 2;
         private int end_ ;
         /**
          * <code>optional int32 end = 2;</code>
@@ -5030,7 +5047,6 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // optional string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -5073,7 +5089,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // repeated .google.protobuf.FieldDescriptorProto field = 2;
     public static final int FIELD_FIELD_NUMBER = 2;
     private java.util.List<com.google.protobuf.DescriptorProtos.FieldDescriptorProto> field_;
     /**
@@ -5109,7 +5124,6 @@ public final class DescriptorProtos {
       return field_.get(index);
     }
 
-    // repeated .google.protobuf.FieldDescriptorProto extension = 6;
     public static final int EXTENSION_FIELD_NUMBER = 6;
     private java.util.List<com.google.protobuf.DescriptorProtos.FieldDescriptorProto> extension_;
     /**
@@ -5145,7 +5159,6 @@ public final class DescriptorProtos {
       return extension_.get(index);
     }
 
-    // repeated .google.protobuf.DescriptorProto nested_type = 3;
     public static final int NESTED_TYPE_FIELD_NUMBER = 3;
     private java.util.List<com.google.protobuf.DescriptorProtos.DescriptorProto> nestedType_;
     /**
@@ -5181,7 +5194,6 @@ public final class DescriptorProtos {
       return nestedType_.get(index);
     }
 
-    // repeated .google.protobuf.EnumDescriptorProto enum_type = 4;
     public static final int ENUM_TYPE_FIELD_NUMBER = 4;
     private java.util.List<com.google.protobuf.DescriptorProtos.EnumDescriptorProto> enumType_;
     /**
@@ -5217,7 +5229,6 @@ public final class DescriptorProtos {
       return enumType_.get(index);
     }
 
-    // repeated .google.protobuf.DescriptorProto.ExtensionRange extension_range = 5;
     public static final int EXTENSION_RANGE_FIELD_NUMBER = 5;
     private java.util.List<com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange> extensionRange_;
     /**
@@ -5253,7 +5264,41 @@ public final class DescriptorProtos {
       return extensionRange_.get(index);
     }
 
-    // optional .google.protobuf.MessageOptions options = 7;
+    public static final int ONEOF_DECL_FIELD_NUMBER = 8;
+    private java.util.List<com.google.protobuf.DescriptorProtos.OneofDescriptorProto> oneofDecl_;
+    /**
+     * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+     */
+    public java.util.List<com.google.protobuf.DescriptorProtos.OneofDescriptorProto> getOneofDeclList() {
+      return oneofDecl_;
+    }
+    /**
+     * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+     */
+    public java.util.List<? extends com.google.protobuf.DescriptorProtos.OneofDescriptorProtoOrBuilder> 
+        getOneofDeclOrBuilderList() {
+      return oneofDecl_;
+    }
+    /**
+     * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+     */
+    public int getOneofDeclCount() {
+      return oneofDecl_.size();
+    }
+    /**
+     * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+     */
+    public com.google.protobuf.DescriptorProtos.OneofDescriptorProto getOneofDecl(int index) {
+      return oneofDecl_.get(index);
+    }
+    /**
+     * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+     */
+    public com.google.protobuf.DescriptorProtos.OneofDescriptorProtoOrBuilder getOneofDeclOrBuilder(
+        int index) {
+      return oneofDecl_.get(index);
+    }
+
     public static final int OPTIONS_FIELD_NUMBER = 7;
     private com.google.protobuf.DescriptorProtos.MessageOptions options_;
     /**
@@ -5282,12 +5327,14 @@ public final class DescriptorProtos {
       nestedType_ = java.util.Collections.emptyList();
       enumType_ = java.util.Collections.emptyList();
       extensionRange_ = java.util.Collections.emptyList();
+      oneofDecl_ = java.util.Collections.emptyList();
       options_ = com.google.protobuf.DescriptorProtos.MessageOptions.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getFieldCount(); i++) {
         if (!getField(i).isInitialized()) {
@@ -5347,6 +5394,9 @@ public final class DescriptorProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(7, options_);
       }
+      for (int i = 0; i < oneofDecl_.size(); i++) {
+        output.writeMessage(8, oneofDecl_.get(i));
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -5383,6 +5433,10 @@ public final class DescriptorProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, options_);
+      }
+      for (int i = 0; i < oneofDecl_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, oneofDecl_.get(i));
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -5470,18 +5524,19 @@ public final class DescriptorProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.protobuf.DescriptorProtos.DescriptorProtoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.DescriptorProto)
+        com.google.protobuf.DescriptorProtos.DescriptorProtoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_DescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_DescriptorProto_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_DescriptorProto_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_DescriptorProto_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.DescriptorProto.class, com.google.protobuf.DescriptorProtos.DescriptorProto.Builder.class);
+                com.google.protobuf.DescriptorProtos.DescriptorProto.class, com.google.protobuf.DescriptorProtos.DescriptorProto.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.DescriptorProto.newBuilder()
@@ -5495,12 +5550,13 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getFieldFieldBuilder();
           getExtensionFieldBuilder();
           getNestedTypeFieldBuilder();
           getEnumTypeFieldBuilder();
           getExtensionRangeFieldBuilder();
+          getOneofDeclFieldBuilder();
           getOptionsFieldBuilder();
         }
       }
@@ -5542,12 +5598,18 @@ public final class DescriptorProtos {
         } else {
           extensionRangeBuilder_.clear();
         }
+        if (oneofDeclBuilder_ == null) {
+          oneofDecl_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000040);
+        } else {
+          oneofDeclBuilder_.clear();
+        }
         if (optionsBuilder_ == null) {
           options_ = com.google.protobuf.DescriptorProtos.MessageOptions.getDefaultInstance();
         } else {
           optionsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -5557,11 +5619,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_DescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_DescriptorProto_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.DescriptorProto getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.DescriptorProto.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.DescriptorProto build() {
@@ -5625,7 +5687,16 @@ public final class DescriptorProtos {
         } else {
           result.extensionRange_ = extensionRangeBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+        if (oneofDeclBuilder_ == null) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)) {
+            oneofDecl_ = java.util.Collections.unmodifiableList(oneofDecl_);
+            bitField0_ = (bitField0_ & ~0x00000040);
+          }
+          result.oneofDecl_ = oneofDecl_;
+        } else {
+          result.oneofDecl_ = oneofDeclBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000002;
         }
         if (optionsBuilder_ == null) {
@@ -5648,7 +5719,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.DescriptorProto other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.DescriptorProto.getDefaultInstance()) return this;
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -5673,7 +5744,7 @@ public final class DescriptorProtos {
               field_ = other.field_;
               bitField0_ = (bitField0_ & ~0x00000002);
               fieldBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getFieldFieldBuilder() : null;
             } else {
               fieldBuilder_.addAllMessages(other.field_);
@@ -5699,7 +5770,7 @@ public final class DescriptorProtos {
               extension_ = other.extension_;
               bitField0_ = (bitField0_ & ~0x00000004);
               extensionBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getExtensionFieldBuilder() : null;
             } else {
               extensionBuilder_.addAllMessages(other.extension_);
@@ -5725,7 +5796,7 @@ public final class DescriptorProtos {
               nestedType_ = other.nestedType_;
               bitField0_ = (bitField0_ & ~0x00000008);
               nestedTypeBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getNestedTypeFieldBuilder() : null;
             } else {
               nestedTypeBuilder_.addAllMessages(other.nestedType_);
@@ -5751,7 +5822,7 @@ public final class DescriptorProtos {
               enumType_ = other.enumType_;
               bitField0_ = (bitField0_ & ~0x00000010);
               enumTypeBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getEnumTypeFieldBuilder() : null;
             } else {
               enumTypeBuilder_.addAllMessages(other.enumType_);
@@ -5777,10 +5848,36 @@ public final class DescriptorProtos {
               extensionRange_ = other.extensionRange_;
               bitField0_ = (bitField0_ & ~0x00000020);
               extensionRangeBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getExtensionRangeFieldBuilder() : null;
             } else {
               extensionRangeBuilder_.addAllMessages(other.extensionRange_);
+            }
+          }
+        }
+        if (oneofDeclBuilder_ == null) {
+          if (!other.oneofDecl_.isEmpty()) {
+            if (oneofDecl_.isEmpty()) {
+              oneofDecl_ = other.oneofDecl_;
+              bitField0_ = (bitField0_ & ~0x00000040);
+            } else {
+              ensureOneofDeclIsMutable();
+              oneofDecl_.addAll(other.oneofDecl_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.oneofDecl_.isEmpty()) {
+            if (oneofDeclBuilder_.isEmpty()) {
+              oneofDeclBuilder_.dispose();
+              oneofDeclBuilder_ = null;
+              oneofDecl_ = other.oneofDecl_;
+              bitField0_ = (bitField0_ & ~0x00000040);
+              oneofDeclBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getOneofDeclFieldBuilder() : null;
+            } else {
+              oneofDeclBuilder_.addAllMessages(other.oneofDecl_);
             }
           }
         }
@@ -5844,7 +5941,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // optional string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 1;</code>
@@ -5858,9 +5954,12 @@ public final class DescriptorProtos {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -5918,7 +6017,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // repeated .google.protobuf.FieldDescriptorProto field = 2;
       private java.util.List<com.google.protobuf.DescriptorProtos.FieldDescriptorProto> field_ =
         java.util.Collections.emptyList();
       private void ensureFieldIsMutable() {
@@ -6060,7 +6158,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.FieldDescriptorProto> values) {
         if (fieldBuilder_ == null) {
           ensureFieldIsMutable();
-          super.addAll(values, field_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, field_);
           onChanged();
         } else {
           fieldBuilder_.addAllMessages(values);
@@ -6158,7 +6257,6 @@ public final class DescriptorProtos {
         return fieldBuilder_;
       }
 
-      // repeated .google.protobuf.FieldDescriptorProto extension = 6;
       private java.util.List<com.google.protobuf.DescriptorProtos.FieldDescriptorProto> extension_ =
         java.util.Collections.emptyList();
       private void ensureExtensionIsMutable() {
@@ -6300,7 +6398,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.FieldDescriptorProto> values) {
         if (extensionBuilder_ == null) {
           ensureExtensionIsMutable();
-          super.addAll(values, extension_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, extension_);
           onChanged();
         } else {
           extensionBuilder_.addAllMessages(values);
@@ -6398,7 +6497,6 @@ public final class DescriptorProtos {
         return extensionBuilder_;
       }
 
-      // repeated .google.protobuf.DescriptorProto nested_type = 3;
       private java.util.List<com.google.protobuf.DescriptorProtos.DescriptorProto> nestedType_ =
         java.util.Collections.emptyList();
       private void ensureNestedTypeIsMutable() {
@@ -6540,7 +6638,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.DescriptorProto> values) {
         if (nestedTypeBuilder_ == null) {
           ensureNestedTypeIsMutable();
-          super.addAll(values, nestedType_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, nestedType_);
           onChanged();
         } else {
           nestedTypeBuilder_.addAllMessages(values);
@@ -6606,7 +6705,7 @@ public final class DescriptorProtos {
        */
       public com.google.protobuf.DescriptorProtos.DescriptorProto.Builder addNestedTypeBuilder() {
         return getNestedTypeFieldBuilder().addBuilder(
-            getDefaultInstance());
+            com.google.protobuf.DescriptorProtos.DescriptorProto.getDefaultInstance());
       }
       /**
        * <code>repeated .google.protobuf.DescriptorProto nested_type = 3;</code>
@@ -6614,7 +6713,7 @@ public final class DescriptorProtos {
       public com.google.protobuf.DescriptorProtos.DescriptorProto.Builder addNestedTypeBuilder(
           int index) {
         return getNestedTypeFieldBuilder().addBuilder(
-            index, getDefaultInstance());
+            index, com.google.protobuf.DescriptorProtos.DescriptorProto.getDefaultInstance());
       }
       /**
        * <code>repeated .google.protobuf.DescriptorProto nested_type = 3;</code>
@@ -6638,7 +6737,6 @@ public final class DescriptorProtos {
         return nestedTypeBuilder_;
       }
 
-      // repeated .google.protobuf.EnumDescriptorProto enum_type = 4;
       private java.util.List<com.google.protobuf.DescriptorProtos.EnumDescriptorProto> enumType_ =
         java.util.Collections.emptyList();
       private void ensureEnumTypeIsMutable() {
@@ -6780,7 +6878,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.EnumDescriptorProto> values) {
         if (enumTypeBuilder_ == null) {
           ensureEnumTypeIsMutable();
-          super.addAll(values, enumType_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, enumType_);
           onChanged();
         } else {
           enumTypeBuilder_.addAllMessages(values);
@@ -6878,7 +6977,6 @@ public final class DescriptorProtos {
         return enumTypeBuilder_;
       }
 
-      // repeated .google.protobuf.DescriptorProto.ExtensionRange extension_range = 5;
       private java.util.List<com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange> extensionRange_ =
         java.util.Collections.emptyList();
       private void ensureExtensionRangeIsMutable() {
@@ -7020,7 +7118,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.DescriptorProto.ExtensionRange> values) {
         if (extensionRangeBuilder_ == null) {
           ensureExtensionRangeIsMutable();
-          super.addAll(values, extensionRange_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, extensionRange_);
           onChanged();
         } else {
           extensionRangeBuilder_.addAllMessages(values);
@@ -7118,7 +7217,246 @@ public final class DescriptorProtos {
         return extensionRangeBuilder_;
       }
 
-      // optional .google.protobuf.MessageOptions options = 7;
+      private java.util.List<com.google.protobuf.DescriptorProtos.OneofDescriptorProto> oneofDecl_ =
+        java.util.Collections.emptyList();
+      private void ensureOneofDeclIsMutable() {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+          oneofDecl_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.OneofDescriptorProto>(oneofDecl_);
+          bitField0_ |= 0x00000040;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.google.protobuf.DescriptorProtos.OneofDescriptorProto, com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder, com.google.protobuf.DescriptorProtos.OneofDescriptorProtoOrBuilder> oneofDeclBuilder_;
+
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public java.util.List<com.google.protobuf.DescriptorProtos.OneofDescriptorProto> getOneofDeclList() {
+        if (oneofDeclBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(oneofDecl_);
+        } else {
+          return oneofDeclBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public int getOneofDeclCount() {
+        if (oneofDeclBuilder_ == null) {
+          return oneofDecl_.size();
+        } else {
+          return oneofDeclBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public com.google.protobuf.DescriptorProtos.OneofDescriptorProto getOneofDecl(int index) {
+        if (oneofDeclBuilder_ == null) {
+          return oneofDecl_.get(index);
+        } else {
+          return oneofDeclBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public Builder setOneofDecl(
+          int index, com.google.protobuf.DescriptorProtos.OneofDescriptorProto value) {
+        if (oneofDeclBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOneofDeclIsMutable();
+          oneofDecl_.set(index, value);
+          onChanged();
+        } else {
+          oneofDeclBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public Builder setOneofDecl(
+          int index, com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder builderForValue) {
+        if (oneofDeclBuilder_ == null) {
+          ensureOneofDeclIsMutable();
+          oneofDecl_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          oneofDeclBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public Builder addOneofDecl(com.google.protobuf.DescriptorProtos.OneofDescriptorProto value) {
+        if (oneofDeclBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOneofDeclIsMutable();
+          oneofDecl_.add(value);
+          onChanged();
+        } else {
+          oneofDeclBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public Builder addOneofDecl(
+          int index, com.google.protobuf.DescriptorProtos.OneofDescriptorProto value) {
+        if (oneofDeclBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureOneofDeclIsMutable();
+          oneofDecl_.add(index, value);
+          onChanged();
+        } else {
+          oneofDeclBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public Builder addOneofDecl(
+          com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder builderForValue) {
+        if (oneofDeclBuilder_ == null) {
+          ensureOneofDeclIsMutable();
+          oneofDecl_.add(builderForValue.build());
+          onChanged();
+        } else {
+          oneofDeclBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public Builder addOneofDecl(
+          int index, com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder builderForValue) {
+        if (oneofDeclBuilder_ == null) {
+          ensureOneofDeclIsMutable();
+          oneofDecl_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          oneofDeclBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public Builder addAllOneofDecl(
+          java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.OneofDescriptorProto> values) {
+        if (oneofDeclBuilder_ == null) {
+          ensureOneofDeclIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, oneofDecl_);
+          onChanged();
+        } else {
+          oneofDeclBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public Builder clearOneofDecl() {
+        if (oneofDeclBuilder_ == null) {
+          oneofDecl_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000040);
+          onChanged();
+        } else {
+          oneofDeclBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public Builder removeOneofDecl(int index) {
+        if (oneofDeclBuilder_ == null) {
+          ensureOneofDeclIsMutable();
+          oneofDecl_.remove(index);
+          onChanged();
+        } else {
+          oneofDeclBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder getOneofDeclBuilder(
+          int index) {
+        return getOneofDeclFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public com.google.protobuf.DescriptorProtos.OneofDescriptorProtoOrBuilder getOneofDeclOrBuilder(
+          int index) {
+        if (oneofDeclBuilder_ == null) {
+          return oneofDecl_.get(index);  } else {
+          return oneofDeclBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public java.util.List<? extends com.google.protobuf.DescriptorProtos.OneofDescriptorProtoOrBuilder> 
+           getOneofDeclOrBuilderList() {
+        if (oneofDeclBuilder_ != null) {
+          return oneofDeclBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(oneofDecl_);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder addOneofDeclBuilder() {
+        return getOneofDeclFieldBuilder().addBuilder(
+            com.google.protobuf.DescriptorProtos.OneofDescriptorProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder addOneofDeclBuilder(
+          int index) {
+        return getOneofDeclFieldBuilder().addBuilder(
+            index, com.google.protobuf.DescriptorProtos.OneofDescriptorProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;</code>
+       */
+      public java.util.List<com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder> 
+           getOneofDeclBuilderList() {
+        return getOneofDeclFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.google.protobuf.DescriptorProtos.OneofDescriptorProto, com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder, com.google.protobuf.DescriptorProtos.OneofDescriptorProtoOrBuilder> 
+          getOneofDeclFieldBuilder() {
+        if (oneofDeclBuilder_ == null) {
+          oneofDeclBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.google.protobuf.DescriptorProtos.OneofDescriptorProto, com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder, com.google.protobuf.DescriptorProtos.OneofDescriptorProtoOrBuilder>(
+                  oneofDecl_,
+                  ((bitField0_ & 0x00000040) == 0x00000040),
+                  getParentForChildren(),
+                  isClean());
+          oneofDecl_ = null;
+        }
+        return oneofDeclBuilder_;
+      }
+
       private com.google.protobuf.DescriptorProtos.MessageOptions options_ = com.google.protobuf.DescriptorProtos.MessageOptions.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.google.protobuf.DescriptorProtos.MessageOptions, com.google.protobuf.DescriptorProtos.MessageOptions.Builder, com.google.protobuf.DescriptorProtos.MessageOptionsOrBuilder> optionsBuilder_;
@@ -7126,7 +7464,7 @@ public final class DescriptorProtos {
        * <code>optional .google.protobuf.MessageOptions options = 7;</code>
        */
       public boolean hasOptions() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
        * <code>optional .google.protobuf.MessageOptions options = 7;</code>
@@ -7151,7 +7489,7 @@ public final class DescriptorProtos {
         } else {
           optionsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
@@ -7165,7 +7503,7 @@ public final class DescriptorProtos {
         } else {
           optionsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
@@ -7173,7 +7511,7 @@ public final class DescriptorProtos {
        */
       public Builder mergeOptions(com.google.protobuf.DescriptorProtos.MessageOptions value) {
         if (optionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000040) == 0x00000040) &&
+          if (((bitField0_ & 0x00000080) == 0x00000080) &&
               options_ != com.google.protobuf.DescriptorProtos.MessageOptions.getDefaultInstance()) {
             options_ =
               com.google.protobuf.DescriptorProtos.MessageOptions.newBuilder(options_).mergeFrom(value).buildPartial();
@@ -7184,7 +7522,7 @@ public final class DescriptorProtos {
         } else {
           optionsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
@@ -7197,14 +7535,14 @@ public final class DescriptorProtos {
         } else {
           optionsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
       /**
        * <code>optional .google.protobuf.MessageOptions options = 7;</code>
        */
       public com.google.protobuf.DescriptorProtos.MessageOptions.Builder getOptionsBuilder() {
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         onChanged();
         return getOptionsFieldBuilder().getBuilder();
       }
@@ -7227,7 +7565,7 @@ public final class DescriptorProtos {
         if (optionsBuilder_ == null) {
           optionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.google.protobuf.DescriptorProtos.MessageOptions, com.google.protobuf.DescriptorProtos.MessageOptions.Builder, com.google.protobuf.DescriptorProtos.MessageOptionsOrBuilder>(
-                  options_,
+                  getOptions(),
                   getParentForChildren(),
                   isClean());
           options_ = null;
@@ -7246,10 +7584,10 @@ public final class DescriptorProtos {
     // @@protoc_insertion_point(class_scope:google.protobuf.DescriptorProto)
   }
 
-  public interface FieldDescriptorProtoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface FieldDescriptorProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.FieldDescriptorProto)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional string name = 1;
     /**
      * <code>optional string name = 1;</code>
      */
@@ -7264,7 +7602,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // optional int32 number = 3;
     /**
      * <code>optional int32 number = 3;</code>
      */
@@ -7274,7 +7611,6 @@ public final class DescriptorProtos {
      */
     int getNumber();
 
-    // optional .google.protobuf.FieldDescriptorProto.Label label = 4;
     /**
      * <code>optional .google.protobuf.FieldDescriptorProto.Label label = 4;</code>
      */
@@ -7284,13 +7620,12 @@ public final class DescriptorProtos {
      */
     com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Label getLabel();
 
-    // optional .google.protobuf.FieldDescriptorProto.Type type = 5;
     /**
      * <code>optional .google.protobuf.FieldDescriptorProto.Type type = 5;</code>
      *
      * <pre>
      * If type_name is set, this need not be set.  If both this and type_name
-     * are set, this must be either TYPE_ENUM or TYPE_MESSAGE.
+     * are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
      * </pre>
      */
     boolean hasType();
@@ -7299,12 +7634,11 @@ public final class DescriptorProtos {
      *
      * <pre>
      * If type_name is set, this need not be set.  If both this and type_name
-     * are set, this must be either TYPE_ENUM or TYPE_MESSAGE.
+     * are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
      * </pre>
      */
     com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Type getType();
 
-    // optional string type_name = 6;
     /**
      * <code>optional string type_name = 6;</code>
      *
@@ -7343,7 +7677,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getTypeNameBytes();
 
-    // optional string extendee = 2;
     /**
      * <code>optional string extendee = 2;</code>
      *
@@ -7373,7 +7706,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getExtendeeBytes();
 
-    // optional string default_value = 7;
     /**
      * <code>optional string default_value = 7;</code>
      *
@@ -7412,7 +7744,29 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getDefaultValueBytes();
 
-    // optional .google.protobuf.FieldOptions options = 8;
+    /**
+     * <code>optional int32 oneof_index = 9;</code>
+     *
+     * <pre>
+     * If set, gives the index of a oneof in the containing type's oneof_decl
+     * list.  This field is a member of that oneof.  Extensions of a oneof should
+     * not set this since the oneof to which they belong will be inferred based
+     * on the extension range containing the extension's field number.
+     * </pre>
+     */
+    boolean hasOneofIndex();
+    /**
+     * <code>optional int32 oneof_index = 9;</code>
+     *
+     * <pre>
+     * If set, gives the index of a oneof in the containing type's oneof_decl
+     * list.  This field is a member of that oneof.  Extensions of a oneof should
+     * not set this since the oneof to which they belong will be inferred based
+     * on the extension range containing the extension's field number.
+     * </pre>
+     */
+    int getOneofIndex();
+
     /**
      * <code>optional .google.protobuf.FieldOptions options = 8;</code>
      */
@@ -7434,8 +7788,9 @@ public final class DescriptorProtos {
    * </pre>
    */
   public static final class FieldDescriptorProto extends
-      com.google.protobuf.GeneratedMessage
-      implements FieldDescriptorProtoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.FieldDescriptorProto)
+      FieldDescriptorProtoOrBuilder {
     // Use FieldDescriptorProto.newBuilder() to construct.
     private FieldDescriptorProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -7482,13 +7837,15 @@ public final class DescriptorProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000020;
-              extendee_ = input.readBytes();
+              extendee_ = bs;
               break;
             }
             case 24: {
@@ -7519,18 +7876,20 @@ public final class DescriptorProtos {
               break;
             }
             case 50: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              typeName_ = input.readBytes();
+              typeName_ = bs;
               break;
             }
             case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000040;
-              defaultValue_ = input.readBytes();
+              defaultValue_ = bs;
               break;
             }
             case 66: {
               com.google.protobuf.DescriptorProtos.FieldOptions.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000080) == 0x00000080)) {
+              if (((bitField0_ & 0x00000100) == 0x00000100)) {
                 subBuilder = options_.toBuilder();
               }
               options_ = input.readMessage(com.google.protobuf.DescriptorProtos.FieldOptions.PARSER, extensionRegistry);
@@ -7538,7 +7897,12 @@ public final class DescriptorProtos {
                 subBuilder.mergeFrom(options_);
                 options_ = subBuilder.buildPartial();
               }
+              bitField0_ |= 0x00000100;
+              break;
+            }
+            case 72: {
               bitField0_ |= 0x00000080;
+              oneofIndex_ = input.readInt32();
               break;
             }
           }
@@ -7555,14 +7919,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_FieldDescriptorProto_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FieldDescriptorProto_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_FieldDescriptorProto_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FieldDescriptorProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.FieldDescriptorProto.class, com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Builder.class);
+              com.google.protobuf.DescriptorProtos.FieldDescriptorProto.class, com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Builder.class);
     }
 
     public static com.google.protobuf.Parser<FieldDescriptorProto> PARSER =
@@ -7984,7 +8348,6 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // optional string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -8027,7 +8390,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional int32 number = 3;
     public static final int NUMBER_FIELD_NUMBER = 3;
     private int number_;
     /**
@@ -8043,7 +8405,6 @@ public final class DescriptorProtos {
       return number_;
     }
 
-    // optional .google.protobuf.FieldDescriptorProto.Label label = 4;
     public static final int LABEL_FIELD_NUMBER = 4;
     private com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Label label_;
     /**
@@ -8059,7 +8420,6 @@ public final class DescriptorProtos {
       return label_;
     }
 
-    // optional .google.protobuf.FieldDescriptorProto.Type type = 5;
     public static final int TYPE_FIELD_NUMBER = 5;
     private com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Type type_;
     /**
@@ -8067,7 +8427,7 @@ public final class DescriptorProtos {
      *
      * <pre>
      * If type_name is set, this need not be set.  If both this and type_name
-     * are set, this must be either TYPE_ENUM or TYPE_MESSAGE.
+     * are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
      * </pre>
      */
     public boolean hasType() {
@@ -8078,14 +8438,13 @@ public final class DescriptorProtos {
      *
      * <pre>
      * If type_name is set, this need not be set.  If both this and type_name
-     * are set, this must be either TYPE_ENUM or TYPE_MESSAGE.
+     * are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
      * </pre>
      */
     public com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Type getType() {
       return type_;
     }
 
-    // optional string type_name = 6;
     public static final int TYPE_NAME_FIELD_NUMBER = 6;
     private java.lang.Object typeName_;
     /**
@@ -8152,7 +8511,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional string extendee = 2;
     public static final int EXTENDEE_FIELD_NUMBER = 2;
     private java.lang.Object extendee_;
     /**
@@ -8210,7 +8568,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional string default_value = 7;
     public static final int DEFAULT_VALUE_FIELD_NUMBER = 7;
     private java.lang.Object defaultValue_;
     /**
@@ -8277,14 +8634,42 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional .google.protobuf.FieldOptions options = 8;
+    public static final int ONEOF_INDEX_FIELD_NUMBER = 9;
+    private int oneofIndex_;
+    /**
+     * <code>optional int32 oneof_index = 9;</code>
+     *
+     * <pre>
+     * If set, gives the index of a oneof in the containing type's oneof_decl
+     * list.  This field is a member of that oneof.  Extensions of a oneof should
+     * not set this since the oneof to which they belong will be inferred based
+     * on the extension range containing the extension's field number.
+     * </pre>
+     */
+    public boolean hasOneofIndex() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional int32 oneof_index = 9;</code>
+     *
+     * <pre>
+     * If set, gives the index of a oneof in the containing type's oneof_decl
+     * list.  This field is a member of that oneof.  Extensions of a oneof should
+     * not set this since the oneof to which they belong will be inferred based
+     * on the extension range containing the extension's field number.
+     * </pre>
+     */
+    public int getOneofIndex() {
+      return oneofIndex_;
+    }
+
     public static final int OPTIONS_FIELD_NUMBER = 8;
     private com.google.protobuf.DescriptorProtos.FieldOptions options_;
     /**
      * <code>optional .google.protobuf.FieldOptions options = 8;</code>
      */
     public boolean hasOptions() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
      * <code>optional .google.protobuf.FieldOptions options = 8;</code>
@@ -8307,12 +8692,14 @@ public final class DescriptorProtos {
       typeName_ = "";
       extendee_ = "";
       defaultValue_ = "";
+      oneofIndex_ = 0;
       options_ = com.google.protobuf.DescriptorProtos.FieldOptions.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (hasOptions()) {
         if (!getOptions().isInitialized()) {
@@ -8348,8 +8735,11 @@ public final class DescriptorProtos {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeBytes(7, getDefaultValueBytes());
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         output.writeMessage(8, options_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(9, oneofIndex_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -8388,9 +8778,13 @@ public final class DescriptorProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(7, getDefaultValueBytes());
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, options_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, oneofIndex_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -8478,18 +8872,19 @@ public final class DescriptorProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.protobuf.DescriptorProtos.FieldDescriptorProtoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.FieldDescriptorProto)
+        com.google.protobuf.DescriptorProtos.FieldDescriptorProtoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_FieldDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FieldDescriptorProto_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_FieldDescriptorProto_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FieldDescriptorProto_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.FieldDescriptorProto.class, com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Builder.class);
+                com.google.protobuf.DescriptorProtos.FieldDescriptorProto.class, com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.FieldDescriptorProto.newBuilder()
@@ -8503,7 +8898,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getOptionsFieldBuilder();
         }
       }
@@ -8527,12 +8922,14 @@ public final class DescriptorProtos {
         bitField0_ = (bitField0_ & ~0x00000020);
         defaultValue_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
+        oneofIndex_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
         if (optionsBuilder_ == null) {
           options_ = com.google.protobuf.DescriptorProtos.FieldOptions.getDefaultInstance();
         } else {
           optionsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -8542,11 +8939,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_FieldDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FieldDescriptorProto_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.FieldDescriptorProto getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.FieldDescriptorProto.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.FieldDescriptorProto build() {
@@ -8592,6 +8989,10 @@ public final class DescriptorProtos {
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
+        result.oneofIndex_ = oneofIndex_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
         if (optionsBuilder_ == null) {
           result.options_ = options_;
         } else {
@@ -8612,7 +9013,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.FieldDescriptorProto other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.FieldDescriptorProto.getDefaultInstance()) return this;
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -8641,6 +9042,9 @@ public final class DescriptorProtos {
           bitField0_ |= 0x00000040;
           defaultValue_ = other.defaultValue_;
           onChanged();
+        }
+        if (other.hasOneofIndex()) {
+          setOneofIndex(other.getOneofIndex());
         }
         if (other.hasOptions()) {
           mergeOptions(other.getOptions());
@@ -8678,7 +9082,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // optional string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 1;</code>
@@ -8692,9 +9095,12 @@ public final class DescriptorProtos {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -8752,7 +9158,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional int32 number = 3;
       private int number_ ;
       /**
        * <code>optional int32 number = 3;</code>
@@ -8785,7 +9190,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional .google.protobuf.FieldDescriptorProto.Label label = 4;
       private com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Label label_ = com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Label.LABEL_OPTIONAL;
       /**
        * <code>optional .google.protobuf.FieldDescriptorProto.Label label = 4;</code>
@@ -8821,14 +9225,13 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional .google.protobuf.FieldDescriptorProto.Type type = 5;
       private com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Type type_ = com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Type.TYPE_DOUBLE;
       /**
        * <code>optional .google.protobuf.FieldDescriptorProto.Type type = 5;</code>
        *
        * <pre>
        * If type_name is set, this need not be set.  If both this and type_name
-       * are set, this must be either TYPE_ENUM or TYPE_MESSAGE.
+       * are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
        * </pre>
        */
       public boolean hasType() {
@@ -8839,7 +9242,7 @@ public final class DescriptorProtos {
        *
        * <pre>
        * If type_name is set, this need not be set.  If both this and type_name
-       * are set, this must be either TYPE_ENUM or TYPE_MESSAGE.
+       * are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
        * </pre>
        */
       public com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Type getType() {
@@ -8850,7 +9253,7 @@ public final class DescriptorProtos {
        *
        * <pre>
        * If type_name is set, this need not be set.  If both this and type_name
-       * are set, this must be either TYPE_ENUM or TYPE_MESSAGE.
+       * are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
        * </pre>
        */
       public Builder setType(com.google.protobuf.DescriptorProtos.FieldDescriptorProto.Type value) {
@@ -8867,7 +9270,7 @@ public final class DescriptorProtos {
        *
        * <pre>
        * If type_name is set, this need not be set.  If both this and type_name
-       * are set, this must be either TYPE_ENUM or TYPE_MESSAGE.
+       * are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
        * </pre>
        */
       public Builder clearType() {
@@ -8877,7 +9280,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional string type_name = 6;
       private java.lang.Object typeName_ = "";
       /**
        * <code>optional string type_name = 6;</code>
@@ -8907,9 +9309,12 @@ public final class DescriptorProtos {
       public java.lang.String getTypeName() {
         java.lang.Object ref = typeName_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          typeName_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            typeName_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -8999,7 +9404,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional string extendee = 2;
       private java.lang.Object extendee_ = "";
       /**
        * <code>optional string extendee = 2;</code>
@@ -9023,9 +9427,12 @@ public final class DescriptorProtos {
       public java.lang.String getExtendee() {
         java.lang.Object ref = extendee_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          extendee_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            extendee_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -9103,7 +9510,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional string default_value = 7;
       private java.lang.Object defaultValue_ = "";
       /**
        * <code>optional string default_value = 7;</code>
@@ -9133,9 +9539,12 @@ public final class DescriptorProtos {
       public java.lang.String getDefaultValue() {
         java.lang.Object ref = defaultValue_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          defaultValue_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            defaultValue_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -9225,7 +9634,66 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional .google.protobuf.FieldOptions options = 8;
+      private int oneofIndex_ ;
+      /**
+       * <code>optional int32 oneof_index = 9;</code>
+       *
+       * <pre>
+       * If set, gives the index of a oneof in the containing type's oneof_decl
+       * list.  This field is a member of that oneof.  Extensions of a oneof should
+       * not set this since the oneof to which they belong will be inferred based
+       * on the extension range containing the extension's field number.
+       * </pre>
+       */
+      public boolean hasOneofIndex() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional int32 oneof_index = 9;</code>
+       *
+       * <pre>
+       * If set, gives the index of a oneof in the containing type's oneof_decl
+       * list.  This field is a member of that oneof.  Extensions of a oneof should
+       * not set this since the oneof to which they belong will be inferred based
+       * on the extension range containing the extension's field number.
+       * </pre>
+       */
+      public int getOneofIndex() {
+        return oneofIndex_;
+      }
+      /**
+       * <code>optional int32 oneof_index = 9;</code>
+       *
+       * <pre>
+       * If set, gives the index of a oneof in the containing type's oneof_decl
+       * list.  This field is a member of that oneof.  Extensions of a oneof should
+       * not set this since the oneof to which they belong will be inferred based
+       * on the extension range containing the extension's field number.
+       * </pre>
+       */
+      public Builder setOneofIndex(int value) {
+        bitField0_ |= 0x00000080;
+        oneofIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 oneof_index = 9;</code>
+       *
+       * <pre>
+       * If set, gives the index of a oneof in the containing type's oneof_decl
+       * list.  This field is a member of that oneof.  Extensions of a oneof should
+       * not set this since the oneof to which they belong will be inferred based
+       * on the extension range containing the extension's field number.
+       * </pre>
+       */
+      public Builder clearOneofIndex() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        oneofIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.DescriptorProtos.FieldOptions options_ = com.google.protobuf.DescriptorProtos.FieldOptions.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.google.protobuf.DescriptorProtos.FieldOptions, com.google.protobuf.DescriptorProtos.FieldOptions.Builder, com.google.protobuf.DescriptorProtos.FieldOptionsOrBuilder> optionsBuilder_;
@@ -9233,7 +9701,7 @@ public final class DescriptorProtos {
        * <code>optional .google.protobuf.FieldOptions options = 8;</code>
        */
       public boolean hasOptions() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
        * <code>optional .google.protobuf.FieldOptions options = 8;</code>
@@ -9258,7 +9726,7 @@ public final class DescriptorProtos {
         } else {
           optionsBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
@@ -9272,7 +9740,7 @@ public final class DescriptorProtos {
         } else {
           optionsBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
@@ -9280,7 +9748,7 @@ public final class DescriptorProtos {
        */
       public Builder mergeOptions(com.google.protobuf.DescriptorProtos.FieldOptions value) {
         if (optionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000080) == 0x00000080) &&
+          if (((bitField0_ & 0x00000100) == 0x00000100) &&
               options_ != com.google.protobuf.DescriptorProtos.FieldOptions.getDefaultInstance()) {
             options_ =
               com.google.protobuf.DescriptorProtos.FieldOptions.newBuilder(options_).mergeFrom(value).buildPartial();
@@ -9291,7 +9759,7 @@ public final class DescriptorProtos {
         } else {
           optionsBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
@@ -9304,14 +9772,14 @@ public final class DescriptorProtos {
         } else {
           optionsBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
       /**
        * <code>optional .google.protobuf.FieldOptions options = 8;</code>
        */
       public com.google.protobuf.DescriptorProtos.FieldOptions.Builder getOptionsBuilder() {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         onChanged();
         return getOptionsFieldBuilder().getBuilder();
       }
@@ -9334,7 +9802,7 @@ public final class DescriptorProtos {
         if (optionsBuilder_ == null) {
           optionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.google.protobuf.DescriptorProtos.FieldOptions, com.google.protobuf.DescriptorProtos.FieldOptions.Builder, com.google.protobuf.DescriptorProtos.FieldOptionsOrBuilder>(
-                  options_,
+                  getOptions(),
                   getParentForChildren(),
                   isClean());
           options_ = null;
@@ -9353,10 +9821,494 @@ public final class DescriptorProtos {
     // @@protoc_insertion_point(class_scope:google.protobuf.FieldDescriptorProto)
   }
 
-  public interface EnumDescriptorProtoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface OneofDescriptorProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.OneofDescriptorProto)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional string name = 1;
+    /**
+     * <code>optional string name = 1;</code>
+     */
+    boolean hasName();
+    /**
+     * <code>optional string name = 1;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>optional string name = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+  }
+  /**
+   * Protobuf type {@code google.protobuf.OneofDescriptorProto}
+   *
+   * <pre>
+   * Describes a oneof.
+   * </pre>
+   */
+  public static final class OneofDescriptorProto extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.OneofDescriptorProto)
+      OneofDescriptorProtoOrBuilder {
+    // Use OneofDescriptorProto.newBuilder() to construct.
+    private OneofDescriptorProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private OneofDescriptorProto(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final OneofDescriptorProto defaultInstance;
+    public static OneofDescriptorProto getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public OneofDescriptorProto getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private OneofDescriptorProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              name_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_OneofDescriptorProto_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_OneofDescriptorProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.protobuf.DescriptorProtos.OneofDescriptorProto.class, com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<OneofDescriptorProto> PARSER =
+        new com.google.protobuf.AbstractParser<OneofDescriptorProto>() {
+      public OneofDescriptorProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new OneofDescriptorProto(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<OneofDescriptorProto> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private java.lang.Object name_;
+    /**
+     * <code>optional string name = 1;</code>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string name = 1;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string name = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      name_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getNameBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getNameBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.google.protobuf.DescriptorProtos.OneofDescriptorProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.protobuf.DescriptorProtos.OneofDescriptorProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.protobuf.DescriptorProtos.OneofDescriptorProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.protobuf.DescriptorProtos.OneofDescriptorProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.protobuf.DescriptorProtos.OneofDescriptorProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.google.protobuf.DescriptorProtos.OneofDescriptorProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.google.protobuf.DescriptorProtos.OneofDescriptorProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.google.protobuf.DescriptorProtos.OneofDescriptorProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.google.protobuf.DescriptorProtos.OneofDescriptorProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.google.protobuf.DescriptorProtos.OneofDescriptorProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.google.protobuf.DescriptorProtos.OneofDescriptorProto prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code google.protobuf.OneofDescriptorProto}
+     *
+     * <pre>
+     * Describes a oneof.
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.OneofDescriptorProto)
+        com.google.protobuf.DescriptorProtos.OneofDescriptorProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_OneofDescriptorProto_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_OneofDescriptorProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.protobuf.DescriptorProtos.OneofDescriptorProto.class, com.google.protobuf.DescriptorProtos.OneofDescriptorProto.Builder.class);
+      }
+
+      // Construct using com.google.protobuf.DescriptorProtos.OneofDescriptorProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_OneofDescriptorProto_descriptor;
+      }
+
+      public com.google.protobuf.DescriptorProtos.OneofDescriptorProto getDefaultInstanceForType() {
+        return com.google.protobuf.DescriptorProtos.OneofDescriptorProto.getDefaultInstance();
+      }
+
+      public com.google.protobuf.DescriptorProtos.OneofDescriptorProto build() {
+        com.google.protobuf.DescriptorProtos.OneofDescriptorProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.google.protobuf.DescriptorProtos.OneofDescriptorProto buildPartial() {
+        com.google.protobuf.DescriptorProtos.OneofDescriptorProto result = new com.google.protobuf.DescriptorProtos.OneofDescriptorProto(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.protobuf.DescriptorProtos.OneofDescriptorProto) {
+          return mergeFrom((com.google.protobuf.DescriptorProtos.OneofDescriptorProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.protobuf.DescriptorProtos.OneofDescriptorProto other) {
+        if (other == com.google.protobuf.DescriptorProtos.OneofDescriptorProto.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.DescriptorProtos.OneofDescriptorProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.google.protobuf.DescriptorProtos.OneofDescriptorProto) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>optional string name = 1;</code>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string name = 1;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string name = 1;</code>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string name = 1;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:google.protobuf.OneofDescriptorProto)
+    }
+
+    static {
+      defaultInstance = new OneofDescriptorProto(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:google.protobuf.OneofDescriptorProto)
+  }
+
+  public interface EnumDescriptorProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.EnumDescriptorProto)
+      com.google.protobuf.MessageOrBuilder {
+
     /**
      * <code>optional string name = 1;</code>
      */
@@ -9371,7 +10323,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // repeated .google.protobuf.EnumValueDescriptorProto value = 2;
     /**
      * <code>repeated .google.protobuf.EnumValueDescriptorProto value = 2;</code>
      */
@@ -9396,7 +10347,6 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.EnumValueDescriptorProtoOrBuilder getValueOrBuilder(
         int index);
 
-    // optional .google.protobuf.EnumOptions options = 3;
     /**
      * <code>optional .google.protobuf.EnumOptions options = 3;</code>
      */
@@ -9418,8 +10368,9 @@ public final class DescriptorProtos {
    * </pre>
    */
   public static final class EnumDescriptorProto extends
-      com.google.protobuf.GeneratedMessage
-      implements EnumDescriptorProtoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.EnumDescriptorProto)
+      EnumDescriptorProtoOrBuilder {
     // Use EnumDescriptorProto.newBuilder() to construct.
     private EnumDescriptorProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -9466,8 +10417,9 @@ public final class DescriptorProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 18: {
@@ -9508,14 +10460,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_EnumDescriptorProto_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumDescriptorProto_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_EnumDescriptorProto_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumDescriptorProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.EnumDescriptorProto.class, com.google.protobuf.DescriptorProtos.EnumDescriptorProto.Builder.class);
+              com.google.protobuf.DescriptorProtos.EnumDescriptorProto.class, com.google.protobuf.DescriptorProtos.EnumDescriptorProto.Builder.class);
     }
 
     public static com.google.protobuf.Parser<EnumDescriptorProto> PARSER =
@@ -9534,7 +10486,6 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // optional string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -9577,7 +10528,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // repeated .google.protobuf.EnumValueDescriptorProto value = 2;
     public static final int VALUE_FIELD_NUMBER = 2;
     private java.util.List<com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto> value_;
     /**
@@ -9613,7 +10563,6 @@ public final class DescriptorProtos {
       return value_.get(index);
     }
 
-    // optional .google.protobuf.EnumOptions options = 3;
     public static final int OPTIONS_FIELD_NUMBER = 3;
     private com.google.protobuf.DescriptorProtos.EnumOptions options_;
     /**
@@ -9643,7 +10592,8 @@ public final class DescriptorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getValueCount(); i++) {
         if (!getValue(i).isInitialized()) {
@@ -9780,18 +10730,19 @@ public final class DescriptorProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.protobuf.DescriptorProtos.EnumDescriptorProtoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.EnumDescriptorProto)
+        com.google.protobuf.DescriptorProtos.EnumDescriptorProtoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_EnumDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumDescriptorProto_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_EnumDescriptorProto_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumDescriptorProto_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.EnumDescriptorProto.class, com.google.protobuf.DescriptorProtos.EnumDescriptorProto.Builder.class);
+                com.google.protobuf.DescriptorProtos.EnumDescriptorProto.class, com.google.protobuf.DescriptorProtos.EnumDescriptorProto.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.EnumDescriptorProto.newBuilder()
@@ -9805,7 +10756,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getValueFieldBuilder();
           getOptionsFieldBuilder();
         }
@@ -9839,11 +10790,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_EnumDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumDescriptorProto_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.EnumDescriptorProto getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.EnumDescriptorProto.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.EnumDescriptorProto build() {
@@ -9894,7 +10845,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.EnumDescriptorProto other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.EnumDescriptorProto.getDefaultInstance()) return this;
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -9919,7 +10870,7 @@ public final class DescriptorProtos {
               value_ = other.value_;
               bitField0_ = (bitField0_ & ~0x00000002);
               valueBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getValueFieldBuilder() : null;
             } else {
               valueBuilder_.addAllMessages(other.value_);
@@ -9968,7 +10919,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // optional string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 1;</code>
@@ -9982,9 +10932,12 @@ public final class DescriptorProtos {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -10042,7 +10995,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // repeated .google.protobuf.EnumValueDescriptorProto value = 2;
       private java.util.List<com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto> value_ =
         java.util.Collections.emptyList();
       private void ensureValueIsMutable() {
@@ -10184,7 +11136,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto> values) {
         if (valueBuilder_ == null) {
           ensureValueIsMutable();
-          super.addAll(values, value_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, value_);
           onChanged();
         } else {
           valueBuilder_.addAllMessages(values);
@@ -10282,7 +11235,6 @@ public final class DescriptorProtos {
         return valueBuilder_;
       }
 
-      // optional .google.protobuf.EnumOptions options = 3;
       private com.google.protobuf.DescriptorProtos.EnumOptions options_ = com.google.protobuf.DescriptorProtos.EnumOptions.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.google.protobuf.DescriptorProtos.EnumOptions, com.google.protobuf.DescriptorProtos.EnumOptions.Builder, com.google.protobuf.DescriptorProtos.EnumOptionsOrBuilder> optionsBuilder_;
@@ -10391,7 +11343,7 @@ public final class DescriptorProtos {
         if (optionsBuilder_ == null) {
           optionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.google.protobuf.DescriptorProtos.EnumOptions, com.google.protobuf.DescriptorProtos.EnumOptions.Builder, com.google.protobuf.DescriptorProtos.EnumOptionsOrBuilder>(
-                  options_,
+                  getOptions(),
                   getParentForChildren(),
                   isClean());
           options_ = null;
@@ -10410,10 +11362,10 @@ public final class DescriptorProtos {
     // @@protoc_insertion_point(class_scope:google.protobuf.EnumDescriptorProto)
   }
 
-  public interface EnumValueDescriptorProtoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface EnumValueDescriptorProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.EnumValueDescriptorProto)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional string name = 1;
     /**
      * <code>optional string name = 1;</code>
      */
@@ -10428,7 +11380,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // optional int32 number = 2;
     /**
      * <code>optional int32 number = 2;</code>
      */
@@ -10438,7 +11389,6 @@ public final class DescriptorProtos {
      */
     int getNumber();
 
-    // optional .google.protobuf.EnumValueOptions options = 3;
     /**
      * <code>optional .google.protobuf.EnumValueOptions options = 3;</code>
      */
@@ -10460,8 +11410,9 @@ public final class DescriptorProtos {
    * </pre>
    */
   public static final class EnumValueDescriptorProto extends
-      com.google.protobuf.GeneratedMessage
-      implements EnumValueDescriptorProtoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.EnumValueDescriptorProto)
+      EnumValueDescriptorProtoOrBuilder {
     // Use EnumValueDescriptorProto.newBuilder() to construct.
     private EnumValueDescriptorProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -10508,8 +11459,9 @@ public final class DescriptorProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 16: {
@@ -10544,14 +11496,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_EnumValueDescriptorProto_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumValueDescriptorProto_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_EnumValueDescriptorProto_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumValueDescriptorProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto.class, com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto.Builder.class);
+              com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto.class, com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto.Builder.class);
     }
 
     public static com.google.protobuf.Parser<EnumValueDescriptorProto> PARSER =
@@ -10570,7 +11522,6 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // optional string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -10613,7 +11564,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional int32 number = 2;
     public static final int NUMBER_FIELD_NUMBER = 2;
     private int number_;
     /**
@@ -10629,7 +11579,6 @@ public final class DescriptorProtos {
       return number_;
     }
 
-    // optional .google.protobuf.EnumValueOptions options = 3;
     public static final int OPTIONS_FIELD_NUMBER = 3;
     private com.google.protobuf.DescriptorProtos.EnumValueOptions options_;
     /**
@@ -10659,7 +11608,8 @@ public final class DescriptorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (hasOptions()) {
         if (!getOptions().isInitialized()) {
@@ -10790,18 +11740,19 @@ public final class DescriptorProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.protobuf.DescriptorProtos.EnumValueDescriptorProtoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.EnumValueDescriptorProto)
+        com.google.protobuf.DescriptorProtos.EnumValueDescriptorProtoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_EnumValueDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumValueDescriptorProto_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_EnumValueDescriptorProto_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumValueDescriptorProto_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto.class, com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto.Builder.class);
+                com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto.class, com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto.newBuilder()
@@ -10815,7 +11766,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getOptionsFieldBuilder();
         }
       }
@@ -10844,11 +11795,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_EnumValueDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumValueDescriptorProto_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto build() {
@@ -10894,7 +11845,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.EnumValueDescriptorProto.getDefaultInstance()) return this;
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -10939,7 +11890,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // optional string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 1;</code>
@@ -10953,9 +11903,12 @@ public final class DescriptorProtos {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -11013,7 +11966,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional int32 number = 2;
       private int number_ ;
       /**
        * <code>optional int32 number = 2;</code>
@@ -11046,7 +11998,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional .google.protobuf.EnumValueOptions options = 3;
       private com.google.protobuf.DescriptorProtos.EnumValueOptions options_ = com.google.protobuf.DescriptorProtos.EnumValueOptions.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.google.protobuf.DescriptorProtos.EnumValueOptions, com.google.protobuf.DescriptorProtos.EnumValueOptions.Builder, com.google.protobuf.DescriptorProtos.EnumValueOptionsOrBuilder> optionsBuilder_;
@@ -11155,7 +12106,7 @@ public final class DescriptorProtos {
         if (optionsBuilder_ == null) {
           optionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.google.protobuf.DescriptorProtos.EnumValueOptions, com.google.protobuf.DescriptorProtos.EnumValueOptions.Builder, com.google.protobuf.DescriptorProtos.EnumValueOptionsOrBuilder>(
-                  options_,
+                  getOptions(),
                   getParentForChildren(),
                   isClean());
           options_ = null;
@@ -11174,10 +12125,10 @@ public final class DescriptorProtos {
     // @@protoc_insertion_point(class_scope:google.protobuf.EnumValueDescriptorProto)
   }
 
-  public interface ServiceDescriptorProtoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface ServiceDescriptorProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.ServiceDescriptorProto)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional string name = 1;
     /**
      * <code>optional string name = 1;</code>
      */
@@ -11192,7 +12143,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // repeated .google.protobuf.MethodDescriptorProto method = 2;
     /**
      * <code>repeated .google.protobuf.MethodDescriptorProto method = 2;</code>
      */
@@ -11217,7 +12167,6 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.MethodDescriptorProtoOrBuilder getMethodOrBuilder(
         int index);
 
-    // optional .google.protobuf.ServiceOptions options = 3;
     /**
      * <code>optional .google.protobuf.ServiceOptions options = 3;</code>
      */
@@ -11239,8 +12188,9 @@ public final class DescriptorProtos {
    * </pre>
    */
   public static final class ServiceDescriptorProto extends
-      com.google.protobuf.GeneratedMessage
-      implements ServiceDescriptorProtoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.ServiceDescriptorProto)
+      ServiceDescriptorProtoOrBuilder {
     // Use ServiceDescriptorProto.newBuilder() to construct.
     private ServiceDescriptorProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -11287,8 +12237,9 @@ public final class DescriptorProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 18: {
@@ -11329,14 +12280,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_ServiceDescriptorProto_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_ServiceDescriptorProto_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_ServiceDescriptorProto_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_ServiceDescriptorProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.ServiceDescriptorProto.class, com.google.protobuf.DescriptorProtos.ServiceDescriptorProto.Builder.class);
+              com.google.protobuf.DescriptorProtos.ServiceDescriptorProto.class, com.google.protobuf.DescriptorProtos.ServiceDescriptorProto.Builder.class);
     }
 
     public static com.google.protobuf.Parser<ServiceDescriptorProto> PARSER =
@@ -11355,7 +12306,6 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // optional string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -11398,7 +12348,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // repeated .google.protobuf.MethodDescriptorProto method = 2;
     public static final int METHOD_FIELD_NUMBER = 2;
     private java.util.List<com.google.protobuf.DescriptorProtos.MethodDescriptorProto> method_;
     /**
@@ -11434,7 +12383,6 @@ public final class DescriptorProtos {
       return method_.get(index);
     }
 
-    // optional .google.protobuf.ServiceOptions options = 3;
     public static final int OPTIONS_FIELD_NUMBER = 3;
     private com.google.protobuf.DescriptorProtos.ServiceOptions options_;
     /**
@@ -11464,7 +12412,8 @@ public final class DescriptorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getMethodCount(); i++) {
         if (!getMethod(i).isInitialized()) {
@@ -11601,18 +12550,19 @@ public final class DescriptorProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.protobuf.DescriptorProtos.ServiceDescriptorProtoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.ServiceDescriptorProto)
+        com.google.protobuf.DescriptorProtos.ServiceDescriptorProtoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_ServiceDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_ServiceDescriptorProto_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_ServiceDescriptorProto_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_ServiceDescriptorProto_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.ServiceDescriptorProto.class, com.google.protobuf.DescriptorProtos.ServiceDescriptorProto.Builder.class);
+                com.google.protobuf.DescriptorProtos.ServiceDescriptorProto.class, com.google.protobuf.DescriptorProtos.ServiceDescriptorProto.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.ServiceDescriptorProto.newBuilder()
@@ -11626,7 +12576,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getMethodFieldBuilder();
           getOptionsFieldBuilder();
         }
@@ -11660,11 +12610,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_ServiceDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_ServiceDescriptorProto_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.ServiceDescriptorProto getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.ServiceDescriptorProto.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.ServiceDescriptorProto build() {
@@ -11715,7 +12665,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.ServiceDescriptorProto other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.ServiceDescriptorProto.getDefaultInstance()) return this;
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -11740,7 +12690,7 @@ public final class DescriptorProtos {
               method_ = other.method_;
               bitField0_ = (bitField0_ & ~0x00000002);
               methodBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getMethodFieldBuilder() : null;
             } else {
               methodBuilder_.addAllMessages(other.method_);
@@ -11789,7 +12739,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // optional string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 1;</code>
@@ -11803,9 +12752,12 @@ public final class DescriptorProtos {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -11863,7 +12815,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // repeated .google.protobuf.MethodDescriptorProto method = 2;
       private java.util.List<com.google.protobuf.DescriptorProtos.MethodDescriptorProto> method_ =
         java.util.Collections.emptyList();
       private void ensureMethodIsMutable() {
@@ -12005,7 +12956,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.MethodDescriptorProto> values) {
         if (methodBuilder_ == null) {
           ensureMethodIsMutable();
-          super.addAll(values, method_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, method_);
           onChanged();
         } else {
           methodBuilder_.addAllMessages(values);
@@ -12103,7 +13055,6 @@ public final class DescriptorProtos {
         return methodBuilder_;
       }
 
-      // optional .google.protobuf.ServiceOptions options = 3;
       private com.google.protobuf.DescriptorProtos.ServiceOptions options_ = com.google.protobuf.DescriptorProtos.ServiceOptions.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.google.protobuf.DescriptorProtos.ServiceOptions, com.google.protobuf.DescriptorProtos.ServiceOptions.Builder, com.google.protobuf.DescriptorProtos.ServiceOptionsOrBuilder> optionsBuilder_;
@@ -12212,7 +13163,7 @@ public final class DescriptorProtos {
         if (optionsBuilder_ == null) {
           optionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.google.protobuf.DescriptorProtos.ServiceOptions, com.google.protobuf.DescriptorProtos.ServiceOptions.Builder, com.google.protobuf.DescriptorProtos.ServiceOptionsOrBuilder>(
-                  options_,
+                  getOptions(),
                   getParentForChildren(),
                   isClean());
           options_ = null;
@@ -12231,10 +13182,10 @@ public final class DescriptorProtos {
     // @@protoc_insertion_point(class_scope:google.protobuf.ServiceDescriptorProto)
   }
 
-  public interface MethodDescriptorProtoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface MethodDescriptorProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.MethodDescriptorProto)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional string name = 1;
     /**
      * <code>optional string name = 1;</code>
      */
@@ -12249,7 +13200,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // optional string input_type = 2;
     /**
      * <code>optional string input_type = 2;</code>
      *
@@ -12279,7 +13229,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getInputTypeBytes();
 
-    // optional string output_type = 3;
     /**
      * <code>optional string output_type = 3;</code>
      */
@@ -12294,7 +13243,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getOutputTypeBytes();
 
-    // optional .google.protobuf.MethodOptions options = 4;
     /**
      * <code>optional .google.protobuf.MethodOptions options = 4;</code>
      */
@@ -12316,8 +13264,9 @@ public final class DescriptorProtos {
    * </pre>
    */
   public static final class MethodDescriptorProto extends
-      com.google.protobuf.GeneratedMessage
-      implements MethodDescriptorProtoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.MethodDescriptorProto)
+      MethodDescriptorProtoOrBuilder {
     // Use MethodDescriptorProto.newBuilder() to construct.
     private MethodDescriptorProto(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -12364,18 +13313,21 @@ public final class DescriptorProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              inputType_ = input.readBytes();
+              inputType_ = bs;
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              outputType_ = input.readBytes();
+              outputType_ = bs;
               break;
             }
             case 34: {
@@ -12405,14 +13357,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_MethodDescriptorProto_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MethodDescriptorProto_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_MethodDescriptorProto_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MethodDescriptorProto_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.MethodDescriptorProto.class, com.google.protobuf.DescriptorProtos.MethodDescriptorProto.Builder.class);
+              com.google.protobuf.DescriptorProtos.MethodDescriptorProto.class, com.google.protobuf.DescriptorProtos.MethodDescriptorProto.Builder.class);
     }
 
     public static com.google.protobuf.Parser<MethodDescriptorProto> PARSER =
@@ -12431,7 +13383,6 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // optional string name = 1;
     public static final int NAME_FIELD_NUMBER = 1;
     private java.lang.Object name_;
     /**
@@ -12474,7 +13425,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional string input_type = 2;
     public static final int INPUT_TYPE_FIELD_NUMBER = 2;
     private java.lang.Object inputType_;
     /**
@@ -12532,7 +13482,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional string output_type = 3;
     public static final int OUTPUT_TYPE_FIELD_NUMBER = 3;
     private java.lang.Object outputType_;
     /**
@@ -12575,7 +13524,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional .google.protobuf.MethodOptions options = 4;
     public static final int OPTIONS_FIELD_NUMBER = 4;
     private com.google.protobuf.DescriptorProtos.MethodOptions options_;
     /**
@@ -12606,7 +13554,8 @@ public final class DescriptorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (hasOptions()) {
         if (!getOptions().isInitialized()) {
@@ -12744,18 +13693,19 @@ public final class DescriptorProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.protobuf.DescriptorProtos.MethodDescriptorProtoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.MethodDescriptorProto)
+        com.google.protobuf.DescriptorProtos.MethodDescriptorProtoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_MethodDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MethodDescriptorProto_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_MethodDescriptorProto_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MethodDescriptorProto_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.MethodDescriptorProto.class, com.google.protobuf.DescriptorProtos.MethodDescriptorProto.Builder.class);
+                com.google.protobuf.DescriptorProtos.MethodDescriptorProto.class, com.google.protobuf.DescriptorProtos.MethodDescriptorProto.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.MethodDescriptorProto.newBuilder()
@@ -12769,7 +13719,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getOptionsFieldBuilder();
         }
       }
@@ -12800,11 +13750,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_MethodDescriptorProto_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MethodDescriptorProto_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.MethodDescriptorProto getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.MethodDescriptorProto.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.MethodDescriptorProto build() {
@@ -12854,7 +13804,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.MethodDescriptorProto other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.MethodDescriptorProto.getDefaultInstance()) return this;
         if (other.hasName()) {
           bitField0_ |= 0x00000001;
           name_ = other.name_;
@@ -12906,7 +13856,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // optional string name = 1;
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 1;</code>
@@ -12920,9 +13869,12 @@ public final class DescriptorProtos {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -12980,7 +13932,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional string input_type = 2;
       private java.lang.Object inputType_ = "";
       /**
        * <code>optional string input_type = 2;</code>
@@ -13004,9 +13955,12 @@ public final class DescriptorProtos {
       public java.lang.String getInputType() {
         java.lang.Object ref = inputType_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          inputType_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            inputType_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -13084,7 +14038,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional string output_type = 3;
       private java.lang.Object outputType_ = "";
       /**
        * <code>optional string output_type = 3;</code>
@@ -13098,9 +14051,12 @@ public final class DescriptorProtos {
       public java.lang.String getOutputType() {
         java.lang.Object ref = outputType_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          outputType_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            outputType_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -13158,7 +14114,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional .google.protobuf.MethodOptions options = 4;
       private com.google.protobuf.DescriptorProtos.MethodOptions options_ = com.google.protobuf.DescriptorProtos.MethodOptions.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.google.protobuf.DescriptorProtos.MethodOptions, com.google.protobuf.DescriptorProtos.MethodOptions.Builder, com.google.protobuf.DescriptorProtos.MethodOptionsOrBuilder> optionsBuilder_;
@@ -13267,7 +14222,7 @@ public final class DescriptorProtos {
         if (optionsBuilder_ == null) {
           optionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               com.google.protobuf.DescriptorProtos.MethodOptions, com.google.protobuf.DescriptorProtos.MethodOptions.Builder, com.google.protobuf.DescriptorProtos.MethodOptionsOrBuilder>(
-                  options_,
+                  getOptions(),
                   getParentForChildren(),
                   isClean());
           options_ = null;
@@ -13287,10 +14242,10 @@ public final class DescriptorProtos {
   }
 
   public interface FileOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.FileOptions)
       com.google.protobuf.GeneratedMessage.
           ExtendableMessageOrBuilder<FileOptions> {
 
-    // optional string java_package = 1;
     /**
      * <code>optional string java_package = 1;</code>
      *
@@ -13326,7 +14281,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getJavaPackageBytes();
 
-    // optional string java_outer_classname = 8;
     /**
      * <code>optional string java_outer_classname = 8;</code>
      *
@@ -13365,7 +14319,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getJavaOuterClassnameBytes();
 
-    // optional bool java_multiple_files = 10 [default = false];
     /**
      * <code>optional bool java_multiple_files = 10 [default = false];</code>
      *
@@ -13393,15 +14346,20 @@ public final class DescriptorProtos {
      */
     boolean getJavaMultipleFiles();
 
-    // optional bool java_generate_equals_and_hash = 20 [default = false];
     /**
      * <code>optional bool java_generate_equals_and_hash = 20 [default = false];</code>
      *
      * <pre>
      * If set true, then the Java code generator will generate equals() and
-     * hashCode() methods for all messages defined in the .proto file. This is
-     * purely a speed optimization, as the AbstractMessage base class includes
-     * reflection-based implementations of these methods.
+     * hashCode() methods for all messages defined in the .proto file.
+     * - In the full runtime, this is purely a speed optimization, as the
+     * AbstractMessage base class includes reflection-based implementations of
+     * these methods.
+     *- In the lite runtime, setting this option changes the semantics of
+     * equals() and hashCode() to more closely match those of the full runtime;
+     * the generated methods compute their results based on field values rather
+     * than object identity. (Implementations should not assume that hashcodes
+     * will be consistent across runtimes or versions of the protocol compiler.)
      * </pre>
      */
     boolean hasJavaGenerateEqualsAndHash();
@@ -13410,14 +14368,46 @@ public final class DescriptorProtos {
      *
      * <pre>
      * If set true, then the Java code generator will generate equals() and
-     * hashCode() methods for all messages defined in the .proto file. This is
-     * purely a speed optimization, as the AbstractMessage base class includes
-     * reflection-based implementations of these methods.
+     * hashCode() methods for all messages defined in the .proto file.
+     * - In the full runtime, this is purely a speed optimization, as the
+     * AbstractMessage base class includes reflection-based implementations of
+     * these methods.
+     *- In the lite runtime, setting this option changes the semantics of
+     * equals() and hashCode() to more closely match those of the full runtime;
+     * the generated methods compute their results based on field values rather
+     * than object identity. (Implementations should not assume that hashcodes
+     * will be consistent across runtimes or versions of the protocol compiler.)
      * </pre>
      */
     boolean getJavaGenerateEqualsAndHash();
 
-    // optional .google.protobuf.FileOptions.OptimizeMode optimize_for = 9 [default = SPEED];
+    /**
+     * <code>optional bool java_string_check_utf8 = 27 [default = false];</code>
+     *
+     * <pre>
+     * If set true, then the Java2 code generator will generate code that
+     * throws an exception whenever an attempt is made to assign a non-UTF-8
+     * byte sequence to a string field.
+     * Message reflection will do the same.
+     * However, an extension field still accepts non-UTF-8 byte sequences.
+     * This option has no effect on when used with the lite runtime.
+     * </pre>
+     */
+    boolean hasJavaStringCheckUtf8();
+    /**
+     * <code>optional bool java_string_check_utf8 = 27 [default = false];</code>
+     *
+     * <pre>
+     * If set true, then the Java2 code generator will generate code that
+     * throws an exception whenever an attempt is made to assign a non-UTF-8
+     * byte sequence to a string field.
+     * Message reflection will do the same.
+     * However, an extension field still accepts non-UTF-8 byte sequences.
+     * This option has no effect on when used with the lite runtime.
+     * </pre>
+     */
+    boolean getJavaStringCheckUtf8();
+
     /**
      * <code>optional .google.protobuf.FileOptions.OptimizeMode optimize_for = 9 [default = SPEED];</code>
      */
@@ -13427,7 +14417,6 @@ public final class DescriptorProtos {
      */
     com.google.protobuf.DescriptorProtos.FileOptions.OptimizeMode getOptimizeFor();
 
-    // optional string go_package = 11;
     /**
      * <code>optional string go_package = 11;</code>
      *
@@ -13457,7 +14446,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getGoPackageBytes();
 
-    // optional bool cc_generic_services = 16 [default = false];
     /**
      * <code>optional bool cc_generic_services = 16 [default = false];</code>
      *
@@ -13467,7 +14455,6 @@ public final class DescriptorProtos {
      * main code generators in each language (without additional plugins).
      * Generic services were the only kind of service generation supported by
      * early versions of proto2.
-     *
      * Generic services are now considered deprecated in favor of using plugins
      * that generate code specific to your particular RPC system.  Therefore,
      * these default to false.  Old code which depends on generic services should
@@ -13484,7 +14471,6 @@ public final class DescriptorProtos {
      * main code generators in each language (without additional plugins).
      * Generic services were the only kind of service generation supported by
      * early versions of proto2.
-     *
      * Generic services are now considered deprecated in favor of using plugins
      * that generate code specific to your particular RPC system.  Therefore,
      * these default to false.  Old code which depends on generic services should
@@ -13493,7 +14479,6 @@ public final class DescriptorProtos {
      */
     boolean getCcGenericServices();
 
-    // optional bool java_generic_services = 17 [default = false];
     /**
      * <code>optional bool java_generic_services = 17 [default = false];</code>
      */
@@ -13503,7 +14488,6 @@ public final class DescriptorProtos {
      */
     boolean getJavaGenericServices();
 
-    // optional bool py_generic_services = 18 [default = false];
     /**
      * <code>optional bool py_generic_services = 18 [default = false];</code>
      */
@@ -13513,7 +14497,29 @@ public final class DescriptorProtos {
      */
     boolean getPyGenericServices();
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+    /**
+     * <code>optional bool deprecated = 23 [default = false];</code>
+     *
+     * <pre>
+     * Is this file deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for everything in the file, or it will be completely ignored; in the very
+     * least, this is a formalization for deprecating files.
+     * </pre>
+     */
+    boolean hasDeprecated();
+    /**
+     * <code>optional bool deprecated = 23 [default = false];</code>
+     *
+     * <pre>
+     * Is this file deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for everything in the file, or it will be completely ignored; in the very
+     * least, this is a formalization for deprecating files.
+     * </pre>
+     */
+    boolean getDeprecated();
+
     /**
      * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
      *
@@ -13563,7 +14569,9 @@ public final class DescriptorProtos {
    */
   public static final class FileOptions extends
       com.google.protobuf.GeneratedMessage.ExtendableMessage<
-        FileOptions> implements FileOptionsOrBuilder {
+        FileOptions> implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.FileOptions)
+      FileOptionsOrBuilder {
     // Use FileOptions.newBuilder() to construct.
     private FileOptions(com.google.protobuf.GeneratedMessage.ExtendableBuilder<com.google.protobuf.DescriptorProtos.FileOptions, ?> builder) {
       super(builder);
@@ -13610,13 +14618,15 @@ public final class DescriptorProtos {
               break;
             }
             case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              javaPackage_ = input.readBytes();
+              javaPackage_ = bs;
               break;
             }
             case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              javaOuterClassname_ = input.readBytes();
+              javaOuterClassname_ = bs;
               break;
             }
             case 72: {
@@ -13625,7 +14635,7 @@ public final class DescriptorProtos {
               if (value == null) {
                 unknownFields.mergeVarintField(9, rawValue);
               } else {
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000020;
                 optimizeFor_ = value;
               }
               break;
@@ -13636,22 +14646,23 @@ public final class DescriptorProtos {
               break;
             }
             case 90: {
-              bitField0_ |= 0x00000020;
-              goPackage_ = input.readBytes();
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              goPackage_ = bs;
               break;
             }
             case 128: {
-              bitField0_ |= 0x00000040;
+              bitField0_ |= 0x00000080;
               ccGenericServices_ = input.readBool();
               break;
             }
             case 136: {
-              bitField0_ |= 0x00000080;
+              bitField0_ |= 0x00000100;
               javaGenericServices_ = input.readBool();
               break;
             }
             case 144: {
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000200;
               pyGenericServices_ = input.readBool();
               break;
             }
@@ -13660,10 +14671,20 @@ public final class DescriptorProtos {
               javaGenerateEqualsAndHash_ = input.readBool();
               break;
             }
+            case 184: {
+              bitField0_ |= 0x00000400;
+              deprecated_ = input.readBool();
+              break;
+            }
+            case 216: {
+              bitField0_ |= 0x00000010;
+              javaStringCheckUtf8_ = input.readBool();
+              break;
+            }
             case 7994: {
-              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+              if (!((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
                 uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>();
-                mutable_bitField0_ |= 0x00000200;
+                mutable_bitField0_ |= 0x00000800;
               }
               uninterpretedOption_.add(input.readMessage(com.google.protobuf.DescriptorProtos.UninterpretedOption.PARSER, extensionRegistry));
               break;
@@ -13676,7 +14697,7 @@ public final class DescriptorProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+        if (((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
           uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
         }
         this.unknownFields = unknownFields.build();
@@ -13685,14 +14706,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_FileOptions_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileOptions_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_FileOptions_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileOptions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.FileOptions.class, com.google.protobuf.DescriptorProtos.FileOptions.Builder.class);
+              com.google.protobuf.DescriptorProtos.FileOptions.class, com.google.protobuf.DescriptorProtos.FileOptions.Builder.class);
     }
 
     public static com.google.protobuf.Parser<FileOptions> PARSER =
@@ -13830,7 +14851,6 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // optional string java_package = 1;
     public static final int JAVA_PACKAGE_FIELD_NUMBER = 1;
     private java.lang.Object javaPackage_;
     /**
@@ -13894,7 +14914,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional string java_outer_classname = 8;
     public static final int JAVA_OUTER_CLASSNAME_FIELD_NUMBER = 8;
     private java.lang.Object javaOuterClassname_;
     /**
@@ -13961,7 +14980,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional bool java_multiple_files = 10 [default = false];
     public static final int JAVA_MULTIPLE_FILES_FIELD_NUMBER = 10;
     private boolean javaMultipleFiles_;
     /**
@@ -13995,7 +15013,6 @@ public final class DescriptorProtos {
       return javaMultipleFiles_;
     }
 
-    // optional bool java_generate_equals_and_hash = 20 [default = false];
     public static final int JAVA_GENERATE_EQUALS_AND_HASH_FIELD_NUMBER = 20;
     private boolean javaGenerateEqualsAndHash_;
     /**
@@ -14003,9 +15020,15 @@ public final class DescriptorProtos {
      *
      * <pre>
      * If set true, then the Java code generator will generate equals() and
-     * hashCode() methods for all messages defined in the .proto file. This is
-     * purely a speed optimization, as the AbstractMessage base class includes
-     * reflection-based implementations of these methods.
+     * hashCode() methods for all messages defined in the .proto file.
+     * - In the full runtime, this is purely a speed optimization, as the
+     * AbstractMessage base class includes reflection-based implementations of
+     * these methods.
+     *- In the lite runtime, setting this option changes the semantics of
+     * equals() and hashCode() to more closely match those of the full runtime;
+     * the generated methods compute their results based on field values rather
+     * than object identity. (Implementations should not assume that hashcodes
+     * will be consistent across runtimes or versions of the protocol compiler.)
      * </pre>
      */
     public boolean hasJavaGenerateEqualsAndHash() {
@@ -14016,23 +15039,61 @@ public final class DescriptorProtos {
      *
      * <pre>
      * If set true, then the Java code generator will generate equals() and
-     * hashCode() methods for all messages defined in the .proto file. This is
-     * purely a speed optimization, as the AbstractMessage base class includes
-     * reflection-based implementations of these methods.
+     * hashCode() methods for all messages defined in the .proto file.
+     * - In the full runtime, this is purely a speed optimization, as the
+     * AbstractMessage base class includes reflection-based implementations of
+     * these methods.
+     *- In the lite runtime, setting this option changes the semantics of
+     * equals() and hashCode() to more closely match those of the full runtime;
+     * the generated methods compute their results based on field values rather
+     * than object identity. (Implementations should not assume that hashcodes
+     * will be consistent across runtimes or versions of the protocol compiler.)
      * </pre>
      */
     public boolean getJavaGenerateEqualsAndHash() {
       return javaGenerateEqualsAndHash_;
     }
 
-    // optional .google.protobuf.FileOptions.OptimizeMode optimize_for = 9 [default = SPEED];
+    public static final int JAVA_STRING_CHECK_UTF8_FIELD_NUMBER = 27;
+    private boolean javaStringCheckUtf8_;
+    /**
+     * <code>optional bool java_string_check_utf8 = 27 [default = false];</code>
+     *
+     * <pre>
+     * If set true, then the Java2 code generator will generate code that
+     * throws an exception whenever an attempt is made to assign a non-UTF-8
+     * byte sequence to a string field.
+     * Message reflection will do the same.
+     * However, an extension field still accepts non-UTF-8 byte sequences.
+     * This option has no effect on when used with the lite runtime.
+     * </pre>
+     */
+    public boolean hasJavaStringCheckUtf8() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional bool java_string_check_utf8 = 27 [default = false];</code>
+     *
+     * <pre>
+     * If set true, then the Java2 code generator will generate code that
+     * throws an exception whenever an attempt is made to assign a non-UTF-8
+     * byte sequence to a string field.
+     * Message reflection will do the same.
+     * However, an extension field still accepts non-UTF-8 byte sequences.
+     * This option has no effect on when used with the lite runtime.
+     * </pre>
+     */
+    public boolean getJavaStringCheckUtf8() {
+      return javaStringCheckUtf8_;
+    }
+
     public static final int OPTIMIZE_FOR_FIELD_NUMBER = 9;
     private com.google.protobuf.DescriptorProtos.FileOptions.OptimizeMode optimizeFor_;
     /**
      * <code>optional .google.protobuf.FileOptions.OptimizeMode optimize_for = 9 [default = SPEED];</code>
      */
     public boolean hasOptimizeFor() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
+      return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <code>optional .google.protobuf.FileOptions.OptimizeMode optimize_for = 9 [default = SPEED];</code>
@@ -14041,7 +15102,6 @@ public final class DescriptorProtos {
       return optimizeFor_;
     }
 
-    // optional string go_package = 11;
     public static final int GO_PACKAGE_FIELD_NUMBER = 11;
     private java.lang.Object goPackage_;
     /**
@@ -14053,7 +15113,7 @@ public final class DescriptorProtos {
      * </pre>
      */
     public boolean hasGoPackage() {
-      return ((bitField0_ & 0x00000020) == 0x00000020);
+      return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
      * <code>optional string go_package = 11;</code>
@@ -14099,7 +15159,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional bool cc_generic_services = 16 [default = false];
     public static final int CC_GENERIC_SERVICES_FIELD_NUMBER = 16;
     private boolean ccGenericServices_;
     /**
@@ -14111,7 +15170,6 @@ public final class DescriptorProtos {
      * main code generators in each language (without additional plugins).
      * Generic services were the only kind of service generation supported by
      * early versions of proto2.
-     *
      * Generic services are now considered deprecated in favor of using plugins
      * that generate code specific to your particular RPC system.  Therefore,
      * these default to false.  Old code which depends on generic services should
@@ -14119,7 +15177,7 @@ public final class DescriptorProtos {
      * </pre>
      */
     public boolean hasCcGenericServices() {
-      return ((bitField0_ & 0x00000040) == 0x00000040);
+      return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
      * <code>optional bool cc_generic_services = 16 [default = false];</code>
@@ -14130,7 +15188,6 @@ public final class DescriptorProtos {
      * main code generators in each language (without additional plugins).
      * Generic services were the only kind of service generation supported by
      * early versions of proto2.
-     *
      * Generic services are now considered deprecated in favor of using plugins
      * that generate code specific to your particular RPC system.  Therefore,
      * these default to false.  Old code which depends on generic services should
@@ -14141,14 +15198,13 @@ public final class DescriptorProtos {
       return ccGenericServices_;
     }
 
-    // optional bool java_generic_services = 17 [default = false];
     public static final int JAVA_GENERIC_SERVICES_FIELD_NUMBER = 17;
     private boolean javaGenericServices_;
     /**
      * <code>optional bool java_generic_services = 17 [default = false];</code>
      */
     public boolean hasJavaGenericServices() {
-      return ((bitField0_ & 0x00000080) == 0x00000080);
+      return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
      * <code>optional bool java_generic_services = 17 [default = false];</code>
@@ -14157,14 +15213,13 @@ public final class DescriptorProtos {
       return javaGenericServices_;
     }
 
-    // optional bool py_generic_services = 18 [default = false];
     public static final int PY_GENERIC_SERVICES_FIELD_NUMBER = 18;
     private boolean pyGenericServices_;
     /**
      * <code>optional bool py_generic_services = 18 [default = false];</code>
      */
     public boolean hasPyGenericServices() {
-      return ((bitField0_ & 0x00000100) == 0x00000100);
+      return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
      * <code>optional bool py_generic_services = 18 [default = false];</code>
@@ -14173,7 +15228,35 @@ public final class DescriptorProtos {
       return pyGenericServices_;
     }
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+    public static final int DEPRECATED_FIELD_NUMBER = 23;
+    private boolean deprecated_;
+    /**
+     * <code>optional bool deprecated = 23 [default = false];</code>
+     *
+     * <pre>
+     * Is this file deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for everything in the file, or it will be completely ignored; in the very
+     * least, this is a formalization for deprecating files.
+     * </pre>
+     */
+    public boolean hasDeprecated() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    /**
+     * <code>optional bool deprecated = 23 [default = false];</code>
+     *
+     * <pre>
+     * Is this file deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for everything in the file, or it will be completely ignored; in the very
+     * least, this is a formalization for deprecating files.
+     * </pre>
+     */
+    public boolean getDeprecated() {
+      return deprecated_;
+    }
+
     public static final int UNINTERPRETED_OPTION_FIELD_NUMBER = 999;
     private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_;
     /**
@@ -14234,17 +15317,20 @@ public final class DescriptorProtos {
       javaOuterClassname_ = "";
       javaMultipleFiles_ = false;
       javaGenerateEqualsAndHash_ = false;
+      javaStringCheckUtf8_ = false;
       optimizeFor_ = com.google.protobuf.DescriptorProtos.FileOptions.OptimizeMode.SPEED;
       goPackage_ = "";
       ccGenericServices_ = false;
       javaGenericServices_ = false;
       pyGenericServices_ = false;
+      deprecated_ = false;
       uninterpretedOption_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getUninterpretedOptionCount(); i++) {
         if (!getUninterpretedOption(i).isInitialized()) {
@@ -14272,26 +15358,32 @@ public final class DescriptorProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(8, getJavaOuterClassnameBytes());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeEnum(9, optimizeFor_.getNumber());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBool(10, javaMultipleFiles_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeBytes(11, getGoPackageBytes());
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeBool(16, ccGenericServices_);
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         output.writeBool(17, javaGenericServices_);
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
         output.writeBool(18, pyGenericServices_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeBool(20, javaGenerateEqualsAndHash_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeBool(23, deprecated_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBool(27, javaStringCheckUtf8_);
       }
       for (int i = 0; i < uninterpretedOption_.size(); i++) {
         output.writeMessage(999, uninterpretedOption_.get(i));
@@ -14314,7 +15406,7 @@ public final class DescriptorProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(8, getJavaOuterClassnameBytes());
       }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(9, optimizeFor_.getNumber());
       }
@@ -14322,25 +15414,33 @@ public final class DescriptorProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(10, javaMultipleFiles_);
       }
-      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(11, getGoPackageBytes());
       }
-      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(16, ccGenericServices_);
       }
-      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(17, javaGenericServices_);
       }
-      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(18, pyGenericServices_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(20, javaGenerateEqualsAndHash_);
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(23, deprecated_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(27, javaStringCheckUtf8_);
       }
       for (int i = 0; i < uninterpretedOption_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -14430,17 +15530,19 @@ public final class DescriptorProtos {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.ExtendableBuilder<
-          com.google.protobuf.DescriptorProtos.FileOptions, Builder> implements com.google.protobuf.DescriptorProtos.FileOptionsOrBuilder {
+          com.google.protobuf.DescriptorProtos.FileOptions, Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.FileOptions)
+        com.google.protobuf.DescriptorProtos.FileOptionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_FileOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileOptions_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_FileOptions_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileOptions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.FileOptions.class, com.google.protobuf.DescriptorProtos.FileOptions.Builder.class);
+                com.google.protobuf.DescriptorProtos.FileOptions.class, com.google.protobuf.DescriptorProtos.FileOptions.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.FileOptions.newBuilder()
@@ -14454,7 +15556,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getUninterpretedOptionFieldBuilder();
         }
       }
@@ -14472,19 +15574,23 @@ public final class DescriptorProtos {
         bitField0_ = (bitField0_ & ~0x00000004);
         javaGenerateEqualsAndHash_ = false;
         bitField0_ = (bitField0_ & ~0x00000008);
-        optimizeFor_ = com.google.protobuf.DescriptorProtos.FileOptions.OptimizeMode.SPEED;
+        javaStringCheckUtf8_ = false;
         bitField0_ = (bitField0_ & ~0x00000010);
-        goPackage_ = "";
+        optimizeFor_ = com.google.protobuf.DescriptorProtos.FileOptions.OptimizeMode.SPEED;
         bitField0_ = (bitField0_ & ~0x00000020);
-        ccGenericServices_ = false;
+        goPackage_ = "";
         bitField0_ = (bitField0_ & ~0x00000040);
-        javaGenericServices_ = false;
+        ccGenericServices_ = false;
         bitField0_ = (bitField0_ & ~0x00000080);
-        pyGenericServices_ = false;
+        javaGenericServices_ = false;
         bitField0_ = (bitField0_ & ~0x00000100);
+        pyGenericServices_ = false;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        deprecated_ = false;
+        bitField0_ = (bitField0_ & ~0x00000400);
         if (uninterpretedOptionBuilder_ == null) {
           uninterpretedOption_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000200);
+          bitField0_ = (bitField0_ & ~0x00000800);
         } else {
           uninterpretedOptionBuilder_.clear();
         }
@@ -14497,11 +15603,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_FileOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FileOptions_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.FileOptions getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.FileOptions.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.FileOptions build() {
@@ -14535,27 +15641,35 @@ public final class DescriptorProtos {
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.optimizeFor_ = optimizeFor_;
+        result.javaStringCheckUtf8_ = javaStringCheckUtf8_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
-        result.goPackage_ = goPackage_;
+        result.optimizeFor_ = optimizeFor_;
         if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
           to_bitField0_ |= 0x00000040;
         }
-        result.ccGenericServices_ = ccGenericServices_;
+        result.goPackage_ = goPackage_;
         if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
           to_bitField0_ |= 0x00000080;
         }
-        result.javaGenericServices_ = javaGenericServices_;
+        result.ccGenericServices_ = ccGenericServices_;
         if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
           to_bitField0_ |= 0x00000100;
         }
+        result.javaGenericServices_ = javaGenericServices_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
         result.pyGenericServices_ = pyGenericServices_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
+        }
+        result.deprecated_ = deprecated_;
         if (uninterpretedOptionBuilder_ == null) {
-          if (((bitField0_ & 0x00000200) == 0x00000200)) {
+          if (((bitField0_ & 0x00000800) == 0x00000800)) {
             uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
-            bitField0_ = (bitField0_ & ~0x00000200);
+            bitField0_ = (bitField0_ & ~0x00000800);
           }
           result.uninterpretedOption_ = uninterpretedOption_;
         } else {
@@ -14576,7 +15690,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.FileOptions other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.FileOptions.getDefaultInstance()) return this;
         if (other.hasJavaPackage()) {
           bitField0_ |= 0x00000001;
           javaPackage_ = other.javaPackage_;
@@ -14593,11 +15707,14 @@ public final class DescriptorProtos {
         if (other.hasJavaGenerateEqualsAndHash()) {
           setJavaGenerateEqualsAndHash(other.getJavaGenerateEqualsAndHash());
         }
+        if (other.hasJavaStringCheckUtf8()) {
+          setJavaStringCheckUtf8(other.getJavaStringCheckUtf8());
+        }
         if (other.hasOptimizeFor()) {
           setOptimizeFor(other.getOptimizeFor());
         }
         if (other.hasGoPackage()) {
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000040;
           goPackage_ = other.goPackage_;
           onChanged();
         }
@@ -14610,11 +15727,14 @@ public final class DescriptorProtos {
         if (other.hasPyGenericServices()) {
           setPyGenericServices(other.getPyGenericServices());
         }
+        if (other.hasDeprecated()) {
+          setDeprecated(other.getDeprecated());
+        }
         if (uninterpretedOptionBuilder_ == null) {
           if (!other.uninterpretedOption_.isEmpty()) {
             if (uninterpretedOption_.isEmpty()) {
               uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000200);
+              bitField0_ = (bitField0_ & ~0x00000800);
             } else {
               ensureUninterpretedOptionIsMutable();
               uninterpretedOption_.addAll(other.uninterpretedOption_);
@@ -14627,9 +15747,9 @@ public final class DescriptorProtos {
               uninterpretedOptionBuilder_.dispose();
               uninterpretedOptionBuilder_ = null;
               uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000200);
+              bitField0_ = (bitField0_ & ~0x00000800);
               uninterpretedOptionBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getUninterpretedOptionFieldBuilder() : null;
             } else {
               uninterpretedOptionBuilder_.addAllMessages(other.uninterpretedOption_);
@@ -14674,7 +15794,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // optional string java_package = 1;
       private java.lang.Object javaPackage_ = "";
       /**
        * <code>optional string java_package = 1;</code>
@@ -14702,9 +15821,12 @@ public final class DescriptorProtos {
       public java.lang.String getJavaPackage() {
         java.lang.Object ref = javaPackage_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          javaPackage_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            javaPackage_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -14790,7 +15912,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional string java_outer_classname = 8;
       private java.lang.Object javaOuterClassname_ = "";
       /**
        * <code>optional string java_outer_classname = 8;</code>
@@ -14820,9 +15941,12 @@ public final class DescriptorProtos {
       public java.lang.String getJavaOuterClassname() {
         java.lang.Object ref = javaOuterClassname_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          javaOuterClassname_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            javaOuterClassname_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -14912,7 +16036,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional bool java_multiple_files = 10 [default = false];
       private boolean javaMultipleFiles_ ;
       /**
        * <code>optional bool java_multiple_files = 10 [default = false];</code>
@@ -14981,16 +16104,21 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional bool java_generate_equals_and_hash = 20 [default = false];
       private boolean javaGenerateEqualsAndHash_ ;
       /**
        * <code>optional bool java_generate_equals_and_hash = 20 [default = false];</code>
        *
        * <pre>
        * If set true, then the Java code generator will generate equals() and
-       * hashCode() methods for all messages defined in the .proto file. This is
-       * purely a speed optimization, as the AbstractMessage base class includes
-       * reflection-based implementations of these methods.
+       * hashCode() methods for all messages defined in the .proto file.
+       * - In the full runtime, this is purely a speed optimization, as the
+       * AbstractMessage base class includes reflection-based implementations of
+       * these methods.
+       *- In the lite runtime, setting this option changes the semantics of
+       * equals() and hashCode() to more closely match those of the full runtime;
+       * the generated methods compute their results based on field values rather
+       * than object identity. (Implementations should not assume that hashcodes
+       * will be consistent across runtimes or versions of the protocol compiler.)
        * </pre>
        */
       public boolean hasJavaGenerateEqualsAndHash() {
@@ -15001,9 +16129,15 @@ public final class DescriptorProtos {
        *
        * <pre>
        * If set true, then the Java code generator will generate equals() and
-       * hashCode() methods for all messages defined in the .proto file. This is
-       * purely a speed optimization, as the AbstractMessage base class includes
-       * reflection-based implementations of these methods.
+       * hashCode() methods for all messages defined in the .proto file.
+       * - In the full runtime, this is purely a speed optimization, as the
+       * AbstractMessage base class includes reflection-based implementations of
+       * these methods.
+       *- In the lite runtime, setting this option changes the semantics of
+       * equals() and hashCode() to more closely match those of the full runtime;
+       * the generated methods compute their results based on field values rather
+       * than object identity. (Implementations should not assume that hashcodes
+       * will be consistent across runtimes or versions of the protocol compiler.)
        * </pre>
        */
       public boolean getJavaGenerateEqualsAndHash() {
@@ -15014,9 +16148,15 @@ public final class DescriptorProtos {
        *
        * <pre>
        * If set true, then the Java code generator will generate equals() and
-       * hashCode() methods for all messages defined in the .proto file. This is
-       * purely a speed optimization, as the AbstractMessage base class includes
-       * reflection-based implementations of these methods.
+       * hashCode() methods for all messages defined in the .proto file.
+       * - In the full runtime, this is purely a speed optimization, as the
+       * AbstractMessage base class includes reflection-based implementations of
+       * these methods.
+       *- In the lite runtime, setting this option changes the semantics of
+       * equals() and hashCode() to more closely match those of the full runtime;
+       * the generated methods compute their results based on field values rather
+       * than object identity. (Implementations should not assume that hashcodes
+       * will be consistent across runtimes or versions of the protocol compiler.)
        * </pre>
        */
       public Builder setJavaGenerateEqualsAndHash(boolean value) {
@@ -15030,9 +16170,15 @@ public final class DescriptorProtos {
        *
        * <pre>
        * If set true, then the Java code generator will generate equals() and
-       * hashCode() methods for all messages defined in the .proto file. This is
-       * purely a speed optimization, as the AbstractMessage base class includes
-       * reflection-based implementations of these methods.
+       * hashCode() methods for all messages defined in the .proto file.
+       * - In the full runtime, this is purely a speed optimization, as the
+       * AbstractMessage base class includes reflection-based implementations of
+       * these methods.
+       *- In the lite runtime, setting this option changes the semantics of
+       * equals() and hashCode() to more closely match those of the full runtime;
+       * the generated methods compute their results based on field values rather
+       * than object identity. (Implementations should not assume that hashcodes
+       * will be consistent across runtimes or versions of the protocol compiler.)
        * </pre>
        */
       public Builder clearJavaGenerateEqualsAndHash() {
@@ -15042,13 +16188,80 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional .google.protobuf.FileOptions.OptimizeMode optimize_for = 9 [default = SPEED];
+      private boolean javaStringCheckUtf8_ ;
+      /**
+       * <code>optional bool java_string_check_utf8 = 27 [default = false];</code>
+       *
+       * <pre>
+       * If set true, then the Java2 code generator will generate code that
+       * throws an exception whenever an attempt is made to assign a non-UTF-8
+       * byte sequence to a string field.
+       * Message reflection will do the same.
+       * However, an extension field still accepts non-UTF-8 byte sequences.
+       * This option has no effect on when used with the lite runtime.
+       * </pre>
+       */
+      public boolean hasJavaStringCheckUtf8() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional bool java_string_check_utf8 = 27 [default = false];</code>
+       *
+       * <pre>
+       * If set true, then the Java2 code generator will generate code that
+       * throws an exception whenever an attempt is made to assign a non-UTF-8
+       * byte sequence to a string field.
+       * Message reflection will do the same.
+       * However, an extension field still accepts non-UTF-8 byte sequences.
+       * This option has no effect on when used with the lite runtime.
+       * </pre>
+       */
+      public boolean getJavaStringCheckUtf8() {
+        return javaStringCheckUtf8_;
+      }
+      /**
+       * <code>optional bool java_string_check_utf8 = 27 [default = false];</code>
+       *
+       * <pre>
+       * If set true, then the Java2 code generator will generate code that
+       * throws an exception whenever an attempt is made to assign a non-UTF-8
+       * byte sequence to a string field.
+       * Message reflection will do the same.
+       * However, an extension field still accepts non-UTF-8 byte sequences.
+       * This option has no effect on when used with the lite runtime.
+       * </pre>
+       */
+      public Builder setJavaStringCheckUtf8(boolean value) {
+        bitField0_ |= 0x00000010;
+        javaStringCheckUtf8_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool java_string_check_utf8 = 27 [default = false];</code>
+       *
+       * <pre>
+       * If set true, then the Java2 code generator will generate code that
+       * throws an exception whenever an attempt is made to assign a non-UTF-8
+       * byte sequence to a string field.
+       * Message reflection will do the same.
+       * However, an extension field still accepts non-UTF-8 byte sequences.
+       * This option has no effect on when used with the lite runtime.
+       * </pre>
+       */
+      public Builder clearJavaStringCheckUtf8() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        javaStringCheckUtf8_ = false;
+        onChanged();
+        return this;
+      }
+
       private com.google.protobuf.DescriptorProtos.FileOptions.OptimizeMode optimizeFor_ = com.google.protobuf.DescriptorProtos.FileOptions.OptimizeMode.SPEED;
       /**
        * <code>optional .google.protobuf.FileOptions.OptimizeMode optimize_for = 9 [default = SPEED];</code>
        */
       public boolean hasOptimizeFor() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
+        return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <code>optional .google.protobuf.FileOptions.OptimizeMode optimize_for = 9 [default = SPEED];</code>
@@ -15063,7 +16276,7 @@ public final class DescriptorProtos {
         if (value == null) {
           throw new NullPointerException();
         }
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
         optimizeFor_ = value;
         onChanged();
         return this;
@@ -15072,13 +16285,12 @@ public final class DescriptorProtos {
        * <code>optional .google.protobuf.FileOptions.OptimizeMode optimize_for = 9 [default = SPEED];</code>
        */
       public Builder clearOptimizeFor() {
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         optimizeFor_ = com.google.protobuf.DescriptorProtos.FileOptions.OptimizeMode.SPEED;
         onChanged();
         return this;
       }
 
-      // optional string go_package = 11;
       private java.lang.Object goPackage_ = "";
       /**
        * <code>optional string go_package = 11;</code>
@@ -15089,7 +16301,7 @@ public final class DescriptorProtos {
        * </pre>
        */
       public boolean hasGoPackage() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
+        return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
        * <code>optional string go_package = 11;</code>
@@ -15102,9 +16314,12 @@ public final class DescriptorProtos {
       public java.lang.String getGoPackage() {
         java.lang.Object ref = goPackage_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          goPackage_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            goPackage_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -15144,7 +16359,7 @@ public final class DescriptorProtos {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000040;
         goPackage_ = value;
         onChanged();
         return this;
@@ -15158,7 +16373,7 @@ public final class DescriptorProtos {
        * </pre>
        */
       public Builder clearGoPackage() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         goPackage_ = getDefaultInstance().getGoPackage();
         onChanged();
         return this;
@@ -15176,13 +16391,12 @@ public final class DescriptorProtos {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000020;
+  bitField0_ |= 0x00000040;
         goPackage_ = value;
         onChanged();
         return this;
       }
 
-      // optional bool cc_generic_services = 16 [default = false];
       private boolean ccGenericServices_ ;
       /**
        * <code>optional bool cc_generic_services = 16 [default = false];</code>
@@ -15193,7 +16407,6 @@ public final class DescriptorProtos {
        * main code generators in each language (without additional plugins).
        * Generic services were the only kind of service generation supported by
        * early versions of proto2.
-       *
        * Generic services are now considered deprecated in favor of using plugins
        * that generate code specific to your particular RPC system.  Therefore,
        * these default to false.  Old code which depends on generic services should
@@ -15201,7 +16414,7 @@ public final class DescriptorProtos {
        * </pre>
        */
       public boolean hasCcGenericServices() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
+        return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
        * <code>optional bool cc_generic_services = 16 [default = false];</code>
@@ -15212,7 +16425,6 @@ public final class DescriptorProtos {
        * main code generators in each language (without additional plugins).
        * Generic services were the only kind of service generation supported by
        * early versions of proto2.
-       *
        * Generic services are now considered deprecated in favor of using plugins
        * that generate code specific to your particular RPC system.  Therefore,
        * these default to false.  Old code which depends on generic services should
@@ -15231,7 +16443,6 @@ public final class DescriptorProtos {
        * main code generators in each language (without additional plugins).
        * Generic services were the only kind of service generation supported by
        * early versions of proto2.
-       *
        * Generic services are now considered deprecated in favor of using plugins
        * that generate code specific to your particular RPC system.  Therefore,
        * these default to false.  Old code which depends on generic services should
@@ -15239,7 +16450,7 @@ public final class DescriptorProtos {
        * </pre>
        */
       public Builder setCcGenericServices(boolean value) {
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000080;
         ccGenericServices_ = value;
         onChanged();
         return this;
@@ -15253,7 +16464,6 @@ public final class DescriptorProtos {
        * main code generators in each language (without additional plugins).
        * Generic services were the only kind of service generation supported by
        * early versions of proto2.
-       *
        * Generic services are now considered deprecated in favor of using plugins
        * that generate code specific to your particular RPC system.  Therefore,
        * these default to false.  Old code which depends on generic services should
@@ -15261,19 +16471,18 @@ public final class DescriptorProtos {
        * </pre>
        */
       public Builder clearCcGenericServices() {
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000080);
         ccGenericServices_ = false;
         onChanged();
         return this;
       }
 
-      // optional bool java_generic_services = 17 [default = false];
       private boolean javaGenericServices_ ;
       /**
        * <code>optional bool java_generic_services = 17 [default = false];</code>
        */
       public boolean hasJavaGenericServices() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
+        return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
        * <code>optional bool java_generic_services = 17 [default = false];</code>
@@ -15285,7 +16494,7 @@ public final class DescriptorProtos {
        * <code>optional bool java_generic_services = 17 [default = false];</code>
        */
       public Builder setJavaGenericServices(boolean value) {
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
         javaGenericServices_ = value;
         onChanged();
         return this;
@@ -15294,19 +16503,18 @@ public final class DescriptorProtos {
        * <code>optional bool java_generic_services = 17 [default = false];</code>
        */
       public Builder clearJavaGenericServices() {
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000100);
         javaGenericServices_ = false;
         onChanged();
         return this;
       }
 
-      // optional bool py_generic_services = 18 [default = false];
       private boolean pyGenericServices_ ;
       /**
        * <code>optional bool py_generic_services = 18 [default = false];</code>
        */
       public boolean hasPyGenericServices() {
-        return ((bitField0_ & 0x00000100) == 0x00000100);
+        return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
        * <code>optional bool py_generic_services = 18 [default = false];</code>
@@ -15318,7 +16526,7 @@ public final class DescriptorProtos {
        * <code>optional bool py_generic_services = 18 [default = false];</code>
        */
       public Builder setPyGenericServices(boolean value) {
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000200;
         pyGenericServices_ = value;
         onChanged();
         return this;
@@ -15327,19 +16535,78 @@ public final class DescriptorProtos {
        * <code>optional bool py_generic_services = 18 [default = false];</code>
        */
       public Builder clearPyGenericServices() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000200);
         pyGenericServices_ = false;
         onChanged();
         return this;
       }
 
-      // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+      private boolean deprecated_ ;
+      /**
+       * <code>optional bool deprecated = 23 [default = false];</code>
+       *
+       * <pre>
+       * Is this file deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for everything in the file, or it will be completely ignored; in the very
+       * least, this is a formalization for deprecating files.
+       * </pre>
+       */
+      public boolean hasDeprecated() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>optional bool deprecated = 23 [default = false];</code>
+       *
+       * <pre>
+       * Is this file deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for everything in the file, or it will be completely ignored; in the very
+       * least, this is a formalization for deprecating files.
+       * </pre>
+       */
+      public boolean getDeprecated() {
+        return deprecated_;
+      }
+      /**
+       * <code>optional bool deprecated = 23 [default = false];</code>
+       *
+       * <pre>
+       * Is this file deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for everything in the file, or it will be completely ignored; in the very
+       * least, this is a formalization for deprecating files.
+       * </pre>
+       */
+      public Builder setDeprecated(boolean value) {
+        bitField0_ |= 0x00000400;
+        deprecated_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool deprecated = 23 [default = false];</code>
+       *
+       * <pre>
+       * Is this file deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for everything in the file, or it will be completely ignored; in the very
+       * least, this is a formalization for deprecating files.
+       * </pre>
+       */
+      public Builder clearDeprecated() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        deprecated_ = false;
+        onChanged();
+        return this;
+      }
+
       private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_ =
         java.util.Collections.emptyList();
       private void ensureUninterpretedOptionIsMutable() {
-        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
+        if (!((bitField0_ & 0x00000800) == 0x00000800)) {
           uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>(uninterpretedOption_);
-          bitField0_ |= 0x00000200;
+          bitField0_ |= 0x00000800;
          }
       }
 
@@ -15515,7 +16782,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.UninterpretedOption> values) {
         if (uninterpretedOptionBuilder_ == null) {
           ensureUninterpretedOptionIsMutable();
-          super.addAll(values, uninterpretedOption_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, uninterpretedOption_);
           onChanged();
         } else {
           uninterpretedOptionBuilder_.addAllMessages(values);
@@ -15532,7 +16800,7 @@ public final class DescriptorProtos {
       public Builder clearUninterpretedOption() {
         if (uninterpretedOptionBuilder_ == null) {
           uninterpretedOption_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000200);
+          bitField0_ = (bitField0_ & ~0x00000800);
           onChanged();
         } else {
           uninterpretedOptionBuilder_.clear();
@@ -15637,7 +16905,7 @@ public final class DescriptorProtos {
           uninterpretedOptionBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.google.protobuf.DescriptorProtos.UninterpretedOption, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder, com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder>(
                   uninterpretedOption_,
-                  ((bitField0_ & 0x00000200) == 0x00000200),
+                  ((bitField0_ & 0x00000800) == 0x00000800),
                   getParentForChildren(),
                   isClean());
           uninterpretedOption_ = null;
@@ -15657,10 +16925,10 @@ public final class DescriptorProtos {
   }
 
   public interface MessageOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.MessageOptions)
       com.google.protobuf.GeneratedMessage.
           ExtendableMessageOrBuilder<MessageOptions> {
 
-    // optional bool message_set_wire_format = 1 [default = false];
     /**
      * <code>optional bool message_set_wire_format = 1 [default = false];</code>
      *
@@ -15669,7 +16937,6 @@ public final class DescriptorProtos {
      * This is provided for backwards-compatibility with the MessageSet wire
      * format.  You should not use this for any other reason:  It's less
      * efficient, has fewer features, and is more complicated.
-     *
      * The message must be defined exactly as follows:
      *   message Foo {
      *     option message_set_wire_format = true;
@@ -15677,10 +16944,8 @@ public final class DescriptorProtos {
      *   }
      * Note that the message cannot have any defined fields; MessageSets only
      * have extensions.
-     *
      * All extensions of your type must be singular messages; e.g. they cannot
      * be int32s, enums, or repeated messages.
-     *
      * Because this is an option, the above two restrictions are not enforced by
      * the protocol compiler.
      * </pre>
@@ -15694,7 +16959,6 @@ public final class DescriptorProtos {
      * This is provided for backwards-compatibility with the MessageSet wire
      * format.  You should not use this for any other reason:  It's less
      * efficient, has fewer features, and is more complicated.
-     *
      * The message must be defined exactly as follows:
      *   message Foo {
      *     option message_set_wire_format = true;
@@ -15702,17 +16966,14 @@ public final class DescriptorProtos {
      *   }
      * Note that the message cannot have any defined fields; MessageSets only
      * have extensions.
-     *
      * All extensions of your type must be singular messages; e.g. they cannot
      * be int32s, enums, or repeated messages.
-     *
      * Because this is an option, the above two restrictions are not enforced by
      * the protocol compiler.
      * </pre>
      */
     boolean getMessageSetWireFormat();
 
-    // optional bool no_standard_descriptor_accessor = 2 [default = false];
     /**
      * <code>optional bool no_standard_descriptor_accessor = 2 [default = false];</code>
      *
@@ -15734,7 +16995,29 @@ public final class DescriptorProtos {
      */
     boolean getNoStandardDescriptorAccessor();
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+    /**
+     * <code>optional bool deprecated = 3 [default = false];</code>
+     *
+     * <pre>
+     * Is this message deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the message, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating messages.
+     * </pre>
+     */
+    boolean hasDeprecated();
+    /**
+     * <code>optional bool deprecated = 3 [default = false];</code>
+     *
+     * <pre>
+     * Is this message deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the message, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating messages.
+     * </pre>
+     */
+    boolean getDeprecated();
+
     /**
      * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
      *
@@ -15784,7 +17067,9 @@ public final class DescriptorProtos {
    */
   public static final class MessageOptions extends
       com.google.protobuf.GeneratedMessage.ExtendableMessage<
-        MessageOptions> implements MessageOptionsOrBuilder {
+        MessageOptions> implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.MessageOptions)
+      MessageOptionsOrBuilder {
     // Use MessageOptions.newBuilder() to construct.
     private MessageOptions(com.google.protobuf.GeneratedMessage.ExtendableBuilder<com.google.protobuf.DescriptorProtos.MessageOptions, ?> builder) {
       super(builder);
@@ -15840,10 +17125,15 @@ public final class DescriptorProtos {
               noStandardDescriptorAccessor_ = input.readBool();
               break;
             }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              deprecated_ = input.readBool();
+              break;
+            }
             case 7994: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                 uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000008;
               }
               uninterpretedOption_.add(input.readMessage(com.google.protobuf.DescriptorProtos.UninterpretedOption.PARSER, extensionRegistry));
               break;
@@ -15856,7 +17146,7 @@ public final class DescriptorProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
           uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
         }
         this.unknownFields = unknownFields.build();
@@ -15865,14 +17155,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_MessageOptions_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MessageOptions_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_MessageOptions_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MessageOptions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.MessageOptions.class, com.google.protobuf.DescriptorProtos.MessageOptions.Builder.class);
+              com.google.protobuf.DescriptorProtos.MessageOptions.class, com.google.protobuf.DescriptorProtos.MessageOptions.Builder.class);
     }
 
     public static com.google.protobuf.Parser<MessageOptions> PARSER =
@@ -15891,7 +17181,6 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // optional bool message_set_wire_format = 1 [default = false];
     public static final int MESSAGE_SET_WIRE_FORMAT_FIELD_NUMBER = 1;
     private boolean messageSetWireFormat_;
     /**
@@ -15902,7 +17191,6 @@ public final class DescriptorProtos {
      * This is provided for backwards-compatibility with the MessageSet wire
      * format.  You should not use this for any other reason:  It's less
      * efficient, has fewer features, and is more complicated.
-     *
      * The message must be defined exactly as follows:
      *   message Foo {
      *     option message_set_wire_format = true;
@@ -15910,10 +17198,8 @@ public final class DescriptorProtos {
      *   }
      * Note that the message cannot have any defined fields; MessageSets only
      * have extensions.
-     *
      * All extensions of your type must be singular messages; e.g. they cannot
      * be int32s, enums, or repeated messages.
-     *
      * Because this is an option, the above two restrictions are not enforced by
      * the protocol compiler.
      * </pre>
@@ -15929,7 +17215,6 @@ public final class DescriptorProtos {
      * This is provided for backwards-compatibility with the MessageSet wire
      * format.  You should not use this for any other reason:  It's less
      * efficient, has fewer features, and is more complicated.
-     *
      * The message must be defined exactly as follows:
      *   message Foo {
      *     option message_set_wire_format = true;
@@ -15937,10 +17222,8 @@ public final class DescriptorProtos {
      *   }
      * Note that the message cannot have any defined fields; MessageSets only
      * have extensions.
-     *
      * All extensions of your type must be singular messages; e.g. they cannot
      * be int32s, enums, or repeated messages.
-     *
      * Because this is an option, the above two restrictions are not enforced by
      * the protocol compiler.
      * </pre>
@@ -15949,7 +17232,6 @@ public final class DescriptorProtos {
       return messageSetWireFormat_;
     }
 
-    // optional bool no_standard_descriptor_accessor = 2 [default = false];
     public static final int NO_STANDARD_DESCRIPTOR_ACCESSOR_FIELD_NUMBER = 2;
     private boolean noStandardDescriptorAccessor_;
     /**
@@ -15977,7 +17259,35 @@ public final class DescriptorProtos {
       return noStandardDescriptorAccessor_;
     }
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+    public static final int DEPRECATED_FIELD_NUMBER = 3;
+    private boolean deprecated_;
+    /**
+     * <code>optional bool deprecated = 3 [default = false];</code>
+     *
+     * <pre>
+     * Is this message deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the message, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating messages.
+     * </pre>
+     */
+    public boolean hasDeprecated() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional bool deprecated = 3 [default = false];</code>
+     *
+     * <pre>
+     * Is this message deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the message, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating messages.
+     * </pre>
+     */
+    public boolean getDeprecated() {
+      return deprecated_;
+    }
+
     public static final int UNINTERPRETED_OPTION_FIELD_NUMBER = 999;
     private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_;
     /**
@@ -16036,12 +17346,14 @@ public final class DescriptorProtos {
     private void initFields() {
       messageSetWireFormat_ = false;
       noStandardDescriptorAccessor_ = false;
+      deprecated_ = false;
       uninterpretedOption_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getUninterpretedOptionCount(); i++) {
         if (!getUninterpretedOption(i).isInitialized()) {
@@ -16069,6 +17381,9 @@ public final class DescriptorProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBool(2, noStandardDescriptorAccessor_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBool(3, deprecated_);
+      }
       for (int i = 0; i < uninterpretedOption_.size(); i++) {
         output.writeMessage(999, uninterpretedOption_.get(i));
       }
@@ -16089,6 +17404,10 @@ public final class DescriptorProtos {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, noStandardDescriptorAccessor_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, deprecated_);
       }
       for (int i = 0; i < uninterpretedOption_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -16178,17 +17497,19 @@ public final class DescriptorProtos {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.ExtendableBuilder<
-          com.google.protobuf.DescriptorProtos.MessageOptions, Builder> implements com.google.protobuf.DescriptorProtos.MessageOptionsOrBuilder {
+          com.google.protobuf.DescriptorProtos.MessageOptions, Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.MessageOptions)
+        com.google.protobuf.DescriptorProtos.MessageOptionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_MessageOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MessageOptions_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_MessageOptions_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MessageOptions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.MessageOptions.class, com.google.protobuf.DescriptorProtos.MessageOptions.Builder.class);
+                com.google.protobuf.DescriptorProtos.MessageOptions.class, com.google.protobuf.DescriptorProtos.MessageOptions.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.MessageOptions.newBuilder()
@@ -16202,7 +17523,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getUninterpretedOptionFieldBuilder();
         }
       }
@@ -16216,9 +17537,11 @@ public final class DescriptorProtos {
         bitField0_ = (bitField0_ & ~0x00000001);
         noStandardDescriptorAccessor_ = false;
         bitField0_ = (bitField0_ & ~0x00000002);
+        deprecated_ = false;
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (uninterpretedOptionBuilder_ == null) {
           uninterpretedOption_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           uninterpretedOptionBuilder_.clear();
         }
@@ -16231,11 +17554,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_MessageOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MessageOptions_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.MessageOptions getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.MessageOptions.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.MessageOptions build() {
@@ -16258,10 +17581,14 @@ public final class DescriptorProtos {
           to_bitField0_ |= 0x00000002;
         }
         result.noStandardDescriptorAccessor_ = noStandardDescriptorAccessor_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.deprecated_ = deprecated_;
         if (uninterpretedOptionBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
             uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.uninterpretedOption_ = uninterpretedOption_;
         } else {
@@ -16282,18 +17609,21 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.MessageOptions other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.MessageOptions.getDefaultInstance()) return this;
         if (other.hasMessageSetWireFormat()) {
           setMessageSetWireFormat(other.getMessageSetWireFormat());
         }
         if (other.hasNoStandardDescriptorAccessor()) {
           setNoStandardDescriptorAccessor(other.getNoStandardDescriptorAccessor());
         }
+        if (other.hasDeprecated()) {
+          setDeprecated(other.getDeprecated());
+        }
         if (uninterpretedOptionBuilder_ == null) {
           if (!other.uninterpretedOption_.isEmpty()) {
             if (uninterpretedOption_.isEmpty()) {
               uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureUninterpretedOptionIsMutable();
               uninterpretedOption_.addAll(other.uninterpretedOption_);
@@ -16306,9 +17636,9 @@ public final class DescriptorProtos {
               uninterpretedOptionBuilder_.dispose();
               uninterpretedOptionBuilder_ = null;
               uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
               uninterpretedOptionBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getUninterpretedOptionFieldBuilder() : null;
             } else {
               uninterpretedOptionBuilder_.addAllMessages(other.uninterpretedOption_);
@@ -16353,7 +17683,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // optional bool message_set_wire_format = 1 [default = false];
       private boolean messageSetWireFormat_ ;
       /**
        * <code>optional bool message_set_wire_format = 1 [default = false];</code>
@@ -16363,7 +17692,6 @@ public final class DescriptorProtos {
        * This is provided for backwards-compatibility with the MessageSet wire
        * format.  You should not use this for any other reason:  It's less
        * efficient, has fewer features, and is more complicated.
-       *
        * The message must be defined exactly as follows:
        *   message Foo {
        *     option message_set_wire_format = true;
@@ -16371,10 +17699,8 @@ public final class DescriptorProtos {
        *   }
        * Note that the message cannot have any defined fields; MessageSets only
        * have extensions.
-       *
        * All extensions of your type must be singular messages; e.g. they cannot
        * be int32s, enums, or repeated messages.
-       *
        * Because this is an option, the above two restrictions are not enforced by
        * the protocol compiler.
        * </pre>
@@ -16390,7 +17716,6 @@ public final class DescriptorProtos {
        * This is provided for backwards-compatibility with the MessageSet wire
        * format.  You should not use this for any other reason:  It's less
        * efficient, has fewer features, and is more complicated.
-       *
        * The message must be defined exactly as follows:
        *   message Foo {
        *     option message_set_wire_format = true;
@@ -16398,10 +17723,8 @@ public final class DescriptorProtos {
        *   }
        * Note that the message cannot have any defined fields; MessageSets only
        * have extensions.
-       *
        * All extensions of your type must be singular messages; e.g. they cannot
        * be int32s, enums, or repeated messages.
-       *
        * Because this is an option, the above two restrictions are not enforced by
        * the protocol compiler.
        * </pre>
@@ -16417,7 +17740,6 @@ public final class DescriptorProtos {
        * This is provided for backwards-compatibility with the MessageSet wire
        * format.  You should not use this for any other reason:  It's less
        * efficient, has fewer features, and is more complicated.
-       *
        * The message must be defined exactly as follows:
        *   message Foo {
        *     option message_set_wire_format = true;
@@ -16425,10 +17747,8 @@ public final class DescriptorProtos {
        *   }
        * Note that the message cannot have any defined fields; MessageSets only
        * have extensions.
-       *
        * All extensions of your type must be singular messages; e.g. they cannot
        * be int32s, enums, or repeated messages.
-       *
        * Because this is an option, the above two restrictions are not enforced by
        * the protocol compiler.
        * </pre>
@@ -16447,7 +17767,6 @@ public final class DescriptorProtos {
        * This is provided for backwards-compatibility with the MessageSet wire
        * format.  You should not use this for any other reason:  It's less
        * efficient, has fewer features, and is more complicated.
-       *
        * The message must be defined exactly as follows:
        *   message Foo {
        *     option message_set_wire_format = true;
@@ -16455,10 +17774,8 @@ public final class DescriptorProtos {
        *   }
        * Note that the message cannot have any defined fields; MessageSets only
        * have extensions.
-       *
        * All extensions of your type must be singular messages; e.g. they cannot
        * be int32s, enums, or repeated messages.
-       *
        * Because this is an option, the above two restrictions are not enforced by
        * the protocol compiler.
        * </pre>
@@ -16470,7 +17787,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional bool no_standard_descriptor_accessor = 2 [default = false];
       private boolean noStandardDescriptorAccessor_ ;
       /**
        * <code>optional bool no_standard_descriptor_accessor = 2 [default = false];</code>
@@ -16527,13 +17843,72 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+      private boolean deprecated_ ;
+      /**
+       * <code>optional bool deprecated = 3 [default = false];</code>
+       *
+       * <pre>
+       * Is this message deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the message, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating messages.
+       * </pre>
+       */
+      public boolean hasDeprecated() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional bool deprecated = 3 [default = false];</code>
+       *
+       * <pre>
+       * Is this message deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the message, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating messages.
+       * </pre>
+       */
+      public boolean getDeprecated() {
+        return deprecated_;
+      }
+      /**
+       * <code>optional bool deprecated = 3 [default = false];</code>
+       *
+       * <pre>
+       * Is this message deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the message, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating messages.
+       * </pre>
+       */
+      public Builder setDeprecated(boolean value) {
+        bitField0_ |= 0x00000004;
+        deprecated_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool deprecated = 3 [default = false];</code>
+       *
+       * <pre>
+       * Is this message deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the message, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating messages.
+       * </pre>
+       */
+      public Builder clearDeprecated() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        deprecated_ = false;
+        onChanged();
+        return this;
+      }
+
       private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_ =
         java.util.Collections.emptyList();
       private void ensureUninterpretedOptionIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
           uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>(uninterpretedOption_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -16709,7 +18084,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.UninterpretedOption> values) {
         if (uninterpretedOptionBuilder_ == null) {
           ensureUninterpretedOptionIsMutable();
-          super.addAll(values, uninterpretedOption_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, uninterpretedOption_);
           onChanged();
         } else {
           uninterpretedOptionBuilder_.addAllMessages(values);
@@ -16726,7 +18102,7 @@ public final class DescriptorProtos {
       public Builder clearUninterpretedOption() {
         if (uninterpretedOptionBuilder_ == null) {
           uninterpretedOption_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           uninterpretedOptionBuilder_.clear();
@@ -16831,7 +18207,7 @@ public final class DescriptorProtos {
           uninterpretedOptionBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.google.protobuf.DescriptorProtos.UninterpretedOption, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder, com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder>(
                   uninterpretedOption_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
                   isClean());
           uninterpretedOption_ = null;
@@ -16851,10 +18227,10 @@ public final class DescriptorProtos {
   }
 
   public interface FieldOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.FieldOptions)
       com.google.protobuf.GeneratedMessage.
           ExtendableMessageOrBuilder<FieldOptions> {
 
-    // optional .google.protobuf.FieldOptions.CType ctype = 1 [default = STRING];
     /**
      * <code>optional .google.protobuf.FieldOptions.CType ctype = 1 [default = STRING];</code>
      *
@@ -16878,7 +18254,6 @@ public final class DescriptorProtos {
      */
     com.google.protobuf.DescriptorProtos.FieldOptions.CType getCtype();
 
-    // optional bool packed = 2;
     /**
      * <code>optional bool packed = 2;</code>
      *
@@ -16902,7 +18277,6 @@ public final class DescriptorProtos {
      */
     boolean getPacked();
 
-    // optional bool lazy = 5 [default = false];
     /**
      * <code>optional bool lazy = 5 [default = false];</code>
      *
@@ -16911,20 +18285,16 @@ public final class DescriptorProtos {
      * fields.  It means that when the outer message is initially parsed, the
      * inner message's contents will not be parsed but instead stored in encoded
      * form.  The inner message will actually be parsed when it is first accessed.
-     *
      * This is only a hint.  Implementations are free to choose whether to use
      * eager or lazy parsing regardless of the value of this option.  However,
      * setting this option true suggests that the protocol author believes that
      * using lazy parsing on this field is worth the additional bookkeeping
      * overhead typically needed to implement it.
-     *
      * This option does not affect the public interface of any generated code;
      * all method signatures remain the same.  Furthermore, thread-safety of the
      * interface is not affected by this option; const methods remain safe to
      * call from multiple threads concurrently, while non-const methods continue
      * to require exclusive access.
-     *
-     *
      * Note that implementations may choose not to check required fields within
      * a lazy sub-message.  That is, calling IsInitialized() on the outher message
      * may return true even if the inner message has missing required fields.
@@ -16946,20 +18316,16 @@ public final class DescriptorProtos {
      * fields.  It means that when the outer message is initially parsed, the
      * inner message's contents will not be parsed but instead stored in encoded
      * form.  The inner message will actually be parsed when it is first accessed.
-     *
      * This is only a hint.  Implementations are free to choose whether to use
      * eager or lazy parsing regardless of the value of this option.  However,
      * setting this option true suggests that the protocol author believes that
      * using lazy parsing on this field is worth the additional bookkeeping
      * overhead typically needed to implement it.
-     *
      * This option does not affect the public interface of any generated code;
      * all method signatures remain the same.  Furthermore, thread-safety of the
      * interface is not affected by this option; const methods remain safe to
      * call from multiple threads concurrently, while non-const methods continue
      * to require exclusive access.
-     *
-     *
      * Note that implementations may choose not to check required fields within
      * a lazy sub-message.  That is, calling IsInitialized() on the outher message
      * may return true even if the inner message has missing required fields.
@@ -16974,7 +18340,6 @@ public final class DescriptorProtos {
      */
     boolean getLazy();
 
-    // optional bool deprecated = 3 [default = false];
     /**
      * <code>optional bool deprecated = 3 [default = false];</code>
      *
@@ -16998,7 +18363,6 @@ public final class DescriptorProtos {
      */
     boolean getDeprecated();
 
-    // optional string experimental_map_key = 9;
     /**
      * <code>optional string experimental_map_key = 9;</code>
      *
@@ -17058,7 +18422,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getExperimentalMapKeyBytes();
 
-    // optional bool weak = 10 [default = false];
     /**
      * <code>optional bool weak = 10 [default = false];</code>
      *
@@ -17076,7 +18439,6 @@ public final class DescriptorProtos {
      */
     boolean getWeak();
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
     /**
      * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
      *
@@ -17126,7 +18488,9 @@ public final class DescriptorProtos {
    */
   public static final class FieldOptions extends
       com.google.protobuf.GeneratedMessage.ExtendableMessage<
-        FieldOptions> implements FieldOptionsOrBuilder {
+        FieldOptions> implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.FieldOptions)
+      FieldOptionsOrBuilder {
     // Use FieldOptions.newBuilder() to construct.
     private FieldOptions(com.google.protobuf.GeneratedMessage.ExtendableBuilder<com.google.protobuf.DescriptorProtos.FieldOptions, ?> builder) {
       super(builder);
@@ -17199,8 +18563,9 @@ public final class DescriptorProtos {
               break;
             }
             case 74: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              experimentalMapKey_ = input.readBytes();
+              experimentalMapKey_ = bs;
               break;
             }
             case 80: {
@@ -17233,14 +18598,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_FieldOptions_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FieldOptions_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_FieldOptions_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FieldOptions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.FieldOptions.class, com.google.protobuf.DescriptorProtos.FieldOptions.Builder.class);
+              com.google.protobuf.DescriptorProtos.FieldOptions.class, com.google.protobuf.DescriptorProtos.FieldOptions.Builder.class);
     }
 
     public static com.google.protobuf.Parser<FieldOptions> PARSER =
@@ -17358,7 +18723,6 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // optional .google.protobuf.FieldOptions.CType ctype = 1 [default = STRING];
     public static final int CTYPE_FIELD_NUMBER = 1;
     private com.google.protobuf.DescriptorProtos.FieldOptions.CType ctype_;
     /**
@@ -17388,7 +18752,6 @@ public final class DescriptorProtos {
       return ctype_;
     }
 
-    // optional bool packed = 2;
     public static final int PACKED_FIELD_NUMBER = 2;
     private boolean packed_;
     /**
@@ -17418,7 +18781,6 @@ public final class DescriptorProtos {
       return packed_;
     }
 
-    // optional bool lazy = 5 [default = false];
     public static final int LAZY_FIELD_NUMBER = 5;
     private boolean lazy_;
     /**
@@ -17429,20 +18791,16 @@ public final class DescriptorProtos {
      * fields.  It means that when the outer message is initially parsed, the
      * inner message's contents will not be parsed but instead stored in encoded
      * form.  The inner message will actually be parsed when it is first accessed.
-     *
      * This is only a hint.  Implementations are free to choose whether to use
      * eager or lazy parsing regardless of the value of this option.  However,
      * setting this option true suggests that the protocol author believes that
      * using lazy parsing on this field is worth the additional bookkeeping
      * overhead typically needed to implement it.
-     *
      * This option does not affect the public interface of any generated code;
      * all method signatures remain the same.  Furthermore, thread-safety of the
      * interface is not affected by this option; const methods remain safe to
      * call from multiple threads concurrently, while non-const methods continue
      * to require exclusive access.
-     *
-     *
      * Note that implementations may choose not to check required fields within
      * a lazy sub-message.  That is, calling IsInitialized() on the outher message
      * may return true even if the inner message has missing required fields.
@@ -17466,20 +18824,16 @@ public final class DescriptorProtos {
      * fields.  It means that when the outer message is initially parsed, the
      * inner message's contents will not be parsed but instead stored in encoded
      * form.  The inner message will actually be parsed when it is first accessed.
-     *
      * This is only a hint.  Implementations are free to choose whether to use
      * eager or lazy parsing regardless of the value of this option.  However,
      * setting this option true suggests that the protocol author believes that
      * using lazy parsing on this field is worth the additional bookkeeping
      * overhead typically needed to implement it.
-     *
      * This option does not affect the public interface of any generated code;
      * all method signatures remain the same.  Furthermore, thread-safety of the
      * interface is not affected by this option; const methods remain safe to
      * call from multiple threads concurrently, while non-const methods continue
      * to require exclusive access.
-     *
-     *
      * Note that implementations may choose not to check required fields within
      * a lazy sub-message.  That is, calling IsInitialized() on the outher message
      * may return true even if the inner message has missing required fields.
@@ -17496,7 +18850,6 @@ public final class DescriptorProtos {
       return lazy_;
     }
 
-    // optional bool deprecated = 3 [default = false];
     public static final int DEPRECATED_FIELD_NUMBER = 3;
     private boolean deprecated_;
     /**
@@ -17526,7 +18879,6 @@ public final class DescriptorProtos {
       return deprecated_;
     }
 
-    // optional string experimental_map_key = 9;
     public static final int EXPERIMENTAL_MAP_KEY_FIELD_NUMBER = 9;
     private java.lang.Object experimentalMapKey_;
     /**
@@ -17614,7 +18966,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional bool weak = 10 [default = false];
     public static final int WEAK_FIELD_NUMBER = 10;
     private boolean weak_;
     /**
@@ -17638,7 +18989,6 @@ public final class DescriptorProtos {
       return weak_;
     }
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
     public static final int UNINTERPRETED_OPTION_FIELD_NUMBER = 999;
     private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_;
     /**
@@ -17706,7 +19056,8 @@ public final class DescriptorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getUninterpretedOptionCount(); i++) {
         if (!getUninterpretedOption(i).isInitialized()) {
@@ -17871,17 +19222,19 @@ public final class DescriptorProtos {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.ExtendableBuilder<
-          com.google.protobuf.DescriptorProtos.FieldOptions, Builder> implements com.google.protobuf.DescriptorProtos.FieldOptionsOrBuilder {
+          com.google.protobuf.DescriptorProtos.FieldOptions, Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.FieldOptions)
+        com.google.protobuf.DescriptorProtos.FieldOptionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_FieldOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FieldOptions_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_FieldOptions_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FieldOptions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.FieldOptions.class, com.google.protobuf.DescriptorProtos.FieldOptions.Builder.class);
+                com.google.protobuf.DescriptorProtos.FieldOptions.class, com.google.protobuf.DescriptorProtos.FieldOptions.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.FieldOptions.newBuilder()
@@ -17895,7 +19248,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getUninterpretedOptionFieldBuilder();
         }
       }
@@ -17932,11 +19285,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_FieldOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_FieldOptions_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.FieldOptions getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.FieldOptions.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.FieldOptions build() {
@@ -17999,7 +19352,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.FieldOptions other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.FieldOptions.getDefaultInstance()) return this;
         if (other.hasCtype()) {
           setCtype(other.getCtype());
         }
@@ -18039,7 +19392,7 @@ public final class DescriptorProtos {
               uninterpretedOption_ = other.uninterpretedOption_;
               bitField0_ = (bitField0_ & ~0x00000040);
               uninterpretedOptionBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getUninterpretedOptionFieldBuilder() : null;
             } else {
               uninterpretedOptionBuilder_.addAllMessages(other.uninterpretedOption_);
@@ -18084,7 +19437,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // optional .google.protobuf.FieldOptions.CType ctype = 1 [default = STRING];
       private com.google.protobuf.DescriptorProtos.FieldOptions.CType ctype_ = com.google.protobuf.DescriptorProtos.FieldOptions.CType.STRING;
       /**
        * <code>optional .google.protobuf.FieldOptions.CType ctype = 1 [default = STRING];</code>
@@ -18148,7 +19500,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional bool packed = 2;
       private boolean packed_ ;
       /**
        * <code>optional bool packed = 2;</code>
@@ -18209,7 +19560,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional bool lazy = 5 [default = false];
       private boolean lazy_ ;
       /**
        * <code>optional bool lazy = 5 [default = false];</code>
@@ -18219,20 +19569,16 @@ public final class DescriptorProtos {
        * fields.  It means that when the outer message is initially parsed, the
        * inner message's contents will not be parsed but instead stored in encoded
        * form.  The inner message will actually be parsed when it is first accessed.
-       *
        * This is only a hint.  Implementations are free to choose whether to use
        * eager or lazy parsing regardless of the value of this option.  However,
        * setting this option true suggests that the protocol author believes that
        * using lazy parsing on this field is worth the additional bookkeeping
        * overhead typically needed to implement it.
-       *
        * This option does not affect the public interface of any generated code;
        * all method signatures remain the same.  Furthermore, thread-safety of the
        * interface is not affected by this option; const methods remain safe to
        * call from multiple threads concurrently, while non-const methods continue
        * to require exclusive access.
-       *
-       *
        * Note that implementations may choose not to check required fields within
        * a lazy sub-message.  That is, calling IsInitialized() on the outher message
        * may return true even if the inner message has missing required fields.
@@ -18256,20 +19602,16 @@ public final class DescriptorProtos {
        * fields.  It means that when the outer message is initially parsed, the
        * inner message's contents will not be parsed but instead stored in encoded
        * form.  The inner message will actually be parsed when it is first accessed.
-       *
        * This is only a hint.  Implementations are free to choose whether to use
        * eager or lazy parsing regardless of the value of this option.  However,
        * setting this option true suggests that the protocol author believes that
        * using lazy parsing on this field is worth the additional bookkeeping
        * overhead typically needed to implement it.
-       *
        * This option does not affect the public interface of any generated code;
        * all method signatures remain the same.  Furthermore, thread-safety of the
        * interface is not affected by this option; const methods remain safe to
        * call from multiple threads concurrently, while non-const methods continue
        * to require exclusive access.
-       *
-       *
        * Note that implementations may choose not to check required fields within
        * a lazy sub-message.  That is, calling IsInitialized() on the outher message
        * may return true even if the inner message has missing required fields.
@@ -18293,20 +19635,16 @@ public final class DescriptorProtos {
        * fields.  It means that when the outer message is initially parsed, the
        * inner message's contents will not be parsed but instead stored in encoded
        * form.  The inner message will actually be parsed when it is first accessed.
-       *
        * This is only a hint.  Implementations are free to choose whether to use
        * eager or lazy parsing regardless of the value of this option.  However,
        * setting this option true suggests that the protocol author believes that
        * using lazy parsing on this field is worth the additional bookkeeping
        * overhead typically needed to implement it.
-       *
        * This option does not affect the public interface of any generated code;
        * all method signatures remain the same.  Furthermore, thread-safety of the
        * interface is not affected by this option; const methods remain safe to
        * call from multiple threads concurrently, while non-const methods continue
        * to require exclusive access.
-       *
-       *
        * Note that implementations may choose not to check required fields within
        * a lazy sub-message.  That is, calling IsInitialized() on the outher message
        * may return true even if the inner message has missing required fields.
@@ -18333,20 +19671,16 @@ public final class DescriptorProtos {
        * fields.  It means that when the outer message is initially parsed, the
        * inner message's contents will not be parsed but instead stored in encoded
        * form.  The inner message will actually be parsed when it is first accessed.
-       *
        * This is only a hint.  Implementations are free to choose whether to use
        * eager or lazy parsing regardless of the value of this option.  However,
        * setting this option true suggests that the protocol author believes that
        * using lazy parsing on this field is worth the additional bookkeeping
        * overhead typically needed to implement it.
-       *
        * This option does not affect the public interface of any generated code;
        * all method signatures remain the same.  Furthermore, thread-safety of the
        * interface is not affected by this option; const methods remain safe to
        * call from multiple threads concurrently, while non-const methods continue
        * to require exclusive access.
-       *
-       *
        * Note that implementations may choose not to check required fields within
        * a lazy sub-message.  That is, calling IsInitialized() on the outher message
        * may return true even if the inner message has missing required fields.
@@ -18366,7 +19700,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional bool deprecated = 3 [default = false];
       private boolean deprecated_ ;
       /**
        * <code>optional bool deprecated = 3 [default = false];</code>
@@ -18427,7 +19760,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional string experimental_map_key = 9;
       private java.lang.Object experimentalMapKey_ = "";
       /**
        * <code>optional string experimental_map_key = 9;</code>
@@ -18471,9 +19803,12 @@ public final class DescriptorProtos {
       public java.lang.String getExperimentalMapKey() {
         java.lang.Object ref = experimentalMapKey_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          experimentalMapKey_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            experimentalMapKey_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -18591,7 +19926,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional bool weak = 10 [default = false];
       private boolean weak_ ;
       /**
        * <code>optional bool weak = 10 [default = false];</code>
@@ -18640,7 +19974,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
       private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_ =
         java.util.Collections.emptyList();
       private void ensureUninterpretedOptionIsMutable() {
@@ -18822,7 +20155,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.UninterpretedOption> values) {
         if (uninterpretedOptionBuilder_ == null) {
           ensureUninterpretedOptionIsMutable();
-          super.addAll(values, uninterpretedOption_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, uninterpretedOption_);
           onChanged();
         } else {
           uninterpretedOptionBuilder_.addAllMessages(values);
@@ -18964,30 +20298,52 @@ public final class DescriptorProtos {
   }
 
   public interface EnumOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.EnumOptions)
       com.google.protobuf.GeneratedMessage.
           ExtendableMessageOrBuilder<EnumOptions> {
 
-    // optional bool allow_alias = 2 [default = true];
     /**
-     * <code>optional bool allow_alias = 2 [default = true];</code>
+     * <code>optional bool allow_alias = 2;</code>
      *
      * <pre>
-     * Set this option to false to disallow mapping different tag names to a same
+     * Set this option to true to allow mapping different tag names to the same
      * value.
      * </pre>
      */
     boolean hasAllowAlias();
     /**
-     * <code>optional bool allow_alias = 2 [default = true];</code>
+     * <code>optional bool allow_alias = 2;</code>
      *
      * <pre>
-     * Set this option to false to disallow mapping different tag names to a same
+     * Set this option to true to allow mapping different tag names to the same
      * value.
      * </pre>
      */
     boolean getAllowAlias();
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+    /**
+     * <code>optional bool deprecated = 3 [default = false];</code>
+     *
+     * <pre>
+     * Is this enum deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the enum, or it will be completely ignored; in the very least, this
+     * is a formalization for deprecating enums.
+     * </pre>
+     */
+    boolean hasDeprecated();
+    /**
+     * <code>optional bool deprecated = 3 [default = false];</code>
+     *
+     * <pre>
+     * Is this enum deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the enum, or it will be completely ignored; in the very least, this
+     * is a formalization for deprecating enums.
+     * </pre>
+     */
+    boolean getDeprecated();
+
     /**
      * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
      *
@@ -19037,7 +20393,9 @@ public final class DescriptorProtos {
    */
   public static final class EnumOptions extends
       com.google.protobuf.GeneratedMessage.ExtendableMessage<
-        EnumOptions> implements EnumOptionsOrBuilder {
+        EnumOptions> implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.EnumOptions)
+      EnumOptionsOrBuilder {
     // Use EnumOptions.newBuilder() to construct.
     private EnumOptions(com.google.protobuf.GeneratedMessage.ExtendableBuilder<com.google.protobuf.DescriptorProtos.EnumOptions, ?> builder) {
       super(builder);
@@ -19088,10 +20446,15 @@ public final class DescriptorProtos {
               allowAlias_ = input.readBool();
               break;
             }
+            case 24: {
+              bitField0_ |= 0x00000002;
+              deprecated_ = input.readBool();
+              break;
+            }
             case 7994: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000004;
               }
               uninterpretedOption_.add(input.readMessage(com.google.protobuf.DescriptorProtos.UninterpretedOption.PARSER, extensionRegistry));
               break;
@@ -19104,7 +20467,7 @@ public final class DescriptorProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
         }
         this.unknownFields = unknownFields.build();
@@ -19113,14 +20476,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_EnumOptions_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumOptions_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_EnumOptions_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumOptions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.EnumOptions.class, com.google.protobuf.DescriptorProtos.EnumOptions.Builder.class);
+              com.google.protobuf.DescriptorProtos.EnumOptions.class, com.google.protobuf.DescriptorProtos.EnumOptions.Builder.class);
     }
 
     public static com.google.protobuf.Parser<EnumOptions> PARSER =
@@ -19139,14 +20502,13 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // optional bool allow_alias = 2 [default = true];
     public static final int ALLOW_ALIAS_FIELD_NUMBER = 2;
     private boolean allowAlias_;
     /**
-     * <code>optional bool allow_alias = 2 [default = true];</code>
+     * <code>optional bool allow_alias = 2;</code>
      *
      * <pre>
-     * Set this option to false to disallow mapping different tag names to a same
+     * Set this option to true to allow mapping different tag names to the same
      * value.
      * </pre>
      */
@@ -19154,10 +20516,10 @@ public final class DescriptorProtos {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional bool allow_alias = 2 [default = true];</code>
+     * <code>optional bool allow_alias = 2;</code>
      *
      * <pre>
-     * Set this option to false to disallow mapping different tag names to a same
+     * Set this option to true to allow mapping different tag names to the same
      * value.
      * </pre>
      */
@@ -19165,7 +20527,35 @@ public final class DescriptorProtos {
       return allowAlias_;
     }
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+    public static final int DEPRECATED_FIELD_NUMBER = 3;
+    private boolean deprecated_;
+    /**
+     * <code>optional bool deprecated = 3 [default = false];</code>
+     *
+     * <pre>
+     * Is this enum deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the enum, or it will be completely ignored; in the very least, this
+     * is a formalization for deprecating enums.
+     * </pre>
+     */
+    public boolean hasDeprecated() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional bool deprecated = 3 [default = false];</code>
+     *
+     * <pre>
+     * Is this enum deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the enum, or it will be completely ignored; in the very least, this
+     * is a formalization for deprecating enums.
+     * </pre>
+     */
+    public boolean getDeprecated() {
+      return deprecated_;
+    }
+
     public static final int UNINTERPRETED_OPTION_FIELD_NUMBER = 999;
     private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_;
     /**
@@ -19222,13 +20612,15 @@ public final class DescriptorProtos {
     }
 
     private void initFields() {
-      allowAlias_ = true;
+      allowAlias_ = false;
+      deprecated_ = false;
       uninterpretedOption_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getUninterpretedOptionCount(); i++) {
         if (!getUninterpretedOption(i).isInitialized()) {
@@ -19253,6 +20645,9 @@ public final class DescriptorProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeBool(2, allowAlias_);
       }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(3, deprecated_);
+      }
       for (int i = 0; i < uninterpretedOption_.size(); i++) {
         output.writeMessage(999, uninterpretedOption_.get(i));
       }
@@ -19269,6 +20664,10 @@ public final class DescriptorProtos {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, allowAlias_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, deprecated_);
       }
       for (int i = 0; i < uninterpretedOption_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -19358,17 +20757,19 @@ public final class DescriptorProtos {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.ExtendableBuilder<
-          com.google.protobuf.DescriptorProtos.EnumOptions, Builder> implements com.google.protobuf.DescriptorProtos.EnumOptionsOrBuilder {
+          com.google.protobuf.DescriptorProtos.EnumOptions, Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.EnumOptions)
+        com.google.protobuf.DescriptorProtos.EnumOptionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_EnumOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumOptions_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_EnumOptions_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumOptions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.EnumOptions.class, com.google.protobuf.DescriptorProtos.EnumOptions.Builder.class);
+                com.google.protobuf.DescriptorProtos.EnumOptions.class, com.google.protobuf.DescriptorProtos.EnumOptions.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.EnumOptions.newBuilder()
@@ -19382,7 +20783,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getUninterpretedOptionFieldBuilder();
         }
       }
@@ -19392,11 +20793,13 @@ public final class DescriptorProtos {
 
       public Builder clear() {
         super.clear();
-        allowAlias_ = true;
+        allowAlias_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
+        deprecated_ = false;
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (uninterpretedOptionBuilder_ == null) {
           uninterpretedOption_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           uninterpretedOptionBuilder_.clear();
         }
@@ -19409,11 +20812,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_EnumOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumOptions_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.EnumOptions getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.EnumOptions.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.EnumOptions build() {
@@ -19432,10 +20835,14 @@ public final class DescriptorProtos {
           to_bitField0_ |= 0x00000001;
         }
         result.allowAlias_ = allowAlias_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.deprecated_ = deprecated_;
         if (uninterpretedOptionBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
             uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.uninterpretedOption_ = uninterpretedOption_;
         } else {
@@ -19456,15 +20863,18 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.EnumOptions other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.EnumOptions.getDefaultInstance()) return this;
         if (other.hasAllowAlias()) {
           setAllowAlias(other.getAllowAlias());
+        }
+        if (other.hasDeprecated()) {
+          setDeprecated(other.getDeprecated());
         }
         if (uninterpretedOptionBuilder_ == null) {
           if (!other.uninterpretedOption_.isEmpty()) {
             if (uninterpretedOption_.isEmpty()) {
               uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureUninterpretedOptionIsMutable();
               uninterpretedOption_.addAll(other.uninterpretedOption_);
@@ -19477,9 +20887,9 @@ public final class DescriptorProtos {
               uninterpretedOptionBuilder_.dispose();
               uninterpretedOptionBuilder_ = null;
               uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000004);
               uninterpretedOptionBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getUninterpretedOptionFieldBuilder() : null;
             } else {
               uninterpretedOptionBuilder_.addAllMessages(other.uninterpretedOption_);
@@ -19524,13 +20934,12 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // optional bool allow_alias = 2 [default = true];
-      private boolean allowAlias_ = true;
+      private boolean allowAlias_ ;
       /**
-       * <code>optional bool allow_alias = 2 [default = true];</code>
+       * <code>optional bool allow_alias = 2;</code>
        *
        * <pre>
-       * Set this option to false to disallow mapping different tag names to a same
+       * Set this option to true to allow mapping different tag names to the same
        * value.
        * </pre>
        */
@@ -19538,10 +20947,10 @@ public final class DescriptorProtos {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional bool allow_alias = 2 [default = true];</code>
+       * <code>optional bool allow_alias = 2;</code>
        *
        * <pre>
-       * Set this option to false to disallow mapping different tag names to a same
+       * Set this option to true to allow mapping different tag names to the same
        * value.
        * </pre>
        */
@@ -19549,10 +20958,10 @@ public final class DescriptorProtos {
         return allowAlias_;
       }
       /**
-       * <code>optional bool allow_alias = 2 [default = true];</code>
+       * <code>optional bool allow_alias = 2;</code>
        *
        * <pre>
-       * Set this option to false to disallow mapping different tag names to a same
+       * Set this option to true to allow mapping different tag names to the same
        * value.
        * </pre>
        */
@@ -19563,21 +20972,1034 @@ public final class DescriptorProtos {
         return this;
       }
       /**
-       * <code>optional bool allow_alias = 2 [default = true];</code>
+       * <code>optional bool allow_alias = 2;</code>
        *
        * <pre>
-       * Set this option to false to disallow mapping different tag names to a same
+       * Set this option to true to allow mapping different tag names to the same
        * value.
        * </pre>
        */
       public Builder clearAllowAlias() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        allowAlias_ = true;
+        allowAlias_ = false;
         onChanged();
         return this;
       }
 
-      // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+      private boolean deprecated_ ;
+      /**
+       * <code>optional bool deprecated = 3 [default = false];</code>
+       *
+       * <pre>
+       * Is this enum deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the enum, or it will be completely ignored; in the very least, this
+       * is a formalization for deprecating enums.
+       * </pre>
+       */
+      public boolean hasDeprecated() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional bool deprecated = 3 [default = false];</code>
+       *
+       * <pre>
+       * Is this enum deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the enum, or it will be completely ignored; in the very least, this
+       * is a formalization for deprecating enums.
+       * </pre>
+       */
+      public boolean getDeprecated() {
+        return deprecated_;
+      }
+      /**
+       * <code>optional bool deprecated = 3 [default = false];</code>
+       *
+       * <pre>
+       * Is this enum deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the enum, or it will be completely ignored; in the very least, this
+       * is a formalization for deprecating enums.
+       * </pre>
+       */
+      public Builder setDeprecated(boolean value) {
+        bitField0_ |= 0x00000002;
+        deprecated_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool deprecated = 3 [default = false];</code>
+       *
+       * <pre>
+       * Is this enum deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the enum, or it will be completely ignored; in the very least, this
+       * is a formalization for deprecating enums.
+       * </pre>
+       */
+      public Builder clearDeprecated() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        deprecated_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_ =
+        java.util.Collections.emptyList();
+      private void ensureUninterpretedOptionIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>(uninterpretedOption_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.google.protobuf.DescriptorProtos.UninterpretedOption, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder, com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder> uninterpretedOptionBuilder_;
+
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> getUninterpretedOptionList() {
+        if (uninterpretedOptionBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(uninterpretedOption_);
+        } else {
+          return uninterpretedOptionBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public int getUninterpretedOptionCount() {
+        if (uninterpretedOptionBuilder_ == null) {
+          return uninterpretedOption_.size();
+        } else {
+          return uninterpretedOptionBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public com.google.protobuf.DescriptorProtos.UninterpretedOption getUninterpretedOption(int index) {
+        if (uninterpretedOptionBuilder_ == null) {
+          return uninterpretedOption_.get(index);
+        } else {
+          return uninterpretedOptionBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public Builder setUninterpretedOption(
+          int index, com.google.protobuf.DescriptorProtos.UninterpretedOption value) {
+        if (uninterpretedOptionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUninterpretedOptionIsMutable();
+          uninterpretedOption_.set(index, value);
+          onChanged();
+        } else {
+          uninterpretedOptionBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public Builder setUninterpretedOption(
+          int index, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder builderForValue) {
+        if (uninterpretedOptionBuilder_ == null) {
+          ensureUninterpretedOptionIsMutable();
+          uninterpretedOption_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          uninterpretedOptionBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public Builder addUninterpretedOption(com.google.protobuf.DescriptorProtos.UninterpretedOption value) {
+        if (uninterpretedOptionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUninterpretedOptionIsMutable();
+          uninterpretedOption_.add(value);
+          onChanged();
+        } else {
+          uninterpretedOptionBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public Builder addUninterpretedOption(
+          int index, com.google.protobuf.DescriptorProtos.UninterpretedOption value) {
+        if (uninterpretedOptionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureUninterpretedOptionIsMutable();
+          uninterpretedOption_.add(index, value);
+          onChanged();
+        } else {
+          uninterpretedOptionBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public Builder addUninterpretedOption(
+          com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder builderForValue) {
+        if (uninterpretedOptionBuilder_ == null) {
+          ensureUninterpretedOptionIsMutable();
+          uninterpretedOption_.add(builderForValue.build());
+          onChanged();
+        } else {
+          uninterpretedOptionBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public Builder addUninterpretedOption(
+          int index, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder builderForValue) {
+        if (uninterpretedOptionBuilder_ == null) {
+          ensureUninterpretedOptionIsMutable();
+          uninterpretedOption_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          uninterpretedOptionBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public Builder addAllUninterpretedOption(
+          java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.UninterpretedOption> values) {
+        if (uninterpretedOptionBuilder_ == null) {
+          ensureUninterpretedOptionIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, uninterpretedOption_);
+          onChanged();
+        } else {
+          uninterpretedOptionBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public Builder clearUninterpretedOption() {
+        if (uninterpretedOptionBuilder_ == null) {
+          uninterpretedOption_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          uninterpretedOptionBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public Builder removeUninterpretedOption(int index) {
+        if (uninterpretedOptionBuilder_ == null) {
+          ensureUninterpretedOptionIsMutable();
+          uninterpretedOption_.remove(index);
+          onChanged();
+        } else {
+          uninterpretedOptionBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder getUninterpretedOptionBuilder(
+          int index) {
+        return getUninterpretedOptionFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder getUninterpretedOptionOrBuilder(
+          int index) {
+        if (uninterpretedOptionBuilder_ == null) {
+          return uninterpretedOption_.get(index);  } else {
+          return uninterpretedOptionBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public java.util.List<? extends com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder> 
+           getUninterpretedOptionOrBuilderList() {
+        if (uninterpretedOptionBuilder_ != null) {
+          return uninterpretedOptionBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(uninterpretedOption_);
+        }
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder addUninterpretedOptionBuilder() {
+        return getUninterpretedOptionFieldBuilder().addBuilder(
+            com.google.protobuf.DescriptorProtos.UninterpretedOption.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder addUninterpretedOptionBuilder(
+          int index) {
+        return getUninterpretedOptionFieldBuilder().addBuilder(
+            index, com.google.protobuf.DescriptorProtos.UninterpretedOption.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+       *
+       * <pre>
+       * The parser stores options it doesn't recognize here. See above.
+       * </pre>
+       */
+      public java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder> 
+           getUninterpretedOptionBuilderList() {
+        return getUninterpretedOptionFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          com.google.protobuf.DescriptorProtos.UninterpretedOption, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder, com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder> 
+          getUninterpretedOptionFieldBuilder() {
+        if (uninterpretedOptionBuilder_ == null) {
+          uninterpretedOptionBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              com.google.protobuf.DescriptorProtos.UninterpretedOption, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder, com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder>(
+                  uninterpretedOption_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          uninterpretedOption_ = null;
+        }
+        return uninterpretedOptionBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:google.protobuf.EnumOptions)
+    }
+
+    static {
+      defaultInstance = new EnumOptions(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:google.protobuf.EnumOptions)
+  }
+
+  public interface EnumValueOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.EnumValueOptions)
+      com.google.protobuf.GeneratedMessage.
+          ExtendableMessageOrBuilder<EnumValueOptions> {
+
+    /**
+     * <code>optional bool deprecated = 1 [default = false];</code>
+     *
+     * <pre>
+     * Is this enum value deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the enum value, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating enum values.
+     * </pre>
+     */
+    boolean hasDeprecated();
+    /**
+     * <code>optional bool deprecated = 1 [default = false];</code>
+     *
+     * <pre>
+     * Is this enum value deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the enum value, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating enum values.
+     * </pre>
+     */
+    boolean getDeprecated();
+
+    /**
+     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+     *
+     * <pre>
+     * The parser stores options it doesn't recognize here. See above.
+     * </pre>
+     */
+    java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> 
+        getUninterpretedOptionList();
+    /**
+     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+     *
+     * <pre>
+     * The parser stores options it doesn't recognize here. See above.
+     * </pre>
+     */
+    com.google.protobuf.DescriptorProtos.UninterpretedOption getUninterpretedOption(int index);
+    /**
+     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+     *
+     * <pre>
+     * The parser stores options it doesn't recognize here. See above.
+     * </pre>
+     */
+    int getUninterpretedOptionCount();
+    /**
+     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+     *
+     * <pre>
+     * The parser stores options it doesn't recognize here. See above.
+     * </pre>
+     */
+    java.util.List<? extends com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder> 
+        getUninterpretedOptionOrBuilderList();
+    /**
+     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+     *
+     * <pre>
+     * The parser stores options it doesn't recognize here. See above.
+     * </pre>
+     */
+    com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder getUninterpretedOptionOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code google.protobuf.EnumValueOptions}
+   */
+  public static final class EnumValueOptions extends
+      com.google.protobuf.GeneratedMessage.ExtendableMessage<
+        EnumValueOptions> implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.EnumValueOptions)
+      EnumValueOptionsOrBuilder {
+    // Use EnumValueOptions.newBuilder() to construct.
+    private EnumValueOptions(com.google.protobuf.GeneratedMessage.ExtendableBuilder<com.google.protobuf.DescriptorProtos.EnumValueOptions, ?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private EnumValueOptions(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final EnumValueOptions defaultInstance;
+    public static EnumValueOptions getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public EnumValueOptions getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private EnumValueOptions(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              deprecated_ = input.readBool();
+              break;
+            }
+            case 7994: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              uninterpretedOption_.add(input.readMessage(com.google.protobuf.DescriptorProtos.UninterpretedOption.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumValueOptions_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumValueOptions_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.protobuf.DescriptorProtos.EnumValueOptions.class, com.google.protobuf.DescriptorProtos.EnumValueOptions.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<EnumValueOptions> PARSER =
+        new com.google.protobuf.AbstractParser<EnumValueOptions>() {
+      public EnumValueOptions parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EnumValueOptions(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EnumValueOptions> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int DEPRECATED_FIELD_NUMBER = 1;
+    private boolean deprecated_;
+    /**
+     * <code>optional bool deprecated = 1 [default = false];</code>
+     *
+     * <pre>
+     * Is this enum value deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the enum value, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating enum values.
+     * </pre>
+     */
+    public boolean hasDeprecated() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional bool deprecated = 1 [default = false];</code>
+     *
+     * <pre>
+     * Is this enum value deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the enum value, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating enum values.
+     * </pre>
+     */
+    public boolean getDeprecated() {
+      return deprecated_;
+    }
+
+    public static final int UNINTERPRETED_OPTION_FIELD_NUMBER = 999;
+    private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_;
+    /**
+     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+     *
+     * <pre>
+     * The parser stores options it doesn't recognize here. See above.
+     * </pre>
+     */
+    public java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> getUninterpretedOptionList() {
+      return uninterpretedOption_;
+    }
+    /**
+     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+     *
+     * <pre>
+     * The parser stores options it doesn't recognize here. See above.
+     * </pre>
+     */
+    public java.util.List<? extends com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder> 
+        getUninterpretedOptionOrBuilderList() {
+      return uninterpretedOption_;
+    }
+    /**
+     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+     *
+     * <pre>
+     * The parser stores options it doesn't recognize here. See above.
+     * </pre>
+     */
+    public int getUninterpretedOptionCount() {
+      return uninterpretedOption_.size();
+    }
+    /**
+     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+     *
+     * <pre>
+     * The parser stores options it doesn't recognize here. See above.
+     * </pre>
+     */
+    public com.google.protobuf.DescriptorProtos.UninterpretedOption getUninterpretedOption(int index) {
+      return uninterpretedOption_.get(index);
+    }
+    /**
+     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
+     *
+     * <pre>
+     * The parser stores options it doesn't recognize here. See above.
+     * </pre>
+     */
+    public com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder getUninterpretedOptionOrBuilder(
+        int index) {
+      return uninterpretedOption_.get(index);
+    }
+
+    private void initFields() {
+      deprecated_ = false;
+      uninterpretedOption_ = java.util.Collections.emptyList();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      for (int i = 0; i < getUninterpretedOptionCount(); i++) {
+        if (!getUninterpretedOption(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (!extensionsAreInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      com.google.protobuf.GeneratedMessage
+        .ExtendableMessage<com.google.protobuf.DescriptorProtos.EnumValueOptions>.ExtensionWriter extensionWriter =
+          newExtensionWriter();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, deprecated_);
+      }
+      for (int i = 0; i < uninterpretedOption_.size(); i++) {
+        output.writeMessage(999, uninterpretedOption_.get(i));
+      }
+      extensionWriter.writeUntil(536870912, output);
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, deprecated_);
+      }
+      for (int i = 0; i < uninterpretedOption_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(999, uninterpretedOption_.get(i));
+      }
+      size += extensionsSerializedSize();
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.google.protobuf.DescriptorProtos.EnumValueOptions prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code google.protobuf.EnumValueOptions}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.ExtendableBuilder<
+          com.google.protobuf.DescriptorProtos.EnumValueOptions, Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.EnumValueOptions)
+        com.google.protobuf.DescriptorProtos.EnumValueOptionsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumValueOptions_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumValueOptions_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.protobuf.DescriptorProtos.EnumValueOptions.class, com.google.protobuf.DescriptorProtos.EnumValueOptions.Builder.class);
+      }
+
+      // Construct using com.google.protobuf.DescriptorProtos.EnumValueOptions.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getUninterpretedOptionFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        deprecated_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (uninterpretedOptionBuilder_ == null) {
+          uninterpretedOption_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          uninterpretedOptionBuilder_.clear();
+        }
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_EnumValueOptions_descriptor;
+      }
+
+      public com.google.protobuf.DescriptorProtos.EnumValueOptions getDefaultInstanceForType() {
+        return com.google.protobuf.DescriptorProtos.EnumValueOptions.getDefaultInstance();
+      }
+
+      public com.google.protobuf.DescriptorProtos.EnumValueOptions build() {
+        com.google.protobuf.DescriptorProtos.EnumValueOptions result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.google.protobuf.DescriptorProtos.EnumValueOptions buildPartial() {
+        com.google.protobuf.DescriptorProtos.EnumValueOptions result = new com.google.protobuf.DescriptorProtos.EnumValueOptions(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.deprecated_ = deprecated_;
+        if (uninterpretedOptionBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.uninterpretedOption_ = uninterpretedOption_;
+        } else {
+          result.uninterpretedOption_ = uninterpretedOptionBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.protobuf.DescriptorProtos.EnumValueOptions) {
+          return mergeFrom((com.google.protobuf.DescriptorProtos.EnumValueOptions)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.protobuf.DescriptorProtos.EnumValueOptions other) {
+        if (other == com.google.protobuf.DescriptorProtos.EnumValueOptions.getDefaultInstance()) return this;
+        if (other.hasDeprecated()) {
+          setDeprecated(other.getDeprecated());
+        }
+        if (uninterpretedOptionBuilder_ == null) {
+          if (!other.uninterpretedOption_.isEmpty()) {
+            if (uninterpretedOption_.isEmpty()) {
+              uninterpretedOption_ = other.uninterpretedOption_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureUninterpretedOptionIsMutable();
+              uninterpretedOption_.addAll(other.uninterpretedOption_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.uninterpretedOption_.isEmpty()) {
+            if (uninterpretedOptionBuilder_.isEmpty()) {
+              uninterpretedOptionBuilder_.dispose();
+              uninterpretedOptionBuilder_ = null;
+              uninterpretedOption_ = other.uninterpretedOption_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              uninterpretedOptionBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getUninterpretedOptionFieldBuilder() : null;
+            } else {
+              uninterpretedOptionBuilder_.addAllMessages(other.uninterpretedOption_);
+            }
+          }
+        }
+        this.mergeExtensionFields(other);
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getUninterpretedOptionCount(); i++) {
+          if (!getUninterpretedOption(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        if (!extensionsAreInitialized()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.DescriptorProtos.EnumValueOptions parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.google.protobuf.DescriptorProtos.EnumValueOptions) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private boolean deprecated_ ;
+      /**
+       * <code>optional bool deprecated = 1 [default = false];</code>
+       *
+       * <pre>
+       * Is this enum value deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the enum value, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating enum values.
+       * </pre>
+       */
+      public boolean hasDeprecated() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional bool deprecated = 1 [default = false];</code>
+       *
+       * <pre>
+       * Is this enum value deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the enum value, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating enum values.
+       * </pre>
+       */
+      public boolean getDeprecated() {
+        return deprecated_;
+      }
+      /**
+       * <code>optional bool deprecated = 1 [default = false];</code>
+       *
+       * <pre>
+       * Is this enum value deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the enum value, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating enum values.
+       * </pre>
+       */
+      public Builder setDeprecated(boolean value) {
+        bitField0_ |= 0x00000001;
+        deprecated_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool deprecated = 1 [default = false];</code>
+       *
+       * <pre>
+       * Is this enum value deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the enum value, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating enum values.
+       * </pre>
+       */
+      public Builder clearDeprecated() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        deprecated_ = false;
+        onChanged();
+        return this;
+      }
+
       private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_ =
         java.util.Collections.emptyList();
       private void ensureUninterpretedOptionIsMutable() {
@@ -19759,7 +22181,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.UninterpretedOption> values) {
         if (uninterpretedOptionBuilder_ == null) {
           ensureUninterpretedOptionIsMutable();
-          super.addAll(values, uninterpretedOption_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, uninterpretedOption_);
           onChanged();
         } else {
           uninterpretedOptionBuilder_.addAllMessages(values);
@@ -19889,819 +22312,6 @@ public final class DescriptorProtos {
         return uninterpretedOptionBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:google.protobuf.EnumOptions)
-    }
-
-    static {
-      defaultInstance = new EnumOptions(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:google.protobuf.EnumOptions)
-  }
-
-  public interface EnumValueOptionsOrBuilder extends
-      com.google.protobuf.GeneratedMessage.
-          ExtendableMessageOrBuilder<EnumValueOptions> {
-
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
-    /**
-     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-     *
-     * <pre>
-     * The parser stores options it doesn't recognize here. See above.
-     * </pre>
-     */
-    java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> 
-        getUninterpretedOptionList();
-    /**
-     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-     *
-     * <pre>
-     * The parser stores options it doesn't recognize here. See above.
-     * </pre>
-     */
-    com.google.protobuf.DescriptorProtos.UninterpretedOption getUninterpretedOption(int index);
-    /**
-     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-     *
-     * <pre>
-     * The parser stores options it doesn't recognize here. See above.
-     * </pre>
-     */
-    int getUninterpretedOptionCount();
-    /**
-     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-     *
-     * <pre>
-     * The parser stores options it doesn't recognize here. See above.
-     * </pre>
-     */
-    java.util.List<? extends com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder> 
-        getUninterpretedOptionOrBuilderList();
-    /**
-     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-     *
-     * <pre>
-     * The parser stores options it doesn't recognize here. See above.
-     * </pre>
-     */
-    com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder getUninterpretedOptionOrBuilder(
-        int index);
-  }
-  /**
-   * Protobuf type {@code google.protobuf.EnumValueOptions}
-   */
-  public static final class EnumValueOptions extends
-      com.google.protobuf.GeneratedMessage.ExtendableMessage<
-        EnumValueOptions> implements EnumValueOptionsOrBuilder {
-    // Use EnumValueOptions.newBuilder() to construct.
-    private EnumValueOptions(com.google.protobuf.GeneratedMessage.ExtendableBuilder<com.google.protobuf.DescriptorProtos.EnumValueOptions, ?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private EnumValueOptions(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final EnumValueOptions defaultInstance;
-    public static EnumValueOptions getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public EnumValueOptions getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private EnumValueOptions(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 7994: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              uninterpretedOption_.add(input.readMessage(com.google.protobuf.DescriptorProtos.UninterpretedOption.PARSER, extensionRegistry));
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return internal_static_google_protobuf_EnumValueOptions_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_EnumValueOptions_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.EnumValueOptions.class, com.google.protobuf.DescriptorProtos.EnumValueOptions.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<EnumValueOptions> PARSER =
-        new com.google.protobuf.AbstractParser<EnumValueOptions>() {
-      public EnumValueOptions parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EnumValueOptions(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<EnumValueOptions> getParserForType() {
-      return PARSER;
-    }
-
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
-    public static final int UNINTERPRETED_OPTION_FIELD_NUMBER = 999;
-    private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_;
-    /**
-     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-     *
-     * <pre>
-     * The parser stores options it doesn't recognize here. See above.
-     * </pre>
-     */
-    public java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> getUninterpretedOptionList() {
-      return uninterpretedOption_;
-    }
-    /**
-     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-     *
-     * <pre>
-     * The parser stores options it doesn't recognize here. See above.
-     * </pre>
-     */
-    public java.util.List<? extends com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder> 
-        getUninterpretedOptionOrBuilderList() {
-      return uninterpretedOption_;
-    }
-    /**
-     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-     *
-     * <pre>
-     * The parser stores options it doesn't recognize here. See above.
-     * </pre>
-     */
-    public int getUninterpretedOptionCount() {
-      return uninterpretedOption_.size();
-    }
-    /**
-     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-     *
-     * <pre>
-     * The parser stores options it doesn't recognize here. See above.
-     * </pre>
-     */
-    public com.google.protobuf.DescriptorProtos.UninterpretedOption getUninterpretedOption(int index) {
-      return uninterpretedOption_.get(index);
-    }
-    /**
-     * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-     *
-     * <pre>
-     * The parser stores options it doesn't recognize here. See above.
-     * </pre>
-     */
-    public com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder getUninterpretedOptionOrBuilder(
-        int index) {
-      return uninterpretedOption_.get(index);
-    }
-
-    private void initFields() {
-      uninterpretedOption_ = java.util.Collections.emptyList();
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      for (int i = 0; i < getUninterpretedOptionCount(); i++) {
-        if (!getUninterpretedOption(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
-      if (!extensionsAreInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      com.google.protobuf.GeneratedMessage
-        .ExtendableMessage<com.google.protobuf.DescriptorProtos.EnumValueOptions>.ExtensionWriter extensionWriter =
-          newExtensionWriter();
-      for (int i = 0; i < uninterpretedOption_.size(); i++) {
-        output.writeMessage(999, uninterpretedOption_.get(i));
-      }
-      extensionWriter.writeUntil(536870912, output);
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      for (int i = 0; i < uninterpretedOption_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(999, uninterpretedOption_.get(i));
-      }
-      size += extensionsSerializedSize();
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.google.protobuf.DescriptorProtos.EnumValueOptions parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.google.protobuf.DescriptorProtos.EnumValueOptions prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code google.protobuf.EnumValueOptions}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.ExtendableBuilder<
-          com.google.protobuf.DescriptorProtos.EnumValueOptions, Builder> implements com.google.protobuf.DescriptorProtos.EnumValueOptionsOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return internal_static_google_protobuf_EnumValueOptions_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_EnumValueOptions_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.EnumValueOptions.class, com.google.protobuf.DescriptorProtos.EnumValueOptions.Builder.class);
-      }
-
-      // Construct using com.google.protobuf.DescriptorProtos.EnumValueOptions.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
-          getUninterpretedOptionFieldBuilder();
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        if (uninterpretedOptionBuilder_ == null) {
-          uninterpretedOption_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          uninterpretedOptionBuilder_.clear();
-        }
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return internal_static_google_protobuf_EnumValueOptions_descriptor;
-      }
-
-      public com.google.protobuf.DescriptorProtos.EnumValueOptions getDefaultInstanceForType() {
-        return getDefaultInstance();
-      }
-
-      public com.google.protobuf.DescriptorProtos.EnumValueOptions build() {
-        com.google.protobuf.DescriptorProtos.EnumValueOptions result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.google.protobuf.DescriptorProtos.EnumValueOptions buildPartial() {
-        com.google.protobuf.DescriptorProtos.EnumValueOptions result = new com.google.protobuf.DescriptorProtos.EnumValueOptions(this);
-        int from_bitField0_ = bitField0_;
-        if (uninterpretedOptionBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.uninterpretedOption_ = uninterpretedOption_;
-        } else {
-          result.uninterpretedOption_ = uninterpretedOptionBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.google.protobuf.DescriptorProtos.EnumValueOptions) {
-          return mergeFrom((com.google.protobuf.DescriptorProtos.EnumValueOptions)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.google.protobuf.DescriptorProtos.EnumValueOptions other) {
-        if (other == getDefaultInstance()) return this;
-        if (uninterpretedOptionBuilder_ == null) {
-          if (!other.uninterpretedOption_.isEmpty()) {
-            if (uninterpretedOption_.isEmpty()) {
-              uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureUninterpretedOptionIsMutable();
-              uninterpretedOption_.addAll(other.uninterpretedOption_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.uninterpretedOption_.isEmpty()) {
-            if (uninterpretedOptionBuilder_.isEmpty()) {
-              uninterpretedOptionBuilder_.dispose();
-              uninterpretedOptionBuilder_ = null;
-              uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              uninterpretedOptionBuilder_ = 
-                alwaysUseFieldBuilders ?
-                   getUninterpretedOptionFieldBuilder() : null;
-            } else {
-              uninterpretedOptionBuilder_.addAllMessages(other.uninterpretedOption_);
-            }
-          }
-        }
-        this.mergeExtensionFields(other);
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        for (int i = 0; i < getUninterpretedOptionCount(); i++) {
-          if (!getUninterpretedOption(i).isInitialized()) {
-            
-            return false;
-          }
-        }
-        if (!extensionsAreInitialized()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.google.protobuf.DescriptorProtos.EnumValueOptions parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protobuf.DescriptorProtos.EnumValueOptions) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
-      private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_ =
-        java.util.Collections.emptyList();
-      private void ensureUninterpretedOptionIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>(uninterpretedOption_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilder<
-          com.google.protobuf.DescriptorProtos.UninterpretedOption, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder, com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder> uninterpretedOptionBuilder_;
-
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> getUninterpretedOptionList() {
-        if (uninterpretedOptionBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(uninterpretedOption_);
-        } else {
-          return uninterpretedOptionBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public int getUninterpretedOptionCount() {
-        if (uninterpretedOptionBuilder_ == null) {
-          return uninterpretedOption_.size();
-        } else {
-          return uninterpretedOptionBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public com.google.protobuf.DescriptorProtos.UninterpretedOption getUninterpretedOption(int index) {
-        if (uninterpretedOptionBuilder_ == null) {
-          return uninterpretedOption_.get(index);
-        } else {
-          return uninterpretedOptionBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public Builder setUninterpretedOption(
-          int index, com.google.protobuf.DescriptorProtos.UninterpretedOption value) {
-        if (uninterpretedOptionBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureUninterpretedOptionIsMutable();
-          uninterpretedOption_.set(index, value);
-          onChanged();
-        } else {
-          uninterpretedOptionBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public Builder setUninterpretedOption(
-          int index, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder builderForValue) {
-        if (uninterpretedOptionBuilder_ == null) {
-          ensureUninterpretedOptionIsMutable();
-          uninterpretedOption_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          uninterpretedOptionBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public Builder addUninterpretedOption(com.google.protobuf.DescriptorProtos.UninterpretedOption value) {
-        if (uninterpretedOptionBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureUninterpretedOptionIsMutable();
-          uninterpretedOption_.add(value);
-          onChanged();
-        } else {
-          uninterpretedOptionBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public Builder addUninterpretedOption(
-          int index, com.google.protobuf.DescriptorProtos.UninterpretedOption value) {
-        if (uninterpretedOptionBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureUninterpretedOptionIsMutable();
-          uninterpretedOption_.add(index, value);
-          onChanged();
-        } else {
-          uninterpretedOptionBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public Builder addUninterpretedOption(
-          com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder builderForValue) {
-        if (uninterpretedOptionBuilder_ == null) {
-          ensureUninterpretedOptionIsMutable();
-          uninterpretedOption_.add(builderForValue.build());
-          onChanged();
-        } else {
-          uninterpretedOptionBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public Builder addUninterpretedOption(
-          int index, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder builderForValue) {
-        if (uninterpretedOptionBuilder_ == null) {
-          ensureUninterpretedOptionIsMutable();
-          uninterpretedOption_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          uninterpretedOptionBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public Builder addAllUninterpretedOption(
-          java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.UninterpretedOption> values) {
-        if (uninterpretedOptionBuilder_ == null) {
-          ensureUninterpretedOptionIsMutable();
-          super.addAll(values, uninterpretedOption_);
-          onChanged();
-        } else {
-          uninterpretedOptionBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public Builder clearUninterpretedOption() {
-        if (uninterpretedOptionBuilder_ == null) {
-          uninterpretedOption_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          uninterpretedOptionBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public Builder removeUninterpretedOption(int index) {
-        if (uninterpretedOptionBuilder_ == null) {
-          ensureUninterpretedOptionIsMutable();
-          uninterpretedOption_.remove(index);
-          onChanged();
-        } else {
-          uninterpretedOptionBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder getUninterpretedOptionBuilder(
-          int index) {
-        return getUninterpretedOptionFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder getUninterpretedOptionOrBuilder(
-          int index) {
-        if (uninterpretedOptionBuilder_ == null) {
-          return uninterpretedOption_.get(index);  } else {
-          return uninterpretedOptionBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public java.util.List<? extends com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder> 
-           getUninterpretedOptionOrBuilderList() {
-        if (uninterpretedOptionBuilder_ != null) {
-          return uninterpretedOptionBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(uninterpretedOption_);
-        }
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder addUninterpretedOptionBuilder() {
-        return getUninterpretedOptionFieldBuilder().addBuilder(
-            com.google.protobuf.DescriptorProtos.UninterpretedOption.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder addUninterpretedOptionBuilder(
-          int index) {
-        return getUninterpretedOptionFieldBuilder().addBuilder(
-            index, com.google.protobuf.DescriptorProtos.UninterpretedOption.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
-       *
-       * <pre>
-       * The parser stores options it doesn't recognize here. See above.
-       * </pre>
-       */
-      public java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder> 
-           getUninterpretedOptionBuilderList() {
-        return getUninterpretedOptionFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          com.google.protobuf.DescriptorProtos.UninterpretedOption, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder, com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder> 
-          getUninterpretedOptionFieldBuilder() {
-        if (uninterpretedOptionBuilder_ == null) {
-          uninterpretedOptionBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              com.google.protobuf.DescriptorProtos.UninterpretedOption, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder, com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder>(
-                  uninterpretedOption_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
-                  getParentForChildren(),
-                  isClean());
-          uninterpretedOption_ = null;
-        }
-        return uninterpretedOptionBuilder_;
-      }
-
       // @@protoc_insertion_point(builder_scope:google.protobuf.EnumValueOptions)
     }
 
@@ -20714,10 +22324,33 @@ public final class DescriptorProtos {
   }
 
   public interface ServiceOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.ServiceOptions)
       com.google.protobuf.GeneratedMessage.
           ExtendableMessageOrBuilder<ServiceOptions> {
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+    /**
+     * <code>optional bool deprecated = 33 [default = false];</code>
+     *
+     * <pre>
+     * Is this service deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the service, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating services.
+     * </pre>
+     */
+    boolean hasDeprecated();
+    /**
+     * <code>optional bool deprecated = 33 [default = false];</code>
+     *
+     * <pre>
+     * Is this service deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the service, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating services.
+     * </pre>
+     */
+    boolean getDeprecated();
+
     /**
      * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
      *
@@ -20767,7 +22400,9 @@ public final class DescriptorProtos {
    */
   public static final class ServiceOptions extends
       com.google.protobuf.GeneratedMessage.ExtendableMessage<
-        ServiceOptions> implements ServiceOptionsOrBuilder {
+        ServiceOptions> implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.ServiceOptions)
+      ServiceOptionsOrBuilder {
     // Use ServiceOptions.newBuilder() to construct.
     private ServiceOptions(com.google.protobuf.GeneratedMessage.ExtendableBuilder<com.google.protobuf.DescriptorProtos.ServiceOptions, ?> builder) {
       super(builder);
@@ -20813,10 +22448,15 @@ public final class DescriptorProtos {
               }
               break;
             }
+            case 264: {
+              bitField0_ |= 0x00000001;
+              deprecated_ = input.readBool();
+              break;
+            }
             case 7994: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                 uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>();
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               uninterpretedOption_.add(input.readMessage(com.google.protobuf.DescriptorProtos.UninterpretedOption.PARSER, extensionRegistry));
               break;
@@ -20829,7 +22469,7 @@ public final class DescriptorProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
         }
         this.unknownFields = unknownFields.build();
@@ -20838,14 +22478,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_ServiceOptions_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_ServiceOptions_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_ServiceOptions_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_ServiceOptions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.ServiceOptions.class, com.google.protobuf.DescriptorProtos.ServiceOptions.Builder.class);
+              com.google.protobuf.DescriptorProtos.ServiceOptions.class, com.google.protobuf.DescriptorProtos.ServiceOptions.Builder.class);
     }
 
     public static com.google.protobuf.Parser<ServiceOptions> PARSER =
@@ -20863,7 +22503,36 @@ public final class DescriptorProtos {
       return PARSER;
     }
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+    private int bitField0_;
+    public static final int DEPRECATED_FIELD_NUMBER = 33;
+    private boolean deprecated_;
+    /**
+     * <code>optional bool deprecated = 33 [default = false];</code>
+     *
+     * <pre>
+     * Is this service deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the service, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating services.
+     * </pre>
+     */
+    public boolean hasDeprecated() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional bool deprecated = 33 [default = false];</code>
+     *
+     * <pre>
+     * Is this service deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the service, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating services.
+     * </pre>
+     */
+    public boolean getDeprecated() {
+      return deprecated_;
+    }
+
     public static final int UNINTERPRETED_OPTION_FIELD_NUMBER = 999;
     private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_;
     /**
@@ -20920,12 +22589,14 @@ public final class DescriptorProtos {
     }
 
     private void initFields() {
+      deprecated_ = false;
       uninterpretedOption_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getUninterpretedOptionCount(); i++) {
         if (!getUninterpretedOption(i).isInitialized()) {
@@ -20947,6 +22618,9 @@ public final class DescriptorProtos {
       com.google.protobuf.GeneratedMessage
         .ExtendableMessage<com.google.protobuf.DescriptorProtos.ServiceOptions>.ExtensionWriter extensionWriter =
           newExtensionWriter();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(33, deprecated_);
+      }
       for (int i = 0; i < uninterpretedOption_.size(); i++) {
         output.writeMessage(999, uninterpretedOption_.get(i));
       }
@@ -20960,6 +22634,10 @@ public final class DescriptorProtos {
       if (size != -1) return size;
 
       size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(33, deprecated_);
+      }
       for (int i = 0; i < uninterpretedOption_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(999, uninterpretedOption_.get(i));
@@ -21048,17 +22726,19 @@ public final class DescriptorProtos {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.ExtendableBuilder<
-          com.google.protobuf.DescriptorProtos.ServiceOptions, Builder> implements com.google.protobuf.DescriptorProtos.ServiceOptionsOrBuilder {
+          com.google.protobuf.DescriptorProtos.ServiceOptions, Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.ServiceOptions)
+        com.google.protobuf.DescriptorProtos.ServiceOptionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_ServiceOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_ServiceOptions_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_ServiceOptions_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_ServiceOptions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.ServiceOptions.class, com.google.protobuf.DescriptorProtos.ServiceOptions.Builder.class);
+                com.google.protobuf.DescriptorProtos.ServiceOptions.class, com.google.protobuf.DescriptorProtos.ServiceOptions.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.ServiceOptions.newBuilder()
@@ -21072,7 +22752,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getUninterpretedOptionFieldBuilder();
         }
       }
@@ -21082,9 +22762,11 @@ public final class DescriptorProtos {
 
       public Builder clear() {
         super.clear();
+        deprecated_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (uninterpretedOptionBuilder_ == null) {
           uninterpretedOption_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           uninterpretedOptionBuilder_.clear();
         }
@@ -21097,11 +22779,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_ServiceOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_ServiceOptions_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.ServiceOptions getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.ServiceOptions.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.ServiceOptions build() {
@@ -21115,15 +22797,21 @@ public final class DescriptorProtos {
       public com.google.protobuf.DescriptorProtos.ServiceOptions buildPartial() {
         com.google.protobuf.DescriptorProtos.ServiceOptions result = new com.google.protobuf.DescriptorProtos.ServiceOptions(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.deprecated_ = deprecated_;
         if (uninterpretedOptionBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
             uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.uninterpretedOption_ = uninterpretedOption_;
         } else {
           result.uninterpretedOption_ = uninterpretedOptionBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -21138,12 +22826,15 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.ServiceOptions other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.ServiceOptions.getDefaultInstance()) return this;
+        if (other.hasDeprecated()) {
+          setDeprecated(other.getDeprecated());
+        }
         if (uninterpretedOptionBuilder_ == null) {
           if (!other.uninterpretedOption_.isEmpty()) {
             if (uninterpretedOption_.isEmpty()) {
               uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureUninterpretedOptionIsMutable();
               uninterpretedOption_.addAll(other.uninterpretedOption_);
@@ -21156,9 +22847,9 @@ public final class DescriptorProtos {
               uninterpretedOptionBuilder_.dispose();
               uninterpretedOptionBuilder_ = null;
               uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               uninterpretedOptionBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getUninterpretedOptionFieldBuilder() : null;
             } else {
               uninterpretedOptionBuilder_.addAllMessages(other.uninterpretedOption_);
@@ -21203,13 +22894,72 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+      private boolean deprecated_ ;
+      /**
+       * <code>optional bool deprecated = 33 [default = false];</code>
+       *
+       * <pre>
+       * Is this service deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the service, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating services.
+       * </pre>
+       */
+      public boolean hasDeprecated() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional bool deprecated = 33 [default = false];</code>
+       *
+       * <pre>
+       * Is this service deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the service, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating services.
+       * </pre>
+       */
+      public boolean getDeprecated() {
+        return deprecated_;
+      }
+      /**
+       * <code>optional bool deprecated = 33 [default = false];</code>
+       *
+       * <pre>
+       * Is this service deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the service, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating services.
+       * </pre>
+       */
+      public Builder setDeprecated(boolean value) {
+        bitField0_ |= 0x00000001;
+        deprecated_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool deprecated = 33 [default = false];</code>
+       *
+       * <pre>
+       * Is this service deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the service, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating services.
+       * </pre>
+       */
+      public Builder clearDeprecated() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        deprecated_ = false;
+        onChanged();
+        return this;
+      }
+
       private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_ =
         java.util.Collections.emptyList();
       private void ensureUninterpretedOptionIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>(uninterpretedOption_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -21385,7 +23135,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.UninterpretedOption> values) {
         if (uninterpretedOptionBuilder_ == null) {
           ensureUninterpretedOptionIsMutable();
-          super.addAll(values, uninterpretedOption_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, uninterpretedOption_);
           onChanged();
         } else {
           uninterpretedOptionBuilder_.addAllMessages(values);
@@ -21402,7 +23153,7 @@ public final class DescriptorProtos {
       public Builder clearUninterpretedOption() {
         if (uninterpretedOptionBuilder_ == null) {
           uninterpretedOption_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           uninterpretedOptionBuilder_.clear();
@@ -21507,7 +23258,7 @@ public final class DescriptorProtos {
           uninterpretedOptionBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.google.protobuf.DescriptorProtos.UninterpretedOption, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder, com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder>(
                   uninterpretedOption_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
           uninterpretedOption_ = null;
@@ -21527,10 +23278,33 @@ public final class DescriptorProtos {
   }
 
   public interface MethodOptionsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.MethodOptions)
       com.google.protobuf.GeneratedMessage.
           ExtendableMessageOrBuilder<MethodOptions> {
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+    /**
+     * <code>optional bool deprecated = 33 [default = false];</code>
+     *
+     * <pre>
+     * Is this method deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the method, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating methods.
+     * </pre>
+     */
+    boolean hasDeprecated();
+    /**
+     * <code>optional bool deprecated = 33 [default = false];</code>
+     *
+     * <pre>
+     * Is this method deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the method, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating methods.
+     * </pre>
+     */
+    boolean getDeprecated();
+
     /**
      * <code>repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;</code>
      *
@@ -21580,7 +23354,9 @@ public final class DescriptorProtos {
    */
   public static final class MethodOptions extends
       com.google.protobuf.GeneratedMessage.ExtendableMessage<
-        MethodOptions> implements MethodOptionsOrBuilder {
+        MethodOptions> implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.MethodOptions)
+      MethodOptionsOrBuilder {
     // Use MethodOptions.newBuilder() to construct.
     private MethodOptions(com.google.protobuf.GeneratedMessage.ExtendableBuilder<com.google.protobuf.DescriptorProtos.MethodOptions, ?> builder) {
       super(builder);
@@ -21626,10 +23402,15 @@ public final class DescriptorProtos {
               }
               break;
             }
+            case 264: {
+              bitField0_ |= 0x00000001;
+              deprecated_ = input.readBool();
+              break;
+            }
             case 7994: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                 uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>();
-                mutable_bitField0_ |= 0x00000001;
+                mutable_bitField0_ |= 0x00000002;
               }
               uninterpretedOption_.add(input.readMessage(com.google.protobuf.DescriptorProtos.UninterpretedOption.PARSER, extensionRegistry));
               break;
@@ -21642,7 +23423,7 @@ public final class DescriptorProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
         }
         this.unknownFields = unknownFields.build();
@@ -21651,14 +23432,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_MethodOptions_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MethodOptions_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_MethodOptions_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MethodOptions_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.MethodOptions.class, com.google.protobuf.DescriptorProtos.MethodOptions.Builder.class);
+              com.google.protobuf.DescriptorProtos.MethodOptions.class, com.google.protobuf.DescriptorProtos.MethodOptions.Builder.class);
     }
 
     public static com.google.protobuf.Parser<MethodOptions> PARSER =
@@ -21676,7 +23457,36 @@ public final class DescriptorProtos {
       return PARSER;
     }
 
-    // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+    private int bitField0_;
+    public static final int DEPRECATED_FIELD_NUMBER = 33;
+    private boolean deprecated_;
+    /**
+     * <code>optional bool deprecated = 33 [default = false];</code>
+     *
+     * <pre>
+     * Is this method deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the method, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating methods.
+     * </pre>
+     */
+    public boolean hasDeprecated() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional bool deprecated = 33 [default = false];</code>
+     *
+     * <pre>
+     * Is this method deprecated?
+     * Depending on the target platform, this can emit Deprecated annotations
+     * for the method, or it will be completely ignored; in the very least,
+     * this is a formalization for deprecating methods.
+     * </pre>
+     */
+    public boolean getDeprecated() {
+      return deprecated_;
+    }
+
     public static final int UNINTERPRETED_OPTION_FIELD_NUMBER = 999;
     private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_;
     /**
@@ -21733,12 +23543,14 @@ public final class DescriptorProtos {
     }
 
     private void initFields() {
+      deprecated_ = false;
       uninterpretedOption_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getUninterpretedOptionCount(); i++) {
         if (!getUninterpretedOption(i).isInitialized()) {
@@ -21760,6 +23572,9 @@ public final class DescriptorProtos {
       com.google.protobuf.GeneratedMessage
         .ExtendableMessage<com.google.protobuf.DescriptorProtos.MethodOptions>.ExtensionWriter extensionWriter =
           newExtensionWriter();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(33, deprecated_);
+      }
       for (int i = 0; i < uninterpretedOption_.size(); i++) {
         output.writeMessage(999, uninterpretedOption_.get(i));
       }
@@ -21773,6 +23588,10 @@ public final class DescriptorProtos {
       if (size != -1) return size;
 
       size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(33, deprecated_);
+      }
       for (int i = 0; i < uninterpretedOption_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(999, uninterpretedOption_.get(i));
@@ -21861,17 +23680,19 @@ public final class DescriptorProtos {
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.ExtendableBuilder<
-          com.google.protobuf.DescriptorProtos.MethodOptions, Builder> implements com.google.protobuf.DescriptorProtos.MethodOptionsOrBuilder {
+          com.google.protobuf.DescriptorProtos.MethodOptions, Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.MethodOptions)
+        com.google.protobuf.DescriptorProtos.MethodOptionsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_MethodOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MethodOptions_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_MethodOptions_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MethodOptions_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.MethodOptions.class, com.google.protobuf.DescriptorProtos.MethodOptions.Builder.class);
+                com.google.protobuf.DescriptorProtos.MethodOptions.class, com.google.protobuf.DescriptorProtos.MethodOptions.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.MethodOptions.newBuilder()
@@ -21885,7 +23706,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getUninterpretedOptionFieldBuilder();
         }
       }
@@ -21895,9 +23716,11 @@ public final class DescriptorProtos {
 
       public Builder clear() {
         super.clear();
+        deprecated_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (uninterpretedOptionBuilder_ == null) {
           uninterpretedOption_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           uninterpretedOptionBuilder_.clear();
         }
@@ -21910,11 +23733,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_MethodOptions_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_MethodOptions_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.MethodOptions getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.MethodOptions.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.MethodOptions build() {
@@ -21928,15 +23751,21 @@ public final class DescriptorProtos {
       public com.google.protobuf.DescriptorProtos.MethodOptions buildPartial() {
         com.google.protobuf.DescriptorProtos.MethodOptions result = new com.google.protobuf.DescriptorProtos.MethodOptions(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.deprecated_ = deprecated_;
         if (uninterpretedOptionBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
             uninterpretedOption_ = java.util.Collections.unmodifiableList(uninterpretedOption_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.uninterpretedOption_ = uninterpretedOption_;
         } else {
           result.uninterpretedOption_ = uninterpretedOptionBuilder_.build();
         }
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -21951,12 +23780,15 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.MethodOptions other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.MethodOptions.getDefaultInstance()) return this;
+        if (other.hasDeprecated()) {
+          setDeprecated(other.getDeprecated());
+        }
         if (uninterpretedOptionBuilder_ == null) {
           if (!other.uninterpretedOption_.isEmpty()) {
             if (uninterpretedOption_.isEmpty()) {
               uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureUninterpretedOptionIsMutable();
               uninterpretedOption_.addAll(other.uninterpretedOption_);
@@ -21969,9 +23801,9 @@ public final class DescriptorProtos {
               uninterpretedOptionBuilder_.dispose();
               uninterpretedOptionBuilder_ = null;
               uninterpretedOption_ = other.uninterpretedOption_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               uninterpretedOptionBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getUninterpretedOptionFieldBuilder() : null;
             } else {
               uninterpretedOptionBuilder_.addAllMessages(other.uninterpretedOption_);
@@ -22016,13 +23848,72 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
+      private boolean deprecated_ ;
+      /**
+       * <code>optional bool deprecated = 33 [default = false];</code>
+       *
+       * <pre>
+       * Is this method deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the method, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating methods.
+       * </pre>
+       */
+      public boolean hasDeprecated() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional bool deprecated = 33 [default = false];</code>
+       *
+       * <pre>
+       * Is this method deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the method, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating methods.
+       * </pre>
+       */
+      public boolean getDeprecated() {
+        return deprecated_;
+      }
+      /**
+       * <code>optional bool deprecated = 33 [default = false];</code>
+       *
+       * <pre>
+       * Is this method deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the method, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating methods.
+       * </pre>
+       */
+      public Builder setDeprecated(boolean value) {
+        bitField0_ |= 0x00000001;
+        deprecated_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool deprecated = 33 [default = false];</code>
+       *
+       * <pre>
+       * Is this method deprecated?
+       * Depending on the target platform, this can emit Deprecated annotations
+       * for the method, or it will be completely ignored; in the very least,
+       * this is a formalization for deprecating methods.
+       * </pre>
+       */
+      public Builder clearDeprecated() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        deprecated_ = false;
+        onChanged();
+        return this;
+      }
+
       private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption> uninterpretedOption_ =
         java.util.Collections.emptyList();
       private void ensureUninterpretedOptionIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           uninterpretedOption_ = new java.util.ArrayList<com.google.protobuf.DescriptorProtos.UninterpretedOption>(uninterpretedOption_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -22198,7 +24089,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.UninterpretedOption> values) {
         if (uninterpretedOptionBuilder_ == null) {
           ensureUninterpretedOptionIsMutable();
-          super.addAll(values, uninterpretedOption_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, uninterpretedOption_);
           onChanged();
         } else {
           uninterpretedOptionBuilder_.addAllMessages(values);
@@ -22215,7 +24107,7 @@ public final class DescriptorProtos {
       public Builder clearUninterpretedOption() {
         if (uninterpretedOptionBuilder_ == null) {
           uninterpretedOption_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           uninterpretedOptionBuilder_.clear();
@@ -22320,7 +24212,7 @@ public final class DescriptorProtos {
           uninterpretedOptionBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
               com.google.protobuf.DescriptorProtos.UninterpretedOption, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder, com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder>(
                   uninterpretedOption_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
           uninterpretedOption_ = null;
@@ -22339,10 +24231,10 @@ public final class DescriptorProtos {
     // @@protoc_insertion_point(class_scope:google.protobuf.MethodOptions)
   }
 
-  public interface UninterpretedOptionOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface UninterpretedOptionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.UninterpretedOption)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .google.protobuf.UninterpretedOption.NamePart name = 2;
     /**
      * <code>repeated .google.protobuf.UninterpretedOption.NamePart name = 2;</code>
      */
@@ -22367,7 +24259,6 @@ public final class DescriptorProtos {
     com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePartOrBuilder getNameOrBuilder(
         int index);
 
-    // optional string identifier_value = 3;
     /**
      * <code>optional string identifier_value = 3;</code>
      *
@@ -22397,7 +24288,6 @@ public final class DescriptorProtos {
     com.google.protobuf.ByteString
         getIdentifierValueBytes();
 
-    // optional uint64 positive_int_value = 4;
     /**
      * <code>optional uint64 positive_int_value = 4;</code>
      */
@@ -22407,7 +24297,6 @@ public final class DescriptorProtos {
      */
     long getPositiveIntValue();
 
-    // optional int64 negative_int_value = 5;
     /**
      * <code>optional int64 negative_int_value = 5;</code>
      */
@@ -22417,7 +24306,6 @@ public final class DescriptorProtos {
      */
     long getNegativeIntValue();
 
-    // optional double double_value = 6;
     /**
      * <code>optional double double_value = 6;</code>
      */
@@ -22427,7 +24315,6 @@ public final class DescriptorProtos {
      */
     double getDoubleValue();
 
-    // optional bytes string_value = 7;
     /**
      * <code>optional bytes string_value = 7;</code>
      */
@@ -22437,7 +24324,6 @@ public final class DescriptorProtos {
      */
     com.google.protobuf.ByteString getStringValue();
 
-    // optional string aggregate_value = 8;
     /**
      * <code>optional string aggregate_value = 8;</code>
      */
@@ -22465,8 +24351,9 @@ public final class DescriptorProtos {
    * </pre>
    */
   public static final class UninterpretedOption extends
-      com.google.protobuf.GeneratedMessage
-      implements UninterpretedOptionOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.UninterpretedOption)
+      UninterpretedOptionOrBuilder {
     // Use UninterpretedOption.newBuilder() to construct.
     private UninterpretedOption(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -22521,8 +24408,9 @@ public final class DescriptorProtos {
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              identifierValue_ = input.readBytes();
+              identifierValue_ = bs;
               break;
             }
             case 32: {
@@ -22546,8 +24434,9 @@ public final class DescriptorProtos {
               break;
             }
             case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000020;
-              aggregateValue_ = input.readBytes();
+              aggregateValue_ = bs;
               break;
             }
           }
@@ -22567,14 +24456,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_UninterpretedOption_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_UninterpretedOption_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_UninterpretedOption_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_UninterpretedOption_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.UninterpretedOption.class, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder.class);
+              com.google.protobuf.DescriptorProtos.UninterpretedOption.class, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder.class);
     }
 
     public static com.google.protobuf.Parser<UninterpretedOption> PARSER =
@@ -22592,10 +24481,10 @@ public final class DescriptorProtos {
       return PARSER;
     }
 
-    public interface NamePartOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
+    public interface NamePartOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:google.protobuf.UninterpretedOption.NamePart)
+        com.google.protobuf.MessageOrBuilder {
 
-      // required string name_part = 1;
       /**
        * <code>required string name_part = 1;</code>
        */
@@ -22610,7 +24499,6 @@ public final class DescriptorProtos {
       com.google.protobuf.ByteString
           getNamePartBytes();
 
-      // required bool is_extension = 2;
       /**
        * <code>required bool is_extension = 2;</code>
        */
@@ -22632,8 +24520,9 @@ public final class DescriptorProtos {
      * </pre>
      */
     public static final class NamePart extends
-        com.google.protobuf.GeneratedMessage
-        implements NamePartOrBuilder {
+        com.google.protobuf.GeneratedMessage implements
+        // @@protoc_insertion_point(message_implements:google.protobuf.UninterpretedOption.NamePart)
+        NamePartOrBuilder {
       // Use NamePart.newBuilder() to construct.
       private NamePart(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
@@ -22680,8 +24569,9 @@ public final class DescriptorProtos {
                 break;
               }
               case 10: {
+                com.google.protobuf.ByteString bs = input.readBytes();
                 bitField0_ |= 0x00000001;
-                namePart_ = input.readBytes();
+                namePart_ = bs;
                 break;
               }
               case 16: {
@@ -22703,14 +24593,14 @@ public final class DescriptorProtos {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_UninterpretedOption_NamePart_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_UninterpretedOption_NamePart_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_UninterpretedOption_NamePart_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_UninterpretedOption_NamePart_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart.class, com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart.Builder.class);
+                com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart.class, com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart.Builder.class);
       }
 
       public static com.google.protobuf.Parser<NamePart> PARSER =
@@ -22729,7 +24619,6 @@ public final class DescriptorProtos {
       }
 
       private int bitField0_;
-      // required string name_part = 1;
       public static final int NAME_PART_FIELD_NUMBER = 1;
       private java.lang.Object namePart_;
       /**
@@ -22772,7 +24661,6 @@ public final class DescriptorProtos {
         }
       }
 
-      // required bool is_extension = 2;
       public static final int IS_EXTENSION_FIELD_NUMBER = 2;
       private boolean isExtension_;
       /**
@@ -22795,7 +24683,8 @@ public final class DescriptorProtos {
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
 
         if (!hasNamePart()) {
           memoizedIsInitialized = 0;
@@ -22925,18 +24814,19 @@ public final class DescriptorProtos {
        * </pre>
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePartOrBuilder {
+          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:google.protobuf.UninterpretedOption.NamePart)
+          com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePartOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return internal_static_google_protobuf_UninterpretedOption_NamePart_descriptor;
+          return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_UninterpretedOption_NamePart_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return internal_static_google_protobuf_UninterpretedOption_NamePart_fieldAccessorTable
+          return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_UninterpretedOption_NamePart_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                      com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart.class, com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart.Builder.class);
+                  com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart.class, com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart.Builder.class);
         }
 
         // Construct using com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart.newBuilder()
@@ -22950,7 +24840,7 @@ public final class DescriptorProtos {
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
-          if (alwaysUseFieldBuilders) {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           }
         }
         private static Builder create() {
@@ -22972,11 +24862,11 @@ public final class DescriptorProtos {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return internal_static_google_protobuf_UninterpretedOption_NamePart_descriptor;
+          return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_UninterpretedOption_NamePart_descriptor;
         }
 
         public com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart getDefaultInstanceForType() {
-          return getDefaultInstance();
+          return com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart.getDefaultInstance();
         }
 
         public com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart build() {
@@ -23014,7 +24904,7 @@ public final class DescriptorProtos {
         }
 
         public Builder mergeFrom(com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart other) {
-          if (other == getDefaultInstance()) return this;
+          if (other == com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart.getDefaultInstance()) return this;
           if (other.hasNamePart()) {
             bitField0_ |= 0x00000001;
             namePart_ = other.namePart_;
@@ -23058,7 +24948,6 @@ public final class DescriptorProtos {
         }
         private int bitField0_;
 
-        // required string name_part = 1;
         private java.lang.Object namePart_ = "";
         /**
          * <code>required string name_part = 1;</code>
@@ -23072,9 +24961,12 @@ public final class DescriptorProtos {
         public java.lang.String getNamePart() {
           java.lang.Object ref = namePart_;
           if (!(ref instanceof java.lang.String)) {
-            java.lang.String s = ((com.google.protobuf.ByteString) ref)
-                .toStringUtf8();
-            namePart_ = s;
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (bs.isValidUtf8()) {
+              namePart_ = s;
+            }
             return s;
           } else {
             return (java.lang.String) ref;
@@ -23132,7 +25024,6 @@ public final class DescriptorProtos {
           return this;
         }
 
-        // required bool is_extension = 2;
         private boolean isExtension_ ;
         /**
          * <code>required bool is_extension = 2;</code>
@@ -23177,7 +25068,6 @@ public final class DescriptorProtos {
     }
 
     private int bitField0_;
-    // repeated .google.protobuf.UninterpretedOption.NamePart name = 2;
     public static final int NAME_FIELD_NUMBER = 2;
     private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart> name_;
     /**
@@ -23213,7 +25103,6 @@ public final class DescriptorProtos {
       return name_.get(index);
     }
 
-    // optional string identifier_value = 3;
     public static final int IDENTIFIER_VALUE_FIELD_NUMBER = 3;
     private java.lang.Object identifierValue_;
     /**
@@ -23271,7 +25160,6 @@ public final class DescriptorProtos {
       }
     }
 
-    // optional uint64 positive_int_value = 4;
     public static final int POSITIVE_INT_VALUE_FIELD_NUMBER = 4;
     private long positiveIntValue_;
     /**
@@ -23287,7 +25175,6 @@ public final class DescriptorProtos {
       return positiveIntValue_;
     }
 
-    // optional int64 negative_int_value = 5;
     public static final int NEGATIVE_INT_VALUE_FIELD_NUMBER = 5;
     private long negativeIntValue_;
     /**
@@ -23303,7 +25190,6 @@ public final class DescriptorProtos {
       return negativeIntValue_;
     }
 
-    // optional double double_value = 6;
     public static final int DOUBLE_VALUE_FIELD_NUMBER = 6;
     private double doubleValue_;
     /**
@@ -23319,7 +25205,6 @@ public final class DescriptorProtos {
       return doubleValue_;
     }
 
-    // optional bytes string_value = 7;
     public static final int STRING_VALUE_FIELD_NUMBER = 7;
     private com.google.protobuf.ByteString stringValue_;
     /**
@@ -23335,7 +25220,6 @@ public final class DescriptorProtos {
       return stringValue_;
     }
 
-    // optional string aggregate_value = 8;
     public static final int AGGREGATE_VALUE_FIELD_NUMBER = 8;
     private java.lang.Object aggregateValue_;
     /**
@@ -23390,7 +25274,8 @@ public final class DescriptorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getNameCount(); i++) {
         if (!getName(i).isInitialized()) {
@@ -23554,18 +25439,19 @@ public final class DescriptorProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.UninterpretedOption)
+        com.google.protobuf.DescriptorProtos.UninterpretedOptionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_UninterpretedOption_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_UninterpretedOption_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_UninterpretedOption_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_UninterpretedOption_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.UninterpretedOption.class, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder.class);
+                com.google.protobuf.DescriptorProtos.UninterpretedOption.class, com.google.protobuf.DescriptorProtos.UninterpretedOption.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.UninterpretedOption.newBuilder()
@@ -23579,7 +25465,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getNameFieldBuilder();
         }
       }
@@ -23616,11 +25502,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_UninterpretedOption_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_UninterpretedOption_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.UninterpretedOption getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.UninterpretedOption.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.UninterpretedOption build() {
@@ -23683,7 +25569,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.UninterpretedOption other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.UninterpretedOption.getDefaultInstance()) return this;
         if (nameBuilder_ == null) {
           if (!other.name_.isEmpty()) {
             if (name_.isEmpty()) {
@@ -23703,7 +25589,7 @@ public final class DescriptorProtos {
               name_ = other.name_;
               bitField0_ = (bitField0_ & ~0x00000001);
               nameBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getNameFieldBuilder() : null;
             } else {
               nameBuilder_.addAllMessages(other.name_);
@@ -23765,7 +25651,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // repeated .google.protobuf.UninterpretedOption.NamePart name = 2;
       private java.util.List<com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart> name_ =
         java.util.Collections.emptyList();
       private void ensureNameIsMutable() {
@@ -23907,7 +25792,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.UninterpretedOption.NamePart> values) {
         if (nameBuilder_ == null) {
           ensureNameIsMutable();
-          super.addAll(values, name_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, name_);
           onChanged();
         } else {
           nameBuilder_.addAllMessages(values);
@@ -24005,7 +25891,6 @@ public final class DescriptorProtos {
         return nameBuilder_;
       }
 
-      // optional string identifier_value = 3;
       private java.lang.Object identifierValue_ = "";
       /**
        * <code>optional string identifier_value = 3;</code>
@@ -24029,9 +25914,12 @@ public final class DescriptorProtos {
       public java.lang.String getIdentifierValue() {
         java.lang.Object ref = identifierValue_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          identifierValue_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            identifierValue_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -24109,7 +25997,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional uint64 positive_int_value = 4;
       private long positiveIntValue_ ;
       /**
        * <code>optional uint64 positive_int_value = 4;</code>
@@ -24142,7 +26029,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional int64 negative_int_value = 5;
       private long negativeIntValue_ ;
       /**
        * <code>optional int64 negative_int_value = 5;</code>
@@ -24175,7 +26061,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional double double_value = 6;
       private double doubleValue_ ;
       /**
        * <code>optional double double_value = 6;</code>
@@ -24208,7 +26093,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional bytes string_value = 7;
       private com.google.protobuf.ByteString stringValue_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes string_value = 7;</code>
@@ -24244,7 +26128,6 @@ public final class DescriptorProtos {
         return this;
       }
 
-      // optional string aggregate_value = 8;
       private java.lang.Object aggregateValue_ = "";
       /**
        * <code>optional string aggregate_value = 8;</code>
@@ -24258,9 +26141,12 @@ public final class DescriptorProtos {
       public java.lang.String getAggregateValue() {
         java.lang.Object ref = aggregateValue_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          aggregateValue_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            aggregateValue_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -24329,10 +26215,10 @@ public final class DescriptorProtos {
     // @@protoc_insertion_point(class_scope:google.protobuf.UninterpretedOption)
   }
 
-  public interface SourceCodeInfoOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SourceCodeInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.protobuf.SourceCodeInfo)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .google.protobuf.SourceCodeInfo.Location location = 1;
     /**
      * <code>repeated .google.protobuf.SourceCodeInfo.Location location = 1;</code>
      *
@@ -24341,7 +26227,6 @@ public final class DescriptorProtos {
      * corresponds to a particular definition.  This information is intended
      * to be useful to IDEs, code indexers, documentation generators, and similar
      * tools.
-     *
      * For example, say we have a file like:
      *   message Foo {
      *     optional string foo = 1;
@@ -24357,7 +26242,6 @@ public final class DescriptorProtos {
      *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
      *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
      *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-     *
      * Notes:
      * - A location may refer to a repeated field itself (i.e. not to any
      *   particular index within it).  This is used whenever a set of elements are
@@ -24392,7 +26276,6 @@ public final class DescriptorProtos {
      * corresponds to a particular definition.  This information is intended
      * to be useful to IDEs, code indexers, documentation generators, and similar
      * tools.
-     *
      * For example, say we have a file like:
      *   message Foo {
      *     optional string foo = 1;
@@ -24408,7 +26291,6 @@ public final class DescriptorProtos {
      *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
      *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
      *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-     *
      * Notes:
      * - A location may refer to a repeated field itself (i.e. not to any
      *   particular index within it).  This is used whenever a set of elements are
@@ -24442,7 +26324,6 @@ public final class DescriptorProtos {
      * corresponds to a particular definition.  This information is intended
      * to be useful to IDEs, code indexers, documentation generators, and similar
      * tools.
-     *
      * For example, say we have a file like:
      *   message Foo {
      *     optional string foo = 1;
@@ -24458,7 +26339,6 @@ public final class DescriptorProtos {
      *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
      *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
      *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-     *
      * Notes:
      * - A location may refer to a repeated field itself (i.e. not to any
      *   particular index within it).  This is used whenever a set of elements are
@@ -24492,7 +26372,6 @@ public final class DescriptorProtos {
      * corresponds to a particular definition.  This information is intended
      * to be useful to IDEs, code indexers, documentation generators, and similar
      * tools.
-     *
      * For example, say we have a file like:
      *   message Foo {
      *     optional string foo = 1;
@@ -24508,7 +26387,6 @@ public final class DescriptorProtos {
      *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
      *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
      *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-     *
      * Notes:
      * - A location may refer to a repeated field itself (i.e. not to any
      *   particular index within it).  This is used whenever a set of elements are
@@ -24543,7 +26421,6 @@ public final class DescriptorProtos {
      * corresponds to a particular definition.  This information is intended
      * to be useful to IDEs, code indexers, documentation generators, and similar
      * tools.
-     *
      * For example, say we have a file like:
      *   message Foo {
      *     optional string foo = 1;
@@ -24559,7 +26436,6 @@ public final class DescriptorProtos {
      *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
      *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
      *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-     *
      * Notes:
      * - A location may refer to a repeated field itself (i.e. not to any
      *   particular index within it).  This is used whenever a set of elements are
@@ -24596,8 +26472,9 @@ public final class DescriptorProtos {
    * </pre>
    */
   public static final class SourceCodeInfo extends
-      com.google.protobuf.GeneratedMessage
-      implements SourceCodeInfoOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:google.protobuf.SourceCodeInfo)
+      SourceCodeInfoOrBuilder {
     // Use SourceCodeInfo.newBuilder() to construct.
     private SourceCodeInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -24668,14 +26545,14 @@ public final class DescriptorProtos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return internal_static_google_protobuf_SourceCodeInfo_descriptor;
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_SourceCodeInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return internal_static_google_protobuf_SourceCodeInfo_fieldAccessorTable
+      return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_SourceCodeInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-                  com.google.protobuf.DescriptorProtos.SourceCodeInfo.class, com.google.protobuf.DescriptorProtos.SourceCodeInfo.Builder.class);
+              com.google.protobuf.DescriptorProtos.SourceCodeInfo.class, com.google.protobuf.DescriptorProtos.SourceCodeInfo.Builder.class);
     }
 
     public static com.google.protobuf.Parser<SourceCodeInfo> PARSER =
@@ -24693,17 +26570,16 @@ public final class DescriptorProtos {
       return PARSER;
     }
 
-    public interface LocationOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
+    public interface LocationOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:google.protobuf.SourceCodeInfo.Location)
+        com.google.protobuf.MessageOrBuilder {
 
-      // repeated int32 path = 1 [packed = true];
       /**
        * <code>repeated int32 path = 1 [packed = true];</code>
        *
        * <pre>
        * Identifies which part of the FileDescriptorProto was defined at this
        * location.
-       *
        * Each element is a field number or an index.  They form a path from
        * the root FileDescriptorProto to the place where the definition.  For
        * example, this path:
@@ -24718,7 +26594,6 @@ public final class DescriptorProtos {
        *   repeated FieldDescriptorProto field = 2;
        * and FieldDescriptorProto.name has field number 1:
        *   optional string name = 1;
-       *
        * Thus, the above path gives the location of a field name.  If we removed
        * the last element:
        *   [ 4, 3, 2, 7 ]
@@ -24733,7 +26608,6 @@ public final class DescriptorProtos {
        * <pre>
        * Identifies which part of the FileDescriptorProto was defined at this
        * location.
-       *
        * Each element is a field number or an index.  They form a path from
        * the root FileDescriptorProto to the place where the definition.  For
        * example, this path:
@@ -24748,7 +26622,6 @@ public final class DescriptorProtos {
        *   repeated FieldDescriptorProto field = 2;
        * and FieldDescriptorProto.name has field number 1:
        *   optional string name = 1;
-       *
        * Thus, the above path gives the location of a field name.  If we removed
        * the last element:
        *   [ 4, 3, 2, 7 ]
@@ -24763,7 +26636,6 @@ public final class DescriptorProtos {
        * <pre>
        * Identifies which part of the FileDescriptorProto was defined at this
        * location.
-       *
        * Each element is a field number or an index.  They form a path from
        * the root FileDescriptorProto to the place where the definition.  For
        * example, this path:
@@ -24778,7 +26650,6 @@ public final class DescriptorProtos {
        *   repeated FieldDescriptorProto field = 2;
        * and FieldDescriptorProto.name has field number 1:
        *   optional string name = 1;
-       *
        * Thus, the above path gives the location of a field name.  If we removed
        * the last element:
        *   [ 4, 3, 2, 7 ]
@@ -24788,7 +26659,6 @@ public final class DescriptorProtos {
        */
       int getPath(int index);
 
-      // repeated int32 span = 2 [packed = true];
       /**
        * <code>repeated int32 span = 2 [packed = true];</code>
        *
@@ -24826,7 +26696,6 @@ public final class DescriptorProtos {
        */
       int getSpan(int index);
 
-      // optional string leading_comments = 3;
       /**
        * <code>optional string leading_comments = 3;</code>
        *
@@ -24834,30 +26703,23 @@ public final class DescriptorProtos {
        * If this SourceCodeInfo represents a complete declaration, these are any
        * comments appearing before and after the declaration which appear to be
        * attached to the declaration.
-       *
        * A series of line comments appearing on consecutive lines, with no other
        * tokens appearing on those lines, will be treated as a single comment.
-       *
        * Only the comment content is provided; comment markers (e.g. //) are
        * stripped out.  For block comments, leading whitespace and an asterisk
        * will be stripped from the beginning of each line other than the first.
        * Newlines are included in the output.
-       *
        * Examples:
-       *
        *   optional int32 foo = 1;  // Comment attached to foo.
        *   // Comment attached to bar.
        *   optional int32 bar = 2;
-       *
        *   optional string baz = 3;
        *   // Comment attached to baz.
        *   // Another line attached to baz.
-       *
        *   // Comment attached to qux.
        *   //
        *   // Another line attached to qux.
        *   optional double qux = 4;
-       *
        *   optional string corge = 5;
        *   /&#42; Block comment attached
        *    * to corge.  Leading asterisks
@@ -24875,30 +26737,23 @@ public final class DescriptorProtos {
        * If this SourceCodeInfo represents a complete declaration, these are any
        * comments appearing before and after the declaration which appear to be
        * attached to the declaration.
-       *
        * A series of line comments appearing on consecutive lines, with no other
        * tokens appearing on those lines, will be treated as a single comment.
-       *
        * Only the comment content is provided; comment markers (e.g. //) are
        * stripped out.  For block comments, leading whitespace and an asterisk
        * will be stripped from the beginning of each line other than the first.
        * Newlines are included in the output.
-       *
        * Examples:
-       *
        *   optional int32 foo = 1;  // Comment attached to foo.
        *   // Comment attached to bar.
        *   optional int32 bar = 2;
-       *
        *   optional string baz = 3;
        *   // Comment attached to baz.
        *   // Another line attached to baz.
-       *
        *   // Comment attached to qux.
        *   //
        *   // Another line attached to qux.
        *   optional double qux = 4;
-       *
        *   optional string corge = 5;
        *   /&#42; Block comment attached
        *    * to corge.  Leading asterisks
@@ -24916,30 +26771,23 @@ public final class DescriptorProtos {
        * If this SourceCodeInfo represents a complete declaration, these are any
        * comments appearing before and after the declaration which appear to be
        * attached to the declaration.
-       *
        * A series of line comments appearing on consecutive lines, with no other
        * tokens appearing on those lines, will be treated as a single comment.
-       *
        * Only the comment content is provided; comment markers (e.g. //) are
        * stripped out.  For block comments, leading whitespace and an asterisk
        * will be stripped from the beginning of each line other than the first.
        * Newlines are included in the output.
-       *
        * Examples:
-       *
        *   optional int32 foo = 1;  // Comment attached to foo.
        *   // Comment attached to bar.
        *   optional int32 bar = 2;
-       *
        *   optional string baz = 3;
        *   // Comment attached to baz.
        *   // Another line attached to baz.
-       *
        *   // Comment attached to qux.
        *   //
        *   // Another line attached to qux.
        *   optional double qux = 4;
-       *
        *   optional string corge = 5;
        *   /&#42; Block comment attached
        *    * to corge.  Leading asterisks
@@ -24952,7 +26800,6 @@ public final class DescriptorProtos {
       com.google.protobuf.ByteString
           getLeadingCommentsBytes();
 
-      // optional string trailing_comments = 4;
       /**
        * <code>optional string trailing_comments = 4;</code>
        */
@@ -24971,8 +26818,9 @@ public final class DescriptorProtos {
      * Protobuf type {@code google.protobuf.SourceCodeInfo.Location}
      */
     public static final class Location extends
-        com.google.protobuf.GeneratedMessage
-        implements LocationOrBuilder {
+        com.google.protobuf.GeneratedMessage implements
+        // @@protoc_insertion_point(message_implements:google.protobuf.SourceCodeInfo.Location)
+        LocationOrBuilder {
       // Use Location.newBuilder() to construct.
       private Location(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
         super(builder);
@@ -25061,13 +26909,15 @@ public final class DescriptorProtos {
                 break;
               }
               case 26: {
+                com.google.protobuf.ByteString bs = input.readBytes();
                 bitField0_ |= 0x00000001;
-                leadingComments_ = input.readBytes();
+                leadingComments_ = bs;
                 break;
               }
               case 34: {
+                com.google.protobuf.ByteString bs = input.readBytes();
                 bitField0_ |= 0x00000002;
-                trailingComments_ = input.readBytes();
+                trailingComments_ = bs;
                 break;
               }
             }
@@ -25090,14 +26940,14 @@ public final class DescriptorProtos {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_SourceCodeInfo_Location_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_SourceCodeInfo_Location_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_SourceCodeInfo_Location_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_SourceCodeInfo_Location_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location.class, com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location.Builder.class);
+                com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location.class, com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location.Builder.class);
       }
 
       public static com.google.protobuf.Parser<Location> PARSER =
@@ -25116,7 +26966,6 @@ public final class DescriptorProtos {
       }
 
       private int bitField0_;
-      // repeated int32 path = 1 [packed = true];
       public static final int PATH_FIELD_NUMBER = 1;
       private java.util.List<java.lang.Integer> path_;
       /**
@@ -25125,7 +26974,6 @@ public final class DescriptorProtos {
        * <pre>
        * Identifies which part of the FileDescriptorProto was defined at this
        * location.
-       *
        * Each element is a field number or an index.  They form a path from
        * the root FileDescriptorProto to the place where the definition.  For
        * example, this path:
@@ -25140,7 +26988,6 @@ public final class DescriptorProtos {
        *   repeated FieldDescriptorProto field = 2;
        * and FieldDescriptorProto.name has field number 1:
        *   optional string name = 1;
-       *
        * Thus, the above path gives the location of a field name.  If we removed
        * the last element:
        *   [ 4, 3, 2, 7 ]
@@ -25158,7 +27005,6 @@ public final class DescriptorProtos {
        * <pre>
        * Identifies which part of the FileDescriptorProto was defined at this
        * location.
-       *
        * Each element is a field number or an index.  They form a path from
        * the root FileDescriptorProto to the place where the definition.  For
        * example, this path:
@@ -25173,7 +27019,6 @@ public final class DescriptorProtos {
        *   repeated FieldDescriptorProto field = 2;
        * and FieldDescriptorProto.name has field number 1:
        *   optional string name = 1;
-       *
        * Thus, the above path gives the location of a field name.  If we removed
        * the last element:
        *   [ 4, 3, 2, 7 ]
@@ -25190,7 +27035,6 @@ public final class DescriptorProtos {
        * <pre>
        * Identifies which part of the FileDescriptorProto was defined at this
        * location.
-       *
        * Each element is a field number or an index.  They form a path from
        * the root FileDescriptorProto to the place where the definition.  For
        * example, this path:
@@ -25205,7 +27049,6 @@ public final class DescriptorProtos {
        *   repeated FieldDescriptorProto field = 2;
        * and FieldDescriptorProto.name has field number 1:
        *   optional string name = 1;
-       *
        * Thus, the above path gives the location of a field name.  If we removed
        * the last element:
        *   [ 4, 3, 2, 7 ]
@@ -25218,7 +27061,6 @@ public final class DescriptorProtos {
       }
       private int pathMemoizedSerializedSize = -1;
 
-      // repeated int32 span = 2 [packed = true];
       public static final int SPAN_FIELD_NUMBER = 2;
       private java.util.List<java.lang.Integer> span_;
       /**
@@ -25266,7 +27108,6 @@ public final class DescriptorProtos {
       }
       private int spanMemoizedSerializedSize = -1;
 
-      // optional string leading_comments = 3;
       public static final int LEADING_COMMENTS_FIELD_NUMBER = 3;
       private java.lang.Object leadingComments_;
       /**
@@ -25276,30 +27117,23 @@ public final class DescriptorProtos {
        * If this SourceCodeInfo represents a complete declaration, these are any
        * comments appearing before and after the declaration which appear to be
        * attached to the declaration.
-       *
        * A series of line comments appearing on consecutive lines, with no other
        * tokens appearing on those lines, will be treated as a single comment.
-       *
        * Only the comment content is provided; comment markers (e.g. //) are
        * stripped out.  For block comments, leading whitespace and an asterisk
        * will be stripped from the beginning of each line other than the first.
        * Newlines are included in the output.
-       *
        * Examples:
-       *
        *   optional int32 foo = 1;  // Comment attached to foo.
        *   // Comment attached to bar.
        *   optional int32 bar = 2;
-       *
        *   optional string baz = 3;
        *   // Comment attached to baz.
        *   // Another line attached to baz.
-       *
        *   // Comment attached to qux.
        *   //
        *   // Another line attached to qux.
        *   optional double qux = 4;
-       *
        *   optional string corge = 5;
        *   /&#42; Block comment attached
        *    * to corge.  Leading asterisks
@@ -25319,30 +27153,23 @@ public final class DescriptorProtos {
        * If this SourceCodeInfo represents a complete declaration, these are any
        * comments appearing before and after the declaration which appear to be
        * attached to the declaration.
-       *
        * A series of line comments appearing on consecutive lines, with no other
        * tokens appearing on those lines, will be treated as a single comment.
-       *
        * Only the comment content is provided; comment markers (e.g. //) are
        * stripped out.  For block comments, leading whitespace and an asterisk
        * will be stripped from the beginning of each line other than the first.
        * Newlines are included in the output.
-       *
        * Examples:
-       *
        *   optional int32 foo = 1;  // Comment attached to foo.
        *   // Comment attached to bar.
        *   optional int32 bar = 2;
-       *
        *   optional string baz = 3;
        *   // Comment attached to baz.
        *   // Another line attached to baz.
-       *
        *   // Comment attached to qux.
        *   //
        *   // Another line attached to qux.
        *   optional double qux = 4;
-       *
        *   optional string corge = 5;
        *   /&#42; Block comment attached
        *    * to corge.  Leading asterisks
@@ -25373,30 +27200,23 @@ public final class DescriptorProtos {
        * If this SourceCodeInfo represents a complete declaration, these are any
        * comments appearing before and after the declaration which appear to be
        * attached to the declaration.
-       *
        * A series of line comments appearing on consecutive lines, with no other
        * tokens appearing on those lines, will be treated as a single comment.
-       *
        * Only the comment content is provided; comment markers (e.g. //) are
        * stripped out.  For block comments, leading whitespace and an asterisk
        * will be stripped from the beginning of each line other than the first.
        * Newlines are included in the output.
-       *
        * Examples:
-       *
        *   optional int32 foo = 1;  // Comment attached to foo.
        *   // Comment attached to bar.
        *   optional int32 bar = 2;
-       *
        *   optional string baz = 3;
        *   // Comment attached to baz.
        *   // Another line attached to baz.
-       *
        *   // Comment attached to qux.
        *   //
        *   // Another line attached to qux.
        *   optional double qux = 4;
-       *
        *   optional string corge = 5;
        *   /&#42; Block comment attached
        *    * to corge.  Leading asterisks
@@ -25420,7 +27240,6 @@ public final class DescriptorProtos {
         }
       }
 
-      // optional string trailing_comments = 4;
       public static final int TRAILING_COMMENTS_FIELD_NUMBER = 4;
       private java.lang.Object trailingComments_;
       /**
@@ -25472,7 +27291,8 @@ public final class DescriptorProtos {
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
 
         memoizedIsInitialized = 1;
         return true;
@@ -25628,18 +27448,19 @@ public final class DescriptorProtos {
        * Protobuf type {@code google.protobuf.SourceCodeInfo.Location}
        */
       public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.google.protobuf.DescriptorProtos.SourceCodeInfo.LocationOrBuilder {
+          com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:google.protobuf.SourceCodeInfo.Location)
+          com.google.protobuf.DescriptorProtos.SourceCodeInfo.LocationOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return internal_static_google_protobuf_SourceCodeInfo_Location_descriptor;
+          return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_SourceCodeInfo_Location_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return internal_static_google_protobuf_SourceCodeInfo_Location_fieldAccessorTable
+          return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_SourceCodeInfo_Location_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
-                      com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location.class, com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location.Builder.class);
+                  com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location.class, com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location.Builder.class);
         }
 
         // Construct using com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location.newBuilder()
@@ -25653,7 +27474,7 @@ public final class DescriptorProtos {
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
-          if (alwaysUseFieldBuilders) {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           }
         }
         private static Builder create() {
@@ -25679,11 +27500,11 @@ public final class DescriptorProtos {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return internal_static_google_protobuf_SourceCodeInfo_Location_descriptor;
+          return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_SourceCodeInfo_Location_descriptor;
         }
 
         public com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location getDefaultInstanceForType() {
-          return getDefaultInstance();
+          return com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location.getDefaultInstance();
         }
 
         public com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location build() {
@@ -25731,7 +27552,7 @@ public final class DescriptorProtos {
         }
 
         public Builder mergeFrom(com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location other) {
-          if (other == getDefaultInstance()) return this;
+          if (other == com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location.getDefaultInstance()) return this;
           if (!other.path_.isEmpty()) {
             if (path_.isEmpty()) {
               path_ = other.path_;
@@ -25789,7 +27610,6 @@ public final class DescriptorProtos {
         }
         private int bitField0_;
 
-        // repeated int32 path = 1 [packed = true];
         private java.util.List<java.lang.Integer> path_ = java.util.Collections.emptyList();
         private void ensurePathIsMutable() {
           if (!((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -25803,7 +27623,6 @@ public final class DescriptorProtos {
          * <pre>
          * Identifies which part of the FileDescriptorProto was defined at this
          * location.
-         *
          * Each element is a field number or an index.  They form a path from
          * the root FileDescriptorProto to the place where the definition.  For
          * example, this path:
@@ -25818,7 +27637,6 @@ public final class DescriptorProtos {
          *   repeated FieldDescriptorProto field = 2;
          * and FieldDescriptorProto.name has field number 1:
          *   optional string name = 1;
-         *
          * Thus, the above path gives the location of a field name.  If we removed
          * the last element:
          *   [ 4, 3, 2, 7 ]
@@ -25836,7 +27654,6 @@ public final class DescriptorProtos {
          * <pre>
          * Identifies which part of the FileDescriptorProto was defined at this
          * location.
-         *
          * Each element is a field number or an index.  They form a path from
          * the root FileDescriptorProto to the place where the definition.  For
          * example, this path:
@@ -25851,7 +27668,6 @@ public final class DescriptorProtos {
          *   repeated FieldDescriptorProto field = 2;
          * and FieldDescriptorProto.name has field number 1:
          *   optional string name = 1;
-         *
          * Thus, the above path gives the location of a field name.  If we removed
          * the last element:
          *   [ 4, 3, 2, 7 ]
@@ -25868,7 +27684,6 @@ public final class DescriptorProtos {
          * <pre>
          * Identifies which part of the FileDescriptorProto was defined at this
          * location.
-         *
          * Each element is a field number or an index.  They form a path from
          * the root FileDescriptorProto to the place where the definition.  For
          * example, this path:
@@ -25883,7 +27698,6 @@ public final class DescriptorProtos {
          *   repeated FieldDescriptorProto field = 2;
          * and FieldDescriptorProto.name has field number 1:
          *   optional string name = 1;
-         *
          * Thus, the above path gives the location of a field name.  If we removed
          * the last element:
          *   [ 4, 3, 2, 7 ]
@@ -25900,7 +27714,6 @@ public final class DescriptorProtos {
          * <pre>
          * Identifies which part of the FileDescriptorProto was defined at this
          * location.
-         *
          * Each element is a field number or an index.  They form a path from
          * the root FileDescriptorProto to the place where the definition.  For
          * example, this path:
@@ -25915,7 +27728,6 @@ public final class DescriptorProtos {
          *   repeated FieldDescriptorProto field = 2;
          * and FieldDescriptorProto.name has field number 1:
          *   optional string name = 1;
-         *
          * Thus, the above path gives the location of a field name.  If we removed
          * the last element:
          *   [ 4, 3, 2, 7 ]
@@ -25936,7 +27748,6 @@ public final class DescriptorProtos {
          * <pre>
          * Identifies which part of the FileDescriptorProto was defined at this
          * location.
-         *
          * Each element is a field number or an index.  They form a path from
          * the root FileDescriptorProto to the place where the definition.  For
          * example, this path:
@@ -25951,7 +27762,6 @@ public final class DescriptorProtos {
          *   repeated FieldDescriptorProto field = 2;
          * and FieldDescriptorProto.name has field number 1:
          *   optional string name = 1;
-         *
          * Thus, the above path gives the location of a field name.  If we removed
          * the last element:
          *   [ 4, 3, 2, 7 ]
@@ -25971,7 +27781,6 @@ public final class DescriptorProtos {
          * <pre>
          * Identifies which part of the FileDescriptorProto was defined at this
          * location.
-         *
          * Each element is a field number or an index.  They form a path from
          * the root FileDescriptorProto to the place where the definition.  For
          * example, this path:
@@ -25986,7 +27795,6 @@ public final class DescriptorProtos {
          *   repeated FieldDescriptorProto field = 2;
          * and FieldDescriptorProto.name has field number 1:
          *   optional string name = 1;
-         *
          * Thus, the above path gives the location of a field name.  If we removed
          * the last element:
          *   [ 4, 3, 2, 7 ]
@@ -25997,7 +27805,8 @@ public final class DescriptorProtos {
         public Builder addAllPath(
             java.lang.Iterable<? extends java.lang.Integer> values) {
           ensurePathIsMutable();
-          super.addAll(values, path_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, path_);
           onChanged();
           return this;
         }
@@ -26007,7 +27816,6 @@ public final class DescriptorProtos {
          * <pre>
          * Identifies which part of the FileDescriptorProto was defined at this
          * location.
-         *
          * Each element is a field number or an index.  They form a path from
          * the root FileDescriptorProto to the place where the definition.  For
          * example, this path:
@@ -26022,7 +27830,6 @@ public final class DescriptorProtos {
          *   repeated FieldDescriptorProto field = 2;
          * and FieldDescriptorProto.name has field number 1:
          *   optional string name = 1;
-         *
          * Thus, the above path gives the location of a field name.  If we removed
          * the last element:
          *   [ 4, 3, 2, 7 ]
@@ -26037,7 +27844,6 @@ public final class DescriptorProtos {
           return this;
         }
 
-        // repeated int32 span = 2 [packed = true];
         private java.util.List<java.lang.Integer> span_ = java.util.Collections.emptyList();
         private void ensureSpanIsMutable() {
           if (!((bitField0_ & 0x00000002) == 0x00000002)) {
@@ -26137,7 +27943,8 @@ public final class DescriptorProtos {
         public Builder addAllSpan(
             java.lang.Iterable<? extends java.lang.Integer> values) {
           ensureSpanIsMutable();
-          super.addAll(values, span_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, span_);
           onChanged();
           return this;
         }
@@ -26159,7 +27966,6 @@ public final class DescriptorProtos {
           return this;
         }
 
-        // optional string leading_comments = 3;
         private java.lang.Object leadingComments_ = "";
         /**
          * <code>optional string leading_comments = 3;</code>
@@ -26168,30 +27974,23 @@ public final class DescriptorProtos {
          * If this SourceCodeInfo represents a complete declaration, these are any
          * comments appearing before and after the declaration which appear to be
          * attached to the declaration.
-         *
          * A series of line comments appearing on consecutive lines, with no other
          * tokens appearing on those lines, will be treated as a single comment.
-         *
          * Only the comment content is provided; comment markers (e.g. //) are
          * stripped out.  For block comments, leading whitespace and an asterisk
          * will be stripped from the beginning of each line other than the first.
          * Newlines are included in the output.
-         *
          * Examples:
-         *
          *   optional int32 foo = 1;  // Comment attached to foo.
          *   // Comment attached to bar.
          *   optional int32 bar = 2;
-         *
          *   optional string baz = 3;
          *   // Comment attached to baz.
          *   // Another line attached to baz.
-         *
          *   // Comment attached to qux.
          *   //
          *   // Another line attached to qux.
          *   optional double qux = 4;
-         *
          *   optional string corge = 5;
          *   /&#42; Block comment attached
          *    * to corge.  Leading asterisks
@@ -26211,30 +28010,23 @@ public final class DescriptorProtos {
          * If this SourceCodeInfo represents a complete declaration, these are any
          * comments appearing before and after the declaration which appear to be
          * attached to the declaration.
-         *
          * A series of line comments appearing on consecutive lines, with no other
          * tokens appearing on those lines, will be treated as a single comment.
-         *
          * Only the comment content is provided; comment markers (e.g. //) are
          * stripped out.  For block comments, leading whitespace and an asterisk
          * will be stripped from the beginning of each line other than the first.
          * Newlines are included in the output.
-         *
          * Examples:
-         *
          *   optional int32 foo = 1;  // Comment attached to foo.
          *   // Comment attached to bar.
          *   optional int32 bar = 2;
-         *
          *   optional string baz = 3;
          *   // Comment attached to baz.
          *   // Another line attached to baz.
-         *
          *   // Comment attached to qux.
          *   //
          *   // Another line attached to qux.
          *   optional double qux = 4;
-         *
          *   optional string corge = 5;
          *   /&#42; Block comment attached
          *    * to corge.  Leading asterisks
@@ -26247,9 +28039,12 @@ public final class DescriptorProtos {
         public java.lang.String getLeadingComments() {
           java.lang.Object ref = leadingComments_;
           if (!(ref instanceof java.lang.String)) {
-            java.lang.String s = ((com.google.protobuf.ByteString) ref)
-                .toStringUtf8();
-            leadingComments_ = s;
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (bs.isValidUtf8()) {
+              leadingComments_ = s;
+            }
             return s;
           } else {
             return (java.lang.String) ref;
@@ -26262,30 +28057,23 @@ public final class DescriptorProtos {
          * If this SourceCodeInfo represents a complete declaration, these are any
          * comments appearing before and after the declaration which appear to be
          * attached to the declaration.
-         *
          * A series of line comments appearing on consecutive lines, with no other
          * tokens appearing on those lines, will be treated as a single comment.
-         *
          * Only the comment content is provided; comment markers (e.g. //) are
          * stripped out.  For block comments, leading whitespace and an asterisk
          * will be stripped from the beginning of each line other than the first.
          * Newlines are included in the output.
-         *
          * Examples:
-         *
          *   optional int32 foo = 1;  // Comment attached to foo.
          *   // Comment attached to bar.
          *   optional int32 bar = 2;
-         *
          *   optional string baz = 3;
          *   // Comment attached to baz.
          *   // Another line attached to baz.
-         *
          *   // Comment attached to qux.
          *   //
          *   // Another line attached to qux.
          *   optional double qux = 4;
-         *
          *   optional string corge = 5;
          *   /&#42; Block comment attached
          *    * to corge.  Leading asterisks
@@ -26315,30 +28103,23 @@ public final class DescriptorProtos {
          * If this SourceCodeInfo represents a complete declaration, these are any
          * comments appearing before and after the declaration which appear to be
          * attached to the declaration.
-         *
          * A series of line comments appearing on consecutive lines, with no other
          * tokens appearing on those lines, will be treated as a single comment.
-         *
          * Only the comment content is provided; comment markers (e.g. //) are
          * stripped out.  For block comments, leading whitespace and an asterisk
          * will be stripped from the beginning of each line other than the first.
          * Newlines are included in the output.
-         *
          * Examples:
-         *
          *   optional int32 foo = 1;  // Comment attached to foo.
          *   // Comment attached to bar.
          *   optional int32 bar = 2;
-         *
          *   optional string baz = 3;
          *   // Comment attached to baz.
          *   // Another line attached to baz.
-         *
          *   // Comment attached to qux.
          *   //
          *   // Another line attached to qux.
          *   optional double qux = 4;
-         *
          *   optional string corge = 5;
          *   /&#42; Block comment attached
          *    * to corge.  Leading asterisks
@@ -26365,30 +28146,23 @@ public final class DescriptorProtos {
          * If this SourceCodeInfo represents a complete declaration, these are any
          * comments appearing before and after the declaration which appear to be
          * attached to the declaration.
-         *
          * A series of line comments appearing on consecutive lines, with no other
          * tokens appearing on those lines, will be treated as a single comment.
-         *
          * Only the comment content is provided; comment markers (e.g. //) are
          * stripped out.  For block comments, leading whitespace and an asterisk
          * will be stripped from the beginning of each line other than the first.
          * Newlines are included in the output.
-         *
          * Examples:
-         *
          *   optional int32 foo = 1;  // Comment attached to foo.
          *   // Comment attached to bar.
          *   optional int32 bar = 2;
-         *
          *   optional string baz = 3;
          *   // Comment attached to baz.
          *   // Another line attached to baz.
-         *
          *   // Comment attached to qux.
          *   //
          *   // Another line attached to qux.
          *   optional double qux = 4;
-         *
          *   optional string corge = 5;
          *   /&#42; Block comment attached
          *    * to corge.  Leading asterisks
@@ -26411,30 +28185,23 @@ public final class DescriptorProtos {
          * If this SourceCodeInfo represents a complete declaration, these are any
          * comments appearing before and after the declaration which appear to be
          * attached to the declaration.
-         *
          * A series of line comments appearing on consecutive lines, with no other
          * tokens appearing on those lines, will be treated as a single comment.
-         *
          * Only the comment content is provided; comment markers (e.g. //) are
          * stripped out.  For block comments, leading whitespace and an asterisk
          * will be stripped from the beginning of each line other than the first.
          * Newlines are included in the output.
-         *
          * Examples:
-         *
          *   optional int32 foo = 1;  // Comment attached to foo.
          *   // Comment attached to bar.
          *   optional int32 bar = 2;
-         *
          *   optional string baz = 3;
          *   // Comment attached to baz.
          *   // Another line attached to baz.
-         *
          *   // Comment attached to qux.
          *   //
          *   // Another line attached to qux.
          *   optional double qux = 4;
-         *
          *   optional string corge = 5;
          *   /&#42; Block comment attached
          *    * to corge.  Leading asterisks
@@ -26455,7 +28222,6 @@ public final class DescriptorProtos {
           return this;
         }
 
-        // optional string trailing_comments = 4;
         private java.lang.Object trailingComments_ = "";
         /**
          * <code>optional string trailing_comments = 4;</code>
@@ -26469,9 +28235,12 @@ public final class DescriptorProtos {
         public java.lang.String getTrailingComments() {
           java.lang.Object ref = trailingComments_;
           if (!(ref instanceof java.lang.String)) {
-            java.lang.String s = ((com.google.protobuf.ByteString) ref)
-                .toStringUtf8();
-            trailingComments_ = s;
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (bs.isValidUtf8()) {
+              trailingComments_ = s;
+            }
             return s;
           } else {
             return (java.lang.String) ref;
@@ -26540,7 +28309,6 @@ public final class DescriptorProtos {
       // @@protoc_insertion_point(class_scope:google.protobuf.SourceCodeInfo.Location)
     }
 
-    // repeated .google.protobuf.SourceCodeInfo.Location location = 1;
     public static final int LOCATION_FIELD_NUMBER = 1;
     private java.util.List<com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location> location_;
     /**
@@ -26551,7 +28319,6 @@ public final class DescriptorProtos {
      * corresponds to a particular definition.  This information is intended
      * to be useful to IDEs, code indexers, documentation generators, and similar
      * tools.
-     *
      * For example, say we have a file like:
      *   message Foo {
      *     optional string foo = 1;
@@ -26567,7 +28334,6 @@ public final class DescriptorProtos {
      *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
      *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
      *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-     *
      * Notes:
      * - A location may refer to a repeated field itself (i.e. not to any
      *   particular index within it).  This is used whenever a set of elements are
@@ -26603,7 +28369,6 @@ public final class DescriptorProtos {
      * corresponds to a particular definition.  This information is intended
      * to be useful to IDEs, code indexers, documentation generators, and similar
      * tools.
-     *
      * For example, say we have a file like:
      *   message Foo {
      *     optional string foo = 1;
@@ -26619,7 +28384,6 @@ public final class DescriptorProtos {
      *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
      *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
      *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-     *
      * Notes:
      * - A location may refer to a repeated field itself (i.e. not to any
      *   particular index within it).  This is used whenever a set of elements are
@@ -26656,7 +28420,6 @@ public final class DescriptorProtos {
      * corresponds to a particular definition.  This information is intended
      * to be useful to IDEs, code indexers, documentation generators, and similar
      * tools.
-     *
      * For example, say we have a file like:
      *   message Foo {
      *     optional string foo = 1;
@@ -26672,7 +28435,6 @@ public final class DescriptorProtos {
      *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
      *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
      *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-     *
      * Notes:
      * - A location may refer to a repeated field itself (i.e. not to any
      *   particular index within it).  This is used whenever a set of elements are
@@ -26708,7 +28470,6 @@ public final class DescriptorProtos {
      * corresponds to a particular definition.  This information is intended
      * to be useful to IDEs, code indexers, documentation generators, and similar
      * tools.
-     *
      * For example, say we have a file like:
      *   message Foo {
      *     optional string foo = 1;
@@ -26724,7 +28485,6 @@ public final class DescriptorProtos {
      *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
      *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
      *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-     *
      * Notes:
      * - A location may refer to a repeated field itself (i.e. not to any
      *   particular index within it).  This is used whenever a set of elements are
@@ -26760,7 +28520,6 @@ public final class DescriptorProtos {
      * corresponds to a particular definition.  This information is intended
      * to be useful to IDEs, code indexers, documentation generators, and similar
      * tools.
-     *
      * For example, say we have a file like:
      *   message Foo {
      *     optional string foo = 1;
@@ -26776,7 +28535,6 @@ public final class DescriptorProtos {
      *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
      *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
      *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-     *
      * Notes:
      * - A location may refer to a repeated field itself (i.e. not to any
      *   particular index within it).  This is used whenever a set of elements are
@@ -26812,7 +28570,8 @@ public final class DescriptorProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -26924,18 +28683,19 @@ public final class DescriptorProtos {
      * </pre>
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.google.protobuf.DescriptorProtos.SourceCodeInfoOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.protobuf.SourceCodeInfo)
+        com.google.protobuf.DescriptorProtos.SourceCodeInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return internal_static_google_protobuf_SourceCodeInfo_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_SourceCodeInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return internal_static_google_protobuf_SourceCodeInfo_fieldAccessorTable
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_SourceCodeInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                    com.google.protobuf.DescriptorProtos.SourceCodeInfo.class, com.google.protobuf.DescriptorProtos.SourceCodeInfo.Builder.class);
+                com.google.protobuf.DescriptorProtos.SourceCodeInfo.class, com.google.protobuf.DescriptorProtos.SourceCodeInfo.Builder.class);
       }
 
       // Construct using com.google.protobuf.DescriptorProtos.SourceCodeInfo.newBuilder()
@@ -26949,7 +28709,7 @@ public final class DescriptorProtos {
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
           getLocationFieldBuilder();
         }
       }
@@ -26974,11 +28734,11 @@ public final class DescriptorProtos {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return internal_static_google_protobuf_SourceCodeInfo_descriptor;
+        return com.google.protobuf.DescriptorProtos.internal_static_google_protobuf_SourceCodeInfo_descriptor;
       }
 
       public com.google.protobuf.DescriptorProtos.SourceCodeInfo getDefaultInstanceForType() {
-        return getDefaultInstance();
+        return com.google.protobuf.DescriptorProtos.SourceCodeInfo.getDefaultInstance();
       }
 
       public com.google.protobuf.DescriptorProtos.SourceCodeInfo build() {
@@ -27015,7 +28775,7 @@ public final class DescriptorProtos {
       }
 
       public Builder mergeFrom(com.google.protobuf.DescriptorProtos.SourceCodeInfo other) {
-        if (other == getDefaultInstance()) return this;
+        if (other == com.google.protobuf.DescriptorProtos.SourceCodeInfo.getDefaultInstance()) return this;
         if (locationBuilder_ == null) {
           if (!other.location_.isEmpty()) {
             if (location_.isEmpty()) {
@@ -27035,7 +28795,7 @@ public final class DescriptorProtos {
               location_ = other.location_;
               bitField0_ = (bitField0_ & ~0x00000001);
               locationBuilder_ = 
-                alwaysUseFieldBuilders ?
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getLocationFieldBuilder() : null;
             } else {
               locationBuilder_.addAllMessages(other.location_);
@@ -27069,7 +28829,6 @@ public final class DescriptorProtos {
       }
       private int bitField0_;
 
-      // repeated .google.protobuf.SourceCodeInfo.Location location = 1;
       private java.util.List<com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location> location_ =
         java.util.Collections.emptyList();
       private void ensureLocationIsMutable() {
@@ -27090,7 +28849,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27106,7 +28864,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27146,7 +28903,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27162,7 +28918,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27202,7 +28957,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27218,7 +28972,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27258,7 +29011,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27274,7 +29026,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27321,7 +29072,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27337,7 +29087,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27381,7 +29130,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27397,7 +29145,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27443,7 +29190,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27459,7 +29205,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27506,7 +29251,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27522,7 +29266,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27566,7 +29309,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27582,7 +29324,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27626,7 +29367,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27642,7 +29382,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27671,7 +29410,8 @@ public final class DescriptorProtos {
           java.lang.Iterable<? extends com.google.protobuf.DescriptorProtos.SourceCodeInfo.Location> values) {
         if (locationBuilder_ == null) {
           ensureLocationIsMutable();
-          super.addAll(values, location_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, location_);
           onChanged();
         } else {
           locationBuilder_.addAllMessages(values);
@@ -27686,7 +29426,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27702,7 +29441,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27745,7 +29483,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27761,7 +29498,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27804,7 +29540,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27820,7 +29555,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27857,7 +29591,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27873,7 +29606,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27913,7 +29645,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27929,7 +29660,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -27970,7 +29700,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -27986,7 +29715,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -28023,7 +29751,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -28039,7 +29766,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -28077,7 +29803,6 @@ public final class DescriptorProtos {
        * corresponds to a particular definition.  This information is intended
        * to be useful to IDEs, code indexers, documentation generators, and similar
        * tools.
-       *
        * For example, say we have a file like:
        *   message Foo {
        *     optional string foo = 1;
@@ -28093,7 +29818,6 @@ public final class DescriptorProtos {
        *   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
        *   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
        *   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-       *
        * Notes:
        * - A location may refer to a repeated field itself (i.e. not to any
        *   particular index within it).  This is used whenever a set of elements are
@@ -28148,102 +29872,107 @@ public final class DescriptorProtos {
     // @@protoc_insertion_point(class_scope:google.protobuf.SourceCodeInfo)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_FileDescriptorSet_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_FileDescriptorSet_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_FileDescriptorProto_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_FileDescriptorProto_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_DescriptorProto_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_DescriptorProto_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_DescriptorProto_ExtensionRange_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_DescriptorProto_ExtensionRange_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_FieldDescriptorProto_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_FieldDescriptorProto_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_protobuf_OneofDescriptorProto_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_google_protobuf_OneofDescriptorProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_EnumDescriptorProto_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_EnumDescriptorProto_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_EnumValueDescriptorProto_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_EnumValueDescriptorProto_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_ServiceDescriptorProto_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_ServiceDescriptorProto_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_MethodDescriptorProto_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_MethodDescriptorProto_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_FileOptions_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_FileOptions_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_MessageOptions_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_MessageOptions_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_FieldOptions_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_FieldOptions_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_EnumOptions_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_EnumOptions_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_EnumValueOptions_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_EnumValueOptions_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_ServiceOptions_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_ServiceOptions_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_MethodOptions_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_MethodOptions_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_UninterpretedOption_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_UninterpretedOption_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_UninterpretedOption_NamePart_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_UninterpretedOption_NamePart_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_SourceCodeInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_google_protobuf_SourceCodeInfo_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_protobuf_SourceCodeInfo_Location_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -28271,7 +30000,7 @@ public final class DescriptorProtos {
       "\0132%.google.protobuf.FieldDescriptorProto" +
       "\022-\n\007options\030\010 \001(\0132\034.google.protobuf.File" +
       "Options\0229\n\020source_code_info\030\t \001(\0132\037.goog" +
-      "le.protobuf.SourceCodeInfo\"\251\003\n\017Descripto" +
+      "le.protobuf.SourceCodeInfo\"\344\003\n\017Descripto" +
       "rProto\022\014\n\004name\030\001 \001(\t\0224\n\005field\030\002 \003(\0132%.go" +
       "ogle.protobuf.FieldDescriptorProto\0228\n\tex" +
       "tension\030\006 \003(\0132%.google.protobuf.FieldDes" +
@@ -28279,221 +30008,235 @@ public final class DescriptorProtos {
       "le.protobuf.DescriptorProto\0227\n\tenum_type",
       "\030\004 \003(\0132$.google.protobuf.EnumDescriptorP" +
       "roto\022H\n\017extension_range\030\005 \003(\0132/.google.p" +
-      "rotobuf.DescriptorProto.ExtensionRange\0220" +
-      "\n\007options\030\007 \001(\0132\037.google.protobuf.Messag" +
-      "eOptions\032,\n\016ExtensionRange\022\r\n\005start\030\001 \001(" +
-      "\005\022\013\n\003end\030\002 \001(\005\"\224\005\n\024FieldDescriptorProto\022" +
-      "\014\n\004name\030\001 \001(\t\022\016\n\006number\030\003 \001(\005\022:\n\005label\030\004" +
-      " \001(\0162+.google.protobuf.FieldDescriptorPr" +
-      "oto.Label\0228\n\004type\030\005 \001(\0162*.google.protobu" +
-      "f.FieldDescriptorProto.Type\022\021\n\ttype_name",
-      "\030\006 \001(\t\022\020\n\010extendee\030\002 \001(\t\022\025\n\rdefault_valu" +
-      "e\030\007 \001(\t\022.\n\007options\030\010 \001(\0132\035.google.protob" +
+      "rotobuf.DescriptorProto.ExtensionRange\0229" +
+      "\n\noneof_decl\030\010 \003(\0132%.google.protobuf.One" +
+      "ofDescriptorProto\0220\n\007options\030\007 \001(\0132\037.goo" +
+      "gle.protobuf.MessageOptions\032,\n\016Extension" +
+      "Range\022\r\n\005start\030\001 \001(\005\022\013\n\003end\030\002 \001(\005\"\251\005\n\024Fi" +
+      "eldDescriptorProto\022\014\n\004name\030\001 \001(\t\022\016\n\006numb" +
+      "er\030\003 \001(\005\022:\n\005label\030\004 \001(\0162+.google.protobu" +
+      "f.FieldDescriptorProto.Label\0228\n\004type\030\005 \001",
+      "(\0162*.google.protobuf.FieldDescriptorProt" +
+      "o.Type\022\021\n\ttype_name\030\006 \001(\t\022\020\n\010extendee\030\002 " +
+      "\001(\t\022\025\n\rdefault_value\030\007 \001(\t\022\023\n\013oneof_inde" +
+      "x\030\t \001(\005\022.\n\007options\030\010 \001(\0132\035.google.protob" +
       "uf.FieldOptions\"\266\002\n\004Type\022\017\n\013TYPE_DOUBLE\020" +
       "\001\022\016\n\nTYPE_FLOAT\020\002\022\016\n\nTYPE_INT64\020\003\022\017\n\013TYP" +
       "E_UINT64\020\004\022\016\n\nTYPE_INT32\020\005\022\020\n\014TYPE_FIXED" +
       "64\020\006\022\020\n\014TYPE_FIXED32\020\007\022\r\n\tTYPE_BOOL\020\010\022\017\n" +
       "\013TYPE_STRING\020\t\022\016\n\nTYPE_GROUP\020\n\022\020\n\014TYPE_M" +
-      "ESSAGE\020\013\022\016\n\nTYPE_BYTES\020\014\022\017\n\013TYPE_UINT32\020" +
+      "ESSAGE\020\013\022\016\n\nTYPE_BYTES\020\014\022\017\n\013TYPE_UINT32\020",
       "\r\022\r\n\tTYPE_ENUM\020\016\022\021\n\rTYPE_SFIXED32\020\017\022\021\n\rT" +
-      "YPE_SFIXED64\020\020\022\017\n\013TYPE_SINT32\020\021\022\017\n\013TYPE_",
+      "YPE_SFIXED64\020\020\022\017\n\013TYPE_SINT32\020\021\022\017\n\013TYPE_" +
       "SINT64\020\022\"C\n\005Label\022\022\n\016LABEL_OPTIONAL\020\001\022\022\n" +
-      "\016LABEL_REQUIRED\020\002\022\022\n\016LABEL_REPEATED\020\003\"\214\001" +
-      "\n\023EnumDescriptorProto\022\014\n\004name\030\001 \001(\t\0228\n\005v" +
-      "alue\030\002 \003(\0132).google.protobuf.EnumValueDe" +
-      "scriptorProto\022-\n\007options\030\003 \001(\0132\034.google." +
-      "protobuf.EnumOptions\"l\n\030EnumValueDescrip" +
-      "torProto\022\014\n\004name\030\001 \001(\t\022\016\n\006number\030\002 \001(\005\0222" +
-      "\n\007options\030\003 \001(\0132!.google.protobuf.EnumVa" +
-      "lueOptions\"\220\001\n\026ServiceDescriptorProto\022\014\n" +
-      "\004name\030\001 \001(\t\0226\n\006method\030\002 \003(\0132&.google.pro",
-      "tobuf.MethodDescriptorProto\0220\n\007options\030\003" +
-      " \001(\0132\037.google.protobuf.ServiceOptions\"\177\n" +
-      "\025MethodDescriptorProto\022\014\n\004name\030\001 \001(\t\022\022\n\n" +
-      "input_type\030\002 \001(\t\022\023\n\013output_type\030\003 \001(\t\022/\n" +
-      "\007options\030\004 \001(\0132\036.google.protobuf.MethodO" +
-      "ptions\"\351\003\n\013FileOptions\022\024\n\014java_package\030\001" +
-      " \001(\t\022\034\n\024java_outer_classname\030\010 \001(\t\022\"\n\023ja" +
-      "va_multiple_files\030\n \001(\010:\005false\022,\n\035java_g" +
-      "enerate_equals_and_hash\030\024 \001(\010:\005false\022F\n\014" +
-      "optimize_for\030\t \001(\0162).google.protobuf.Fil",
-      "eOptions.OptimizeMode:\005SPEED\022\022\n\ngo_packa" +
-      "ge\030\013 \001(\t\022\"\n\023cc_generic_services\030\020 \001(\010:\005f" +
-      "alse\022$\n\025java_generic_services\030\021 \001(\010:\005fal" +
-      "se\022\"\n\023py_generic_services\030\022 \001(\010:\005false\022C" +
-      "\n\024uninterpreted_option\030\347\007 \003(\0132$.google.p" +
-      "rotobuf.UninterpretedOption\":\n\014OptimizeM" +
-      "ode\022\t\n\005SPEED\020\001\022\r\n\tCODE_SIZE\020\002\022\020\n\014LITE_RU" +
-      "NTIME\020\003*\t\010\350\007\020\200\200\200\200\002\"\270\001\n\016MessageOptions\022&\n" +
-      "\027message_set_wire_format\030\001 \001(\010:\005false\022.\n" +
-      "\037no_standard_descriptor_accessor\030\002 \001(\010:\005",
-      "false\022C\n\024uninterpreted_option\030\347\007 \003(\0132$.g" +
-      "oogle.protobuf.UninterpretedOption*\t\010\350\007\020" +
-      "\200\200\200\200\002\"\276\002\n\014FieldOptions\022:\n\005ctype\030\001 \001(\0162#." +
-      "google.protobuf.FieldOptions.CType:\006STRI" +
-      "NG\022\016\n\006packed\030\002 \001(\010\022\023\n\004lazy\030\005 \001(\010:\005false\022" +
-      "\031\n\ndeprecated\030\003 \001(\010:\005false\022\034\n\024experiment" +
-      "al_map_key\030\t \001(\t\022\023\n\004weak\030\n \001(\010:\005false\022C\n" +
-      "\024uninterpreted_option\030\347\007 \003(\0132$.google.pr" +
-      "otobuf.UninterpretedOption\"/\n\005CType\022\n\n\006S" +
-      "TRING\020\000\022\010\n\004CORD\020\001\022\020\n\014STRING_PIECE\020\002*\t\010\350\007",
-      "\020\200\200\200\200\002\"x\n\013EnumOptions\022\031\n\013allow_alias\030\002 \001" +
-      "(\010:\004true\022C\n\024uninterpreted_option\030\347\007 \003(\0132" +
+      "\016LABEL_REQUIRED\020\002\022\022\n\016LABEL_REPEATED\020\003\"$\n" +
+      "\024OneofDescriptorProto\022\014\n\004name\030\001 \001(\t\"\214\001\n\023" +
+      "EnumDescriptorProto\022\014\n\004name\030\001 \001(\t\0228\n\005val" +
+      "ue\030\002 \003(\0132).google.protobuf.EnumValueDesc" +
+      "riptorProto\022-\n\007options\030\003 \001(\0132\034.google.pr" +
+      "otobuf.EnumOptions\"l\n\030EnumValueDescripto" +
+      "rProto\022\014\n\004name\030\001 \001(\t\022\016\n\006number\030\002 \001(\005\0222\n\007",
+      "options\030\003 \001(\0132!.google.protobuf.EnumValu" +
+      "eOptions\"\220\001\n\026ServiceDescriptorProto\022\014\n\004n" +
+      "ame\030\001 \001(\t\0226\n\006method\030\002 \003(\0132&.google.proto" +
+      "buf.MethodDescriptorProto\0220\n\007options\030\003 \001" +
+      "(\0132\037.google.protobuf.ServiceOptions\"\177\n\025M" +
+      "ethodDescriptorProto\022\014\n\004name\030\001 \001(\t\022\022\n\nin" +
+      "put_type\030\002 \001(\t\022\023\n\013output_type\030\003 \001(\t\022/\n\007o" +
+      "ptions\030\004 \001(\0132\036.google.protobuf.MethodOpt" +
+      "ions\"\253\004\n\013FileOptions\022\024\n\014java_package\030\001 \001" +
+      "(\t\022\034\n\024java_outer_classname\030\010 \001(\t\022\"\n\023java",
+      "_multiple_files\030\n \001(\010:\005false\022,\n\035java_gen" +
+      "erate_equals_and_hash\030\024 \001(\010:\005false\022%\n\026ja" +
+      "va_string_check_utf8\030\033 \001(\010:\005false\022F\n\014opt" +
+      "imize_for\030\t \001(\0162).google.protobuf.FileOp" +
+      "tions.OptimizeMode:\005SPEED\022\022\n\ngo_package\030" +
+      "\013 \001(\t\022\"\n\023cc_generic_services\030\020 \001(\010:\005fals" +
+      "e\022$\n\025java_generic_services\030\021 \001(\010:\005false\022" +
+      "\"\n\023py_generic_services\030\022 \001(\010:\005false\022\031\n\nd" +
+      "eprecated\030\027 \001(\010:\005false\022C\n\024uninterpreted_" +
+      "option\030\347\007 \003(\0132$.google.protobuf.Uninterp",
+      "retedOption\":\n\014OptimizeMode\022\t\n\005SPEED\020\001\022\r" +
+      "\n\tCODE_SIZE\020\002\022\020\n\014LITE_RUNTIME\020\003*\t\010\350\007\020\200\200\200" +
+      "\200\002\"\323\001\n\016MessageOptions\022&\n\027message_set_wir" +
+      "e_format\030\001 \001(\010:\005false\022.\n\037no_standard_des" +
+      "criptor_accessor\030\002 \001(\010:\005false\022\031\n\ndepreca" +
+      "ted\030\003 \001(\010:\005false\022C\n\024uninterpreted_option" +
+      "\030\347\007 \003(\0132$.google.protobuf.UninterpretedO" +
+      "ption*\t\010\350\007\020\200\200\200\200\002\"\276\002\n\014FieldOptions\022:\n\005cty" +
+      "pe\030\001 \001(\0162#.google.protobuf.FieldOptions." +
+      "CType:\006STRING\022\016\n\006packed\030\002 \001(\010\022\023\n\004lazy\030\005 ",
+      "\001(\010:\005false\022\031\n\ndeprecated\030\003 \001(\010:\005false\022\034\n" +
+      "\024experimental_map_key\030\t \001(\t\022\023\n\004weak\030\n \001(" +
+      "\010:\005false\022C\n\024uninterpreted_option\030\347\007 \003(\0132" +
+      "$.google.protobuf.UninterpretedOption\"/\n" +
+      "\005CType\022\n\n\006STRING\020\000\022\010\n\004CORD\020\001\022\020\n\014STRING_P" +
+      "IECE\020\002*\t\010\350\007\020\200\200\200\200\002\"\215\001\n\013EnumOptions\022\023\n\013all" +
+      "ow_alias\030\002 \001(\010\022\031\n\ndeprecated\030\003 \001(\010:\005fals" +
+      "e\022C\n\024uninterpreted_option\030\347\007 \003(\0132$.googl" +
+      "e.protobuf.UninterpretedOption*\t\010\350\007\020\200\200\200\200" +
+      "\002\"}\n\020EnumValueOptions\022\031\n\ndeprecated\030\001 \001(",
+      "\010:\005false\022C\n\024uninterpreted_option\030\347\007 \003(\0132" +
       "$.google.protobuf.UninterpretedOption*\t\010" +
-      "\350\007\020\200\200\200\200\002\"b\n\020EnumValueOptions\022C\n\024uninterp" +
-      "reted_option\030\347\007 \003(\0132$.google.protobuf.Un" +
-      "interpretedOption*\t\010\350\007\020\200\200\200\200\002\"`\n\016ServiceO" +
-      "ptions\022C\n\024uninterpreted_option\030\347\007 \003(\0132$." +
-      "google.protobuf.UninterpretedOption*\t\010\350\007" +
-      "\020\200\200\200\200\002\"_\n\rMethodOptions\022C\n\024uninterpreted" +
-      "_option\030\347\007 \003(\0132$.google.protobuf.Uninter",
-      "pretedOption*\t\010\350\007\020\200\200\200\200\002\"\236\002\n\023Uninterprete" +
-      "dOption\022;\n\004name\030\002 \003(\0132-.google.protobuf." +
-      "UninterpretedOption.NamePart\022\030\n\020identifi" +
-      "er_value\030\003 \001(\t\022\032\n\022positive_int_value\030\004 \001" +
-      "(\004\022\032\n\022negative_int_value\030\005 \001(\003\022\024\n\014double" +
-      "_value\030\006 \001(\001\022\024\n\014string_value\030\007 \001(\014\022\027\n\017ag" +
-      "gregate_value\030\010 \001(\t\0323\n\010NamePart\022\021\n\tname_" +
-      "part\030\001 \002(\t\022\024\n\014is_extension\030\002 \002(\010\"\261\001\n\016Sou" +
-      "rceCodeInfo\022:\n\010location\030\001 \003(\0132(.google.p" +
-      "rotobuf.SourceCodeInfo.Location\032c\n\010Locat",
-      "ion\022\020\n\004path\030\001 \003(\005B\002\020\001\022\020\n\004span\030\002 \003(\005B\002\020\001\022" +
-      "\030\n\020leading_comments\030\003 \001(\t\022\031\n\021trailing_co" +
-      "mments\030\004 \001(\tB)\n\023com.google.protobufB\020Des" +
-      "criptorProtosH\001"
+      "\350\007\020\200\200\200\200\002\"{\n\016ServiceOptions\022\031\n\ndeprecated" +
+      "\030! \001(\010:\005false\022C\n\024uninterpreted_option\030\347\007" +
+      " \003(\0132$.google.protobuf.UninterpretedOpti" +
+      "on*\t\010\350\007\020\200\200\200\200\002\"z\n\rMethodOptions\022\031\n\ndeprec" +
+      "ated\030! \001(\010:\005false\022C\n\024uninterpreted_optio" +
+      "n\030\347\007 \003(\0132$.google.protobuf.Uninterpreted" +
+      "Option*\t\010\350\007\020\200\200\200\200\002\"\236\002\n\023UninterpretedOptio" +
+      "n\022;\n\004name\030\002 \003(\0132-.google.protobuf.Uninte",
+      "rpretedOption.NamePart\022\030\n\020identifier_val" +
+      "ue\030\003 \001(\t\022\032\n\022positive_int_value\030\004 \001(\004\022\032\n\022" +
+      "negative_int_value\030\005 \001(\003\022\024\n\014double_value" +
+      "\030\006 \001(\001\022\024\n\014string_value\030\007 \001(\014\022\027\n\017aggregat" +
+      "e_value\030\010 \001(\t\0323\n\010NamePart\022\021\n\tname_part\030\001" +
+      " \002(\t\022\024\n\014is_extension\030\002 \002(\010\"\261\001\n\016SourceCod" +
+      "eInfo\022:\n\010location\030\001 \003(\0132(.google.protobu" +
+      "f.SourceCodeInfo.Location\032c\n\010Location\022\020\n" +
+      "\004path\030\001 \003(\005B\002\020\001\022\020\n\004span\030\002 \003(\005B\002\020\001\022\030\n\020lea" +
+      "ding_comments\030\003 \001(\t\022\031\n\021trailing_comments",
+      "\030\004 \001(\tB)\n\023com.google.protobufB\020Descripto" +
+      "rProtosH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_google_protobuf_FileDescriptorSet_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_google_protobuf_FileDescriptorSet_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_FileDescriptorSet_descriptor,
-              new java.lang.String[] { "File", });
-          internal_static_google_protobuf_FileDescriptorProto_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_google_protobuf_FileDescriptorProto_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_FileDescriptorProto_descriptor,
-              new java.lang.String[] { "Name", "Package", "Dependency", "PublicDependency", "WeakDependency", "MessageType", "EnumType", "Service", "Extension", "Options", "SourceCodeInfo", });
-          internal_static_google_protobuf_DescriptorProto_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_google_protobuf_DescriptorProto_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_DescriptorProto_descriptor,
-              new java.lang.String[] { "Name", "Field", "Extension", "NestedType", "EnumType", "ExtensionRange", "Options", });
-          internal_static_google_protobuf_DescriptorProto_ExtensionRange_descriptor =
-            internal_static_google_protobuf_DescriptorProto_descriptor.getNestedTypes().get(0);
-          internal_static_google_protobuf_DescriptorProto_ExtensionRange_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_DescriptorProto_ExtensionRange_descriptor,
-              new java.lang.String[] { "Start", "End", });
-          internal_static_google_protobuf_FieldDescriptorProto_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_google_protobuf_FieldDescriptorProto_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_FieldDescriptorProto_descriptor,
-              new java.lang.String[] { "Name", "Number", "Label", "Type", "TypeName", "Extendee", "DefaultValue", "Options", });
-          internal_static_google_protobuf_EnumDescriptorProto_descriptor =
-            getDescriptor().getMessageTypes().get(4);
-          internal_static_google_protobuf_EnumDescriptorProto_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_EnumDescriptorProto_descriptor,
-              new java.lang.String[] { "Name", "Value", "Options", });
-          internal_static_google_protobuf_EnumValueDescriptorProto_descriptor =
-            getDescriptor().getMessageTypes().get(5);
-          internal_static_google_protobuf_EnumValueDescriptorProto_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_EnumValueDescriptorProto_descriptor,
-              new java.lang.String[] { "Name", "Number", "Options", });
-          internal_static_google_protobuf_ServiceDescriptorProto_descriptor =
-            getDescriptor().getMessageTypes().get(6);
-          internal_static_google_protobuf_ServiceDescriptorProto_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_ServiceDescriptorProto_descriptor,
-              new java.lang.String[] { "Name", "Method", "Options", });
-          internal_static_google_protobuf_MethodDescriptorProto_descriptor =
-            getDescriptor().getMessageTypes().get(7);
-          internal_static_google_protobuf_MethodDescriptorProto_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_MethodDescriptorProto_descriptor,
-              new java.lang.String[] { "Name", "InputType", "OutputType", "Options", });
-          internal_static_google_protobuf_FileOptions_descriptor =
-            getDescriptor().getMessageTypes().get(8);
-          internal_static_google_protobuf_FileOptions_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_FileOptions_descriptor,
-              new java.lang.String[] { "JavaPackage", "JavaOuterClassname", "JavaMultipleFiles", "JavaGenerateEqualsAndHash", "OptimizeFor", "GoPackage", "CcGenericServices", "JavaGenericServices", "PyGenericServices", "UninterpretedOption", });
-          internal_static_google_protobuf_MessageOptions_descriptor =
-            getDescriptor().getMessageTypes().get(9);
-          internal_static_google_protobuf_MessageOptions_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_MessageOptions_descriptor,
-              new java.lang.String[] { "MessageSetWireFormat", "NoStandardDescriptorAccessor", "UninterpretedOption", });
-          internal_static_google_protobuf_FieldOptions_descriptor =
-            getDescriptor().getMessageTypes().get(10);
-          internal_static_google_protobuf_FieldOptions_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_FieldOptions_descriptor,
-              new java.lang.String[] { "Ctype", "Packed", "Lazy", "Deprecated", "ExperimentalMapKey", "Weak", "UninterpretedOption", });
-          internal_static_google_protobuf_EnumOptions_descriptor =
-            getDescriptor().getMessageTypes().get(11);
-          internal_static_google_protobuf_EnumOptions_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_EnumOptions_descriptor,
-              new java.lang.String[] { "AllowAlias", "UninterpretedOption", });
-          internal_static_google_protobuf_EnumValueOptions_descriptor =
-            getDescriptor().getMessageTypes().get(12);
-          internal_static_google_protobuf_EnumValueOptions_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_EnumValueOptions_descriptor,
-              new java.lang.String[] { "UninterpretedOption", });
-          internal_static_google_protobuf_ServiceOptions_descriptor =
-            getDescriptor().getMessageTypes().get(13);
-          internal_static_google_protobuf_ServiceOptions_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_ServiceOptions_descriptor,
-              new java.lang.String[] { "UninterpretedOption", });
-          internal_static_google_protobuf_MethodOptions_descriptor =
-            getDescriptor().getMessageTypes().get(14);
-          internal_static_google_protobuf_MethodOptions_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_MethodOptions_descriptor,
-              new java.lang.String[] { "UninterpretedOption", });
-          internal_static_google_protobuf_UninterpretedOption_descriptor =
-            getDescriptor().getMessageTypes().get(15);
-          internal_static_google_protobuf_UninterpretedOption_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_UninterpretedOption_descriptor,
-              new java.lang.String[] { "Name", "IdentifierValue", "PositiveIntValue", "NegativeIntValue", "DoubleValue", "StringValue", "AggregateValue", });
-          internal_static_google_protobuf_UninterpretedOption_NamePart_descriptor =
-            internal_static_google_protobuf_UninterpretedOption_descriptor.getNestedTypes().get(0);
-          internal_static_google_protobuf_UninterpretedOption_NamePart_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_UninterpretedOption_NamePart_descriptor,
-              new java.lang.String[] { "NamePart", "IsExtension", });
-          internal_static_google_protobuf_SourceCodeInfo_descriptor =
-            getDescriptor().getMessageTypes().get(16);
-          internal_static_google_protobuf_SourceCodeInfo_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_SourceCodeInfo_descriptor,
-              new java.lang.String[] { "Location", });
-          internal_static_google_protobuf_SourceCodeInfo_Location_descriptor =
-            internal_static_google_protobuf_SourceCodeInfo_descriptor.getNestedTypes().get(0);
-          internal_static_google_protobuf_SourceCodeInfo_Location_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_google_protobuf_SourceCodeInfo_Location_descriptor,
-              new java.lang.String[] { "Path", "Span", "LeadingComments", "TrailingComments", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_google_protobuf_FileDescriptorSet_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_google_protobuf_FileDescriptorSet_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_FileDescriptorSet_descriptor,
+        new java.lang.String[] { "File", });
+    internal_static_google_protobuf_FileDescriptorProto_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_google_protobuf_FileDescriptorProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_FileDescriptorProto_descriptor,
+        new java.lang.String[] { "Name", "Package", "Dependency", "PublicDependency", "WeakDependency", "MessageType", "EnumType", "Service", "Extension", "Options", "SourceCodeInfo", });
+    internal_static_google_protobuf_DescriptorProto_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_google_protobuf_DescriptorProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_DescriptorProto_descriptor,
+        new java.lang.String[] { "Name", "Field", "Extension", "NestedType", "EnumType", "ExtensionRange", "OneofDecl", "Options", });
+    internal_static_google_protobuf_DescriptorProto_ExtensionRange_descriptor =
+      internal_static_google_protobuf_DescriptorProto_descriptor.getNestedTypes().get(0);
+    internal_static_google_protobuf_DescriptorProto_ExtensionRange_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_DescriptorProto_ExtensionRange_descriptor,
+        new java.lang.String[] { "Start", "End", });
+    internal_static_google_protobuf_FieldDescriptorProto_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_google_protobuf_FieldDescriptorProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_FieldDescriptorProto_descriptor,
+        new java.lang.String[] { "Name", "Number", "Label", "Type", "TypeName", "Extendee", "DefaultValue", "OneofIndex", "Options", });
+    internal_static_google_protobuf_OneofDescriptorProto_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_google_protobuf_OneofDescriptorProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_OneofDescriptorProto_descriptor,
+        new java.lang.String[] { "Name", });
+    internal_static_google_protobuf_EnumDescriptorProto_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_google_protobuf_EnumDescriptorProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_EnumDescriptorProto_descriptor,
+        new java.lang.String[] { "Name", "Value", "Options", });
+    internal_static_google_protobuf_EnumValueDescriptorProto_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_google_protobuf_EnumValueDescriptorProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_EnumValueDescriptorProto_descriptor,
+        new java.lang.String[] { "Name", "Number", "Options", });
+    internal_static_google_protobuf_ServiceDescriptorProto_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_google_protobuf_ServiceDescriptorProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_ServiceDescriptorProto_descriptor,
+        new java.lang.String[] { "Name", "Method", "Options", });
+    internal_static_google_protobuf_MethodDescriptorProto_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_google_protobuf_MethodDescriptorProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_MethodDescriptorProto_descriptor,
+        new java.lang.String[] { "Name", "InputType", "OutputType", "Options", });
+    internal_static_google_protobuf_FileOptions_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_google_protobuf_FileOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_FileOptions_descriptor,
+        new java.lang.String[] { "JavaPackage", "JavaOuterClassname", "JavaMultipleFiles", "JavaGenerateEqualsAndHash", "JavaStringCheckUtf8", "OptimizeFor", "GoPackage", "CcGenericServices", "JavaGenericServices", "PyGenericServices", "Deprecated", "UninterpretedOption", });
+    internal_static_google_protobuf_MessageOptions_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_google_protobuf_MessageOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_MessageOptions_descriptor,
+        new java.lang.String[] { "MessageSetWireFormat", "NoStandardDescriptorAccessor", "Deprecated", "UninterpretedOption", });
+    internal_static_google_protobuf_FieldOptions_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_google_protobuf_FieldOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_FieldOptions_descriptor,
+        new java.lang.String[] { "Ctype", "Packed", "Lazy", "Deprecated", "ExperimentalMapKey", "Weak", "UninterpretedOption", });
+    internal_static_google_protobuf_EnumOptions_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_google_protobuf_EnumOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_EnumOptions_descriptor,
+        new java.lang.String[] { "AllowAlias", "Deprecated", "UninterpretedOption", });
+    internal_static_google_protobuf_EnumValueOptions_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_google_protobuf_EnumValueOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_EnumValueOptions_descriptor,
+        new java.lang.String[] { "Deprecated", "UninterpretedOption", });
+    internal_static_google_protobuf_ServiceOptions_descriptor =
+      getDescriptor().getMessageTypes().get(14);
+    internal_static_google_protobuf_ServiceOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_ServiceOptions_descriptor,
+        new java.lang.String[] { "Deprecated", "UninterpretedOption", });
+    internal_static_google_protobuf_MethodOptions_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_google_protobuf_MethodOptions_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_MethodOptions_descriptor,
+        new java.lang.String[] { "Deprecated", "UninterpretedOption", });
+    internal_static_google_protobuf_UninterpretedOption_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_google_protobuf_UninterpretedOption_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_UninterpretedOption_descriptor,
+        new java.lang.String[] { "Name", "IdentifierValue", "PositiveIntValue", "NegativeIntValue", "DoubleValue", "StringValue", "AggregateValue", });
+    internal_static_google_protobuf_UninterpretedOption_NamePart_descriptor =
+      internal_static_google_protobuf_UninterpretedOption_descriptor.getNestedTypes().get(0);
+    internal_static_google_protobuf_UninterpretedOption_NamePart_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_UninterpretedOption_NamePart_descriptor,
+        new java.lang.String[] { "NamePart", "IsExtension", });
+    internal_static_google_protobuf_SourceCodeInfo_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_google_protobuf_SourceCodeInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_SourceCodeInfo_descriptor,
+        new java.lang.String[] { "Location", });
+    internal_static_google_protobuf_SourceCodeInfo_Location_descriptor =
+      internal_static_google_protobuf_SourceCodeInfo_descriptor.getNestedTypes().get(0);
+    internal_static_google_protobuf_SourceCodeInfo_Location_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_google_protobuf_SourceCodeInfo_Location_descriptor,
+        new java.lang.String[] { "Path", "Span", "LeadingComments", "TrailingComments", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
