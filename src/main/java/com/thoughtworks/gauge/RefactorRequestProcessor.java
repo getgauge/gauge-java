@@ -32,41 +32,42 @@ public class RefactorRequestProcessor implements IMessageProcessor {
         JavaParser.setCacheParser(true);
         String fileName = StepRegistry.getFileName(StepRegistry.get(refactorRequest.getOldStepValue().getStepValue()));
         if (fileName == null) {
-            return getMessage(message, false, "Step Implementation Not Found");
+            return createRefactorResponse(message, false, "Step Implementation Not Found");
         }
         try {
-            Element element = refactorJavaFile(refactorRequest.getOldStepValue().getParameterizedStepValue(),
+            JavaElement javaElement = refactorJavaFile(refactorRequest.getOldStepValue().getParameterizedStepValue(),
                                                refactorRequest.getNewStepValue(),
                                                refactorRequest.getParamPositionsList(),
                                                fileName);
-            if (element == null) {
-                return getMessage(message, false, "Step Implementation Not Found");
+            if (javaElement == null) {
+                return createRefactorResponse(message, false, "Step Implementation Not Found");
             }
-            new RefactorFile(element).refactor();
+            new RefactorFile(javaElement).refactor();
+            return createRefactorResponseWithFilepath(message, true, "", javaElement.file.getAbsolutePath());
         } catch (IOException e) {
-            return getMessage(message, false, "Unable to read/write file while refactoring");
+            return createRefactorResponse(message, false, "Unable to read/write file while refactoring");
         } catch (Exception e) {
-            return getMessage(message, false, "Unable to perform java refactoring: \n" + e.toString());
+            return createRefactorResponse(message, false, "Unable to perform java refactoring: \n" + e.toString());
         }
-        return getMessage(message, true, "");
+    }
+    
+    private Messages.Message createRefactorResponseWithFilepath(Messages.Message message, boolean success, String errorMessage, String filePath) {
+        return Messages.Message.newBuilder()
+                .setMessageId(message.getMessageId())
+                .setMessageType(Messages.Message.MessageType.RefactorResponse)
+                .setRefactorResponse(Messages.RefactorResponse.newBuilder().setSuccess(success).setError(errorMessage).setFilesChanged(0, filePath).build())
+                .build();
     }
 
-    private Messages.Message getMessage(Messages.Message message, boolean success, String errorMessage) {
-        if (success)
+    private Messages.Message createRefactorResponse(Messages.Message message, boolean success, String errorMessage) {
             return Messages.Message.newBuilder()
                     .setMessageId(message.getMessageId())
                     .setMessageType(Messages.Message.MessageType.RefactorResponse)
-                    .setRefactorResponse(Messages.RefactorResponse.newBuilder().setSuccess(true).build())
-                    .build();
-        else
-            return Messages.Message.newBuilder()
-                    .setMessageId(message.getMessageId())
-                    .setMessageType(Messages.Message.MessageType.RefactorResponse)
-                    .setRefactorResponse(Messages.RefactorResponse.newBuilder().setSuccess(false).setError(errorMessage).build())
+                    .setRefactorResponse(Messages.RefactorResponse.newBuilder().setSuccess(success).setError(errorMessage).build())
                     .build();
     }
 
-    private Element refactorJavaFile(String oldStepValue, Spec.ProtoStepValue newStepValue, List<Messages.ParameterPosition> paramPositions, String fileName) {
+    private JavaElement refactorJavaFile(String oldStepValue, Spec.ProtoStepValue newStepValue, List<Messages.ParameterPosition> paramPositions, String fileName) {
         File workingDir = new File(System.getProperty("user.dir"));
         List<JavaParseWorker> javaParseWorkers = parseJavaFiles(workingDir, fileName);
         try {
@@ -75,8 +76,8 @@ public class RefactorRequestProcessor implements IMessageProcessor {
                 MethodVisitor methodVisitor = new MethodVisitor(oldStepValue, newStepValue, paramPositions);
                 methodVisitor.visit(compilationUnit, null);
                 if (methodVisitor.refactored) {
-                    methodVisitor.element.file = javaFile.getJavaFile();
-                    return methodVisitor.element;
+                    methodVisitor.javaElement.file = javaFile.getJavaFile();
+                    return methodVisitor.javaElement;
                 }
             }
         }catch (Exception ignored){}
@@ -137,7 +138,7 @@ public class RefactorRequestProcessor implements IMessageProcessor {
         }
     }
 
-    public class Element {
+    public class JavaElement {
         public int beginLine;
         public int endLine;
         public int beginColumn;
@@ -145,7 +146,7 @@ public class RefactorRequestProcessor implements IMessageProcessor {
         public String text;
         public File file;
 
-        public Element(int beginLine, int endLine, int beginColumn, int endColumn, String text, File file) {
+        public JavaElement(int beginLine, int endLine, int beginColumn, int endColumn, String text, File file) {
             this.beginLine = beginLine;
             this.endLine = endLine;
             this.beginColumn = beginColumn;
@@ -160,7 +161,7 @@ public class RefactorRequestProcessor implements IMessageProcessor {
         private Spec.ProtoStepValueOrBuilder newStepValue;
         private List<Messages.ParameterPosition> paramPositions;
         private boolean refactored;
-        public Element element;
+        public JavaElement javaElement;
 
         public MethodVisitor(String oldStepValue, Spec.ProtoStepValueOrBuilder newStepValue, List<Messages.ParameterPosition> paramPositions) {
             this.oldStepValue = oldStepValue;
@@ -210,7 +211,7 @@ public class RefactorRequestProcessor implements IMessageProcessor {
                 }
                 methodDeclaration.setParameters(newParameters);
                 annotation.setMemberValue(memberValue);
-                this.element = new Element(methodDeclaration.getBeginLine(), methodDeclaration.getEndLine(), methodDeclaration.getBeginColumn(), methodDeclaration.getEndColumn(), methodDeclaration.toString(), null);
+                this.javaElement = new JavaElement(methodDeclaration.getBeginLine(), methodDeclaration.getEndLine(), methodDeclaration.getBeginColumn(), methodDeclaration.getEndColumn(), methodDeclaration.toString(), null);
                 this.refactored = true;
             }
         }

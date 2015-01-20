@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RefactorFile {
-    private RefactorRequestProcessor.Element element;
+    private RefactorRequestProcessor.JavaElement javaElement;
     private List<String> content;
 
-    public RefactorFile(RefactorRequestProcessor.Element element) {
-        this.element = element;
+    public RefactorFile(RefactorRequestProcessor.JavaElement javaElement) {
+        this.javaElement = javaElement;
     }
 
     public void refactor() throws IOException {
@@ -19,20 +19,20 @@ public class RefactorFile {
     }
 
     private void refactorContent() {
-        String[] lines = element.text.split("\n");
+        String[] lines = javaElement.text.split("\n");
         String spaces = "";
-        for (int j = 0; j < element.beginColumn-1; j++) {
+        for (int j = 0; j < javaElement.beginColumn-1; j++) {
             spaces += " ";
         }
-        for (int i = element.beginLine; i <= element.endLine ; i++) {
-            content.remove(element.beginLine - 1);
+        for (int i = javaElement.beginLine; i <= javaElement.endLine ; i++) {
+            content.remove(javaElement.beginLine - 1);
         }
-        for (int i = element.beginLine,index = 0; index < lines.length ; i++,index++) {
+        for (int i = javaElement.beginLine,index = 0; index < lines.length ; i++,index++) {
             content.add(i - 1, spaces + lines[index]);
         }
     }
     private void readFileContent() throws IOException {
-        File file = element.file;
+        File file = javaElement.file;
         FileReader in = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(in);
         List<String> content = new ArrayList<String>();
@@ -43,7 +43,7 @@ public class RefactorFile {
         this.content = content;
     }
     public void write() throws IOException {
-        FileOutputStream stream = new FileOutputStream(element.file, false);
+        FileOutputStream stream = new FileOutputStream(javaElement.file, false);
         StringBuilder content = new StringBuilder("");
         for (String line : this.content) {
             content.append(line).append("\n");
