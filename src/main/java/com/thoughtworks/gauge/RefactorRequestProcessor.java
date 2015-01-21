@@ -55,7 +55,7 @@ public class RefactorRequestProcessor implements IMessageProcessor {
         return Messages.Message.newBuilder()
                 .setMessageId(message.getMessageId())
                 .setMessageType(Messages.Message.MessageType.RefactorResponse)
-                .setRefactorResponse(Messages.RefactorResponse.newBuilder().setSuccess(success).setError(errorMessage).setFilesChanged(0, filePath).build())
+                .setRefactorResponse(Messages.RefactorResponse.newBuilder().setSuccess(success).setError(errorMessage).addFilesChanged(filePath).build())
                 .build();
     }
 
