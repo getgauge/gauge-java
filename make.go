@@ -427,6 +427,7 @@ func buildGaugeRtJar() {
 func installGaugeJava(installPrefix string) {
 	copyGaugeJavaFiles(deployDir)
 	javaRunnerInstallPath := filepath.Join(installPrefix, "java", getGaugeJavaVersion())
+	log.Printf("Copying %s -> %s\n", deployDir, javaRunnerInstallPath)
 	mirrorDir(deployDir, javaRunnerInstallPath)
 }
 
