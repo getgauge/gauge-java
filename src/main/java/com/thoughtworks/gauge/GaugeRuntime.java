@@ -70,6 +70,7 @@ public class GaugeRuntime {
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
                 System.out.println(throwable.toString());
+                return;
             }
         }
     }
@@ -119,7 +120,6 @@ public class GaugeRuntime {
         }};
 
         scanForStepImplementations(gaugeApiConnection);
-
         dispatchMessages(gaugeSocket, messageProcessors);
     }
 
