@@ -2,7 +2,7 @@
 gauge-java
 ==========
 
-This is the java [language plugin](http://getgauge.io/documentation/plugins/README.html) for [gauge](http://getgauge.io).
+This is the java [language plugin](http://getgauge.io/documentation/user/current/plugins/README.html) for [gauge](http://getgauge.io).
 
 It contains a launcher component (gauge-java.go) written in golang which is used to start the plugin from gauge.
 
