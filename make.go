@@ -375,8 +375,26 @@ func createDistro() {
 	packageName := fmt.Sprintf("%s-%s-%s.%s", gaugeJava, getGaugeJavaVersion(), getGOOS(), getArch())
 	distroDir := filepath.Join(deploy, packageName)
 	copyGaugeJavaFiles(distroDir)
-	createZip(deploy, packageName)
+	createZipFromUtil(deploy, packageName)
 	os.RemoveAll(distroDir)
+}
+
+func run(command string, arg ...string) (string, error) {
+	cmd := exec.Command(command, arg...)
+	bytes, err := cmd.Output()
+	return strings.TrimSpace(fmt.Sprintf("%s", bytes)), err
+}
+
+
+func createZipFromUtil(dir, name string) {
+	wd,_:=os.Getwd()
+	os.Chdir(filepath.Join(dir, name))
+	output, err := run("zip", "-r", filepath.Join("..", name+".zip"), ".")
+	fmt.Println(output)
+	if err != nil {
+		panic(fmt.Sprintf("Failed to zip: %s", err))
+	}
+	os.Chdir(wd)
 }
 
 func createZip(dir, packageName string) {
