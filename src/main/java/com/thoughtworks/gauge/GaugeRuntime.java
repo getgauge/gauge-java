@@ -164,7 +164,7 @@ public class GaugeRuntime {
                     StepValue stepValue = gaugeApiConnection.getStepValue(stepName);
                     String fileName = null;
                     try {
-                        fileName = ClassInstanceManager.get(method.getDeclaringClass()).getClass().getCanonicalName().replace(".",File.separator) + ".java";
+                        fileName = method.getDeclaringClass().getCanonicalName().replace(".",File.separator) + ".java";
                     } catch (Exception ignored) {
                     }
                     StepRegistry.addStepImplementation(stepValue, method, fileName);
