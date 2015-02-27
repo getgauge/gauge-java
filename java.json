@@ -12,5 +12,9 @@
         "linux": ["bin/gauge-java", "--init"],
         "darwin": ["bin/gauge-java", "--init"]
     },
-    "lib": "libs"
+    "lib": "libs",
+    "gaugeVersionSupport": {
+      "minimum": "0.0.4",
+      "maximum": "0.0.4"
+    }
 }
