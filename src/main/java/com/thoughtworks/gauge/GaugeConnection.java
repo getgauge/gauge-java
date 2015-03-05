@@ -162,6 +162,18 @@ public class GaugeConnection {
         Api.APIMessage response = getAPIResponse(refactoringRequest);
         return response.getPerformRefactoringResponse();
     }
+    
+    public Api.GetExtractConceptInfoResponse sendGetExtractConceptInfoRequest(String text) throws Exception {
+        Api.APIMessage request = createGetBeforeExtractConceptRequest(text);
+        Api.APIMessage response = getAPIResponse(request);
+        return response.getExtractConceptInfoResponse();
+    }
+
+    public Api.GetFormatConceptHeadingResponse sendGetFormatConceptHeadingRequest(String newConceptHeading, String oldConceptHeading, String conceptText) throws Exception {
+        Api.APIMessage request = createRefactorExtractConceptHeadingRequest(newConceptHeading, oldConceptHeading, conceptText);
+        Api.APIMessage response = getAPIResponse(request);
+        return response.getFormatConceptHeadingResponse();
+    }
 
     private Api.APIMessage getStepRequest() {
         Api.GetAllStepsRequest stepRequest = Api.GetAllStepsRequest.newBuilder().build();
@@ -217,6 +229,24 @@ public class GaugeConnection {
                 .setMessageType(Api.APIMessage.APIMessageType.PerformRefactoringRequest)
                 .setMessageId(7)
                 .setPerformRefactoringRequest(performRefactoringRequest)
+                .build();
+    }
+
+    private Api.APIMessage createGetBeforeExtractConceptRequest(String text) {
+        Api.GetExtractConceptInfoRequest request = Api.GetExtractConceptInfoRequest.newBuilder().setText(text).build();
+        return Api.APIMessage.newBuilder()
+                .setMessageType(Api.APIMessage.APIMessageType.GetExtractConceptInfoRequest)
+                .setMessageId(8)
+                .setExtractConceptInfoRequest(request)
+                .build();
+    }
+
+    private Api.APIMessage createRefactorExtractConceptHeadingRequest(String newConceptHeading, String oldConceptHeading, String conceptText) {
+        Api.GetFormatConceptHeadingRequest request = Api.GetFormatConceptHeadingRequest.newBuilder().setNewConceptHeading(newConceptHeading).setOldConceptHeading(oldConceptHeading).setOldConceptText(conceptText).build();
+        return Api.APIMessage.newBuilder()
+                .setMessageType(Api.APIMessage.APIMessageType.GetFormatConceptHeadingRequest)
+                .setMessageId(8)
+                .setFormatConceptHeadingRequest(request)
                 .build();
     }
 
