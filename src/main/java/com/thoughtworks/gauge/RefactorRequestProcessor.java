@@ -222,7 +222,7 @@ public class RefactorRequestProcessor implements IMessageProcessor {
                 List<Parameter> parameters = methodDeclaration.getParameters();
                 for (int i = 0, paramPositionsSize = paramPositions.size(); i < paramPositionsSize; i++) {
                     if (paramPositions.get(i).getOldPosition() < 0)
-                        newParameters.set(i, new Parameter(new ClassOrInterfaceType("String"), new VariableDeclaratorId(newStepValue.getParameters(i))));
+                        newParameters.set(i, new Parameter(new ClassOrInterfaceType("String"), new VariableDeclaratorId(convertToCamelCase(newStepValue.getParameters(i)))));
                     else
                         newParameters.set(paramPositions.get(i).getNewPosition(), parameters.get(paramPositions.get(i).getOldPosition()));
                 }
@@ -232,5 +232,14 @@ public class RefactorRequestProcessor implements IMessageProcessor {
                 this.refactored = true;
             }
         }
+    }
+
+    private String convertToCamelCase(String parameter) {
+        String[] words = parameter.split(" ");
+        String text = words[0];
+        for (int i = 1, wordsLength = words.length; i < wordsLength; i++) {
+            text += words[i].substring(0, 1).toUpperCase() + words[i].substring(1);
+        }
+        return text;
     }
 }

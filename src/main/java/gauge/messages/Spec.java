@@ -25,10 +25,10 @@ public final class Spec {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface ProtoSpecOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoSpec)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoSpecOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required string specHeading = 1;
     /**
      * <code>required string specHeading = 1;</code>
      */
@@ -43,6 +43,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getSpecHeadingBytes();
 
+    // repeated .gauge.messages.ProtoItem items = 2;
     /**
      * <code>repeated .gauge.messages.ProtoItem items = 2;</code>
      */
@@ -67,6 +68,7 @@ public final class Spec {
     gauge.messages.Spec.ProtoItemOrBuilder getItemsOrBuilder(
         int index);
 
+    // required bool isTableDriven = 3;
     /**
      * <code>required bool isTableDriven = 3;</code>
      */
@@ -76,6 +78,7 @@ public final class Spec {
      */
     boolean getIsTableDriven();
 
+    // optional .gauge.messages.ProtoHookFailure preHookFailure = 4;
     /**
      * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
      */
@@ -89,6 +92,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder();
 
+    // optional .gauge.messages.ProtoHookFailure postHookFailure = 5;
     /**
      * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
      */
@@ -102,6 +106,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder();
 
+    // required string fileName = 6;
     /**
      * <code>required string fileName = 6;</code>
      */
@@ -116,11 +121,12 @@ public final class Spec {
     com.google.protobuf.ByteString
         getFileNameBytes();
 
+    // repeated string tags = 7;
     /**
      * <code>repeated string tags = 7;</code>
      */
-    com.google.protobuf.ProtocolStringList
-        getTagsList();
+    java.util.List<java.lang.String>
+    getTagsList();
     /**
      * <code>repeated string tags = 7;</code>
      */
@@ -139,9 +145,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoSpec}
    */
   public static final class ProtoSpec extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoSpec)
-      ProtoSpecOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoSpecOrBuilder {
     // Use ProtoSpec.newBuilder() to construct.
     private ProtoSpec(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -188,9 +193,8 @@ public final class Spec {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              specHeading_ = bs;
+              specHeading_ = input.readBytes();
               break;
             }
             case 18: {
@@ -233,18 +237,16 @@ public final class Spec {
               break;
             }
             case 50: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000010;
-              fileName_ = bs;
+              fileName_ = input.readBytes();
               break;
             }
             case 58: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 tags_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000040;
               }
-              tags_.add(bs);
+              tags_.add(input.readBytes());
               break;
             }
           }
@@ -259,7 +261,7 @@ public final class Spec {
           items_ = java.util.Collections.unmodifiableList(items_);
         }
         if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-          tags_ = tags_.getUnmodifiableView();
+          tags_ = new com.google.protobuf.UnmodifiableLazyStringList(tags_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -293,6 +295,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required string specHeading = 1;
     public static final int SPECHEADING_FIELD_NUMBER = 1;
     private java.lang.Object specHeading_;
     /**
@@ -335,6 +338,7 @@ public final class Spec {
       }
     }
 
+    // repeated .gauge.messages.ProtoItem items = 2;
     public static final int ITEMS_FIELD_NUMBER = 2;
     private java.util.List<gauge.messages.Spec.ProtoItem> items_;
     /**
@@ -370,6 +374,7 @@ public final class Spec {
       return items_.get(index);
     }
 
+    // required bool isTableDriven = 3;
     public static final int ISTABLEDRIVEN_FIELD_NUMBER = 3;
     private boolean isTableDriven_;
     /**
@@ -385,6 +390,7 @@ public final class Spec {
       return isTableDriven_;
     }
 
+    // optional .gauge.messages.ProtoHookFailure preHookFailure = 4;
     public static final int PREHOOKFAILURE_FIELD_NUMBER = 4;
     private gauge.messages.Spec.ProtoHookFailure preHookFailure_;
     /**
@@ -406,6 +412,7 @@ public final class Spec {
       return preHookFailure_;
     }
 
+    // optional .gauge.messages.ProtoHookFailure postHookFailure = 5;
     public static final int POSTHOOKFAILURE_FIELD_NUMBER = 5;
     private gauge.messages.Spec.ProtoHookFailure postHookFailure_;
     /**
@@ -427,6 +434,7 @@ public final class Spec {
       return postHookFailure_;
     }
 
+    // required string fileName = 6;
     public static final int FILENAME_FIELD_NUMBER = 6;
     private java.lang.Object fileName_;
     /**
@@ -469,12 +477,13 @@ public final class Spec {
       }
     }
 
+    // repeated string tags = 7;
     public static final int TAGS_FIELD_NUMBER = 7;
     private com.google.protobuf.LazyStringList tags_;
     /**
      * <code>repeated string tags = 7;</code>
      */
-    public com.google.protobuf.ProtocolStringList
+    public java.util.List<java.lang.String>
         getTagsList() {
       return tags_;
     }
@@ -510,8 +519,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasSpecHeading()) {
         memoizedIsInitialized = 0;
@@ -695,9 +703,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoSpec}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoSpec)
-        gauge.messages.Spec.ProtoSpecOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoSpecOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoSpec_descriptor;
@@ -825,7 +832,8 @@ public final class Spec {
         }
         result.fileName_ = fileName_;
         if (((bitField0_ & 0x00000040) == 0x00000040)) {
-          tags_ = tags_.getUnmodifiableView();
+          tags_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              tags_);
           bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.tags_ = tags_;
@@ -957,6 +965,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required string specHeading = 1;
       private java.lang.Object specHeading_ = "";
       /**
        * <code>required string specHeading = 1;</code>
@@ -970,12 +979,9 @@ public final class Spec {
       public java.lang.String getSpecHeading() {
         java.lang.Object ref = specHeading_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            specHeading_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          specHeading_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1033,6 +1039,7 @@ public final class Spec {
         return this;
       }
 
+      // repeated .gauge.messages.ProtoItem items = 2;
       private java.util.List<gauge.messages.Spec.ProtoItem> items_ =
         java.util.Collections.emptyList();
       private void ensureItemsIsMutable() {
@@ -1174,8 +1181,7 @@ public final class Spec {
           java.lang.Iterable<? extends gauge.messages.Spec.ProtoItem> values) {
         if (itemsBuilder_ == null) {
           ensureItemsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, items_);
+          super.addAll(values, items_);
           onChanged();
         } else {
           itemsBuilder_.addAllMessages(values);
@@ -1273,6 +1279,7 @@ public final class Spec {
         return itemsBuilder_;
       }
 
+      // required bool isTableDriven = 3;
       private boolean isTableDriven_ ;
       /**
        * <code>required bool isTableDriven = 3;</code>
@@ -1305,6 +1312,7 @@ public final class Spec {
         return this;
       }
 
+      // optional .gauge.messages.ProtoHookFailure preHookFailure = 4;
       private gauge.messages.Spec.ProtoHookFailure preHookFailure_ = gauge.messages.Spec.ProtoHookFailure.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> preHookFailureBuilder_;
@@ -1413,7 +1421,7 @@ public final class Spec {
         if (preHookFailureBuilder_ == null) {
           preHookFailureBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder>(
-                  getPreHookFailure(),
+                  preHookFailure_,
                   getParentForChildren(),
                   isClean());
           preHookFailure_ = null;
@@ -1421,6 +1429,7 @@ public final class Spec {
         return preHookFailureBuilder_;
       }
 
+      // optional .gauge.messages.ProtoHookFailure postHookFailure = 5;
       private gauge.messages.Spec.ProtoHookFailure postHookFailure_ = gauge.messages.Spec.ProtoHookFailure.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> postHookFailureBuilder_;
@@ -1529,7 +1538,7 @@ public final class Spec {
         if (postHookFailureBuilder_ == null) {
           postHookFailureBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder>(
-                  getPostHookFailure(),
+                  postHookFailure_,
                   getParentForChildren(),
                   isClean());
           postHookFailure_ = null;
@@ -1537,6 +1546,7 @@ public final class Spec {
         return postHookFailureBuilder_;
       }
 
+      // required string fileName = 6;
       private java.lang.Object fileName_ = "";
       /**
        * <code>required string fileName = 6;</code>
@@ -1550,12 +1560,9 @@ public final class Spec {
       public java.lang.String getFileName() {
         java.lang.Object ref = fileName_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            fileName_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          fileName_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1613,6 +1620,7 @@ public final class Spec {
         return this;
       }
 
+      // repeated string tags = 7;
       private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureTagsIsMutable() {
         if (!((bitField0_ & 0x00000040) == 0x00000040)) {
@@ -1623,9 +1631,9 @@ public final class Spec {
       /**
        * <code>repeated string tags = 7;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.String>
           getTagsList() {
-        return tags_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(tags_);
       }
       /**
        * <code>repeated string tags = 7;</code>
@@ -1678,8 +1686,7 @@ public final class Spec {
       public Builder addAllTags(
           java.lang.Iterable<java.lang.String> values) {
         ensureTagsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, tags_);
+        super.addAll(values, tags_);
         onChanged();
         return this;
       }
@@ -1717,10 +1724,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoSpec)
   }
 
-  public interface ProtoItemOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoItem)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoItemOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .gauge.messages.ProtoItem.ItemType itemType = 1;
     /**
      * <code>required .gauge.messages.ProtoItem.ItemType itemType = 1;</code>
      */
@@ -1730,6 +1737,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoItem.ItemType getItemType();
 
+    // optional .gauge.messages.ProtoStep step = 2;
     /**
      * <code>optional .gauge.messages.ProtoStep step = 2;</code>
      */
@@ -1743,6 +1751,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoStepOrBuilder getStepOrBuilder();
 
+    // optional .gauge.messages.ProtoConcept concept = 3;
     /**
      * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
      */
@@ -1756,6 +1765,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoConceptOrBuilder getConceptOrBuilder();
 
+    // optional .gauge.messages.ProtoScenario scenario = 4;
     /**
      * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
      */
@@ -1769,6 +1779,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoScenarioOrBuilder getScenarioOrBuilder();
 
+    // optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;
     /**
      * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
      */
@@ -1782,6 +1793,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoTableDrivenScenarioOrBuilder getTableDrivenScenarioOrBuilder();
 
+    // optional .gauge.messages.ProtoComment comment = 6;
     /**
      * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
      */
@@ -1795,6 +1807,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoCommentOrBuilder getCommentOrBuilder();
 
+    // optional .gauge.messages.ProtoTable table = 7;
     /**
      * <code>optional .gauge.messages.ProtoTable table = 7;</code>
      */
@@ -1807,14 +1820,27 @@ public final class Spec {
      * <code>optional .gauge.messages.ProtoTable table = 7;</code>
      */
     gauge.messages.Spec.ProtoTableOrBuilder getTableOrBuilder();
+
+    // optional .gauge.messages.ProtoTags tags = 8;
+    /**
+     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     */
+    boolean hasTags();
+    /**
+     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     */
+    gauge.messages.Spec.ProtoTags getTags();
+    /**
+     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     */
+    gauge.messages.Spec.ProtoTagsOrBuilder getTagsOrBuilder();
   }
   /**
    * Protobuf type {@code gauge.messages.ProtoItem}
    */
   public static final class ProtoItem extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoItem)
-      ProtoItemOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoItemOrBuilder {
     // Use ProtoItem.newBuilder() to construct.
     private ProtoItem(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -1949,6 +1975,19 @@ public final class Spec {
               bitField0_ |= 0x00000040;
               break;
             }
+            case 66: {
+              gauge.messages.Spec.ProtoTags.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000080) == 0x00000080)) {
+                subBuilder = tags_.toBuilder();
+              }
+              tags_ = input.readMessage(gauge.messages.Spec.ProtoTags.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(tags_);
+                tags_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000080;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2017,6 +2056,10 @@ public final class Spec {
        * <code>Table = 6;</code>
        */
       Table(5, 6),
+      /**
+       * <code>Tags = 7;</code>
+       */
+      Tags(6, 7),
       ;
 
       /**
@@ -2043,6 +2086,10 @@ public final class Spec {
        * <code>Table = 6;</code>
        */
       public static final int Table_VALUE = 6;
+      /**
+       * <code>Tags = 7;</code>
+       */
+      public static final int Tags_VALUE = 7;
 
 
       public final int getNumber() { return value; }
@@ -2055,6 +2102,7 @@ public final class Spec {
           case 4: return Scenario;
           case 5: return TableDrivenScenario;
           case 6: return Table;
+          case 7: return Tags;
           default: return null;
         }
       }
@@ -2107,6 +2155,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required .gauge.messages.ProtoItem.ItemType itemType = 1;
     public static final int ITEMTYPE_FIELD_NUMBER = 1;
     private gauge.messages.Spec.ProtoItem.ItemType itemType_;
     /**
@@ -2122,6 +2171,7 @@ public final class Spec {
       return itemType_;
     }
 
+    // optional .gauge.messages.ProtoStep step = 2;
     public static final int STEP_FIELD_NUMBER = 2;
     private gauge.messages.Spec.ProtoStep step_;
     /**
@@ -2143,6 +2193,7 @@ public final class Spec {
       return step_;
     }
 
+    // optional .gauge.messages.ProtoConcept concept = 3;
     public static final int CONCEPT_FIELD_NUMBER = 3;
     private gauge.messages.Spec.ProtoConcept concept_;
     /**
@@ -2164,6 +2215,7 @@ public final class Spec {
       return concept_;
     }
 
+    // optional .gauge.messages.ProtoScenario scenario = 4;
     public static final int SCENARIO_FIELD_NUMBER = 4;
     private gauge.messages.Spec.ProtoScenario scenario_;
     /**
@@ -2185,6 +2237,7 @@ public final class Spec {
       return scenario_;
     }
 
+    // optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;
     public static final int TABLEDRIVENSCENARIO_FIELD_NUMBER = 5;
     private gauge.messages.Spec.ProtoTableDrivenScenario tableDrivenScenario_;
     /**
@@ -2206,6 +2259,7 @@ public final class Spec {
       return tableDrivenScenario_;
     }
 
+    // optional .gauge.messages.ProtoComment comment = 6;
     public static final int COMMENT_FIELD_NUMBER = 6;
     private gauge.messages.Spec.ProtoComment comment_;
     /**
@@ -2227,6 +2281,7 @@ public final class Spec {
       return comment_;
     }
 
+    // optional .gauge.messages.ProtoTable table = 7;
     public static final int TABLE_FIELD_NUMBER = 7;
     private gauge.messages.Spec.ProtoTable table_;
     /**
@@ -2248,6 +2303,28 @@ public final class Spec {
       return table_;
     }
 
+    // optional .gauge.messages.ProtoTags tags = 8;
+    public static final int TAGS_FIELD_NUMBER = 8;
+    private gauge.messages.Spec.ProtoTags tags_;
+    /**
+     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     */
+    public boolean hasTags() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     */
+    public gauge.messages.Spec.ProtoTags getTags() {
+      return tags_;
+    }
+    /**
+     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     */
+    public gauge.messages.Spec.ProtoTagsOrBuilder getTagsOrBuilder() {
+      return tags_;
+    }
+
     private void initFields() {
       itemType_ = gauge.messages.Spec.ProtoItem.ItemType.Step;
       step_ = gauge.messages.Spec.ProtoStep.getDefaultInstance();
@@ -2256,12 +2333,12 @@ public final class Spec {
       tableDrivenScenario_ = gauge.messages.Spec.ProtoTableDrivenScenario.getDefaultInstance();
       comment_ = gauge.messages.Spec.ProtoComment.getDefaultInstance();
       table_ = gauge.messages.Spec.ProtoTable.getDefaultInstance();
+      tags_ = gauge.messages.Spec.ProtoTags.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasItemType()) {
         memoizedIsInitialized = 0;
@@ -2331,6 +2408,9 @@ public final class Spec {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeMessage(7, table_);
       }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeMessage(8, tags_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -2367,6 +2447,10 @@ public final class Spec {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, table_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, tags_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2450,9 +2534,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoItem}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoItem)
-        gauge.messages.Spec.ProtoItemOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoItemOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoItem_descriptor;
@@ -2483,6 +2566,7 @@ public final class Spec {
           getTableDrivenScenarioFieldBuilder();
           getCommentFieldBuilder();
           getTableFieldBuilder();
+          getTagsFieldBuilder();
         }
       }
       private static Builder create() {
@@ -2529,6 +2613,12 @@ public final class Spec {
           tableBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000040);
+        if (tagsBuilder_ == null) {
+          tags_ = gauge.messages.Spec.ProtoTags.getDefaultInstance();
+        } else {
+          tagsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -2609,6 +2699,14 @@ public final class Spec {
         } else {
           result.table_ = tableBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        if (tagsBuilder_ == null) {
+          result.tags_ = tags_;
+        } else {
+          result.tags_ = tagsBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2645,6 +2743,9 @@ public final class Spec {
         }
         if (other.hasTable()) {
           mergeTable(other.getTable());
+        }
+        if (other.hasTags()) {
+          mergeTags(other.getTags());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -2713,6 +2814,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required .gauge.messages.ProtoItem.ItemType itemType = 1;
       private gauge.messages.Spec.ProtoItem.ItemType itemType_ = gauge.messages.Spec.ProtoItem.ItemType.Step;
       /**
        * <code>required .gauge.messages.ProtoItem.ItemType itemType = 1;</code>
@@ -2748,6 +2850,7 @@ public final class Spec {
         return this;
       }
 
+      // optional .gauge.messages.ProtoStep step = 2;
       private gauge.messages.Spec.ProtoStep step_ = gauge.messages.Spec.ProtoStep.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoStep, gauge.messages.Spec.ProtoStep.Builder, gauge.messages.Spec.ProtoStepOrBuilder> stepBuilder_;
@@ -2856,7 +2959,7 @@ public final class Spec {
         if (stepBuilder_ == null) {
           stepBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoStep, gauge.messages.Spec.ProtoStep.Builder, gauge.messages.Spec.ProtoStepOrBuilder>(
-                  getStep(),
+                  step_,
                   getParentForChildren(),
                   isClean());
           step_ = null;
@@ -2864,6 +2967,7 @@ public final class Spec {
         return stepBuilder_;
       }
 
+      // optional .gauge.messages.ProtoConcept concept = 3;
       private gauge.messages.Spec.ProtoConcept concept_ = gauge.messages.Spec.ProtoConcept.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoConcept, gauge.messages.Spec.ProtoConcept.Builder, gauge.messages.Spec.ProtoConceptOrBuilder> conceptBuilder_;
@@ -2972,7 +3076,7 @@ public final class Spec {
         if (conceptBuilder_ == null) {
           conceptBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoConcept, gauge.messages.Spec.ProtoConcept.Builder, gauge.messages.Spec.ProtoConceptOrBuilder>(
-                  getConcept(),
+                  concept_,
                   getParentForChildren(),
                   isClean());
           concept_ = null;
@@ -2980,6 +3084,7 @@ public final class Spec {
         return conceptBuilder_;
       }
 
+      // optional .gauge.messages.ProtoScenario scenario = 4;
       private gauge.messages.Spec.ProtoScenario scenario_ = gauge.messages.Spec.ProtoScenario.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoScenario, gauge.messages.Spec.ProtoScenario.Builder, gauge.messages.Spec.ProtoScenarioOrBuilder> scenarioBuilder_;
@@ -3088,7 +3193,7 @@ public final class Spec {
         if (scenarioBuilder_ == null) {
           scenarioBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoScenario, gauge.messages.Spec.ProtoScenario.Builder, gauge.messages.Spec.ProtoScenarioOrBuilder>(
-                  getScenario(),
+                  scenario_,
                   getParentForChildren(),
                   isClean());
           scenario_ = null;
@@ -3096,6 +3201,7 @@ public final class Spec {
         return scenarioBuilder_;
       }
 
+      // optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;
       private gauge.messages.Spec.ProtoTableDrivenScenario tableDrivenScenario_ = gauge.messages.Spec.ProtoTableDrivenScenario.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoTableDrivenScenario, gauge.messages.Spec.ProtoTableDrivenScenario.Builder, gauge.messages.Spec.ProtoTableDrivenScenarioOrBuilder> tableDrivenScenarioBuilder_;
@@ -3204,7 +3310,7 @@ public final class Spec {
         if (tableDrivenScenarioBuilder_ == null) {
           tableDrivenScenarioBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoTableDrivenScenario, gauge.messages.Spec.ProtoTableDrivenScenario.Builder, gauge.messages.Spec.ProtoTableDrivenScenarioOrBuilder>(
-                  getTableDrivenScenario(),
+                  tableDrivenScenario_,
                   getParentForChildren(),
                   isClean());
           tableDrivenScenario_ = null;
@@ -3212,6 +3318,7 @@ public final class Spec {
         return tableDrivenScenarioBuilder_;
       }
 
+      // optional .gauge.messages.ProtoComment comment = 6;
       private gauge.messages.Spec.ProtoComment comment_ = gauge.messages.Spec.ProtoComment.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoComment, gauge.messages.Spec.ProtoComment.Builder, gauge.messages.Spec.ProtoCommentOrBuilder> commentBuilder_;
@@ -3320,7 +3427,7 @@ public final class Spec {
         if (commentBuilder_ == null) {
           commentBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoComment, gauge.messages.Spec.ProtoComment.Builder, gauge.messages.Spec.ProtoCommentOrBuilder>(
-                  getComment(),
+                  comment_,
                   getParentForChildren(),
                   isClean());
           comment_ = null;
@@ -3328,6 +3435,7 @@ public final class Spec {
         return commentBuilder_;
       }
 
+      // optional .gauge.messages.ProtoTable table = 7;
       private gauge.messages.Spec.ProtoTable table_ = gauge.messages.Spec.ProtoTable.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder> tableBuilder_;
@@ -3436,12 +3544,129 @@ public final class Spec {
         if (tableBuilder_ == null) {
           tableBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder>(
-                  getTable(),
+                  table_,
                   getParentForChildren(),
                   isClean());
           table_ = null;
         }
         return tableBuilder_;
+      }
+
+      // optional .gauge.messages.ProtoTags tags = 8;
+      private gauge.messages.Spec.ProtoTags tags_ = gauge.messages.Spec.ProtoTags.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Spec.ProtoTags, gauge.messages.Spec.ProtoTags.Builder, gauge.messages.Spec.ProtoTagsOrBuilder> tagsBuilder_;
+      /**
+       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       */
+      public boolean hasTags() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       */
+      public gauge.messages.Spec.ProtoTags getTags() {
+        if (tagsBuilder_ == null) {
+          return tags_;
+        } else {
+          return tagsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       */
+      public Builder setTags(gauge.messages.Spec.ProtoTags value) {
+        if (tagsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          tags_ = value;
+          onChanged();
+        } else {
+          tagsBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       */
+      public Builder setTags(
+          gauge.messages.Spec.ProtoTags.Builder builderForValue) {
+        if (tagsBuilder_ == null) {
+          tags_ = builderForValue.build();
+          onChanged();
+        } else {
+          tagsBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       */
+      public Builder mergeTags(gauge.messages.Spec.ProtoTags value) {
+        if (tagsBuilder_ == null) {
+          if (((bitField0_ & 0x00000080) == 0x00000080) &&
+              tags_ != gauge.messages.Spec.ProtoTags.getDefaultInstance()) {
+            tags_ =
+              gauge.messages.Spec.ProtoTags.newBuilder(tags_).mergeFrom(value).buildPartial();
+          } else {
+            tags_ = value;
+          }
+          onChanged();
+        } else {
+          tagsBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000080;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       */
+      public Builder clearTags() {
+        if (tagsBuilder_ == null) {
+          tags_ = gauge.messages.Spec.ProtoTags.getDefaultInstance();
+          onChanged();
+        } else {
+          tagsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000080);
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       */
+      public gauge.messages.Spec.ProtoTags.Builder getTagsBuilder() {
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return getTagsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       */
+      public gauge.messages.Spec.ProtoTagsOrBuilder getTagsOrBuilder() {
+        if (tagsBuilder_ != null) {
+          return tagsBuilder_.getMessageOrBuilder();
+        } else {
+          return tags_;
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Spec.ProtoTags, gauge.messages.Spec.ProtoTags.Builder, gauge.messages.Spec.ProtoTagsOrBuilder> 
+          getTagsFieldBuilder() {
+        if (tagsBuilder_ == null) {
+          tagsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              gauge.messages.Spec.ProtoTags, gauge.messages.Spec.ProtoTags.Builder, gauge.messages.Spec.ProtoTagsOrBuilder>(
+                  tags_,
+                  getParentForChildren(),
+                  isClean());
+          tags_ = null;
+        }
+        return tagsBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:gauge.messages.ProtoItem)
@@ -3455,10 +3680,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoItem)
   }
 
-  public interface ProtoScenarioOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoScenario)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoScenarioOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required string scenarioHeading = 1;
     /**
      * <code>required string scenarioHeading = 1;</code>
      */
@@ -3473,6 +3698,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getScenarioHeadingBytes();
 
+    // required bool failed = 2;
     /**
      * <code>required bool failed = 2;</code>
      */
@@ -3482,6 +3708,7 @@ public final class Spec {
      */
     boolean getFailed();
 
+    // repeated .gauge.messages.ProtoItem contexts = 3;
     /**
      * <code>repeated .gauge.messages.ProtoItem contexts = 3;</code>
      */
@@ -3506,6 +3733,7 @@ public final class Spec {
     gauge.messages.Spec.ProtoItemOrBuilder getContextsOrBuilder(
         int index);
 
+    // repeated .gauge.messages.ProtoItem scenarioItems = 4;
     /**
      * <code>repeated .gauge.messages.ProtoItem scenarioItems = 4;</code>
      */
@@ -3530,6 +3758,7 @@ public final class Spec {
     gauge.messages.Spec.ProtoItemOrBuilder getScenarioItemsOrBuilder(
         int index);
 
+    // optional .gauge.messages.ProtoHookFailure preHookFailure = 5;
     /**
      * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
      */
@@ -3543,6 +3772,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder();
 
+    // optional .gauge.messages.ProtoHookFailure postHookFailure = 6;
     /**
      * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
      */
@@ -3556,11 +3786,12 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder();
 
+    // repeated string tags = 7;
     /**
      * <code>repeated string tags = 7;</code>
      */
-    com.google.protobuf.ProtocolStringList
-        getTagsList();
+    java.util.List<java.lang.String>
+    getTagsList();
     /**
      * <code>repeated string tags = 7;</code>
      */
@@ -3575,6 +3806,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getTagsBytes(int index);
 
+    // optional int64 executionTime = 8;
     /**
      * <code>optional int64 executionTime = 8;</code>
      */
@@ -3588,9 +3820,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoScenario}
    */
   public static final class ProtoScenario extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoScenario)
-      ProtoScenarioOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoScenarioOrBuilder {
     // Use ProtoScenario.newBuilder() to construct.
     private ProtoScenario(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -3637,9 +3868,8 @@ public final class Spec {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              scenarioHeading_ = bs;
+              scenarioHeading_ = input.readBytes();
               break;
             }
             case 16: {
@@ -3690,12 +3920,11 @@ public final class Spec {
               break;
             }
             case 58: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 tags_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000040;
               }
-              tags_.add(bs);
+              tags_.add(input.readBytes());
               break;
             }
             case 64: {
@@ -3718,7 +3947,7 @@ public final class Spec {
           scenarioItems_ = java.util.Collections.unmodifiableList(scenarioItems_);
         }
         if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-          tags_ = tags_.getUnmodifiableView();
+          tags_ = new com.google.protobuf.UnmodifiableLazyStringList(tags_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -3752,6 +3981,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required string scenarioHeading = 1;
     public static final int SCENARIOHEADING_FIELD_NUMBER = 1;
     private java.lang.Object scenarioHeading_;
     /**
@@ -3794,6 +4024,7 @@ public final class Spec {
       }
     }
 
+    // required bool failed = 2;
     public static final int FAILED_FIELD_NUMBER = 2;
     private boolean failed_;
     /**
@@ -3809,6 +4040,7 @@ public final class Spec {
       return failed_;
     }
 
+    // repeated .gauge.messages.ProtoItem contexts = 3;
     public static final int CONTEXTS_FIELD_NUMBER = 3;
     private java.util.List<gauge.messages.Spec.ProtoItem> contexts_;
     /**
@@ -3844,6 +4076,7 @@ public final class Spec {
       return contexts_.get(index);
     }
 
+    // repeated .gauge.messages.ProtoItem scenarioItems = 4;
     public static final int SCENARIOITEMS_FIELD_NUMBER = 4;
     private java.util.List<gauge.messages.Spec.ProtoItem> scenarioItems_;
     /**
@@ -3879,6 +4112,7 @@ public final class Spec {
       return scenarioItems_.get(index);
     }
 
+    // optional .gauge.messages.ProtoHookFailure preHookFailure = 5;
     public static final int PREHOOKFAILURE_FIELD_NUMBER = 5;
     private gauge.messages.Spec.ProtoHookFailure preHookFailure_;
     /**
@@ -3900,6 +4134,7 @@ public final class Spec {
       return preHookFailure_;
     }
 
+    // optional .gauge.messages.ProtoHookFailure postHookFailure = 6;
     public static final int POSTHOOKFAILURE_FIELD_NUMBER = 6;
     private gauge.messages.Spec.ProtoHookFailure postHookFailure_;
     /**
@@ -3921,12 +4156,13 @@ public final class Spec {
       return postHookFailure_;
     }
 
+    // repeated string tags = 7;
     public static final int TAGS_FIELD_NUMBER = 7;
     private com.google.protobuf.LazyStringList tags_;
     /**
      * <code>repeated string tags = 7;</code>
      */
-    public com.google.protobuf.ProtocolStringList
+    public java.util.List<java.lang.String>
         getTagsList() {
       return tags_;
     }
@@ -3950,6 +4186,7 @@ public final class Spec {
       return tags_.getByteString(index);
     }
 
+    // optional int64 executionTime = 8;
     public static final int EXECUTIONTIME_FIELD_NUMBER = 8;
     private long executionTime_;
     /**
@@ -3978,8 +4215,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasScenarioHeading()) {
         memoizedIsInitialized = 0;
@@ -4172,9 +4408,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoScenario}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoScenario)
-        gauge.messages.Spec.ProtoScenarioOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoScenarioOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoScenario_descriptor;
@@ -4314,7 +4549,8 @@ public final class Spec {
           result.postHookFailure_ = postHookFailureBuilder_.build();
         }
         if (((bitField0_ & 0x00000040) == 0x00000040)) {
-          tags_ = tags_.getUnmodifiableView();
+          tags_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              tags_);
           bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.tags_ = tags_;
@@ -4476,6 +4712,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required string scenarioHeading = 1;
       private java.lang.Object scenarioHeading_ = "";
       /**
        * <code>required string scenarioHeading = 1;</code>
@@ -4489,12 +4726,9 @@ public final class Spec {
       public java.lang.String getScenarioHeading() {
         java.lang.Object ref = scenarioHeading_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            scenarioHeading_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          scenarioHeading_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -4552,6 +4786,7 @@ public final class Spec {
         return this;
       }
 
+      // required bool failed = 2;
       private boolean failed_ ;
       /**
        * <code>required bool failed = 2;</code>
@@ -4584,6 +4819,7 @@ public final class Spec {
         return this;
       }
 
+      // repeated .gauge.messages.ProtoItem contexts = 3;
       private java.util.List<gauge.messages.Spec.ProtoItem> contexts_ =
         java.util.Collections.emptyList();
       private void ensureContextsIsMutable() {
@@ -4725,8 +4961,7 @@ public final class Spec {
           java.lang.Iterable<? extends gauge.messages.Spec.ProtoItem> values) {
         if (contextsBuilder_ == null) {
           ensureContextsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, contexts_);
+          super.addAll(values, contexts_);
           onChanged();
         } else {
           contextsBuilder_.addAllMessages(values);
@@ -4824,6 +5059,7 @@ public final class Spec {
         return contextsBuilder_;
       }
 
+      // repeated .gauge.messages.ProtoItem scenarioItems = 4;
       private java.util.List<gauge.messages.Spec.ProtoItem> scenarioItems_ =
         java.util.Collections.emptyList();
       private void ensureScenarioItemsIsMutable() {
@@ -4965,8 +5201,7 @@ public final class Spec {
           java.lang.Iterable<? extends gauge.messages.Spec.ProtoItem> values) {
         if (scenarioItemsBuilder_ == null) {
           ensureScenarioItemsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, scenarioItems_);
+          super.addAll(values, scenarioItems_);
           onChanged();
         } else {
           scenarioItemsBuilder_.addAllMessages(values);
@@ -5064,6 +5299,7 @@ public final class Spec {
         return scenarioItemsBuilder_;
       }
 
+      // optional .gauge.messages.ProtoHookFailure preHookFailure = 5;
       private gauge.messages.Spec.ProtoHookFailure preHookFailure_ = gauge.messages.Spec.ProtoHookFailure.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> preHookFailureBuilder_;
@@ -5172,7 +5408,7 @@ public final class Spec {
         if (preHookFailureBuilder_ == null) {
           preHookFailureBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder>(
-                  getPreHookFailure(),
+                  preHookFailure_,
                   getParentForChildren(),
                   isClean());
           preHookFailure_ = null;
@@ -5180,6 +5416,7 @@ public final class Spec {
         return preHookFailureBuilder_;
       }
 
+      // optional .gauge.messages.ProtoHookFailure postHookFailure = 6;
       private gauge.messages.Spec.ProtoHookFailure postHookFailure_ = gauge.messages.Spec.ProtoHookFailure.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> postHookFailureBuilder_;
@@ -5288,7 +5525,7 @@ public final class Spec {
         if (postHookFailureBuilder_ == null) {
           postHookFailureBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder>(
-                  getPostHookFailure(),
+                  postHookFailure_,
                   getParentForChildren(),
                   isClean());
           postHookFailure_ = null;
@@ -5296,6 +5533,7 @@ public final class Spec {
         return postHookFailureBuilder_;
       }
 
+      // repeated string tags = 7;
       private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureTagsIsMutable() {
         if (!((bitField0_ & 0x00000040) == 0x00000040)) {
@@ -5306,9 +5544,9 @@ public final class Spec {
       /**
        * <code>repeated string tags = 7;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.String>
           getTagsList() {
-        return tags_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(tags_);
       }
       /**
        * <code>repeated string tags = 7;</code>
@@ -5361,8 +5599,7 @@ public final class Spec {
       public Builder addAllTags(
           java.lang.Iterable<java.lang.String> values) {
         ensureTagsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, tags_);
+        super.addAll(values, tags_);
         onChanged();
         return this;
       }
@@ -5389,6 +5626,7 @@ public final class Spec {
         return this;
       }
 
+      // optional int64 executionTime = 8;
       private long executionTime_ ;
       /**
        * <code>optional int64 executionTime = 8;</code>
@@ -5432,10 +5670,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoScenario)
   }
 
-  public interface ProtoTableDrivenScenarioOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoTableDrivenScenario)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoTableDrivenScenarioOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // repeated .gauge.messages.ProtoScenario scenarios = 1;
     /**
      * <code>repeated .gauge.messages.ProtoScenario scenarios = 1;</code>
      */
@@ -5464,9 +5702,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoTableDrivenScenario}
    */
   public static final class ProtoTableDrivenScenario extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoTableDrivenScenario)
-      ProtoTableDrivenScenarioOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoTableDrivenScenarioOrBuilder {
     // Use ProtoTableDrivenScenario.newBuilder() to construct.
     private ProtoTableDrivenScenario(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -5562,6 +5799,7 @@ public final class Spec {
       return PARSER;
     }
 
+    // repeated .gauge.messages.ProtoScenario scenarios = 1;
     public static final int SCENARIOS_FIELD_NUMBER = 1;
     private java.util.List<gauge.messages.Spec.ProtoScenario> scenarios_;
     /**
@@ -5603,8 +5841,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       for (int i = 0; i < getScenariosCount(); i++) {
         if (!getScenarios(i).isInitialized()) {
@@ -5717,9 +5954,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoTableDrivenScenario}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoTableDrivenScenario)
-        gauge.messages.Spec.ProtoTableDrivenScenarioOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoTableDrivenScenarioOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor;
@@ -5869,6 +6105,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // repeated .gauge.messages.ProtoScenario scenarios = 1;
       private java.util.List<gauge.messages.Spec.ProtoScenario> scenarios_ =
         java.util.Collections.emptyList();
       private void ensureScenariosIsMutable() {
@@ -6010,8 +6247,7 @@ public final class Spec {
           java.lang.Iterable<? extends gauge.messages.Spec.ProtoScenario> values) {
         if (scenariosBuilder_ == null) {
           ensureScenariosIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, scenarios_);
+          super.addAll(values, scenarios_);
           onChanged();
         } else {
           scenariosBuilder_.addAllMessages(values);
@@ -6120,10 +6356,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoTableDrivenScenario)
   }
 
-  public interface ProtoStepOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoStep)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoStepOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required string actualText = 1;
     /**
      * <code>required string actualText = 1;</code>
      */
@@ -6138,6 +6374,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getActualTextBytes();
 
+    // required string parsedText = 2;
     /**
      * <code>required string parsedText = 2;</code>
      */
@@ -6152,6 +6389,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getParsedTextBytes();
 
+    // repeated .gauge.messages.Fragment fragments = 3;
     /**
      * <code>repeated .gauge.messages.Fragment fragments = 3;</code>
      */
@@ -6176,6 +6414,7 @@ public final class Spec {
     gauge.messages.Spec.FragmentOrBuilder getFragmentsOrBuilder(
         int index);
 
+    // optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;
     /**
      * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
      */
@@ -6193,9 +6432,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoStep}
    */
   public static final class ProtoStep extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoStep)
-      ProtoStepOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoStepOrBuilder {
     // Use ProtoStep.newBuilder() to construct.
     private ProtoStep(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -6242,15 +6480,13 @@ public final class Spec {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              actualText_ = bs;
+              actualText_ = input.readBytes();
               break;
             }
             case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              parsedText_ = bs;
+              parsedText_ = input.readBytes();
               break;
             }
             case 26: {
@@ -6317,6 +6553,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required string actualText = 1;
     public static final int ACTUALTEXT_FIELD_NUMBER = 1;
     private java.lang.Object actualText_;
     /**
@@ -6359,6 +6596,7 @@ public final class Spec {
       }
     }
 
+    // required string parsedText = 2;
     public static final int PARSEDTEXT_FIELD_NUMBER = 2;
     private java.lang.Object parsedText_;
     /**
@@ -6401,6 +6639,7 @@ public final class Spec {
       }
     }
 
+    // repeated .gauge.messages.Fragment fragments = 3;
     public static final int FRAGMENTS_FIELD_NUMBER = 3;
     private java.util.List<gauge.messages.Spec.Fragment> fragments_;
     /**
@@ -6436,6 +6675,7 @@ public final class Spec {
       return fragments_.get(index);
     }
 
+    // optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;
     public static final int STEPEXECUTIONRESULT_FIELD_NUMBER = 4;
     private gauge.messages.Spec.ProtoStepExecutionResult stepExecutionResult_;
     /**
@@ -6466,8 +6706,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasActualText()) {
         memoizedIsInitialized = 0;
@@ -6615,9 +6854,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoStep}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoStep)
-        gauge.messages.Spec.ProtoStepOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoStepOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoStep_descriptor;
@@ -6823,6 +7061,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required string actualText = 1;
       private java.lang.Object actualText_ = "";
       /**
        * <code>required string actualText = 1;</code>
@@ -6836,12 +7075,9 @@ public final class Spec {
       public java.lang.String getActualText() {
         java.lang.Object ref = actualText_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            actualText_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          actualText_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -6899,6 +7135,7 @@ public final class Spec {
         return this;
       }
 
+      // required string parsedText = 2;
       private java.lang.Object parsedText_ = "";
       /**
        * <code>required string parsedText = 2;</code>
@@ -6912,12 +7149,9 @@ public final class Spec {
       public java.lang.String getParsedText() {
         java.lang.Object ref = parsedText_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            parsedText_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          parsedText_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -6975,6 +7209,7 @@ public final class Spec {
         return this;
       }
 
+      // repeated .gauge.messages.Fragment fragments = 3;
       private java.util.List<gauge.messages.Spec.Fragment> fragments_ =
         java.util.Collections.emptyList();
       private void ensureFragmentsIsMutable() {
@@ -7116,8 +7351,7 @@ public final class Spec {
           java.lang.Iterable<? extends gauge.messages.Spec.Fragment> values) {
         if (fragmentsBuilder_ == null) {
           ensureFragmentsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, fragments_);
+          super.addAll(values, fragments_);
           onChanged();
         } else {
           fragmentsBuilder_.addAllMessages(values);
@@ -7215,6 +7449,7 @@ public final class Spec {
         return fragmentsBuilder_;
       }
 
+      // optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;
       private gauge.messages.Spec.ProtoStepExecutionResult stepExecutionResult_ = gauge.messages.Spec.ProtoStepExecutionResult.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoStepExecutionResult, gauge.messages.Spec.ProtoStepExecutionResult.Builder, gauge.messages.Spec.ProtoStepExecutionResultOrBuilder> stepExecutionResultBuilder_;
@@ -7323,7 +7558,7 @@ public final class Spec {
         if (stepExecutionResultBuilder_ == null) {
           stepExecutionResultBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoStepExecutionResult, gauge.messages.Spec.ProtoStepExecutionResult.Builder, gauge.messages.Spec.ProtoStepExecutionResultOrBuilder>(
-                  getStepExecutionResult(),
+                  stepExecutionResult_,
                   getParentForChildren(),
                   isClean());
           stepExecutionResult_ = null;
@@ -7342,10 +7577,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoStep)
   }
 
-  public interface ProtoConceptOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoConcept)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoConceptOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .gauge.messages.ProtoStep conceptStep = 1;
     /**
      * <code>required .gauge.messages.ProtoStep conceptStep = 1;</code>
      */
@@ -7359,6 +7594,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoStepOrBuilder getConceptStepOrBuilder();
 
+    // repeated .gauge.messages.ProtoItem steps = 2;
     /**
      * <code>repeated .gauge.messages.ProtoItem steps = 2;</code>
      */
@@ -7383,6 +7619,7 @@ public final class Spec {
     gauge.messages.Spec.ProtoItemOrBuilder getStepsOrBuilder(
         int index);
 
+    // optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;
     /**
      * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
@@ -7400,9 +7637,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoConcept}
    */
   public static final class ProtoConcept extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoConcept)
-      ProtoConceptOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoConceptOrBuilder {
     // Use ProtoConcept.newBuilder() to construct.
     private ProtoConcept(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -7525,6 +7761,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required .gauge.messages.ProtoStep conceptStep = 1;
     public static final int CONCEPTSTEP_FIELD_NUMBER = 1;
     private gauge.messages.Spec.ProtoStep conceptStep_;
     /**
@@ -7546,6 +7783,7 @@ public final class Spec {
       return conceptStep_;
     }
 
+    // repeated .gauge.messages.ProtoItem steps = 2;
     public static final int STEPS_FIELD_NUMBER = 2;
     private java.util.List<gauge.messages.Spec.ProtoItem> steps_;
     /**
@@ -7581,6 +7819,7 @@ public final class Spec {
       return steps_.get(index);
     }
 
+    // optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;
     public static final int CONCEPTEXECUTIONRESULT_FIELD_NUMBER = 3;
     private gauge.messages.Spec.ProtoStepExecutionResult conceptExecutionResult_;
     /**
@@ -7610,8 +7849,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasConceptStep()) {
         memoizedIsInitialized = 0;
@@ -7752,9 +7990,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoConcept}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoConcept)
-        gauge.messages.Spec.ProtoConceptOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoConceptOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoConcept_descriptor;
@@ -7956,6 +8193,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required .gauge.messages.ProtoStep conceptStep = 1;
       private gauge.messages.Spec.ProtoStep conceptStep_ = gauge.messages.Spec.ProtoStep.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoStep, gauge.messages.Spec.ProtoStep.Builder, gauge.messages.Spec.ProtoStepOrBuilder> conceptStepBuilder_;
@@ -8064,7 +8302,7 @@ public final class Spec {
         if (conceptStepBuilder_ == null) {
           conceptStepBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoStep, gauge.messages.Spec.ProtoStep.Builder, gauge.messages.Spec.ProtoStepOrBuilder>(
-                  getConceptStep(),
+                  conceptStep_,
                   getParentForChildren(),
                   isClean());
           conceptStep_ = null;
@@ -8072,6 +8310,7 @@ public final class Spec {
         return conceptStepBuilder_;
       }
 
+      // repeated .gauge.messages.ProtoItem steps = 2;
       private java.util.List<gauge.messages.Spec.ProtoItem> steps_ =
         java.util.Collections.emptyList();
       private void ensureStepsIsMutable() {
@@ -8213,8 +8452,7 @@ public final class Spec {
           java.lang.Iterable<? extends gauge.messages.Spec.ProtoItem> values) {
         if (stepsBuilder_ == null) {
           ensureStepsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, steps_);
+          super.addAll(values, steps_);
           onChanged();
         } else {
           stepsBuilder_.addAllMessages(values);
@@ -8312,6 +8550,7 @@ public final class Spec {
         return stepsBuilder_;
       }
 
+      // optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;
       private gauge.messages.Spec.ProtoStepExecutionResult conceptExecutionResult_ = gauge.messages.Spec.ProtoStepExecutionResult.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoStepExecutionResult, gauge.messages.Spec.ProtoStepExecutionResult.Builder, gauge.messages.Spec.ProtoStepExecutionResultOrBuilder> conceptExecutionResultBuilder_;
@@ -8420,7 +8659,7 @@ public final class Spec {
         if (conceptExecutionResultBuilder_ == null) {
           conceptExecutionResultBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoStepExecutionResult, gauge.messages.Spec.ProtoStepExecutionResult.Builder, gauge.messages.Spec.ProtoStepExecutionResultOrBuilder>(
-                  getConceptExecutionResult(),
+                  conceptExecutionResult_,
                   getParentForChildren(),
                   isClean());
           conceptExecutionResult_ = null;
@@ -8439,15 +8678,15 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoConcept)
   }
 
-  public interface ProtoTagsOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoTags)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoTagsOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // repeated string tags = 1;
     /**
      * <code>repeated string tags = 1;</code>
      */
-    com.google.protobuf.ProtocolStringList
-        getTagsList();
+    java.util.List<java.lang.String>
+    getTagsList();
     /**
      * <code>repeated string tags = 1;</code>
      */
@@ -8466,9 +8705,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoTags}
    */
   public static final class ProtoTags extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoTags)
-      ProtoTagsOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoTagsOrBuilder {
     // Use ProtoTags.newBuilder() to construct.
     private ProtoTags(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -8515,12 +8753,11 @@ public final class Spec {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 tags_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              tags_.add(bs);
+              tags_.add(input.readBytes());
               break;
             }
           }
@@ -8532,7 +8769,7 @@ public final class Spec {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          tags_ = tags_.getUnmodifiableView();
+          tags_ = new com.google.protobuf.UnmodifiableLazyStringList(tags_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -8565,12 +8802,13 @@ public final class Spec {
       return PARSER;
     }
 
+    // repeated string tags = 1;
     public static final int TAGS_FIELD_NUMBER = 1;
     private com.google.protobuf.LazyStringList tags_;
     /**
      * <code>repeated string tags = 1;</code>
      */
-    public com.google.protobuf.ProtocolStringList
+    public java.util.List<java.lang.String>
         getTagsList() {
       return tags_;
     }
@@ -8600,8 +8838,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       memoizedIsInitialized = 1;
       return true;
@@ -8713,9 +8950,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoTags}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoTags)
-        gauge.messages.Spec.ProtoTagsOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoTagsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoTags_descriptor;
@@ -8778,7 +9014,8 @@ public final class Spec {
         gauge.messages.Spec.ProtoTags result = new gauge.messages.Spec.ProtoTags(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          tags_ = tags_.getUnmodifiableView();
+          tags_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              tags_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.tags_ = tags_;
@@ -8834,6 +9071,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // repeated string tags = 1;
       private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureTagsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -8844,9 +9082,9 @@ public final class Spec {
       /**
        * <code>repeated string tags = 1;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.String>
           getTagsList() {
-        return tags_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(tags_);
       }
       /**
        * <code>repeated string tags = 1;</code>
@@ -8899,8 +9137,7 @@ public final class Spec {
       public Builder addAllTags(
           java.lang.Iterable<java.lang.String> values) {
         ensureTagsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, tags_);
+        super.addAll(values, tags_);
         onChanged();
         return this;
       }
@@ -8938,10 +9175,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoTags)
   }
 
-  public interface FragmentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.Fragment)
-      com.google.protobuf.MessageOrBuilder {
+  public interface FragmentOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .gauge.messages.Fragment.FragmentType fragmentType = 1;
     /**
      * <code>required .gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
      */
@@ -8951,6 +9188,7 @@ public final class Spec {
      */
     gauge.messages.Spec.Fragment.FragmentType getFragmentType();
 
+    // optional string text = 2;
     /**
      * <code>optional string text = 2;</code>
      */
@@ -8965,6 +9203,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getTextBytes();
 
+    // optional .gauge.messages.Parameter parameter = 3;
     /**
      * <code>optional .gauge.messages.Parameter parameter = 3;</code>
      */
@@ -8982,9 +9221,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.Fragment}
    */
   public static final class Fragment extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.Fragment)
-      FragmentOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements FragmentOrBuilder {
     // Use Fragment.newBuilder() to construct.
     private Fragment(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -9042,9 +9280,8 @@ public final class Spec {
               break;
             }
             case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              text_ = bs;
+              text_ = input.readBytes();
               break;
             }
             case 26: {
@@ -9182,6 +9419,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required .gauge.messages.Fragment.FragmentType fragmentType = 1;
     public static final int FRAGMENTTYPE_FIELD_NUMBER = 1;
     private gauge.messages.Spec.Fragment.FragmentType fragmentType_;
     /**
@@ -9197,6 +9435,7 @@ public final class Spec {
       return fragmentType_;
     }
 
+    // optional string text = 2;
     public static final int TEXT_FIELD_NUMBER = 2;
     private java.lang.Object text_;
     /**
@@ -9239,6 +9478,7 @@ public final class Spec {
       }
     }
 
+    // optional .gauge.messages.Parameter parameter = 3;
     public static final int PARAMETER_FIELD_NUMBER = 3;
     private gauge.messages.Spec.Parameter parameter_;
     /**
@@ -9268,8 +9508,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasFragmentType()) {
         memoizedIsInitialized = 0;
@@ -9400,9 +9639,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.Fragment}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.Fragment)
-        gauge.messages.Spec.FragmentOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.FragmentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_Fragment_descriptor;
@@ -9554,6 +9792,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required .gauge.messages.Fragment.FragmentType fragmentType = 1;
       private gauge.messages.Spec.Fragment.FragmentType fragmentType_ = gauge.messages.Spec.Fragment.FragmentType.Text;
       /**
        * <code>required .gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
@@ -9589,6 +9828,7 @@ public final class Spec {
         return this;
       }
 
+      // optional string text = 2;
       private java.lang.Object text_ = "";
       /**
        * <code>optional string text = 2;</code>
@@ -9602,12 +9842,9 @@ public final class Spec {
       public java.lang.String getText() {
         java.lang.Object ref = text_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            text_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          text_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -9665,6 +9902,7 @@ public final class Spec {
         return this;
       }
 
+      // optional .gauge.messages.Parameter parameter = 3;
       private gauge.messages.Spec.Parameter parameter_ = gauge.messages.Spec.Parameter.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.Parameter, gauge.messages.Spec.Parameter.Builder, gauge.messages.Spec.ParameterOrBuilder> parameterBuilder_;
@@ -9773,7 +10011,7 @@ public final class Spec {
         if (parameterBuilder_ == null) {
           parameterBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.Parameter, gauge.messages.Spec.Parameter.Builder, gauge.messages.Spec.ParameterOrBuilder>(
-                  getParameter(),
+                  parameter_,
                   getParentForChildren(),
                   isClean());
           parameter_ = null;
@@ -9792,10 +10030,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.Fragment)
   }
 
-  public interface ParameterOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.Parameter)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ParameterOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .gauge.messages.Parameter.ParameterType parameterType = 1;
     /**
      * <code>required .gauge.messages.Parameter.ParameterType parameterType = 1;</code>
      */
@@ -9805,6 +10043,7 @@ public final class Spec {
      */
     gauge.messages.Spec.Parameter.ParameterType getParameterType();
 
+    // optional string value = 2;
     /**
      * <code>optional string value = 2;</code>
      */
@@ -9819,6 +10058,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getValueBytes();
 
+    // optional string name = 3;
     /**
      * <code>optional string name = 3;</code>
      */
@@ -9833,6 +10073,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getNameBytes();
 
+    // optional .gauge.messages.ProtoTable table = 4;
     /**
      * <code>optional .gauge.messages.ProtoTable table = 4;</code>
      */
@@ -9850,9 +10091,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.Parameter}
    */
   public static final class Parameter extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.Parameter)
-      ParameterOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ParameterOrBuilder {
     // Use Parameter.newBuilder() to construct.
     private Parameter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -9910,15 +10150,13 @@ public final class Spec {
               break;
             }
             case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              value_ = bs;
+              value_ = input.readBytes();
               break;
             }
             case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              name_ = bs;
+              name_ = input.readBytes();
               break;
             }
             case 34: {
@@ -10083,6 +10321,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required .gauge.messages.Parameter.ParameterType parameterType = 1;
     public static final int PARAMETERTYPE_FIELD_NUMBER = 1;
     private gauge.messages.Spec.Parameter.ParameterType parameterType_;
     /**
@@ -10098,6 +10337,7 @@ public final class Spec {
       return parameterType_;
     }
 
+    // optional string value = 2;
     public static final int VALUE_FIELD_NUMBER = 2;
     private java.lang.Object value_;
     /**
@@ -10140,6 +10380,7 @@ public final class Spec {
       }
     }
 
+    // optional string name = 3;
     public static final int NAME_FIELD_NUMBER = 3;
     private java.lang.Object name_;
     /**
@@ -10182,6 +10423,7 @@ public final class Spec {
       }
     }
 
+    // optional .gauge.messages.ProtoTable table = 4;
     public static final int TABLE_FIELD_NUMBER = 4;
     private gauge.messages.Spec.ProtoTable table_;
     /**
@@ -10212,8 +10454,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasParameterType()) {
         memoizedIsInitialized = 0;
@@ -10351,9 +10592,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.Parameter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.Parameter)
-        gauge.messages.Spec.ParameterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ParameterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_Parameter_descriptor;
@@ -10516,6 +10756,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required .gauge.messages.Parameter.ParameterType parameterType = 1;
       private gauge.messages.Spec.Parameter.ParameterType parameterType_ = gauge.messages.Spec.Parameter.ParameterType.Static;
       /**
        * <code>required .gauge.messages.Parameter.ParameterType parameterType = 1;</code>
@@ -10551,6 +10792,7 @@ public final class Spec {
         return this;
       }
 
+      // optional string value = 2;
       private java.lang.Object value_ = "";
       /**
        * <code>optional string value = 2;</code>
@@ -10564,12 +10806,9 @@ public final class Spec {
       public java.lang.String getValue() {
         java.lang.Object ref = value_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            value_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          value_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -10627,6 +10866,7 @@ public final class Spec {
         return this;
       }
 
+      // optional string name = 3;
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 3;</code>
@@ -10640,12 +10880,9 @@ public final class Spec {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            name_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          name_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -10703,6 +10940,7 @@ public final class Spec {
         return this;
       }
 
+      // optional .gauge.messages.ProtoTable table = 4;
       private gauge.messages.Spec.ProtoTable table_ = gauge.messages.Spec.ProtoTable.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder> tableBuilder_;
@@ -10811,7 +11049,7 @@ public final class Spec {
         if (tableBuilder_ == null) {
           tableBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder>(
-                  getTable(),
+                  table_,
                   getParentForChildren(),
                   isClean());
           table_ = null;
@@ -10830,10 +11068,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.Parameter)
   }
 
-  public interface ProtoCommentOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoComment)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoCommentOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required string text = 1;
     /**
      * <code>required string text = 1;</code>
      */
@@ -10852,9 +11090,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoComment}
    */
   public static final class ProtoComment extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoComment)
-      ProtoCommentOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoCommentOrBuilder {
     // Use ProtoComment.newBuilder() to construct.
     private ProtoComment(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -10901,9 +11138,8 @@ public final class Spec {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              text_ = bs;
+              text_ = input.readBytes();
               break;
             }
           }
@@ -10946,6 +11182,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required string text = 1;
     public static final int TEXT_FIELD_NUMBER = 1;
     private java.lang.Object text_;
     /**
@@ -10994,8 +11231,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasText()) {
         memoizedIsInitialized = 0;
@@ -11106,9 +11342,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoComment}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoComment)
-        gauge.messages.Spec.ProtoCommentOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoCommentOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoComment_descriptor;
@@ -11227,6 +11462,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required string text = 1;
       private java.lang.Object text_ = "";
       /**
        * <code>required string text = 1;</code>
@@ -11240,12 +11476,9 @@ public final class Spec {
       public java.lang.String getText() {
         java.lang.Object ref = text_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            text_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          text_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -11314,10 +11547,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoComment)
   }
 
-  public interface ProtoTableOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoTable)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoTableOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .gauge.messages.ProtoTableRow headers = 1;
     /**
      * <code>required .gauge.messages.ProtoTableRow headers = 1;</code>
      */
@@ -11331,6 +11564,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoTableRowOrBuilder getHeadersOrBuilder();
 
+    // repeated .gauge.messages.ProtoTableRow rows = 2;
     /**
      * <code>repeated .gauge.messages.ProtoTableRow rows = 2;</code>
      */
@@ -11359,9 +11593,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoTable}
    */
   public static final class ProtoTable extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoTable)
-      ProtoTableOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoTableOrBuilder {
     // Use ProtoTable.newBuilder() to construct.
     private ProtoTable(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -11471,6 +11704,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required .gauge.messages.ProtoTableRow headers = 1;
     public static final int HEADERS_FIELD_NUMBER = 1;
     private gauge.messages.Spec.ProtoTableRow headers_;
     /**
@@ -11492,6 +11726,7 @@ public final class Spec {
       return headers_;
     }
 
+    // repeated .gauge.messages.ProtoTableRow rows = 2;
     public static final int ROWS_FIELD_NUMBER = 2;
     private java.util.List<gauge.messages.Spec.ProtoTableRow> rows_;
     /**
@@ -11534,8 +11769,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasHeaders()) {
         memoizedIsInitialized = 0;
@@ -11653,9 +11887,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoTable}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoTable)
-        gauge.messages.Spec.ProtoTableOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoTableOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoTable_descriptor;
@@ -11823,6 +12056,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required .gauge.messages.ProtoTableRow headers = 1;
       private gauge.messages.Spec.ProtoTableRow headers_ = gauge.messages.Spec.ProtoTableRow.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoTableRow, gauge.messages.Spec.ProtoTableRow.Builder, gauge.messages.Spec.ProtoTableRowOrBuilder> headersBuilder_;
@@ -11931,7 +12165,7 @@ public final class Spec {
         if (headersBuilder_ == null) {
           headersBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoTableRow, gauge.messages.Spec.ProtoTableRow.Builder, gauge.messages.Spec.ProtoTableRowOrBuilder>(
-                  getHeaders(),
+                  headers_,
                   getParentForChildren(),
                   isClean());
           headers_ = null;
@@ -11939,6 +12173,7 @@ public final class Spec {
         return headersBuilder_;
       }
 
+      // repeated .gauge.messages.ProtoTableRow rows = 2;
       private java.util.List<gauge.messages.Spec.ProtoTableRow> rows_ =
         java.util.Collections.emptyList();
       private void ensureRowsIsMutable() {
@@ -12080,8 +12315,7 @@ public final class Spec {
           java.lang.Iterable<? extends gauge.messages.Spec.ProtoTableRow> values) {
         if (rowsBuilder_ == null) {
           ensureRowsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, rows_);
+          super.addAll(values, rows_);
           onChanged();
         } else {
           rowsBuilder_.addAllMessages(values);
@@ -12190,15 +12424,15 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoTable)
   }
 
-  public interface ProtoTableRowOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoTableRow)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoTableRowOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // repeated string cells = 1;
     /**
      * <code>repeated string cells = 1;</code>
      */
-    com.google.protobuf.ProtocolStringList
-        getCellsList();
+    java.util.List<java.lang.String>
+    getCellsList();
     /**
      * <code>repeated string cells = 1;</code>
      */
@@ -12217,9 +12451,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoTableRow}
    */
   public static final class ProtoTableRow extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoTableRow)
-      ProtoTableRowOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoTableRowOrBuilder {
     // Use ProtoTableRow.newBuilder() to construct.
     private ProtoTableRow(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -12266,12 +12499,11 @@ public final class Spec {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 cells_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              cells_.add(bs);
+              cells_.add(input.readBytes());
               break;
             }
           }
@@ -12283,7 +12515,7 @@ public final class Spec {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          cells_ = cells_.getUnmodifiableView();
+          cells_ = new com.google.protobuf.UnmodifiableLazyStringList(cells_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -12316,12 +12548,13 @@ public final class Spec {
       return PARSER;
     }
 
+    // repeated string cells = 1;
     public static final int CELLS_FIELD_NUMBER = 1;
     private com.google.protobuf.LazyStringList cells_;
     /**
      * <code>repeated string cells = 1;</code>
      */
-    public com.google.protobuf.ProtocolStringList
+    public java.util.List<java.lang.String>
         getCellsList() {
       return cells_;
     }
@@ -12351,8 +12584,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       memoizedIsInitialized = 1;
       return true;
@@ -12464,9 +12696,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoTableRow}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoTableRow)
-        gauge.messages.Spec.ProtoTableRowOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoTableRowOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoTableRow_descriptor;
@@ -12529,7 +12760,8 @@ public final class Spec {
         gauge.messages.Spec.ProtoTableRow result = new gauge.messages.Spec.ProtoTableRow(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          cells_ = cells_.getUnmodifiableView();
+          cells_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              cells_);
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.cells_ = cells_;
@@ -12585,6 +12817,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // repeated string cells = 1;
       private com.google.protobuf.LazyStringList cells_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureCellsIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -12595,9 +12828,9 @@ public final class Spec {
       /**
        * <code>repeated string cells = 1;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.String>
           getCellsList() {
-        return cells_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(cells_);
       }
       /**
        * <code>repeated string cells = 1;</code>
@@ -12650,8 +12883,7 @@ public final class Spec {
       public Builder addAllCells(
           java.lang.Iterable<java.lang.String> values) {
         ensureCellsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, cells_);
+        super.addAll(values, cells_);
         onChanged();
         return this;
       }
@@ -12689,10 +12921,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoTableRow)
   }
 
-  public interface ProtoStepExecutionResultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoStepExecutionResult)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoStepExecutionResultOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .gauge.messages.ProtoExecutionResult executionResult = 1;
     /**
      * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
@@ -12706,6 +12938,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoExecutionResultOrBuilder getExecutionResultOrBuilder();
 
+    // optional .gauge.messages.ProtoHookFailure preHookFailure = 2;
     /**
      * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
@@ -12719,6 +12952,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder();
 
+    // optional .gauge.messages.ProtoHookFailure postHookFailure = 3;
     /**
      * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
@@ -12736,9 +12970,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoStepExecutionResult}
    */
   public static final class ProtoStepExecutionResult extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoStepExecutionResult)
-      ProtoStepExecutionResultOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoStepExecutionResultOrBuilder {
     // Use ProtoStepExecutionResult.newBuilder() to construct.
     private ProtoStepExecutionResult(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -12863,6 +13096,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required .gauge.messages.ProtoExecutionResult executionResult = 1;
     public static final int EXECUTIONRESULT_FIELD_NUMBER = 1;
     private gauge.messages.Spec.ProtoExecutionResult executionResult_;
     /**
@@ -12884,6 +13118,7 @@ public final class Spec {
       return executionResult_;
     }
 
+    // optional .gauge.messages.ProtoHookFailure preHookFailure = 2;
     public static final int PREHOOKFAILURE_FIELD_NUMBER = 2;
     private gauge.messages.Spec.ProtoHookFailure preHookFailure_;
     /**
@@ -12905,6 +13140,7 @@ public final class Spec {
       return preHookFailure_;
     }
 
+    // optional .gauge.messages.ProtoHookFailure postHookFailure = 3;
     public static final int POSTHOOKFAILURE_FIELD_NUMBER = 3;
     private gauge.messages.Spec.ProtoHookFailure postHookFailure_;
     /**
@@ -12934,8 +13170,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasExecutionResult()) {
         memoizedIsInitialized = 0;
@@ -13076,9 +13311,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoStepExecutionResult}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoStepExecutionResult)
-        gauge.messages.Spec.ProtoStepExecutionResultOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoStepExecutionResultOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoStepExecutionResult_descriptor;
@@ -13256,6 +13490,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required .gauge.messages.ProtoExecutionResult executionResult = 1;
       private gauge.messages.Spec.ProtoExecutionResult executionResult_ = gauge.messages.Spec.ProtoExecutionResult.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoExecutionResult, gauge.messages.Spec.ProtoExecutionResult.Builder, gauge.messages.Spec.ProtoExecutionResultOrBuilder> executionResultBuilder_;
@@ -13364,7 +13599,7 @@ public final class Spec {
         if (executionResultBuilder_ == null) {
           executionResultBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoExecutionResult, gauge.messages.Spec.ProtoExecutionResult.Builder, gauge.messages.Spec.ProtoExecutionResultOrBuilder>(
-                  getExecutionResult(),
+                  executionResult_,
                   getParentForChildren(),
                   isClean());
           executionResult_ = null;
@@ -13372,6 +13607,7 @@ public final class Spec {
         return executionResultBuilder_;
       }
 
+      // optional .gauge.messages.ProtoHookFailure preHookFailure = 2;
       private gauge.messages.Spec.ProtoHookFailure preHookFailure_ = gauge.messages.Spec.ProtoHookFailure.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> preHookFailureBuilder_;
@@ -13480,7 +13716,7 @@ public final class Spec {
         if (preHookFailureBuilder_ == null) {
           preHookFailureBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder>(
-                  getPreHookFailure(),
+                  preHookFailure_,
                   getParentForChildren(),
                   isClean());
           preHookFailure_ = null;
@@ -13488,6 +13724,7 @@ public final class Spec {
         return preHookFailureBuilder_;
       }
 
+      // optional .gauge.messages.ProtoHookFailure postHookFailure = 3;
       private gauge.messages.Spec.ProtoHookFailure postHookFailure_ = gauge.messages.Spec.ProtoHookFailure.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> postHookFailureBuilder_;
@@ -13596,7 +13833,7 @@ public final class Spec {
         if (postHookFailureBuilder_ == null) {
           postHookFailureBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder>(
-                  getPostHookFailure(),
+                  postHookFailure_,
                   getParentForChildren(),
                   isClean());
           postHookFailure_ = null;
@@ -13615,10 +13852,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoStepExecutionResult)
   }
 
-  public interface ProtoExecutionResultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoExecutionResult)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoExecutionResultOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required bool failed = 1;
     /**
      * <code>required bool failed = 1;</code>
      */
@@ -13628,6 +13865,7 @@ public final class Spec {
      */
     boolean getFailed();
 
+    // optional bool recoverableError = 2;
     /**
      * <code>optional bool recoverableError = 2;</code>
      */
@@ -13637,6 +13875,7 @@ public final class Spec {
      */
     boolean getRecoverableError();
 
+    // optional string errorMessage = 3;
     /**
      * <code>optional string errorMessage = 3;</code>
      */
@@ -13651,6 +13890,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getErrorMessageBytes();
 
+    // optional string stackTrace = 4;
     /**
      * <code>optional string stackTrace = 4;</code>
      */
@@ -13665,6 +13905,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getStackTraceBytes();
 
+    // optional bytes screenShot = 5;
     /**
      * <code>optional bytes screenShot = 5;</code>
      */
@@ -13674,6 +13915,7 @@ public final class Spec {
      */
     com.google.protobuf.ByteString getScreenShot();
 
+    // required int64 executionTime = 6;
     /**
      * <code>required int64 executionTime = 6;</code>
      */
@@ -13687,9 +13929,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoExecutionResult}
    */
   public static final class ProtoExecutionResult extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoExecutionResult)
-      ProtoExecutionResultOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoExecutionResultOrBuilder {
     // Use ProtoExecutionResult.newBuilder() to construct.
     private ProtoExecutionResult(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -13746,15 +13987,13 @@ public final class Spec {
               break;
             }
             case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              errorMessage_ = bs;
+              errorMessage_ = input.readBytes();
               break;
             }
             case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              stackTrace_ = bs;
+              stackTrace_ = input.readBytes();
               break;
             }
             case 42: {
@@ -13807,6 +14046,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required bool failed = 1;
     public static final int FAILED_FIELD_NUMBER = 1;
     private boolean failed_;
     /**
@@ -13822,6 +14062,7 @@ public final class Spec {
       return failed_;
     }
 
+    // optional bool recoverableError = 2;
     public static final int RECOVERABLEERROR_FIELD_NUMBER = 2;
     private boolean recoverableError_;
     /**
@@ -13837,6 +14078,7 @@ public final class Spec {
       return recoverableError_;
     }
 
+    // optional string errorMessage = 3;
     public static final int ERRORMESSAGE_FIELD_NUMBER = 3;
     private java.lang.Object errorMessage_;
     /**
@@ -13879,6 +14121,7 @@ public final class Spec {
       }
     }
 
+    // optional string stackTrace = 4;
     public static final int STACKTRACE_FIELD_NUMBER = 4;
     private java.lang.Object stackTrace_;
     /**
@@ -13921,6 +14164,7 @@ public final class Spec {
       }
     }
 
+    // optional bytes screenShot = 5;
     public static final int SCREENSHOT_FIELD_NUMBER = 5;
     private com.google.protobuf.ByteString screenShot_;
     /**
@@ -13936,6 +14180,7 @@ public final class Spec {
       return screenShot_;
     }
 
+    // required int64 executionTime = 6;
     public static final int EXECUTIONTIME_FIELD_NUMBER = 6;
     private long executionTime_;
     /**
@@ -13962,8 +14207,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasFailed()) {
         memoizedIsInitialized = 0;
@@ -14113,9 +14357,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoExecutionResult}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoExecutionResult)
-        gauge.messages.Spec.ProtoExecutionResultOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoExecutionResultOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoExecutionResult_descriptor;
@@ -14285,6 +14528,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required bool failed = 1;
       private boolean failed_ ;
       /**
        * <code>required bool failed = 1;</code>
@@ -14317,6 +14561,7 @@ public final class Spec {
         return this;
       }
 
+      // optional bool recoverableError = 2;
       private boolean recoverableError_ ;
       /**
        * <code>optional bool recoverableError = 2;</code>
@@ -14349,6 +14594,7 @@ public final class Spec {
         return this;
       }
 
+      // optional string errorMessage = 3;
       private java.lang.Object errorMessage_ = "";
       /**
        * <code>optional string errorMessage = 3;</code>
@@ -14362,12 +14608,9 @@ public final class Spec {
       public java.lang.String getErrorMessage() {
         java.lang.Object ref = errorMessage_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            errorMessage_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          errorMessage_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -14425,6 +14668,7 @@ public final class Spec {
         return this;
       }
 
+      // optional string stackTrace = 4;
       private java.lang.Object stackTrace_ = "";
       /**
        * <code>optional string stackTrace = 4;</code>
@@ -14438,12 +14682,9 @@ public final class Spec {
       public java.lang.String getStackTrace() {
         java.lang.Object ref = stackTrace_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            stackTrace_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          stackTrace_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -14501,6 +14742,7 @@ public final class Spec {
         return this;
       }
 
+      // optional bytes screenShot = 5;
       private com.google.protobuf.ByteString screenShot_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes screenShot = 5;</code>
@@ -14536,6 +14778,7 @@ public final class Spec {
         return this;
       }
 
+      // required int64 executionTime = 6;
       private long executionTime_ ;
       /**
        * <code>required int64 executionTime = 6;</code>
@@ -14579,10 +14822,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoExecutionResult)
   }
 
-  public interface ProtoHookFailureOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoHookFailure)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoHookFailureOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required string stackTrace = 1;
     /**
      * <code>required string stackTrace = 1;</code>
      */
@@ -14597,6 +14840,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getStackTraceBytes();
 
+    // required string errorMessage = 2;
     /**
      * <code>required string errorMessage = 2;</code>
      */
@@ -14611,6 +14855,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getErrorMessageBytes();
 
+    // optional bytes screenShot = 3;
     /**
      * <code>optional bytes screenShot = 3;</code>
      */
@@ -14624,9 +14869,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoHookFailure}
    */
   public static final class ProtoHookFailure extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoHookFailure)
-      ProtoHookFailureOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoHookFailureOrBuilder {
     // Use ProtoHookFailure.newBuilder() to construct.
     private ProtoHookFailure(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -14673,15 +14917,13 @@ public final class Spec {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              stackTrace_ = bs;
+              stackTrace_ = input.readBytes();
               break;
             }
             case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              errorMessage_ = bs;
+              errorMessage_ = input.readBytes();
               break;
             }
             case 26: {
@@ -14729,6 +14971,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required string stackTrace = 1;
     public static final int STACKTRACE_FIELD_NUMBER = 1;
     private java.lang.Object stackTrace_;
     /**
@@ -14771,6 +15014,7 @@ public final class Spec {
       }
     }
 
+    // required string errorMessage = 2;
     public static final int ERRORMESSAGE_FIELD_NUMBER = 2;
     private java.lang.Object errorMessage_;
     /**
@@ -14813,6 +15057,7 @@ public final class Spec {
       }
     }
 
+    // optional bytes screenShot = 3;
     public static final int SCREENSHOT_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString screenShot_;
     /**
@@ -14836,8 +15081,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasStackTrace()) {
         memoizedIsInitialized = 0;
@@ -14966,9 +15210,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoHookFailure}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoHookFailure)
-        gauge.messages.Spec.ProtoHookFailureOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoHookFailureOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoHookFailure_descriptor;
@@ -15111,6 +15354,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required string stackTrace = 1;
       private java.lang.Object stackTrace_ = "";
       /**
        * <code>required string stackTrace = 1;</code>
@@ -15124,12 +15368,9 @@ public final class Spec {
       public java.lang.String getStackTrace() {
         java.lang.Object ref = stackTrace_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            stackTrace_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          stackTrace_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -15187,6 +15428,7 @@ public final class Spec {
         return this;
       }
 
+      // required string errorMessage = 2;
       private java.lang.Object errorMessage_ = "";
       /**
        * <code>required string errorMessage = 2;</code>
@@ -15200,12 +15442,9 @@ public final class Spec {
       public java.lang.String getErrorMessage() {
         java.lang.Object ref = errorMessage_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            errorMessage_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          errorMessage_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -15263,6 +15502,7 @@ public final class Spec {
         return this;
       }
 
+      // optional bytes screenShot = 3;
       private com.google.protobuf.ByteString screenShot_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes screenShot = 3;</code>
@@ -15309,10 +15549,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoHookFailure)
   }
 
-  public interface ProtoSuiteResultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoSuiteResult)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoSuiteResultOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // repeated .gauge.messages.ProtoSpecResult specResults = 1;
     /**
      * <code>repeated .gauge.messages.ProtoSpecResult specResults = 1;</code>
      */
@@ -15337,6 +15577,7 @@ public final class Spec {
     gauge.messages.Spec.ProtoSpecResultOrBuilder getSpecResultsOrBuilder(
         int index);
 
+    // optional .gauge.messages.ProtoHookFailure preHookFailure = 2;
     /**
      * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
@@ -15350,6 +15591,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder();
 
+    // optional .gauge.messages.ProtoHookFailure postHookFailure = 3;
     /**
      * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
@@ -15363,6 +15605,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder();
 
+    // required bool failed = 4;
     /**
      * <code>required bool failed = 4;</code>
      */
@@ -15372,6 +15615,7 @@ public final class Spec {
      */
     boolean getFailed();
 
+    // required int32 specsFailedCount = 5;
     /**
      * <code>required int32 specsFailedCount = 5;</code>
      */
@@ -15381,6 +15625,7 @@ public final class Spec {
      */
     int getSpecsFailedCount();
 
+    // optional int64 executionTime = 6;
     /**
      * <code>optional int64 executionTime = 6;</code>
      */
@@ -15390,6 +15635,7 @@ public final class Spec {
      */
     long getExecutionTime();
 
+    // required float successRate = 7;
     /**
      * <code>required float successRate = 7;</code>
      */
@@ -15403,9 +15649,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoSuiteResult}
    */
   public static final class ProtoSuiteResult extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoSuiteResult)
-      ProtoSuiteResultOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoSuiteResultOrBuilder {
     // Use ProtoSuiteResult.newBuilder() to construct.
     private ProtoSuiteResult(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -15548,6 +15793,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // repeated .gauge.messages.ProtoSpecResult specResults = 1;
     public static final int SPECRESULTS_FIELD_NUMBER = 1;
     private java.util.List<gauge.messages.Spec.ProtoSpecResult> specResults_;
     /**
@@ -15583,6 +15829,7 @@ public final class Spec {
       return specResults_.get(index);
     }
 
+    // optional .gauge.messages.ProtoHookFailure preHookFailure = 2;
     public static final int PREHOOKFAILURE_FIELD_NUMBER = 2;
     private gauge.messages.Spec.ProtoHookFailure preHookFailure_;
     /**
@@ -15604,6 +15851,7 @@ public final class Spec {
       return preHookFailure_;
     }
 
+    // optional .gauge.messages.ProtoHookFailure postHookFailure = 3;
     public static final int POSTHOOKFAILURE_FIELD_NUMBER = 3;
     private gauge.messages.Spec.ProtoHookFailure postHookFailure_;
     /**
@@ -15625,6 +15873,7 @@ public final class Spec {
       return postHookFailure_;
     }
 
+    // required bool failed = 4;
     public static final int FAILED_FIELD_NUMBER = 4;
     private boolean failed_;
     /**
@@ -15640,6 +15889,7 @@ public final class Spec {
       return failed_;
     }
 
+    // required int32 specsFailedCount = 5;
     public static final int SPECSFAILEDCOUNT_FIELD_NUMBER = 5;
     private int specsFailedCount_;
     /**
@@ -15655,6 +15905,7 @@ public final class Spec {
       return specsFailedCount_;
     }
 
+    // optional int64 executionTime = 6;
     public static final int EXECUTIONTIME_FIELD_NUMBER = 6;
     private long executionTime_;
     /**
@@ -15670,6 +15921,7 @@ public final class Spec {
       return executionTime_;
     }
 
+    // required float successRate = 7;
     public static final int SUCCESSRATE_FIELD_NUMBER = 7;
     private float successRate_;
     /**
@@ -15697,8 +15949,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasFailed()) {
         memoizedIsInitialized = 0;
@@ -15877,9 +16128,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoSuiteResult}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoSuiteResult)
-        gauge.messages.Spec.ProtoSuiteResultOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoSuiteResultOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoSuiteResult_descriptor;
@@ -16127,6 +16377,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // repeated .gauge.messages.ProtoSpecResult specResults = 1;
       private java.util.List<gauge.messages.Spec.ProtoSpecResult> specResults_ =
         java.util.Collections.emptyList();
       private void ensureSpecResultsIsMutable() {
@@ -16268,8 +16519,7 @@ public final class Spec {
           java.lang.Iterable<? extends gauge.messages.Spec.ProtoSpecResult> values) {
         if (specResultsBuilder_ == null) {
           ensureSpecResultsIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, specResults_);
+          super.addAll(values, specResults_);
           onChanged();
         } else {
           specResultsBuilder_.addAllMessages(values);
@@ -16367,6 +16617,7 @@ public final class Spec {
         return specResultsBuilder_;
       }
 
+      // optional .gauge.messages.ProtoHookFailure preHookFailure = 2;
       private gauge.messages.Spec.ProtoHookFailure preHookFailure_ = gauge.messages.Spec.ProtoHookFailure.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> preHookFailureBuilder_;
@@ -16475,7 +16726,7 @@ public final class Spec {
         if (preHookFailureBuilder_ == null) {
           preHookFailureBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder>(
-                  getPreHookFailure(),
+                  preHookFailure_,
                   getParentForChildren(),
                   isClean());
           preHookFailure_ = null;
@@ -16483,6 +16734,7 @@ public final class Spec {
         return preHookFailureBuilder_;
       }
 
+      // optional .gauge.messages.ProtoHookFailure postHookFailure = 3;
       private gauge.messages.Spec.ProtoHookFailure postHookFailure_ = gauge.messages.Spec.ProtoHookFailure.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> postHookFailureBuilder_;
@@ -16591,7 +16843,7 @@ public final class Spec {
         if (postHookFailureBuilder_ == null) {
           postHookFailureBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder>(
-                  getPostHookFailure(),
+                  postHookFailure_,
                   getParentForChildren(),
                   isClean());
           postHookFailure_ = null;
@@ -16599,6 +16851,7 @@ public final class Spec {
         return postHookFailureBuilder_;
       }
 
+      // required bool failed = 4;
       private boolean failed_ ;
       /**
        * <code>required bool failed = 4;</code>
@@ -16631,6 +16884,7 @@ public final class Spec {
         return this;
       }
 
+      // required int32 specsFailedCount = 5;
       private int specsFailedCount_ ;
       /**
        * <code>required int32 specsFailedCount = 5;</code>
@@ -16663,6 +16917,7 @@ public final class Spec {
         return this;
       }
 
+      // optional int64 executionTime = 6;
       private long executionTime_ ;
       /**
        * <code>optional int64 executionTime = 6;</code>
@@ -16695,6 +16950,7 @@ public final class Spec {
         return this;
       }
 
+      // required float successRate = 7;
       private float successRate_ ;
       /**
        * <code>required float successRate = 7;</code>
@@ -16738,10 +16994,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoSuiteResult)
   }
 
-  public interface ProtoSpecResultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoSpecResult)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoSpecResultOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required .gauge.messages.ProtoSpec protoSpec = 1;
     /**
      * <code>required .gauge.messages.ProtoSpec protoSpec = 1;</code>
      */
@@ -16755,6 +17011,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoSpecOrBuilder getProtoSpecOrBuilder();
 
+    // required int32 scenarioCount = 2;
     /**
      * <code>required int32 scenarioCount = 2;</code>
      */
@@ -16764,6 +17021,7 @@ public final class Spec {
      */
     int getScenarioCount();
 
+    // required int32 scenarioFailedCount = 3;
     /**
      * <code>required int32 scenarioFailedCount = 3;</code>
      */
@@ -16773,6 +17031,7 @@ public final class Spec {
      */
     int getScenarioFailedCount();
 
+    // required bool failed = 4;
     /**
      * <code>required bool failed = 4;</code>
      */
@@ -16782,6 +17041,7 @@ public final class Spec {
      */
     boolean getFailed();
 
+    // repeated int32 failedDataTableRows = 5;
     /**
      * <code>repeated int32 failedDataTableRows = 5;</code>
      */
@@ -16795,6 +17055,7 @@ public final class Spec {
      */
     int getFailedDataTableRows(int index);
 
+    // optional int64 executionTime = 6;
     /**
      * <code>optional int64 executionTime = 6;</code>
      */
@@ -16808,9 +17069,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoSpecResult}
    */
   public static final class ProtoSpecResult extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoSpecResult)
-      ProtoSpecResultOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoSpecResultOrBuilder {
     // Use ProtoSpecResult.newBuilder() to construct.
     private ProtoSpecResult(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -16953,6 +17213,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required .gauge.messages.ProtoSpec protoSpec = 1;
     public static final int PROTOSPEC_FIELD_NUMBER = 1;
     private gauge.messages.Spec.ProtoSpec protoSpec_;
     /**
@@ -16974,6 +17235,7 @@ public final class Spec {
       return protoSpec_;
     }
 
+    // required int32 scenarioCount = 2;
     public static final int SCENARIOCOUNT_FIELD_NUMBER = 2;
     private int scenarioCount_;
     /**
@@ -16989,6 +17251,7 @@ public final class Spec {
       return scenarioCount_;
     }
 
+    // required int32 scenarioFailedCount = 3;
     public static final int SCENARIOFAILEDCOUNT_FIELD_NUMBER = 3;
     private int scenarioFailedCount_;
     /**
@@ -17004,6 +17267,7 @@ public final class Spec {
       return scenarioFailedCount_;
     }
 
+    // required bool failed = 4;
     public static final int FAILED_FIELD_NUMBER = 4;
     private boolean failed_;
     /**
@@ -17019,6 +17283,7 @@ public final class Spec {
       return failed_;
     }
 
+    // repeated int32 failedDataTableRows = 5;
     public static final int FAILEDDATATABLEROWS_FIELD_NUMBER = 5;
     private java.util.List<java.lang.Integer> failedDataTableRows_;
     /**
@@ -17041,6 +17306,7 @@ public final class Spec {
       return failedDataTableRows_.get(index);
     }
 
+    // optional int64 executionTime = 6;
     public static final int EXECUTIONTIME_FIELD_NUMBER = 6;
     private long executionTime_;
     /**
@@ -17067,8 +17333,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasProtoSpec()) {
         memoizedIsInitialized = 0;
@@ -17235,9 +17500,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoSpecResult}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoSpecResult)
-        gauge.messages.Spec.ProtoSpecResultOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoSpecResultOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoSpecResult_descriptor;
@@ -17432,6 +17696,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required .gauge.messages.ProtoSpec protoSpec = 1;
       private gauge.messages.Spec.ProtoSpec protoSpec_ = gauge.messages.Spec.ProtoSpec.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoSpec, gauge.messages.Spec.ProtoSpec.Builder, gauge.messages.Spec.ProtoSpecOrBuilder> protoSpecBuilder_;
@@ -17540,7 +17805,7 @@ public final class Spec {
         if (protoSpecBuilder_ == null) {
           protoSpecBuilder_ = new com.google.protobuf.SingleFieldBuilder<
               gauge.messages.Spec.ProtoSpec, gauge.messages.Spec.ProtoSpec.Builder, gauge.messages.Spec.ProtoSpecOrBuilder>(
-                  getProtoSpec(),
+                  protoSpec_,
                   getParentForChildren(),
                   isClean());
           protoSpec_ = null;
@@ -17548,6 +17813,7 @@ public final class Spec {
         return protoSpecBuilder_;
       }
 
+      // required int32 scenarioCount = 2;
       private int scenarioCount_ ;
       /**
        * <code>required int32 scenarioCount = 2;</code>
@@ -17580,6 +17846,7 @@ public final class Spec {
         return this;
       }
 
+      // required int32 scenarioFailedCount = 3;
       private int scenarioFailedCount_ ;
       /**
        * <code>required int32 scenarioFailedCount = 3;</code>
@@ -17612,6 +17879,7 @@ public final class Spec {
         return this;
       }
 
+      // required bool failed = 4;
       private boolean failed_ ;
       /**
        * <code>required bool failed = 4;</code>
@@ -17644,6 +17912,7 @@ public final class Spec {
         return this;
       }
 
+      // repeated int32 failedDataTableRows = 5;
       private java.util.List<java.lang.Integer> failedDataTableRows_ = java.util.Collections.emptyList();
       private void ensureFailedDataTableRowsIsMutable() {
         if (!((bitField0_ & 0x00000010) == 0x00000010)) {
@@ -17695,8 +17964,7 @@ public final class Spec {
       public Builder addAllFailedDataTableRows(
           java.lang.Iterable<? extends java.lang.Integer> values) {
         ensureFailedDataTableRowsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, failedDataTableRows_);
+        super.addAll(values, failedDataTableRows_);
         onChanged();
         return this;
       }
@@ -17710,6 +17978,7 @@ public final class Spec {
         return this;
       }
 
+      // optional int64 executionTime = 6;
       private long executionTime_ ;
       /**
        * <code>optional int64 executionTime = 6;</code>
@@ -17753,10 +18022,10 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoSpecResult)
   }
 
-  public interface ProtoStepValueOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoStepValue)
-      com.google.protobuf.MessageOrBuilder {
+  public interface ProtoStepValueOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required string stepValue = 1;
     /**
      * <code>required string stepValue = 1;</code>
      */
@@ -17771,6 +18040,7 @@ public final class Spec {
     com.google.protobuf.ByteString
         getStepValueBytes();
 
+    // required string parameterizedStepValue = 2;
     /**
      * <code>required string parameterizedStepValue = 2;</code>
      */
@@ -17785,11 +18055,12 @@ public final class Spec {
     com.google.protobuf.ByteString
         getParameterizedStepValueBytes();
 
+    // repeated string parameters = 3;
     /**
      * <code>repeated string parameters = 3;</code>
      */
-    com.google.protobuf.ProtocolStringList
-        getParametersList();
+    java.util.List<java.lang.String>
+    getParametersList();
     /**
      * <code>repeated string parameters = 3;</code>
      */
@@ -17808,9 +18079,8 @@ public final class Spec {
    * Protobuf type {@code gauge.messages.ProtoStepValue}
    */
   public static final class ProtoStepValue extends
-      com.google.protobuf.GeneratedMessage implements
-      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoStepValue)
-      ProtoStepValueOrBuilder {
+      com.google.protobuf.GeneratedMessage
+      implements ProtoStepValueOrBuilder {
     // Use ProtoStepValue.newBuilder() to construct.
     private ProtoStepValue(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -17857,24 +18127,21 @@ public final class Spec {
               break;
             }
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
-              stepValue_ = bs;
+              stepValue_ = input.readBytes();
               break;
             }
             case 18: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
-              parameterizedStepValue_ = bs;
+              parameterizedStepValue_ = input.readBytes();
               break;
             }
             case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 parameters_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000004;
               }
-              parameters_.add(bs);
+              parameters_.add(input.readBytes());
               break;
             }
           }
@@ -17886,7 +18153,7 @@ public final class Spec {
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          parameters_ = parameters_.getUnmodifiableView();
+          parameters_ = new com.google.protobuf.UnmodifiableLazyStringList(parameters_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -17920,6 +18187,7 @@ public final class Spec {
     }
 
     private int bitField0_;
+    // required string stepValue = 1;
     public static final int STEPVALUE_FIELD_NUMBER = 1;
     private java.lang.Object stepValue_;
     /**
@@ -17962,6 +18230,7 @@ public final class Spec {
       }
     }
 
+    // required string parameterizedStepValue = 2;
     public static final int PARAMETERIZEDSTEPVALUE_FIELD_NUMBER = 2;
     private java.lang.Object parameterizedStepValue_;
     /**
@@ -18004,12 +18273,13 @@ public final class Spec {
       }
     }
 
+    // repeated string parameters = 3;
     public static final int PARAMETERS_FIELD_NUMBER = 3;
     private com.google.protobuf.LazyStringList parameters_;
     /**
      * <code>repeated string parameters = 3;</code>
      */
-    public com.google.protobuf.ProtocolStringList
+    public java.util.List<java.lang.String>
         getParametersList() {
       return parameters_;
     }
@@ -18041,8 +18311,7 @@ public final class Spec {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
       if (!hasStepValue()) {
         memoizedIsInitialized = 0;
@@ -18176,9 +18445,8 @@ public final class Spec {
      * Protobuf type {@code gauge.messages.ProtoStepValue}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoStepValue)
-        gauge.messages.Spec.ProtoStepValueOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Spec.ProtoStepValueOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return gauge.messages.Spec.internal_static_gauge_messages_ProtoStepValue_descriptor;
@@ -18254,7 +18522,8 @@ public final class Spec {
         }
         result.parameterizedStepValue_ = parameterizedStepValue_;
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          parameters_ = parameters_.getUnmodifiableView();
+          parameters_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              parameters_);
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.parameters_ = parameters_;
@@ -18329,6 +18598,7 @@ public final class Spec {
       }
       private int bitField0_;
 
+      // required string stepValue = 1;
       private java.lang.Object stepValue_ = "";
       /**
        * <code>required string stepValue = 1;</code>
@@ -18342,12 +18612,9 @@ public final class Spec {
       public java.lang.String getStepValue() {
         java.lang.Object ref = stepValue_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            stepValue_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          stepValue_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -18405,6 +18672,7 @@ public final class Spec {
         return this;
       }
 
+      // required string parameterizedStepValue = 2;
       private java.lang.Object parameterizedStepValue_ = "";
       /**
        * <code>required string parameterizedStepValue = 2;</code>
@@ -18418,12 +18686,9 @@ public final class Spec {
       public java.lang.String getParameterizedStepValue() {
         java.lang.Object ref = parameterizedStepValue_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            parameterizedStepValue_ = s;
-          }
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          parameterizedStepValue_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -18481,6 +18746,7 @@ public final class Spec {
         return this;
       }
 
+      // repeated string parameters = 3;
       private com.google.protobuf.LazyStringList parameters_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureParametersIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
@@ -18491,9 +18757,9 @@ public final class Spec {
       /**
        * <code>repeated string parameters = 3;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.String>
           getParametersList() {
-        return parameters_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(parameters_);
       }
       /**
        * <code>repeated string parameters = 3;</code>
@@ -18546,8 +18812,7 @@ public final class Spec {
       public Builder addAllParameters(
           java.lang.Iterable<java.lang.String> values) {
         ensureParametersIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, parameters_);
+        super.addAll(values, parameters_);
         onChanged();
         return this;
       }
@@ -18585,92 +18850,92 @@ public final class Spec {
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoStepValue)
   }
 
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoSpec_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoSpec_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoItem_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoItem_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoScenario_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoScenario_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoTableDrivenScenario_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoStep_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoStep_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoConcept_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoConcept_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoTags_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoTags_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_Fragment_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_Fragment_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_Parameter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_Parameter_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoComment_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoComment_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoTable_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoTable_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoTableRow_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoTableRow_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoStepExecutionResult_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoStepExecutionResult_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoExecutionResult_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoExecutionResult_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoHookFailure_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoHookFailure_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoSuiteResult_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoSuiteResult_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoSpecResult_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoSpecResult_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoStepValue_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -18690,7 +18955,7 @@ public final class Spec {
       "en\030\003 \002(\010\0228\n\016preHookFailure\030\004 \001(\0132 .gauge" +
       ".messages.ProtoHookFailure\0229\n\017postHookFa" +
       "ilure\030\005 \001(\0132 .gauge.messages.ProtoHookFa" +
-      "ilure\022\020\n\010fileName\030\006 \002(\t\022\014\n\004tags\030\007 \003(\t\"\315\003" +
+      "ilure\022\020\n\010fileName\030\006 \002(\t\022\014\n\004tags\030\007 \003(\t\"\200\004" +
       "\n\tProtoItem\0224\n\010itemType\030\001 \002(\0162\".gauge.me" +
       "ssages.ProtoItem.ItemType\022\'\n\004step\030\002 \001(\0132" +
       "\031.gauge.messages.ProtoStep\022-\n\007concept\030\003 ",
@@ -18700,189 +18965,190 @@ public final class Spec {
       "messages.ProtoTableDrivenScenario\022-\n\007com" +
       "ment\030\006 \001(\0132\034.gauge.messages.ProtoComment" +
       "\022)\n\005table\030\007 \001(\0132\032.gauge.messages.ProtoTa" +
-      "ble\"`\n\010ItemType\022\010\n\004Step\020\001\022\013\n\007Comment\020\002\022\013" +
-      "\n\007Concept\020\003\022\014\n\010Scenario\020\004\022\027\n\023TableDriven" +
-      "Scenario\020\005\022\t\n\005Table\020\006\"\261\002\n\rProtoScenario\022" +
-      "\027\n\017scenarioHeading\030\001 \002(\t\022\016\n\006failed\030\002 \002(\010",
-      "\022+\n\010contexts\030\003 \003(\0132\031.gauge.messages.Prot" +
-      "oItem\0220\n\rscenarioItems\030\004 \003(\0132\031.gauge.mes" +
-      "sages.ProtoItem\0228\n\016preHookFailure\030\005 \001(\0132" +
-      " .gauge.messages.ProtoHookFailure\0229\n\017pos" +
-      "tHookFailure\030\006 \001(\0132 .gauge.messages.Prot" +
-      "oHookFailure\022\014\n\004tags\030\007 \003(\t\022\025\n\rexecutionT" +
-      "ime\030\010 \001(\003\"L\n\030ProtoTableDrivenScenario\0220\n" +
-      "\tscenarios\030\001 \003(\0132\035.gauge.messages.ProtoS" +
-      "cenario\"\247\001\n\tProtoStep\022\022\n\nactualText\030\001 \002(" +
-      "\t\022\022\n\nparsedText\030\002 \002(\t\022+\n\tfragments\030\003 \003(\013",
-      "2\030.gauge.messages.Fragment\022E\n\023stepExecut" +
-      "ionResult\030\004 \001(\0132(.gauge.messages.ProtoSt" +
-      "epExecutionResult\"\262\001\n\014ProtoConcept\022.\n\013co" +
-      "nceptStep\030\001 \002(\0132\031.gauge.messages.ProtoSt" +
-      "ep\022(\n\005steps\030\002 \003(\0132\031.gauge.messages.Proto" +
-      "Item\022H\n\026conceptExecutionResult\030\003 \001(\0132(.g" +
-      "auge.messages.ProtoStepExecutionResult\"\031" +
-      "\n\tProtoTags\022\014\n\004tags\030\001 \003(\t\"\254\001\n\010Fragment\022;" +
-      "\n\014fragmentType\030\001 \002(\0162%.gauge.messages.Fr" +
-      "agment.FragmentType\022\014\n\004text\030\002 \001(\t\022,\n\tpar",
-      "ameter\030\003 \001(\0132\031.gauge.messages.Parameter\"" +
-      "\'\n\014FragmentType\022\010\n\004Text\020\001\022\r\n\tParameter\020\002" +
-      "\"\357\001\n\tParameter\022>\n\rparameterType\030\001 \002(\0162\'." +
-      "gauge.messages.Parameter.ParameterType\022\r" +
-      "\n\005value\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022)\n\005table\030\004 \001" +
-      "(\0132\032.gauge.messages.ProtoTable\"Z\n\rParame" +
-      "terType\022\n\n\006Static\020\001\022\013\n\007Dynamic\020\002\022\022\n\016Spec" +
-      "ial_String\020\003\022\021\n\rSpecial_Table\020\004\022\t\n\005Table" +
-      "\020\005\"\034\n\014ProtoComment\022\014\n\004text\030\001 \002(\t\"i\n\nProt" +
-      "oTable\022.\n\007headers\030\001 \002(\0132\035.gauge.messages",
-      ".ProtoTableRow\022+\n\004rows\030\002 \003(\0132\035.gauge.mes" +
-      "sages.ProtoTableRow\"\036\n\rProtoTableRow\022\r\n\005" +
-      "cells\030\001 \003(\t\"\316\001\n\030ProtoStepExecutionResult" +
-      "\022=\n\017executionResult\030\001 \002(\0132$.gauge.messag" +
-      "es.ProtoExecutionResult\0228\n\016preHookFailur" +
-      "e\030\002 \001(\0132 .gauge.messages.ProtoHookFailur" +
-      "e\0229\n\017postHookFailure\030\003 \001(\0132 .gauge.messa" +
-      "ges.ProtoHookFailure\"\225\001\n\024ProtoExecutionR" +
-      "esult\022\016\n\006failed\030\001 \002(\010\022\030\n\020recoverableErro" +
-      "r\030\002 \001(\010\022\024\n\014errorMessage\030\003 \001(\t\022\022\n\nstackTr",
-      "ace\030\004 \001(\t\022\022\n\nscreenShot\030\005 \001(\014\022\025\n\rexecuti" +
-      "onTime\030\006 \002(\003\"P\n\020ProtoHookFailure\022\022\n\nstac" +
-      "kTrace\030\001 \002(\t\022\024\n\014errorMessage\030\002 \002(\t\022\022\n\nsc" +
-      "reenShot\030\003 \001(\014\"\223\002\n\020ProtoSuiteResult\0224\n\013s" +
-      "pecResults\030\001 \003(\0132\037.gauge.messages.ProtoS" +
-      "pecResult\0228\n\016preHookFailure\030\002 \001(\0132 .gaug" +
-      "e.messages.ProtoHookFailure\0229\n\017postHookF" +
-      "ailure\030\003 \001(\0132 .gauge.messages.ProtoHookF" +
-      "ailure\022\016\n\006failed\030\004 \002(\010\022\030\n\020specsFailedCou" +
-      "nt\030\005 \002(\005\022\025\n\rexecutionTime\030\006 \001(\003\022\023\n\013succe",
-      "ssRate\030\007 \002(\002\"\267\001\n\017ProtoSpecResult\022,\n\tprot" +
-      "oSpec\030\001 \002(\0132\031.gauge.messages.ProtoSpec\022\025" +
-      "\n\rscenarioCount\030\002 \002(\005\022\033\n\023scenarioFailedC" +
-      "ount\030\003 \002(\005\022\016\n\006failed\030\004 \002(\010\022\033\n\023failedData" +
-      "TableRows\030\005 \003(\005\022\025\n\rexecutionTime\030\006 \001(\003\"W" +
-      "\n\016ProtoStepValue\022\021\n\tstepValue\030\001 \002(\t\022\036\n\026p" +
-      "arameterizedStepValue\030\002 \002(\t\022\022\n\nparameter" +
-      "s\030\003 \003(\t"
+      "ble\022\'\n\004tags\030\010 \001(\0132\031.gauge.messages.Proto" +
+      "Tags\"j\n\010ItemType\022\010\n\004Step\020\001\022\013\n\007Comment\020\002\022" +
+      "\013\n\007Concept\020\003\022\014\n\010Scenario\020\004\022\027\n\023TableDrive" +
+      "nScenario\020\005\022\t\n\005Table\020\006\022\010\n\004Tags\020\007\"\261\002\n\rPro",
+      "toScenario\022\027\n\017scenarioHeading\030\001 \002(\t\022\016\n\006f" +
+      "ailed\030\002 \002(\010\022+\n\010contexts\030\003 \003(\0132\031.gauge.me" +
+      "ssages.ProtoItem\0220\n\rscenarioItems\030\004 \003(\0132" +
+      "\031.gauge.messages.ProtoItem\0228\n\016preHookFai" +
+      "lure\030\005 \001(\0132 .gauge.messages.ProtoHookFai" +
+      "lure\0229\n\017postHookFailure\030\006 \001(\0132 .gauge.me" +
+      "ssages.ProtoHookFailure\022\014\n\004tags\030\007 \003(\t\022\025\n" +
+      "\rexecutionTime\030\010 \001(\003\"L\n\030ProtoTableDriven" +
+      "Scenario\0220\n\tscenarios\030\001 \003(\0132\035.gauge.mess" +
+      "ages.ProtoScenario\"\247\001\n\tProtoStep\022\022\n\nactu",
+      "alText\030\001 \002(\t\022\022\n\nparsedText\030\002 \002(\t\022+\n\tfrag" +
+      "ments\030\003 \003(\0132\030.gauge.messages.Fragment\022E\n" +
+      "\023stepExecutionResult\030\004 \001(\0132(.gauge.messa" +
+      "ges.ProtoStepExecutionResult\"\262\001\n\014ProtoCo" +
+      "ncept\022.\n\013conceptStep\030\001 \002(\0132\031.gauge.messa" +
+      "ges.ProtoStep\022(\n\005steps\030\002 \003(\0132\031.gauge.mes" +
+      "sages.ProtoItem\022H\n\026conceptExecutionResul" +
+      "t\030\003 \001(\0132(.gauge.messages.ProtoStepExecut" +
+      "ionResult\"\031\n\tProtoTags\022\014\n\004tags\030\001 \003(\t\"\254\001\n" +
+      "\010Fragment\022;\n\014fragmentType\030\001 \002(\0162%.gauge.",
+      "messages.Fragment.FragmentType\022\014\n\004text\030\002" +
+      " \001(\t\022,\n\tparameter\030\003 \001(\0132\031.gauge.messages" +
+      ".Parameter\"\'\n\014FragmentType\022\010\n\004Text\020\001\022\r\n\t" +
+      "Parameter\020\002\"\357\001\n\tParameter\022>\n\rparameterTy" +
+      "pe\030\001 \002(\0162\'.gauge.messages.Parameter.Para" +
+      "meterType\022\r\n\005value\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022)" +
+      "\n\005table\030\004 \001(\0132\032.gauge.messages.ProtoTabl" +
+      "e\"Z\n\rParameterType\022\n\n\006Static\020\001\022\013\n\007Dynami" +
+      "c\020\002\022\022\n\016Special_String\020\003\022\021\n\rSpecial_Table" +
+      "\020\004\022\t\n\005Table\020\005\"\034\n\014ProtoComment\022\014\n\004text\030\001 ",
+      "\002(\t\"i\n\nProtoTable\022.\n\007headers\030\001 \002(\0132\035.gau" +
+      "ge.messages.ProtoTableRow\022+\n\004rows\030\002 \003(\0132" +
+      "\035.gauge.messages.ProtoTableRow\"\036\n\rProtoT" +
+      "ableRow\022\r\n\005cells\030\001 \003(\t\"\316\001\n\030ProtoStepExec" +
+      "utionResult\022=\n\017executionResult\030\001 \002(\0132$.g" +
+      "auge.messages.ProtoExecutionResult\0228\n\016pr" +
+      "eHookFailure\030\002 \001(\0132 .gauge.messages.Prot" +
+      "oHookFailure\0229\n\017postHookFailure\030\003 \001(\0132 ." +
+      "gauge.messages.ProtoHookFailure\"\225\001\n\024Prot" +
+      "oExecutionResult\022\016\n\006failed\030\001 \002(\010\022\030\n\020reco",
+      "verableError\030\002 \001(\010\022\024\n\014errorMessage\030\003 \001(\t" +
+      "\022\022\n\nstackTrace\030\004 \001(\t\022\022\n\nscreenShot\030\005 \001(\014" +
+      "\022\025\n\rexecutionTime\030\006 \002(\003\"P\n\020ProtoHookFail" +
+      "ure\022\022\n\nstackTrace\030\001 \002(\t\022\024\n\014errorMessage\030" +
+      "\002 \002(\t\022\022\n\nscreenShot\030\003 \001(\014\"\223\002\n\020ProtoSuite" +
+      "Result\0224\n\013specResults\030\001 \003(\0132\037.gauge.mess" +
+      "ages.ProtoSpecResult\0228\n\016preHookFailure\030\002" +
+      " \001(\0132 .gauge.messages.ProtoHookFailure\0229" +
+      "\n\017postHookFailure\030\003 \001(\0132 .gauge.messages" +
+      ".ProtoHookFailure\022\016\n\006failed\030\004 \002(\010\022\030\n\020spe",
+      "csFailedCount\030\005 \002(\005\022\025\n\rexecutionTime\030\006 \001" +
+      "(\003\022\023\n\013successRate\030\007 \002(\002\"\267\001\n\017ProtoSpecRes" +
+      "ult\022,\n\tprotoSpec\030\001 \002(\0132\031.gauge.messages." +
+      "ProtoSpec\022\025\n\rscenarioCount\030\002 \002(\005\022\033\n\023scen" +
+      "arioFailedCount\030\003 \002(\005\022\016\n\006failed\030\004 \002(\010\022\033\n" +
+      "\023failedDataTableRows\030\005 \003(\005\022\025\n\rexecutionT" +
+      "ime\030\006 \001(\003\"W\n\016ProtoStepValue\022\021\n\tstepValue" +
+      "\030\001 \002(\t\022\036\n\026parameterizedStepValue\030\002 \002(\t\022\022" +
+      "\n\nparameters\030\003 \003(\t"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
+      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+        public com.google.protobuf.ExtensionRegistry assignDescriptors(
+            com.google.protobuf.Descriptors.FileDescriptor root) {
+          descriptor = root;
+          internal_static_gauge_messages_ProtoSpec_descriptor =
+            getDescriptor().getMessageTypes().get(0);
+          internal_static_gauge_messages_ProtoSpec_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoSpec_descriptor,
+              new java.lang.String[] { "SpecHeading", "Items", "IsTableDriven", "PreHookFailure", "PostHookFailure", "FileName", "Tags", });
+          internal_static_gauge_messages_ProtoItem_descriptor =
+            getDescriptor().getMessageTypes().get(1);
+          internal_static_gauge_messages_ProtoItem_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoItem_descriptor,
+              new java.lang.String[] { "ItemType", "Step", "Concept", "Scenario", "TableDrivenScenario", "Comment", "Table", "Tags", });
+          internal_static_gauge_messages_ProtoScenario_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_gauge_messages_ProtoScenario_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoScenario_descriptor,
+              new java.lang.String[] { "ScenarioHeading", "Failed", "Contexts", "ScenarioItems", "PreHookFailure", "PostHookFailure", "Tags", "ExecutionTime", });
+          internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_gauge_messages_ProtoTableDrivenScenario_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor,
+              new java.lang.String[] { "Scenarios", });
+          internal_static_gauge_messages_ProtoStep_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_gauge_messages_ProtoStep_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoStep_descriptor,
+              new java.lang.String[] { "ActualText", "ParsedText", "Fragments", "StepExecutionResult", });
+          internal_static_gauge_messages_ProtoConcept_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_gauge_messages_ProtoConcept_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoConcept_descriptor,
+              new java.lang.String[] { "ConceptStep", "Steps", "ConceptExecutionResult", });
+          internal_static_gauge_messages_ProtoTags_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+          internal_static_gauge_messages_ProtoTags_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoTags_descriptor,
+              new java.lang.String[] { "Tags", });
+          internal_static_gauge_messages_Fragment_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_gauge_messages_Fragment_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_Fragment_descriptor,
+              new java.lang.String[] { "FragmentType", "Text", "Parameter", });
+          internal_static_gauge_messages_Parameter_descriptor =
+            getDescriptor().getMessageTypes().get(8);
+          internal_static_gauge_messages_Parameter_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_Parameter_descriptor,
+              new java.lang.String[] { "ParameterType", "Value", "Name", "Table", });
+          internal_static_gauge_messages_ProtoComment_descriptor =
+            getDescriptor().getMessageTypes().get(9);
+          internal_static_gauge_messages_ProtoComment_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoComment_descriptor,
+              new java.lang.String[] { "Text", });
+          internal_static_gauge_messages_ProtoTable_descriptor =
+            getDescriptor().getMessageTypes().get(10);
+          internal_static_gauge_messages_ProtoTable_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoTable_descriptor,
+              new java.lang.String[] { "Headers", "Rows", });
+          internal_static_gauge_messages_ProtoTableRow_descriptor =
+            getDescriptor().getMessageTypes().get(11);
+          internal_static_gauge_messages_ProtoTableRow_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoTableRow_descriptor,
+              new java.lang.String[] { "Cells", });
+          internal_static_gauge_messages_ProtoStepExecutionResult_descriptor =
+            getDescriptor().getMessageTypes().get(12);
+          internal_static_gauge_messages_ProtoStepExecutionResult_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoStepExecutionResult_descriptor,
+              new java.lang.String[] { "ExecutionResult", "PreHookFailure", "PostHookFailure", });
+          internal_static_gauge_messages_ProtoExecutionResult_descriptor =
+            getDescriptor().getMessageTypes().get(13);
+          internal_static_gauge_messages_ProtoExecutionResult_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoExecutionResult_descriptor,
+              new java.lang.String[] { "Failed", "RecoverableError", "ErrorMessage", "StackTrace", "ScreenShot", "ExecutionTime", });
+          internal_static_gauge_messages_ProtoHookFailure_descriptor =
+            getDescriptor().getMessageTypes().get(14);
+          internal_static_gauge_messages_ProtoHookFailure_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoHookFailure_descriptor,
+              new java.lang.String[] { "StackTrace", "ErrorMessage", "ScreenShot", });
+          internal_static_gauge_messages_ProtoSuiteResult_descriptor =
+            getDescriptor().getMessageTypes().get(15);
+          internal_static_gauge_messages_ProtoSuiteResult_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoSuiteResult_descriptor,
+              new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", "ExecutionTime", "SuccessRate", });
+          internal_static_gauge_messages_ProtoSpecResult_descriptor =
+            getDescriptor().getMessageTypes().get(16);
+          internal_static_gauge_messages_ProtoSpecResult_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoSpecResult_descriptor,
+              new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", "ExecutionTime", });
+          internal_static_gauge_messages_ProtoStepValue_descriptor =
+            getDescriptor().getMessageTypes().get(17);
+          internal_static_gauge_messages_ProtoStepValue_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ProtoStepValue_descriptor,
+              new java.lang.String[] { "StepValue", "ParameterizedStepValue", "Parameters", });
+          return null;
+        }
+      };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_gauge_messages_ProtoSpec_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_gauge_messages_ProtoSpec_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoSpec_descriptor,
-        new java.lang.String[] { "SpecHeading", "Items", "IsTableDriven", "PreHookFailure", "PostHookFailure", "FileName", "Tags", });
-    internal_static_gauge_messages_ProtoItem_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_gauge_messages_ProtoItem_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoItem_descriptor,
-        new java.lang.String[] { "ItemType", "Step", "Concept", "Scenario", "TableDrivenScenario", "Comment", "Table", });
-    internal_static_gauge_messages_ProtoScenario_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_gauge_messages_ProtoScenario_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoScenario_descriptor,
-        new java.lang.String[] { "ScenarioHeading", "Failed", "Contexts", "ScenarioItems", "PreHookFailure", "PostHookFailure", "Tags", "ExecutionTime", });
-    internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_gauge_messages_ProtoTableDrivenScenario_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor,
-        new java.lang.String[] { "Scenarios", });
-    internal_static_gauge_messages_ProtoStep_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_gauge_messages_ProtoStep_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoStep_descriptor,
-        new java.lang.String[] { "ActualText", "ParsedText", "Fragments", "StepExecutionResult", });
-    internal_static_gauge_messages_ProtoConcept_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_gauge_messages_ProtoConcept_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoConcept_descriptor,
-        new java.lang.String[] { "ConceptStep", "Steps", "ConceptExecutionResult", });
-    internal_static_gauge_messages_ProtoTags_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_gauge_messages_ProtoTags_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoTags_descriptor,
-        new java.lang.String[] { "Tags", });
-    internal_static_gauge_messages_Fragment_descriptor =
-      getDescriptor().getMessageTypes().get(7);
-    internal_static_gauge_messages_Fragment_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_Fragment_descriptor,
-        new java.lang.String[] { "FragmentType", "Text", "Parameter", });
-    internal_static_gauge_messages_Parameter_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_gauge_messages_Parameter_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_Parameter_descriptor,
-        new java.lang.String[] { "ParameterType", "Value", "Name", "Table", });
-    internal_static_gauge_messages_ProtoComment_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_gauge_messages_ProtoComment_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoComment_descriptor,
-        new java.lang.String[] { "Text", });
-    internal_static_gauge_messages_ProtoTable_descriptor =
-      getDescriptor().getMessageTypes().get(10);
-    internal_static_gauge_messages_ProtoTable_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoTable_descriptor,
-        new java.lang.String[] { "Headers", "Rows", });
-    internal_static_gauge_messages_ProtoTableRow_descriptor =
-      getDescriptor().getMessageTypes().get(11);
-    internal_static_gauge_messages_ProtoTableRow_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoTableRow_descriptor,
-        new java.lang.String[] { "Cells", });
-    internal_static_gauge_messages_ProtoStepExecutionResult_descriptor =
-      getDescriptor().getMessageTypes().get(12);
-    internal_static_gauge_messages_ProtoStepExecutionResult_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoStepExecutionResult_descriptor,
-        new java.lang.String[] { "ExecutionResult", "PreHookFailure", "PostHookFailure", });
-    internal_static_gauge_messages_ProtoExecutionResult_descriptor =
-      getDescriptor().getMessageTypes().get(13);
-    internal_static_gauge_messages_ProtoExecutionResult_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoExecutionResult_descriptor,
-        new java.lang.String[] { "Failed", "RecoverableError", "ErrorMessage", "StackTrace", "ScreenShot", "ExecutionTime", });
-    internal_static_gauge_messages_ProtoHookFailure_descriptor =
-      getDescriptor().getMessageTypes().get(14);
-    internal_static_gauge_messages_ProtoHookFailure_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoHookFailure_descriptor,
-        new java.lang.String[] { "StackTrace", "ErrorMessage", "ScreenShot", });
-    internal_static_gauge_messages_ProtoSuiteResult_descriptor =
-      getDescriptor().getMessageTypes().get(15);
-    internal_static_gauge_messages_ProtoSuiteResult_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoSuiteResult_descriptor,
-        new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", "ExecutionTime", "SuccessRate", });
-    internal_static_gauge_messages_ProtoSpecResult_descriptor =
-      getDescriptor().getMessageTypes().get(16);
-    internal_static_gauge_messages_ProtoSpecResult_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoSpecResult_descriptor,
-        new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", "ExecutionTime", });
-    internal_static_gauge_messages_ProtoStepValue_descriptor =
-      getDescriptor().getMessageTypes().get(17);
-    internal_static_gauge_messages_ProtoStepValue_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-        internal_static_gauge_messages_ProtoStepValue_descriptor,
-        new java.lang.String[] { "StepValue", "ParameterizedStepValue", "Parameters", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
