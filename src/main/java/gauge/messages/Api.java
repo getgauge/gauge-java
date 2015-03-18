@@ -11083,152 +11083,174 @@ public final class Api {
     // @@protoc_insertion_point(class_scope:gauge.messages.ExtractConceptInfoRequest)
   }
 
-  public interface ExtractConceptInfoResponseOrBuilder
+  public interface ExtractConceptRequestOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required bool isValid = 1;
+    // required .gauge.messages.step conceptName = 1;
     /**
-     * <code>required bool isValid = 1;</code>
+     * <code>required .gauge.messages.step conceptName = 1;</code>
      *
      * <pre>
-     *&#47; Flag indicating if the request is valid.
+     *&#47; The Concept name given by the user
      * </pre>
      */
-    boolean hasIsValid();
+    boolean hasConceptName();
     /**
-     * <code>required bool isValid = 1;</code>
+     * <code>required .gauge.messages.step conceptName = 1;</code>
      *
      * <pre>
-     *&#47; Flag indicating if the request is valid.
+     *&#47; The Concept name given by the user
      * </pre>
      */
-    boolean getIsValid();
+    gauge.messages.Api.step getConceptName();
+    /**
+     * <code>required .gauge.messages.step conceptName = 1;</code>
+     *
+     * <pre>
+     *&#47; The Concept name given by the user
+     * </pre>
+     */
+    gauge.messages.Api.stepOrBuilder getConceptNameOrBuilder();
 
-    // optional bool hasParam = 2;
+    // repeated .gauge.messages.step steps = 2;
     /**
-     * <code>optional bool hasParam = 2;</code>
+     * <code>repeated .gauge.messages.step steps = 2;</code>
      *
      * <pre>
-     *&#47; Flag indicating the presence of parameters
+     *&#47; steps to extract
      * </pre>
      */
-    boolean hasHasParam();
+    java.util.List<gauge.messages.Api.step> 
+        getStepsList();
     /**
-     * <code>optional bool hasParam = 2;</code>
+     * <code>repeated .gauge.messages.step steps = 2;</code>
      *
      * <pre>
-     *&#47; Flag indicating the presence of parameters
+     *&#47; steps to extract
      * </pre>
      */
-    boolean getHasParam();
+    gauge.messages.Api.step getSteps(int index);
+    /**
+     * <code>repeated .gauge.messages.step steps = 2;</code>
+     *
+     * <pre>
+     *&#47; steps to extract
+     * </pre>
+     */
+    int getStepsCount();
+    /**
+     * <code>repeated .gauge.messages.step steps = 2;</code>
+     *
+     * <pre>
+     *&#47; steps to extract
+     * </pre>
+     */
+    java.util.List<? extends gauge.messages.Api.stepOrBuilder> 
+        getStepsOrBuilderList();
+    /**
+     * <code>repeated .gauge.messages.step steps = 2;</code>
+     *
+     * <pre>
+     *&#47; steps to extract
+     * </pre>
+     */
+    gauge.messages.Api.stepOrBuilder getStepsOrBuilder(
+        int index);
 
-    // optional string conceptHeading = 3;
+    // required bool changeAcrossProject = 3;
     /**
-     * <code>optional string conceptHeading = 3;</code>
+     * <code>required bool changeAcrossProject = 3;</code>
      *
      * <pre>
-     *&#47; The templated concept heading with extracted paramters
+     *&#47; Flag indicating if refactoring should be done across project
      * </pre>
      */
-    boolean hasConceptHeading();
+    boolean hasChangeAcrossProject();
     /**
-     * <code>optional string conceptHeading = 3;</code>
+     * <code>required bool changeAcrossProject = 3;</code>
      *
      * <pre>
-     *&#47; The templated concept heading with extracted paramters
+     *&#47; Flag indicating if refactoring should be done across project
      * </pre>
      */
-    java.lang.String getConceptHeading();
+    boolean getChangeAcrossProject();
+
+    // required string conceptFileName = 4;
     /**
-     * <code>optional string conceptHeading = 3;</code>
+     * <code>required string conceptFileName = 4;</code>
      *
      * <pre>
-     *&#47; The templated concept heading with extracted paramters
+     *&#47; The concept filename in which extracted concept will be added
+     * </pre>
+     */
+    boolean hasConceptFileName();
+    /**
+     * <code>required string conceptFileName = 4;</code>
+     *
+     * <pre>
+     *&#47; The concept filename in which extracted concept will be added
+     * </pre>
+     */
+    java.lang.String getConceptFileName();
+    /**
+     * <code>required string conceptFileName = 4;</code>
+     *
+     * <pre>
+     *&#47; The concept filename in which extracted concept will be added
      * </pre>
      */
     com.google.protobuf.ByteString
-        getConceptHeadingBytes();
+        getConceptFileNameBytes();
 
-    // optional string steps = 4;
+    // optional .gauge.messages.textInfo selectedTextInfo = 5;
     /**
-     * <code>optional string steps = 4;</code>
+     * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
      *
      * <pre>
-     *&#47; The list of steps that are part of the extracted concept.
+     *&#47; Info related to selected text, required only if changeAcrossProject is false
      * </pre>
      */
-    boolean hasSteps();
+    boolean hasSelectedTextInfo();
     /**
-     * <code>optional string steps = 4;</code>
+     * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
      *
      * <pre>
-     *&#47; The list of steps that are part of the extracted concept.
+     *&#47; Info related to selected text, required only if changeAcrossProject is false
      * </pre>
      */
-    java.lang.String getSteps();
+    gauge.messages.Api.textInfo getSelectedTextInfo();
     /**
-     * <code>optional string steps = 4;</code>
+     * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
      *
      * <pre>
-     *&#47; The list of steps that are part of the extracted concept.
+     *&#47; Info related to selected text, required only if changeAcrossProject is false
      * </pre>
      */
-    com.google.protobuf.ByteString
-        getStepsBytes();
-
-    // optional string conceptText = 5;
-    /**
-     * <code>optional string conceptText = 5;</code>
-     *
-     * <pre>
-     *&#47; The text to invoke the concept from the Spec file
-     * / This contains the value of the parameters to be passed at invocation.
-     * </pre>
-     */
-    boolean hasConceptText();
-    /**
-     * <code>optional string conceptText = 5;</code>
-     *
-     * <pre>
-     *&#47; The text to invoke the concept from the Spec file
-     * / This contains the value of the parameters to be passed at invocation.
-     * </pre>
-     */
-    java.lang.String getConceptText();
-    /**
-     * <code>optional string conceptText = 5;</code>
-     *
-     * <pre>
-     *&#47; The text to invoke the concept from the Spec file
-     * / This contains the value of the parameters to be passed at invocation.
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getConceptTextBytes();
+    gauge.messages.Api.textInfoOrBuilder getSelectedTextInfoOrBuilder();
   }
   /**
-   * Protobuf type {@code gauge.messages.ExtractConceptInfoResponse}
+   * Protobuf type {@code gauge.messages.ExtractConceptRequest}
    *
    * <pre>
-   *&#47; Response to ExtractConceptInfoRequest
+   *&#47; Request to perform Extract to Concept refactoring
    * </pre>
    */
-  public static final class ExtractConceptInfoResponse extends
+  public static final class ExtractConceptRequest extends
       com.google.protobuf.GeneratedMessage
-      implements ExtractConceptInfoResponseOrBuilder {
-    // Use ExtractConceptInfoResponse.newBuilder() to construct.
-    private ExtractConceptInfoResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements ExtractConceptRequestOrBuilder {
+    // Use ExtractConceptRequest.newBuilder() to construct.
+    private ExtractConceptRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private ExtractConceptInfoResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private ExtractConceptRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final ExtractConceptInfoResponse defaultInstance;
-    public static ExtractConceptInfoResponse getDefaultInstance() {
+    private static final ExtractConceptRequest defaultInstance;
+    public static ExtractConceptRequest getDefaultInstance() {
       return defaultInstance;
     }
 
-    public ExtractConceptInfoResponse getDefaultInstanceForType() {
+    public ExtractConceptRequest getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -11238,7 +11260,3292 @@ public final class Api {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private ExtractConceptInfoResponse(
+    private ExtractConceptRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              gauge.messages.Api.step.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                subBuilder = conceptName_.toBuilder();
+              }
+              conceptName_ = input.readMessage(gauge.messages.Api.step.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(conceptName_);
+                conceptName_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000001;
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                steps_ = new java.util.ArrayList<gauge.messages.Api.step>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              steps_.add(input.readMessage(gauge.messages.Api.step.PARSER, extensionRegistry));
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000002;
+              changeAcrossProject_ = input.readBool();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000004;
+              conceptFileName_ = input.readBytes();
+              break;
+            }
+            case 42: {
+              gauge.messages.Api.textInfo.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = selectedTextInfo_.toBuilder();
+              }
+              selectedTextInfo_ = input.readMessage(gauge.messages.Api.textInfo.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(selectedTextInfo_);
+                selectedTextInfo_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          steps_ = java.util.Collections.unmodifiableList(steps_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Api.ExtractConceptRequest.class, gauge.messages.Api.ExtractConceptRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ExtractConceptRequest> PARSER =
+        new com.google.protobuf.AbstractParser<ExtractConceptRequest>() {
+      public ExtractConceptRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ExtractConceptRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ExtractConceptRequest> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required .gauge.messages.step conceptName = 1;
+    public static final int CONCEPTNAME_FIELD_NUMBER = 1;
+    private gauge.messages.Api.step conceptName_;
+    /**
+     * <code>required .gauge.messages.step conceptName = 1;</code>
+     *
+     * <pre>
+     *&#47; The Concept name given by the user
+     * </pre>
+     */
+    public boolean hasConceptName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required .gauge.messages.step conceptName = 1;</code>
+     *
+     * <pre>
+     *&#47; The Concept name given by the user
+     * </pre>
+     */
+    public gauge.messages.Api.step getConceptName() {
+      return conceptName_;
+    }
+    /**
+     * <code>required .gauge.messages.step conceptName = 1;</code>
+     *
+     * <pre>
+     *&#47; The Concept name given by the user
+     * </pre>
+     */
+    public gauge.messages.Api.stepOrBuilder getConceptNameOrBuilder() {
+      return conceptName_;
+    }
+
+    // repeated .gauge.messages.step steps = 2;
+    public static final int STEPS_FIELD_NUMBER = 2;
+    private java.util.List<gauge.messages.Api.step> steps_;
+    /**
+     * <code>repeated .gauge.messages.step steps = 2;</code>
+     *
+     * <pre>
+     *&#47; steps to extract
+     * </pre>
+     */
+    public java.util.List<gauge.messages.Api.step> getStepsList() {
+      return steps_;
+    }
+    /**
+     * <code>repeated .gauge.messages.step steps = 2;</code>
+     *
+     * <pre>
+     *&#47; steps to extract
+     * </pre>
+     */
+    public java.util.List<? extends gauge.messages.Api.stepOrBuilder> 
+        getStepsOrBuilderList() {
+      return steps_;
+    }
+    /**
+     * <code>repeated .gauge.messages.step steps = 2;</code>
+     *
+     * <pre>
+     *&#47; steps to extract
+     * </pre>
+     */
+    public int getStepsCount() {
+      return steps_.size();
+    }
+    /**
+     * <code>repeated .gauge.messages.step steps = 2;</code>
+     *
+     * <pre>
+     *&#47; steps to extract
+     * </pre>
+     */
+    public gauge.messages.Api.step getSteps(int index) {
+      return steps_.get(index);
+    }
+    /**
+     * <code>repeated .gauge.messages.step steps = 2;</code>
+     *
+     * <pre>
+     *&#47; steps to extract
+     * </pre>
+     */
+    public gauge.messages.Api.stepOrBuilder getStepsOrBuilder(
+        int index) {
+      return steps_.get(index);
+    }
+
+    // required bool changeAcrossProject = 3;
+    public static final int CHANGEACROSSPROJECT_FIELD_NUMBER = 3;
+    private boolean changeAcrossProject_;
+    /**
+     * <code>required bool changeAcrossProject = 3;</code>
+     *
+     * <pre>
+     *&#47; Flag indicating if refactoring should be done across project
+     * </pre>
+     */
+    public boolean hasChangeAcrossProject() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required bool changeAcrossProject = 3;</code>
+     *
+     * <pre>
+     *&#47; Flag indicating if refactoring should be done across project
+     * </pre>
+     */
+    public boolean getChangeAcrossProject() {
+      return changeAcrossProject_;
+    }
+
+    // required string conceptFileName = 4;
+    public static final int CONCEPTFILENAME_FIELD_NUMBER = 4;
+    private java.lang.Object conceptFileName_;
+    /**
+     * <code>required string conceptFileName = 4;</code>
+     *
+     * <pre>
+     *&#47; The concept filename in which extracted concept will be added
+     * </pre>
+     */
+    public boolean hasConceptFileName() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string conceptFileName = 4;</code>
+     *
+     * <pre>
+     *&#47; The concept filename in which extracted concept will be added
+     * </pre>
+     */
+    public java.lang.String getConceptFileName() {
+      java.lang.Object ref = conceptFileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          conceptFileName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string conceptFileName = 4;</code>
+     *
+     * <pre>
+     *&#47; The concept filename in which extracted concept will be added
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getConceptFileNameBytes() {
+      java.lang.Object ref = conceptFileName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        conceptFileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional .gauge.messages.textInfo selectedTextInfo = 5;
+    public static final int SELECTEDTEXTINFO_FIELD_NUMBER = 5;
+    private gauge.messages.Api.textInfo selectedTextInfo_;
+    /**
+     * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+     *
+     * <pre>
+     *&#47; Info related to selected text, required only if changeAcrossProject is false
+     * </pre>
+     */
+    public boolean hasSelectedTextInfo() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+     *
+     * <pre>
+     *&#47; Info related to selected text, required only if changeAcrossProject is false
+     * </pre>
+     */
+    public gauge.messages.Api.textInfo getSelectedTextInfo() {
+      return selectedTextInfo_;
+    }
+    /**
+     * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+     *
+     * <pre>
+     *&#47; Info related to selected text, required only if changeAcrossProject is false
+     * </pre>
+     */
+    public gauge.messages.Api.textInfoOrBuilder getSelectedTextInfoOrBuilder() {
+      return selectedTextInfo_;
+    }
+
+    private void initFields() {
+      conceptName_ = gauge.messages.Api.step.getDefaultInstance();
+      steps_ = java.util.Collections.emptyList();
+      changeAcrossProject_ = false;
+      conceptFileName_ = "";
+      selectedTextInfo_ = gauge.messages.Api.textInfo.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasConceptName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasChangeAcrossProject()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasConceptFileName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getConceptName().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getStepsCount(); i++) {
+        if (!getSteps(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasSelectedTextInfo()) {
+        if (!getSelectedTextInfo().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeMessage(1, conceptName_);
+      }
+      for (int i = 0; i < steps_.size(); i++) {
+        output.writeMessage(2, steps_.get(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBool(3, changeAcrossProject_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(4, getConceptFileNameBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(5, selectedTextInfo_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, conceptName_);
+      }
+      for (int i = 0; i < steps_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, steps_.get(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, changeAcrossProject_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, getConceptFileNameBytes());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, selectedTextInfo_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static gauge.messages.Api.ExtractConceptRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.ExtractConceptRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.ExtractConceptRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.ExtractConceptRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.ExtractConceptRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.ExtractConceptRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.ExtractConceptRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static gauge.messages.Api.ExtractConceptRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.ExtractConceptRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.ExtractConceptRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(gauge.messages.Api.ExtractConceptRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gauge.messages.ExtractConceptRequest}
+     *
+     * <pre>
+     *&#47; Request to perform Extract to Concept refactoring
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Api.ExtractConceptRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Api.ExtractConceptRequest.class, gauge.messages.Api.ExtractConceptRequest.Builder.class);
+      }
+
+      // Construct using gauge.messages.Api.ExtractConceptRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getConceptNameFieldBuilder();
+          getStepsFieldBuilder();
+          getSelectedTextInfoFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        if (conceptNameBuilder_ == null) {
+          conceptName_ = gauge.messages.Api.step.getDefaultInstance();
+        } else {
+          conceptNameBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (stepsBuilder_ == null) {
+          steps_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          stepsBuilder_.clear();
+        }
+        changeAcrossProject_ = false;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        conceptFileName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
+        if (selectedTextInfoBuilder_ == null) {
+          selectedTextInfo_ = gauge.messages.Api.textInfo.getDefaultInstance();
+        } else {
+          selectedTextInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptRequest_descriptor;
+      }
+
+      public gauge.messages.Api.ExtractConceptRequest getDefaultInstanceForType() {
+        return gauge.messages.Api.ExtractConceptRequest.getDefaultInstance();
+      }
+
+      public gauge.messages.Api.ExtractConceptRequest build() {
+        gauge.messages.Api.ExtractConceptRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Api.ExtractConceptRequest buildPartial() {
+        gauge.messages.Api.ExtractConceptRequest result = new gauge.messages.Api.ExtractConceptRequest(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (conceptNameBuilder_ == null) {
+          result.conceptName_ = conceptName_;
+        } else {
+          result.conceptName_ = conceptNameBuilder_.build();
+        }
+        if (stepsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            steps_ = java.util.Collections.unmodifiableList(steps_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.steps_ = steps_;
+        } else {
+          result.steps_ = stepsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.changeAcrossProject_ = changeAcrossProject_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.conceptFileName_ = conceptFileName_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (selectedTextInfoBuilder_ == null) {
+          result.selectedTextInfo_ = selectedTextInfo_;
+        } else {
+          result.selectedTextInfo_ = selectedTextInfoBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Api.ExtractConceptRequest) {
+          return mergeFrom((gauge.messages.Api.ExtractConceptRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Api.ExtractConceptRequest other) {
+        if (other == gauge.messages.Api.ExtractConceptRequest.getDefaultInstance()) return this;
+        if (other.hasConceptName()) {
+          mergeConceptName(other.getConceptName());
+        }
+        if (stepsBuilder_ == null) {
+          if (!other.steps_.isEmpty()) {
+            if (steps_.isEmpty()) {
+              steps_ = other.steps_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureStepsIsMutable();
+              steps_.addAll(other.steps_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.steps_.isEmpty()) {
+            if (stepsBuilder_.isEmpty()) {
+              stepsBuilder_.dispose();
+              stepsBuilder_ = null;
+              steps_ = other.steps_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              stepsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getStepsFieldBuilder() : null;
+            } else {
+              stepsBuilder_.addAllMessages(other.steps_);
+            }
+          }
+        }
+        if (other.hasChangeAcrossProject()) {
+          setChangeAcrossProject(other.getChangeAcrossProject());
+        }
+        if (other.hasConceptFileName()) {
+          bitField0_ |= 0x00000008;
+          conceptFileName_ = other.conceptFileName_;
+          onChanged();
+        }
+        if (other.hasSelectedTextInfo()) {
+          mergeSelectedTextInfo(other.getSelectedTextInfo());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasConceptName()) {
+          
+          return false;
+        }
+        if (!hasChangeAcrossProject()) {
+          
+          return false;
+        }
+        if (!hasConceptFileName()) {
+          
+          return false;
+        }
+        if (!getConceptName().isInitialized()) {
+          
+          return false;
+        }
+        for (int i = 0; i < getStepsCount(); i++) {
+          if (!getSteps(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        if (hasSelectedTextInfo()) {
+          if (!getSelectedTextInfo().isInitialized()) {
+            
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Api.ExtractConceptRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Api.ExtractConceptRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required .gauge.messages.step conceptName = 1;
+      private gauge.messages.Api.step conceptName_ = gauge.messages.Api.step.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Api.step, gauge.messages.Api.step.Builder, gauge.messages.Api.stepOrBuilder> conceptNameBuilder_;
+      /**
+       * <code>required .gauge.messages.step conceptName = 1;</code>
+       *
+       * <pre>
+       *&#47; The Concept name given by the user
+       * </pre>
+       */
+      public boolean hasConceptName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required .gauge.messages.step conceptName = 1;</code>
+       *
+       * <pre>
+       *&#47; The Concept name given by the user
+       * </pre>
+       */
+      public gauge.messages.Api.step getConceptName() {
+        if (conceptNameBuilder_ == null) {
+          return conceptName_;
+        } else {
+          return conceptNameBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .gauge.messages.step conceptName = 1;</code>
+       *
+       * <pre>
+       *&#47; The Concept name given by the user
+       * </pre>
+       */
+      public Builder setConceptName(gauge.messages.Api.step value) {
+        if (conceptNameBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          conceptName_ = value;
+          onChanged();
+        } else {
+          conceptNameBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .gauge.messages.step conceptName = 1;</code>
+       *
+       * <pre>
+       *&#47; The Concept name given by the user
+       * </pre>
+       */
+      public Builder setConceptName(
+          gauge.messages.Api.step.Builder builderForValue) {
+        if (conceptNameBuilder_ == null) {
+          conceptName_ = builderForValue.build();
+          onChanged();
+        } else {
+          conceptNameBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .gauge.messages.step conceptName = 1;</code>
+       *
+       * <pre>
+       *&#47; The Concept name given by the user
+       * </pre>
+       */
+      public Builder mergeConceptName(gauge.messages.Api.step value) {
+        if (conceptNameBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001) &&
+              conceptName_ != gauge.messages.Api.step.getDefaultInstance()) {
+            conceptName_ =
+              gauge.messages.Api.step.newBuilder(conceptName_).mergeFrom(value).buildPartial();
+          } else {
+            conceptName_ = value;
+          }
+          onChanged();
+        } else {
+          conceptNameBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000001;
+        return this;
+      }
+      /**
+       * <code>required .gauge.messages.step conceptName = 1;</code>
+       *
+       * <pre>
+       *&#47; The Concept name given by the user
+       * </pre>
+       */
+      public Builder clearConceptName() {
+        if (conceptNameBuilder_ == null) {
+          conceptName_ = gauge.messages.Api.step.getDefaultInstance();
+          onChanged();
+        } else {
+          conceptNameBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+      /**
+       * <code>required .gauge.messages.step conceptName = 1;</code>
+       *
+       * <pre>
+       *&#47; The Concept name given by the user
+       * </pre>
+       */
+      public gauge.messages.Api.step.Builder getConceptNameBuilder() {
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return getConceptNameFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .gauge.messages.step conceptName = 1;</code>
+       *
+       * <pre>
+       *&#47; The Concept name given by the user
+       * </pre>
+       */
+      public gauge.messages.Api.stepOrBuilder getConceptNameOrBuilder() {
+        if (conceptNameBuilder_ != null) {
+          return conceptNameBuilder_.getMessageOrBuilder();
+        } else {
+          return conceptName_;
+        }
+      }
+      /**
+       * <code>required .gauge.messages.step conceptName = 1;</code>
+       *
+       * <pre>
+       *&#47; The Concept name given by the user
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Api.step, gauge.messages.Api.step.Builder, gauge.messages.Api.stepOrBuilder> 
+          getConceptNameFieldBuilder() {
+        if (conceptNameBuilder_ == null) {
+          conceptNameBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              gauge.messages.Api.step, gauge.messages.Api.step.Builder, gauge.messages.Api.stepOrBuilder>(
+                  conceptName_,
+                  getParentForChildren(),
+                  isClean());
+          conceptName_ = null;
+        }
+        return conceptNameBuilder_;
+      }
+
+      // repeated .gauge.messages.step steps = 2;
+      private java.util.List<gauge.messages.Api.step> steps_ =
+        java.util.Collections.emptyList();
+      private void ensureStepsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          steps_ = new java.util.ArrayList<gauge.messages.Api.step>(steps_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          gauge.messages.Api.step, gauge.messages.Api.step.Builder, gauge.messages.Api.stepOrBuilder> stepsBuilder_;
+
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public java.util.List<gauge.messages.Api.step> getStepsList() {
+        if (stepsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(steps_);
+        } else {
+          return stepsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public int getStepsCount() {
+        if (stepsBuilder_ == null) {
+          return steps_.size();
+        } else {
+          return stepsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public gauge.messages.Api.step getSteps(int index) {
+        if (stepsBuilder_ == null) {
+          return steps_.get(index);
+        } else {
+          return stepsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public Builder setSteps(
+          int index, gauge.messages.Api.step value) {
+        if (stepsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStepsIsMutable();
+          steps_.set(index, value);
+          onChanged();
+        } else {
+          stepsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public Builder setSteps(
+          int index, gauge.messages.Api.step.Builder builderForValue) {
+        if (stepsBuilder_ == null) {
+          ensureStepsIsMutable();
+          steps_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          stepsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public Builder addSteps(gauge.messages.Api.step value) {
+        if (stepsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStepsIsMutable();
+          steps_.add(value);
+          onChanged();
+        } else {
+          stepsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public Builder addSteps(
+          int index, gauge.messages.Api.step value) {
+        if (stepsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStepsIsMutable();
+          steps_.add(index, value);
+          onChanged();
+        } else {
+          stepsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public Builder addSteps(
+          gauge.messages.Api.step.Builder builderForValue) {
+        if (stepsBuilder_ == null) {
+          ensureStepsIsMutable();
+          steps_.add(builderForValue.build());
+          onChanged();
+        } else {
+          stepsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public Builder addSteps(
+          int index, gauge.messages.Api.step.Builder builderForValue) {
+        if (stepsBuilder_ == null) {
+          ensureStepsIsMutable();
+          steps_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          stepsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public Builder addAllSteps(
+          java.lang.Iterable<? extends gauge.messages.Api.step> values) {
+        if (stepsBuilder_ == null) {
+          ensureStepsIsMutable();
+          super.addAll(values, steps_);
+          onChanged();
+        } else {
+          stepsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public Builder clearSteps() {
+        if (stepsBuilder_ == null) {
+          steps_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          stepsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public Builder removeSteps(int index) {
+        if (stepsBuilder_ == null) {
+          ensureStepsIsMutable();
+          steps_.remove(index);
+          onChanged();
+        } else {
+          stepsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public gauge.messages.Api.step.Builder getStepsBuilder(
+          int index) {
+        return getStepsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public gauge.messages.Api.stepOrBuilder getStepsOrBuilder(
+          int index) {
+        if (stepsBuilder_ == null) {
+          return steps_.get(index);  } else {
+          return stepsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public java.util.List<? extends gauge.messages.Api.stepOrBuilder> 
+           getStepsOrBuilderList() {
+        if (stepsBuilder_ != null) {
+          return stepsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(steps_);
+        }
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public gauge.messages.Api.step.Builder addStepsBuilder() {
+        return getStepsFieldBuilder().addBuilder(
+            gauge.messages.Api.step.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public gauge.messages.Api.step.Builder addStepsBuilder(
+          int index) {
+        return getStepsFieldBuilder().addBuilder(
+            index, gauge.messages.Api.step.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .gauge.messages.step steps = 2;</code>
+       *
+       * <pre>
+       *&#47; steps to extract
+       * </pre>
+       */
+      public java.util.List<gauge.messages.Api.step.Builder> 
+           getStepsBuilderList() {
+        return getStepsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          gauge.messages.Api.step, gauge.messages.Api.step.Builder, gauge.messages.Api.stepOrBuilder> 
+          getStepsFieldBuilder() {
+        if (stepsBuilder_ == null) {
+          stepsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              gauge.messages.Api.step, gauge.messages.Api.step.Builder, gauge.messages.Api.stepOrBuilder>(
+                  steps_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          steps_ = null;
+        }
+        return stepsBuilder_;
+      }
+
+      // required bool changeAcrossProject = 3;
+      private boolean changeAcrossProject_ ;
+      /**
+       * <code>required bool changeAcrossProject = 3;</code>
+       *
+       * <pre>
+       *&#47; Flag indicating if refactoring should be done across project
+       * </pre>
+       */
+      public boolean hasChangeAcrossProject() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required bool changeAcrossProject = 3;</code>
+       *
+       * <pre>
+       *&#47; Flag indicating if refactoring should be done across project
+       * </pre>
+       */
+      public boolean getChangeAcrossProject() {
+        return changeAcrossProject_;
+      }
+      /**
+       * <code>required bool changeAcrossProject = 3;</code>
+       *
+       * <pre>
+       *&#47; Flag indicating if refactoring should be done across project
+       * </pre>
+       */
+      public Builder setChangeAcrossProject(boolean value) {
+        bitField0_ |= 0x00000004;
+        changeAcrossProject_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool changeAcrossProject = 3;</code>
+       *
+       * <pre>
+       *&#47; Flag indicating if refactoring should be done across project
+       * </pre>
+       */
+      public Builder clearChangeAcrossProject() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        changeAcrossProject_ = false;
+        onChanged();
+        return this;
+      }
+
+      // required string conceptFileName = 4;
+      private java.lang.Object conceptFileName_ = "";
+      /**
+       * <code>required string conceptFileName = 4;</code>
+       *
+       * <pre>
+       *&#47; The concept filename in which extracted concept will be added
+       * </pre>
+       */
+      public boolean hasConceptFileName() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required string conceptFileName = 4;</code>
+       *
+       * <pre>
+       *&#47; The concept filename in which extracted concept will be added
+       * </pre>
+       */
+      public java.lang.String getConceptFileName() {
+        java.lang.Object ref = conceptFileName_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          conceptFileName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string conceptFileName = 4;</code>
+       *
+       * <pre>
+       *&#47; The concept filename in which extracted concept will be added
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getConceptFileNameBytes() {
+        java.lang.Object ref = conceptFileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          conceptFileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string conceptFileName = 4;</code>
+       *
+       * <pre>
+       *&#47; The concept filename in which extracted concept will be added
+       * </pre>
+       */
+      public Builder setConceptFileName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        conceptFileName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string conceptFileName = 4;</code>
+       *
+       * <pre>
+       *&#47; The concept filename in which extracted concept will be added
+       * </pre>
+       */
+      public Builder clearConceptFileName() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        conceptFileName_ = getDefaultInstance().getConceptFileName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string conceptFileName = 4;</code>
+       *
+       * <pre>
+       *&#47; The concept filename in which extracted concept will be added
+       * </pre>
+       */
+      public Builder setConceptFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        conceptFileName_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional .gauge.messages.textInfo selectedTextInfo = 5;
+      private gauge.messages.Api.textInfo selectedTextInfo_ = gauge.messages.Api.textInfo.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Api.textInfo, gauge.messages.Api.textInfo.Builder, gauge.messages.Api.textInfoOrBuilder> selectedTextInfoBuilder_;
+      /**
+       * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+       *
+       * <pre>
+       *&#47; Info related to selected text, required only if changeAcrossProject is false
+       * </pre>
+       */
+      public boolean hasSelectedTextInfo() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+       *
+       * <pre>
+       *&#47; Info related to selected text, required only if changeAcrossProject is false
+       * </pre>
+       */
+      public gauge.messages.Api.textInfo getSelectedTextInfo() {
+        if (selectedTextInfoBuilder_ == null) {
+          return selectedTextInfo_;
+        } else {
+          return selectedTextInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+       *
+       * <pre>
+       *&#47; Info related to selected text, required only if changeAcrossProject is false
+       * </pre>
+       */
+      public Builder setSelectedTextInfo(gauge.messages.Api.textInfo value) {
+        if (selectedTextInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          selectedTextInfo_ = value;
+          onChanged();
+        } else {
+          selectedTextInfoBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+       *
+       * <pre>
+       *&#47; Info related to selected text, required only if changeAcrossProject is false
+       * </pre>
+       */
+      public Builder setSelectedTextInfo(
+          gauge.messages.Api.textInfo.Builder builderForValue) {
+        if (selectedTextInfoBuilder_ == null) {
+          selectedTextInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          selectedTextInfoBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+       *
+       * <pre>
+       *&#47; Info related to selected text, required only if changeAcrossProject is false
+       * </pre>
+       */
+      public Builder mergeSelectedTextInfo(gauge.messages.Api.textInfo value) {
+        if (selectedTextInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010) &&
+              selectedTextInfo_ != gauge.messages.Api.textInfo.getDefaultInstance()) {
+            selectedTextInfo_ =
+              gauge.messages.Api.textInfo.newBuilder(selectedTextInfo_).mergeFrom(value).buildPartial();
+          } else {
+            selectedTextInfo_ = value;
+          }
+          onChanged();
+        } else {
+          selectedTextInfoBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000010;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+       *
+       * <pre>
+       *&#47; Info related to selected text, required only if changeAcrossProject is false
+       * </pre>
+       */
+      public Builder clearSelectedTextInfo() {
+        if (selectedTextInfoBuilder_ == null) {
+          selectedTextInfo_ = gauge.messages.Api.textInfo.getDefaultInstance();
+          onChanged();
+        } else {
+          selectedTextInfoBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+       *
+       * <pre>
+       *&#47; Info related to selected text, required only if changeAcrossProject is false
+       * </pre>
+       */
+      public gauge.messages.Api.textInfo.Builder getSelectedTextInfoBuilder() {
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return getSelectedTextInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+       *
+       * <pre>
+       *&#47; Info related to selected text, required only if changeAcrossProject is false
+       * </pre>
+       */
+      public gauge.messages.Api.textInfoOrBuilder getSelectedTextInfoOrBuilder() {
+        if (selectedTextInfoBuilder_ != null) {
+          return selectedTextInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return selectedTextInfo_;
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.textInfo selectedTextInfo = 5;</code>
+       *
+       * <pre>
+       *&#47; Info related to selected text, required only if changeAcrossProject is false
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Api.textInfo, gauge.messages.Api.textInfo.Builder, gauge.messages.Api.textInfoOrBuilder> 
+          getSelectedTextInfoFieldBuilder() {
+        if (selectedTextInfoBuilder_ == null) {
+          selectedTextInfoBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              gauge.messages.Api.textInfo, gauge.messages.Api.textInfo.Builder, gauge.messages.Api.textInfoOrBuilder>(
+                  selectedTextInfo_,
+                  getParentForChildren(),
+                  isClean());
+          selectedTextInfo_ = null;
+        }
+        return selectedTextInfoBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.ExtractConceptRequest)
+    }
+
+    static {
+      defaultInstance = new ExtractConceptRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.ExtractConceptRequest)
+  }
+
+  public interface textInfoOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string fileName = 1;
+    /**
+     * <code>required string fileName = 1;</code>
+     *
+     * <pre>
+     *&#47; The filename from where concept is being extracted
+     * </pre>
+     */
+    boolean hasFileName();
+    /**
+     * <code>required string fileName = 1;</code>
+     *
+     * <pre>
+     *&#47; The filename from where concept is being extracted
+     * </pre>
+     */
+    java.lang.String getFileName();
+    /**
+     * <code>required string fileName = 1;</code>
+     *
+     * <pre>
+     *&#47; The filename from where concept is being extracted
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getFileNameBytes();
+
+    // required int32 startingLineNo = 2;
+    /**
+     * <code>required int32 startingLineNo = 2;</code>
+     *
+     * <pre>
+     *&#47; storing the starting and ending line number of selected text
+     * </pre>
+     */
+    boolean hasStartingLineNo();
+    /**
+     * <code>required int32 startingLineNo = 2;</code>
+     *
+     * <pre>
+     *&#47; storing the starting and ending line number of selected text
+     * </pre>
+     */
+    int getStartingLineNo();
+
+    // required int32 endLineNo = 3;
+    /**
+     * <code>required int32 endLineNo = 3;</code>
+     */
+    boolean hasEndLineNo();
+    /**
+     * <code>required int32 endLineNo = 3;</code>
+     */
+    int getEndLineNo();
+  }
+  /**
+   * Protobuf type {@code gauge.messages.textInfo}
+   */
+  public static final class textInfo extends
+      com.google.protobuf.GeneratedMessage
+      implements textInfoOrBuilder {
+    // Use textInfo.newBuilder() to construct.
+    private textInfo(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private textInfo(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final textInfo defaultInstance;
+    public static textInfo getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public textInfo getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private textInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              fileName_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              startingLineNo_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              endLineNo_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Api.internal_static_gauge_messages_textInfo_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Api.internal_static_gauge_messages_textInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Api.textInfo.class, gauge.messages.Api.textInfo.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<textInfo> PARSER =
+        new com.google.protobuf.AbstractParser<textInfo>() {
+      public textInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new textInfo(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<textInfo> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string fileName = 1;
+    public static final int FILENAME_FIELD_NUMBER = 1;
+    private java.lang.Object fileName_;
+    /**
+     * <code>required string fileName = 1;</code>
+     *
+     * <pre>
+     *&#47; The filename from where concept is being extracted
+     * </pre>
+     */
+    public boolean hasFileName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string fileName = 1;</code>
+     *
+     * <pre>
+     *&#47; The filename from where concept is being extracted
+     * </pre>
+     */
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          fileName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string fileName = 1;</code>
+     *
+     * <pre>
+     *&#47; The filename from where concept is being extracted
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // required int32 startingLineNo = 2;
+    public static final int STARTINGLINENO_FIELD_NUMBER = 2;
+    private int startingLineNo_;
+    /**
+     * <code>required int32 startingLineNo = 2;</code>
+     *
+     * <pre>
+     *&#47; storing the starting and ending line number of selected text
+     * </pre>
+     */
+    public boolean hasStartingLineNo() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 startingLineNo = 2;</code>
+     *
+     * <pre>
+     *&#47; storing the starting and ending line number of selected text
+     * </pre>
+     */
+    public int getStartingLineNo() {
+      return startingLineNo_;
+    }
+
+    // required int32 endLineNo = 3;
+    public static final int ENDLINENO_FIELD_NUMBER = 3;
+    private int endLineNo_;
+    /**
+     * <code>required int32 endLineNo = 3;</code>
+     */
+    public boolean hasEndLineNo() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 endLineNo = 3;</code>
+     */
+    public int getEndLineNo() {
+      return endLineNo_;
+    }
+
+    private void initFields() {
+      fileName_ = "";
+      startingLineNo_ = 0;
+      endLineNo_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasFileName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasStartingLineNo()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasEndLineNo()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getFileNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, startingLineNo_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, endLineNo_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getFileNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, startingLineNo_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, endLineNo_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static gauge.messages.Api.textInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.textInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.textInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.textInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.textInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.textInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.textInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static gauge.messages.Api.textInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.textInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.textInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(gauge.messages.Api.textInfo prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gauge.messages.textInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Api.textInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Api.internal_static_gauge_messages_textInfo_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Api.internal_static_gauge_messages_textInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Api.textInfo.class, gauge.messages.Api.textInfo.Builder.class);
+      }
+
+      // Construct using gauge.messages.Api.textInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        fileName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        startingLineNo_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        endLineNo_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Api.internal_static_gauge_messages_textInfo_descriptor;
+      }
+
+      public gauge.messages.Api.textInfo getDefaultInstanceForType() {
+        return gauge.messages.Api.textInfo.getDefaultInstance();
+      }
+
+      public gauge.messages.Api.textInfo build() {
+        gauge.messages.Api.textInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Api.textInfo buildPartial() {
+        gauge.messages.Api.textInfo result = new gauge.messages.Api.textInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.fileName_ = fileName_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.startingLineNo_ = startingLineNo_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.endLineNo_ = endLineNo_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Api.textInfo) {
+          return mergeFrom((gauge.messages.Api.textInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Api.textInfo other) {
+        if (other == gauge.messages.Api.textInfo.getDefaultInstance()) return this;
+        if (other.hasFileName()) {
+          bitField0_ |= 0x00000001;
+          fileName_ = other.fileName_;
+          onChanged();
+        }
+        if (other.hasStartingLineNo()) {
+          setStartingLineNo(other.getStartingLineNo());
+        }
+        if (other.hasEndLineNo()) {
+          setEndLineNo(other.getEndLineNo());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasFileName()) {
+          
+          return false;
+        }
+        if (!hasStartingLineNo()) {
+          
+          return false;
+        }
+        if (!hasEndLineNo()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Api.textInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Api.textInfo) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string fileName = 1;
+      private java.lang.Object fileName_ = "";
+      /**
+       * <code>required string fileName = 1;</code>
+       *
+       * <pre>
+       *&#47; The filename from where concept is being extracted
+       * </pre>
+       */
+      public boolean hasFileName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string fileName = 1;</code>
+       *
+       * <pre>
+       *&#47; The filename from where concept is being extracted
+       * </pre>
+       */
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          fileName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string fileName = 1;</code>
+       *
+       * <pre>
+       *&#47; The filename from where concept is being extracted
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string fileName = 1;</code>
+       *
+       * <pre>
+       *&#47; The filename from where concept is being extracted
+       * </pre>
+       */
+      public Builder setFileName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string fileName = 1;</code>
+       *
+       * <pre>
+       *&#47; The filename from where concept is being extracted
+       * </pre>
+       */
+      public Builder clearFileName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        fileName_ = getDefaultInstance().getFileName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string fileName = 1;</code>
+       *
+       * <pre>
+       *&#47; The filename from where concept is being extracted
+       * </pre>
+       */
+      public Builder setFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+
+      // required int32 startingLineNo = 2;
+      private int startingLineNo_ ;
+      /**
+       * <code>required int32 startingLineNo = 2;</code>
+       *
+       * <pre>
+       *&#47; storing the starting and ending line number of selected text
+       * </pre>
+       */
+      public boolean hasStartingLineNo() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 startingLineNo = 2;</code>
+       *
+       * <pre>
+       *&#47; storing the starting and ending line number of selected text
+       * </pre>
+       */
+      public int getStartingLineNo() {
+        return startingLineNo_;
+      }
+      /**
+       * <code>required int32 startingLineNo = 2;</code>
+       *
+       * <pre>
+       *&#47; storing the starting and ending line number of selected text
+       * </pre>
+       */
+      public Builder setStartingLineNo(int value) {
+        bitField0_ |= 0x00000002;
+        startingLineNo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 startingLineNo = 2;</code>
+       *
+       * <pre>
+       *&#47; storing the starting and ending line number of selected text
+       * </pre>
+       */
+      public Builder clearStartingLineNo() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        startingLineNo_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required int32 endLineNo = 3;
+      private int endLineNo_ ;
+      /**
+       * <code>required int32 endLineNo = 3;</code>
+       */
+      public boolean hasEndLineNo() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 endLineNo = 3;</code>
+       */
+      public int getEndLineNo() {
+        return endLineNo_;
+      }
+      /**
+       * <code>required int32 endLineNo = 3;</code>
+       */
+      public Builder setEndLineNo(int value) {
+        bitField0_ |= 0x00000004;
+        endLineNo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 endLineNo = 3;</code>
+       */
+      public Builder clearEndLineNo() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        endLineNo_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.textInfo)
+    }
+
+    static {
+      defaultInstance = new textInfo(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.textInfo)
+  }
+
+  public interface stepOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string name = 1;
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     *&#47; name of the step
+     * </pre>
+     */
+    boolean hasName();
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     *&#47; name of the step
+     * </pre>
+     */
+    java.lang.String getName();
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     *&#47; name of the step
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    // optional string table = 2;
+    /**
+     * <code>optional string table = 2;</code>
+     *
+     * <pre>
+     *&#47;  table present in step as parameter
+     * </pre>
+     */
+    boolean hasTable();
+    /**
+     * <code>optional string table = 2;</code>
+     *
+     * <pre>
+     *&#47;  table present in step as parameter
+     * </pre>
+     */
+    java.lang.String getTable();
+    /**
+     * <code>optional string table = 2;</code>
+     *
+     * <pre>
+     *&#47;  table present in step as parameter
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTableBytes();
+
+    // optional string paramTableName = 3;
+    /**
+     * <code>optional string paramTableName = 3;</code>
+     *
+     * <pre>
+     *&#47; name of table in concept heading, if it comes as a param to concept
+     * </pre>
+     */
+    boolean hasParamTableName();
+    /**
+     * <code>optional string paramTableName = 3;</code>
+     *
+     * <pre>
+     *&#47; name of table in concept heading, if it comes as a param to concept
+     * </pre>
+     */
+    java.lang.String getParamTableName();
+    /**
+     * <code>optional string paramTableName = 3;</code>
+     *
+     * <pre>
+     *&#47; name of table in concept heading, if it comes as a param to concept
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getParamTableNameBytes();
+  }
+  /**
+   * Protobuf type {@code gauge.messages.step}
+   */
+  public static final class step extends
+      com.google.protobuf.GeneratedMessage
+      implements stepOrBuilder {
+    // Use step.newBuilder() to construct.
+    private step(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private step(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final step defaultInstance;
+    public static step getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public step getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private step(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              name_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              bitField0_ |= 0x00000002;
+              table_ = input.readBytes();
+              break;
+            }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              paramTableName_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Api.internal_static_gauge_messages_step_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Api.internal_static_gauge_messages_step_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Api.step.class, gauge.messages.Api.step.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<step> PARSER =
+        new com.google.protobuf.AbstractParser<step>() {
+      public step parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new step(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<step> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string name = 1;
+    public static final int NAME_FIELD_NUMBER = 1;
+    private java.lang.Object name_;
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     *&#47; name of the step
+     * </pre>
+     */
+    public boolean hasName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     *&#47; name of the step
+     * </pre>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          name_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string name = 1;</code>
+     *
+     * <pre>
+     *&#47; name of the step
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string table = 2;
+    public static final int TABLE_FIELD_NUMBER = 2;
+    private java.lang.Object table_;
+    /**
+     * <code>optional string table = 2;</code>
+     *
+     * <pre>
+     *&#47;  table present in step as parameter
+     * </pre>
+     */
+    public boolean hasTable() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string table = 2;</code>
+     *
+     * <pre>
+     *&#47;  table present in step as parameter
+     * </pre>
+     */
+    public java.lang.String getTable() {
+      java.lang.Object ref = table_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          table_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string table = 2;</code>
+     *
+     * <pre>
+     *&#47;  table present in step as parameter
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTableBytes() {
+      java.lang.Object ref = table_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        table_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string paramTableName = 3;
+    public static final int PARAMTABLENAME_FIELD_NUMBER = 3;
+    private java.lang.Object paramTableName_;
+    /**
+     * <code>optional string paramTableName = 3;</code>
+     *
+     * <pre>
+     *&#47; name of table in concept heading, if it comes as a param to concept
+     * </pre>
+     */
+    public boolean hasParamTableName() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional string paramTableName = 3;</code>
+     *
+     * <pre>
+     *&#47; name of table in concept heading, if it comes as a param to concept
+     * </pre>
+     */
+    public java.lang.String getParamTableName() {
+      java.lang.Object ref = paramTableName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          paramTableName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string paramTableName = 3;</code>
+     *
+     * <pre>
+     *&#47; name of table in concept heading, if it comes as a param to concept
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getParamTableNameBytes() {
+      java.lang.Object ref = paramTableName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        paramTableName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      name_ = "";
+      table_ = "";
+      paramTableName_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getTableBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getParamTableNameBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getNameBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getTableBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getParamTableNameBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static gauge.messages.Api.step parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.step parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.step parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.step parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.step parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.step parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.step parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static gauge.messages.Api.step parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.step parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.step parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(gauge.messages.Api.step prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gauge.messages.step}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements gauge.messages.Api.stepOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Api.internal_static_gauge_messages_step_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Api.internal_static_gauge_messages_step_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Api.step.class, gauge.messages.Api.step.Builder.class);
+      }
+
+      // Construct using gauge.messages.Api.step.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        name_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        table_ = "";
+        bitField0_ = (bitField0_ & ~0x00000002);
+        paramTableName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Api.internal_static_gauge_messages_step_descriptor;
+      }
+
+      public gauge.messages.Api.step getDefaultInstanceForType() {
+        return gauge.messages.Api.step.getDefaultInstance();
+      }
+
+      public gauge.messages.Api.step build() {
+        gauge.messages.Api.step result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Api.step buildPartial() {
+        gauge.messages.Api.step result = new gauge.messages.Api.step(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.name_ = name_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.table_ = table_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.paramTableName_ = paramTableName_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Api.step) {
+          return mergeFrom((gauge.messages.Api.step)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Api.step other) {
+        if (other == gauge.messages.Api.step.getDefaultInstance()) return this;
+        if (other.hasName()) {
+          bitField0_ |= 0x00000001;
+          name_ = other.name_;
+          onChanged();
+        }
+        if (other.hasTable()) {
+          bitField0_ |= 0x00000002;
+          table_ = other.table_;
+          onChanged();
+        }
+        if (other.hasParamTableName()) {
+          bitField0_ |= 0x00000004;
+          paramTableName_ = other.paramTableName_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasName()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Api.step parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Api.step) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string name = 1;
+      private java.lang.Object name_ = "";
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       *&#47; name of the step
+       * </pre>
+       */
+      public boolean hasName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       *&#47; name of the step
+       * </pre>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       *&#47; name of the step
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       *&#47; name of the step
+       * </pre>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       *&#47; name of the step
+       * </pre>
+       */
+      public Builder clearName() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string name = 1;</code>
+       *
+       * <pre>
+       *&#47; name of the step
+       * </pre>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string table = 2;
+      private java.lang.Object table_ = "";
+      /**
+       * <code>optional string table = 2;</code>
+       *
+       * <pre>
+       *&#47;  table present in step as parameter
+       * </pre>
+       */
+      public boolean hasTable() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional string table = 2;</code>
+       *
+       * <pre>
+       *&#47;  table present in step as parameter
+       * </pre>
+       */
+      public java.lang.String getTable() {
+        java.lang.Object ref = table_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          table_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string table = 2;</code>
+       *
+       * <pre>
+       *&#47;  table present in step as parameter
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getTableBytes() {
+        java.lang.Object ref = table_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          table_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string table = 2;</code>
+       *
+       * <pre>
+       *&#47;  table present in step as parameter
+       * </pre>
+       */
+      public Builder setTable(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        table_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string table = 2;</code>
+       *
+       * <pre>
+       *&#47;  table present in step as parameter
+       * </pre>
+       */
+      public Builder clearTable() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        table_ = getDefaultInstance().getTable();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string table = 2;</code>
+       *
+       * <pre>
+       *&#47;  table present in step as parameter
+       * </pre>
+       */
+      public Builder setTableBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        table_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional string paramTableName = 3;
+      private java.lang.Object paramTableName_ = "";
+      /**
+       * <code>optional string paramTableName = 3;</code>
+       *
+       * <pre>
+       *&#47; name of table in concept heading, if it comes as a param to concept
+       * </pre>
+       */
+      public boolean hasParamTableName() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string paramTableName = 3;</code>
+       *
+       * <pre>
+       *&#47; name of table in concept heading, if it comes as a param to concept
+       * </pre>
+       */
+      public java.lang.String getParamTableName() {
+        java.lang.Object ref = paramTableName_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          paramTableName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string paramTableName = 3;</code>
+       *
+       * <pre>
+       *&#47; name of table in concept heading, if it comes as a param to concept
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getParamTableNameBytes() {
+        java.lang.Object ref = paramTableName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          paramTableName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string paramTableName = 3;</code>
+       *
+       * <pre>
+       *&#47; name of table in concept heading, if it comes as a param to concept
+       * </pre>
+       */
+      public Builder setParamTableName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        paramTableName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string paramTableName = 3;</code>
+       *
+       * <pre>
+       *&#47; name of table in concept heading, if it comes as a param to concept
+       * </pre>
+       */
+      public Builder clearParamTableName() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        paramTableName_ = getDefaultInstance().getParamTableName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string paramTableName = 3;</code>
+       *
+       * <pre>
+       *&#47; name of table in concept heading, if it comes as a param to concept
+       * </pre>
+       */
+      public Builder setParamTableNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        paramTableName_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.step)
+    }
+
+    static {
+      defaultInstance = new step(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.step)
+  }
+
+  public interface ExtractConceptResponseOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required bool isSuccess = 1;
+    /**
+     * <code>required bool isSuccess = 1;</code>
+     *
+     * <pre>
+     *&#47; Flag indicating Success
+     * </pre>
+     */
+    boolean hasIsSuccess();
+    /**
+     * <code>required bool isSuccess = 1;</code>
+     *
+     * <pre>
+     *&#47; Flag indicating Success
+     * </pre>
+     */
+    boolean getIsSuccess();
+
+    // optional string error = 2;
+    /**
+     * <code>optional string error = 2;</code>
+     *
+     * <pre>
+     *&#47; Error message if the refactoring was unsuccessful.
+     * </pre>
+     */
+    boolean hasError();
+    /**
+     * <code>optional string error = 2;</code>
+     *
+     * <pre>
+     *&#47; Error message if the refactoring was unsuccessful.
+     * </pre>
+     */
+    java.lang.String getError();
+    /**
+     * <code>optional string error = 2;</code>
+     *
+     * <pre>
+     *&#47; Error message if the refactoring was unsuccessful.
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getErrorBytes();
+
+    // repeated string filesChanged = 3;
+    /**
+     * <code>repeated string filesChanged = 3;</code>
+     *
+     * <pre>
+     *&#47; Collection of files that were changed as part of the Refactoring.
+     * </pre>
+     */
+    java.util.List<java.lang.String>
+    getFilesChangedList();
+    /**
+     * <code>repeated string filesChanged = 3;</code>
+     *
+     * <pre>
+     *&#47; Collection of files that were changed as part of the Refactoring.
+     * </pre>
+     */
+    int getFilesChangedCount();
+    /**
+     * <code>repeated string filesChanged = 3;</code>
+     *
+     * <pre>
+     *&#47; Collection of files that were changed as part of the Refactoring.
+     * </pre>
+     */
+    java.lang.String getFilesChanged(int index);
+    /**
+     * <code>repeated string filesChanged = 3;</code>
+     *
+     * <pre>
+     *&#47; Collection of files that were changed as part of the Refactoring.
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getFilesChangedBytes(int index);
+  }
+  /**
+   * Protobuf type {@code gauge.messages.ExtractConceptResponse}
+   *
+   * <pre>
+   *&#47; Response to perform Extract to Concept refactoring
+   * </pre>
+   */
+  public static final class ExtractConceptResponse extends
+      com.google.protobuf.GeneratedMessage
+      implements ExtractConceptResponseOrBuilder {
+    // Use ExtractConceptResponse.newBuilder() to construct.
+    private ExtractConceptResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ExtractConceptResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ExtractConceptResponse defaultInstance;
+    public static ExtractConceptResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ExtractConceptResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ExtractConceptResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11263,1163 +14570,20 @@ public final class Api {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              isValid_ = input.readBool();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              hasParam_ = input.readBool();
-              break;
-            }
-            case 26: {
-              bitField0_ |= 0x00000004;
-              conceptHeading_ = input.readBytes();
-              break;
-            }
-            case 34: {
-              bitField0_ |= 0x00000008;
-              steps_ = input.readBytes();
-              break;
-            }
-            case 42: {
-              bitField0_ |= 0x00000010;
-              conceptText_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptInfoResponse_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptInfoResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              gauge.messages.Api.ExtractConceptInfoResponse.class, gauge.messages.Api.ExtractConceptInfoResponse.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<ExtractConceptInfoResponse> PARSER =
-        new com.google.protobuf.AbstractParser<ExtractConceptInfoResponse>() {
-      public ExtractConceptInfoResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ExtractConceptInfoResponse(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<ExtractConceptInfoResponse> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // required bool isValid = 1;
-    public static final int ISVALID_FIELD_NUMBER = 1;
-    private boolean isValid_;
-    /**
-     * <code>required bool isValid = 1;</code>
-     *
-     * <pre>
-     *&#47; Flag indicating if the request is valid.
-     * </pre>
-     */
-    public boolean hasIsValid() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required bool isValid = 1;</code>
-     *
-     * <pre>
-     *&#47; Flag indicating if the request is valid.
-     * </pre>
-     */
-    public boolean getIsValid() {
-      return isValid_;
-    }
-
-    // optional bool hasParam = 2;
-    public static final int HASPARAM_FIELD_NUMBER = 2;
-    private boolean hasParam_;
-    /**
-     * <code>optional bool hasParam = 2;</code>
-     *
-     * <pre>
-     *&#47; Flag indicating the presence of parameters
-     * </pre>
-     */
-    public boolean hasHasParam() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional bool hasParam = 2;</code>
-     *
-     * <pre>
-     *&#47; Flag indicating the presence of parameters
-     * </pre>
-     */
-    public boolean getHasParam() {
-      return hasParam_;
-    }
-
-    // optional string conceptHeading = 3;
-    public static final int CONCEPTHEADING_FIELD_NUMBER = 3;
-    private java.lang.Object conceptHeading_;
-    /**
-     * <code>optional string conceptHeading = 3;</code>
-     *
-     * <pre>
-     *&#47; The templated concept heading with extracted paramters
-     * </pre>
-     */
-    public boolean hasConceptHeading() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional string conceptHeading = 3;</code>
-     *
-     * <pre>
-     *&#47; The templated concept heading with extracted paramters
-     * </pre>
-     */
-    public java.lang.String getConceptHeading() {
-      java.lang.Object ref = conceptHeading_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          conceptHeading_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string conceptHeading = 3;</code>
-     *
-     * <pre>
-     *&#47; The templated concept heading with extracted paramters
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getConceptHeadingBytes() {
-      java.lang.Object ref = conceptHeading_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        conceptHeading_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // optional string steps = 4;
-    public static final int STEPS_FIELD_NUMBER = 4;
-    private java.lang.Object steps_;
-    /**
-     * <code>optional string steps = 4;</code>
-     *
-     * <pre>
-     *&#47; The list of steps that are part of the extracted concept.
-     * </pre>
-     */
-    public boolean hasSteps() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>optional string steps = 4;</code>
-     *
-     * <pre>
-     *&#47; The list of steps that are part of the extracted concept.
-     * </pre>
-     */
-    public java.lang.String getSteps() {
-      java.lang.Object ref = steps_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          steps_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string steps = 4;</code>
-     *
-     * <pre>
-     *&#47; The list of steps that are part of the extracted concept.
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getStepsBytes() {
-      java.lang.Object ref = steps_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        steps_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // optional string conceptText = 5;
-    public static final int CONCEPTTEXT_FIELD_NUMBER = 5;
-    private java.lang.Object conceptText_;
-    /**
-     * <code>optional string conceptText = 5;</code>
-     *
-     * <pre>
-     *&#47; The text to invoke the concept from the Spec file
-     * / This contains the value of the parameters to be passed at invocation.
-     * </pre>
-     */
-    public boolean hasConceptText() {
-      return ((bitField0_ & 0x00000010) == 0x00000010);
-    }
-    /**
-     * <code>optional string conceptText = 5;</code>
-     *
-     * <pre>
-     *&#47; The text to invoke the concept from the Spec file
-     * / This contains the value of the parameters to be passed at invocation.
-     * </pre>
-     */
-    public java.lang.String getConceptText() {
-      java.lang.Object ref = conceptText_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          conceptText_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string conceptText = 5;</code>
-     *
-     * <pre>
-     *&#47; The text to invoke the concept from the Spec file
-     * / This contains the value of the parameters to be passed at invocation.
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getConceptTextBytes() {
-      java.lang.Object ref = conceptText_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        conceptText_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private void initFields() {
-      isValid_ = false;
-      hasParam_ = false;
-      conceptHeading_ = "";
-      steps_ = "";
-      conceptText_ = "";
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      if (!hasIsValid()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBool(1, isValid_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBool(2, hasParam_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getConceptHeadingBytes());
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBytes(4, getStepsBytes());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeBytes(5, getConceptTextBytes());
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(1, isValid_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, hasParam_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getConceptHeadingBytes());
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(4, getStepsBytes());
-      }
-      if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, getConceptTextBytes());
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static gauge.messages.Api.ExtractConceptInfoResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static gauge.messages.Api.ExtractConceptInfoResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static gauge.messages.Api.ExtractConceptInfoResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static gauge.messages.Api.ExtractConceptInfoResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static gauge.messages.Api.ExtractConceptInfoResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static gauge.messages.Api.ExtractConceptInfoResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static gauge.messages.Api.ExtractConceptInfoResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static gauge.messages.Api.ExtractConceptInfoResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static gauge.messages.Api.ExtractConceptInfoResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static gauge.messages.Api.ExtractConceptInfoResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(gauge.messages.Api.ExtractConceptInfoResponse prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code gauge.messages.ExtractConceptInfoResponse}
-     *
-     * <pre>
-     *&#47; Response to ExtractConceptInfoRequest
-     * </pre>
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements gauge.messages.Api.ExtractConceptInfoResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptInfoResponse_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptInfoResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                gauge.messages.Api.ExtractConceptInfoResponse.class, gauge.messages.Api.ExtractConceptInfoResponse.Builder.class);
-      }
-
-      // Construct using gauge.messages.Api.ExtractConceptInfoResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        isValid_ = false;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        hasParam_ = false;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        conceptHeading_ = "";
-        bitField0_ = (bitField0_ & ~0x00000004);
-        steps_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
-        conceptText_ = "";
-        bitField0_ = (bitField0_ & ~0x00000010);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptInfoResponse_descriptor;
-      }
-
-      public gauge.messages.Api.ExtractConceptInfoResponse getDefaultInstanceForType() {
-        return gauge.messages.Api.ExtractConceptInfoResponse.getDefaultInstance();
-      }
-
-      public gauge.messages.Api.ExtractConceptInfoResponse build() {
-        gauge.messages.Api.ExtractConceptInfoResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public gauge.messages.Api.ExtractConceptInfoResponse buildPartial() {
-        gauge.messages.Api.ExtractConceptInfoResponse result = new gauge.messages.Api.ExtractConceptInfoResponse(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.isValid_ = isValid_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.hasParam_ = hasParam_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.conceptHeading_ = conceptHeading_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.steps_ = steps_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000010;
-        }
-        result.conceptText_ = conceptText_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof gauge.messages.Api.ExtractConceptInfoResponse) {
-          return mergeFrom((gauge.messages.Api.ExtractConceptInfoResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(gauge.messages.Api.ExtractConceptInfoResponse other) {
-        if (other == gauge.messages.Api.ExtractConceptInfoResponse.getDefaultInstance()) return this;
-        if (other.hasIsValid()) {
-          setIsValid(other.getIsValid());
-        }
-        if (other.hasHasParam()) {
-          setHasParam(other.getHasParam());
-        }
-        if (other.hasConceptHeading()) {
-          bitField0_ |= 0x00000004;
-          conceptHeading_ = other.conceptHeading_;
-          onChanged();
-        }
-        if (other.hasSteps()) {
-          bitField0_ |= 0x00000008;
-          steps_ = other.steps_;
-          onChanged();
-        }
-        if (other.hasConceptText()) {
-          bitField0_ |= 0x00000010;
-          conceptText_ = other.conceptText_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasIsValid()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        gauge.messages.Api.ExtractConceptInfoResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (gauge.messages.Api.ExtractConceptInfoResponse) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // required bool isValid = 1;
-      private boolean isValid_ ;
-      /**
-       * <code>required bool isValid = 1;</code>
-       *
-       * <pre>
-       *&#47; Flag indicating if the request is valid.
-       * </pre>
-       */
-      public boolean hasIsValid() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required bool isValid = 1;</code>
-       *
-       * <pre>
-       *&#47; Flag indicating if the request is valid.
-       * </pre>
-       */
-      public boolean getIsValid() {
-        return isValid_;
-      }
-      /**
-       * <code>required bool isValid = 1;</code>
-       *
-       * <pre>
-       *&#47; Flag indicating if the request is valid.
-       * </pre>
-       */
-      public Builder setIsValid(boolean value) {
-        bitField0_ |= 0x00000001;
-        isValid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required bool isValid = 1;</code>
-       *
-       * <pre>
-       *&#47; Flag indicating if the request is valid.
-       * </pre>
-       */
-      public Builder clearIsValid() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        isValid_ = false;
-        onChanged();
-        return this;
-      }
-
-      // optional bool hasParam = 2;
-      private boolean hasParam_ ;
-      /**
-       * <code>optional bool hasParam = 2;</code>
-       *
-       * <pre>
-       *&#47; Flag indicating the presence of parameters
-       * </pre>
-       */
-      public boolean hasHasParam() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional bool hasParam = 2;</code>
-       *
-       * <pre>
-       *&#47; Flag indicating the presence of parameters
-       * </pre>
-       */
-      public boolean getHasParam() {
-        return hasParam_;
-      }
-      /**
-       * <code>optional bool hasParam = 2;</code>
-       *
-       * <pre>
-       *&#47; Flag indicating the presence of parameters
-       * </pre>
-       */
-      public Builder setHasParam(boolean value) {
-        bitField0_ |= 0x00000002;
-        hasParam_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bool hasParam = 2;</code>
-       *
-       * <pre>
-       *&#47; Flag indicating the presence of parameters
-       * </pre>
-       */
-      public Builder clearHasParam() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        hasParam_ = false;
-        onChanged();
-        return this;
-      }
-
-      // optional string conceptHeading = 3;
-      private java.lang.Object conceptHeading_ = "";
-      /**
-       * <code>optional string conceptHeading = 3;</code>
-       *
-       * <pre>
-       *&#47; The templated concept heading with extracted paramters
-       * </pre>
-       */
-      public boolean hasConceptHeading() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional string conceptHeading = 3;</code>
-       *
-       * <pre>
-       *&#47; The templated concept heading with extracted paramters
-       * </pre>
-       */
-      public java.lang.String getConceptHeading() {
-        java.lang.Object ref = conceptHeading_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          conceptHeading_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string conceptHeading = 3;</code>
-       *
-       * <pre>
-       *&#47; The templated concept heading with extracted paramters
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getConceptHeadingBytes() {
-        java.lang.Object ref = conceptHeading_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          conceptHeading_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string conceptHeading = 3;</code>
-       *
-       * <pre>
-       *&#47; The templated concept heading with extracted paramters
-       * </pre>
-       */
-      public Builder setConceptHeading(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        conceptHeading_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string conceptHeading = 3;</code>
-       *
-       * <pre>
-       *&#47; The templated concept heading with extracted paramters
-       * </pre>
-       */
-      public Builder clearConceptHeading() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        conceptHeading_ = getDefaultInstance().getConceptHeading();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string conceptHeading = 3;</code>
-       *
-       * <pre>
-       *&#47; The templated concept heading with extracted paramters
-       * </pre>
-       */
-      public Builder setConceptHeadingBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
-        conceptHeading_ = value;
-        onChanged();
-        return this;
-      }
-
-      // optional string steps = 4;
-      private java.lang.Object steps_ = "";
-      /**
-       * <code>optional string steps = 4;</code>
-       *
-       * <pre>
-       *&#47; The list of steps that are part of the extracted concept.
-       * </pre>
-       */
-      public boolean hasSteps() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>optional string steps = 4;</code>
-       *
-       * <pre>
-       *&#47; The list of steps that are part of the extracted concept.
-       * </pre>
-       */
-      public java.lang.String getSteps() {
-        java.lang.Object ref = steps_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          steps_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string steps = 4;</code>
-       *
-       * <pre>
-       *&#47; The list of steps that are part of the extracted concept.
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getStepsBytes() {
-        java.lang.Object ref = steps_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          steps_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string steps = 4;</code>
-       *
-       * <pre>
-       *&#47; The list of steps that are part of the extracted concept.
-       * </pre>
-       */
-      public Builder setSteps(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        steps_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string steps = 4;</code>
-       *
-       * <pre>
-       *&#47; The list of steps that are part of the extracted concept.
-       * </pre>
-       */
-      public Builder clearSteps() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        steps_ = getDefaultInstance().getSteps();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string steps = 4;</code>
-       *
-       * <pre>
-       *&#47; The list of steps that are part of the extracted concept.
-       * </pre>
-       */
-      public Builder setStepsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        steps_ = value;
-        onChanged();
-        return this;
-      }
-
-      // optional string conceptText = 5;
-      private java.lang.Object conceptText_ = "";
-      /**
-       * <code>optional string conceptText = 5;</code>
-       *
-       * <pre>
-       *&#47; The text to invoke the concept from the Spec file
-       * / This contains the value of the parameters to be passed at invocation.
-       * </pre>
-       */
-      public boolean hasConceptText() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>optional string conceptText = 5;</code>
-       *
-       * <pre>
-       *&#47; The text to invoke the concept from the Spec file
-       * / This contains the value of the parameters to be passed at invocation.
-       * </pre>
-       */
-      public java.lang.String getConceptText() {
-        java.lang.Object ref = conceptText_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          conceptText_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string conceptText = 5;</code>
-       *
-       * <pre>
-       *&#47; The text to invoke the concept from the Spec file
-       * / This contains the value of the parameters to be passed at invocation.
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getConceptTextBytes() {
-        java.lang.Object ref = conceptText_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          conceptText_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string conceptText = 5;</code>
-       *
-       * <pre>
-       *&#47; The text to invoke the concept from the Spec file
-       * / This contains the value of the parameters to be passed at invocation.
-       * </pre>
-       */
-      public Builder setConceptText(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
-        conceptText_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string conceptText = 5;</code>
-       *
-       * <pre>
-       *&#47; The text to invoke the concept from the Spec file
-       * / This contains the value of the parameters to be passed at invocation.
-       * </pre>
-       */
-      public Builder clearConceptText() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        conceptText_ = getDefaultInstance().getConceptText();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string conceptText = 5;</code>
-       *
-       * <pre>
-       *&#47; The text to invoke the concept from the Spec file
-       * / This contains the value of the parameters to be passed at invocation.
-       * </pre>
-       */
-      public Builder setConceptTextBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
-        conceptText_ = value;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:gauge.messages.ExtractConceptInfoResponse)
-    }
-
-    static {
-      defaultInstance = new ExtractConceptInfoResponse(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:gauge.messages.ExtractConceptInfoResponse)
-  }
-
-  public interface FormatConceptHeadingRequestOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // required string newConceptHeading = 1;
-    /**
-     * <code>required string newConceptHeading = 1;</code>
-     *
-     * <pre>
-     *&#47; The new concept heading
-     * </pre>
-     */
-    boolean hasNewConceptHeading();
-    /**
-     * <code>required string newConceptHeading = 1;</code>
-     *
-     * <pre>
-     *&#47; The new concept heading
-     * </pre>
-     */
-    java.lang.String getNewConceptHeading();
-    /**
-     * <code>required string newConceptHeading = 1;</code>
-     *
-     * <pre>
-     *&#47; The new concept heading
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getNewConceptHeadingBytes();
-
-    // required string oldConceptHeading = 2;
-    /**
-     * <code>required string oldConceptHeading = 2;</code>
-     *
-     * <pre>
-     *&#47; The current Concept Heading that is to be replaced
-     * </pre>
-     */
-    boolean hasOldConceptHeading();
-    /**
-     * <code>required string oldConceptHeading = 2;</code>
-     *
-     * <pre>
-     *&#47; The current Concept Heading that is to be replaced
-     * </pre>
-     */
-    java.lang.String getOldConceptHeading();
-    /**
-     * <code>required string oldConceptHeading = 2;</code>
-     *
-     * <pre>
-     *&#47; The current Concept Heading that is to be replaced
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getOldConceptHeadingBytes();
-
-    // required string oldConceptText = 3;
-    /**
-     * <code>required string oldConceptText = 3;</code>
-     *
-     * <pre>
-     *&#47; The full text of the concept, including the steps
-     * </pre>
-     */
-    boolean hasOldConceptText();
-    /**
-     * <code>required string oldConceptText = 3;</code>
-     *
-     * <pre>
-     *&#47; The full text of the concept, including the steps
-     * </pre>
-     */
-    java.lang.String getOldConceptText();
-    /**
-     * <code>required string oldConceptText = 3;</code>
-     *
-     * <pre>
-     *&#47; The full text of the concept, including the steps
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getOldConceptTextBytes();
-  }
-  /**
-   * Protobuf type {@code gauge.messages.FormatConceptHeadingRequest}
-   *
-   * <pre>
-   *&#47; Request to change the concept heading, while performing Extract to concept refactoring
-   * / This is relevant because, the ExtractConceptInfoResponse has a placeholder definition of conceptHeading
-   * / The user would then give a meaningful name to the concept, and its parameters
-   * / This is deliberately kept separate from RefactorRequest/RefactorResponse, since those change the files physically.
-   * / Changing physical files is an expensive affair and requires proper buffer management to support Undo operations.
-   * </pre>
-   */
-  public static final class FormatConceptHeadingRequest extends
-      com.google.protobuf.GeneratedMessage
-      implements FormatConceptHeadingRequestOrBuilder {
-    // Use FormatConceptHeadingRequest.newBuilder() to construct.
-    private FormatConceptHeadingRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private FormatConceptHeadingRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final FormatConceptHeadingRequest defaultInstance;
-    public static FormatConceptHeadingRequest getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public FormatConceptHeadingRequest getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private FormatConceptHeadingRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              newConceptHeading_ = input.readBytes();
+              isSuccess_ = input.readBool();
               break;
             }
             case 18: {
               bitField0_ |= 0x00000002;
-              oldConceptHeading_ = input.readBytes();
+              error_ = input.readBytes();
               break;
             }
             case 26: {
-              bitField0_ |= 0x00000004;
-              oldConceptText_ = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                filesChanged_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              filesChanged_.add(input.readBytes());
               break;
             }
           }
@@ -12430,115 +14594,87 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          filesChanged_ = new com.google.protobuf.UnmodifiableLazyStringList(filesChanged_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return gauge.messages.Api.internal_static_gauge_messages_FormatConceptHeadingRequest_descriptor;
+      return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return gauge.messages.Api.internal_static_gauge_messages_FormatConceptHeadingRequest_fieldAccessorTable
+      return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              gauge.messages.Api.FormatConceptHeadingRequest.class, gauge.messages.Api.FormatConceptHeadingRequest.Builder.class);
+              gauge.messages.Api.ExtractConceptResponse.class, gauge.messages.Api.ExtractConceptResponse.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<FormatConceptHeadingRequest> PARSER =
-        new com.google.protobuf.AbstractParser<FormatConceptHeadingRequest>() {
-      public FormatConceptHeadingRequest parsePartialFrom(
+    public static com.google.protobuf.Parser<ExtractConceptResponse> PARSER =
+        new com.google.protobuf.AbstractParser<ExtractConceptResponse>() {
+      public ExtractConceptResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FormatConceptHeadingRequest(input, extensionRegistry);
+        return new ExtractConceptResponse(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<FormatConceptHeadingRequest> getParserForType() {
+    public com.google.protobuf.Parser<ExtractConceptResponse> getParserForType() {
       return PARSER;
     }
 
     private int bitField0_;
-    // required string newConceptHeading = 1;
-    public static final int NEWCONCEPTHEADING_FIELD_NUMBER = 1;
-    private java.lang.Object newConceptHeading_;
+    // required bool isSuccess = 1;
+    public static final int ISSUCCESS_FIELD_NUMBER = 1;
+    private boolean isSuccess_;
     /**
-     * <code>required string newConceptHeading = 1;</code>
+     * <code>required bool isSuccess = 1;</code>
      *
      * <pre>
-     *&#47; The new concept heading
+     *&#47; Flag indicating Success
      * </pre>
      */
-    public boolean hasNewConceptHeading() {
+    public boolean hasIsSuccess() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required string newConceptHeading = 1;</code>
+     * <code>required bool isSuccess = 1;</code>
      *
      * <pre>
-     *&#47; The new concept heading
+     *&#47; Flag indicating Success
      * </pre>
      */
-    public java.lang.String getNewConceptHeading() {
-      java.lang.Object ref = newConceptHeading_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          newConceptHeading_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string newConceptHeading = 1;</code>
-     *
-     * <pre>
-     *&#47; The new concept heading
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getNewConceptHeadingBytes() {
-      java.lang.Object ref = newConceptHeading_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        newConceptHeading_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public boolean getIsSuccess() {
+      return isSuccess_;
     }
 
-    // required string oldConceptHeading = 2;
-    public static final int OLDCONCEPTHEADING_FIELD_NUMBER = 2;
-    private java.lang.Object oldConceptHeading_;
+    // optional string error = 2;
+    public static final int ERROR_FIELD_NUMBER = 2;
+    private java.lang.Object error_;
     /**
-     * <code>required string oldConceptHeading = 2;</code>
+     * <code>optional string error = 2;</code>
      *
      * <pre>
-     *&#47; The current Concept Heading that is to be replaced
+     *&#47; Error message if the refactoring was unsuccessful.
      * </pre>
      */
-    public boolean hasOldConceptHeading() {
+    public boolean hasError() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required string oldConceptHeading = 2;</code>
+     * <code>optional string error = 2;</code>
      *
      * <pre>
-     *&#47; The current Concept Heading that is to be replaced
+     *&#47; Error message if the refactoring was unsuccessful.
      * </pre>
      */
-    public java.lang.String getOldConceptHeading() {
-      java.lang.Object ref = oldConceptHeading_;
+    public java.lang.String getError() {
+      java.lang.Object ref = error_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -12546,106 +14682,89 @@ public final class Api {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          oldConceptHeading_ = s;
+          error_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>required string oldConceptHeading = 2;</code>
+     * <code>optional string error = 2;</code>
      *
      * <pre>
-     *&#47; The current Concept Heading that is to be replaced
+     *&#47; Error message if the refactoring was unsuccessful.
      * </pre>
      */
     public com.google.protobuf.ByteString
-        getOldConceptHeadingBytes() {
-      java.lang.Object ref = oldConceptHeading_;
+        getErrorBytes() {
+      java.lang.Object ref = error_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        oldConceptHeading_ = b;
+        error_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
-    // required string oldConceptText = 3;
-    public static final int OLDCONCEPTTEXT_FIELD_NUMBER = 3;
-    private java.lang.Object oldConceptText_;
+    // repeated string filesChanged = 3;
+    public static final int FILESCHANGED_FIELD_NUMBER = 3;
+    private com.google.protobuf.LazyStringList filesChanged_;
     /**
-     * <code>required string oldConceptText = 3;</code>
+     * <code>repeated string filesChanged = 3;</code>
      *
      * <pre>
-     *&#47; The full text of the concept, including the steps
+     *&#47; Collection of files that were changed as part of the Refactoring.
      * </pre>
      */
-    public boolean hasOldConceptText() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+    public java.util.List<java.lang.String>
+        getFilesChangedList() {
+      return filesChanged_;
     }
     /**
-     * <code>required string oldConceptText = 3;</code>
+     * <code>repeated string filesChanged = 3;</code>
      *
      * <pre>
-     *&#47; The full text of the concept, including the steps
+     *&#47; Collection of files that were changed as part of the Refactoring.
      * </pre>
      */
-    public java.lang.String getOldConceptText() {
-      java.lang.Object ref = oldConceptText_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          oldConceptText_ = s;
-        }
-        return s;
-      }
+    public int getFilesChangedCount() {
+      return filesChanged_.size();
     }
     /**
-     * <code>required string oldConceptText = 3;</code>
+     * <code>repeated string filesChanged = 3;</code>
      *
      * <pre>
-     *&#47; The full text of the concept, including the steps
+     *&#47; Collection of files that were changed as part of the Refactoring.
+     * </pre>
+     */
+    public java.lang.String getFilesChanged(int index) {
+      return filesChanged_.get(index);
+    }
+    /**
+     * <code>repeated string filesChanged = 3;</code>
+     *
+     * <pre>
+     *&#47; Collection of files that were changed as part of the Refactoring.
      * </pre>
      */
     public com.google.protobuf.ByteString
-        getOldConceptTextBytes() {
-      java.lang.Object ref = oldConceptText_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        oldConceptText_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getFilesChangedBytes(int index) {
+      return filesChanged_.getByteString(index);
     }
 
     private void initFields() {
-      newConceptHeading_ = "";
-      oldConceptHeading_ = "";
-      oldConceptText_ = "";
+      isSuccess_ = false;
+      error_ = "";
+      filesChanged_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasNewConceptHeading()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasOldConceptHeading()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasOldConceptText()) {
+      if (!hasIsSuccess()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -12657,13 +14776,13 @@ public final class Api {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getNewConceptHeadingBytes());
+        output.writeBool(1, isSuccess_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, getOldConceptHeadingBytes());
+        output.writeBytes(2, getErrorBytes());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeBytes(3, getOldConceptTextBytes());
+      for (int i = 0; i < filesChanged_.size(); i++) {
+        output.writeBytes(3, filesChanged_.getByteString(i));
       }
       getUnknownFields().writeTo(output);
     }
@@ -12676,15 +14795,20 @@ public final class Api {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getNewConceptHeadingBytes());
+          .computeBoolSize(1, isSuccess_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, getOldConceptHeadingBytes());
+          .computeBytesSize(2, getErrorBytes());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(3, getOldConceptTextBytes());
+      {
+        int dataSize = 0;
+        for (int i = 0; i < filesChanged_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(filesChanged_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getFilesChangedList().size();
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -12698,53 +14822,53 @@ public final class Api {
       return super.writeReplace();
     }
 
-    public static gauge.messages.Api.FormatConceptHeadingRequest parseFrom(
+    public static gauge.messages.Api.ExtractConceptResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static gauge.messages.Api.FormatConceptHeadingRequest parseFrom(
+    public static gauge.messages.Api.ExtractConceptResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static gauge.messages.Api.FormatConceptHeadingRequest parseFrom(byte[] data)
+    public static gauge.messages.Api.ExtractConceptResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static gauge.messages.Api.FormatConceptHeadingRequest parseFrom(
+    public static gauge.messages.Api.ExtractConceptResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static gauge.messages.Api.FormatConceptHeadingRequest parseFrom(java.io.InputStream input)
+    public static gauge.messages.Api.ExtractConceptResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static gauge.messages.Api.FormatConceptHeadingRequest parseFrom(
+    public static gauge.messages.Api.ExtractConceptResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static gauge.messages.Api.FormatConceptHeadingRequest parseDelimitedFrom(java.io.InputStream input)
+    public static gauge.messages.Api.ExtractConceptResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static gauge.messages.Api.FormatConceptHeadingRequest parseDelimitedFrom(
+    public static gauge.messages.Api.ExtractConceptResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static gauge.messages.Api.FormatConceptHeadingRequest parseFrom(
+    public static gauge.messages.Api.ExtractConceptResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static gauge.messages.Api.FormatConceptHeadingRequest parseFrom(
+    public static gauge.messages.Api.ExtractConceptResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12753,7 +14877,7 @@ public final class Api {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(gauge.messages.Api.FormatConceptHeadingRequest prototype) {
+    public static Builder newBuilder(gauge.messages.Api.ExtractConceptResponse prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -12765,32 +14889,28 @@ public final class Api {
       return builder;
     }
     /**
-     * Protobuf type {@code gauge.messages.FormatConceptHeadingRequest}
+     * Protobuf type {@code gauge.messages.ExtractConceptResponse}
      *
      * <pre>
-     *&#47; Request to change the concept heading, while performing Extract to concept refactoring
-     * / This is relevant because, the ExtractConceptInfoResponse has a placeholder definition of conceptHeading
-     * / The user would then give a meaningful name to the concept, and its parameters
-     * / This is deliberately kept separate from RefactorRequest/RefactorResponse, since those change the files physically.
-     * / Changing physical files is an expensive affair and requires proper buffer management to support Undo operations.
+     *&#47; Response to perform Extract to Concept refactoring
      * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements gauge.messages.Api.FormatConceptHeadingRequestOrBuilder {
+       implements gauge.messages.Api.ExtractConceptResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return gauge.messages.Api.internal_static_gauge_messages_FormatConceptHeadingRequest_descriptor;
+        return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return gauge.messages.Api.internal_static_gauge_messages_FormatConceptHeadingRequest_fieldAccessorTable
+        return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                gauge.messages.Api.FormatConceptHeadingRequest.class, gauge.messages.Api.FormatConceptHeadingRequest.Builder.class);
+                gauge.messages.Api.ExtractConceptResponse.class, gauge.messages.Api.ExtractConceptResponse.Builder.class);
       }
 
-      // Construct using gauge.messages.Api.FormatConceptHeadingRequest.newBuilder()
+      // Construct using gauge.messages.Api.ExtractConceptResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12810,11 +14930,11 @@ public final class Api {
 
       public Builder clear() {
         super.clear();
-        newConceptHeading_ = "";
+        isSuccess_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
-        oldConceptHeading_ = "";
+        error_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        oldConceptText_ = "";
+        filesChanged_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
@@ -12825,66 +14945,71 @@ public final class Api {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return gauge.messages.Api.internal_static_gauge_messages_FormatConceptHeadingRequest_descriptor;
+        return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptResponse_descriptor;
       }
 
-      public gauge.messages.Api.FormatConceptHeadingRequest getDefaultInstanceForType() {
-        return gauge.messages.Api.FormatConceptHeadingRequest.getDefaultInstance();
+      public gauge.messages.Api.ExtractConceptResponse getDefaultInstanceForType() {
+        return gauge.messages.Api.ExtractConceptResponse.getDefaultInstance();
       }
 
-      public gauge.messages.Api.FormatConceptHeadingRequest build() {
-        gauge.messages.Api.FormatConceptHeadingRequest result = buildPartial();
+      public gauge.messages.Api.ExtractConceptResponse build() {
+        gauge.messages.Api.ExtractConceptResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public gauge.messages.Api.FormatConceptHeadingRequest buildPartial() {
-        gauge.messages.Api.FormatConceptHeadingRequest result = new gauge.messages.Api.FormatConceptHeadingRequest(this);
+      public gauge.messages.Api.ExtractConceptResponse buildPartial() {
+        gauge.messages.Api.ExtractConceptResponse result = new gauge.messages.Api.ExtractConceptResponse(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.newConceptHeading_ = newConceptHeading_;
+        result.isSuccess_ = isSuccess_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.oldConceptHeading_ = oldConceptHeading_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
+        result.error_ = error_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          filesChanged_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              filesChanged_);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
-        result.oldConceptText_ = oldConceptText_;
+        result.filesChanged_ = filesChanged_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof gauge.messages.Api.FormatConceptHeadingRequest) {
-          return mergeFrom((gauge.messages.Api.FormatConceptHeadingRequest)other);
+        if (other instanceof gauge.messages.Api.ExtractConceptResponse) {
+          return mergeFrom((gauge.messages.Api.ExtractConceptResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(gauge.messages.Api.FormatConceptHeadingRequest other) {
-        if (other == gauge.messages.Api.FormatConceptHeadingRequest.getDefaultInstance()) return this;
-        if (other.hasNewConceptHeading()) {
-          bitField0_ |= 0x00000001;
-          newConceptHeading_ = other.newConceptHeading_;
-          onChanged();
+      public Builder mergeFrom(gauge.messages.Api.ExtractConceptResponse other) {
+        if (other == gauge.messages.Api.ExtractConceptResponse.getDefaultInstance()) return this;
+        if (other.hasIsSuccess()) {
+          setIsSuccess(other.getIsSuccess());
         }
-        if (other.hasOldConceptHeading()) {
+        if (other.hasError()) {
           bitField0_ |= 0x00000002;
-          oldConceptHeading_ = other.oldConceptHeading_;
+          error_ = other.error_;
           onChanged();
         }
-        if (other.hasOldConceptText()) {
-          bitField0_ |= 0x00000004;
-          oldConceptText_ = other.oldConceptText_;
+        if (!other.filesChanged_.isEmpty()) {
+          if (filesChanged_.isEmpty()) {
+            filesChanged_ = other.filesChanged_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureFilesChangedIsMutable();
+            filesChanged_.addAll(other.filesChanged_);
+          }
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -12892,15 +15017,7 @@ public final class Api {
       }
 
       public final boolean isInitialized() {
-        if (!hasNewConceptHeading()) {
-          
-          return false;
-        }
-        if (!hasOldConceptHeading()) {
-          
-          return false;
-        }
-        if (!hasOldConceptText()) {
+        if (!hasIsSuccess()) {
           
           return false;
         }
@@ -12911,11 +15028,11 @@ public final class Api {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        gauge.messages.Api.FormatConceptHeadingRequest parsedMessage = null;
+        gauge.messages.Api.ExtractConceptResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (gauge.messages.Api.FormatConceptHeadingRequest) e.getUnfinishedMessage();
+          parsedMessage = (gauge.messages.Api.ExtractConceptResponse) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -12926,844 +15043,291 @@ public final class Api {
       }
       private int bitField0_;
 
-      // required string newConceptHeading = 1;
-      private java.lang.Object newConceptHeading_ = "";
+      // required bool isSuccess = 1;
+      private boolean isSuccess_ ;
       /**
-       * <code>required string newConceptHeading = 1;</code>
+       * <code>required bool isSuccess = 1;</code>
        *
        * <pre>
-       *&#47; The new concept heading
+       *&#47; Flag indicating Success
        * </pre>
        */
-      public boolean hasNewConceptHeading() {
+      public boolean hasIsSuccess() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required string newConceptHeading = 1;</code>
+       * <code>required bool isSuccess = 1;</code>
        *
        * <pre>
-       *&#47; The new concept heading
+       *&#47; Flag indicating Success
        * </pre>
        */
-      public java.lang.String getNewConceptHeading() {
-        java.lang.Object ref = newConceptHeading_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          newConceptHeading_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public boolean getIsSuccess() {
+        return isSuccess_;
       }
       /**
-       * <code>required string newConceptHeading = 1;</code>
+       * <code>required bool isSuccess = 1;</code>
        *
        * <pre>
-       *&#47; The new concept heading
+       *&#47; Flag indicating Success
        * </pre>
        */
-      public com.google.protobuf.ByteString
-          getNewConceptHeadingBytes() {
-        java.lang.Object ref = newConceptHeading_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          newConceptHeading_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string newConceptHeading = 1;</code>
-       *
-       * <pre>
-       *&#47; The new concept heading
-       * </pre>
-       */
-      public Builder setNewConceptHeading(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        newConceptHeading_ = value;
+      public Builder setIsSuccess(boolean value) {
+        bitField0_ |= 0x00000001;
+        isSuccess_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string newConceptHeading = 1;</code>
+       * <code>required bool isSuccess = 1;</code>
        *
        * <pre>
-       *&#47; The new concept heading
+       *&#47; Flag indicating Success
        * </pre>
        */
-      public Builder clearNewConceptHeading() {
+      public Builder clearIsSuccess() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        newConceptHeading_ = getDefaultInstance().getNewConceptHeading();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string newConceptHeading = 1;</code>
-       *
-       * <pre>
-       *&#47; The new concept heading
-       * </pre>
-       */
-      public Builder setNewConceptHeadingBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        newConceptHeading_ = value;
+        isSuccess_ = false;
         onChanged();
         return this;
       }
 
-      // required string oldConceptHeading = 2;
-      private java.lang.Object oldConceptHeading_ = "";
+      // optional string error = 2;
+      private java.lang.Object error_ = "";
       /**
-       * <code>required string oldConceptHeading = 2;</code>
+       * <code>optional string error = 2;</code>
        *
        * <pre>
-       *&#47; The current Concept Heading that is to be replaced
+       *&#47; Error message if the refactoring was unsuccessful.
        * </pre>
        */
-      public boolean hasOldConceptHeading() {
+      public boolean hasError() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required string oldConceptHeading = 2;</code>
+       * <code>optional string error = 2;</code>
        *
        * <pre>
-       *&#47; The current Concept Heading that is to be replaced
+       *&#47; Error message if the refactoring was unsuccessful.
        * </pre>
        */
-      public java.lang.String getOldConceptHeading() {
-        java.lang.Object ref = oldConceptHeading_;
+      public java.lang.String getError() {
+        java.lang.Object ref = error_;
         if (!(ref instanceof java.lang.String)) {
           java.lang.String s = ((com.google.protobuf.ByteString) ref)
               .toStringUtf8();
-          oldConceptHeading_ = s;
+          error_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>required string oldConceptHeading = 2;</code>
+       * <code>optional string error = 2;</code>
        *
        * <pre>
-       *&#47; The current Concept Heading that is to be replaced
+       *&#47; Error message if the refactoring was unsuccessful.
        * </pre>
        */
       public com.google.protobuf.ByteString
-          getOldConceptHeadingBytes() {
-        java.lang.Object ref = oldConceptHeading_;
+          getErrorBytes() {
+        java.lang.Object ref = error_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          oldConceptHeading_ = b;
+          error_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>required string oldConceptHeading = 2;</code>
+       * <code>optional string error = 2;</code>
        *
        * <pre>
-       *&#47; The current Concept Heading that is to be replaced
+       *&#47; Error message if the refactoring was unsuccessful.
        * </pre>
        */
-      public Builder setOldConceptHeading(
+      public Builder setError(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        oldConceptHeading_ = value;
+        error_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required string oldConceptHeading = 2;</code>
+       * <code>optional string error = 2;</code>
        *
        * <pre>
-       *&#47; The current Concept Heading that is to be replaced
+       *&#47; Error message if the refactoring was unsuccessful.
        * </pre>
        */
-      public Builder clearOldConceptHeading() {
+      public Builder clearError() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        oldConceptHeading_ = getDefaultInstance().getOldConceptHeading();
+        error_ = getDefaultInstance().getError();
         onChanged();
         return this;
       }
       /**
-       * <code>required string oldConceptHeading = 2;</code>
+       * <code>optional string error = 2;</code>
        *
        * <pre>
-       *&#47; The current Concept Heading that is to be replaced
+       *&#47; Error message if the refactoring was unsuccessful.
        * </pre>
        */
-      public Builder setOldConceptHeadingBytes(
+      public Builder setErrorBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000002;
-        oldConceptHeading_ = value;
+        error_ = value;
         onChanged();
         return this;
       }
 
-      // required string oldConceptText = 3;
-      private java.lang.Object oldConceptText_ = "";
-      /**
-       * <code>required string oldConceptText = 3;</code>
-       *
-       * <pre>
-       *&#47; The full text of the concept, including the steps
-       * </pre>
-       */
-      public boolean hasOldConceptText() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+      // repeated string filesChanged = 3;
+      private com.google.protobuf.LazyStringList filesChanged_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFilesChangedIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          filesChanged_ = new com.google.protobuf.LazyStringArrayList(filesChanged_);
+          bitField0_ |= 0x00000004;
+         }
       }
       /**
-       * <code>required string oldConceptText = 3;</code>
+       * <code>repeated string filesChanged = 3;</code>
        *
        * <pre>
-       *&#47; The full text of the concept, including the steps
+       *&#47; Collection of files that were changed as part of the Refactoring.
        * </pre>
        */
-      public java.lang.String getOldConceptText() {
-        java.lang.Object ref = oldConceptText_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          oldConceptText_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public java.util.List<java.lang.String>
+          getFilesChangedList() {
+        return java.util.Collections.unmodifiableList(filesChanged_);
       }
       /**
-       * <code>required string oldConceptText = 3;</code>
+       * <code>repeated string filesChanged = 3;</code>
        *
        * <pre>
-       *&#47; The full text of the concept, including the steps
+       *&#47; Collection of files that were changed as part of the Refactoring.
+       * </pre>
+       */
+      public int getFilesChangedCount() {
+        return filesChanged_.size();
+      }
+      /**
+       * <code>repeated string filesChanged = 3;</code>
+       *
+       * <pre>
+       *&#47; Collection of files that were changed as part of the Refactoring.
+       * </pre>
+       */
+      public java.lang.String getFilesChanged(int index) {
+        return filesChanged_.get(index);
+      }
+      /**
+       * <code>repeated string filesChanged = 3;</code>
+       *
+       * <pre>
+       *&#47; Collection of files that were changed as part of the Refactoring.
        * </pre>
        */
       public com.google.protobuf.ByteString
-          getOldConceptTextBytes() {
-        java.lang.Object ref = oldConceptText_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          oldConceptText_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+          getFilesChangedBytes(int index) {
+        return filesChanged_.getByteString(index);
       }
       /**
-       * <code>required string oldConceptText = 3;</code>
+       * <code>repeated string filesChanged = 3;</code>
        *
        * <pre>
-       *&#47; The full text of the concept, including the steps
+       *&#47; Collection of files that were changed as part of the Refactoring.
        * </pre>
        */
-      public Builder setOldConceptText(
-          java.lang.String value) {
+      public Builder setFilesChanged(
+          int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
-        oldConceptText_ = value;
+  ensureFilesChangedIsMutable();
+        filesChanged_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>required string oldConceptText = 3;</code>
+       * <code>repeated string filesChanged = 3;</code>
        *
        * <pre>
-       *&#47; The full text of the concept, including the steps
+       *&#47; Collection of files that were changed as part of the Refactoring.
        * </pre>
        */
-      public Builder clearOldConceptText() {
+      public Builder addFilesChanged(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFilesChangedIsMutable();
+        filesChanged_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string filesChanged = 3;</code>
+       *
+       * <pre>
+       *&#47; Collection of files that were changed as part of the Refactoring.
+       * </pre>
+       */
+      public Builder addAllFilesChanged(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureFilesChangedIsMutable();
+        super.addAll(values, filesChanged_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string filesChanged = 3;</code>
+       *
+       * <pre>
+       *&#47; Collection of files that were changed as part of the Refactoring.
+       * </pre>
+       */
+      public Builder clearFilesChanged() {
+        filesChanged_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
-        oldConceptText_ = getDefaultInstance().getOldConceptText();
         onChanged();
         return this;
       }
       /**
-       * <code>required string oldConceptText = 3;</code>
+       * <code>repeated string filesChanged = 3;</code>
        *
        * <pre>
-       *&#47; The full text of the concept, including the steps
+       *&#47; Collection of files that were changed as part of the Refactoring.
        * </pre>
        */
-      public Builder setOldConceptTextBytes(
+      public Builder addFilesChangedBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000004;
-        oldConceptText_ = value;
+  ensureFilesChangedIsMutable();
+        filesChanged_.add(value);
         onChanged();
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:gauge.messages.FormatConceptHeadingRequest)
+      // @@protoc_insertion_point(builder_scope:gauge.messages.ExtractConceptResponse)
     }
 
     static {
-      defaultInstance = new FormatConceptHeadingRequest(true);
+      defaultInstance = new ExtractConceptResponse(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:gauge.messages.FormatConceptHeadingRequest)
-  }
-
-  public interface FormatConceptHeadingResponseOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // required string newConceptText = 1;
-    /**
-     * <code>required string newConceptText = 1;</code>
-     *
-     * <pre>
-     *&#47; The new concept text, with revised concept heading.
-     * </pre>
-     */
-    boolean hasNewConceptText();
-    /**
-     * <code>required string newConceptText = 1;</code>
-     *
-     * <pre>
-     *&#47; The new concept text, with revised concept heading.
-     * </pre>
-     */
-    java.lang.String getNewConceptText();
-    /**
-     * <code>required string newConceptText = 1;</code>
-     *
-     * <pre>
-     *&#47; The new concept text, with revised concept heading.
-     * </pre>
-     */
-    com.google.protobuf.ByteString
-        getNewConceptTextBytes();
-  }
-  /**
-   * Protobuf type {@code gauge.messages.FormatConceptHeadingResponse}
-   *
-   * <pre>
-   *&#47; Response to FormatConceptHeadingRequest
-   * </pre>
-   */
-  public static final class FormatConceptHeadingResponse extends
-      com.google.protobuf.GeneratedMessage
-      implements FormatConceptHeadingResponseOrBuilder {
-    // Use FormatConceptHeadingResponse.newBuilder() to construct.
-    private FormatConceptHeadingResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private FormatConceptHeadingResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final FormatConceptHeadingResponse defaultInstance;
-    public static FormatConceptHeadingResponse getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public FormatConceptHeadingResponse getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private FormatConceptHeadingResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              newConceptText_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return gauge.messages.Api.internal_static_gauge_messages_FormatConceptHeadingResponse_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return gauge.messages.Api.internal_static_gauge_messages_FormatConceptHeadingResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              gauge.messages.Api.FormatConceptHeadingResponse.class, gauge.messages.Api.FormatConceptHeadingResponse.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<FormatConceptHeadingResponse> PARSER =
-        new com.google.protobuf.AbstractParser<FormatConceptHeadingResponse>() {
-      public FormatConceptHeadingResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FormatConceptHeadingResponse(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<FormatConceptHeadingResponse> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // required string newConceptText = 1;
-    public static final int NEWCONCEPTTEXT_FIELD_NUMBER = 1;
-    private java.lang.Object newConceptText_;
-    /**
-     * <code>required string newConceptText = 1;</code>
-     *
-     * <pre>
-     *&#47; The new concept text, with revised concept heading.
-     * </pre>
-     */
-    public boolean hasNewConceptText() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required string newConceptText = 1;</code>
-     *
-     * <pre>
-     *&#47; The new concept text, with revised concept heading.
-     * </pre>
-     */
-    public java.lang.String getNewConceptText() {
-      java.lang.Object ref = newConceptText_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          newConceptText_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>required string newConceptText = 1;</code>
-     *
-     * <pre>
-     *&#47; The new concept text, with revised concept heading.
-     * </pre>
-     */
-    public com.google.protobuf.ByteString
-        getNewConceptTextBytes() {
-      java.lang.Object ref = newConceptText_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        newConceptText_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private void initFields() {
-      newConceptText_ = "";
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      if (!hasNewConceptText()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getNewConceptTextBytes());
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getNewConceptTextBytes());
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static gauge.messages.Api.FormatConceptHeadingResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static gauge.messages.Api.FormatConceptHeadingResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static gauge.messages.Api.FormatConceptHeadingResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static gauge.messages.Api.FormatConceptHeadingResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static gauge.messages.Api.FormatConceptHeadingResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static gauge.messages.Api.FormatConceptHeadingResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static gauge.messages.Api.FormatConceptHeadingResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static gauge.messages.Api.FormatConceptHeadingResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static gauge.messages.Api.FormatConceptHeadingResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static gauge.messages.Api.FormatConceptHeadingResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(gauge.messages.Api.FormatConceptHeadingResponse prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code gauge.messages.FormatConceptHeadingResponse}
-     *
-     * <pre>
-     *&#47; Response to FormatConceptHeadingRequest
-     * </pre>
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements gauge.messages.Api.FormatConceptHeadingResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return gauge.messages.Api.internal_static_gauge_messages_FormatConceptHeadingResponse_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return gauge.messages.Api.internal_static_gauge_messages_FormatConceptHeadingResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                gauge.messages.Api.FormatConceptHeadingResponse.class, gauge.messages.Api.FormatConceptHeadingResponse.Builder.class);
-      }
-
-      // Construct using gauge.messages.Api.FormatConceptHeadingResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        newConceptText_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return gauge.messages.Api.internal_static_gauge_messages_FormatConceptHeadingResponse_descriptor;
-      }
-
-      public gauge.messages.Api.FormatConceptHeadingResponse getDefaultInstanceForType() {
-        return gauge.messages.Api.FormatConceptHeadingResponse.getDefaultInstance();
-      }
-
-      public gauge.messages.Api.FormatConceptHeadingResponse build() {
-        gauge.messages.Api.FormatConceptHeadingResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public gauge.messages.Api.FormatConceptHeadingResponse buildPartial() {
-        gauge.messages.Api.FormatConceptHeadingResponse result = new gauge.messages.Api.FormatConceptHeadingResponse(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.newConceptText_ = newConceptText_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof gauge.messages.Api.FormatConceptHeadingResponse) {
-          return mergeFrom((gauge.messages.Api.FormatConceptHeadingResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(gauge.messages.Api.FormatConceptHeadingResponse other) {
-        if (other == gauge.messages.Api.FormatConceptHeadingResponse.getDefaultInstance()) return this;
-        if (other.hasNewConceptText()) {
-          bitField0_ |= 0x00000001;
-          newConceptText_ = other.newConceptText_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        if (!hasNewConceptText()) {
-          
-          return false;
-        }
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        gauge.messages.Api.FormatConceptHeadingResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (gauge.messages.Api.FormatConceptHeadingResponse) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // required string newConceptText = 1;
-      private java.lang.Object newConceptText_ = "";
-      /**
-       * <code>required string newConceptText = 1;</code>
-       *
-       * <pre>
-       *&#47; The new concept text, with revised concept heading.
-       * </pre>
-       */
-      public boolean hasNewConceptText() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required string newConceptText = 1;</code>
-       *
-       * <pre>
-       *&#47; The new concept text, with revised concept heading.
-       * </pre>
-       */
-      public java.lang.String getNewConceptText() {
-        java.lang.Object ref = newConceptText_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          newConceptText_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>required string newConceptText = 1;</code>
-       *
-       * <pre>
-       *&#47; The new concept text, with revised concept heading.
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getNewConceptTextBytes() {
-        java.lang.Object ref = newConceptText_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          newConceptText_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>required string newConceptText = 1;</code>
-       *
-       * <pre>
-       *&#47; The new concept text, with revised concept heading.
-       * </pre>
-       */
-      public Builder setNewConceptText(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        newConceptText_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string newConceptText = 1;</code>
-       *
-       * <pre>
-       *&#47; The new concept text, with revised concept heading.
-       * </pre>
-       */
-      public Builder clearNewConceptText() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        newConceptText_ = getDefaultInstance().getNewConceptText();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required string newConceptText = 1;</code>
-       *
-       * <pre>
-       *&#47; The new concept text, with revised concept heading.
-       * </pre>
-       */
-      public Builder setNewConceptTextBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        newConceptText_ = value;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:gauge.messages.FormatConceptHeadingResponse)
-    }
-
-    static {
-      defaultInstance = new FormatConceptHeadingResponse(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:gauge.messages.FormatConceptHeadingResponse)
+    // @@protoc_insertion_point(class_scope:gauge.messages.ExtractConceptResponse)
   }
 
   public interface APIMessageOrBuilder
@@ -14249,109 +15813,57 @@ public final class Api {
      */
     gauge.messages.Api.PerformRefactoringResponseOrBuilder getPerformRefactoringResponseOrBuilder();
 
-    // optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;
+    // optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+     * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+     *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
      * </pre>
      */
-    boolean hasExtractConceptInfoRequest();
+    boolean hasExtractConceptRequest();
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+     * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+     *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
      * </pre>
      */
-    gauge.messages.Api.ExtractConceptInfoRequest getExtractConceptInfoRequest();
+    gauge.messages.Api.ExtractConceptRequest getExtractConceptRequest();
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+     * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+     *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
      * </pre>
      */
-    gauge.messages.Api.ExtractConceptInfoRequestOrBuilder getExtractConceptInfoRequestOrBuilder();
+    gauge.messages.Api.ExtractConceptRequestOrBuilder getExtractConceptRequestOrBuilder();
 
-    // optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;
+    // optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+     * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+     *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
      * </pre>
      */
-    boolean hasExtractConceptInfoResponse();
+    boolean hasExtractConceptResponse();
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+     * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+     *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
      * </pre>
      */
-    gauge.messages.Api.ExtractConceptInfoResponse getExtractConceptInfoResponse();
+    gauge.messages.Api.ExtractConceptResponse getExtractConceptResponse();
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+     * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+     *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
      * </pre>
      */
-    gauge.messages.Api.ExtractConceptInfoResponseOrBuilder getExtractConceptInfoResponseOrBuilder();
-
-    // optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    boolean hasFormatConceptHeadingRequest();
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    gauge.messages.Api.FormatConceptHeadingRequest getFormatConceptHeadingRequest();
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    gauge.messages.Api.FormatConceptHeadingRequestOrBuilder getFormatConceptHeadingRequestOrBuilder();
-
-    // optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    boolean hasFormatConceptHeadingResponse();
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    gauge.messages.Api.FormatConceptHeadingResponse getFormatConceptHeadingResponse();
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    gauge.messages.Api.FormatConceptHeadingResponseOrBuilder getFormatConceptHeadingResponseOrBuilder();
+    gauge.messages.Api.ExtractConceptResponseOrBuilder getExtractConceptResponseOrBuilder();
   }
   /**
    * Protobuf type {@code gauge.messages.APIMessage}
@@ -14647,55 +16159,29 @@ public final class Api {
               break;
             }
             case 162: {
-              gauge.messages.Api.ExtractConceptInfoRequest.Builder subBuilder = null;
+              gauge.messages.Api.ExtractConceptRequest.Builder subBuilder = null;
               if (((bitField0_ & 0x00080000) == 0x00080000)) {
-                subBuilder = extractConceptInfoRequest_.toBuilder();
+                subBuilder = extractConceptRequest_.toBuilder();
               }
-              extractConceptInfoRequest_ = input.readMessage(gauge.messages.Api.ExtractConceptInfoRequest.PARSER, extensionRegistry);
+              extractConceptRequest_ = input.readMessage(gauge.messages.Api.ExtractConceptRequest.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(extractConceptInfoRequest_);
-                extractConceptInfoRequest_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(extractConceptRequest_);
+                extractConceptRequest_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00080000;
               break;
             }
             case 170: {
-              gauge.messages.Api.ExtractConceptInfoResponse.Builder subBuilder = null;
+              gauge.messages.Api.ExtractConceptResponse.Builder subBuilder = null;
               if (((bitField0_ & 0x00100000) == 0x00100000)) {
-                subBuilder = extractConceptInfoResponse_.toBuilder();
+                subBuilder = extractConceptResponse_.toBuilder();
               }
-              extractConceptInfoResponse_ = input.readMessage(gauge.messages.Api.ExtractConceptInfoResponse.PARSER, extensionRegistry);
+              extractConceptResponse_ = input.readMessage(gauge.messages.Api.ExtractConceptResponse.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(extractConceptInfoResponse_);
-                extractConceptInfoResponse_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(extractConceptResponse_);
+                extractConceptResponse_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00100000;
-              break;
-            }
-            case 178: {
-              gauge.messages.Api.FormatConceptHeadingRequest.Builder subBuilder = null;
-              if (((bitField0_ & 0x00200000) == 0x00200000)) {
-                subBuilder = formatConceptHeadingRequest_.toBuilder();
-              }
-              formatConceptHeadingRequest_ = input.readMessage(gauge.messages.Api.FormatConceptHeadingRequest.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(formatConceptHeadingRequest_);
-                formatConceptHeadingRequest_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00200000;
-              break;
-            }
-            case 186: {
-              gauge.messages.Api.FormatConceptHeadingResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00400000) == 0x00400000)) {
-                subBuilder = formatConceptHeadingResponse_.toBuilder();
-              }
-              formatConceptHeadingResponse_ = input.readMessage(gauge.messages.Api.FormatConceptHeadingResponse.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(formatConceptHeadingResponse_);
-                formatConceptHeadingResponse_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00400000;
               break;
             }
           }
@@ -14811,21 +16297,13 @@ public final class Api {
        */
       PerformRefactoringResponse(16, 17),
       /**
-       * <code>ExtractConceptInfoRequest = 18;</code>
+       * <code>ExtractConceptRequest = 18;</code>
        */
-      ExtractConceptInfoRequest(17, 18),
+      ExtractConceptRequest(17, 18),
       /**
-       * <code>ExtractConceptInfoResponse = 19;</code>
+       * <code>ExtractConceptResponse = 19;</code>
        */
-      ExtractConceptInfoResponse(18, 19),
-      /**
-       * <code>FormatConceptHeadingRequest = 20;</code>
-       */
-      FormatConceptHeadingRequest(19, 20),
-      /**
-       * <code>FormatConceptHeadingResponse = 21;</code>
-       */
-      FormatConceptHeadingResponse(20, 21),
+      ExtractConceptResponse(18, 19),
       ;
 
       /**
@@ -14897,21 +16375,13 @@ public final class Api {
        */
       public static final int PerformRefactoringResponse_VALUE = 17;
       /**
-       * <code>ExtractConceptInfoRequest = 18;</code>
+       * <code>ExtractConceptRequest = 18;</code>
        */
-      public static final int ExtractConceptInfoRequest_VALUE = 18;
+      public static final int ExtractConceptRequest_VALUE = 18;
       /**
-       * <code>ExtractConceptInfoResponse = 19;</code>
+       * <code>ExtractConceptResponse = 19;</code>
        */
-      public static final int ExtractConceptInfoResponse_VALUE = 19;
-      /**
-       * <code>FormatConceptHeadingRequest = 20;</code>
-       */
-      public static final int FormatConceptHeadingRequest_VALUE = 20;
-      /**
-       * <code>FormatConceptHeadingResponse = 21;</code>
-       */
-      public static final int FormatConceptHeadingResponse_VALUE = 21;
+      public static final int ExtractConceptResponse_VALUE = 19;
 
 
       public final int getNumber() { return value; }
@@ -14935,10 +16405,8 @@ public final class Api {
           case 15: return GetAllConceptsResponse;
           case 16: return PerformRefactoringRequest;
           case 17: return PerformRefactoringResponse;
-          case 18: return ExtractConceptInfoRequest;
-          case 19: return ExtractConceptInfoResponse;
-          case 20: return FormatConceptHeadingRequest;
-          case 21: return FormatConceptHeadingResponse;
+          case 18: return ExtractConceptRequest;
+          case 19: return ExtractConceptResponse;
           default: return null;
         }
       }
@@ -15619,140 +17087,72 @@ public final class Api {
       return performRefactoringResponse_;
     }
 
-    // optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;
-    public static final int EXTRACTCONCEPTINFOREQUEST_FIELD_NUMBER = 20;
-    private gauge.messages.Api.ExtractConceptInfoRequest extractConceptInfoRequest_;
+    // optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;
+    public static final int EXTRACTCONCEPTREQUEST_FIELD_NUMBER = 20;
+    private gauge.messages.Api.ExtractConceptRequest extractConceptRequest_;
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+     * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+     *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
      * </pre>
      */
-    public boolean hasExtractConceptInfoRequest() {
+    public boolean hasExtractConceptRequest() {
       return ((bitField0_ & 0x00080000) == 0x00080000);
     }
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+     * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+     *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
      * </pre>
      */
-    public gauge.messages.Api.ExtractConceptInfoRequest getExtractConceptInfoRequest() {
-      return extractConceptInfoRequest_;
+    public gauge.messages.Api.ExtractConceptRequest getExtractConceptRequest() {
+      return extractConceptRequest_;
     }
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+     * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+     *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
      * </pre>
      */
-    public gauge.messages.Api.ExtractConceptInfoRequestOrBuilder getExtractConceptInfoRequestOrBuilder() {
-      return extractConceptInfoRequest_;
+    public gauge.messages.Api.ExtractConceptRequestOrBuilder getExtractConceptRequestOrBuilder() {
+      return extractConceptRequest_;
     }
 
-    // optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;
-    public static final int EXTRACTCONCEPTINFORESPONSE_FIELD_NUMBER = 21;
-    private gauge.messages.Api.ExtractConceptInfoResponse extractConceptInfoResponse_;
+    // optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;
+    public static final int EXTRACTCONCEPTRESPONSE_FIELD_NUMBER = 21;
+    private gauge.messages.Api.ExtractConceptResponse extractConceptResponse_;
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+     * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+     *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
      * </pre>
      */
-    public boolean hasExtractConceptInfoResponse() {
+    public boolean hasExtractConceptResponse() {
       return ((bitField0_ & 0x00100000) == 0x00100000);
     }
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+     * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+     *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
      * </pre>
      */
-    public gauge.messages.Api.ExtractConceptInfoResponse getExtractConceptInfoResponse() {
-      return extractConceptInfoResponse_;
+    public gauge.messages.Api.ExtractConceptResponse getExtractConceptResponse() {
+      return extractConceptResponse_;
     }
     /**
-     * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+     * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
      *
      * <pre>
-     *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+     *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
      * </pre>
      */
-    public gauge.messages.Api.ExtractConceptInfoResponseOrBuilder getExtractConceptInfoResponseOrBuilder() {
-      return extractConceptInfoResponse_;
-    }
-
-    // optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;
-    public static final int FORMATCONCEPTHEADINGREQUEST_FIELD_NUMBER = 22;
-    private gauge.messages.Api.FormatConceptHeadingRequest formatConceptHeadingRequest_;
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    public boolean hasFormatConceptHeadingRequest() {
-      return ((bitField0_ & 0x00200000) == 0x00200000);
-    }
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    public gauge.messages.Api.FormatConceptHeadingRequest getFormatConceptHeadingRequest() {
-      return formatConceptHeadingRequest_;
-    }
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    public gauge.messages.Api.FormatConceptHeadingRequestOrBuilder getFormatConceptHeadingRequestOrBuilder() {
-      return formatConceptHeadingRequest_;
-    }
-
-    // optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;
-    public static final int FORMATCONCEPTHEADINGRESPONSE_FIELD_NUMBER = 23;
-    private gauge.messages.Api.FormatConceptHeadingResponse formatConceptHeadingResponse_;
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    public boolean hasFormatConceptHeadingResponse() {
-      return ((bitField0_ & 0x00400000) == 0x00400000);
-    }
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    public gauge.messages.Api.FormatConceptHeadingResponse getFormatConceptHeadingResponse() {
-      return formatConceptHeadingResponse_;
-    }
-    /**
-     * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-     *
-     * <pre>
-     *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-     * </pre>
-     */
-    public gauge.messages.Api.FormatConceptHeadingResponseOrBuilder getFormatConceptHeadingResponseOrBuilder() {
-      return formatConceptHeadingResponse_;
+    public gauge.messages.Api.ExtractConceptResponseOrBuilder getExtractConceptResponseOrBuilder() {
+      return extractConceptResponse_;
     }
 
     private void initFields() {
@@ -15775,10 +17175,8 @@ public final class Api {
       allConceptsResponse_ = gauge.messages.Api.GetAllConceptsResponse.getDefaultInstance();
       performRefactoringRequest_ = gauge.messages.Api.PerformRefactoringRequest.getDefaultInstance();
       performRefactoringResponse_ = gauge.messages.Api.PerformRefactoringResponse.getDefaultInstance();
-      extractConceptInfoRequest_ = gauge.messages.Api.ExtractConceptInfoRequest.getDefaultInstance();
-      extractConceptInfoResponse_ = gauge.messages.Api.ExtractConceptInfoResponse.getDefaultInstance();
-      formatConceptHeadingRequest_ = gauge.messages.Api.FormatConceptHeadingRequest.getDefaultInstance();
-      formatConceptHeadingResponse_ = gauge.messages.Api.FormatConceptHeadingResponse.getDefaultInstance();
+      extractConceptRequest_ = gauge.messages.Api.ExtractConceptRequest.getDefaultInstance();
+      extractConceptResponse_ = gauge.messages.Api.ExtractConceptResponse.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -15865,26 +17263,14 @@ public final class Api {
           return false;
         }
       }
-      if (hasExtractConceptInfoRequest()) {
-        if (!getExtractConceptInfoRequest().isInitialized()) {
+      if (hasExtractConceptRequest()) {
+        if (!getExtractConceptRequest().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
       }
-      if (hasExtractConceptInfoResponse()) {
-        if (!getExtractConceptInfoResponse().isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
-      if (hasFormatConceptHeadingRequest()) {
-        if (!getFormatConceptHeadingRequest().isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
-      if (hasFormatConceptHeadingResponse()) {
-        if (!getFormatConceptHeadingResponse().isInitialized()) {
+      if (hasExtractConceptResponse()) {
+        if (!getExtractConceptResponse().isInitialized()) {
           memoizedIsInitialized = 0;
           return false;
         }
@@ -15954,16 +17340,10 @@ public final class Api {
         output.writeMessage(19, performRefactoringResponse_);
       }
       if (((bitField0_ & 0x00080000) == 0x00080000)) {
-        output.writeMessage(20, extractConceptInfoRequest_);
+        output.writeMessage(20, extractConceptRequest_);
       }
       if (((bitField0_ & 0x00100000) == 0x00100000)) {
-        output.writeMessage(21, extractConceptInfoResponse_);
-      }
-      if (((bitField0_ & 0x00200000) == 0x00200000)) {
-        output.writeMessage(22, formatConceptHeadingRequest_);
-      }
-      if (((bitField0_ & 0x00400000) == 0x00400000)) {
-        output.writeMessage(23, formatConceptHeadingResponse_);
+        output.writeMessage(21, extractConceptResponse_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -16052,19 +17432,11 @@ public final class Api {
       }
       if (((bitField0_ & 0x00080000) == 0x00080000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(20, extractConceptInfoRequest_);
+          .computeMessageSize(20, extractConceptRequest_);
       }
       if (((bitField0_ & 0x00100000) == 0x00100000)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(21, extractConceptInfoResponse_);
-      }
-      if (((bitField0_ & 0x00200000) == 0x00200000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(22, formatConceptHeadingRequest_);
-      }
-      if (((bitField0_ & 0x00400000) == 0x00400000)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(23, formatConceptHeadingResponse_);
+          .computeMessageSize(21, extractConceptResponse_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -16196,10 +17568,8 @@ public final class Api {
           getAllConceptsResponseFieldBuilder();
           getPerformRefactoringRequestFieldBuilder();
           getPerformRefactoringResponseFieldBuilder();
-          getExtractConceptInfoRequestFieldBuilder();
-          getExtractConceptInfoResponseFieldBuilder();
-          getFormatConceptHeadingRequestFieldBuilder();
-          getFormatConceptHeadingResponseFieldBuilder();
+          getExtractConceptRequestFieldBuilder();
+          getExtractConceptResponseFieldBuilder();
         }
       }
       private static Builder create() {
@@ -16314,30 +17684,18 @@ public final class Api {
           performRefactoringResponseBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00040000);
-        if (extractConceptInfoRequestBuilder_ == null) {
-          extractConceptInfoRequest_ = gauge.messages.Api.ExtractConceptInfoRequest.getDefaultInstance();
+        if (extractConceptRequestBuilder_ == null) {
+          extractConceptRequest_ = gauge.messages.Api.ExtractConceptRequest.getDefaultInstance();
         } else {
-          extractConceptInfoRequestBuilder_.clear();
+          extractConceptRequestBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00080000);
-        if (extractConceptInfoResponseBuilder_ == null) {
-          extractConceptInfoResponse_ = gauge.messages.Api.ExtractConceptInfoResponse.getDefaultInstance();
+        if (extractConceptResponseBuilder_ == null) {
+          extractConceptResponse_ = gauge.messages.Api.ExtractConceptResponse.getDefaultInstance();
         } else {
-          extractConceptInfoResponseBuilder_.clear();
+          extractConceptResponseBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00100000);
-        if (formatConceptHeadingRequestBuilder_ == null) {
-          formatConceptHeadingRequest_ = gauge.messages.Api.FormatConceptHeadingRequest.getDefaultInstance();
-        } else {
-          formatConceptHeadingRequestBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00200000);
-        if (formatConceptHeadingResponseBuilder_ == null) {
-          formatConceptHeadingResponse_ = gauge.messages.Api.FormatConceptHeadingResponse.getDefaultInstance();
-        } else {
-          formatConceptHeadingResponseBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00400000);
         return this;
       }
 
@@ -16513,34 +17871,18 @@ public final class Api {
         if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
           to_bitField0_ |= 0x00080000;
         }
-        if (extractConceptInfoRequestBuilder_ == null) {
-          result.extractConceptInfoRequest_ = extractConceptInfoRequest_;
+        if (extractConceptRequestBuilder_ == null) {
+          result.extractConceptRequest_ = extractConceptRequest_;
         } else {
-          result.extractConceptInfoRequest_ = extractConceptInfoRequestBuilder_.build();
+          result.extractConceptRequest_ = extractConceptRequestBuilder_.build();
         }
         if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
           to_bitField0_ |= 0x00100000;
         }
-        if (extractConceptInfoResponseBuilder_ == null) {
-          result.extractConceptInfoResponse_ = extractConceptInfoResponse_;
+        if (extractConceptResponseBuilder_ == null) {
+          result.extractConceptResponse_ = extractConceptResponse_;
         } else {
-          result.extractConceptInfoResponse_ = extractConceptInfoResponseBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00200000) == 0x00200000)) {
-          to_bitField0_ |= 0x00200000;
-        }
-        if (formatConceptHeadingRequestBuilder_ == null) {
-          result.formatConceptHeadingRequest_ = formatConceptHeadingRequest_;
-        } else {
-          result.formatConceptHeadingRequest_ = formatConceptHeadingRequestBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00400000) == 0x00400000)) {
-          to_bitField0_ |= 0x00400000;
-        }
-        if (formatConceptHeadingResponseBuilder_ == null) {
-          result.formatConceptHeadingResponse_ = formatConceptHeadingResponse_;
-        } else {
-          result.formatConceptHeadingResponse_ = formatConceptHeadingResponseBuilder_.build();
+          result.extractConceptResponse_ = extractConceptResponseBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -16615,17 +17957,11 @@ public final class Api {
         if (other.hasPerformRefactoringResponse()) {
           mergePerformRefactoringResponse(other.getPerformRefactoringResponse());
         }
-        if (other.hasExtractConceptInfoRequest()) {
-          mergeExtractConceptInfoRequest(other.getExtractConceptInfoRequest());
+        if (other.hasExtractConceptRequest()) {
+          mergeExtractConceptRequest(other.getExtractConceptRequest());
         }
-        if (other.hasExtractConceptInfoResponse()) {
-          mergeExtractConceptInfoResponse(other.getExtractConceptInfoResponse());
-        }
-        if (other.hasFormatConceptHeadingRequest()) {
-          mergeFormatConceptHeadingRequest(other.getFormatConceptHeadingRequest());
-        }
-        if (other.hasFormatConceptHeadingResponse()) {
-          mergeFormatConceptHeadingResponse(other.getFormatConceptHeadingResponse());
+        if (other.hasExtractConceptResponse()) {
+          mergeExtractConceptResponse(other.getExtractConceptResponse());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -16712,26 +18048,14 @@ public final class Api {
             return false;
           }
         }
-        if (hasExtractConceptInfoRequest()) {
-          if (!getExtractConceptInfoRequest().isInitialized()) {
+        if (hasExtractConceptRequest()) {
+          if (!getExtractConceptRequest().isInitialized()) {
             
             return false;
           }
         }
-        if (hasExtractConceptInfoResponse()) {
-          if (!getExtractConceptInfoResponse().isInitialized()) {
-            
-            return false;
-          }
-        }
-        if (hasFormatConceptHeadingRequest()) {
-          if (!getFormatConceptHeadingRequest().isInitialized()) {
-            
-            return false;
-          }
-        }
-        if (hasFormatConceptHeadingResponse()) {
-          if (!getFormatConceptHeadingResponse().isInitialized()) {
+        if (hasExtractConceptResponse()) {
+          if (!getExtractConceptResponse().isInitialized()) {
             
             return false;
           }
@@ -19464,616 +20788,310 @@ public final class Api {
         return performRefactoringResponseBuilder_;
       }
 
-      // optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;
-      private gauge.messages.Api.ExtractConceptInfoRequest extractConceptInfoRequest_ = gauge.messages.Api.ExtractConceptInfoRequest.getDefaultInstance();
+      // optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;
+      private gauge.messages.Api.ExtractConceptRequest extractConceptRequest_ = gauge.messages.Api.ExtractConceptRequest.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          gauge.messages.Api.ExtractConceptInfoRequest, gauge.messages.Api.ExtractConceptInfoRequest.Builder, gauge.messages.Api.ExtractConceptInfoRequestOrBuilder> extractConceptInfoRequestBuilder_;
+          gauge.messages.Api.ExtractConceptRequest, gauge.messages.Api.ExtractConceptRequest.Builder, gauge.messages.Api.ExtractConceptRequestOrBuilder> extractConceptRequestBuilder_;
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+       * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+       *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
        * </pre>
        */
-      public boolean hasExtractConceptInfoRequest() {
+      public boolean hasExtractConceptRequest() {
         return ((bitField0_ & 0x00080000) == 0x00080000);
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+       * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+       *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
        * </pre>
        */
-      public gauge.messages.Api.ExtractConceptInfoRequest getExtractConceptInfoRequest() {
-        if (extractConceptInfoRequestBuilder_ == null) {
-          return extractConceptInfoRequest_;
+      public gauge.messages.Api.ExtractConceptRequest getExtractConceptRequest() {
+        if (extractConceptRequestBuilder_ == null) {
+          return extractConceptRequest_;
         } else {
-          return extractConceptInfoRequestBuilder_.getMessage();
+          return extractConceptRequestBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+       * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+       *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
        * </pre>
        */
-      public Builder setExtractConceptInfoRequest(gauge.messages.Api.ExtractConceptInfoRequest value) {
-        if (extractConceptInfoRequestBuilder_ == null) {
+      public Builder setExtractConceptRequest(gauge.messages.Api.ExtractConceptRequest value) {
+        if (extractConceptRequestBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          extractConceptInfoRequest_ = value;
+          extractConceptRequest_ = value;
           onChanged();
         } else {
-          extractConceptInfoRequestBuilder_.setMessage(value);
+          extractConceptRequestBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00080000;
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+       * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+       *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
        * </pre>
        */
-      public Builder setExtractConceptInfoRequest(
-          gauge.messages.Api.ExtractConceptInfoRequest.Builder builderForValue) {
-        if (extractConceptInfoRequestBuilder_ == null) {
-          extractConceptInfoRequest_ = builderForValue.build();
+      public Builder setExtractConceptRequest(
+          gauge.messages.Api.ExtractConceptRequest.Builder builderForValue) {
+        if (extractConceptRequestBuilder_ == null) {
+          extractConceptRequest_ = builderForValue.build();
           onChanged();
         } else {
-          extractConceptInfoRequestBuilder_.setMessage(builderForValue.build());
+          extractConceptRequestBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00080000;
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+       * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+       *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
        * </pre>
        */
-      public Builder mergeExtractConceptInfoRequest(gauge.messages.Api.ExtractConceptInfoRequest value) {
-        if (extractConceptInfoRequestBuilder_ == null) {
+      public Builder mergeExtractConceptRequest(gauge.messages.Api.ExtractConceptRequest value) {
+        if (extractConceptRequestBuilder_ == null) {
           if (((bitField0_ & 0x00080000) == 0x00080000) &&
-              extractConceptInfoRequest_ != gauge.messages.Api.ExtractConceptInfoRequest.getDefaultInstance()) {
-            extractConceptInfoRequest_ =
-              gauge.messages.Api.ExtractConceptInfoRequest.newBuilder(extractConceptInfoRequest_).mergeFrom(value).buildPartial();
+              extractConceptRequest_ != gauge.messages.Api.ExtractConceptRequest.getDefaultInstance()) {
+            extractConceptRequest_ =
+              gauge.messages.Api.ExtractConceptRequest.newBuilder(extractConceptRequest_).mergeFrom(value).buildPartial();
           } else {
-            extractConceptInfoRequest_ = value;
+            extractConceptRequest_ = value;
           }
           onChanged();
         } else {
-          extractConceptInfoRequestBuilder_.mergeFrom(value);
+          extractConceptRequestBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00080000;
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+       * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+       *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
        * </pre>
        */
-      public Builder clearExtractConceptInfoRequest() {
-        if (extractConceptInfoRequestBuilder_ == null) {
-          extractConceptInfoRequest_ = gauge.messages.Api.ExtractConceptInfoRequest.getDefaultInstance();
+      public Builder clearExtractConceptRequest() {
+        if (extractConceptRequestBuilder_ == null) {
+          extractConceptRequest_ = gauge.messages.Api.ExtractConceptRequest.getDefaultInstance();
           onChanged();
         } else {
-          extractConceptInfoRequestBuilder_.clear();
+          extractConceptRequestBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00080000);
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+       * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+       *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
        * </pre>
        */
-      public gauge.messages.Api.ExtractConceptInfoRequest.Builder getExtractConceptInfoRequestBuilder() {
+      public gauge.messages.Api.ExtractConceptRequest.Builder getExtractConceptRequestBuilder() {
         bitField0_ |= 0x00080000;
         onChanged();
-        return getExtractConceptInfoRequestFieldBuilder().getBuilder();
+        return getExtractConceptRequestFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+       * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+       *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
        * </pre>
        */
-      public gauge.messages.Api.ExtractConceptInfoRequestOrBuilder getExtractConceptInfoRequestOrBuilder() {
-        if (extractConceptInfoRequestBuilder_ != null) {
-          return extractConceptInfoRequestBuilder_.getMessageOrBuilder();
+      public gauge.messages.Api.ExtractConceptRequestOrBuilder getExtractConceptRequestOrBuilder() {
+        if (extractConceptRequestBuilder_ != null) {
+          return extractConceptRequestBuilder_.getMessageOrBuilder();
         } else {
-          return extractConceptInfoRequest_;
+          return extractConceptRequest_;
         }
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoRequest extractConceptInfoRequest = 20;</code>
+       * <code>optional .gauge.messages.ExtractConceptRequest extractConceptRequest = 20;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoRequest](#gauge.messages.ExtractConceptInfoRequest)
+       *&#47; [ExtractConceptRequest](#gauge.messages.ExtractConceptRequest)
        * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          gauge.messages.Api.ExtractConceptInfoRequest, gauge.messages.Api.ExtractConceptInfoRequest.Builder, gauge.messages.Api.ExtractConceptInfoRequestOrBuilder> 
-          getExtractConceptInfoRequestFieldBuilder() {
-        if (extractConceptInfoRequestBuilder_ == null) {
-          extractConceptInfoRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              gauge.messages.Api.ExtractConceptInfoRequest, gauge.messages.Api.ExtractConceptInfoRequest.Builder, gauge.messages.Api.ExtractConceptInfoRequestOrBuilder>(
-                  extractConceptInfoRequest_,
+          gauge.messages.Api.ExtractConceptRequest, gauge.messages.Api.ExtractConceptRequest.Builder, gauge.messages.Api.ExtractConceptRequestOrBuilder> 
+          getExtractConceptRequestFieldBuilder() {
+        if (extractConceptRequestBuilder_ == null) {
+          extractConceptRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              gauge.messages.Api.ExtractConceptRequest, gauge.messages.Api.ExtractConceptRequest.Builder, gauge.messages.Api.ExtractConceptRequestOrBuilder>(
+                  extractConceptRequest_,
                   getParentForChildren(),
                   isClean());
-          extractConceptInfoRequest_ = null;
+          extractConceptRequest_ = null;
         }
-        return extractConceptInfoRequestBuilder_;
+        return extractConceptRequestBuilder_;
       }
 
-      // optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;
-      private gauge.messages.Api.ExtractConceptInfoResponse extractConceptInfoResponse_ = gauge.messages.Api.ExtractConceptInfoResponse.getDefaultInstance();
+      // optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;
+      private gauge.messages.Api.ExtractConceptResponse extractConceptResponse_ = gauge.messages.Api.ExtractConceptResponse.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          gauge.messages.Api.ExtractConceptInfoResponse, gauge.messages.Api.ExtractConceptInfoResponse.Builder, gauge.messages.Api.ExtractConceptInfoResponseOrBuilder> extractConceptInfoResponseBuilder_;
+          gauge.messages.Api.ExtractConceptResponse, gauge.messages.Api.ExtractConceptResponse.Builder, gauge.messages.Api.ExtractConceptResponseOrBuilder> extractConceptResponseBuilder_;
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+       * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+       *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
        * </pre>
        */
-      public boolean hasExtractConceptInfoResponse() {
+      public boolean hasExtractConceptResponse() {
         return ((bitField0_ & 0x00100000) == 0x00100000);
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+       * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+       *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
        * </pre>
        */
-      public gauge.messages.Api.ExtractConceptInfoResponse getExtractConceptInfoResponse() {
-        if (extractConceptInfoResponseBuilder_ == null) {
-          return extractConceptInfoResponse_;
+      public gauge.messages.Api.ExtractConceptResponse getExtractConceptResponse() {
+        if (extractConceptResponseBuilder_ == null) {
+          return extractConceptResponse_;
         } else {
-          return extractConceptInfoResponseBuilder_.getMessage();
+          return extractConceptResponseBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+       * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+       *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
        * </pre>
        */
-      public Builder setExtractConceptInfoResponse(gauge.messages.Api.ExtractConceptInfoResponse value) {
-        if (extractConceptInfoResponseBuilder_ == null) {
+      public Builder setExtractConceptResponse(gauge.messages.Api.ExtractConceptResponse value) {
+        if (extractConceptResponseBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          extractConceptInfoResponse_ = value;
+          extractConceptResponse_ = value;
           onChanged();
         } else {
-          extractConceptInfoResponseBuilder_.setMessage(value);
+          extractConceptResponseBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00100000;
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+       * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+       *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
        * </pre>
        */
-      public Builder setExtractConceptInfoResponse(
-          gauge.messages.Api.ExtractConceptInfoResponse.Builder builderForValue) {
-        if (extractConceptInfoResponseBuilder_ == null) {
-          extractConceptInfoResponse_ = builderForValue.build();
+      public Builder setExtractConceptResponse(
+          gauge.messages.Api.ExtractConceptResponse.Builder builderForValue) {
+        if (extractConceptResponseBuilder_ == null) {
+          extractConceptResponse_ = builderForValue.build();
           onChanged();
         } else {
-          extractConceptInfoResponseBuilder_.setMessage(builderForValue.build());
+          extractConceptResponseBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00100000;
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+       * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+       *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
        * </pre>
        */
-      public Builder mergeExtractConceptInfoResponse(gauge.messages.Api.ExtractConceptInfoResponse value) {
-        if (extractConceptInfoResponseBuilder_ == null) {
+      public Builder mergeExtractConceptResponse(gauge.messages.Api.ExtractConceptResponse value) {
+        if (extractConceptResponseBuilder_ == null) {
           if (((bitField0_ & 0x00100000) == 0x00100000) &&
-              extractConceptInfoResponse_ != gauge.messages.Api.ExtractConceptInfoResponse.getDefaultInstance()) {
-            extractConceptInfoResponse_ =
-              gauge.messages.Api.ExtractConceptInfoResponse.newBuilder(extractConceptInfoResponse_).mergeFrom(value).buildPartial();
+              extractConceptResponse_ != gauge.messages.Api.ExtractConceptResponse.getDefaultInstance()) {
+            extractConceptResponse_ =
+              gauge.messages.Api.ExtractConceptResponse.newBuilder(extractConceptResponse_).mergeFrom(value).buildPartial();
           } else {
-            extractConceptInfoResponse_ = value;
+            extractConceptResponse_ = value;
           }
           onChanged();
         } else {
-          extractConceptInfoResponseBuilder_.mergeFrom(value);
+          extractConceptResponseBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00100000;
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+       * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+       *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
        * </pre>
        */
-      public Builder clearExtractConceptInfoResponse() {
-        if (extractConceptInfoResponseBuilder_ == null) {
-          extractConceptInfoResponse_ = gauge.messages.Api.ExtractConceptInfoResponse.getDefaultInstance();
+      public Builder clearExtractConceptResponse() {
+        if (extractConceptResponseBuilder_ == null) {
+          extractConceptResponse_ = gauge.messages.Api.ExtractConceptResponse.getDefaultInstance();
           onChanged();
         } else {
-          extractConceptInfoResponseBuilder_.clear();
+          extractConceptResponseBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00100000);
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+       * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+       *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
        * </pre>
        */
-      public gauge.messages.Api.ExtractConceptInfoResponse.Builder getExtractConceptInfoResponseBuilder() {
+      public gauge.messages.Api.ExtractConceptResponse.Builder getExtractConceptResponseBuilder() {
         bitField0_ |= 0x00100000;
         onChanged();
-        return getExtractConceptInfoResponseFieldBuilder().getBuilder();
+        return getExtractConceptResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+       * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+       *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
        * </pre>
        */
-      public gauge.messages.Api.ExtractConceptInfoResponseOrBuilder getExtractConceptInfoResponseOrBuilder() {
-        if (extractConceptInfoResponseBuilder_ != null) {
-          return extractConceptInfoResponseBuilder_.getMessageOrBuilder();
+      public gauge.messages.Api.ExtractConceptResponseOrBuilder getExtractConceptResponseOrBuilder() {
+        if (extractConceptResponseBuilder_ != null) {
+          return extractConceptResponseBuilder_.getMessageOrBuilder();
         } else {
-          return extractConceptInfoResponse_;
+          return extractConceptResponse_;
         }
       }
       /**
-       * <code>optional .gauge.messages.ExtractConceptInfoResponse extractConceptInfoResponse = 21;</code>
+       * <code>optional .gauge.messages.ExtractConceptResponse extractConceptResponse = 21;</code>
        *
        * <pre>
-       *&#47; [ExtractConceptInfoResponse](#gauge.messages.ExtractConceptInfoResponse)
+       *&#47; [ExtractConceptResponse](#gauge.messages.ExtractConceptResponse)
        * </pre>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          gauge.messages.Api.ExtractConceptInfoResponse, gauge.messages.Api.ExtractConceptInfoResponse.Builder, gauge.messages.Api.ExtractConceptInfoResponseOrBuilder> 
-          getExtractConceptInfoResponseFieldBuilder() {
-        if (extractConceptInfoResponseBuilder_ == null) {
-          extractConceptInfoResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              gauge.messages.Api.ExtractConceptInfoResponse, gauge.messages.Api.ExtractConceptInfoResponse.Builder, gauge.messages.Api.ExtractConceptInfoResponseOrBuilder>(
-                  extractConceptInfoResponse_,
+          gauge.messages.Api.ExtractConceptResponse, gauge.messages.Api.ExtractConceptResponse.Builder, gauge.messages.Api.ExtractConceptResponseOrBuilder> 
+          getExtractConceptResponseFieldBuilder() {
+        if (extractConceptResponseBuilder_ == null) {
+          extractConceptResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              gauge.messages.Api.ExtractConceptResponse, gauge.messages.Api.ExtractConceptResponse.Builder, gauge.messages.Api.ExtractConceptResponseOrBuilder>(
+                  extractConceptResponse_,
                   getParentForChildren(),
                   isClean());
-          extractConceptInfoResponse_ = null;
+          extractConceptResponse_ = null;
         }
-        return extractConceptInfoResponseBuilder_;
-      }
-
-      // optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;
-      private gauge.messages.Api.FormatConceptHeadingRequest formatConceptHeadingRequest_ = gauge.messages.Api.FormatConceptHeadingRequest.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          gauge.messages.Api.FormatConceptHeadingRequest, gauge.messages.Api.FormatConceptHeadingRequest.Builder, gauge.messages.Api.FormatConceptHeadingRequestOrBuilder> formatConceptHeadingRequestBuilder_;
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public boolean hasFormatConceptHeadingRequest() {
-        return ((bitField0_ & 0x00200000) == 0x00200000);
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public gauge.messages.Api.FormatConceptHeadingRequest getFormatConceptHeadingRequest() {
-        if (formatConceptHeadingRequestBuilder_ == null) {
-          return formatConceptHeadingRequest_;
-        } else {
-          return formatConceptHeadingRequestBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public Builder setFormatConceptHeadingRequest(gauge.messages.Api.FormatConceptHeadingRequest value) {
-        if (formatConceptHeadingRequestBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          formatConceptHeadingRequest_ = value;
-          onChanged();
-        } else {
-          formatConceptHeadingRequestBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00200000;
-        return this;
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public Builder setFormatConceptHeadingRequest(
-          gauge.messages.Api.FormatConceptHeadingRequest.Builder builderForValue) {
-        if (formatConceptHeadingRequestBuilder_ == null) {
-          formatConceptHeadingRequest_ = builderForValue.build();
-          onChanged();
-        } else {
-          formatConceptHeadingRequestBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00200000;
-        return this;
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public Builder mergeFormatConceptHeadingRequest(gauge.messages.Api.FormatConceptHeadingRequest value) {
-        if (formatConceptHeadingRequestBuilder_ == null) {
-          if (((bitField0_ & 0x00200000) == 0x00200000) &&
-              formatConceptHeadingRequest_ != gauge.messages.Api.FormatConceptHeadingRequest.getDefaultInstance()) {
-            formatConceptHeadingRequest_ =
-              gauge.messages.Api.FormatConceptHeadingRequest.newBuilder(formatConceptHeadingRequest_).mergeFrom(value).buildPartial();
-          } else {
-            formatConceptHeadingRequest_ = value;
-          }
-          onChanged();
-        } else {
-          formatConceptHeadingRequestBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00200000;
-        return this;
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public Builder clearFormatConceptHeadingRequest() {
-        if (formatConceptHeadingRequestBuilder_ == null) {
-          formatConceptHeadingRequest_ = gauge.messages.Api.FormatConceptHeadingRequest.getDefaultInstance();
-          onChanged();
-        } else {
-          formatConceptHeadingRequestBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00200000);
-        return this;
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public gauge.messages.Api.FormatConceptHeadingRequest.Builder getFormatConceptHeadingRequestBuilder() {
-        bitField0_ |= 0x00200000;
-        onChanged();
-        return getFormatConceptHeadingRequestFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public gauge.messages.Api.FormatConceptHeadingRequestOrBuilder getFormatConceptHeadingRequestOrBuilder() {
-        if (formatConceptHeadingRequestBuilder_ != null) {
-          return formatConceptHeadingRequestBuilder_.getMessageOrBuilder();
-        } else {
-          return formatConceptHeadingRequest_;
-        }
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingRequest formatConceptHeadingRequest = 22;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          gauge.messages.Api.FormatConceptHeadingRequest, gauge.messages.Api.FormatConceptHeadingRequest.Builder, gauge.messages.Api.FormatConceptHeadingRequestOrBuilder> 
-          getFormatConceptHeadingRequestFieldBuilder() {
-        if (formatConceptHeadingRequestBuilder_ == null) {
-          formatConceptHeadingRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              gauge.messages.Api.FormatConceptHeadingRequest, gauge.messages.Api.FormatConceptHeadingRequest.Builder, gauge.messages.Api.FormatConceptHeadingRequestOrBuilder>(
-                  formatConceptHeadingRequest_,
-                  getParentForChildren(),
-                  isClean());
-          formatConceptHeadingRequest_ = null;
-        }
-        return formatConceptHeadingRequestBuilder_;
-      }
-
-      // optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;
-      private gauge.messages.Api.FormatConceptHeadingResponse formatConceptHeadingResponse_ = gauge.messages.Api.FormatConceptHeadingResponse.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
-          gauge.messages.Api.FormatConceptHeadingResponse, gauge.messages.Api.FormatConceptHeadingResponse.Builder, gauge.messages.Api.FormatConceptHeadingResponseOrBuilder> formatConceptHeadingResponseBuilder_;
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public boolean hasFormatConceptHeadingResponse() {
-        return ((bitField0_ & 0x00400000) == 0x00400000);
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public gauge.messages.Api.FormatConceptHeadingResponse getFormatConceptHeadingResponse() {
-        if (formatConceptHeadingResponseBuilder_ == null) {
-          return formatConceptHeadingResponse_;
-        } else {
-          return formatConceptHeadingResponseBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public Builder setFormatConceptHeadingResponse(gauge.messages.Api.FormatConceptHeadingResponse value) {
-        if (formatConceptHeadingResponseBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          formatConceptHeadingResponse_ = value;
-          onChanged();
-        } else {
-          formatConceptHeadingResponseBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00400000;
-        return this;
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public Builder setFormatConceptHeadingResponse(
-          gauge.messages.Api.FormatConceptHeadingResponse.Builder builderForValue) {
-        if (formatConceptHeadingResponseBuilder_ == null) {
-          formatConceptHeadingResponse_ = builderForValue.build();
-          onChanged();
-        } else {
-          formatConceptHeadingResponseBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00400000;
-        return this;
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public Builder mergeFormatConceptHeadingResponse(gauge.messages.Api.FormatConceptHeadingResponse value) {
-        if (formatConceptHeadingResponseBuilder_ == null) {
-          if (((bitField0_ & 0x00400000) == 0x00400000) &&
-              formatConceptHeadingResponse_ != gauge.messages.Api.FormatConceptHeadingResponse.getDefaultInstance()) {
-            formatConceptHeadingResponse_ =
-              gauge.messages.Api.FormatConceptHeadingResponse.newBuilder(formatConceptHeadingResponse_).mergeFrom(value).buildPartial();
-          } else {
-            formatConceptHeadingResponse_ = value;
-          }
-          onChanged();
-        } else {
-          formatConceptHeadingResponseBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00400000;
-        return this;
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public Builder clearFormatConceptHeadingResponse() {
-        if (formatConceptHeadingResponseBuilder_ == null) {
-          formatConceptHeadingResponse_ = gauge.messages.Api.FormatConceptHeadingResponse.getDefaultInstance();
-          onChanged();
-        } else {
-          formatConceptHeadingResponseBuilder_.clear();
-        }
-        bitField0_ = (bitField0_ & ~0x00400000);
-        return this;
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public gauge.messages.Api.FormatConceptHeadingResponse.Builder getFormatConceptHeadingResponseBuilder() {
-        bitField0_ |= 0x00400000;
-        onChanged();
-        return getFormatConceptHeadingResponseFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      public gauge.messages.Api.FormatConceptHeadingResponseOrBuilder getFormatConceptHeadingResponseOrBuilder() {
-        if (formatConceptHeadingResponseBuilder_ != null) {
-          return formatConceptHeadingResponseBuilder_.getMessageOrBuilder();
-        } else {
-          return formatConceptHeadingResponse_;
-        }
-      }
-      /**
-       * <code>optional .gauge.messages.FormatConceptHeadingResponse formatConceptHeadingResponse = 23;</code>
-       *
-       * <pre>
-       *&#47; [FormatConceptHeadingResponse](#gauge.messages.FormatConceptHeadingResponse)
-       * </pre>
-       */
-      private com.google.protobuf.SingleFieldBuilder<
-          gauge.messages.Api.FormatConceptHeadingResponse, gauge.messages.Api.FormatConceptHeadingResponse.Builder, gauge.messages.Api.FormatConceptHeadingResponseOrBuilder> 
-          getFormatConceptHeadingResponseFieldBuilder() {
-        if (formatConceptHeadingResponseBuilder_ == null) {
-          formatConceptHeadingResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              gauge.messages.Api.FormatConceptHeadingResponse, gauge.messages.Api.FormatConceptHeadingResponse.Builder, gauge.messages.Api.FormatConceptHeadingResponseOrBuilder>(
-                  formatConceptHeadingResponse_,
-                  getParentForChildren(),
-                  isClean());
-          formatConceptHeadingResponse_ = null;
-        }
-        return formatConceptHeadingResponseBuilder_;
+        return extractConceptResponseBuilder_;
       }
 
       // @@protoc_insertion_point(builder_scope:gauge.messages.APIMessage)
@@ -20183,20 +21201,25 @@ public final class Api {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ExtractConceptInfoRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_gauge_messages_ExtractConceptInfoResponse_descriptor;
+    internal_static_gauge_messages_ExtractConceptRequest_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_gauge_messages_ExtractConceptInfoResponse_fieldAccessorTable;
+      internal_static_gauge_messages_ExtractConceptRequest_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_gauge_messages_FormatConceptHeadingRequest_descriptor;
+    internal_static_gauge_messages_textInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_gauge_messages_FormatConceptHeadingRequest_fieldAccessorTable;
+      internal_static_gauge_messages_textInfo_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_gauge_messages_FormatConceptHeadingResponse_descriptor;
+    internal_static_gauge_messages_step_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_gauge_messages_FormatConceptHeadingResponse_fieldAccessorTable;
+      internal_static_gauge_messages_step_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_ExtractConceptResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_gauge_messages_ExtractConceptResponse_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_APIMessage_descriptor;
   private static
@@ -20237,69 +21260,66 @@ public final class Api {
       "\"S\n\032PerformRefactoringResponse\022\017\n\007succes" +
       "s\030\001 \002(\010\022\016\n\006errors\030\002 \003(\t\022\024\n\014filesChanged\030" +
       "\003 \003(\t\")\n\031ExtractConceptInfoRequest\022\014\n\004te" +
-      "xt\030\001 \002(\t\"{\n\032ExtractConceptInfoResponse\022\017" +
-      "\n\007isValid\030\001 \002(\010\022\020\n\010hasParam\030\002 \001(\010\022\026\n\016con" +
-      "ceptHeading\030\003 \001(\t\022\r\n\005steps\030\004 \001(\t\022\023\n\013conc" +
-      "eptText\030\005 \001(\t\"k\n\033FormatConceptHeadingReq",
-      "uest\022\031\n\021newConceptHeading\030\001 \002(\t\022\031\n\021oldCo" +
-      "nceptHeading\030\002 \002(\t\022\026\n\016oldConceptText\030\003 \002" +
-      "(\t\"6\n\034FormatConceptHeadingResponse\022\026\n\016ne" +
-      "wConceptText\030\001 \002(\t\"\234\021\n\nAPIMessage\022>\n\013mes" +
-      "sageType\030\001 \002(\0162).gauge.messages.APIMessa" +
-      "ge.APIMessageType\022\021\n\tmessageId\030\002 \002(\003\022A\n\022" +
-      "projectRootRequest\030\003 \001(\0132%.gauge.message" +
-      "s.GetProjectRootRequest\022C\n\023projectRootRe" +
-      "sponse\030\004 \001(\0132&.gauge.messages.GetProject" +
-      "RootResponse\022K\n\027installationRootRequest\030",
-      "\005 \001(\0132*.gauge.messages.GetInstallationRo" +
-      "otRequest\022M\n\030installationRootResponse\030\006 " +
-      "\001(\0132+.gauge.messages.GetInstallationRoot" +
-      "Response\022;\n\017allStepsRequest\030\007 \001(\0132\".gaug" +
-      "e.messages.GetAllStepsRequest\022=\n\020allStep" +
-      "sResponse\030\010 \001(\0132#.gauge.messages.GetAllS" +
-      "tepsResponse\022;\n\017allSpecsRequest\030\t \001(\0132\"." +
-      "gauge.messages.GetAllSpecsRequest\022=\n\020all" +
-      "SpecsResponse\030\n \001(\0132#.gauge.messages.Get" +
-      "AllSpecsResponse\022=\n\020stepValueRequest\030\013 \001",
-      "(\0132#.gauge.messages.GetStepValueRequest\022" +
-      "?\n\021stepValueResponse\030\014 \001(\0132$.gauge.messa" +
-      "ges.GetStepValueResponse\022G\n\016libPathReque" +
-      "st\030\r \001(\0132/.gauge.messages.GetLanguagePlu" +
-      "ginLibPathRequest\022I\n\017libPathResponse\030\016 \001" +
-      "(\01320.gauge.messages.GetLanguagePluginLib" +
-      "PathResponse\022,\n\005error\030\017 \001(\0132\035.gauge.mess" +
-      "ages.ErrorResponse\022A\n\022allConceptsRequest" +
-      "\030\020 \001(\0132%.gauge.messages.GetAllConceptsRe" +
-      "quest\022C\n\023allConceptsResponse\030\021 \001(\0132&.gau",
-      "ge.messages.GetAllConceptsResponse\022L\n\031pe" +
-      "rformRefactoringRequest\030\022 \001(\0132).gauge.me" +
-      "ssages.PerformRefactoringRequest\022N\n\032perf" +
-      "ormRefactoringResponse\030\023 \001(\0132*.gauge.mes" +
-      "sages.PerformRefactoringResponse\022L\n\031extr" +
-      "actConceptInfoRequest\030\024 \001(\0132).gauge.mess" +
-      "ages.ExtractConceptInfoRequest\022N\n\032extrac" +
-      "tConceptInfoResponse\030\025 \001(\0132*.gauge.messa" +
-      "ges.ExtractConceptInfoResponse\022P\n\033format" +
-      "ConceptHeadingRequest\030\026 \001(\0132+.gauge.mess",
-      "ages.FormatConceptHeadingRequest\022R\n\034form" +
-      "atConceptHeadingResponse\030\027 \001(\0132,.gauge.m" +
-      "essages.FormatConceptHeadingResponse\"\362\004\n" +
-      "\016APIMessageType\022\031\n\025GetProjectRootRequest" +
-      "\020\001\022\032\n\026GetProjectRootResponse\020\002\022\036\n\032GetIns" +
-      "tallationRootRequest\020\003\022\037\n\033GetInstallatio" +
-      "nRootResponse\020\004\022\026\n\022GetAllStepsRequest\020\005\022" +
-      "\026\n\022GetAllStepResponse\020\006\022\026\n\022GetAllSpecsRe" +
-      "quest\020\007\022\027\n\023GetAllSpecsResponse\020\010\022\027\n\023GetS" +
-      "tepValueRequest\020\t\022\030\n\024GetStepValueRespons",
-      "e\020\n\022#\n\037GetLanguagePluginLibPathRequest\020\013" +
-      "\022$\n GetLanguagePluginLibPathResponse\020\014\022\021" +
-      "\n\rErrorResponse\020\r\022\031\n\025GetAllConceptsReque" +
-      "st\020\016\022\032\n\026GetAllConceptsResponse\020\017\022\035\n\031Perf" +
-      "ormRefactoringRequest\020\020\022\036\n\032PerformRefact" +
-      "oringResponse\020\021\022\035\n\031ExtractConceptInfoReq" +
-      "uest\020\022\022\036\n\032ExtractConceptInfoResponse\020\023\022\037" +
-      "\n\033FormatConceptHeadingRequest\020\024\022 \n\034Forma" +
-      "tConceptHeadingResponse\020\025"
+      "xt\030\001 \002(\t\"\321\001\n\025ExtractConceptRequest\022)\n\013co" +
+      "nceptName\030\001 \002(\0132\024.gauge.messages.step\022#\n" +
+      "\005steps\030\002 \003(\0132\024.gauge.messages.step\022\033\n\023ch" +
+      "angeAcrossProject\030\003 \002(\010\022\027\n\017conceptFileNa",
+      "me\030\004 \002(\t\0222\n\020selectedTextInfo\030\005 \001(\0132\030.gau" +
+      "ge.messages.textInfo\"G\n\010textInfo\022\020\n\010file" +
+      "Name\030\001 \002(\t\022\026\n\016startingLineNo\030\002 \002(\005\022\021\n\ten" +
+      "dLineNo\030\003 \002(\005\";\n\004step\022\014\n\004name\030\001 \002(\t\022\r\n\005t" +
+      "able\030\002 \001(\t\022\026\n\016paramTableName\030\003 \001(\t\"P\n\026Ex" +
+      "tractConceptResponse\022\021\n\tisSuccess\030\001 \002(\010\022" +
+      "\r\n\005error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003(\t\"\233\017\n" +
+      "\nAPIMessage\022>\n\013messageType\030\001 \002(\0162).gauge" +
+      ".messages.APIMessage.APIMessageType\022\021\n\tm" +
+      "essageId\030\002 \002(\003\022A\n\022projectRootRequest\030\003 \001",
+      "(\0132%.gauge.messages.GetProjectRootReques" +
+      "t\022C\n\023projectRootResponse\030\004 \001(\0132&.gauge.m" +
+      "essages.GetProjectRootResponse\022K\n\027instal" +
+      "lationRootRequest\030\005 \001(\0132*.gauge.messages" +
+      ".GetInstallationRootRequest\022M\n\030installat" +
+      "ionRootResponse\030\006 \001(\0132+.gauge.messages.G" +
+      "etInstallationRootResponse\022;\n\017allStepsRe" +
+      "quest\030\007 \001(\0132\".gauge.messages.GetAllSteps" +
+      "Request\022=\n\020allStepsResponse\030\010 \001(\0132#.gaug" +
+      "e.messages.GetAllStepsResponse\022;\n\017allSpe",
+      "csRequest\030\t \001(\0132\".gauge.messages.GetAllS" +
+      "pecsRequest\022=\n\020allSpecsResponse\030\n \001(\0132#." +
+      "gauge.messages.GetAllSpecsResponse\022=\n\020st" +
+      "epValueRequest\030\013 \001(\0132#.gauge.messages.Ge" +
+      "tStepValueRequest\022?\n\021stepValueResponse\030\014" +
+      " \001(\0132$.gauge.messages.GetStepValueRespon" +
+      "se\022G\n\016libPathRequest\030\r \001(\0132/.gauge.messa" +
+      "ges.GetLanguagePluginLibPathRequest\022I\n\017l" +
+      "ibPathResponse\030\016 \001(\01320.gauge.messages.Ge" +
+      "tLanguagePluginLibPathResponse\022,\n\005error\030",
+      "\017 \001(\0132\035.gauge.messages.ErrorResponse\022A\n\022" +
+      "allConceptsRequest\030\020 \001(\0132%.gauge.message" +
+      "s.GetAllConceptsRequest\022C\n\023allConceptsRe" +
+      "sponse\030\021 \001(\0132&.gauge.messages.GetAllConc" +
+      "eptsResponse\022L\n\031performRefactoringReques" +
+      "t\030\022 \001(\0132).gauge.messages.PerformRefactor" +
+      "ingRequest\022N\n\032performRefactoringResponse" +
+      "\030\023 \001(\0132*.gauge.messages.PerformRefactori" +
+      "ngResponse\022D\n\025extractConceptRequest\030\024 \001(" +
+      "\0132%.gauge.messages.ExtractConceptRequest",
+      "\022F\n\026extractConceptResponse\030\025 \001(\0132&.gauge" +
+      ".messages.ExtractConceptResponse\"\247\004\n\016API" +
+      "MessageType\022\031\n\025GetProjectRootRequest\020\001\022\032" +
+      "\n\026GetProjectRootResponse\020\002\022\036\n\032GetInstall" +
+      "ationRootRequest\020\003\022\037\n\033GetInstallationRoo" +
+      "tResponse\020\004\022\026\n\022GetAllStepsRequest\020\005\022\026\n\022G" +
+      "etAllStepResponse\020\006\022\026\n\022GetAllSpecsReques" +
+      "t\020\007\022\027\n\023GetAllSpecsResponse\020\010\022\027\n\023GetStepV" +
+      "alueRequest\020\t\022\030\n\024GetStepValueResponse\020\n\022" +
+      "#\n\037GetLanguagePluginLibPathRequest\020\013\022$\n ",
+      "GetLanguagePluginLibPathResponse\020\014\022\021\n\rEr" +
+      "rorResponse\020\r\022\031\n\025GetAllConceptsRequest\020\016" +
+      "\022\032\n\026GetAllConceptsResponse\020\017\022\035\n\031PerformR" +
+      "efactoringRequest\020\020\022\036\n\032PerformRefactorin" +
+      "gResponse\020\021\022\031\n\025ExtractConceptRequest\020\022\022\032" +
+      "\n\026ExtractConceptResponse\020\023"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -20420,30 +21440,36 @@ public final class Api {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_gauge_messages_ExtractConceptInfoRequest_descriptor,
               new java.lang.String[] { "Text", });
-          internal_static_gauge_messages_ExtractConceptInfoResponse_descriptor =
+          internal_static_gauge_messages_ExtractConceptRequest_descriptor =
             getDescriptor().getMessageTypes().get(19);
-          internal_static_gauge_messages_ExtractConceptInfoResponse_fieldAccessorTable = new
+          internal_static_gauge_messages_ExtractConceptRequest_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_gauge_messages_ExtractConceptInfoResponse_descriptor,
-              new java.lang.String[] { "IsValid", "HasParam", "ConceptHeading", "Steps", "ConceptText", });
-          internal_static_gauge_messages_FormatConceptHeadingRequest_descriptor =
+              internal_static_gauge_messages_ExtractConceptRequest_descriptor,
+              new java.lang.String[] { "ConceptName", "Steps", "ChangeAcrossProject", "ConceptFileName", "SelectedTextInfo", });
+          internal_static_gauge_messages_textInfo_descriptor =
             getDescriptor().getMessageTypes().get(20);
-          internal_static_gauge_messages_FormatConceptHeadingRequest_fieldAccessorTable = new
+          internal_static_gauge_messages_textInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_gauge_messages_FormatConceptHeadingRequest_descriptor,
-              new java.lang.String[] { "NewConceptHeading", "OldConceptHeading", "OldConceptText", });
-          internal_static_gauge_messages_FormatConceptHeadingResponse_descriptor =
+              internal_static_gauge_messages_textInfo_descriptor,
+              new java.lang.String[] { "FileName", "StartingLineNo", "EndLineNo", });
+          internal_static_gauge_messages_step_descriptor =
             getDescriptor().getMessageTypes().get(21);
-          internal_static_gauge_messages_FormatConceptHeadingResponse_fieldAccessorTable = new
+          internal_static_gauge_messages_step_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_gauge_messages_FormatConceptHeadingResponse_descriptor,
-              new java.lang.String[] { "NewConceptText", });
-          internal_static_gauge_messages_APIMessage_descriptor =
+              internal_static_gauge_messages_step_descriptor,
+              new java.lang.String[] { "Name", "Table", "ParamTableName", });
+          internal_static_gauge_messages_ExtractConceptResponse_descriptor =
             getDescriptor().getMessageTypes().get(22);
+          internal_static_gauge_messages_ExtractConceptResponse_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_gauge_messages_ExtractConceptResponse_descriptor,
+              new java.lang.String[] { "IsSuccess", "Error", "FilesChanged", });
+          internal_static_gauge_messages_APIMessage_descriptor =
+            getDescriptor().getMessageTypes().get(23);
           internal_static_gauge_messages_APIMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_gauge_messages_APIMessage_descriptor,
-              new java.lang.String[] { "MessageType", "MessageId", "ProjectRootRequest", "ProjectRootResponse", "InstallationRootRequest", "InstallationRootResponse", "AllStepsRequest", "AllStepsResponse", "AllSpecsRequest", "AllSpecsResponse", "StepValueRequest", "StepValueResponse", "LibPathRequest", "LibPathResponse", "Error", "AllConceptsRequest", "AllConceptsResponse", "PerformRefactoringRequest", "PerformRefactoringResponse", "ExtractConceptInfoRequest", "ExtractConceptInfoResponse", "FormatConceptHeadingRequest", "FormatConceptHeadingResponse", });
+              new java.lang.String[] { "MessageType", "MessageId", "ProjectRootRequest", "ProjectRootResponse", "InstallationRootRequest", "InstallationRootResponse", "AllStepsRequest", "AllStepsResponse", "AllSpecsRequest", "AllSpecsResponse", "StepValueRequest", "StepValueResponse", "LibPathRequest", "LibPathResponse", "Error", "AllConceptsRequest", "AllConceptsResponse", "PerformRefactoringRequest", "PerformRefactoringResponse", "ExtractConceptRequest", "ExtractConceptResponse", });
           return null;
         }
       };

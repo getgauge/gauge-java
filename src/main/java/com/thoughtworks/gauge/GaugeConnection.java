@@ -163,16 +163,10 @@ public class GaugeConnection {
         return response.getPerformRefactoringResponse();
     }
     
-    public Api.ExtractConceptInfoResponse sendGetExtractConceptInfoRequest(String text) throws Exception {
-        Api.APIMessage request = createGetBeforeExtractConceptRequest(text);
+    public Api.ExtractConceptResponse sendGetExtractConceptRequest(List<Api.step> steps,Api.step concept, boolean changeAcrossProject,String fileName,Api.textInfo selectedTextInfo) throws Exception {
+        Api.APIMessage request = createExtractConceptRequest(steps, concept, changeAcrossProject, fileName, selectedTextInfo);
         Api.APIMessage response = getAPIResponse(request);
-        return response.getExtractConceptInfoResponse();
-    }
-
-    public Api.FormatConceptHeadingResponse sendGetFormatConceptHeadingRequest(String newConceptHeading, String oldConceptHeading, String conceptText) throws Exception {
-        Api.APIMessage request = createRefactorExtractConceptHeadingRequest(newConceptHeading, oldConceptHeading, conceptText);
-        Api.APIMessage response = getAPIResponse(request);
-        return response.getFormatConceptHeadingResponse();
+        return response.getExtractConceptResponse();
     }
 
     private Api.APIMessage getStepRequest() {
@@ -232,21 +226,13 @@ public class GaugeConnection {
                 .build();
     }
 
-    private Api.APIMessage createGetBeforeExtractConceptRequest(String text) {
-        Api.ExtractConceptInfoRequest request = Api.ExtractConceptInfoRequest.newBuilder().setText(text).build();
+    private Api.APIMessage createExtractConceptRequest(List<Api.step> steps, Api.step concept, boolean changeAcrossProject, String fileName, Api.textInfo selectedTextInfo) {
+        Api.ExtractConceptRequest request = Api.ExtractConceptRequest.newBuilder().addAllSteps(steps).setChangeAcrossProject(changeAcrossProject)
+                                            .setSelectedTextInfo(selectedTextInfo).setConceptFileName(fileName).setConceptName(concept).build();
         return Api.APIMessage.newBuilder()
-                .setMessageType(Api.APIMessage.APIMessageType.ExtractConceptInfoRequest)
+                .setMessageType(Api.APIMessage.APIMessageType.ExtractConceptRequest)
                 .setMessageId(8)
-                .setExtractConceptInfoRequest(request)
-                .build();
-    }
-
-    private Api.APIMessage createRefactorExtractConceptHeadingRequest(String newConceptHeading, String oldConceptHeading, String conceptText) {
-        Api.FormatConceptHeadingRequest request = Api.FormatConceptHeadingRequest.newBuilder().setNewConceptHeading(newConceptHeading).setOldConceptHeading(oldConceptHeading).setOldConceptText(conceptText).build();
-        return Api.APIMessage.newBuilder()
-                .setMessageType(Api.APIMessage.APIMessageType.FormatConceptHeadingRequest)
-                .setMessageId(8)
-                .setFormatConceptHeadingRequest(request)
+                .setExtractConceptRequest(request)
                 .build();
     }
 
