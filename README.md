@@ -68,3 +68,10 @@ Copyright
 ---------
 
 Copyright 2015 ThoughtWorks, Inc.
+
+Acknowledgement
+---------------
+
+This project is supported by [YourKit Java Profiler](https://www.yourkit.com/java/profiler/index.jsp). YourKit supports open source projects with its full-featured Java Profiler, which is used by Gauge Team.
+
+![Yourkit](https://www.yourkit.com/images/yklogo.png)
