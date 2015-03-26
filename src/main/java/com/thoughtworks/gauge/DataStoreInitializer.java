@@ -18,6 +18,7 @@
 package com.thoughtworks.gauge;
 
 
+import com.thoughtworks.gauge.processor.IMessageProcessor;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 

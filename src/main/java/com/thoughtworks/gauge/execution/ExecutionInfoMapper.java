@@ -15,9 +15,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Gauge-Java.  If not, see <http://www.gnu.org/licenses/>.
 
-package com.thoughtworks.gauge;
+package com.thoughtworks.gauge.execution;
 
 
+import com.thoughtworks.gauge.Scenario;
+import com.thoughtworks.gauge.Specification;
+import com.thoughtworks.gauge.SpecificationInfo;
+import com.thoughtworks.gauge.StepDetails;
 import gauge.messages.Messages;
 
 public class ExecutionInfoMapper {

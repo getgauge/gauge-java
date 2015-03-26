@@ -15,18 +15,24 @@
 // You should have received a copy of the GNU General Public License
 // along with Gauge-Java.  If not, see <http://www.gnu.org/licenses/>.
 
-package com.thoughtworks.gauge;
+package com.thoughtworks.gauge.processor;
 
+
+import com.thoughtworks.gauge.StepRegistry;
+import com.thoughtworks.gauge.processor.IMessageProcessor;
 import gauge.messages.Messages;
 
-import java.lang.reflect.Method;
-import java.util.Set;
+import java.util.List;
 
-public class StepExecutionEndingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
+public class StepNamesRequestProcessor implements IMessageProcessor {
     @Override
-    public Messages.Message process(Messages.Message message) {
-        SpecificationInfo info = new ExecutionInfoMapper().executionInfoFrom(message.getStepExecutionEndingRequest().getCurrentExecutionInfo());
-        Set<Method> afterStepHooks = HooksRegistry.getAfterStepHooks();
-        return executeHooks(afterStepHooks, message, info);
+    public Messages.Message process(Messages.Message receivedMessage) {
+        List<String> stepTexts = StepRegistry.getAllStepTexts();
+
+        return Messages.Message.newBuilder()
+                .setMessageId(receivedMessage.getMessageId())
+                .setMessageType(Messages.Message.MessageType.StepNamesResponse)
+                .setStepNamesResponse(Messages.StepNamesResponse.newBuilder().addAllSteps(stepTexts).build())
+                .build();
     }
 }

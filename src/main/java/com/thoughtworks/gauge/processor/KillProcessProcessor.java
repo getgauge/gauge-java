@@ -15,19 +15,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Gauge-Java.  If not, see <http://www.gnu.org/licenses/>.
 
-package com.thoughtworks.gauge;
+package com.thoughtworks.gauge.processor;
 
+import com.thoughtworks.gauge.processor.IMessageProcessor;
 import gauge.messages.Messages;
 
-import java.lang.reflect.Method;
-import java.util.Set;
-
-public class SuiteExecutionEndingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
+public class KillProcessProcessor implements IMessageProcessor {
     @Override
     public Messages.Message process(Messages.Message message) {
-        SpecificationInfo info = new ExecutionInfoMapper().executionInfoFrom(message.getExecutionEndingRequest().getCurrentExecutionInfo());
-        Set<Method> afterSuiteHooks = HooksRegistry.getAfterSuiteHooks();
-        return executeHooks(afterSuiteHooks, message, info);
+        return message;
     }
 }
-
