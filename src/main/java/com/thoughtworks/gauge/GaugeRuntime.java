@@ -19,6 +19,7 @@ package com.thoughtworks.gauge;
 
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
+import com.thoughtworks.gauge.processor.*;
 import gauge.messages.Messages;
 import org.reflections.Configuration;
 import org.reflections.Reflections;

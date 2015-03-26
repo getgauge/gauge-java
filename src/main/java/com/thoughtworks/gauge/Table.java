@@ -29,7 +29,7 @@ public class Table {
         rows = new ArrayList<List<String>>();
     }
 
-    void addRow(List<String> row) {
+    public void addRow(List<String> row) {
         rows.add(row);
     }
 

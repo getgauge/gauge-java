@@ -15,8 +15,9 @@
 // You should have received a copy of the GNU General Public License
 // along with Gauge-Java.  If not, see <http://www.gnu.org/licenses/>.
 
-package com.thoughtworks.gauge;
+package com.thoughtworks.gauge.processor;
 
+import com.thoughtworks.gauge.Table;
 import gauge.messages.Spec;
 
 import java.util.ArrayList;
