@@ -68,7 +68,7 @@ public class GaugeRuntime {
 
     private static void dispatchMessages(Socket socket, HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors) throws Exception {
         InputStream inputStream = socket.getInputStream();
-        while (!socket.isClosed()) {
+        while (isConnected(socket)) {
             try {
                 MessageLength messageLength = getMessageLength(inputStream);
                 byte[] bytes = toBytes(messageLength);
@@ -91,6 +91,10 @@ public class GaugeRuntime {
                 return;
             }
         }
+    }
+
+    private static boolean isConnected(Socket socket) {
+        return !socket.isClosed() && socket.isConnected();
     }
 
     private static Socket connect(String portEnvVariable) {
