@@ -42,5 +42,9 @@ public class ClassInstanceManager {
     public static void setClassInitializer(ClassInitializer initializer) {
         ClassInstanceManager.initializer = initializer;
     }
+
+    public static void clearCache(){
+        classInstanceMap.clear();
+    }
 }
 

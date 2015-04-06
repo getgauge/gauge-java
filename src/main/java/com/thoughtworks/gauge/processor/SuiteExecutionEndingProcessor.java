@@ -17,9 +17,9 @@
 
 package com.thoughtworks.gauge.processor;
 
-import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import com.thoughtworks.gauge.HooksRegistry;
 import com.thoughtworks.gauge.SpecificationInfo;
+import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import gauge.messages.Messages;
 
 import java.lang.reflect.Method;
@@ -30,7 +30,9 @@ public class SuiteExecutionEndingProcessor extends MethodExecutionMessageProcess
     public Messages.Message process(Messages.Message message) {
         SpecificationInfo info = new ExecutionInfoMapper().executionInfoFrom(message.getExecutionEndingRequest().getCurrentExecutionInfo());
         Set<Method> afterSuiteHooks = HooksRegistry.getAfterSuiteHooks();
-        return executeHooks(afterSuiteHooks, message, info);
+        Messages.Message result = executeHooks(afterSuiteHooks, message, info);
+        ClearState.clear(ClearState.SPEC_LEVEL);
+        return result;
     }
 }
 
