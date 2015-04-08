@@ -36,6 +36,7 @@ const (
 	additional_libs_env_name  = "gauge_additional_libs"
 	custom_build_path         = "gauge_custom_build_path"
 	custom_compile_dir        = "gauge_custom_compile_dir"
+	custom_classpath          = "gauge_custom_classpath"
 	jvm_args_env_name         = "gauge_jvm_args"
 	default_build_dir         = "gauge_bin"
 	main_class_name           = "com.thoughtworks.gauge.GaugeRuntime"
@@ -222,29 +223,9 @@ func main() {
 
 	if *start {
 		os.Chdir(projectRoot)
-		cp := ""
-		appendClasspath(&cp, path.Join(pluginDir, "*"))
-		appendClasspath(&cp, path.Join(pluginDir, "libs", "*"))
-
-		additionalLibs := getClassPathForVariable(additional_libs_env_name)
-		appendClasspath(&cp, additionalLibs)
-
-		// If user has specified classpath, that will be taken. If not search for IntelliJ and Eclipse out directories before giving up
-		userSpecifiedClasspath := getClassPathForVariable(custom_build_path)
-		if userSpecifiedClasspath != "" {
-			appendClasspath(&cp, userSpecifiedClasspath)
-		} else {
-			if icp := getIntelliJClasspath(); icp != "" {
-				appendClasspath(&cp, icp)
-			} else if ecp := getEclipseClasspath(); ecp != "" {
-				appendClasspath(&cp, ecp)
-			} else {
-				//TODO: Move to log
-				//fmt.Println("Failed to detect project build path")
-				//fmt.Printf("Building to %s directory \n", default_build_dir)
-				build(default_build_dir, cp)
-				appendClasspath(&cp, default_build_dir)
-			}
+		cp := customClasspath()
+		if cp == "" {
+			cp = createClasspath()
 		}
 
 		javaPath := getExecPathFrom(java_home, alternate_java_home, "java")
@@ -284,6 +265,39 @@ func main() {
 	} else {
 		printUsage()
 	}
+}
+
+func customClasspath() string {
+	return os.Getenv(custom_classpath)
+}
+
+func createClasspath() string {
+	cp := ""
+	appendClasspath(&cp, path.Join(pluginDir, "*"))
+	appendClasspath(&cp, path.Join(pluginDir, "libs", "*"))
+
+	additionalLibs := getClassPathForVariable(additional_libs_env_name)
+	appendClasspath(&cp, additionalLibs)
+
+	// If user has specified classpath, that will be taken. If not search for IntelliJ and Eclipse out directories before giving up
+	userSpecifiedClasspath := getClassPathForVariable(custom_build_path)
+	if userSpecifiedClasspath != "" {
+		appendClasspath(&cp, userSpecifiedClasspath)
+	} else {
+		if icp := getIntelliJClasspath(); icp != "" {
+			appendClasspath(&cp, icp)
+		} else if ecp := getEclipseClasspath(); ecp != "" {
+			appendClasspath(&cp, ecp)
+		} else {
+			//TODO: Move to log
+			//fmt.Println("Failed to detect project build path")
+			//fmt.Printf("Building to %s directory \n", default_build_dir)
+			build(default_build_dir, cp)
+			appendClasspath(&cp, default_build_dir)
+		}
+	}
+	return cp
+
 }
 
 func getExecPathFrom(path string, alternatePath string, execName string) string {

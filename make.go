@@ -386,9 +386,8 @@ func run(command string, arg ...string) (string, error) {
 	return strings.TrimSpace(fmt.Sprintf("%s", bytes)), err
 }
 
-
 func createZipFromUtil(dir, name string) {
-	wd,_:=os.Getwd()
+	wd, _ := os.Getwd()
 	os.Chdir(filepath.Join(dir, name))
 	output, err := run("zip", "-r", filepath.Join("..", name+".zip"), ".")
 	fmt.Println(output)
