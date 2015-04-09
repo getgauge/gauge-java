@@ -5,7 +5,7 @@
 *.war
 *.ear
 
-!libs/*
+libs
 .idea/workspace.xml
 
 gauge-java

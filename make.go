@@ -248,6 +248,7 @@ func copyFiles(files map[string]string, installDir string) {
 }
 
 func copyGaugeJavaFiles(destDir string) {
+	copyLibsFromMaven()
 	files := make(map[string]string)
 	if getGOOS() == "windows" {
 		files[filepath.Join(getBinDir(), "gauge-java.exe")] = bin
@@ -264,6 +265,10 @@ func copyGaugeJavaFiles(destDir string) {
 		files[jarFile] = "libs"
 	}
 	copyFiles(files, destDir)
+}
+
+func copyLibsFromMaven() {
+	runCommand("mvn", "dependency:copy-dependencies", "-DoutputDirectory=libs", "-DexcludeTransitive=true")
 }
 
 func getFilesByExt(dir string, ext string) []string {
@@ -395,20 +400,21 @@ func createDistro() {
 	os.RemoveAll(distroDir)
 }
 
-func run(command string, arg ...string) (string, error) {
+func runCommand(command string, arg ...string) {
 	cmd := exec.Command(command, arg...)
-	bytes, err := cmd.Output()
-	return strings.TrimSpace(fmt.Sprintf("%s", bytes)), err
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	log.Printf("Execute %v\n", cmd.Args)
+	err := cmd.Run()
+	if err != nil {
+		panic(err)
+	}
 }
 
 func createZipFromUtil(dir, name string) {
 	wd, _ := os.Getwd()
 	os.Chdir(filepath.Join(dir, name))
-	output, err := run("zip", "-r", filepath.Join("..", name+".zip"), ".")
-	fmt.Println(output)
-	if err != nil {
-		panic(fmt.Sprintf("Failed to zip: %s", err))
-	}
+	runCommand("zip", "-r", filepath.Join("..", name+".zip"), ".")
 	os.Chdir(wd)
 }
 
@@ -466,13 +472,8 @@ func compileGaugeJavaAcrossPlatforms() {
 }
 
 func buildGaugeJavaJar() {
-	wd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-
-	}
 	os.RemoveAll(targetDir)
-	runProcess("mvn", wd, "package")
+	runCommand("mvn", "package")
 }
 
 func installGaugeJava(installPrefix string) {
