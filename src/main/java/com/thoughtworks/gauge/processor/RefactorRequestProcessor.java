@@ -18,8 +18,8 @@
 package com.thoughtworks.gauge.processor;
 
 
-import com.thoughtworks.gauge.refactor.RefactorFile;
 import com.thoughtworks.gauge.StepRegistry;
+import com.thoughtworks.gauge.refactor.RefactorFile;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 import org.walkmod.javalang.JavaParser;
@@ -48,19 +48,17 @@ public class RefactorRequestProcessor implements IMessageProcessor {
     @Override
     public Messages.Message process(Messages.Message message) {
         Messages.RefactorRequest refactorRequest = message.getRefactorRequest();
+        int size = StepRegistry.getStepAnnotationFor(StepRegistry.getAliasStepTexts(refactorRequest.getOldStepValue().getStepValue())).size();
+        if (size > 1)   return createRefactorResponse(message, false, "Refactoring for steps having aliases are not supported.");
         JavaParser.setCacheParser(true);
         String fileName = StepRegistry.getFileName(StepRegistry.get(refactorRequest.getOldStepValue().getStepValue()));
-        if (fileName == null) {
-            return createRefactorResponse(message, false, "Step Implementation Not Found");
-        }
+        if (fileName == null) return createRefactorResponse(message, false, "Step Implementation Not Found");
         try {
             JavaElement javaElement = refactorJavaFile(refactorRequest.getOldStepValue().getParameterizedStepValue(),
                                                refactorRequest.getNewStepValue(),
                                                refactorRequest.getParamPositionsList(),
                                                fileName);
-            if (javaElement == null) {
-                return createRefactorResponse(message, false, "Step Implementation Not Found");
-            }
+            if (javaElement == null) return createRefactorResponse(message, false, "Step Implementation Not Found");
             new RefactorFile(javaElement).refactor();
             return createRefactorResponseWithFilepath(message, true, "", javaElement.file.getAbsolutePath());
         } catch (IOException e) {

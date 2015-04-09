@@ -109,8 +109,7 @@ public class GaugeRuntime {
             try {
                 clientSocket = new Socket("localhost", port);
                 break;
-            } catch (Exception e) {
-            }
+            } catch (Exception ignored) {}
         }
 
         return clientSocket;
@@ -170,8 +169,7 @@ public class GaugeRuntime {
                     String fileName = null;
                     try {
                         fileName = method.getDeclaringClass().getCanonicalName().replace(".",File.separator) + ".java";
-                    } catch (Exception ignored) {
-                    }
+                    } catch (Exception ignored) {}
                     StepRegistry.addStepImplementation(stepValue, method, fileName);
                 }
             }
