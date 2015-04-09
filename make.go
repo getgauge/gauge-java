@@ -54,6 +54,8 @@ const (
 	gaugeJava         = "gauge-java"
 	deploy            = "deploy"
 	commonDep         = "github.com/getgauge/common"
+	targetDir         = "target"
+	jarExt            = ".jar"
 )
 
 var BUILD_DIR_BIN = filepath.Join(BUILD_DIR, bin)
@@ -258,8 +260,21 @@ func copyGaugeJavaFiles(destDir string) {
 	files[filepath.Join("skel", "java.properties")] = filepath.Join("skel", "env")
 	files[filepath.Join("libs")] = filepath.Join("libs")
 	files[filepath.Join("notice.md")] = ""
-	files[filepath.Join("build", "jar")] = filepath.Join("libs")
+	for _, jarFile := range getFilesByExt(targetDir, jarExt) {
+		files[jarFile] = "libs"
+	}
 	copyFiles(files, destDir)
+}
+
+func getFilesByExt(dir string, ext string) []string {
+	files := make([]string, 0)
+	filepath.Walk(dir, func(currentPath string, info os.FileInfo, err error) error {
+		if filepath.Ext(currentPath) == ext {
+			files = append(files, currentPath)
+		}
+		return nil
+	})
+	return files
 }
 
 func getGaugeJavaVersion() string {
@@ -350,7 +365,7 @@ func main() {
 }
 
 func compileGaugeJava() {
-	buildGaugeRtJar()
+	buildGaugeJavaJar()
 	if *allPlatforms {
 		compileGaugeJavaAcrossPlatforms()
 	} else {
@@ -450,16 +465,18 @@ func compileGaugeJavaAcrossPlatforms() {
 	}
 }
 
-func buildGaugeRtJar() {
+func buildGaugeJavaJar() {
 	wd, err := os.Getwd()
 	if err != nil {
 		panic(err)
 
 	}
-	runProcess("ant", wd, "jar")
+	os.RemoveAll(targetDir)
+	runProcess("mvn", wd, "package")
 }
 
 func installGaugeJava(installPrefix string) {
+	os.RemoveAll(deployDir)
 	copyGaugeJavaFiles(deployDir)
 	javaRunnerInstallPath := filepath.Join(installPrefix, "java", getGaugeJavaVersion())
 	log.Printf("Copying %s -> %s\n", deployDir, javaRunnerInstallPath)
