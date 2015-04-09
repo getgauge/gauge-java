@@ -12,6 +12,8 @@ gauge-java
 tags
 src/src
 *.exe
+target
+out
 .idea/
 
 #go deps
