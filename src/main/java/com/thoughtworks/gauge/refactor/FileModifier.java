@@ -21,11 +21,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RefactorFile {
+public class FileModifier {
     private JavaRefactoringElement javaElement;
     private List<String> content;
 
-    public RefactorFile(JavaRefactoringElement javaElement) {
+    public FileModifier(JavaRefactoringElement javaElement) {
         this.javaElement = javaElement;
     }
 
@@ -38,7 +38,7 @@ public class RefactorFile {
     private void refactorContent() {
         String[] lines = javaElement.getText().split("\n");
         String spaces = "";
-        for (int j = 0; j < javaElement.getBeginColumn()-1; j++) {
+        for (int j = 0; j < javaElement.getIndentation(); j++) {
             spaces += " ";
         }
         for (int i = javaElement.getBeginLine(); i <= javaElement.getEndLine() ; i++) {

@@ -58,8 +58,7 @@ public class JavaRefactoringTest extends TestCase {
         assertEquals(javaFile.getAbsolutePath(), element.getFile().getAbsolutePath());
         assertEquals(17, element.getBeginLine());
         assertEquals(19, element.getEndLine());
-        assertEquals(5, element.getBeginColumn());
-        assertEquals(5, element.getEndColumn());
+        assertEquals(4, element.getIndentation());
         assertEquals("@Step(\"step changed\")\n" +
                 "public void someStepStep() {\n" +
                 "}", element.getText());
@@ -79,8 +78,7 @@ public class JavaRefactoringTest extends TestCase {
         assertEquals(javaFile.getAbsolutePath(), element.getFile().getAbsolutePath());
         assertEquals(17, element.getBeginLine());
         assertEquals(19, element.getEndLine());
-        assertEquals(5, element.getBeginColumn());
-        assertEquals(5, element.getEndColumn());
+        assertEquals(4, element.getIndentation());
         assertEquals("@Step(\"step with <param 1>\")\n" +
                 "public void someStepStep(String param1) {\n" +
                 "}", element.getText());
@@ -107,8 +105,7 @@ public class JavaRefactoringTest extends TestCase {
         assertEquals(javaFile.getAbsolutePath(), element.getFile().getAbsolutePath());
         assertEquals(13, element.getBeginLine());
         assertEquals(15, element.getEndLine());
-        assertEquals(5, element.getBeginColumn());
-        assertEquals(5, element.getEndColumn());
+        assertEquals(4, element.getIndentation());
         assertEquals("@Step(\"<b> changed <a> and added <c>\")\n" +
                 "public void stepWithTable(String b, float a, String c) {\n" +
                 "}", element.getText());

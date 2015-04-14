@@ -5,16 +5,14 @@ import java.io.File;
 public class JavaRefactoringElement {
     private int beginLine;
     private int endLine;
-    private int beginColumn;
-    private int endColumn;
+    private int indentation;
     private String text;
     private File file;
 
-    public JavaRefactoringElement(int beginLine, int endLine, int beginColumn, int endColumn, String text, File file) {
+    public JavaRefactoringElement(int beginLine, int endLine, int beginColumn, String text, File file) {
         this.beginLine = beginLine;
         this.endLine = endLine;
-        this.beginColumn = beginColumn;
-        this.endColumn = endColumn;
+        this.indentation = beginColumn;
         this.text = text;
         this.file = file;
     }
@@ -35,12 +33,8 @@ public class JavaRefactoringElement {
         return endLine;
     }
 
-    public int getBeginColumn() {
-        return beginColumn;
-    }
-
-    public int getEndColumn() {
-        return endColumn;
+    public int getIndentation() {
+        return indentation;
     }
 
     public String getText() {

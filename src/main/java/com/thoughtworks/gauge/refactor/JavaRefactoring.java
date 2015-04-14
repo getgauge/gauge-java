@@ -52,7 +52,7 @@ public class JavaRefactoring {
             return new RefactoringResult(false, "Step Implementation Not Found");
         }
         try {
-            new RefactorFile(element).refactor();
+            new FileModifier(element).refactor();
         } catch (IOException e) {
             return new RefactoringResult(false, "Unable to read/write file while refactoring. " + e.getMessage());
         }
