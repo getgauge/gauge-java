@@ -41,6 +41,12 @@ Installing to a CUSTOM_LOCATION
 go run make.go --install --plugin-prefix CUSTOM_LOCATION
 ````
 
+### Install using gauge
+
+```
+gauge --install java
+```
+
 Creating distributable
 ----------------------
 
