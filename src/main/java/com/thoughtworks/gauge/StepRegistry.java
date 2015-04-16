@@ -81,16 +81,6 @@ public class StepRegistry {
         return getStepAnnotationFor(getAllAliasAnnotationTextsFor(stepTemplateText)).size() > 1;
     }
 
-    private static <T, E> Set<T> getKeysByValue(Map<T, E> map, E value) {
-        Set<T> keys = new HashSet<T>();
-        for (Map.Entry<T, E> entry : map.entrySet()) {
-            if (value.equals(entry.getValue())) {
-                keys.add(entry.getKey());
-            }
-        }
-        return keys;
-    }
-
     public static void remove(String stepTemplateText) {
        registry.remove(stepTemplateText);
     }
