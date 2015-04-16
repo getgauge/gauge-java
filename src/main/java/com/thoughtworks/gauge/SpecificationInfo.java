@@ -22,6 +22,16 @@ public class SpecificationInfo {
     private Scenario currentScenario;
     private StepDetails currentStep;
 
+    public SpecificationInfo(Specification specification, Scenario scenario, StepDetails stepDetails) {
+
+        this.currentSpecification = specification;
+        this.currentScenario = scenario;
+        this.currentStep = stepDetails;
+    }
+
+    public SpecificationInfo() {
+    }
+
     public Specification getCurrentSpecification() {
         return currentSpecification;
     }
@@ -34,15 +44,4 @@ public class SpecificationInfo {
         return currentStep;
     }
 
-    public void setStep(StepDetails step) {
-        this.currentStep = step;
-    }
-
-    public void setScenario(Scenario scenario) {
-        this.currentScenario = scenario;
-    }
-
-    public void setSpecification(Specification specification) {
-        this.currentSpecification = specification;
-    }
 }
