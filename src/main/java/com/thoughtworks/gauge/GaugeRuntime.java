@@ -153,6 +153,8 @@ public class GaugeRuntime {
         HooksRegistry.setAfterScenarioHooks(reflections.getMethodsAnnotatedWith(AfterScenario.class));
         HooksRegistry.setBeforeStepHooks(reflections.getMethodsAnnotatedWith(BeforeStep.class));
         HooksRegistry.setAfterStepHooks(reflections.getMethodsAnnotatedWith(AfterStep.class));
+        HooksRegistry.setBeforeClassStepsHooks(reflections.getMethodsAnnotatedWith(BeforeClassSteps.class));
+        HooksRegistry.setAfterClassStepsHooks(reflections.getMethodsAnnotatedWith(AfterClassSteps.class));
     }
 
     private static void scanForStepImplementations(GaugeConnection gaugeApiConnection) {

@@ -96,7 +96,7 @@ public abstract class MethodExecutionMessageProcessor {
     }
 
 
-    private Messages.Message createMessageWithExecutionStatusResponse(Messages.Message receivedMessage, Spec.ProtoExecutionResult result) {
+    public Messages.Message createMessageWithExecutionStatusResponse(Messages.Message receivedMessage, Spec.ProtoExecutionResult result) {
         return Messages.Message.newBuilder()
                 .setMessageId(receivedMessage.getMessageId())
                 .setMessageType(Messages.Message.MessageType.ExecutionStatusResponse)

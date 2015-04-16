@@ -23,6 +23,8 @@ import com.thoughtworks.gauge.ScreenshotFactory;
 import gauge.messages.Spec;
 
 import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MethodExecutor {
     public Spec.ProtoExecutionResult execute(Method method, Object... args) {
@@ -60,5 +62,27 @@ public class MethodExecutor {
             output.append("\n");
         }
         return output.toString();
+    }
+
+    public Spec.ProtoExecutionResult executeMethods(Set<Method> methods, Object... args) {
+        long totalExecutionTime = 0;
+        for (Method method : methods) {
+            Spec.ProtoExecutionResult result = execute(method, args);
+            totalExecutionTime += result.getExecutionTime();
+            if(result.getFailed()){
+                return result;
+            }
+        }
+        return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(totalExecutionTime).build();
+    }
+
+    public Spec.ProtoExecutionResult executeMethod(Method method, Object... args) {
+        long totalExecutionTime = 0;
+        Spec.ProtoExecutionResult result = execute(method, args);
+        totalExecutionTime += result.getExecutionTime();
+        if(result.getFailed()){
+            return result;
+        }
+        return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(totalExecutionTime).build();
     }
 }

@@ -18,6 +18,7 @@
 package com.thoughtworks.gauge;
 
 import java.lang.reflect.Method;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,6 +31,8 @@ public class HooksRegistry {
     private static Set<Method> afterScenarioHooks = new HashSet<Method>();
     private static Set<Method> beforeStepHooks = new HashSet<Method>();
     private static Set<Method> afterStepHooks = new HashSet<Method>();
+    private static Set<Method> afterClassStepsHooks = new HashSet<Method>();
+    private static Set<Method> beforeClassStepsHooks = new HashSet<Method>();
 
     public static Set<Method> getBeforeSpecHooks() {
         return beforeSpecHooks;
@@ -93,5 +96,41 @@ public class HooksRegistry {
 
     public static void setAfterSuiteHooks(Set<Method> afterSuiteHooks) {
         HooksRegistry.afterSuiteHooks = afterSuiteHooks;
+    }
+
+    public static Set<Method> getAfterClassStepsHooks() {
+        return afterClassStepsHooks;
+    }
+
+    public static void setAfterClassStepsHooks(Set<Method> afterClassStepsHooks) {
+        HooksRegistry.afterClassStepsHooks = afterClassStepsHooks;
+    }
+
+    public static Set<Method> getBeforeClassStepsHooks() {
+        return beforeClassStepsHooks;
+    }
+
+    public static void setBeforeClassStepsHooks(Set<Method> beforeClassStepsHooks) {
+        HooksRegistry.beforeClassStepsHooks = beforeClassStepsHooks;
+    }
+
+    public static HashSet<Method> getBeforeClassStepsHooksOfClass(Class<?> aClass) {
+        HashSet<Method> beforeClassMethods = new HashSet<Method>();
+        for (Method beforeClassStepsHook : beforeClassStepsHooks) {
+            if (beforeClassStepsHook.getDeclaringClass().equals(aClass)){
+                beforeClassMethods.add(beforeClassStepsHook);
+            }
+        }
+        return beforeClassMethods;
+    }
+
+    public static HashSet<Method> getAfterClassStepsHooksOfClass(Class<?> aClass) {
+        HashSet<Method> afterClassMethods = new HashSet<Method>();
+        for (Method afterClassStepHook : afterClassStepsHooks) {
+            if (afterClassStepHook.getDeclaringClass().equals(aClass)){
+                afterClassMethods.add(afterClassStepHook);
+            }
+        }
+        return afterClassMethods;
     }
 }

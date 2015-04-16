@@ -49,6 +49,11 @@
             <artifactId>javassist</artifactId>
             <version>3.18.0-GA</version>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.9.5</version>
+        </dependency>
     </dependencies>
 
     <build>
