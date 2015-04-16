@@ -51,4 +51,24 @@ public class StepValue {
     public static StepValue from(Spec.ProtoStepValue protoStepValue) {
         return new StepValue(protoStepValue.getStepValue(), protoStepValue.getParameterizedStepValue(), protoStepValue.getParametersList());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof StepValue)) return false;
+        StepValue stepValue = (StepValue) o;
+        return !(parameterizedStepText != null ? !parameterizedStepText.equals(stepValue.parameterizedStepText) : stepValue.parameterizedStepText != null) &&
+                !(parameters != null ? !parameters.equals(stepValue.parameters) : stepValue.parameters != null) &&
+                !(stepText != null ? !stepText.equals(stepValue.stepText) : stepValue.stepText != null);
+
+    }
+
+    @Override
+    public String toString() {
+        return "StepValue{" +
+                "stepText='" + stepText + '\'' +
+                ", parameterizedStepText='" + parameterizedStepText + '\'' +
+                ", parameters=" + parameters +
+                '}';
+    }
 }
