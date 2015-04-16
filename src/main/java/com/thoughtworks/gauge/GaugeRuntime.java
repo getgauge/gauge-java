@@ -20,6 +20,7 @@ package com.thoughtworks.gauge;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
 import com.thoughtworks.gauge.processor.*;
+import com.thoughtworks.gauge.processor.RefactorRequestProcessor;
 import gauge.messages.Messages;
 import org.reflections.Configuration;
 import org.reflections.Reflections;
@@ -28,7 +29,6 @@ import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
@@ -168,11 +168,7 @@ public class GaugeRuntime {
             if (annotation != null) {
                 for (String stepName : annotation.value()) {
                     StepValue stepValue = gaugeApiConnection.getStepValue(stepName);
-                    String fileName = null;
-                    try {
-                        fileName = method.getDeclaringClass().getCanonicalName().replace(".",File.separator) + ".java";
-                    } catch (Exception ignored) {}
-                    StepRegistry.addStepImplementation(stepValue, method, fileName);
+                    StepRegistry.addStepImplementation(stepValue, method);
                 }
             }
         }

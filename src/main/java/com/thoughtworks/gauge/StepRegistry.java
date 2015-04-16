@@ -17,6 +17,7 @@
 
 package com.thoughtworks.gauge;
 
+import java.io.File;
 import java.lang.reflect.Method;
 import java.util.*;
 
@@ -26,9 +27,10 @@ public class StepRegistry {
     private static Map<Method, String> methodToFileMap = new HashMap<Method, String>();
     private static Map<String, StepValue> stepTextToStepValue = new HashMap<String, StepValue>();
 
-    public static void addStepImplementation(StepValue stepValue, Method method, String fileName) {
+    public static void addStepImplementation(StepValue stepValue, Method method) {
         stepTextToMethodMap.put(stepValue.getStepText(), method);
         stepTextToStepValue.put(stepValue.getStepText(), stepValue);
+        String fileName = method.getDeclaringClass().getCanonicalName().replace(".", File.separator) + ".java";
         methodToFileMap.put(method,fileName);
     }
 
@@ -81,5 +83,9 @@ public class StepRegistry {
             }
         }
         return keys;
+    }
+
+    public static boolean hasAlias(String stepValue) {
+        return getStepAnnotationFor(getAliasStepTexts(stepValue)).size() > 1;
     }
 }

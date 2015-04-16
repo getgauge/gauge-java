@@ -248,7 +248,6 @@ func copyFiles(files map[string]string, installDir string) {
 }
 
 func copyGaugeJavaFiles(destDir string) {
-	copyLibsFromMaven()
 	files := make(map[string]string)
 	if getGOOS() == "windows" {
 		files[filepath.Join(getBinDir(), "gauge-java.exe")] = bin
@@ -268,7 +267,7 @@ func copyGaugeJavaFiles(destDir string) {
 }
 
 func copyLibsFromMaven() {
-	runCommand("mvn", "dependency:copy-dependencies", "-DoutputDirectory=libs", "-DexcludeTransitive=true")
+	runCommand("mvn", "dependency:copy-dependencies", "-DoutputDirectory=libs", "-DexcludeTransitive=true", "-DexcludeScope=test")
 }
 
 func getFilesByExt(dir string, ext string) []string {

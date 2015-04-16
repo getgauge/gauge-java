@@ -17,17 +17,15 @@
 
 package com.thoughtworks.gauge.refactor;
 
-import com.thoughtworks.gauge.processor.RefactorRequestProcessor;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RefactorFile {
-    private RefactorRequestProcessor.JavaElement javaElement;
+public class FileModifier {
+    private JavaRefactoringElement javaElement;
     private List<String> content;
 
-    public RefactorFile(RefactorRequestProcessor.JavaElement javaElement) {
+    public FileModifier(JavaRefactoringElement javaElement) {
         this.javaElement = javaElement;
     }
 
@@ -38,20 +36,20 @@ public class RefactorFile {
     }
 
     private void refactorContent() {
-        String[] lines = javaElement.text.split("\n");
+        String[] lines = javaElement.getText().split("\n");
         String spaces = "";
-        for (int j = 0; j < javaElement.beginColumn-1; j++) {
+        for (int j = 0; j < javaElement.getIndentation(); j++) {
             spaces += " ";
         }
-        for (int i = javaElement.beginLine; i <= javaElement.endLine ; i++) {
-            content.remove(javaElement.beginLine - 1);
+        for (int i = javaElement.getBeginLine(); i <= javaElement.getEndLine() ; i++) {
+            content.remove(javaElement.getBeginLine() - 1);
         }
-        for (int i = javaElement.beginLine,index = 0; index < lines.length ; i++,index++) {
+        for (int i = javaElement.getBeginLine(),index = 0; index < lines.length ; i++,index++) {
             content.add(i - 1, spaces + lines[index]);
         }
     }
     private void readFileContent() throws IOException {
-        File file = javaElement.file;
+        File file = javaElement.getFile();
         FileReader in = new FileReader(file);
         BufferedReader bufferedReader = new BufferedReader(in);
         List<String> content = new ArrayList<String>();
@@ -61,8 +59,8 @@ public class RefactorFile {
         }
         this.content = content;
     }
-    public void write() throws IOException {
-        FileOutputStream stream = new FileOutputStream(javaElement.file, false);
+    private void write() throws IOException {
+        FileOutputStream stream = new FileOutputStream(javaElement.getFile(), false);
         StringBuilder content = new StringBuilder("");
         for (String line : this.content) {
             content.append(line).append("\n");

@@ -17,6 +17,8 @@
 
 package com.thoughtworks.gauge;
 
+import gauge.messages.Spec;
+
 import java.util.List;
 
 public class StepValue {
@@ -46,4 +48,7 @@ public class StepValue {
         return parameterizedStepText;
     }
 
+    public static StepValue from(Spec.ProtoStepValue protoStepValue) {
+        return new StepValue(protoStepValue.getStepValue(), protoStepValue.getParameterizedStepValue(), protoStepValue.getParametersList());
+    }
 }
