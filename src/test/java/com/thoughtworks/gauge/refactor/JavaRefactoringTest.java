@@ -39,7 +39,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testRefactoringWithAlias() throws Exception {
         mockStatic(StepRegistry.class);
         when(StepRegistry.hasAlias("old step")).thenReturn(true);
-        when(StepRegistry.getFileName(null)).thenReturn("foo");
+        when(StepRegistry.getFileName("old step")).thenReturn("foo");
 
         StepValue oldStepValue = new StepValue("old step", "", new ArrayList<String>());
         StepValue newStepValue = new StepValue("", "", new ArrayList<String>());

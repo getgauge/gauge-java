@@ -28,7 +28,7 @@ public class RefactorRequestProcessor implements IMessageProcessor {
 
     public Messages.Message process(Messages.Message message) {
         Messages.RefactorRequest refactorRequest = message.getRefactorRequest();
-        String fileName = StepRegistry.getFileName(StepRegistry.get(refactorRequest.getOldStepValue().getStepValue()));
+        String fileName = StepRegistry.getFileName(refactorRequest.getOldStepValue().getStepValue());
         if (fileName == null) {
             return createRefactorResponse(message, false, "Step Implementation Not Found");
         }

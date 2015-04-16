@@ -19,6 +19,7 @@ package com.thoughtworks.gauge;
 
 import gauge.messages.Spec;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StepValue {
@@ -30,6 +31,12 @@ public class StepValue {
         this.stepText = stepText;
         this.parameterizedStepText = parameterizedStepText;
         this.parameters = parameters;
+    }
+
+    public StepValue(String stepTemplateText, String parameterizedStepText) {
+        this.stepText = stepTemplateText;
+        this.parameterizedStepText = parameterizedStepText;
+        this.parameters = new ArrayList<String>();
     }
 
     public String getStepText() {

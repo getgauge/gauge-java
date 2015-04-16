@@ -19,15 +19,13 @@ package com.thoughtworks.gauge.processor;
 
 
 import com.thoughtworks.gauge.StepRegistry;
-import com.thoughtworks.gauge.processor.IMessageProcessor;
 import gauge.messages.Messages;
 
 import java.util.List;
 
 public class StepNamesRequestProcessor implements IMessageProcessor {
-    @Override
     public Messages.Message process(Messages.Message receivedMessage) {
-        List<String> stepTexts = StepRegistry.getAllStepTexts();
+        List<String> stepTexts = StepRegistry.getAllStepAnnotationTexts();
 
         return Messages.Message.newBuilder()
                 .setMessageId(receivedMessage.getMessageId())

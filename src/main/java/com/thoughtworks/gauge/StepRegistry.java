@@ -23,32 +23,28 @@ import java.util.*;
 
 public class StepRegistry {
 
-    private static Map<String, Method> stepTextToMethodMap = new HashMap<String, Method>();
-    private static Map<Method, String> methodToFileMap = new HashMap<Method, String>();
-    private static Map<String, StepValue> stepTextToStepValue = new HashMap<String, StepValue>();
+    private static HashMap<String, StepRegistryEntry> registry = new RegistryMap<String, StepRegistryEntry>();
 
     public static void addStepImplementation(StepValue stepValue, Method method) {
-        stepTextToMethodMap.put(stepValue.getStepText(), method);
-        stepTextToStepValue.put(stepValue.getStepText(), stepValue);
-        String fileName = method.getDeclaringClass().getCanonicalName().replace(".", File.separator) + ".java";
-        methodToFileMap.put(method,fileName);
+        registry.put(stepValue.getStepText(), new StepRegistryEntry(stepValue, method));
     }
 
-    public static boolean contains(String stepText) {
-        return stepTextToMethodMap.containsKey(stepText);
+    public static boolean contains(String stepTemplateText) {
+        return registry.containsKey(stepTemplateText);
     }
 
-    public static Method get(String stepText) {
-        return stepTextToMethodMap.get(stepText);
-    }
-    public static String getFileName(Method method) {
-        return methodToFileMap.get(method);
+    public static Method get(String stepTemplateText) {
+        return registry.get(stepTemplateText).getMethod();
     }
 
-    public static List<String> getAllStepTexts() {
+    public static String getFileName(String stepTemplateText) {
+        return registry.get(stepTemplateText).getFileName();
+    }
+
+    public static List<String> getAllStepAnnotationTexts() {
         List<String> stepTexts = new ArrayList<String>();
-        for (StepValue stepValue : stepTextToStepValue.values()) {
-            stepTexts.add(stepValue.getStepAnnotationText());
+        for (StepRegistryEntry registryEntry : registry.values()) {
+            stepTexts.add(registryEntry.getStepValue().getStepAnnotationText());
         }
         return stepTexts;
     }
@@ -56,23 +52,33 @@ public class StepRegistry {
     public static List<String> getStepAnnotationFor(Set<String> stepTexts) {
         List<String> stepValues = new ArrayList<String>();
         for (String stepText : stepTexts) {
-            for (StepValue stepValue : stepTextToStepValue.values()) {
-                if (stepValue.getStepText().equals(stepText)){
-                    stepValues.add(stepValue.getStepAnnotationText());
-                }
-            }
+            stepValues.add(getStepAnnotationFor(stepText));
         }
         return stepValues;
     }
 
-    public static Set<String> getAliasStepTexts(String stepText) {
-        Method stepTextMethod = stepTextToMethodMap.get(stepText);
-        for (Method method : stepTextToMethodMap.values()) {
-            if (method.equals(stepTextMethod)) {
-                return getKeysByValue(stepTextToMethodMap, method);
+    public static String getStepAnnotationFor(String stepTemplateText) {
+        for (StepRegistryEntry entry : registry.values()) {
+            if (entry.getStepValue().getStepText().equals(stepTemplateText)){
+                return entry.getStepValue().getStepAnnotationText();
             }
         }
-        return new HashSet<String>();
+        return "";
+    }
+
+    public static Set<String> getAllAliasAnnotationTextsFor(String stepTemplateText) {
+        Method method = get(stepTemplateText);
+        HashSet<String> aliases = new HashSet<String>();
+        for (Map.Entry<String, StepRegistryEntry> entry : registry.entrySet()) {
+            if (entry.getValue().getMethod().equals(method)) {
+                aliases.add(entry.getValue().getStepValue().getStepAnnotationText());
+            }
+        }
+        return aliases;
+    }
+
+    public static boolean hasAlias(String stepTemplateText) {
+        return getStepAnnotationFor(getAllAliasAnnotationTextsFor(stepTemplateText)).size() > 1;
     }
 
     private static <T, E> Set<T> getKeysByValue(Map<T, E> map, E value) {
@@ -85,7 +91,48 @@ public class StepRegistry {
         return keys;
     }
 
-    public static boolean hasAlias(String stepValue) {
-        return getStepAnnotationFor(getAliasStepTexts(stepValue)).size() > 1;
+    public static void remove(String stepTemplateText) {
+       registry.remove(stepTemplateText);
+    }
+
+    private static class StepRegistryEntry {
+
+        private final StepValue stepValue;
+        private final Method method;
+
+        public StepRegistryEntry(StepValue stepValue, Method method) {
+            this.stepValue = stepValue;
+            this.method = method;
+        }
+
+        public StepRegistryEntry() {
+            stepValue = new StepValue("", "", new ArrayList<String>());
+            method = null;
+        }
+
+        public StepValue getStepValue() {
+            return stepValue;
+        }
+
+        public Method getMethod() {
+            return method;
+        }
+
+        public String getFileName() {
+            if (method == null) {
+                return "";
+            }
+            return method.getDeclaringClass().getCanonicalName().replace(".", File.separator) + ".java";
+        }
+    }
+
+    private static class RegistryMap<T, T1> extends HashMap {
+
+        public Object get(Object o) {
+            if (super.get(o) == null) {
+                return new StepRegistryEntry();
+            }
+            return super.get(o);
+        }
     }
 }

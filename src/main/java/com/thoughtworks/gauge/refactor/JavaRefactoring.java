@@ -40,7 +40,7 @@ public class JavaRefactoring {
     }
 
     public RefactoringResult performRefactoring() {
-        String fileName = StepRegistry.getFileName(StepRegistry.get(oldStepValue.getStepText()));
+        String fileName = StepRegistry.getFileName(oldStepValue.getStepText());
         if (fileName == null) {
             return new RefactoringResult(false, "Step Implementation Not Found");
         }
