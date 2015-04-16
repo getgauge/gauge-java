@@ -29,7 +29,6 @@ import java.lang.reflect.Method;
 
 public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
 
-    @Override
     public Messages.Message process(Messages.Message message) {
         Method method = StepRegistry.get(message.getExecuteStepRequest().getParsedStepText());
         ExecutionPipeline pipeline = new ExecutionPipeline(new HookExecutionStage(HooksRegistry.getBeforeClassStepsHooksOfClass(method.getDeclaringClass())));
