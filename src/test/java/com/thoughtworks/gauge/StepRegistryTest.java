@@ -19,6 +19,7 @@ package com.thoughtworks.gauge;
 
 import junit.framework.TestCase;
 
+import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Set;
@@ -58,7 +59,7 @@ public class StepRegistryTest extends TestCase {
     }
 
     public void testGetFileNameFromStepRegistry() throws Exception {
-        assertEquals("com/thoughtworks/gauge/TestImplClass.java", StepRegistry.getFileName(stepValue1.getStepText()));
+        assertEquals(String.format("com%sthoughtworks%sgauge%sTestImplClass.java", File.separator, File.separator, File.separator), StepRegistry.getFileName(stepValue1.getStepText()));
         assertEquals("", StepRegistry.getFileName("unknown"));
     }
 
