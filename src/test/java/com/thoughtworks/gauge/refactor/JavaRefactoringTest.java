@@ -51,7 +51,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForSimpleRefactoring() throws Exception {
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
         StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
-        File javaFile = new File("src/test/resources", "StepImpl.java");
+        File javaFile = getImplFile();
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
@@ -68,7 +68,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForRefactoringWithNewParameter() throws Exception {
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
         StepValue newStepValue = new StepValue("step with {}", "step with <param 1>", Arrays.asList(new String[]{"param 1"}));
-        File javaFile = new File("src/test/resources", "StepImpl.java");
+        File javaFile = getImplFile();
         Messages.ParameterPosition parameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(0).build();
         ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
         parameterPositions.add(parameterPosition);
@@ -85,10 +85,14 @@ public class JavaRefactoringTest extends TestCase {
 
     }
 
+    private File getImplFile() {
+        return new File(String.format("src%stest%sresources", File.separator, File.separator), "StepImpl.java");
+    }
+
     public void testJavaElementForRefactoringWithParametersRemovedAndAdded() throws Exception {
         StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<String>());
         StepValue newStepValue = new StepValue("{} changed {} and added {}", "<b> changed <a> and added <c>", Arrays.asList(new String[]{"b","a","c"}));
-        File javaFile = new File("src/test/resources", "StepImpl.java");
+        File javaFile = getImplFile();
 
         Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(0).build();
         Messages.ParameterPosition secondParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(1).build();
