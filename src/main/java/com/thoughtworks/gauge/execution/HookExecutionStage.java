@@ -23,11 +23,11 @@ import java.util.Set;
 
 
 public class HookExecutionStage extends AbstractExecutionStage {
-    private Set<Method> beforeClassStepsHooks;
+    private Set<Method> execHooks;
     private ExecutionStage next;
 
-    public HookExecutionStage(Set<Method> beforeClassStepsHooks) {
-        this.beforeClassStepsHooks = beforeClassStepsHooks;
+    public HookExecutionStage(Set<Method> execHooks) {
+        this.execHooks = execHooks;
     }
 
     public void setNextStage(ExecutionStage stage) {
@@ -40,34 +40,12 @@ public class HookExecutionStage extends AbstractExecutionStage {
         return executeNext(stageResult);
     }
 
-    private Spec.ProtoExecutionResult mergeExecResults(Spec.ProtoExecutionResult previousStageResult, Spec.ProtoExecutionResult execResult) {
-        long execTime = execResult.getExecutionTime() + previousStageResult.getExecutionTime();
-        boolean failed = execResult.getFailed() | previousStageResult.getFailed();
-        boolean recoverableError = execResult.getRecoverableError() & previousStageResult.getRecoverableError();
-
-        Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder();
-        builder.setExecutionTime(execTime);
-        builder.setFailed(failed);
-        builder.setRecoverableError(recoverableError);
-
-        if (previousStageResult.getFailed()) {
-            builder.setErrorMessage(previousStageResult.getErrorMessage());
-            builder.setScreenShot(previousStageResult.getScreenShot());
-            builder.setStackTrace(previousStageResult.getStackTrace());
-        } else if(execResult.getFailed()) {
-            builder.setErrorMessage(execResult.getErrorMessage());
-            builder.setScreenShot(execResult.getScreenShot());
-            builder.setStackTrace(execResult.getStackTrace());
-        }
-        return builder.build();
-    }
-
     protected ExecutionStage next() {
         return next;
     }
 
     private Spec.ProtoExecutionResult execute() {
         MethodExecutor methodExecutor = new MethodExecutor();
-        return methodExecutor.executeMethods(beforeClassStepsHooks);
+        return methodExecutor.executeMethods(execHooks);
     }
 }

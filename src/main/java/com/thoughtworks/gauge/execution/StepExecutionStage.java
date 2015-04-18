@@ -51,17 +51,22 @@ public class StepExecutionStage extends AbstractExecutionStage {
         this.next = stage;
     }
 
-    public Spec.ProtoExecutionResult execute(Spec.ProtoExecutionResult result) {
-        if (result.getFailed()) {
-            return executeNext(result);
+    public Spec.ProtoExecutionResult execute(Spec.ProtoExecutionResult previousStageResult) {
+        if (previousStageResult.getFailed()) {
+            return executeNext(previousStageResult);
         }
         Spec.ProtoExecutionResult stageResult = executeStep();
-        return executeNext(stageResult);
+        return executeNext(mergeExecResults(previousStageResult, stageResult));
     }
 
     private Spec.ProtoExecutionResult executeStep() {
         Method method = StepRegistry.get(executeStepRequest.getParsedStepText());
         MethodExecutor methodExecutor = new MethodExecutor();
+        return executeStepMethod(methodExecutor, method);
+
+    }
+
+    public Spec.ProtoExecutionResult executeStepMethod(MethodExecutor methodExecutor, Method method) {
         List<Spec.Parameter> args = executeStepRequest.getParametersList();
         if (args != null && args.size() > 0) {
             Object[] parameters = new Object[args.size()];
@@ -74,13 +79,13 @@ public class StepExecutionStage extends AbstractExecutionStage {
                     parameters[i] = args.get(i).getValue();
                 }
             }
-            return methodExecutor.executeMethod(method, parameters);
+            return methodExecutor.execute(method, parameters);
         } else {
-            return methodExecutor.executeMethod(method);
+            return methodExecutor.execute(method);
         }
     }
 
-     protected ExecutionStage next() {
+    protected ExecutionStage next() {
         return next;
     }
 }

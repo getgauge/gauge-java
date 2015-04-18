@@ -23,7 +23,6 @@ import com.thoughtworks.gauge.ScreenshotFactory;
 import gauge.messages.Spec;
 
 import java.lang.reflect.Method;
-import java.util.HashSet;
 import java.util.Set;
 
 public class MethodExecutor {
@@ -36,20 +35,23 @@ public class MethodExecutor {
             return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(endTime - startTime).build();
         } catch (Throwable e) {
             long endTime = System.currentTimeMillis();
-            Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
-            builder.setScreenShot(ByteString.copyFrom(new ScreenshotFactory().getScreenshotBytes()));
-            if (e.getCause() != null) {
-                builder.setErrorMessage(e.getCause().toString());
-                builder.setStackTrace(formatStackTrace(e.getCause().getStackTrace()));
-            } else {
-                builder.setErrorMessage(e.toString());
-                builder.setStackTrace(formatStackTrace(e.getStackTrace()));
-            }
-
-            builder.setRecoverableError(false);
-            builder.setExecutionTime(endTime - startTime);
-            return builder.build();
+            return createFailureExecResult(endTime - startTime, e);
         }
+    }
+
+    private Spec.ProtoExecutionResult createFailureExecResult(long execTime, Throwable e) {
+        Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
+        builder.setScreenShot(ByteString.copyFrom(new ScreenshotFactory().getScreenshotBytes()));
+        if (e.getCause() != null) {
+            builder.setErrorMessage(e.getCause().toString());
+            builder.setStackTrace(formatStackTrace(e.getCause().getStackTrace()));
+        } else {
+            builder.setErrorMessage(e.toString());
+            builder.setStackTrace(formatStackTrace(e.getStackTrace()));
+        }
+        builder.setRecoverableError(false);
+        builder.setExecutionTime(execTime);
+        return builder.build();
     }
 
     private String formatStackTrace(StackTraceElement[] stackTrace) {
@@ -72,16 +74,6 @@ public class MethodExecutor {
             if(result.getFailed()){
                 return result;
             }
-        }
-        return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(totalExecutionTime).build();
-    }
-
-    public Spec.ProtoExecutionResult executeMethod(Method method, Object... args) {
-        long totalExecutionTime = 0;
-        Spec.ProtoExecutionResult result = execute(method, args);
-        totalExecutionTime += result.getExecutionTime();
-        if(result.getFailed()){
-            return result;
         }
         return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(totalExecutionTime).build();
     }

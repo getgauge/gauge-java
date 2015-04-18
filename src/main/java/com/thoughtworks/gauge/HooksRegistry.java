@@ -18,7 +18,6 @@
 package com.thoughtworks.gauge;
 
 import java.lang.reflect.Method;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -98,16 +97,8 @@ public class HooksRegistry {
         HooksRegistry.afterSuiteHooks = afterSuiteHooks;
     }
 
-    public static Set<Method> getAfterClassStepsHooks() {
-        return afterClassStepsHooks;
-    }
-
     public static void setAfterClassStepsHooks(Set<Method> afterClassStepsHooks) {
         HooksRegistry.afterClassStepsHooks = afterClassStepsHooks;
-    }
-
-    public static Set<Method> getBeforeClassStepsHooks() {
-        return beforeClassStepsHooks;
     }
 
     public static void setBeforeClassStepsHooks(Set<Method> beforeClassStepsHooks) {
