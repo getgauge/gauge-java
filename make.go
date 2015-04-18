@@ -325,6 +325,7 @@ func setEnv(envVariables map[string]string) {
 var install = flag.Bool("install", false, "Install to the specified prefix")
 var pluginInstallPrefix = flag.String("plugin-prefix", "", "Specifies the prefix where gauge plugins will be installed")
 var distro = flag.Bool("distro", false, "Creates distributables for gauge java")
+var test = flag.Bool("test", false, "Runs tests")
 var allPlatforms = flag.Bool("all-platforms", false, "Compiles or creates distributables for all platforms windows, linux, darwin both x86 and x86_64")
 var binDir = flag.String("bin-dir", "", "Specifies OS_PLATFORM specific binaries to install when cross compiling")
 
@@ -363,9 +364,16 @@ func main() {
 		installGaugeJava(*pluginInstallPrefix)
 	} else if *distro {
 		createGaugeDistro(*allPlatforms)
+	} else if *test {
+		compileGoPackage(gaugeJava)
+		runMavenTests()
 	} else {
 		compileGaugeJava()
 	}
+}
+
+func runMavenTests() {
+	runCommand("mvn", "test")
 }
 
 func compileGaugeJava() {
