@@ -18,14 +18,12 @@
 package com.thoughtworks.gauge.processor;
 
 import com.thoughtworks.gauge.StepRegistry;
-import com.thoughtworks.gauge.processor.IMessageProcessor;
 import gauge.messages.Messages;
 
 import java.lang.reflect.Method;
 
 public class ValidateStepProcessor implements IMessageProcessor {
 
-    @Override
     public Messages.Message process(Messages.Message message) {
         stepValidationResult validationResult = validateStep(message.getStepValidateRequest());
         Messages.StepValidateResponse stepValidationResponse = Messages.StepValidateResponse.newBuilder().setIsValid(validationResult.isValid())

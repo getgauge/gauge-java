@@ -21,7 +21,6 @@ import com.thoughtworks.gauge.processor.IMessageProcessor;
 import gauge.messages.Messages;
 
 public class KillProcessProcessor implements IMessageProcessor {
-    @Override
     public Messages.Message process(Messages.Message message) {
         return message;
     }

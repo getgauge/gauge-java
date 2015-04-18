@@ -28,35 +28,30 @@ interface StringToPrimitiveConverter {
 }
 
 class StringToIntegerConverter implements StringToPrimitiveConverter {
-    @Override
     public Object convert(Spec.Parameter source) {
         return Integer.parseInt(source.getValue());
     }
 }
 
 class StringToBooleanConverter implements StringToPrimitiveConverter {
-    @Override
     public Object convert(Spec.Parameter source) {
         return Boolean.parseBoolean(source.getValue());
     }
 }
 
 class StringToDoubleConverter implements StringToPrimitiveConverter {
-    @Override
     public Object convert(Spec.Parameter source) {
         return Double.parseDouble(source.getValue());
     }
 }
 
 class StringToLongConverter implements StringToPrimitiveConverter {
-    @Override
     public Object convert(Spec.Parameter source) {
         return Long.parseLong(source.getValue());
     }
 }
 
 class StringToFloatConverter implements StringToPrimitiveConverter {
-    @Override
     public Object convert(Spec.Parameter source) {
         return Float.parseFloat(source.getValue());
     }
@@ -64,7 +59,6 @@ class StringToFloatConverter implements StringToPrimitiveConverter {
 
 class TableConverter implements StringToPrimitiveConverter {
 
-    @Override
     public Object convert(Spec.Parameter source) {
         Spec.ProtoTable protoTable = source.getTable();
         return tableFromProto(protoTable);
