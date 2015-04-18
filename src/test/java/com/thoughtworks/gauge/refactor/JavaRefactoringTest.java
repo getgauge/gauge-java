@@ -55,7 +55,7 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
-        assertEquals(javaFile.getAbsolutePath(), element.getFile().getAbsolutePath());
+        assertEquals(javaFile.getName(), element.getFile().getName());
         assertEquals(17, element.getBeginLine());
         assertEquals(19, element.getEndLine());
         assertEquals(4, element.getIndentation());
@@ -75,7 +75,7 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
-        assertEquals(javaFile.getAbsolutePath(), element.getFile().getAbsolutePath());
+        assertEquals(javaFile.getName(), element.getFile().getName());
         assertEquals(17, element.getBeginLine());
         assertEquals(19, element.getEndLine());
         assertEquals(4, element.getIndentation());
@@ -106,7 +106,7 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
-        assertEquals(javaFile.getAbsolutePath(), element.getFile().getAbsolutePath());
+        assertEquals(javaFile.getName(), element.getFile().getName());
         assertEquals(13, element.getBeginLine());
         assertEquals(15, element.getEndLine());
         assertEquals(4, element.getIndentation());
