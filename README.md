@@ -1,5 +1,4 @@
-
-gauge-java
+Gauge-java   [![Build Status](https://travis-ci.org/getgauge/gauge-java.svg?branch=master)](https://travis-ci.org/getgauge/gauge-java)
 ==========
 
 This is the java [language plugin](http://getgauge.io/documentation/user/current/plugins/README.html) for [gauge](http://getgauge.io).
