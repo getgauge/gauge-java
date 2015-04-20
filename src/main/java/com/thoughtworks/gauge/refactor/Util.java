@@ -36,4 +36,8 @@ public class Util {
         }
         return text;
     }
+
+    public static String lineSeparator() {
+        return System.getProperty("line.separator");
+    }
 }
