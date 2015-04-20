@@ -20,11 +20,11 @@ package com.thoughtworks.gauge.processor;
 import com.thoughtworks.gauge.StepRegistry;
 import gauge.messages.Messages;
 
-import java.util.List;
+import java.util.Set;
 
 public class StepNameRequestProcessor implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
-        List<String> stepAnnotations = StepRegistry.getStepAnnotationFor(StepRegistry.getAllAliasAnnotationTextsFor(message.getStepNameRequest().getStepValue()));
+        Set<String> stepAnnotations = StepRegistry.getAllAliasAnnotationTextsFor(message.getStepNameRequest().getStepValue());
         boolean hasAlias = false, isStepPresent = false;
         if (stepAnnotations.size() > 1) hasAlias = true;
         if (stepAnnotations.size() >= 1) isStepPresent = true;
