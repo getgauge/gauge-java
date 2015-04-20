@@ -9,7 +9,7 @@ Requirements
 -----------
 * [Golang](http://golang.org/)
 * [Java] (https://www.java.com/en/download/index.jsp)
-* [Ant](https://ant.apache.org/)
+* [Maven](https://maven.apache.org/)
 * [Gauge](http://getgauge.io)
 
 
