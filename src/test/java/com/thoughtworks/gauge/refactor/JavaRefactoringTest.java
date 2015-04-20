@@ -116,14 +116,29 @@ public class JavaRefactoringTest extends TestCase {
 
     }
 
-    public void testResultForRefactoringWHenFileNotFound() throws Exception {
+    public void testResultForRefactoringWhenFileNotFound() throws Exception {
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
         StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
         RefactoringResult result = refactoring.performRefactoring();
 
         assertEquals(result.passed(), false);
-        assertEquals(result.errorMessage(), "Step Implementation Not Found");
+        assertEquals(result.errorMessage(), "Step Implementation Not Found: Unable to find a file Name to refactor");
+        assertEquals(result.fileChanged(), "");
+    }
+
+    public void testResultForRefactoringWhenFileDoesNotExist() throws Exception {
+        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
+        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
+
+        mockStatic(StepRegistry.class);
+        when(StepRegistry.getFileName("A step with no params")).thenReturn("foobar");
+
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        RefactoringResult result = refactoring.performRefactoring();
+
+        assertEquals(result.passed(), false);
+        assertEquals(result.errorMessage(), "Step Implementation Not Found: Unable to find file: foobar");
         assertEquals(result.fileChanged(), "");
     }
 }

@@ -63,7 +63,7 @@ public class FileModifier {
         FileOutputStream stream = new FileOutputStream(javaElement.getFile(), false);
         StringBuilder content = new StringBuilder("");
         for (String line : this.content) {
-            content.append(line).append("\n");
+            content.append(line).append(System.getProperty("line.separator"));
         }
         stream.write(content.toString().getBytes());
         stream.close();

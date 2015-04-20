@@ -18,7 +18,6 @@
 package com.thoughtworks.gauge.processor;
 
 
-import com.thoughtworks.gauge.StepRegistry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.refactor.JavaRefactoring;
 import com.thoughtworks.gauge.refactor.RefactoringResult;
@@ -28,11 +27,6 @@ public class RefactorRequestProcessor implements IMessageProcessor {
 
     public Messages.Message process(Messages.Message message) {
         Messages.RefactorRequest refactorRequest = message.getRefactorRequest();
-        String fileName = StepRegistry.getFileName(refactorRequest.getOldStepValue().getStepValue());
-        if (fileName == null) {
-            return createRefactorResponse(message, false, "Step Implementation Not Found");
-        }
-
         RefactoringResult result = new JavaRefactoring(StepValue.from(refactorRequest.getOldStepValue()),
                                                        StepValue.from(refactorRequest.getNewStepValue()),
                                                        refactorRequest.getParamPositionsList()).performRefactoring();
@@ -46,14 +40,6 @@ public class RefactorRequestProcessor implements IMessageProcessor {
                 .setMessageType(Messages.Message.MessageType.RefactorResponse)
                 .setRefactorResponse(Messages.RefactorResponse.newBuilder().setSuccess(result.passed()).setError(result.errorMessage()).addFilesChanged(result.fileChanged()).build())
                 .build();
-    }
-
-    private Messages.Message createRefactorResponse(Messages.Message message, boolean success, String errorMessage) {
-            return Messages.Message.newBuilder()
-                    .setMessageId(message.getMessageId())
-                    .setMessageType(Messages.Message.MessageType.RefactorResponse)
-                    .setRefactorResponse(Messages.RefactorResponse.newBuilder().setSuccess(success).setError(errorMessage).build())
-                    .build();
     }
 
 }

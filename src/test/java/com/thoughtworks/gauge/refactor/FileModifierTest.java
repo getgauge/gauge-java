@@ -42,17 +42,22 @@ public class FileModifierTest extends TestCase {
     }
 
     public void testRefactorFileChange() throws Exception {
-        String text = "New File \n Content \n in 3 lines";
+        String text = "New File "  + lineSeparator() + " Content "  + lineSeparator() + " in 3 lines";
         new FileModifier(new JavaRefactoringElement(3, 5, 0, text, file)).refactor();
         assertEquals(text, readFileLines(file, 3, 5));
 
-        text = "@Step(\"step <abcd> and a table <table>\")\n" +
-                "public void stepWithTable(float abcd, Table table) {\n" +
+        text = "@Step(\"step <abcd> and a table <table>\")"  + lineSeparator() +
+                "public void stepWithTable(float abcd, Table table) {"  + lineSeparator() +
                 "}";
         new FileModifier(new JavaRefactoringElement(13, 15, 5, text, file)).refactor();
-        assertEquals("     @Step(\"step <abcd> and a table <table>\")\n" +
-                "     public void stepWithTable(float abcd, Table table) {\n" +
+        assertEquals("     @Step(\"step <abcd> and a table <table>\")"  + lineSeparator() +
+                "     public void stepWithTable(float abcd, Table table) {"  + lineSeparator() +
                 "     }", readFileLines(file, 13, 15));
+    }
+
+    private String lineSeparator() {
+        return System.getProperty("line.separator");
+
     }
 
     private String readFileLines(File file, int startLine, int endLine) throws IOException {
@@ -61,10 +66,10 @@ public class FileModifierTest extends TestCase {
         for (int i = 0; i < lines.size(); i++) {
             int index = i + 1;
             if (index > startLine && index < endLine) {
-                builder.append(lines.get(i)).append("\n");
+                builder.append(lines.get(i)).append(lineSeparator());
             } else if (index == startLine) {
                 builder.append(lines.get(i));
-                if (endLine > startLine) builder.append("\n");
+                if (endLine > startLine) builder.append(lineSeparator());
             } else if (index == endLine) {
                 builder.append(lines.get(i));
             }

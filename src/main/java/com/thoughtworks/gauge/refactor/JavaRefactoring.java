@@ -41,27 +41,33 @@ public class JavaRefactoring {
 
     public RefactoringResult performRefactoring() {
         String fileName = StepRegistry.getFileName(oldStepValue.getStepText());
-        if (fileName == null) {
-            return new RefactoringResult(false, "Step Implementation Not Found");
+        if (fileName == null || fileName.isEmpty()) {
+            return new RefactoringResult(false, "Step Implementation Not Found: Unable to find a file Name to refactor");
         }
         if (StepRegistry.hasAlias(oldStepValue.getStepText())) {
             return new RefactoringResult(false, "Refactoring for steps having aliases are not supported.");
         }
-        JavaRefactoringElement element = createJavaRefactoringElement(fileName);
-        if (element == null) {
-            return new RefactoringResult(false, "Step Implementation Not Found");
-        }
+        JavaRefactoringElement element;
         try {
+            element = createJavaRefactoringElement(fileName);
             new FileModifier(element).refactor();
         } catch (IOException e) {
             return new RefactoringResult(false, "Unable to read/write file while refactoring. " + e.getMessage());
+        } catch (RefactoringException e) {
+            return new RefactoringResult(false, "Step Implementation Not Found: " + e.getMessage());
+        } catch (Exception e) {
+            return new RefactoringResult(false, "Refactoring failed: " + e.getMessage());
         }
+
         return new RefactoringResult(true, "", element.getFile().getAbsolutePath() );
     }
 
-    public JavaRefactoringElement createJavaRefactoringElement(String fileName) {
+    public JavaRefactoringElement createJavaRefactoringElement(String fileName) throws RefactoringException {
         JavaParser.setCacheParser(true);
         List<JavaParseWorker> javaParseWorkers = parseJavaFiles(Util.workingDir(), fileName);
+        if (javaParseWorkers.isEmpty()) {
+            throw new RefactoringException("Unable to find file: " + fileName);
+        }
         try {
             for (JavaParseWorker javaFile : javaParseWorkers) {
                 CompilationUnit compilationUnit = javaFile.getCompilationUnit();
@@ -73,7 +79,9 @@ public class JavaRefactoring {
                     return javaElement;
                 }
             }
-        } catch (Exception ignored){}
+        } catch (Exception e){
+            throw new RefactoringException("Failed creating java element: " + e.getMessage());
+        }
         return null;
     }
 
@@ -84,7 +92,7 @@ public class JavaRefactoring {
             if (file.isDirectory()) {
                 javaFiles.addAll(parseJavaFiles(file, fileName));
             } else {
-                if (file.getName().equals(fileName)) {
+                if (file.getAbsolutePath().contains(fileName)) {
                     JavaParseWorker worker = new JavaParseWorker(file);
                     worker.start();
                     javaFiles.add(worker);
