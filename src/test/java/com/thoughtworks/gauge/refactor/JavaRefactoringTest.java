@@ -67,7 +67,7 @@ public class JavaRefactoringTest extends TestCase {
 
     public void testJavaElementForRefactoringWithNewParameter() throws Exception {
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("step with {}", "step with <param 1>", Arrays.asList(new String[]{"param 1"}));
+        StepValue newStepValue = new StepValue("step with {}", "step with <param 1>", Arrays.asList("param 1"));
         File javaFile = getImplFile();
         Messages.ParameterPosition parameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(0).build();
         ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
@@ -89,9 +89,36 @@ public class JavaRefactoringTest extends TestCase {
         return new File(String.format("src%stest%sresources", File.separator, File.separator), "StepImpl.java");
     }
 
+    public void testJavaElementForRefactoringWithParametersRemoved() throws Exception {
+        StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<String>());
+        StepValue newStepValue = new StepValue("{} changed {} and added {}", "<table> changed <c> and added <a>", Arrays.asList("b","a","c"));
+        File javaFile = getImplFile();
+
+        Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(2).build();
+        Messages.ParameterPosition secondParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(1).setNewPosition(0).build();
+        Messages.ParameterPosition thirdParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(1).build();
+        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
+        parameterPositions.add(firstParameterPosition);
+        parameterPositions.add(secondParameterPosition);
+        parameterPositions.add(thirdParameterPosition);
+
+
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
+        JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
+
+        assertEquals(javaFile.getName(), element.getFile().getName());
+        assertEquals(13, element.getBeginLine());
+        assertEquals(15, element.getEndLine());
+        assertEquals(4, element.getIndentation());
+        assertEquals("@Step(\"<table> changed <c> and added <a>\")\n" +
+                "public void stepWithTable(Table table, String c, float a) {\n" +
+                "}", element.getText());
+
+    }
+
     public void testJavaElementForRefactoringWithParametersRemovedAndAdded() throws Exception {
         StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("{} changed {} and added {}", "<b> changed <a> and added <c>", Arrays.asList(new String[]{"b","a","c"}));
+        StepValue newStepValue = new StepValue("{} changed {} and added {}", "<b> changed <a> and added <c>", Arrays.asList("b","a","c"));
         File javaFile = getImplFile();
 
         Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(0).build();
