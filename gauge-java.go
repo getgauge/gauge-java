@@ -44,7 +44,7 @@ const (
 	step_implementation_class = "StepImplementation.java"
 	skelDir                   = "skel"
 	envDir                    = "env"
-	JavaDebugOptsTemplate     = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=%s"
+	JavaDebugOptsTemplate     = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=%s,timeout=25000"
 	java                      = "java"
 	javaExt                   = ".java"
 	defaultSrcDir             = "src"
