@@ -51,11 +51,11 @@ public abstract class MethodExecutionMessageProcessor {
         return createMessageWithExecutionStatusResponse(message, passingExecution);
     }
 
-    public Messages.Message executeHooks(Set<Method> beforeSpecHooks, Messages.Message message, SpecificationInfo executionInfo) {
+    public Messages.Message executeHooks(Set<Method> hooks, Messages.Message message, SpecificationInfo executionInfo) {
         MethodExecutor methodExecutor = new MethodExecutor();
         Spec.ProtoExecutionResult result;
         long totalHooksExecutionTime = 0;
-        for (Method method : beforeSpecHooks) {
+        for (Method method : hooks) {
             if (methodHasArguments(method, executionInfo)) {
                 result = methodExecutor.execute(method, executionInfo);
             } else {

@@ -23,7 +23,6 @@ import gauge.messages.Messages;
 import gauge.messages.Spec;
 
 public class DataStoreInitializer implements IMessageProcessor {
-    @Override
     public Messages.Message process(Messages.Message message) {
         switch (message.getMessageType()) {
             case SuiteDataStoreInit:
