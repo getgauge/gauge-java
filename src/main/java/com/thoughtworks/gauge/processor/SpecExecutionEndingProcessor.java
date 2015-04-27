@@ -30,7 +30,7 @@ public class SpecExecutionEndingProcessor extends MethodExecutionMessageProcesso
         SpecificationInfo info = new ExecutionInfoMapper().executionInfoFrom(message.getSpecExecutionEndingRequest().getCurrentExecutionInfo());
         Set<Method> afterSpecHooks = HooksRegistry.getAfterSpecHooks();
         Messages.Message result = executeHooks(afterSpecHooks, message, info);
-        ClearState.clear(ClearState.SPEC_LEVEL);
+        ClearObjectCache.clear(ClearObjectCache.SPEC_LEVEL);
         return result;
     }
 }

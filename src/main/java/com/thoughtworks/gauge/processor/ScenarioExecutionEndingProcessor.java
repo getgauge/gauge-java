@@ -30,7 +30,7 @@ public class ScenarioExecutionEndingProcessor extends MethodExecutionMessageProc
         SpecificationInfo info = new ExecutionInfoMapper().executionInfoFrom(message.getScenarioExecutionEndingRequest().getCurrentExecutionInfo());
         Set<Method> afterScenarioHooks = HooksRegistry.getAfterScenarioHooks();
         Messages.Message result = executeHooks(afterScenarioHooks, message, info);
-        ClearState.clear(ClearState.SCENARIO_LEVEL);
+        ClearObjectCache.clear(ClearObjectCache.SCENARIO_LEVEL);
         return result;
     }
 }

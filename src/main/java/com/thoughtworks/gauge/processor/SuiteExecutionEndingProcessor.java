@@ -30,7 +30,7 @@ public class SuiteExecutionEndingProcessor extends MethodExecutionMessageProcess
         SpecificationInfo info = new ExecutionInfoMapper().executionInfoFrom(message.getExecutionEndingRequest().getCurrentExecutionInfo());
         Set<Method> afterSuiteHooks = HooksRegistry.getAfterSuiteHooks();
         Messages.Message result = executeHooks(afterSuiteHooks, message, info);
-        ClearState.clear(ClearState.SPEC_LEVEL);
+        ClearObjectCache.clear(ClearObjectCache.SPEC_LEVEL);
         return result;
     }
 }
