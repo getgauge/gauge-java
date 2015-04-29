@@ -36,7 +36,7 @@ public class FileModifier {
     }
 
     private void refactorContent() {
-        String[] lines = javaElement.getText().split(Util.lineSeparator());
+        String[] lines = javaElement.getText().split("\\r?\\n");
         String spaces = "";
         for (int j = 0; j < javaElement.getIndentation(); j++) {
             spaces += " ";
@@ -48,6 +48,7 @@ public class FileModifier {
             content.add(i - 1, spaces + lines[index]);
         }
     }
+
     private void readFileContent() throws IOException {
         File file = javaElement.getFile();
         FileReader in = new FileReader(file);
@@ -59,6 +60,7 @@ public class FileModifier {
         }
         this.content = content;
     }
+
     private void write() throws IOException {
         FileOutputStream stream = new FileOutputStream(javaElement.getFile(), false);
         StringBuilder content = new StringBuilder("");
