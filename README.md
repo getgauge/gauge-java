@@ -12,6 +12,15 @@ Requirements
 * [Maven](https://maven.apache.org/)
 * [Gauge](http://getgauge.io)
 
+Install through Gauge
+---------------------
+````
+gauge --install java
+````
+* Installing specific version
+```
+  gauge --install java --plugin-version 0.0.2
+```
 
 Compiling
 ---------
@@ -39,12 +48,6 @@ Installing to a CUSTOM_LOCATION
 ````
 go run make.go --install --plugin-prefix CUSTOM_LOCATION
 ````
-
-### Install using gauge
-
-```
-gauge --install java
-```
 
 Creating distributable
 ----------------------
