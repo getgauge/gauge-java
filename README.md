@@ -5,13 +5,6 @@ This is the java [language plugin](http://getgauge.io/documentation/user/current
 
 It contains a launcher component (gauge-java.go) written in golang which is used to start the plugin from gauge.
 
-Requirements
------------
-* [Golang](http://golang.org/)
-* [Java] (https://www.java.com/en/download/index.jsp)
-* [Maven](https://maven.apache.org/)
-* [Gauge](http://getgauge.io)
-
 Install through Gauge
 ---------------------
 ````
@@ -29,8 +22,15 @@ gauge --install java --plugin-version 0.0.7
 gauge --install java --file gauge-java-0.0.7-windows.x86_64.zip
 ```
 
-Compiling
----------
+# Build from source
+
+###Requirements
+* [Golang](http://golang.org/)
+* [Java] (https://www.java.com/en/download/index.jsp)
+* [Maven](https://maven.apache.org/)
+* [Gauge](http://getgauge.io)
+
+### Compiling
 
 ````
 go run make.go
@@ -42,10 +42,9 @@ For cross platform compilation (launcher)
 go run make.go --all-platforms
 ````
 
-Installing
-----------
-After installing gauge
+###Installing
 
+After compilation
 ````
 go run make.go --install
 ````
@@ -56,8 +55,7 @@ Installing to a CUSTOM_LOCATION
 go run make.go --install --plugin-prefix CUSTOM_LOCATION
 ````
 
-Creating distributable
-----------------------
+###Creating distributable
 
 Note: Run after compiling
 
