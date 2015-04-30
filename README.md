@@ -17,9 +17,16 @@ Install through Gauge
 ````
 gauge --install java
 ````
+
 * Installing specific version
 ```
-  gauge --install java --plugin-version 0.0.2
+gauge --install java --plugin-version 0.0.7
+```
+
+* Offline installation
+Download the plugin from [Releases](https://github.com/getgauge/gauge-java/releases)
+```
+gauge --instal java --file gauge-java-0.0.7-windows.x86_64.zip
 ```
 
 Compiling
