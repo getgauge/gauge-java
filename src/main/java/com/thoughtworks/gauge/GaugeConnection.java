@@ -62,6 +62,11 @@ public class GaugeConnection {
         }
     }
 
+    /**
+     * Fetches all the steps in the gauge project as a list
+     * @return
+     * @throws IOException
+     */
     public List<StepValue> fetchAllSteps() throws IOException {
         Api.APIMessage message = getStepRequest();
         Api.APIMessage response = getAPIResponse(message);
@@ -74,6 +79,11 @@ public class GaugeConnection {
         return steps;
     }
 
+    /**
+     * Fetches all the concepts in th egauge project as a list of ConceptInfos which has details of file location.
+     * @return
+     * @throws IOException
+     */
     public List<ConceptInfo> fetchAllConcepts() throws IOException {
         Api.APIMessage message = getConceptRequest();
         Api.APIMessage response = getAPIResponse(message);
@@ -88,6 +98,13 @@ public class GaugeConnection {
         return conceptsInfo;
     }
 
+    /**
+     * Gets the Absolute path to libs  location for the particular language plugin
+     * @param language - The language plugin name, eg. java
+     * @return
+     * @throws IOException
+     * @throws PluginNotInstalledException
+     */
     public String getLibPath(String language) throws IOException, PluginNotInstalledException {
         Api.APIMessage message = getLibPathRequest(language);
         Api.APIMessage response = getAPIResponse(message);
@@ -116,6 +133,11 @@ public class GaugeConnection {
         return apiMessage;
     }
 
+    /**
+     * Gets the location of gauge installation on the system.
+     * @return
+     * @throws IOException
+     */
     public File getInstallationRoot() throws IOException {
         Api.APIMessage installationRootRequest = getInstallationRootRequest();
         Api.APIMessage response = getAPIResponse(installationRootRequest);
@@ -132,6 +154,12 @@ public class GaugeConnection {
         return getStepValue(stepText, false);
     }
 
+    /**
+     * Gets the step value for a particular step name
+     * @param stepText - The name of the step, eg. login as "admin"
+     * @param hasInlineTable - set to true if the step has an inline table parameter
+     * @return
+     */
     public StepValue getStepValue(String stepText, boolean hasInlineTable) {
         Api.APIMessage stepValueRequest = getStepValueRequest(stepText, hasInlineTable);
         Api.APIMessage response;
@@ -147,6 +175,22 @@ public class GaugeConnection {
         List<String> parametersList = protoStepValue.getParametersList();
         String parameterizedStepValue = protoStepValue.getParameterizedStepValue();
         return new StepValue(stepValue, parameterizedStepValue, parametersList);
+    }
+
+    /**
+     * Check if gauge connection is still active
+     * @return true if connected
+     */
+    public boolean isConnected() {
+        return gaugeSocket.isConnected();
+    }
+
+    /**
+     * Closes the connection
+     * @throws IOException - If fails to close the socket
+     */
+    public void close() throws IOException {
+            gaugeSocket.close();
     }
 
 
