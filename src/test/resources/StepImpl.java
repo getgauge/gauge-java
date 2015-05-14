@@ -17,5 +17,10 @@ public class StepImpl {
     @Step("A step with no params")
     public void someStepStep() {
     }
+
+    @Step("Tell <greeting> to <name>")
+    public void helloWorld(String greeting, String name) {
+        System.out.println(greeting + ", " + name);
+    }
 }
 

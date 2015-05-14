@@ -83,6 +83,31 @@ public class JavaRefactoringTest extends TestCase {
 
     }
 
+    public void testJavaElementForRefactoringWithNewParameterWhenParametersPresent() throws Exception {
+        StepValue oldStepValue = new StepValue("Tell {} to {}", "Tell <greeting> to <name>", Arrays.asList("greeting", "name"));
+        StepValue newStepValue = new StepValue("Tell {} to {} {}", "Tell <greeting> to <name> <DD>", Arrays.asList("greeting", "name", "DD"));
+        File javaFile = getImplFile();
+        Messages.ParameterPosition parameterPosition1 = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(0).build();
+        Messages.ParameterPosition parameterPosition2 = Messages.ParameterPosition.newBuilder().setOldPosition(1).setNewPosition(1).build();
+        Messages.ParameterPosition parameterPosition3 = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(2).build();
+        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
+        parameterPositions.add(parameterPosition1);
+        parameterPositions.add(parameterPosition2);
+        parameterPositions.add(parameterPosition3);
+
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
+        JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
+        assertEquals(javaFile.getName(), element.getFile().getName());
+        assertEquals(21, element.getBeginLine());
+        assertEquals(24, element.getEndLine());
+        assertEquals(4, element.getIndentation());
+        assertEquals("@Step(\"Tell <greeting> to <name> <DD>\")\n" +
+                "public void helloWorld(String greeting, String name, String dd) {\n" +
+                "    System.out.println(greeting + \", \" + name);\n" +
+                "}", element.getText());
+
+    }
+
     private File getImplFile() {
         return new File(String.format("src%stest%sresources", File.separator, File.separator), "StepImpl.java");
     }
