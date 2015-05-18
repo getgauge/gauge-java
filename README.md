@@ -74,8 +74,10 @@ New distribution details need to be updated in the java-install.json file in  [g
 License
 -------
 
-![GNU Public License version 3.0](http://www.gnu.org/graphics/gplv3-127x51.png)
-Gauge-Java is released under [GNU Public License version 3.0](http://www.gnu.org/licenses/gpl-3.0.txt)
+This program is dual-licensed under:
+1. the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version;
+or
+2. the Eclipse Public License v1.0. You can redistribute it and/or modify it under the terms of either license.
 
 Copyright
 ---------

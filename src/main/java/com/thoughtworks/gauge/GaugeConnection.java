@@ -2,18 +2,16 @@
 
 // This file is part of Gauge-Java.
 
-// Gauge-Java is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-
-// Gauge-Java is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
-
-// You should have received a copy of the GNU General Public License
-// along with Gauge-Java.  If not, see <http://www.gnu.org/licenses/>.
+// This program is free software.
+//
+// It is dual-licensed under:
+// 1) the GNU General Public License as published by the Free Software Foundation,
+// either version 3 of the License, or (at your option) any later version;
+// or
+// 2) the Eclipse Public License v1.0.
+//
+// You can redistribute it and/or modify it under the terms of either license.
+// We would then provide copied of each license in a separate .txt file with the name of the license as the title of the file.
 
 package com.thoughtworks.gauge;
 
@@ -195,7 +193,7 @@ public class GaugeConnection {
 
 
     /**
-     * Sends a request to gauge to perform a step name refactoring on the project. 
+     * Sends a request to gauge to perform a step name refactoring on the project.
      * @param oldName old Step Name
      * @param newName New Step Name
      * @return RefactoringResponse message
@@ -206,7 +204,7 @@ public class GaugeConnection {
         Api.APIMessage response = getAPIResponse(refactoringRequest);
         return response.getPerformRefactoringResponse();
     }
-    
+
     public Api.ExtractConceptResponse sendGetExtractConceptRequest(List<Api.step> steps,Api.step concept, boolean changeAcrossProject,String fileName,Api.textInfo selectedTextInfo) throws Exception {
         Api.APIMessage request = createExtractConceptRequest(steps, concept, changeAcrossProject, fileName, selectedTextInfo);
         Api.APIMessage response = getAPIResponse(request);
