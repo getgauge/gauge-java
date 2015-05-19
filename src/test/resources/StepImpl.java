@@ -18,7 +18,7 @@ public class StepImpl {
     public void someStepStep() {
     }
 
-    @Step("Tell <greeting> to <name>")
+    @Step(" Tell <greeting> to <name>")
     public void helloWorld(String greeting, String name) {
         System.out.println(greeting + ", " + name);
     }
