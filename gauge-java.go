@@ -113,8 +113,13 @@ func createCommandArgs(cp string) []string {
 	if os.Getenv(jvm_args_env_name) != "" {
 		args = append(args, os.Getenv(jvm_args_env_name))
 	}
+	args = append(args, encoding())
 	args = append(args, main_class_name)
 	return args
+}
+
+func encoding() string {
+	return "-Dfile.encoding=UTF-8"
 }
 
 func execName(name string) string {

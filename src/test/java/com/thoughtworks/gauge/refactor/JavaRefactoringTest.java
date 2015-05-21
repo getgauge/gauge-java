@@ -139,6 +139,28 @@ public class JavaRefactoringTest extends TestCase {
 
     }
 
+    public void testJavaElementForRefactoringForStepWithUnicodeCharacters() throws Exception {
+        StepValue oldStepValue = new StepValue("† ‡ µ ¢ step with {} and {}", "† ‡ µ ¢ step with <Û> and <į>", Arrays.asList("Û", "į"));
+        StepValue newStepValue = new StepValue("† ‡ µ ¢ step with {}", "† ‡ µ ¢ step with <Û>", Arrays.asList("Û"));
+        File javaFile = getImplFile();
+
+        Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(0).build();
+        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
+        parameterPositions.add(firstParameterPosition);
+
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
+        JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
+
+        assertEquals(javaFile.getName(), element.getFile().getName());
+        assertEquals(26, element.getBeginLine());
+        assertEquals(28, element.getEndLine());
+        assertEquals(4, element.getIndentation());
+        assertEquals("@Step(\"† ‡ µ ¢ step with <Û>\")\n" +
+                "public void stepWith(String a) {\n" +
+                "}", element.getText());
+
+    }
+
     public void testJavaElementForRefactoringWithParametersRemovedAndAdded() throws Exception {
         StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<String>());
         StepValue newStepValue = new StepValue("{} changed {} and added {}", "<b> changed <a> and added <c>", Arrays.asList("b","a","c"));

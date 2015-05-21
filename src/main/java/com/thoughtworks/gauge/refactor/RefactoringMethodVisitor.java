@@ -17,6 +17,7 @@ package com.thoughtworks.gauge.refactor;
 
 import com.thoughtworks.gauge.StepValue;
 import gauge.messages.Messages;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.walkmod.javalang.ast.body.MethodDeclaration;
 import org.walkmod.javalang.ast.body.Parameter;
 import org.walkmod.javalang.ast.body.VariableDeclaratorId;
@@ -77,7 +78,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
     }
 
     private void refactor(MethodDeclaration methodDeclaration, StringLiteralExpr memberValue, SingleMemberAnnotationExpr annotation) {
-        if (memberValue.getValue().trim().equals(oldStepValue.getStepAnnotationText().trim())) {
+        if (StringEscapeUtils.unescapeJava(memberValue.getValue()).trim().equals(oldStepValue.getStepAnnotationText().trim())) {
             List<Parameter> newParameters = Arrays.asList(new Parameter[paramPositions.size()]);
             memberValue.setValue(newStepValue.getStepAnnotationText());
             List<Parameter> parameters = methodDeclaration.getParameters();
@@ -89,7 +90,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
             }
             methodDeclaration.setParameters(newParameters);
             annotation.setMemberValue(memberValue);
-            this.javaElement = new JavaRefactoringElement(methodDeclaration.getBeginLine(), methodDeclaration.getEndLine(), methodDeclaration.getBeginColumn() - 1, methodDeclaration.toString(), null);
+            this.javaElement = new JavaRefactoringElement(methodDeclaration.getBeginLine(), methodDeclaration.getEndLine(), methodDeclaration.getBeginColumn() - 1, StringEscapeUtils.unescapeJava(methodDeclaration.toString()), null);
             this.refactored = true;
         }
     }
