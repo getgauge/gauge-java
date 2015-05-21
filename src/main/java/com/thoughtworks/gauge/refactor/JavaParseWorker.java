@@ -19,10 +19,10 @@ import org.walkmod.javalang.JavaParser;
 import org.walkmod.javalang.ast.CompilationUnit;
 
 import java.io.File;
-import java.io.FileInputStream;
 
 public class JavaParseWorker extends Thread {
 
+    public static final String ENCODING = "UTF-8";
     private File javaFile;
     private CompilationUnit compilationUnit;
 
@@ -32,9 +32,7 @@ public class JavaParseWorker extends Thread {
 
     public void run() {
         try {
-            FileInputStream in = new FileInputStream(javaFile);
-            compilationUnit = JavaParser.parse(in);
-            in.close();
+            compilationUnit = JavaParser.parse(javaFile, ENCODING);
         } catch (Exception e) {
             // ignore exceptions
         }

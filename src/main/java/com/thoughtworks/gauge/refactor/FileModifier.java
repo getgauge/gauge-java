@@ -15,8 +15,9 @@
 
 package com.thoughtworks.gauge.refactor;
 
-import java.io.*;
-import java.util.ArrayList;
+import org.apache.commons.io.FileUtils;
+
+import java.io.IOException;
 import java.util.List;
 
 public class FileModifier {
@@ -48,25 +49,15 @@ public class FileModifier {
     }
 
     private void readFileContent() throws IOException {
-        File file = javaElement.getFile();
-        FileReader in = new FileReader(file);
-        BufferedReader bufferedReader = new BufferedReader(in);
-        List<String> content = new ArrayList<String>();
-        String currentLine = "";
-        while ((currentLine = bufferedReader.readLine()) != null) {
-            content.add(currentLine);
-        }
-        this.content = content;
+        this.content = FileUtils.readLines(javaElement.getFile(), JavaParseWorker.ENCODING);
     }
 
     private void write() throws IOException {
-        FileOutputStream stream = new FileOutputStream(javaElement.getFile(), false);
         StringBuilder content = new StringBuilder("");
         for (String line : this.content) {
             content.append(line).append(Util.lineSeparator());
         }
-        stream.write(content.toString().getBytes());
-        stream.close();
+        FileUtils.write(javaElement.getFile(), content.toString(), JavaParseWorker.ENCODING);
     }
 
 }
