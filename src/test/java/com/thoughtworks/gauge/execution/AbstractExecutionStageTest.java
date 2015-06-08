@@ -37,11 +37,11 @@ public class AbstractExecutionStageTest extends TestCase {
         ByteString screenShot = ByteString.copyFrom(bytes);
 
         Spec.ProtoExecutionResult previous = Spec.ProtoExecutionResult.newBuilder().setFailed(true).
-                                                                                    setExecutionTime(100).
-                                                                                    setRecoverableError(false).
-                                                                                    setErrorMessage("Previous failed").
-                                                                                    setStackTrace("Previous stacktrace").
-                                                                                    setScreenShot(screenShot).build();
+                setExecutionTime(100).
+                setRecoverableError(false).
+                setErrorMessage("Previous failed").
+                setStackTrace("Previous stacktrace").
+                setScreenShot(screenShot).build();
         Spec.ProtoExecutionResult current = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(1100).build();
         Spec.ProtoExecutionResult result = new TestExecutionStage().mergeExecResults(previous, current);
 
@@ -104,7 +104,6 @@ public class AbstractExecutionStageTest extends TestCase {
         assertFalse(result.getRecoverableError());
         assertEquals(screenShotPrevious, result.getScreenShot());
     }
-
 
 
     private class TestExecutionStage extends AbstractExecutionStage {

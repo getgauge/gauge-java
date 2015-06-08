@@ -40,16 +40,16 @@ public class FileModifierTest extends TestCase {
     }
 
     public void testRefactorFileChange() throws Exception {
-        String text = "New File "  + lineSeparator() + " Content "  + lineSeparator() + " in 3 lines";
+        String text = "New File " + lineSeparator() + " Content " + lineSeparator() + " in 3 lines";
         new FileModifier(new JavaRefactoringElement(3, 5, 0, text, file)).refactor();
         assertEquals(text, readFileLines(file, 3, 5));
 
-        text = "@Step(\"step <abcd> and a table <table>\")"  + lineSeparator() +
-                "public void stepWithTable(float abcd, Table table) {"  + lineSeparator() +
+        text = "@Step(\"step <abcd> and a table <table>\")" + lineSeparator() +
+                "public void stepWithTable(float abcd, Table table) {" + lineSeparator() +
                 "}";
         new FileModifier(new JavaRefactoringElement(13, 15, 5, text, file)).refactor();
-        assertEquals("     @Step(\"step <abcd> and a table <table>\")"  + lineSeparator() +
-                "     public void stepWithTable(float abcd, Table table) {"  + lineSeparator() +
+        assertEquals("     @Step(\"step <abcd> and a table <table>\")" + lineSeparator() +
+                "     public void stepWithTable(float abcd, Table table) {" + lineSeparator() +
                 "     }", readFileLines(file, 13, 15));
     }
 

@@ -21,13 +21,13 @@ public class HooksRegistryTest extends TestCase {
 
         Set<Hook> beforeSuiteHooks = HooksRegistry.getBeforeSuiteHooks();
         assertEquals(1, beforeSuiteHooks.size());
-        assertEquals(beforeSuite, ((Hook)beforeSuiteHooks.toArray()[0]).getMethod());
-        assertEquals(0, ((Hook)beforeSuiteHooks.toArray()[0]).getTags().size());
+        assertEquals(beforeSuite, ((Hook) beforeSuiteHooks.toArray()[0]).getMethod());
+        assertEquals(0, ((Hook) beforeSuiteHooks.toArray()[0]).getTags().size());
 
         Set<Hook> afterSuiteHooks = HooksRegistry.getAfterSuiteHooks();
         assertEquals(1, beforeSuiteHooks.size());
-        assertEquals(afterSuite, ((Hook)afterSuiteHooks.toArray()[0]).getMethod());
-        assertEquals(0, ((Hook)afterSuiteHooks.toArray()[0]).getTags().size());
+        assertEquals(afterSuite, ((Hook) afterSuiteHooks.toArray()[0]).getMethod());
+        assertEquals(0, ((Hook) afterSuiteHooks.toArray()[0]).getTags().size());
     }
 
     public void testAddingHooksBeforeAndAfterSpecAndScenario() throws Exception {
@@ -43,31 +43,31 @@ public class HooksRegistryTest extends TestCase {
 
         Set<Hook> beforeSpecHooks = HooksRegistry.getBeforeSpecHooks();
         assertEquals(1, beforeSpecHooks.size());
-        assertEquals(beforeSpec, ((Hook)beforeSpecHooks.toArray()[0]).getMethod());
+        assertEquals(beforeSpec, ((Hook) beforeSpecHooks.toArray()[0]).getMethod());
         List<String> beforeSpecTags = ((Hook) beforeSpecHooks.toArray()[0]).getTags();
         assertEquals(1, beforeSpecTags.size());
         assertTrue(beforeSpecTags.contains("specTag"));
 
         Set<Hook> afterSpecHooks = HooksRegistry.getAfterSpecHooks();
         assertEquals(1, afterSpecHooks.size());
-        assertEquals(afterSpec, ((Hook)afterSpecHooks.toArray()[0]).getMethod());
-        assertEquals(0, ((Hook)afterSpecHooks.toArray()[0]).getTags().size());
+        assertEquals(afterSpec, ((Hook) afterSpecHooks.toArray()[0]).getMethod());
+        assertEquals(0, ((Hook) afterSpecHooks.toArray()[0]).getTags().size());
 
         Set<Hook> beforeScenarioHooks = HooksRegistry.getBeforeScenarioHooks();
         assertEquals(1, beforeScenarioHooks.size());
-        assertEquals(beforeScenario, ((Hook)beforeScenarioHooks.toArray()[0]).getMethod());
-        assertEquals(0, ((Hook)beforeScenarioHooks.toArray()[0]).getTags().size());
-        assertEquals(Operator.AND, ((Hook)beforeScenarioHooks.toArray()[0]).getTagsAggregation());
+        assertEquals(beforeScenario, ((Hook) beforeScenarioHooks.toArray()[0]).getMethod());
+        assertEquals(0, ((Hook) beforeScenarioHooks.toArray()[0]).getTags().size());
+        assertEquals(Operator.AND, ((Hook) beforeScenarioHooks.toArray()[0]).getTagsAggregation());
 
         Set<Hook> afterScenarioHooks = HooksRegistry.getAfterScenarioHooks();
         assertEquals(1, afterScenarioHooks.size());
-        assertEquals(afterScenario, ((Hook)afterScenarioHooks.toArray()[0]).getMethod());
+        assertEquals(afterScenario, ((Hook) afterScenarioHooks.toArray()[0]).getMethod());
         List<String> afterScenarioTags = ((Hook) afterScenarioHooks.toArray()[0]).getTags();
         assertEquals(3, afterScenarioTags.size());
         assertTrue(afterScenarioTags.contains("scenarioTag1"));
         assertTrue(afterScenarioTags.contains("scenarioTag2"));
         assertTrue(afterScenarioTags.contains("scenarioTag3"));
-        assertEquals(Operator.OR, ((Hook)afterScenarioHooks.toArray()[0]).getTagsAggregation());
+        assertEquals(Operator.OR, ((Hook) afterScenarioHooks.toArray()[0]).getTagsAggregation());
     }
 
     public void testAddingBeforeAndAfterStepHooks() throws Exception {
@@ -83,10 +83,10 @@ public class HooksRegistryTest extends TestCase {
 
         Set<Hook> afterStepHooks = HooksRegistry.getAfterStepHooks();
         assertEquals(1, afterStepHooks.size());
-        assertEquals(afterStep, ((Hook)afterStepHooks.toArray()[0]).getMethod());
-        assertEquals(1, ((Hook)afterStepHooks.toArray()[0]).getTags().size());
+        assertEquals(afterStep, ((Hook) afterStepHooks.toArray()[0]).getMethod());
+        assertEquals(1, ((Hook) afterStepHooks.toArray()[0]).getTags().size());
         assertTrue(((Hook) afterStepHooks.toArray()[0]).getTags().contains("afterStep"));
-        assertEquals(Operator.OR, ((Hook)afterStepHooks.toArray()[0]).getTagsAggregation());
+        assertEquals(Operator.OR, ((Hook) afterStepHooks.toArray()[0]).getTagsAggregation());
     }
 
     public void testAddingBeforeAndAfterClassStepHooks() throws Exception {
