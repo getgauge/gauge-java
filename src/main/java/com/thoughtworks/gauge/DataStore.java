@@ -35,7 +35,7 @@ public class DataStore {
         return map.get(key);
     }
 
-    void clear(){
+    void clear() {
         map.clear();
     }
 

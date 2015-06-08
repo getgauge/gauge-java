@@ -25,11 +25,11 @@ import gauge.messages.Messages;
 public class ExecutionInfoMapper {
     public ExecutionContext executionInfoFrom(Messages.ExecutionInfo currentExecutionInfo) {
         if (!currentExecutionInfo.isInitialized()) {
-            return  new ExecutionContext();
+            return new ExecutionContext();
         }
         return new ExecutionContext(specificationFrom(currentExecutionInfo.getCurrentSpec()),
-                                     scenarioFrom(currentExecutionInfo.getCurrentScenario()),
-                                     stepFrom(currentExecutionInfo.getCurrentStep()));
+                scenarioFrom(currentExecutionInfo.getCurrentScenario()),
+                stepFrom(currentExecutionInfo.getCurrentStep()));
     }
 
     public Specification specificationFrom(Messages.SpecInfo currentSpec) {
@@ -47,7 +47,7 @@ public class ExecutionInfoMapper {
     }
 
     public StepDetails stepFrom(Messages.StepInfo currentStep) {
-        if (currentStep.isInitialized())  {
+        if (currentStep.isInitialized()) {
             return new StepDetails(currentStep.getStep().getActualStepText(), currentStep.getIsFailed());
         }
         return new StepDetails();

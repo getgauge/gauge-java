@@ -41,7 +41,7 @@ public abstract class AbstractExecutionStage implements ExecutionStage {
             builder.setErrorMessage(previousStageResult.getErrorMessage());
             builder.setScreenShot(previousStageResult.getScreenShot());
             builder.setStackTrace(previousStageResult.getStackTrace());
-        } else if(execResult.getFailed()) {
+        } else if (execResult.getFailed()) {
             builder.setErrorMessage(execResult.getErrorMessage());
             builder.setScreenShot(execResult.getScreenShot());
             builder.setStackTrace(execResult.getStackTrace());

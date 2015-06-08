@@ -37,6 +37,10 @@ public class StepValue {
         this.parameters = new ArrayList<String>();
     }
 
+    public static StepValue from(Spec.ProtoStepValue protoStepValue) {
+        return new StepValue(protoStepValue.getStepValue(), protoStepValue.getParameterizedStepValue(), protoStepValue.getParametersList());
+    }
+
     public String getStepText() {
         return stepText;
     }
@@ -51,10 +55,6 @@ public class StepValue {
 
     public String getStepAnnotationText() {
         return parameterizedStepText;
-    }
-
-    public static StepValue from(Spec.ProtoStepValue protoStepValue) {
-        return new StepValue(protoStepValue.getStepValue(), protoStepValue.getParameterizedStepValue(), protoStepValue.getParametersList());
     }
 
     @Override

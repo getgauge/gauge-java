@@ -43,6 +43,23 @@ public class GaugeConnection {
         port = socket.getPort();
     }
 
+    private static MessageLength getMessageLength(InputStream is) throws IOException {
+        CodedInputStream codedInputStream = CodedInputStream.newInstance(is);
+        long size = codedInputStream.readRawVarint64();
+        return new MessageLength(size, codedInputStream);
+    }
+
+    private static byte[] toBytes(MessageLength messageLength) throws IOException {
+        long messageSize = messageLength.length;
+        CodedInputStream stream = messageLength.remainingStream;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        for (int i = 0; i < messageSize; i++) {
+            outputStream.write(stream.readRawByte());
+        }
+
+        return outputStream.toByteArray();
+    }
+
     private void createConnection(int tries) {
         if (tries == 0) {
             throw new RuntimeException("Gauge API not started");
@@ -62,6 +79,7 @@ public class GaugeConnection {
 
     /**
      * Fetches all the steps in the gauge project as a list
+     *
      * @return
      * @throws IOException
      */
@@ -79,6 +97,7 @@ public class GaugeConnection {
 
     /**
      * Fetches all the concepts in th egauge project as a list of ConceptInfos which has details of file location.
+     *
      * @return
      * @throws IOException
      */
@@ -90,7 +109,7 @@ public class GaugeConnection {
         for (Api.ConceptInfo conceptInfoResponse : allConceptsResponse.getConceptsList()) {
             Spec.ProtoStepValue protoStepValue = conceptInfoResponse.getStepValue();
             StepValue stepValue = new StepValue(protoStepValue.getStepValue(), protoStepValue.getParameterizedStepValue(), protoStepValue.getParametersList());
-            ConceptInfo conceptInfo = new ConceptInfo(stepValue,conceptInfoResponse.getFilepath(),conceptInfoResponse.getLineNumber());
+            ConceptInfo conceptInfo = new ConceptInfo(stepValue, conceptInfoResponse.getFilepath(), conceptInfoResponse.getLineNumber());
             conceptsInfo.add(conceptInfo);
         }
         return conceptsInfo;
@@ -98,6 +117,7 @@ public class GaugeConnection {
 
     /**
      * Gets the Absolute path to libs  location for the particular language plugin
+     *
      * @param language - The language plugin name, eg. java
      * @return
      * @throws IOException
@@ -133,6 +153,7 @@ public class GaugeConnection {
 
     /**
      * Gets the location of gauge installation on the system.
+     *
      * @return
      * @throws IOException
      */
@@ -154,7 +175,8 @@ public class GaugeConnection {
 
     /**
      * Gets the step value for a particular step name
-     * @param stepText - The name of the step, eg. login as "admin"
+     *
+     * @param stepText       - The name of the step, eg. login as "admin"
      * @param hasInlineTable - set to true if the step has an inline table parameter
      * @return
      */
@@ -177,6 +199,7 @@ public class GaugeConnection {
 
     /**
      * Check if gauge connection is still active
+     *
      * @return true if connected
      */
     public boolean isConnected() {
@@ -185,15 +208,16 @@ public class GaugeConnection {
 
     /**
      * Closes the connection
+     *
      * @throws IOException - If fails to close the socket
      */
     public void close() throws IOException {
-            gaugeSocket.close();
+        gaugeSocket.close();
     }
-
 
     /**
      * Sends a request to gauge to perform a step name refactoring on the project.
+     *
      * @param oldName old Step Name
      * @param newName New Step Name
      * @return RefactoringResponse message
@@ -205,7 +229,7 @@ public class GaugeConnection {
         return response.getPerformRefactoringResponse();
     }
 
-    public Api.ExtractConceptResponse sendGetExtractConceptRequest(List<Api.step> steps,Api.step concept, boolean changeAcrossProject,String fileName,Api.textInfo selectedTextInfo) throws Exception {
+    public Api.ExtractConceptResponse sendGetExtractConceptRequest(List<Api.step> steps, Api.step concept, boolean changeAcrossProject, String fileName, Api.textInfo selectedTextInfo) throws Exception {
         Api.APIMessage request = createExtractConceptRequest(steps, concept, changeAcrossProject, fileName, selectedTextInfo);
         Api.APIMessage response = getAPIResponse(request);
         return response.getExtractConceptResponse();
@@ -270,28 +294,11 @@ public class GaugeConnection {
 
     private Api.APIMessage createExtractConceptRequest(List<Api.step> steps, Api.step concept, boolean changeAcrossProject, String fileName, Api.textInfo selectedTextInfo) {
         Api.ExtractConceptRequest request = Api.ExtractConceptRequest.newBuilder().addAllSteps(steps).setChangeAcrossProject(changeAcrossProject)
-                                            .setSelectedTextInfo(selectedTextInfo).setConceptFileName(fileName).setConceptName(concept).build();
+                .setSelectedTextInfo(selectedTextInfo).setConceptFileName(fileName).setConceptName(concept).build();
         return Api.APIMessage.newBuilder()
                 .setMessageType(Api.APIMessage.APIMessageType.ExtractConceptRequest)
                 .setMessageId(8)
                 .setExtractConceptRequest(request)
                 .build();
-    }
-
-    private static MessageLength getMessageLength(InputStream is) throws IOException {
-        CodedInputStream codedInputStream = CodedInputStream.newInstance(is);
-        long size = codedInputStream.readRawVarint64();
-        return new MessageLength(size, codedInputStream);
-    }
-
-    private static byte[] toBytes(MessageLength messageLength) throws IOException {
-        long messageSize = messageLength.length;
-        CodedInputStream stream = messageLength.remainingStream;
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        for (int i = 0; i < messageSize; i++) {
-            outputStream.write(stream.readRawByte());
-        }
-
-        return outputStream.toByteArray();
     }
 }

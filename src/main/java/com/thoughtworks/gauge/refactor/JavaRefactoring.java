@@ -57,7 +57,7 @@ public class JavaRefactoring {
             return new RefactoringResult(false, "Refactoring failed: " + e.getMessage());
         }
 
-        return new RefactoringResult(true, "", element.getFile().getAbsolutePath() );
+        return new RefactoringResult(true, "", element.getFile().getAbsolutePath());
     }
 
     public JavaRefactoringElement createJavaRefactoringElement(String fileName) throws RefactoringException {
@@ -77,7 +77,7 @@ public class JavaRefactoring {
                     return javaElement;
                 }
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new RefactoringException("Failed creating java element: " + e.getMessage());
         }
         return null;

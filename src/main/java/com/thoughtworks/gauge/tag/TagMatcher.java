@@ -16,7 +16,6 @@
 package com.thoughtworks.gauge.tag;
 
 import com.thoughtworks.gauge.Operator;
-import com.thoughtworks.gauge.tag.SimpleTagMatcher;
 
 import java.util.List;
 
@@ -28,9 +27,12 @@ public class TagMatcher {
     private class TagMatcherFactory {
         public SimpleTagMatcher matcherFor(Operator operator) {
             switch (operator) {
-                case OR: return new OrMatcher();
-                case AND: return new AndMatcher();
-                default: return new AndMatcher();
+                case OR:
+                    return new OrMatcher();
+                case AND:
+                    return new AndMatcher();
+                default:
+                    return new AndMatcher();
             }
         }
     }

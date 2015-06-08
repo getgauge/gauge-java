@@ -24,5 +24,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface BeforeScenario {
     String[] tags() default {};
+
     Operator tagAggregation() default Operator.AND;
 }

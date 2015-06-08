@@ -106,7 +106,7 @@ public class HooksRegistry {
     public static HashSet<Method> getBeforeClassStepsHooksOfClass(Class<?> aClass) {
         HashSet<Method> beforeClassMethods = new HashSet<Method>();
         for (Hook beforeClassStepsHook : getBeforeClassHooks()) {
-            if (beforeClassStepsHook.getMethod().getDeclaringClass().equals(aClass)){
+            if (beforeClassStepsHook.getMethod().getDeclaringClass().equals(aClass)) {
                 beforeClassMethods.add(beforeClassStepsHook.getMethod());
             }
         }
@@ -116,7 +116,7 @@ public class HooksRegistry {
     public static HashSet<Method> getAfterClassStepsHooksOfClass(Class<?> aClass) {
         HashSet<Method> afterClassMethods = new HashSet<Method>();
         for (Hook afterClassStepHook : getAfterClassHooks()) {
-            if (afterClassStepHook.getMethod().getDeclaringClass().equals(aClass)){
+            if (afterClassStepHook.getMethod().getDeclaringClass().equals(aClass)) {
                 afterClassMethods.add(afterClassStepHook.getMethod());
             }
         }

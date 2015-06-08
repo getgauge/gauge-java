@@ -32,12 +32,12 @@ public class JavaRefactoringElement {
         this.file = file;
     }
 
-    public void setFile(File file) {
-        this.file = file;
-    }
-
     public File getFile() {
         return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 
     public int getBeginLine() {

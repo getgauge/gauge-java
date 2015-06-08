@@ -59,7 +59,7 @@ public class StepRegistry {
 
     public static String getStepAnnotationFor(String stepTemplateText) {
         for (StepRegistryEntry entry : registry.values()) {
-            if (entry.getStepValue().getStepText().equals(stepTemplateText)){
+            if (entry.getStepValue().getStepText().equals(stepTemplateText)) {
                 return entry.getStepValue().getStepAnnotationText();
             }
         }
@@ -81,8 +81,8 @@ public class StepRegistry {
         return getStepAnnotationFor(getAllAliasAnnotationTextsFor(stepTemplateText)).size() > 1;
     }
 
-     static void remove(String stepTemplateText) {
-       registry.remove(stepTemplateText);
+    static void remove(String stepTemplateText) {
+        registry.remove(stepTemplateText);
     }
 
     private static class StepRegistryEntry {

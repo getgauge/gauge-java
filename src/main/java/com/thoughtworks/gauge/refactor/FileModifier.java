@@ -40,10 +40,10 @@ public class FileModifier {
         for (int j = 0; j < javaElement.getIndentation(); j++) {
             spaces += " ";
         }
-        for (int i = javaElement.getBeginLine(); i <= javaElement.getEndLine() ; i++) {
+        for (int i = javaElement.getBeginLine(); i <= javaElement.getEndLine(); i++) {
             content.remove(javaElement.getBeginLine() - 1);
         }
-        for (int i = javaElement.getBeginLine(),index = 0; index < lines.length ; i++,index++) {
+        for (int i = javaElement.getBeginLine(), index = 0; index < lines.length; i++, index++) {
             content.add(i - 1, spaces + lines[index]);
         }
     }

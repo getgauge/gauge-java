@@ -16,7 +16,7 @@
 package com.thoughtworks.gauge;
 
 public class StepDetails {
-    private String text= "";
+    private String text = "";
     private Boolean isFailing = false;
 
     public StepDetails(String text, boolean isFailing) {
@@ -30,6 +30,7 @@ public class StepDetails {
     public Boolean getIsFailing() {
         return isFailing;
     }
+
     public String getText() {
         return text;
     }

@@ -108,7 +108,8 @@ public class GaugeRuntime {
             try {
                 clientSocket = new Socket("localhost", port);
                 break;
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         }
 
         return clientSocket;

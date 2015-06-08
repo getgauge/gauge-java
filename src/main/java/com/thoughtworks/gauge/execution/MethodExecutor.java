@@ -69,7 +69,7 @@ public class MethodExecutor {
         for (Method method : methods) {
             Spec.ProtoExecutionResult result = execute(method, args);
             totalExecutionTime += result.getExecutionTime();
-            if(result.getFailed()){
+            if (result.getFailed()) {
                 return result;
             }
         }

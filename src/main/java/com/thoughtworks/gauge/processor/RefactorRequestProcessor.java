@@ -26,8 +26,8 @@ public class RefactorRequestProcessor implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
         Messages.RefactorRequest refactorRequest = message.getRefactorRequest();
         RefactoringResult result = new JavaRefactoring(StepValue.from(refactorRequest.getOldStepValue()),
-                                                       StepValue.from(refactorRequest.getNewStepValue()),
-                                                       refactorRequest.getParamPositionsList()).performRefactoring();
+                StepValue.from(refactorRequest.getNewStepValue()),
+                refactorRequest.getParamPositionsList()).performRefactoring();
 
         return createRefactorResponse(message, result);
     }

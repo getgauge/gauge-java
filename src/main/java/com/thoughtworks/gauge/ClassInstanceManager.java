@@ -41,7 +41,7 @@ public class ClassInstanceManager {
         ClassInstanceManager.initializer = initializer;
     }
 
-    public static void clearCache(){
+    public static void clearCache() {
         classInstanceMap.clear();
     }
 }
