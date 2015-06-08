@@ -16,7 +16,9 @@
 package com.thoughtworks.gauge.execution;
 
 import com.thoughtworks.gauge.ExecutionContext;
+import com.thoughtworks.gauge.Operator;
 import com.thoughtworks.gauge.hook.Hook;
+import com.thoughtworks.gauge.tag.TagMatcher;
 import gauge.messages.Spec;
 
 import java.lang.reflect.Method;
@@ -34,15 +36,10 @@ public class HooksExecutor {
     }
 
     public Spec.ProtoExecutionResult execute() {
-        MethodExecutor methodExecutor = new MethodExecutor();
         Spec.ProtoExecutionResult result;
         long totalHooksExecutionTime = 0;
         for (Hook hook : hooks) {
-            if (methodHasArguments(hook.getMethod(), info)) {
-                result = methodExecutor.execute(hook.getMethod(), info);
-            } else {
-                result = methodExecutor.execute(hook.getMethod());
-            }
+            result = new TaggedHookExecutor(hook, info).execute();
             totalHooksExecutionTime += result.getExecutionTime();
             if (result.getFailed()) {
                 return Spec.ProtoExecutionResult.newBuilder(result).setExecutionTime(totalHooksExecutionTime).build();
@@ -72,5 +69,34 @@ public class HooksExecutor {
             classes.add(obj.getClass());
         }
         return classes;
+    }
+
+    private class TaggedHookExecutor {
+        private final Hook hook;
+        private final ExecutionContext info;
+
+        public TaggedHookExecutor(Hook hook, ExecutionContext info) {
+            this.hook = hook;
+            this.info = info;
+        }
+
+        public Spec.ProtoExecutionResult execute() {
+            if (tagsMatch(hook.getTags(), hook.getTagsAggregation(), info.getAllTags())) {
+                return executeHook();
+            }
+            return Spec.ProtoExecutionResult.newBuilder().setExecutionTime(0).setFailed(false).build();
+        }
+
+        private boolean tagsMatch(List<String> tags, Operator tagsAggregation, List<String> allTags) {
+            return new TagMatcher().isMatch(tags, tagsAggregation, allTags);
+        }
+
+        private Spec.ProtoExecutionResult executeHook() {
+            MethodExecutor methodExecutor = new MethodExecutor();
+            if (methodHasArguments(hook.getMethod(), info)) {
+                return methodExecutor.execute(hook.getMethod(), info);
+            }
+            return methodExecutor.execute(hook.getMethod());
+        }
     }
 }
