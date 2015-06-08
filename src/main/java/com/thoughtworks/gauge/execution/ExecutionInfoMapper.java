@@ -18,16 +18,16 @@ package com.thoughtworks.gauge.execution;
 
 import com.thoughtworks.gauge.Scenario;
 import com.thoughtworks.gauge.Specification;
-import com.thoughtworks.gauge.SpecificationInfo;
+import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.StepDetails;
 import gauge.messages.Messages;
 
 public class ExecutionInfoMapper {
-    public SpecificationInfo executionInfoFrom(Messages.ExecutionInfo currentExecutionInfo) {
+    public ExecutionContext executionInfoFrom(Messages.ExecutionInfo currentExecutionInfo) {
         if (!currentExecutionInfo.isInitialized()) {
-            return  new SpecificationInfo();
+            return  new ExecutionContext();
         }
-        return new SpecificationInfo(specificationFrom(currentExecutionInfo.getCurrentSpec()),
+        return new ExecutionContext(specificationFrom(currentExecutionInfo.getCurrentSpec()),
                                      scenarioFrom(currentExecutionInfo.getCurrentScenario()),
                                      stepFrom(currentExecutionInfo.getCurrentStep()));
     }

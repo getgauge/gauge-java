@@ -16,7 +16,7 @@
 package com.thoughtworks.gauge.processor;
 
 import com.thoughtworks.gauge.HooksRegistry;
-import com.thoughtworks.gauge.SpecificationInfo;
+import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import gauge.messages.Messages;
 
@@ -25,7 +25,7 @@ import java.util.Set;
 
 public class SpecExecutionEndingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
-        SpecificationInfo info = new ExecutionInfoMapper().executionInfoFrom(message.getSpecExecutionEndingRequest().getCurrentExecutionInfo());
+        ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getSpecExecutionEndingRequest().getCurrentExecutionInfo());
         Set<Method> afterSpecHooks = HooksRegistry.getAfterSpecHooks();
         Messages.Message result = executeHooks(afterSpecHooks, message, info);
         ClearObjectCache.clear(ClearObjectCache.SPEC_LEVEL);

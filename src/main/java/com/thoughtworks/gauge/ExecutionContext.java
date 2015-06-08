@@ -15,19 +15,19 @@
 
 package com.thoughtworks.gauge;
 
-public class SpecificationInfo {
+public class ExecutionContext {
     private Specification currentSpecification;
     private Scenario currentScenario;
     private StepDetails currentStep;
 
-    public SpecificationInfo(Specification specification, Scenario scenario, StepDetails stepDetails) {
+    public ExecutionContext(Specification specification, Scenario scenario, StepDetails stepDetails) {
 
         this.currentSpecification = specification;
         this.currentScenario = scenario;
         this.currentStep = stepDetails;
     }
 
-    public SpecificationInfo() {
+    public ExecutionContext() {
     }
 
     public Specification getCurrentSpecification() {

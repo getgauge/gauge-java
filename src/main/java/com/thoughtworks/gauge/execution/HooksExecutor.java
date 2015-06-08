@@ -15,7 +15,7 @@
 
 package com.thoughtworks.gauge.execution;
 
-import com.thoughtworks.gauge.SpecificationInfo;
+import com.thoughtworks.gauge.ExecutionContext;
 import gauge.messages.Spec;
 
 import java.lang.reflect.Method;
@@ -25,9 +25,9 @@ import java.util.Set;
 
 public class HooksExecutor {
     private final Set<Method> hooks;
-    private final SpecificationInfo info;
+    private final ExecutionContext info;
 
-    public HooksExecutor(Set<Method> hooks, SpecificationInfo executionInfo) {
+    public HooksExecutor(Set<Method> hooks, ExecutionContext executionInfo) {
         this.hooks = hooks;
         info = executionInfo;
     }

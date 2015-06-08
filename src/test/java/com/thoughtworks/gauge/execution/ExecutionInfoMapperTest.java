@@ -17,7 +17,7 @@ package com.thoughtworks.gauge.execution;
 
 import com.thoughtworks.gauge.Scenario;
 import com.thoughtworks.gauge.Specification;
-import com.thoughtworks.gauge.SpecificationInfo;
+import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.StepDetails;
 import gauge.messages.Messages;
 import junit.framework.TestCase;
@@ -55,9 +55,9 @@ public class ExecutionInfoMapperTest extends TestCase {
         Messages.StepInfo stepInfo = Messages.StepInfo.newBuilder().setIsFailed(true).setStep(step).build();
 
         Messages.ExecutionInfo executionInfo = Messages.ExecutionInfo.newBuilder().setCurrentSpec(specInfo).setCurrentScenario(scenarioInfo).setCurrentStep(stepInfo).build();
-        SpecificationInfo specificationInfo = new ExecutionInfoMapper().executionInfoFrom(executionInfo);
+        ExecutionContext executionContext = new ExecutionInfoMapper().executionInfoFrom(executionInfo);
 
-        Specification currentSpecification = specificationInfo.getCurrentSpecification();
+        Specification currentSpecification = executionContext.getCurrentSpecification();
         assertEquals("My spec", currentSpecification.getName());
         assertTrue(currentSpecification.getIsFailing());
         assertEquals("hello.spec", currentSpecification.getFileName());
@@ -67,14 +67,14 @@ public class ExecutionInfoMapperTest extends TestCase {
         assertTrue(specTags.contains("specTag2"));
 
 
-        Scenario currentScenario = specificationInfo.getCurrentScenario();
+        Scenario currentScenario = executionContext.getCurrentScenario();
         assertEquals("a scenario", currentScenario.getName());
         assertTrue(currentScenario.getIsFailing());
         List<String> scenarioTags = currentScenario.getTags();
         assertEquals(1, scenarioTags.size());
         assertTrue(scenarioTags.contains("tag3"));
 
-        StepDetails currentStep = specificationInfo.getCurrentStep();
+        StepDetails currentStep = executionContext.getCurrentStep();
         assertTrue(currentStep.getIsFailing());
         assertEquals("foo bar <a>", currentStep.getText());
     }

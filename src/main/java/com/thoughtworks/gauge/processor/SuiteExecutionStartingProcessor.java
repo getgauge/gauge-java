@@ -17,7 +17,7 @@ package com.thoughtworks.gauge.processor;
 
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import com.thoughtworks.gauge.HooksRegistry;
-import com.thoughtworks.gauge.SpecificationInfo;
+import com.thoughtworks.gauge.ExecutionContext;
 import gauge.messages.Messages;
 
 import java.lang.reflect.Method;
@@ -25,7 +25,7 @@ import java.util.Set;
 
 public class SuiteExecutionStartingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
-        SpecificationInfo info = new ExecutionInfoMapper().executionInfoFrom(message.getExecutionStartingRequest().getCurrentExecutionInfo());
+        ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getExecutionStartingRequest().getCurrentExecutionInfo());
         Set<Method> beforeSuiteHooks = HooksRegistry.getBeforeSuiteHooks();
         return executeHooks(beforeSuiteHooks, message, info);
     }
