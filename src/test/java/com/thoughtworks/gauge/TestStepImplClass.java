@@ -15,7 +15,7 @@
 
 package com.thoughtworks.gauge;
 
-class TestImplClass {
+public class TestStepImplClass {
     @Step("hello world")
     public void helloWorld() {
 

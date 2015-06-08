@@ -81,7 +81,7 @@ public class StepRegistry {
         return getStepAnnotationFor(getAllAliasAnnotationTextsFor(stepTemplateText)).size() > 1;
     }
 
-    public static void remove(String stepTemplateText) {
+     static void remove(String stepTemplateText) {
        registry.remove(stepTemplateText);
     }
 

@@ -26,8 +26,7 @@ import java.util.Set;
 public class SpecExecutionStartingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getSpecExecutionStartingRequest().getCurrentExecutionInfo());
-        Set<Method> beforeSpecHooks = HooksRegistry.getBeforeSpecHooks();
-        return executeHooks(beforeSpecHooks, message, info);
+        return executeHooks(HooksRegistry.getBeforeSpecHooks(), message, info);
     }
 
 

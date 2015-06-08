@@ -20,13 +20,9 @@ import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import com.thoughtworks.gauge.registry.HooksRegistry;
 import gauge.messages.Messages;
 
-import java.lang.reflect.Method;
-import java.util.Set;
-
 public class ScenarioExecutionStartingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getScenarioExecutionStartingRequest().getCurrentExecutionInfo());
-        Set<Method> beforeScenarioHooks = HooksRegistry.getBeforeScenarioHooks();
-        return executeHooks(beforeScenarioHooks, message, info);
+        return executeHooks(HooksRegistry.getBeforeScenarioHooks(), message, info);
     }
 }

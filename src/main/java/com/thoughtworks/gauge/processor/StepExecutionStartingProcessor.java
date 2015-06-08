@@ -15,18 +15,14 @@
 
 package com.thoughtworks.gauge.processor;
 
+import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import com.thoughtworks.gauge.registry.HooksRegistry;
-import com.thoughtworks.gauge.ExecutionContext;
 import gauge.messages.Messages;
-
-import java.lang.reflect.Method;
-import java.util.Set;
 
 public class StepExecutionStartingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getStepExecutionStartingRequest().getCurrentExecutionInfo());
-        Set<Method> beforeStepHooks = HooksRegistry.getBeforeStepHooks();
-        return executeHooks(beforeStepHooks, message, info);
+        return executeHooks(HooksRegistry.getBeforeStepHooks(), message, info);
     }
 }

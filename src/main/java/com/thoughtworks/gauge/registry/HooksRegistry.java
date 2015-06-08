@@ -15,99 +15,99 @@
 
 package com.thoughtworks.gauge.registry;
 
+import com.thoughtworks.gauge.*;
+import com.thoughtworks.gauge.hook.Hook;
+
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 public class HooksRegistry {
-    private static Set<Method> beforeSuiteHooks = new HashSet<Method>();
-    private static Set<Method> afterSuiteHooks = new HashSet<Method>();
-    private static Set<Method> beforeSpecHooks = new HashSet<Method>();
-    private static Set<Method> afterSpecHooks = new HashSet<Method>();
-    private static Set<Method> beforeScenarioHooks = new HashSet<Method>();
-    private static Set<Method> afterScenarioHooks = new HashSet<Method>();
-    private static Set<Method> beforeStepHooks = new HashSet<Method>();
-    private static Set<Method> afterStepHooks = new HashSet<Method>();
-    private static Set<Method> afterClassStepsHooks = new HashSet<Method>();
-    private static Set<Method> beforeClassStepsHooks = new HashSet<Method>();
+    // Names of methods defined in each Hook annotation. Do not rename these methods in any Hook Class.
+    public static final String TAGS_METHOD = "tags";
+    public static final String TAG_AGGREGATION_METHOD = "tagAggregation";
 
-    public static Set<Method> getBeforeSpecHooks() {
-        return beforeSpecHooks;
+    private static HashMap<Class, HashSet<Hook>> registryMap = new HashMap<Class, HashSet<Hook>>();
+
+    public static HashSet<Hook> getBeforeSpecHooks() {
+        return registryMap.get(BeforeSpec.class);
     }
 
-    public static void setBeforeSpecHooks(Set<Method> beforeSpecHooks) {
-        HooksRegistry.beforeSpecHooks = beforeSpecHooks;
+    public static void setBeforeSpecHooks(Set<Method> methods) {
+        addHooksWithTags(methods, BeforeSpec.class);
     }
 
-    public static Set<Method> getAfterSpecHooks() {
-        return afterSpecHooks;
+    public static Set<Hook> getAfterSpecHooks() {
+        return registryMap.get(AfterSpec.class);
     }
 
-    public static void setAfterSpecHooks(Set<Method> afterSpecHooks) {
-        HooksRegistry.afterSpecHooks = afterSpecHooks;
+    public static void setAfterSpecHooks(Set<Method> methods) {
+        addHooksWithTags(methods, AfterSpec.class);
     }
 
-    public static Set<Method> getBeforeScenarioHooks() {
-        return beforeScenarioHooks;
+    public static Set<Hook> getBeforeScenarioHooks() {
+        return registryMap.get(BeforeScenario.class);
     }
 
-    public static void setBeforeScenarioHooks(Set<Method> beforeScenarioHooks) {
-        HooksRegistry.beforeScenarioHooks = beforeScenarioHooks;
+    public static void setBeforeScenarioHooks(Set<Method> methods) {
+        addHooksWithTags(methods, BeforeScenario.class);
     }
 
-    public static Set<Method> getAfterScenarioHooks() {
-        return afterScenarioHooks;
+    public static Set<Hook> getAfterScenarioHooks() {
+        return registryMap.get(AfterScenario.class);
     }
 
-    public static void setAfterScenarioHooks(Set<Method> afterScenarioHooks) {
-        HooksRegistry.afterScenarioHooks = afterScenarioHooks;
+    public static void setAfterScenarioHooks(Set<Method> methods) {
+        addHooksWithTags(methods, AfterScenario.class);
     }
 
-    public static Set<Method> getBeforeStepHooks() {
-        return beforeStepHooks;
+    public static Set<Hook> getBeforeStepHooks() {
+        return registryMap.get(BeforeStep.class);
     }
 
-    public static void setBeforeStepHooks(Set<Method> beforeStepHooks) {
-        HooksRegistry.beforeStepHooks = beforeStepHooks;
+    public static void setBeforeStepHooks(Set<Method> methods) {
+        addHooksWithTags(methods, BeforeStep.class);
     }
 
-    public static Set<Method> getAfterStepHooks() {
-        return afterStepHooks;
+    public static Set<Hook> getAfterStepHooks() {
+        return registryMap.get(AfterStep.class);
     }
 
-    public static void setAfterStepHooks(Set<Method> afterStepHooks) {
-        HooksRegistry.afterStepHooks = afterStepHooks;
+    public static void setAfterStepHooks(Set<Method> methods) {
+        addHooksWithTags(methods, AfterStep.class);
     }
 
-    public static Set<Method> getBeforeSuiteHooks() {
-        return beforeSuiteHooks;
+    public static Set<Hook> getBeforeSuiteHooks() {
+        return registryMap.get(BeforeSuite.class);
     }
 
-    public static void setBeforeSuiteHooks(Set<Method> beforeSuiteHooks) {
-        HooksRegistry.beforeSuiteHooks = beforeSuiteHooks;
+    public static void setBeforeSuiteHooks(Set<Method> methods) {
+        addHooks(methods, BeforeSuite.class);
     }
 
-    public static Set<Method> getAfterSuiteHooks() {
-        return afterSuiteHooks;
+    public static Set<Hook> getAfterSuiteHooks() {
+        return registryMap.get(AfterSuite.class);
     }
 
-    public static void setAfterSuiteHooks(Set<Method> afterSuiteHooks) {
-        HooksRegistry.afterSuiteHooks = afterSuiteHooks;
+    public static void setAfterSuiteHooks(Set<Method> methods) {
+        addHooks(methods, AfterSuite.class);
     }
 
-    public static void setAfterClassStepsHooks(Set<Method> afterClassStepsHooks) {
-        HooksRegistry.afterClassStepsHooks = afterClassStepsHooks;
+    public static void setAfterClassStepsHooks(Set<Method> methods) {
+        addHooksWithTags(methods, AfterClassSteps.class);
     }
 
-    public static void setBeforeClassStepsHooks(Set<Method> beforeClassStepsHooks) {
-        HooksRegistry.beforeClassStepsHooks = beforeClassStepsHooks;
+    public static void setBeforeClassStepsHooks(Set<Method> methods) {
+        addHooksWithTags(methods, BeforeClassSteps.class);
     }
 
     public static HashSet<Method> getBeforeClassStepsHooksOfClass(Class<?> aClass) {
         HashSet<Method> beforeClassMethods = new HashSet<Method>();
-        for (Method beforeClassStepsHook : beforeClassStepsHooks) {
-            if (beforeClassStepsHook.getDeclaringClass().equals(aClass)){
-                beforeClassMethods.add(beforeClassStepsHook);
+        for (Hook beforeClassStepsHook : getBeforeClassHooks()) {
+            if (beforeClassStepsHook.getMethod().getDeclaringClass().equals(aClass)){
+                beforeClassMethods.add(beforeClassStepsHook.getMethod());
             }
         }
         return beforeClassMethods;
@@ -115,11 +115,50 @@ public class HooksRegistry {
 
     public static HashSet<Method> getAfterClassStepsHooksOfClass(Class<?> aClass) {
         HashSet<Method> afterClassMethods = new HashSet<Method>();
-        for (Method afterClassStepHook : afterClassStepsHooks) {
-            if (afterClassStepHook.getDeclaringClass().equals(aClass)){
-                afterClassMethods.add(afterClassStepHook);
+        for (Hook afterClassStepHook : getAfterClassHooks()) {
+            if (afterClassStepHook.getMethod().getDeclaringClass().equals(aClass)){
+                afterClassMethods.add(afterClassStepHook.getMethod());
             }
         }
         return afterClassMethods;
+    }
+
+    private static void addHooks(Set<Method> methods, Class hookClass) {
+        if (!registryMap.containsKey(hookClass)) {
+            registryMap.put(hookClass, new HashSet<Hook>());
+        }
+        for (Method method : methods) {
+            registryMap.get(hookClass).add(new Hook(method));
+        }
+    }
+
+    private static void addHooksWithTags(Set<Method> methods, Class hookClass) {
+        if (!registryMap.containsKey(hookClass)) {
+            registryMap.put(hookClass, new HashSet<Hook>());
+        }
+        for (Method method : methods) {
+            Annotation annotation = method.getAnnotation(hookClass);
+            try {
+                //Hack: Invoking methods on the annotation to avoid repeating logic. There is no hierarchy possible in annotations
+                String[] tags = (String[]) annotation.getClass().getMethod(TAGS_METHOD).invoke(annotation);
+                Operator tagsAggregation = (Operator) annotation.getClass().getMethod(TAG_AGGREGATION_METHOD).invoke(annotation);
+                registryMap.get(hookClass).add(new Hook(method, tags, tagsAggregation));
+            } catch (Exception e) {
+                e.printStackTrace();
+                continue;
+            }
+        }
+    }
+
+    private static Set<Hook> getBeforeClassHooks() {
+        return registryMap.get(BeforeClassSteps.class);
+    }
+
+    private static Set<Hook> getAfterClassHooks() {
+        return registryMap.get(AfterClassSteps.class);
+    }
+
+    static void remove(Class hookType) {
+        registryMap.remove(hookType);
     }
 }

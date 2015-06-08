@@ -18,6 +18,7 @@ package com.thoughtworks.gauge.processor;
 import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.execution.HooksExecutor;
 import com.thoughtworks.gauge.execution.MethodExecutor;
+import com.thoughtworks.gauge.hook.Hook;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
@@ -48,7 +49,7 @@ public abstract class MethodExecutionMessageProcessor {
         return createMessageWithExecutionStatusResponse(message, passingExecution);
     }
 
-    public Messages.Message executeHooks(Set<Method> hooks, Messages.Message message, ExecutionContext executionInfo) {
+    public Messages.Message executeHooks(Set<Hook> hooks, Messages.Message message, ExecutionContext executionInfo) {
         Spec.ProtoExecutionResult executionStatusResponse = new HooksExecutor(hooks, executionInfo).execute();
         return createMessageWithExecutionStatusResponse(message, executionStatusResponse);
     }

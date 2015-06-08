@@ -13,9 +13,10 @@
 // You can redistribute it and/or modify it under the terms of either license.
 // We would then provide copied of each license in a separate .txt file with the name of the license as the title of the file.
 
-package com.thoughtworks.gauge;
+package com.thoughtworks.gauge.registry;
 
-import com.thoughtworks.gauge.registry.StepRegistry;
+import com.thoughtworks.gauge.StepValue;
+import com.thoughtworks.gauge.TestStepImplClass;
 import junit.framework.TestCase;
 
 import java.io.File;
@@ -31,10 +32,10 @@ public class StepRegistryTest extends TestCase {
     StepValue aliasStep1 = new StepValue("first step name with name <a>", "first step name with name {}");
     StepValue aliasStep2 = new StepValue("second step name with <b>", "second step name with {}");
 
-    Method method1 = TestImplClass.class.getMethods()[0];
-    Method method2 = TestImplClass.class.getMethods()[1];
-    Method method3 = TestImplClass.class.getMethods()[2];
-    Method aliasMethod = TestImplClass.class.getMethods()[3];
+    Method method1 = TestStepImplClass.class.getMethods()[0];
+    Method method2 = TestStepImplClass.class.getMethods()[1];
+    Method method3 = TestStepImplClass.class.getMethods()[2];
+    Method aliasMethod = TestStepImplClass.class.getMethods()[3];
 
     protected void setUp() throws Exception {
         StepRegistry.addStepImplementation(stepValue1, method1);
@@ -58,7 +59,7 @@ public class StepRegistryTest extends TestCase {
     }
 
     public void testGetFileNameFromStepRegistry() throws Exception {
-        assertEquals(String.format("com%sthoughtworks%sgauge%sTestImplClass.java", File.separator, File.separator, File.separator), StepRegistry.getFileName(stepValue1.getStepText()));
+        assertEquals(String.format("com%sthoughtworks%sgauge%sTestStepImplClass.java", File.separator, File.separator, File.separator), StepRegistry.getFileName(stepValue1.getStepText()));
         assertEquals("", StepRegistry.getFileName("unknown"));
     }
 

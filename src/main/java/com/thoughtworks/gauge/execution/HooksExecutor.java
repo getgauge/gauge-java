@@ -16,6 +16,7 @@
 package com.thoughtworks.gauge.execution;
 
 import com.thoughtworks.gauge.ExecutionContext;
+import com.thoughtworks.gauge.hook.Hook;
 import gauge.messages.Spec;
 
 import java.lang.reflect.Method;
@@ -24,10 +25,10 @@ import java.util.List;
 import java.util.Set;
 
 public class HooksExecutor {
-    private final Set<Method> hooks;
+    private final Set<Hook> hooks;
     private final ExecutionContext info;
 
-    public HooksExecutor(Set<Method> hooks, ExecutionContext executionInfo) {
+    public HooksExecutor(Set<Hook> hooks, ExecutionContext executionInfo) {
         this.hooks = hooks;
         info = executionInfo;
     }
@@ -36,11 +37,11 @@ public class HooksExecutor {
         MethodExecutor methodExecutor = new MethodExecutor();
         Spec.ProtoExecutionResult result;
         long totalHooksExecutionTime = 0;
-        for (Method method : hooks) {
-            if (methodHasArguments(method, info)) {
-                result = methodExecutor.execute(method, info);
+        for (Hook hook : hooks) {
+            if (methodHasArguments(hook.getMethod(), info)) {
+                result = methodExecutor.execute(hook.getMethod(), info);
             } else {
-                result = methodExecutor.execute(method);
+                result = methodExecutor.execute(hook.getMethod());
             }
             totalHooksExecutionTime += result.getExecutionTime();
             if (result.getFailed()) {
