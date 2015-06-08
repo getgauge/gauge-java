@@ -15,15 +15,14 @@
 
 package com.thoughtworks.gauge.processor;
 
-import com.thoughtworks.gauge.execution.MethodExecutor;
 import com.thoughtworks.gauge.SpecificationInfo;
+import com.thoughtworks.gauge.execution.HooksExecutor;
+import com.thoughtworks.gauge.execution.MethodExecutor;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public abstract class MethodExecutionMessageProcessor {
@@ -50,49 +49,9 @@ public abstract class MethodExecutionMessageProcessor {
     }
 
     public Messages.Message executeHooks(Set<Method> hooks, Messages.Message message, SpecificationInfo executionInfo) {
-        MethodExecutor methodExecutor = new MethodExecutor();
-        Spec.ProtoExecutionResult result;
-        long totalHooksExecutionTime = 0;
-        for (Method method : hooks) {
-            if (methodHasArguments(method, executionInfo)) {
-                result = methodExecutor.execute(method, executionInfo);
-            } else {
-                result = methodExecutor.execute(method);
-            }
-            totalHooksExecutionTime += result.getExecutionTime();
-            if (result.getFailed()) {
-                Spec.ProtoExecutionResult failureResult = Spec.ProtoExecutionResult.newBuilder(result).setExecutionTime(totalHooksExecutionTime).build();
-                return createMessageWithExecutionStatusResponse(message, failureResult);
-            }
-        }
-
-        Spec.ProtoExecutionResult passingExecution = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(totalHooksExecutionTime).build();
-        return createMessageWithExecutionStatusResponse(message, passingExecution);
+        Spec.ProtoExecutionResult executionStatusResponse = new HooksExecutor(hooks, executionInfo).execute();
+        return createMessageWithExecutionStatusResponse(message, executionStatusResponse);
     }
-
-    private boolean methodHasArguments(Method method, Object... arg) {
-        if (method.getParameterTypes().length != arg.length) {
-            return false;
-        }
-        List<Class> argsClassList = createClassList(arg);
-        Class<?>[] parameterTypes = method.getParameterTypes();
-        boolean isValid = true;
-        for (int i = 0; i < parameterTypes.length; i++) {
-            if (!(argsClassList.indexOf(parameterTypes[i]) == i)) {
-                isValid = false;
-            }
-        }
-        return isValid;
-    }
-
-    private List<Class> createClassList(Object[] objects) {
-        ArrayList<Class> classes = new ArrayList<Class>();
-        for (Object obj : objects) {
-            classes.add(obj.getClass());
-        }
-        return classes;
-    }
-
 
     public Messages.Message createMessageWithExecutionStatusResponse(Messages.Message receivedMessage, Spec.ProtoExecutionResult result) {
         return Messages.Message.newBuilder()
