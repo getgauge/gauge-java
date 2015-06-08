@@ -15,6 +15,10 @@
 
 package com.thoughtworks.gauge;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
 public class ExecutionContext {
     private Specification currentSpecification;
     private Scenario currentScenario;
@@ -44,4 +48,9 @@ public class ExecutionContext {
         return currentStep;
     }
 
+    public List<String> getAllTags() {
+        HashSet<String> specTags = new HashSet<String>(currentSpecification.getTags());
+        specTags.addAll(currentScenario.getTags());
+        return new ArrayList<String>(specTags);
+    }
 }
