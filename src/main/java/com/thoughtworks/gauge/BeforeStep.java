@@ -23,4 +23,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface BeforeStep {
+    String[] tags() default {};
+    Operator tagAggregation() default Operator.AND;
 }
