@@ -21,13 +21,15 @@ public class ExecutionContext {
     private StepDetails currentStep;
 
     public ExecutionContext(Specification specification, Scenario scenario, StepDetails stepDetails) {
-
         this.currentSpecification = specification;
         this.currentScenario = scenario;
         this.currentStep = stepDetails;
     }
 
     public ExecutionContext() {
+        this.currentSpecification = new Specification();
+        this.currentScenario = new Scenario();
+        this.currentStep = new StepDetails();
     }
 
     public Specification getCurrentSpecification() {

@@ -36,21 +36,21 @@ public class ExecutionInfoMapper {
         if (currentSpec.isInitialized()) {
             return new Specification(currentSpec.getName(), currentSpec.getFileName(), currentSpec.getIsFailed(), currentSpec.getTagsList());
         }
-        return null;
+        return new Specification();
     }
 
     public Scenario scenarioFrom(Messages.ScenarioInfo currentScenario) {
         if (currentScenario.isInitialized()) {
             return new Scenario(currentScenario.getName(), currentScenario.getIsFailed(), currentScenario.getTagsList());
         }
-        return null;
+        return new Scenario();
     }
 
     public StepDetails stepFrom(Messages.StepInfo currentStep) {
         if (currentStep.isInitialized())  {
             return new StepDetails(currentStep.getStep().getActualStepText(), currentStep.getIsFailed());
         }
-        return null;
+        return new StepDetails();
 
     }
 }

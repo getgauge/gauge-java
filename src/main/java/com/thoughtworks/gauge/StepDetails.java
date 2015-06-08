@@ -16,12 +16,15 @@
 package com.thoughtworks.gauge;
 
 public class StepDetails {
-    private String text;
-    private Boolean isFailing;
+    private String text= "";
+    private Boolean isFailing = false;
 
     public StepDetails(String text, boolean isFailing) {
         this.text = text;
         this.isFailing = isFailing;
+    }
+
+    public StepDetails() {
     }
 
     public Boolean getIsFailing() {
