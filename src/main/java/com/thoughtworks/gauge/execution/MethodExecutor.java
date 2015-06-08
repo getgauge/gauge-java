@@ -17,7 +17,7 @@ package com.thoughtworks.gauge.execution;
 
 import com.google.protobuf.ByteString;
 import com.thoughtworks.gauge.ClassInstanceManager;
-import com.thoughtworks.gauge.ScreenshotFactory;
+import com.thoughtworks.gauge.screenshot.ScreenshotFactory;
 import gauge.messages.Spec;
 
 import java.lang.reflect.Method;

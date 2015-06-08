@@ -15,7 +15,7 @@
 
 package com.thoughtworks.gauge.processor;
 
-import com.thoughtworks.gauge.StepRegistry;
+import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 
 import java.util.Set;

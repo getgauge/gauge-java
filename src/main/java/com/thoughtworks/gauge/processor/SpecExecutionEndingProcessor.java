@@ -15,7 +15,7 @@
 
 package com.thoughtworks.gauge.processor;
 
-import com.thoughtworks.gauge.HooksRegistry;
+import com.thoughtworks.gauge.registry.HooksRegistry;
 import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import gauge.messages.Messages;

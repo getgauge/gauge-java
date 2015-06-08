@@ -15,8 +15,8 @@
 
 package com.thoughtworks.gauge.refactor;
 
-import com.thoughtworks.gauge.StepRegistry;
 import com.thoughtworks.gauge.StepValue;
+import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import junit.framework.TestCase;
 import org.junit.runner.RunWith;

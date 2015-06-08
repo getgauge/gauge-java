@@ -15,11 +15,11 @@
 
 package com.thoughtworks.gauge.processor;
 
-import com.thoughtworks.gauge.HooksRegistry;
-import com.thoughtworks.gauge.StepRegistry;
 import com.thoughtworks.gauge.execution.ExecutionPipeline;
 import com.thoughtworks.gauge.execution.HookExecutionStage;
 import com.thoughtworks.gauge.execution.StepExecutionStage;
+import com.thoughtworks.gauge.registry.HooksRegistry;
+import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 

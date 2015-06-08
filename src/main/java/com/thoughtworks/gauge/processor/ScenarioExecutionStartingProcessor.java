@@ -15,9 +15,9 @@
 
 package com.thoughtworks.gauge.processor;
 
-import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
-import com.thoughtworks.gauge.HooksRegistry;
 import com.thoughtworks.gauge.ExecutionContext;
+import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
+import com.thoughtworks.gauge.registry.HooksRegistry;
 import gauge.messages.Messages;
 
 import java.lang.reflect.Method;

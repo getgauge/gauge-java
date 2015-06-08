@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge;
 
+import com.thoughtworks.gauge.registry.StepRegistry;
 import junit.framework.TestCase;
 
 import java.io.File;

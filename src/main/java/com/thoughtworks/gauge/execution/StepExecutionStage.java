@@ -15,8 +15,9 @@
 
 package com.thoughtworks.gauge.execution;
 
-import com.thoughtworks.gauge.StepRegistry;
+
 import com.thoughtworks.gauge.Table;
+import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
