@@ -13,10 +13,13 @@
 // You can redistribute it and/or modify it under the terms of either license.
 // We would then provide copied of each license in a separate .txt file with the name of the license as the title of the file.
 
-package com.thoughtworks.gauge;
+package com.thoughtworks.gauge.connection;
 
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
+import com.thoughtworks.gauge.ConceptInfo;
+import com.thoughtworks.gauge.PluginNotInstalledException;
+import com.thoughtworks.gauge.StepValue;
 import gauge.messages.Api;
 import gauge.messages.Spec;
 
@@ -121,7 +124,7 @@ public class GaugeConnection {
      * @param language - The language plugin name, eg. java
      * @return
      * @throws IOException
-     * @throws PluginNotInstalledException
+     * @throws com.thoughtworks.gauge.PluginNotInstalledException
      */
     public String getLibPath(String language) throws IOException, PluginNotInstalledException {
         Api.APIMessage message = getLibPathRequest(language);
