@@ -13,9 +13,10 @@
 // You can redistribute it and/or modify it under the terms of either license.
 // We would then provide copied of each license in a separate .txt file with the name of the license as the title of the file.
 
-package com.thoughtworks.gauge;
+package com.thoughtworks.gauge.dataStore;
 
 
+import com.thoughtworks.gauge.DataStoreFactory;
 import com.thoughtworks.gauge.processor.IMessageProcessor;
 import gauge.messages.Messages;
 import gauge.messages.Spec;

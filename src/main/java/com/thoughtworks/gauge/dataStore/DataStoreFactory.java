@@ -13,7 +13,9 @@
 // You can redistribute it and/or modify it under the terms of either license.
 // We would then provide copied of each license in a separate .txt file with the name of the license as the title of the file.
 
-package com.thoughtworks.gauge;
+package com.thoughtworks.gauge.dataStore;
+
+import com.thoughtworks.gauge.DataStore;
 
 public class DataStoreFactory {
     private static DataStore suiteDataStore = new DataStore();
@@ -21,14 +23,23 @@ public class DataStoreFactory {
     private static DataStore scenarioDataStore = new DataStore();
 
 
+    /**
+     * @return - The current instance of the SuiteDataStore
+     */
     public static DataStore getSuiteDataStore() {
         return suiteDataStore;
     }
 
+    /**
+     * @return - The current instance of the SpecDataStore
+     */
     public static DataStore getSpecDataStore() {
         return specDataStore;
     }
 
+    /**
+     * @return - The current instance of the ScenarioDataStore
+     */
     public static DataStore getScenarioDataStore() {
         return scenarioDataStore;
     }
