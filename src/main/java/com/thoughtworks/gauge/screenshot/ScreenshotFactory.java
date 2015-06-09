@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.screenshot;
 
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.GaugeConstant;
 
 import javax.imageio.ImageIO;
@@ -22,11 +23,43 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 
+/**
+ * Used to take screenshots on failure
+ */
 public class ScreenshotFactory {
 
     public static final String IMAGE_EXTENSION = "png";
+    private static Class<? extends ICustomScreenshotGrabber> customScreenshotGrabber;
+
+    static void setCustomScreenshotGrabber(Class<? extends ICustomScreenshotGrabber> customScreenGrabber) {
+        customScreenshotGrabber = customScreenGrabber;
+    }
 
     public byte[] getScreenshotBytes() {
+        if (shouldTakeScreenshot()) {
+            return takeScreenshot();
+        }
+        return new byte[0];
+    }
+
+    private byte[] takeScreenshot() {
+        if (customScreenshotGrabber != null) {
+            try {
+                ICustomScreenshotGrabber customScreenGrabberInstance = (ICustomScreenshotGrabber) ClassInstanceManager.get(customScreenshotGrabber);
+                byte[] bytes = customScreenGrabberInstance.takeScreenshot();
+                if (bytes == null) {
+                    bytes = new byte[0];
+                }
+                return bytes;
+            } catch (Exception e) {
+                System.err.println(String.format("Failed to take Custom screenshot: %s : %s", customScreenshotGrabber.getCanonicalName(), e.getMessage()));
+                System.out.println("Capturing regular screenshot..");
+            }
+        }
+        return captureScreen();
+    }
+
+    private byte[] captureScreen() {
         ByteArrayOutputStream imageBytes = new ByteArrayOutputStream();
         if (shouldTakeScreenshot()) {
             try {
@@ -34,7 +67,7 @@ public class ScreenshotFactory {
                 image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
                 ImageIO.write(image, IMAGE_EXTENSION, imageBytes);
             } catch (Throwable e) {
-                System.out.println("Failed to take screenshot: " + e.getMessage());
+                System.err.println("Failed to take regular screenshot: " + e.getMessage());
                 return new byte[0];
             }
         }

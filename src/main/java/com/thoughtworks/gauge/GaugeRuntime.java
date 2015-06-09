@@ -18,6 +18,7 @@ package com.thoughtworks.gauge;
 import com.thoughtworks.gauge.connection.GaugeConnector;
 import com.thoughtworks.gauge.connection.MessageDispatcher;
 import com.thoughtworks.gauge.scan.ClasspathScanner;
+import com.thoughtworks.gauge.screenshot.CustomScreenshotScanner;
 import com.thoughtworks.gauge.scan.HooksScanner;
 import com.thoughtworks.gauge.scan.StepsScanner;
 
@@ -32,7 +33,7 @@ public class GaugeRuntime {
     public static void main(String[] args) throws Exception {
         GaugeConnector connector = new GaugeConnector();
         connector.makeConnectionsToGaugeCore();
-        new ClasspathScanner().scan(new StepsScanner(connector), new HooksScanner());
+        new ClasspathScanner().scan(new StepsScanner(connector), new HooksScanner(), new CustomScreenshotScanner());
         new MessageDispatcher().dispatchMessages(connector);
     }
 

@@ -18,11 +18,12 @@ package com.thoughtworks.gauge.scan;
 import org.reflections.Configuration;
 import org.reflections.Reflections;
 import org.reflections.scanners.MethodAnnotationsScanner;
+import org.reflections.scanners.SubTypesScanner;
 import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 
 /**
- * Scans the current ClassPath and passes to all the scanners passed.
+ * Scans the current Classpath and passes to all the scanners passed.
  */
 public class ClasspathScanner {
     public void scan(IScanner... scanners) {
@@ -34,7 +35,7 @@ public class ClasspathScanner {
 
     private Reflections createReflections() {
         Configuration config = new ConfigurationBuilder()
-                .setScanners(new MethodAnnotationsScanner())
+                .setScanners(new MethodAnnotationsScanner(), new SubTypesScanner())
                 .addUrls(ClasspathHelper.forJavaClassPath());
         return new Reflections(config);
     }
