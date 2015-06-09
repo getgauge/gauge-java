@@ -16,7 +16,6 @@
 package com.thoughtworks.gauge.dataStore;
 
 
-import com.thoughtworks.gauge.DataStoreFactory;
 import com.thoughtworks.gauge.processor.IMessageProcessor;
 import gauge.messages.Messages;
 import gauge.messages.Spec;

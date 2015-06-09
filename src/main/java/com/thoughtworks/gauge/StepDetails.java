@@ -15,6 +15,9 @@
 
 package com.thoughtworks.gauge;
 
+/**
+ * Holds the information about the current Step executing at Runtime
+ */
 public class StepDetails {
     private String text = "";
     private Boolean isFailing = false;
@@ -27,10 +30,16 @@ public class StepDetails {
     public StepDetails() {
     }
 
+    /**
+     * @return - True if the current spec or scenario or step is failing due to error.
+     */
     public Boolean getIsFailing() {
         return isFailing;
     }
 
+    /**
+     * @return - The name of the step as given in the spec file.
+     */
     public String getText() {
         return text;
     }

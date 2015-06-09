@@ -20,10 +20,23 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Methods annotated with this execute after every Specification execution completes.
+ * The specification can be filtered by passing additional attributes
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AfterSpec {
+
+    /**
+     * @return - Array of tags to filter which specifications the hook runs after.
+     */
     String[] tags() default {};
 
+    /**
+     * @return - OR: if hook should run for a specification containing any of the tags provided
+     * AND: if hook should run for a specification containing all of the tags provided
+     * Default is AND
+     */
     Operator tagAggregation() default Operator.AND;
 }

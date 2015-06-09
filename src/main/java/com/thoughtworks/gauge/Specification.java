@@ -18,6 +18,9 @@ package com.thoughtworks.gauge;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Holds the information about the current Specification executing at Runtime
+ */
 public class Specification {
     private String name = "";
     private String fileName = "";
@@ -34,18 +37,30 @@ public class Specification {
     public Specification() {
     }
 
+    /**
+     * @return - List of all the tags in the Spec
+     */
     public List<String> getTags() {
         return tags;
     }
 
+    /**
+     * @return - True if the current spec is failing.
+     */
     public Boolean getIsFailing() {
         return isFailing;
     }
 
+    /**
+     * @return - Full path to the Spec
+     */
     public String getFileName() {
         return fileName;
     }
 
+    /**
+     * @return - The name of the Specification as mentioned in the Spec heading
+     */
     public String getName() {
         return name;
     }

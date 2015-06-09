@@ -15,8 +15,6 @@
 
 package com.thoughtworks.gauge.dataStore;
 
-import com.thoughtworks.gauge.DataStore;
-
 public class DataStoreFactory {
     private static DataStore suiteDataStore = new DataStore();
     private static DataStore specDataStore = new DataStore();

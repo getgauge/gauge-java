@@ -20,10 +20,22 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Methods annotated with this will be executed after every step in that particular class executes.
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AfterClassSteps {
+
+    /**
+     * @return - Array of tags to filter which steps the hook executes after based on the tags in the current scenario and spec.
+     */
     String[] tags() default {};
 
+    /**
+     * @return - OR: if hook should execute for the current execution context (spec and scenario) containing any of the tags provided
+     * AND: if hook should execute for the current execution context (spec and scenario) containing all of the tags provided
+     * Default is AND
+     */
     Operator tagAggregation() default Operator.AND;
 }

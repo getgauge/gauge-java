@@ -17,7 +17,7 @@ package com.thoughtworks.gauge.connection;
 
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
-import com.thoughtworks.gauge.DataStoreInitializer;
+import com.thoughtworks.gauge.dataStore.DataStoreInitializer;
 import com.thoughtworks.gauge.processor.*;
 import gauge.messages.Messages;
 

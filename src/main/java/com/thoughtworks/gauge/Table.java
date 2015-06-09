@@ -18,6 +18,9 @@ package com.thoughtworks.gauge;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Custom Table structure used as parameter is steps
+ */
 public class Table {
     private final List<String> headers;
     private final List<List<String>> rows;
@@ -31,10 +34,17 @@ public class Table {
         rows.add(row);
     }
 
+    /**
+     * @return - List of Names of the Columns on the table
+     */
     public List<String> getColumnNames() {
         return headers;
     }
 
+    /**
+     * @return - List of Rows in the table. Each Row is represented by a List of String values
+     * according to the order of column names
+     */
     public List<List<String>> getRows() {
         return rows;
     }

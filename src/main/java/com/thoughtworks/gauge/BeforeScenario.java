@@ -20,10 +20,23 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Methods annotated with this execute before every scenario execution completes.
+ * The scenario can be filtered by passing additional attributes
+ */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface BeforeScenario {
+
+    /**
+     * @return - Array of tags to filter which scenarios the hook runs before.
+     */
     String[] tags() default {};
 
+    /**
+     * @return - OR: if hook should run for a scenario containing any of the tags provided
+     * AND: if hook should run for a scenario containing all of the tags provided
+     * Default is AND
+     */
     Operator tagAggregation() default Operator.AND;
 }

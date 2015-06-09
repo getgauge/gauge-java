@@ -99,7 +99,7 @@ public class GaugeConnection {
     }
 
     /**
-     * Fetches all the concepts in th egauge project as a list of ConceptInfos which has details of file location.
+     * Fetches all the concepts in the Gauge project as a list of ConceptInfos which has details of file location.
      *
      * @return
      * @throws IOException
@@ -119,7 +119,7 @@ public class GaugeConnection {
     }
 
     /**
-     * Gets the Absolute path to libs  location for the particular language plugin
+     * Gets the Absolute path to libs location for the particular language plugin
      *
      * @param language - The language plugin name, eg. java
      * @return

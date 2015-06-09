@@ -15,6 +15,9 @@
 
 package com.thoughtworks.gauge;
 
+/**
+ * Operator for performing Tag aggregation mechanism in Execution Hooks
+ */
 public enum Operator {
     AND, OR
 }
