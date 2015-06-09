@@ -111,7 +111,8 @@ func createCommandArgs(cp string) []string {
 	}
 	args = append(args, "-classpath", cp)
 	if os.Getenv(jvm_args_env_name) != "" {
-		args = append(args, os.Getenv(jvm_args_env_name))
+		jvmArgs := splitByComma(os.Getenv(jvm_args_env_name))
+		args = append(args, jvmArgs...)
 	}
 	args = append(args, encoding())
 	args = append(args, main_class_name)
@@ -193,9 +194,8 @@ func getClassPathForVariable(envVariableName string) string {
 	value := os.Getenv(envVariableName)
 	cp := ""
 	if len(value) > 0 {
-		paths := strings.Split(value, ",")
+		paths := splitByComma(value)
 		for _, p := range paths {
-			p = strings.TrimSpace(p)
 			abs, err := filepath.Abs(p)
 			if err == nil {
 				appendClasspath(&cp, abs)
@@ -364,9 +364,8 @@ func build(destination string, classpath string) {
 
 	value := os.Getenv(custom_compile_dir)
 	if len(value) > 0 {
-		paths := strings.Split(value, ",")
+		paths := splitByComma(value)
 		for _, src := range paths {
-			src = strings.TrimSpace(src)
 			srcDirs = append(srcDirs, path.Join(src))
 		}
 	}
@@ -416,4 +415,13 @@ func copyResource(basePath string, resource string, destination string) error {
 		return err
 	}
 	return common.MirrorFile(resource, filepath.Join(destination, rel))
+}
+
+func splitByComma(text string) []string {
+	splits := make([]string, 0)
+	values := strings.Split(text, ",")
+	for _, val := range values {
+		splits = append(splits, strings.TrimSpace(val))
+	}
+	return splits
 }
