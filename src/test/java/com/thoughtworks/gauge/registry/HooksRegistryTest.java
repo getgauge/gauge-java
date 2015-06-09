@@ -96,14 +96,24 @@ public class HooksRegistryTest extends TestCase {
         HooksRegistry.setBeforeClassStepsHooks(createSet(beforeClassSteps1, beforeClassSteps2));
         HooksRegistry.setAfterClassStepsHooks(createSet(afterClassSteps));
 
-        HashSet<Method> beforeHooks = HooksRegistry.getBeforeClassStepsHooksOfClass(TestHooksImplClass.class);
+        Set<Hook> beforeHooks = HooksRegistry.getBeforeClassStepsHooksOfClass(TestHooksImplClass.class);
         assertEquals(2, beforeHooks.size());
-        assertTrue(beforeHooks.contains(beforeClassSteps1));
-        assertTrue(beforeHooks.contains(beforeClassSteps2));
+        Set<Method> beforeMethods = hooksMethodList(beforeHooks);
+        assertTrue(beforeMethods.contains(beforeClassSteps1));
+        assertTrue(beforeMethods.contains(beforeClassSteps2));
 
-        HashSet<Method> afterHooks = HooksRegistry.getAfterClassStepsHooksOfClass(TestHooksImplClass.class);
+        HashSet<Hook> afterHooks = HooksRegistry.getAfterClassStepsHooksOfClass(TestHooksImplClass.class);
+        Set<Method> afterHookMethods = hooksMethodList(afterHooks);
         assertEquals(1, afterHooks.size());
-        assertTrue(afterHooks.contains(afterClassSteps));
+        assertTrue(afterHookMethods.contains(afterClassSteps));
+    }
+
+    private Set<Method> hooksMethodList(Set<Hook> hooks) {
+        HashSet<Method> methods = new HashSet<Method>();
+        for (Hook hook : hooks) {
+            methods.add(hook.getMethod());
+        }
+        return methods;
     }
 
     protected void tearDown() throws Exception {

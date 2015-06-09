@@ -103,24 +103,22 @@ public class HooksRegistry {
         addHooksWithTags(methods, BeforeClassSteps.class);
     }
 
-    public static HashSet<Method> getBeforeClassStepsHooksOfClass(Class<?> aClass) {
-        HashSet<Method> beforeClassMethods = new HashSet<Method>();
-        for (Hook beforeClassStepsHook : getBeforeClassHooks()) {
-            if (beforeClassStepsHook.getMethod().getDeclaringClass().equals(aClass)) {
-                beforeClassMethods.add(beforeClassStepsHook.getMethod());
-            }
-        }
-        return beforeClassMethods;
+    public static Set<Hook> getBeforeClassStepsHooksOfClass(Class<?> aClass) {
+        return findClassHooksForClass(getBeforeClassHooks(), aClass);
     }
 
-    public static HashSet<Method> getAfterClassStepsHooksOfClass(Class<?> aClass) {
-        HashSet<Method> afterClassMethods = new HashSet<Method>();
-        for (Hook afterClassStepHook : getAfterClassHooks()) {
-            if (afterClassStepHook.getMethod().getDeclaringClass().equals(aClass)) {
-                afterClassMethods.add(afterClassStepHook.getMethod());
+    public static HashSet<Hook> getAfterClassStepsHooksOfClass(Class<?> aClass) {
+        return findClassHooksForClass(getAfterClassHooks(), aClass);
+    }
+
+    private static HashSet<Hook> findClassHooksForClass(Set<Hook> allClassHooks, Class<?> aClass) {
+        HashSet<Hook> matchingClassHooks = new HashSet<Hook>();
+        for (Hook classStepsHook : allClassHooks) {
+            if (classStepsHook.getMethod().getDeclaringClass().equals(aClass)) {
+                matchingClassHooks.add(classStepsHook);
             }
         }
-        return afterClassMethods;
+        return matchingClassHooks;
     }
 
     private static void addHooks(Set<Method> methods, Class hookClass) {

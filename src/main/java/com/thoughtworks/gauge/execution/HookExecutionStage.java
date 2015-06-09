@@ -15,17 +15,18 @@
 
 package com.thoughtworks.gauge.execution;
 
+import com.thoughtworks.gauge.ExecutionContext;
+import com.thoughtworks.gauge.hook.Hook;
 import gauge.messages.Spec;
 
-import java.lang.reflect.Method;
 import java.util.Set;
 
 
 public class HookExecutionStage extends AbstractExecutionStage {
-    private Set<Method> execHooks;
+    private Set<Hook> execHooks;
     private ExecutionStage next;
 
-    public HookExecutionStage(Set<Method> execHooks) {
+    public HookExecutionStage(Set<Hook> execHooks) {
         this.execHooks = execHooks;
     }
 
@@ -44,7 +45,6 @@ public class HookExecutionStage extends AbstractExecutionStage {
     }
 
     private Spec.ProtoExecutionResult execute() {
-        MethodExecutor methodExecutor = new MethodExecutor();
-        return methodExecutor.executeMethods(execHooks);
+        return new HooksExecutor(execHooks, new ExecutionContext()).execute();
     }
 }
