@@ -16,8 +16,10 @@
 package main
 
 import (
+	"bufio"
 	"flag"
 	"fmt"
+	"github.com/getgauge/common"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -26,8 +28,6 @@ import (
 	"runtime"
 	"strings"
 	"syscall"
-
-	"github.com/getgauge/common"
 )
 
 const (
@@ -47,6 +47,7 @@ const (
 	java                      = "java"
 	javaExt                   = ".java"
 	defaultSrcDir             = "src"
+	srcFilesTxt               = "sourcefiles.txt"
 )
 
 var pluginDir = ""
@@ -389,12 +390,34 @@ func build(destination string, classpath string) {
 	if len(javaFiles) == 0 {
 		return
 	}
-	args = append(args, javaFiles...)
+
+	// Writing all java src file names to a file and using it as a @filename parameter to javac. Eg: javac -cp jar1:jar2 @sources.txt
+	// This needs to be done because if the number of java files is too high the command length will be more than that permitted by the os.
+	sourcesFile := filepath.Join(common.GetTempDir(), srcFilesTxt)
+	if err := writeLines(javaFiles, sourcesFile); err != nil {
+		panic("Unable to write file: " + err.Error())
+	}
+	args = append(args, "@"+sourcesFile)
 	javac := getExecPathFrom(java_home, alternate_java_home, execName("javac"))
+
 	//TODO: should move to logs
 	//fmt.Println(fmt.Sprintf("Building files in %s directory to %s", "src", destination))
 	runCommand(javac, args)
 	copyResources(resourceFiles, destination)
+}
+
+func writeLines(lines []string, path string) error {
+	file, err := os.Create(path)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	w := bufio.NewWriter(file)
+	for _, line := range lines {
+		fmt.Fprintln(w, line)
+	}
+	return w.Flush()
 }
 
 func copyResources(srcFilesMap map[string][]string, dest string) {
