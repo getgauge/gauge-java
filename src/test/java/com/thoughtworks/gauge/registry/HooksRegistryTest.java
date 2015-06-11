@@ -32,7 +32,7 @@ public class HooksRegistryTest extends TestCase {
 
     public void testAddingHooksBeforeAndAfterSpecAndScenario() throws Exception {
         Method beforeSpec = TestHooksImplClass.class.getMethod("beforeSpec");
-        Method afterSpec = TestHooksImplClass.class.getMethod("afterSpec");
+        Method afterSpec = TestHooksImplClass.class.getMethod("afterSpec", ExecutionContext.class);
         Method beforeScenario = TestHooksImplClass.class.getMethod("beforeScenario");
         Method afterScenario = TestHooksImplClass.class.getMethod("afterScenario");
 
@@ -168,8 +168,7 @@ public class HooksRegistryTest extends TestCase {
         }
 
         @AfterSpec()
-        public void afterSpec() {
-
+        public void afterSpec(ExecutionContext context) {
         }
 
         @BeforeSuite
