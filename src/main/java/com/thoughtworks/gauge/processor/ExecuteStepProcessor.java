@@ -18,6 +18,7 @@ package com.thoughtworks.gauge.processor;
 import com.thoughtworks.gauge.execution.ExecutionPipeline;
 import com.thoughtworks.gauge.execution.HookExecutionStage;
 import com.thoughtworks.gauge.execution.StepExecutionStage;
+import com.thoughtworks.gauge.MessageCollector;
 import com.thoughtworks.gauge.registry.HooksRegistry;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
@@ -33,7 +34,7 @@ public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implem
         pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest()),
                 new HookExecutionStage(HooksRegistry.getAfterClassStepsHooksOfClass(method.getDeclaringClass())));
 
-        Spec.ProtoExecutionResult protoExecutionResult = pipeline.start();
+        Spec.ProtoExecutionResult protoExecutionResult = new MessageCollector().addPendingMessagesTo(pipeline.start());
         return createMessageWithExecutionStatusResponse(message, protoExecutionResult);
     }
 }
