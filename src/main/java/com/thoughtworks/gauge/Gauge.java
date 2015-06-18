@@ -31,7 +31,7 @@ public class Gauge {
     /**
      * @param message - Custom message that can be added at runtime that will be visible in reports.
      */
-    public static void WriteMessage(String message) {
+    public static void writeMessage(String message) {
         messages.add(message);
     }
 
@@ -40,7 +40,7 @@ public class Gauge {
      *                  Format of the string message
      * @param args   - Arguments for the format string as passed into String.format()
      */
-    public static void WriteMessage(String format, String... args) {
+    public static void writeMessage(String format, String... args) {
         messages.add(String.format(format, args));
     }
 }
