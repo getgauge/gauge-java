@@ -1,6 +1,6 @@
 {
     "id" : "java",
-	"version" : "0.1.0",
+	"version" : "0.2.0",
     "description": "Java support for gauge",
 	"run": {
 		"windows": ["bin/gauge-java", "--start"],
@@ -14,7 +14,7 @@
     },
     "lib": "libs",
     "gaugeVersionSupport": {
-      "minimum": "0.0.5",
+      "minimum": "0.1.4",
       "maximum": ""
     }
 }
