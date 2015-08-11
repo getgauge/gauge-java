@@ -48,4 +48,17 @@ public class Table {
     public List<List<String>> getRows() {
         return rows;
     }
+
+    public List<String> getColumnValues(String columnName) {
+        List<String> columnValues = new ArrayList<String>();
+
+        int columnIndex = headers.indexOf(columnName);
+
+        if (columnIndex >= 0) {
+            for (List<String> row : rows) {
+                columnValues.add(row.get(columnIndex));
+            }
+        }
+        return columnValues;
+    }
 }
