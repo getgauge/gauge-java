@@ -156,37 +156,6 @@ func appendClasspath(source *string, classpath string) {
 	}
 }
 
-func getIntelliJClasspath() string {
-	intellijOutDir := path.Join("out", "production")
-	if !common.DirExists(intellijOutDir) {
-		return ""
-	}
-
-	cp := ""
-	walker := func(path string, info os.FileInfo, err error) error {
-		if path == intellijOutDir {
-			return nil
-		}
-		if info.IsDir() {
-			appendClasspath(&cp, path)
-			// we need only top-level directories. Don't walk nested
-			return filepath.SkipDir
-		}
-		return nil
-	}
-	filepath.Walk(intellijOutDir, walker)
-	return cp
-}
-
-func getEclipseClasspath() string {
-	eclipseOutDir := path.Join("bin")
-	if !common.DirExists(eclipseOutDir) {
-		return ""
-	}
-
-	return eclipseOutDir
-}
-
 // User set classpath & additional libs will be comma separated
 // it could be relative path, but JVM needs full path to be specified
 // so this function splits the path, convert them to absolute path forms a classpath
@@ -316,20 +285,13 @@ func createClasspath() string {
 	if userSpecifiedClasspath != "" {
 		appendClasspath(&cp, userSpecifiedClasspath)
 	} else {
-		if icp := getIntelliJClasspath(); icp != "" {
-			appendClasspath(&cp, icp)
-		} else if ecp := getEclipseClasspath(); ecp != "" {
-			appendClasspath(&cp, ecp)
-		} else {
-			//TODO: Move to log
-			//fmt.Println("Failed to detect project build path")
-			//fmt.Printf("Building to %s directory \n", default_build_dir)
-			build(default_build_dir, cp)
-			appendClasspath(&cp, default_build_dir)
-		}
+		//TODO: Move to log
+		//fmt.Println("Failed to detect project build path")
+		//fmt.Printf("Building to %s directory \n", default_build_dir)
+		build(default_build_dir, cp)
+		appendClasspath(&cp, default_build_dir)
 	}
 	return cp
-
 }
 
 func getExecPathFrom(path string, alternatePath string, execName string) string {
