@@ -54,8 +54,8 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
         assertEquals(javaFile.getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"step changed\")\n" +
-                "    public void someStepStep() {\n" +
+        assertTrue(element.getText().contains("    @Step(\"step changed\")" + System.getProperty("line.separator") +
+                "    public void someStepStep() {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("A step with no params"));
 
@@ -72,8 +72,8 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
         assertEquals(javaFile.getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"step with <param 1>\")\n" +
-                "    public void someStepStep(String param1) {\n" +
+        assertTrue(element.getText().contains("    @Step(\"step with <param 1>\")" + System.getProperty("line.separator") +
+                "    public void someStepStep(String param1) {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("A step with no params"));
     }
@@ -93,9 +93,9 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
         assertEquals(javaFile.getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"Tell <greeting> to <name> <DD>\")\n" +
-                "    public void helloWorld(String greeting, String name, String dd) {\n" +
-                "        System.out.println(greeting + \", \" + name);\n" +
+        assertTrue(element.getText().contains("    @Step(\"Tell <greeting> to <name> <DD>\")" + System.getProperty("line.separator") +
+                "    public void helloWorld(String greeting, String name, String dd) {" + System.getProperty("line.separator") +
+                "        System.out.println(greeting + \", \" + name);" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("\"Tell <greeting> to <name>\""));
 
@@ -123,8 +123,8 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
         assertEquals(javaFile.getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"<table> changed <c> and added <a>\")\n" +
-                "    public void stepWithTable(Table table, String c, float a) {\n" +
+        assertTrue(element.getText().contains("    @Step(\"<table> changed <c> and added <a>\")" + System.getProperty("line.separator") +
+                "    public void stepWithTable(Table table, String c, float a) {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("step <a> and a table <table>"));
 
@@ -143,8 +143,8 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
         assertEquals(javaFile.getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"† ‡ µ ¢ step with <Û>\")\n" +
-                "    public void stepWith(String a) {\n" +
+        assertTrue(element.getText().contains("    @Step(\"† ‡ µ ¢ step with <Û>\")" + System.getProperty("line.separator") +
+                "    public void stepWith(String a) {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("† ‡ µ ¢ step with <Û> and <į>"));
 
@@ -168,8 +168,8 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
         assertEquals(javaFile.getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"<b> changed <a> and added <c>\")\n" +
-                "    public void stepWithTable(String b, float a, String c) {\n" +
+        assertTrue(element.getText().contains("    @Step(\"<b> changed <a> and added <c>\")" + System.getProperty("line.separator") +
+                "    public void stepWithTable(String b, float a, String c) {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("step <a> and a table <table>"));
 
@@ -209,20 +209,20 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
         assertEquals(javaFile.getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"with comments\")\n" +
-                "    public void someStepWithComments() {\n" +
-                "        //comment1\n" +
-                "        //comment2\n" +
-                "        /*\n" +
-                "                    comment3\n" +
-                "                    comment4\n" +
-                "         */\n" +
-                "        /*\n" +
-                "                comment6\n" +
-                "                    comment7\n" +
-                "                        comment8\n" +
-                "         */\n" +
-                "        System.out.println(\"\");\n" +
+        assertTrue(element.getText().contains("    @Step(\"with comments\")" + System.getProperty("line.separator") +
+                "    public void someStepWithComments() {" + System.getProperty("line.separator") +
+                "        //comment1" + System.getProperty("line.separator") +
+                "        //comment2" + System.getProperty("line.separator") +
+                "        /*" + System.getProperty("line.separator") +
+                "                    comment3" + System.getProperty("line.separator") +
+                "                    comment4" + System.getProperty("line.separator") +
+                "         */" + System.getProperty("line.separator") +
+                "        /*" + System.getProperty("line.separator") +
+                "                comment6" + System.getProperty("line.separator") +
+                "                    comment7" + System.getProperty("line.separator") +
+                "                        comment8" + System.getProperty("line.separator") +
+                "         */" + System.getProperty("line.separator") +
+                "        System.out.println(\"\");" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("A step with comments"));
     }
@@ -235,11 +235,11 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
         assertEquals(javaFile.getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("public class StepImpl {\n" +
-                "\n" +
-                "    @Step(\"A step with no paramss\")\n" +
-                "    public void someStepStep() {\n" +
-                "    }\n" +
-                "}\n"));
+        assertTrue(element.getText().contains("public class StepImpl {" + System.getProperty("line.separator") +
+                "" + System.getProperty("line.separator") +
+                "    @Step(\"A step with no paramss\")" + System.getProperty("line.separator") +
+                "    public void someStepStep() {" + System.getProperty("line.separator") +
+                "    }" + System.getProperty("line.separator") +
+                "}" + System.getProperty("line.separator")));
     }
 }
