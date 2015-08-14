@@ -21,6 +21,13 @@ import org.reflections.scanners.MethodAnnotationsScanner;
 import org.reflections.scanners.SubTypesScanner;
 import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
+import org.reflections.vfs.SystemDir;
+import org.reflections.vfs.Vfs;
+import org.reflections.vfs.ZipDir;
+
+import java.io.File;
+import java.net.URL;
+import java.util.jar.JarFile;
 
 /**
  * Scans the current Classpath and passes to all the scanners passed.
@@ -34,6 +41,19 @@ public class ClasspathScanner {
     }
 
     private Reflections createReflections() {
+        Vfs.addDefaultURLTypes(new Vfs.UrlType() {
+            @Override
+            public boolean matches(URL url) throws Exception {
+                return "file".equals(url.getProtocol());
+            }
+
+            @Override
+            public Vfs.Dir createDir(URL url) throws Exception {
+                File file = Vfs.getFile(url);
+                return file.isDirectory() ? new SystemDir(file) : new ZipDir(new JarFile(Vfs.getFile(url)));
+            }
+        });
+
         Configuration config = new ConfigurationBuilder()
                 .setScanners(new MethodAnnotationsScanner(), new SubTypesScanner())
                 .addUrls(ClasspathHelper.forJavaClassPath());
