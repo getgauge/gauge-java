@@ -213,11 +213,11 @@ public class JavaRefactoringTest extends TestCase {
                 "    public void someStepWithComments() {" + System.getProperty("line.separator") +
                 "        //comment1" + System.getProperty("line.separator") +
                 "        //comment2" + System.getProperty("line.separator") +
-                "        /*" + System.getProperty("line.separator") +
+                "        /*\n" +
                 "                    comment3\n" +
                 "                    comment4\n" +
                 "         */" + System.getProperty("line.separator") +
-                "        /*" + System.getProperty("line.separator") +
+                "        /*\n" +
                 "                comment6\n" +
                 "                    comment7\n" +
                 "                        comment8\n" +
