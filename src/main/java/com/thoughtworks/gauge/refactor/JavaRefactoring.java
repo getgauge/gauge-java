@@ -15,11 +15,10 @@
 
 package com.thoughtworks.gauge.refactor;
 
+import com.github.javaparser.ast.CompilationUnit;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
-import org.walkmod.javalang.JavaParser;
-import org.walkmod.javalang.ast.CompilationUnit;
 
 import java.io.File;
 import java.io.IOException;
@@ -61,7 +60,6 @@ public class JavaRefactoring {
     }
 
     public JavaRefactoringElement createJavaRefactoringElement(String fileName) throws RefactoringException {
-        JavaParser.setCacheParser(true);
         List<JavaParseWorker> javaParseWorkers = parseJavaFiles(Util.workingDir(), fileName);
         if (javaParseWorkers.isEmpty()) {
             throw new RefactoringException("Unable to find file: " + fileName);

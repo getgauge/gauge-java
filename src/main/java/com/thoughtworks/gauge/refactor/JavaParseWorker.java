@@ -15,8 +15,9 @@
 
 package com.thoughtworks.gauge.refactor;
 
-import org.walkmod.javalang.JavaParser;
-import org.walkmod.javalang.ast.CompilationUnit;
+
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ast.CompilationUnit;
 
 import java.io.File;
 

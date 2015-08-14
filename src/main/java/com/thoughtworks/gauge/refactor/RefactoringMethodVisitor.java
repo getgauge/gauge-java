@@ -15,18 +15,18 @@
 
 package com.thoughtworks.gauge.refactor;
 
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.Parameter;
+import com.github.javaparser.ast.body.VariableDeclaratorId;
+import com.github.javaparser.ast.expr.AnnotationExpr;
+import com.github.javaparser.ast.expr.BinaryExpr;
+import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
+import com.github.javaparser.ast.expr.StringLiteralExpr;
+import com.github.javaparser.ast.type.ClassOrInterfaceType;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.StepValue;
 import gauge.messages.Messages;
 import org.apache.commons.lang.StringEscapeUtils;
-import org.walkmod.javalang.ast.body.MethodDeclaration;
-import org.walkmod.javalang.ast.body.Parameter;
-import org.walkmod.javalang.ast.body.VariableDeclaratorId;
-import org.walkmod.javalang.ast.expr.AnnotationExpr;
-import org.walkmod.javalang.ast.expr.BinaryExpr;
-import org.walkmod.javalang.ast.expr.SingleMemberAnnotationExpr;
-import org.walkmod.javalang.ast.expr.StringLiteralExpr;
-import org.walkmod.javalang.ast.type.ClassOrInterfaceType;
-import org.walkmod.javalang.visitors.VoidVisitorAdapter;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
