@@ -214,13 +214,13 @@ public class JavaRefactoringTest extends TestCase {
                 "        //comment1" + System.getProperty("line.separator") +
                 "        //comment2" + System.getProperty("line.separator") +
                 "        /*" + System.getProperty("line.separator") +
-                "                    comment3" + System.getProperty("line.separator") +
-                "                    comment4" + System.getProperty("line.separator") +
+                "                    comment3\n" +
+                "                    comment4\n" +
                 "         */" + System.getProperty("line.separator") +
                 "        /*" + System.getProperty("line.separator") +
-                "                comment6" + System.getProperty("line.separator") +
-                "                    comment7" + System.getProperty("line.separator") +
-                "                        comment8" + System.getProperty("line.separator") +
+                "                comment6\n" +
+                "                    comment7\n" +
+                "                        comment8\n" +
                 "         */" + System.getProperty("line.separator") +
                 "        System.out.println(\"\");" + System.getProperty("line.separator") +
                 "    }"));
