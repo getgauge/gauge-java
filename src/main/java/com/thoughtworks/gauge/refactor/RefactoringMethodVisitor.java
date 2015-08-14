@@ -15,6 +15,8 @@
 
 package com.thoughtworks.gauge.refactor;
 
+import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.body.VariableDeclaratorId;
@@ -27,7 +29,6 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.StepValue;
 import gauge.messages.Messages;
 import org.apache.commons.lang.StringEscapeUtils;
-
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -90,9 +91,18 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
             }
             methodDeclaration.setParameters(newParameters);
             annotation.setMemberValue(memberValue);
-            this.javaElement = new JavaRefactoringElement(methodDeclaration.getBeginLine(), methodDeclaration.getEndLine(), methodDeclaration.getBeginColumn() - 1, StringEscapeUtils.unescapeJava(methodDeclaration.toString()), null);
+            this.javaElement = new JavaRefactoringElement(StringEscapeUtils.unescapeJava(getJavaFileText(methodDeclaration)), null);
             this.refactored = true;
         }
+    }
+
+    private String getJavaFileText(MethodDeclaration methodDeclaration) {
+        return getFileElement(methodDeclaration).toString();
+    }
+
+    private Node getFileElement(Node node) {
+        if (node instanceof CompilationUnit) return node;
+        return getFileElement(node.getParentNode());
     }
 
     public boolean refactored() {

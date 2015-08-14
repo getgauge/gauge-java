@@ -18,12 +18,28 @@ public class StepImpl {
     public void someStepStep() {
     }
 
-    @Step(" Tell <greeting> to <name>")
+    @Step("Tell <greeting> to <name>")
     public void helloWorld(String greeting, String name) {
         System.out.println(greeting + ", " + name);
     }
 
     @Step("† ‡ µ ¢ step with <Û> and <į>")
     public void stepWith(String a, String b) {
+    }
+
+    @Step("A step with comments")
+    public void someStepWithComments() {
+        //comment1
+        //comment2
+        /*
+                    comment3
+                    comment4
+         */
+        /*
+                comment6
+                    comment7
+                        comment8
+         */
+        System.out.println("");
     }
 }

@@ -22,42 +22,17 @@ import java.util.List;
 
 public class FileModifier {
     private JavaRefactoringElement javaElement;
-    private List<String> content;
 
     public FileModifier(JavaRefactoringElement javaElement) {
         this.javaElement = javaElement;
     }
 
     public void refactor() throws IOException {
-        readFileContent();
-        refactorContent();
         write();
     }
 
-    private void refactorContent() {
-        String[] lines = javaElement.getText().split("\\r?\\n");
-        String spaces = "";
-        for (int j = 0; j < javaElement.getIndentation(); j++) {
-            spaces += " ";
-        }
-        for (int i = javaElement.getBeginLine(); i <= javaElement.getEndLine(); i++) {
-            content.remove(javaElement.getBeginLine() - 1);
-        }
-        for (int i = javaElement.getBeginLine(), index = 0; index < lines.length; i++, index++) {
-            content.add(i - 1, spaces + lines[index]);
-        }
-    }
-
-    private void readFileContent() throws IOException {
-        this.content = FileUtils.readLines(javaElement.getFile(), JavaParseWorker.ENCODING);
-    }
-
     private void write() throws IOException {
-        StringBuilder content = new StringBuilder("");
-        for (String line : this.content) {
-            content.append(line).append(Util.lineSeparator());
-        }
-        FileUtils.write(javaElement.getFile(), content.toString(), JavaParseWorker.ENCODING);
+        FileUtils.write(javaElement.getFile(), javaElement.getText(), JavaParseWorker.ENCODING);
     }
 
 }

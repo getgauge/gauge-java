@@ -18,16 +18,10 @@ package com.thoughtworks.gauge.refactor;
 import java.io.File;
 
 public class JavaRefactoringElement {
-    private int beginLine;
-    private int endLine;
-    private int indentation;
     private String text;
     private File file;
 
-    public JavaRefactoringElement(int beginLine, int endLine, int beginColumn, String text, File file) {
-        this.beginLine = beginLine;
-        this.endLine = endLine;
-        this.indentation = beginColumn;
+    public JavaRefactoringElement(String text, File file) {
         this.text = text;
         this.file = file;
     }
@@ -38,18 +32,6 @@ public class JavaRefactoringElement {
 
     public void setFile(File file) {
         this.file = file;
-    }
-
-    public int getBeginLine() {
-        return beginLine;
-    }
-
-    public int getEndLine() {
-        return endLine;
-    }
-
-    public int getIndentation() {
-        return indentation;
     }
 
     public String getText() {
