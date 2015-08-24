@@ -47,4 +47,18 @@ public class TableTest {
 
         assertTrue(columnValues.isEmpty());
     }
+
+    @Test
+    public void shouldBeAbleToGetTableCellFromColumnName(){
+        String cellValue = table.getTableRows().get(0).getCell("col1");
+        assertEquals("foo1",cellValue);
+        cellValue = table.getTableRows().get(0).getCell("col2");
+        assertEquals("bar1",cellValue);
+        cellValue = table.getTableRows().get(1).getCell("col1");
+        assertEquals("foo2",cellValue);
+        cellValue = table.getTableRows().get(1).getCell("col2");
+        assertEquals("bar2",cellValue);
+        cellValue = table.getTableRows().get(0).getCell("invalid");
+        assertEquals("", cellValue);
+    }
 }

@@ -24,14 +24,21 @@ import java.util.List;
 public class Table {
     private final List<String> headers;
     private final List<List<String>> rows;
+    private final List<TableRow> tableRows;
 
     public Table(List<String> headers) {
         this.headers = headers;
         rows = new ArrayList<List<String>>();
+        tableRows = new ArrayList<TableRow>();
     }
 
     public void addRow(List<String> row) {
         rows.add(row);
+        TableRow rowToAdd = new TableRow();
+        for (String header : headers) {
+            rowToAdd.addCell(header, row.get(headers.indexOf(header)));
+        }
+        tableRows.add(rowToAdd);
     }
 
     /**
@@ -42,9 +49,19 @@ public class Table {
     }
 
     /**
-     * @return - List of Rows in the table. Each Row is represented by a List of String values
+     * @return - List of Rows in the table. Each Row is represented by a TableRow.
+     */
+    public List<TableRow> getTableRows(){
+        return tableRows;
+    }
+
+
+    /**
+     * @deprecated - Use getTableRows() method instead of this.
+     * @return - List of TableRows in the table. Each Row is represented by a List of String values
      * according to the order of column names
      */
+    @Deprecated
     public List<List<String>> getRows() {
         return rows;
     }
