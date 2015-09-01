@@ -63,8 +63,12 @@ public class ScreenshotFactory {
         ByteArrayOutputStream imageBytes = new ByteArrayOutputStream();
         if (shouldTakeScreenshot()) {
             try {
-                BufferedImage image = null;
-                image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+                // Union together all screen devices for 1 large screenshot
+                Rectangle screenRect = new Rectangle(0, 0, 0, 0);
+                for (GraphicsDevice gd : GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()) 
+                    screenRect = screenRect.union(gd.getDefaultConfiguration().getBounds());
+
+                BufferedImage image = new Robot().createScreenCapture(screenRect);
                 ImageIO.write(image, IMAGE_EXTENSION, imageBytes);
             } catch (Throwable e) {
                 System.err.println("Failed to take regular screenshot: " + e.getMessage());
