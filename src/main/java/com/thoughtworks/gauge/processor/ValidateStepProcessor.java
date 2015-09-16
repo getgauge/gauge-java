@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
 public class ValidateStepProcessor implements IMessageProcessor {
 
     public Messages.Message process(Messages.Message message) {
-        stepValidationResult validationResult = validateStep(message.getStepValidateRequest());
+        StepValidationResult validationResult = validateStep(message.getStepValidateRequest());
         Messages.StepValidateResponse stepValidationResponse = Messages.StepValidateResponse.newBuilder().setIsValid(validationResult.isValid())
                 .setErrorMessage(validationResult.getErrorMessage())
                 .build();
@@ -34,31 +34,31 @@ public class ValidateStepProcessor implements IMessageProcessor {
                 .build();
     }
 
-    private stepValidationResult validateStep(Messages.StepValidateRequest stepValidateRequest) {
+    private StepValidationResult validateStep(Messages.StepValidateRequest stepValidateRequest) {
         Method methodImplementation = StepRegistry.get(stepValidateRequest.getStepText());
         if (methodImplementation != null) {
             int implementationParamCount = methodImplementation.getParameterTypes().length;
             int numberOfParameters = stepValidateRequest.getNumberOfParameters();
             if (implementationParamCount == numberOfParameters) {
-                return new stepValidationResult(true);
+                return new StepValidationResult(true);
             } else {
-                return new stepValidationResult(false, String.format("Incorrect number of parameters in step implementation. Found [%d] expected [%d] parameters", implementationParamCount, numberOfParameters));
+                return new StepValidationResult(false, String.format("Incorrect number of parameters in step implementation. Found [%d] expected [%d] parameters", implementationParamCount, numberOfParameters));
             }
         } else {
-            return new stepValidationResult(false, "Step implementation not found");
+            return new StepValidationResult(false, "Step implementation not found");
         }
     }
 
-    private class stepValidationResult {
+    private class StepValidationResult {
         private boolean isValid;
         private String errorMessage;
 
-        public stepValidationResult(boolean isValid, String errorMessage) {
+        public StepValidationResult(boolean isValid, String errorMessage) {
             this.isValid = isValid;
             this.errorMessage = errorMessage;
         }
 
-        public stepValidationResult(boolean isValid) {
+        public StepValidationResult(boolean isValid) {
             this.isValid = isValid;
             this.errorMessage = "";
         }
