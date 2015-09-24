@@ -61,6 +61,18 @@ public class StepExecutionStage extends AbstractExecutionStage {
 
     private Spec.ProtoExecutionResult executeStep() {
         Method method = StepRegistry.get(executeStepRequest.getParsedStepText());
+
+        int implementationParamCount = method.getParameterTypes().length;
+        int numberOfParameters = this.executeStepRequest.getParametersCount();
+
+        if (implementationParamCount != numberOfParameters) {
+            return Spec.ProtoExecutionResult.newBuilder()
+                    .setFailed(true)
+                    .setExecutionTime(0)
+                    .setErrorMessage(String.format("Argument length mismatch for: %s. Actual Count: [%d], Expected Count: [%d]",
+                            this.executeStepRequest.getActualStepText(), implementationParamCount, numberOfParameters))
+                    .build();
+        }
         MethodExecutor methodExecutor = new MethodExecutor();
         return executeStepMethod(methodExecutor, method);
 

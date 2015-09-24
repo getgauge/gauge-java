@@ -17,16 +17,15 @@ package com.thoughtworks.gauge.processor;
 
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
+import gauge.messages.Messages.StepValidateResponse;
+import gauge.messages.Messages.StepValidateResponse.ErrorType;
 
 import java.lang.reflect.Method;
 
 public class ValidateStepProcessor implements IMessageProcessor {
 
     public Messages.Message process(Messages.Message message) {
-        StepValidationResult validationResult = validateStep(message.getStepValidateRequest());
-        Messages.StepValidateResponse stepValidationResponse = Messages.StepValidateResponse.newBuilder().setIsValid(validationResult.isValid())
-                .setErrorMessage(validationResult.getErrorMessage())
-                .build();
+        StepValidateResponse stepValidationResponse = validateStep(message.getStepValidateRequest());
         return Messages.Message.newBuilder()
                 .setMessageId(message.getMessageId())
                 .setStepValidateResponse(stepValidationResponse)
@@ -34,42 +33,26 @@ public class ValidateStepProcessor implements IMessageProcessor {
                 .build();
     }
 
-    private StepValidationResult validateStep(Messages.StepValidateRequest stepValidateRequest) {
+    private StepValidateResponse validateStep(Messages.StepValidateRequest stepValidateRequest) {
         Method methodImplementation = StepRegistry.get(stepValidateRequest.getStepText());
         if (methodImplementation != null) {
-            int implementationParamCount = methodImplementation.getParameterTypes().length;
-            int numberOfParameters = stepValidateRequest.getNumberOfParameters();
-            if (implementationParamCount == numberOfParameters) {
-                return new StepValidationResult(true);
-            } else {
-                return new StepValidationResult(false, String.format("Incorrect number of parameters in step implementation. Found [%d] expected [%d] parameters", implementationParamCount, numberOfParameters));
-            }
+            return buildSuccessValidationResponse();
         } else {
-            return new StepValidationResult(false, "Step implementation not found");
+            return buildFailureValidationResponse("Step implementation not found");
         }
     }
 
-    private class StepValidationResult {
-        private boolean isValid;
-        private String errorMessage;
-
-        public StepValidationResult(boolean isValid, String errorMessage) {
-            this.isValid = isValid;
-            this.errorMessage = errorMessage;
-        }
-
-        public StepValidationResult(boolean isValid) {
-            this.isValid = isValid;
-            this.errorMessage = "";
-        }
-
-        public boolean isValid() {
-            return isValid;
-        }
-
-        public String getErrorMessage() {
-            return errorMessage;
-        }
+    private StepValidateResponse buildFailureValidationResponse(String errorMessage) {
+        return StepValidateResponse.newBuilder()
+                .setIsValid(false)
+                .setErrorType(ErrorType.STEP_IMPLEMENTATION_NOT_FOUND)
+                .setErrorMessage(errorMessage)
+                .build();
     }
 
+    private StepValidateResponse buildSuccessValidationResponse() {
+        return StepValidateResponse.newBuilder()
+                .setIsValid(true)
+                .build();
+    }
 }

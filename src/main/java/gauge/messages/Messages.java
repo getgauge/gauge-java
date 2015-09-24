@@ -11202,6 +11202,15 @@ public final class Messages {
      */
     com.google.protobuf.ByteString
         getErrorMessageBytes();
+
+    /**
+     * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+     */
+    boolean hasErrorType();
+    /**
+     * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+     */
+    gauge.messages.Messages.StepValidateResponse.ErrorType getErrorType();
   }
   /**
    * Protobuf type {@code gauge.messages.StepValidateResponse}
@@ -11273,6 +11282,17 @@ public final class Messages {
               errorMessage_ = bs;
               break;
             }
+            case 24: {
+              int rawValue = input.readEnum();
+              gauge.messages.Messages.StepValidateResponse.ErrorType value = gauge.messages.Messages.StepValidateResponse.ErrorType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(3, rawValue);
+              } else {
+                bitField0_ |= 0x00000004;
+                errorType_ = value;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -11310,6 +11330,79 @@ public final class Messages {
     @java.lang.Override
     public com.google.protobuf.Parser<StepValidateResponse> getParserForType() {
       return PARSER;
+    }
+
+    /**
+     * Protobuf enum {@code gauge.messages.StepValidateResponse.ErrorType}
+     */
+    public enum ErrorType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>STEP_IMPLEMENTATION_NOT_FOUND = 0;</code>
+       */
+      STEP_IMPLEMENTATION_NOT_FOUND(0, 0),
+      ;
+
+      /**
+       * <code>STEP_IMPLEMENTATION_NOT_FOUND = 0;</code>
+       */
+      public static final int STEP_IMPLEMENTATION_NOT_FOUND_VALUE = 0;
+
+
+      public final int getNumber() { return value; }
+
+      public static ErrorType valueOf(int value) {
+        switch (value) {
+          case 0: return STEP_IMPLEMENTATION_NOT_FOUND;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<ErrorType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static com.google.protobuf.Internal.EnumLiteMap<ErrorType>
+          internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<ErrorType>() {
+              public ErrorType findValueByNumber(int number) {
+                return ErrorType.valueOf(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(index);
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return gauge.messages.Messages.StepValidateResponse.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final ErrorType[] VALUES = values();
+
+      public static ErrorType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int index;
+      private final int value;
+
+      private ErrorType(int index, int value) {
+        this.index = index;
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:gauge.messages.StepValidateResponse.ErrorType)
     }
 
     private int bitField0_;
@@ -11370,9 +11463,25 @@ public final class Messages {
       }
     }
 
+    public static final int ERRORTYPE_FIELD_NUMBER = 3;
+    private gauge.messages.Messages.StepValidateResponse.ErrorType errorType_;
+    /**
+     * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+     */
+    public boolean hasErrorType() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+     */
+    public gauge.messages.Messages.StepValidateResponse.ErrorType getErrorType() {
+      return errorType_;
+    }
+
     private void initFields() {
       isValid_ = false;
       errorMessage_ = "";
+      errorType_ = gauge.messages.Messages.StepValidateResponse.ErrorType.STEP_IMPLEMENTATION_NOT_FOUND;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -11397,6 +11506,9 @@ public final class Messages {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, getErrorMessageBytes());
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeEnum(3, errorType_.getNumber());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -11413,6 +11525,10 @@ public final class Messages {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, getErrorMessageBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, errorType_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -11542,6 +11658,8 @@ public final class Messages {
         bitField0_ = (bitField0_ & ~0x00000001);
         errorMessage_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        errorType_ = gauge.messages.Messages.StepValidateResponse.ErrorType.STEP_IMPLEMENTATION_NOT_FOUND;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -11578,6 +11696,10 @@ public final class Messages {
           to_bitField0_ |= 0x00000002;
         }
         result.errorMessage_ = errorMessage_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.errorType_ = errorType_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -11601,6 +11723,9 @@ public final class Messages {
           bitField0_ |= 0x00000002;
           errorMessage_ = other.errorMessage_;
           onChanged();
+        }
+        if (other.hasErrorType()) {
+          setErrorType(other.getErrorType());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -11737,6 +11862,41 @@ public final class Messages {
   }
   bitField0_ |= 0x00000002;
         errorMessage_ = value;
+        onChanged();
+        return this;
+      }
+
+      private gauge.messages.Messages.StepValidateResponse.ErrorType errorType_ = gauge.messages.Messages.StepValidateResponse.ErrorType.STEP_IMPLEMENTATION_NOT_FOUND;
+      /**
+       * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+       */
+      public boolean hasErrorType() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+       */
+      public gauge.messages.Messages.StepValidateResponse.ErrorType getErrorType() {
+        return errorType_;
+      }
+      /**
+       * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+       */
+      public Builder setErrorType(gauge.messages.Messages.StepValidateResponse.ErrorType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        errorType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+       */
+      public Builder clearErrorType() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        errorType_ = gauge.messages.Messages.StepValidateResponse.ErrorType.STEP_IMPLEMENTATION_NOT_FOUND;
         onChanged();
         return this;
       }
@@ -18258,6 +18418,490 @@ public final class Messages {
     // @@protoc_insertion_point(class_scope:gauge.messages.StepNameResponse)
   }
 
+  public interface UnsupportedMessageResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.UnsupportedMessageResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string message = 1;</code>
+     */
+    boolean hasMessage();
+    /**
+     * <code>optional string message = 1;</code>
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>optional string message = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+  }
+  /**
+   * Protobuf type {@code gauge.messages.UnsupportedMessageResponse}
+   *
+   * <pre>
+   *&#47; Response when a unsupported message request is sent.
+   * </pre>
+   */
+  public static final class UnsupportedMessageResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.UnsupportedMessageResponse)
+      UnsupportedMessageResponseOrBuilder {
+    // Use UnsupportedMessageResponse.newBuilder() to construct.
+    private UnsupportedMessageResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private UnsupportedMessageResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final UnsupportedMessageResponse defaultInstance;
+    public static UnsupportedMessageResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public UnsupportedMessageResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UnsupportedMessageResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              message_ = bs;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Messages.internal_static_gauge_messages_UnsupportedMessageResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Messages.internal_static_gauge_messages_UnsupportedMessageResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Messages.UnsupportedMessageResponse.class, gauge.messages.Messages.UnsupportedMessageResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<UnsupportedMessageResponse> PARSER =
+        new com.google.protobuf.AbstractParser<UnsupportedMessageResponse>() {
+      public UnsupportedMessageResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UnsupportedMessageResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UnsupportedMessageResponse> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int MESSAGE_FIELD_NUMBER = 1;
+    private java.lang.Object message_;
+    /**
+     * <code>optional string message = 1;</code>
+     */
+    public boolean hasMessage() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string message = 1;</code>
+     */
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          message_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string message = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      message_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getMessageBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getMessageBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static gauge.messages.Messages.UnsupportedMessageResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.UnsupportedMessageResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.UnsupportedMessageResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.UnsupportedMessageResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.UnsupportedMessageResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Messages.UnsupportedMessageResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.UnsupportedMessageResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static gauge.messages.Messages.UnsupportedMessageResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.UnsupportedMessageResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Messages.UnsupportedMessageResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(gauge.messages.Messages.UnsupportedMessageResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gauge.messages.UnsupportedMessageResponse}
+     *
+     * <pre>
+     *&#47; Response when a unsupported message request is sent.
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.UnsupportedMessageResponse)
+        gauge.messages.Messages.UnsupportedMessageResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_UnsupportedMessageResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_UnsupportedMessageResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.UnsupportedMessageResponse.class, gauge.messages.Messages.UnsupportedMessageResponse.Builder.class);
+      }
+
+      // Construct using gauge.messages.Messages.UnsupportedMessageResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        message_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Messages.internal_static_gauge_messages_UnsupportedMessageResponse_descriptor;
+      }
+
+      public gauge.messages.Messages.UnsupportedMessageResponse getDefaultInstanceForType() {
+        return gauge.messages.Messages.UnsupportedMessageResponse.getDefaultInstance();
+      }
+
+      public gauge.messages.Messages.UnsupportedMessageResponse build() {
+        gauge.messages.Messages.UnsupportedMessageResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Messages.UnsupportedMessageResponse buildPartial() {
+        gauge.messages.Messages.UnsupportedMessageResponse result = new gauge.messages.Messages.UnsupportedMessageResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.message_ = message_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Messages.UnsupportedMessageResponse) {
+          return mergeFrom((gauge.messages.Messages.UnsupportedMessageResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Messages.UnsupportedMessageResponse other) {
+        if (other == gauge.messages.Messages.UnsupportedMessageResponse.getDefaultInstance()) return this;
+        if (other.hasMessage()) {
+          bitField0_ |= 0x00000001;
+          message_ = other.message_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Messages.UnsupportedMessageResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Messages.UnsupportedMessageResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object message_ = "";
+      /**
+       * <code>optional string message = 1;</code>
+       */
+      public boolean hasMessage() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string message = 1;</code>
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            message_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string message = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string message = 1;</code>
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string message = 1;</code>
+       */
+      public Builder clearMessage() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string message = 1;</code>
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        message_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.UnsupportedMessageResponse)
+    }
+
+    static {
+      defaultInstance = new UnsupportedMessageResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.UnsupportedMessageResponse)
+  }
+
   public interface MessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:gauge.messages.Message)
       com.google.protobuf.MessageOrBuilder {
@@ -18864,6 +19508,31 @@ public final class Messages {
      * </pre>
      */
     gauge.messages.Messages.RefactorResponseOrBuilder getRefactorResponseOrBuilder();
+
+    /**
+     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+     * </pre>
+     */
+    boolean hasUnsupportedMessageResponse();
+    /**
+     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+     * </pre>
+     */
+    gauge.messages.Messages.UnsupportedMessageResponse getUnsupportedMessageResponse();
+    /**
+     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+     * </pre>
+     */
+    gauge.messages.Messages.UnsupportedMessageResponseOrBuilder getUnsupportedMessageResponseOrBuilder();
   }
   /**
    * Protobuf type {@code gauge.messages.Message}
@@ -19238,6 +19907,19 @@ public final class Messages {
               bitField0_ |= 0x01000000;
               break;
             }
+            case 210: {
+              gauge.messages.Messages.UnsupportedMessageResponse.Builder subBuilder = null;
+              if (((bitField0_ & 0x02000000) == 0x02000000)) {
+                subBuilder = unsupportedMessageResponse_.toBuilder();
+              }
+              unsupportedMessageResponse_ = input.readMessage(gauge.messages.Messages.UnsupportedMessageResponse.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(unsupportedMessageResponse_);
+                unsupportedMessageResponse_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x02000000;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -19374,6 +20056,10 @@ public final class Messages {
        * <code>RefactorResponse = 22;</code>
        */
       RefactorResponse(22, 22),
+      /**
+       * <code>UnsupportedMessageResponse = 23;</code>
+       */
+      UnsupportedMessageResponse(23, 23),
       ;
 
       /**
@@ -19468,6 +20154,10 @@ public final class Messages {
        * <code>RefactorResponse = 22;</code>
        */
       public static final int RefactorResponse_VALUE = 22;
+      /**
+       * <code>UnsupportedMessageResponse = 23;</code>
+       */
+      public static final int UnsupportedMessageResponse_VALUE = 23;
 
 
       public final int getNumber() { return value; }
@@ -19497,6 +20187,7 @@ public final class Messages {
           case 20: return StepNameResponse;
           case 21: return RefactorRequest;
           case 22: return RefactorResponse;
+          case 23: return UnsupportedMessageResponse;
           default: return null;
         }
       }
@@ -20348,6 +21039,39 @@ public final class Messages {
       return refactorResponse_;
     }
 
+    public static final int UNSUPPORTEDMESSAGERESPONSE_FIELD_NUMBER = 26;
+    private gauge.messages.Messages.UnsupportedMessageResponse unsupportedMessageResponse_;
+    /**
+     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+     * </pre>
+     */
+    public boolean hasUnsupportedMessageResponse() {
+      return ((bitField0_ & 0x02000000) == 0x02000000);
+    }
+    /**
+     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+     * </pre>
+     */
+    public gauge.messages.Messages.UnsupportedMessageResponse getUnsupportedMessageResponse() {
+      return unsupportedMessageResponse_;
+    }
+    /**
+     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+     * </pre>
+     */
+    public gauge.messages.Messages.UnsupportedMessageResponseOrBuilder getUnsupportedMessageResponseOrBuilder() {
+      return unsupportedMessageResponse_;
+    }
+
     private void initFields() {
       messageType_ = gauge.messages.Messages.Message.MessageType.ExecutionStarting;
       messageId_ = 0L;
@@ -20374,6 +21098,7 @@ public final class Messages {
       stepNameResponse_ = gauge.messages.Messages.StepNameResponse.getDefaultInstance();
       refactorRequest_ = gauge.messages.Messages.RefactorRequest.getDefaultInstance();
       refactorResponse_ = gauge.messages.Messages.RefactorResponse.getDefaultInstance();
+      unsupportedMessageResponse_ = gauge.messages.Messages.UnsupportedMessageResponse.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -20573,6 +21298,9 @@ public final class Messages {
       if (((bitField0_ & 0x01000000) == 0x01000000)) {
         output.writeMessage(25, refactorResponse_);
       }
+      if (((bitField0_ & 0x02000000) == 0x02000000)) {
+        output.writeMessage(26, unsupportedMessageResponse_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -20681,6 +21409,10 @@ public final class Messages {
       if (((bitField0_ & 0x01000000) == 0x01000000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(25, refactorResponse_);
+      }
+      if (((bitField0_ & 0x02000000) == 0x02000000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(26, unsupportedMessageResponse_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -20820,6 +21552,7 @@ public final class Messages {
           getStepNameResponseFieldBuilder();
           getRefactorRequestFieldBuilder();
           getRefactorResponseFieldBuilder();
+          getUnsupportedMessageResponseFieldBuilder();
         }
       }
       private static Builder create() {
@@ -20970,6 +21703,12 @@ public final class Messages {
           refactorResponseBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x01000000);
+        if (unsupportedMessageResponseBuilder_ == null) {
+          unsupportedMessageResponse_ = gauge.messages.Messages.UnsupportedMessageResponse.getDefaultInstance();
+        } else {
+          unsupportedMessageResponseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x02000000);
         return this;
       }
 
@@ -21190,6 +21929,14 @@ public final class Messages {
         } else {
           result.refactorResponse_ = refactorResponseBuilder_.build();
         }
+        if (((from_bitField0_ & 0x02000000) == 0x02000000)) {
+          to_bitField0_ |= 0x02000000;
+        }
+        if (unsupportedMessageResponseBuilder_ == null) {
+          result.unsupportedMessageResponse_ = unsupportedMessageResponse_;
+        } else {
+          result.unsupportedMessageResponse_ = unsupportedMessageResponseBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -21280,6 +22027,9 @@ public final class Messages {
         }
         if (other.hasRefactorResponse()) {
           mergeRefactorResponse(other.getRefactorResponse());
+        }
+        if (other.hasUnsupportedMessageResponse()) {
+          mergeUnsupportedMessageResponse(other.getUnsupportedMessageResponse());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -25001,6 +25751,158 @@ public final class Messages {
         return refactorResponseBuilder_;
       }
 
+      private gauge.messages.Messages.UnsupportedMessageResponse unsupportedMessageResponse_ = gauge.messages.Messages.UnsupportedMessageResponse.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Messages.UnsupportedMessageResponse, gauge.messages.Messages.UnsupportedMessageResponse.Builder, gauge.messages.Messages.UnsupportedMessageResponseOrBuilder> unsupportedMessageResponseBuilder_;
+      /**
+       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+       * </pre>
+       */
+      public boolean hasUnsupportedMessageResponse() {
+        return ((bitField0_ & 0x02000000) == 0x02000000);
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+       * </pre>
+       */
+      public gauge.messages.Messages.UnsupportedMessageResponse getUnsupportedMessageResponse() {
+        if (unsupportedMessageResponseBuilder_ == null) {
+          return unsupportedMessageResponse_;
+        } else {
+          return unsupportedMessageResponseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+       * </pre>
+       */
+      public Builder setUnsupportedMessageResponse(gauge.messages.Messages.UnsupportedMessageResponse value) {
+        if (unsupportedMessageResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          unsupportedMessageResponse_ = value;
+          onChanged();
+        } else {
+          unsupportedMessageResponseBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x02000000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+       * </pre>
+       */
+      public Builder setUnsupportedMessageResponse(
+          gauge.messages.Messages.UnsupportedMessageResponse.Builder builderForValue) {
+        if (unsupportedMessageResponseBuilder_ == null) {
+          unsupportedMessageResponse_ = builderForValue.build();
+          onChanged();
+        } else {
+          unsupportedMessageResponseBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x02000000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+       * </pre>
+       */
+      public Builder mergeUnsupportedMessageResponse(gauge.messages.Messages.UnsupportedMessageResponse value) {
+        if (unsupportedMessageResponseBuilder_ == null) {
+          if (((bitField0_ & 0x02000000) == 0x02000000) &&
+              unsupportedMessageResponse_ != gauge.messages.Messages.UnsupportedMessageResponse.getDefaultInstance()) {
+            unsupportedMessageResponse_ =
+              gauge.messages.Messages.UnsupportedMessageResponse.newBuilder(unsupportedMessageResponse_).mergeFrom(value).buildPartial();
+          } else {
+            unsupportedMessageResponse_ = value;
+          }
+          onChanged();
+        } else {
+          unsupportedMessageResponseBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x02000000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+       * </pre>
+       */
+      public Builder clearUnsupportedMessageResponse() {
+        if (unsupportedMessageResponseBuilder_ == null) {
+          unsupportedMessageResponse_ = gauge.messages.Messages.UnsupportedMessageResponse.getDefaultInstance();
+          onChanged();
+        } else {
+          unsupportedMessageResponseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x02000000);
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+       * </pre>
+       */
+      public gauge.messages.Messages.UnsupportedMessageResponse.Builder getUnsupportedMessageResponseBuilder() {
+        bitField0_ |= 0x02000000;
+        onChanged();
+        return getUnsupportedMessageResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+       * </pre>
+       */
+      public gauge.messages.Messages.UnsupportedMessageResponseOrBuilder getUnsupportedMessageResponseOrBuilder() {
+        if (unsupportedMessageResponseBuilder_ != null) {
+          return unsupportedMessageResponseBuilder_.getMessageOrBuilder();
+        } else {
+          return unsupportedMessageResponse_;
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Messages.UnsupportedMessageResponse, gauge.messages.Messages.UnsupportedMessageResponse.Builder, gauge.messages.Messages.UnsupportedMessageResponseOrBuilder> 
+          getUnsupportedMessageResponseFieldBuilder() {
+        if (unsupportedMessageResponseBuilder_ == null) {
+          unsupportedMessageResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              gauge.messages.Messages.UnsupportedMessageResponse, gauge.messages.Messages.UnsupportedMessageResponse.Builder, gauge.messages.Messages.UnsupportedMessageResponseOrBuilder>(
+                  getUnsupportedMessageResponse(),
+                  getParentForChildren(),
+                  isClean());
+          unsupportedMessageResponse_ = null;
+        }
+        return unsupportedMessageResponseBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:gauge.messages.Message)
     }
 
@@ -25153,6 +26055,11 @@ public final class Messages {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_StepNameResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_UnsupportedMessageResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_gauge_messages_UnsupportedMessageResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_Message_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -25203,83 +26110,90 @@ public final class Messages {
       "xt\030\002 \002(\t\022\027\n\017scenarioFailing\030\003 \001(\010\022-\n\npar" +
       "ameters\030\004 \003(\0132\031.gauge.messages.Parameter" +
       "\"C\n\023StepValidateRequest\022\020\n\010stepText\030\001 \002(" +
-      "\t\022\032\n\022numberOfParameters\030\002 \002(\005\"=\n\024StepVal" +
-      "idateResponse\022\017\n\007isValid\030\001 \002(\010\022\024\n\014errorM" +
-      "essage\030\002 \001(\t\"M\n\024SuiteExecutionResult\0225\n\013",
-      "suiteResult\030\001 \002(\0132 .gauge.messages.Proto" +
-      "SuiteResult\"\022\n\020StepNamesRequest\"\"\n\021StepN" +
-      "amesResponse\022\r\n\005steps\030\001 \003(\t\"\036\n\034ScenarioD" +
-      "ataStoreInitRequest\"\032\n\030SpecDataStoreInit" +
-      "Request\"\033\n\031SuiteDataStoreInitRequest\"=\n\021" +
-      "ParameterPosition\022\023\n\013oldPosition\030\001 \002(\005\022\023" +
-      "\n\013newPosition\030\002 \002(\005\"\270\001\n\017RefactorRequest\022" +
-      "4\n\014oldStepValue\030\001 \002(\0132\036.gauge.messages.P" +
-      "rotoStepValue\0224\n\014newStepValue\030\002 \002(\0132\036.ga" +
-      "uge.messages.ProtoStepValue\0229\n\016paramPosi",
-      "tions\030\003 \003(\0132!.gauge.messages.ParameterPo" +
-      "sition\"H\n\020RefactorResponse\022\017\n\007success\030\001 " +
-      "\002(\010\022\r\n\005error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003(\t" +
-      "\"$\n\017StepNameRequest\022\021\n\tstepValue\030\001 \002(\t\"M" +
-      "\n\020StepNameResponse\022\025\n\risStepPresent\030\001 \002(" +
-      "\010\022\020\n\010stepName\030\002 \003(\t\022\020\n\010hasAlias\030\003 \002(\010\"\216\022" +
-      "\n\007Message\0228\n\013messageType\030\001 \002(\0162#.gauge.m" +
-      "essages.Message.MessageType\022\021\n\tmessageId" +
-      "\030\002 \002(\003\022J\n\030executionStartingRequest\030\003 \001(\013" +
-      "2(.gauge.messages.ExecutionStartingReque",
-      "st\022R\n\034specExecutionStartingRequest\030\004 \001(\013" +
-      "2,.gauge.messages.SpecExecutionStartingR" +
-      "equest\022N\n\032specExecutionEndingRequest\030\005 \001" +
-      "(\0132*.gauge.messages.SpecExecutionEndingR" +
-      "equest\022Z\n scenarioExecutionStartingReque" +
-      "st\030\006 \001(\01320.gauge.messages.ScenarioExecut" +
-      "ionStartingRequest\022V\n\036scenarioExecutionE" +
-      "ndingRequest\030\007 \001(\0132..gauge.messages.Scen" +
-      "arioExecutionEndingRequest\022R\n\034stepExecut" +
-      "ionStartingRequest\030\010 \001(\0132,.gauge.message",
-      "s.StepExecutionStartingRequest\022N\n\032stepEx" +
-      "ecutionEndingRequest\030\t \001(\0132*.gauge.messa" +
-      "ges.StepExecutionEndingRequest\022>\n\022execut" +
-      "eStepRequest\030\n \001(\0132\".gauge.messages.Exec" +
-      "uteStepRequest\022F\n\026executionEndingRequest" +
-      "\030\013 \001(\0132&.gauge.messages.ExecutionEndingR" +
-      "equest\022@\n\023stepValidateRequest\030\014 \001(\0132#.ga" +
-      "uge.messages.StepValidateRequest\022B\n\024step" +
-      "ValidateResponse\030\r \001(\0132$.gauge.messages." +
-      "StepValidateResponse\022H\n\027executionStatusR",
-      "esponse\030\016 \001(\0132\'.gauge.messages.Execution" +
-      "StatusResponse\022:\n\020stepNamesRequest\030\017 \001(\013" +
-      "2 .gauge.messages.StepNamesRequest\022<\n\021st" +
-      "epNamesResponse\030\020 \001(\0132!.gauge.messages.S" +
-      "tepNamesResponse\022B\n\024suiteExecutionResult" +
-      "\030\021 \001(\0132$.gauge.messages.SuiteExecutionRe" +
-      "sult\022>\n\022killProcessRequest\030\022 \001(\0132\".gauge" +
-      ".messages.KillProcessRequest\022R\n\034scenario" +
-      "DataStoreInitRequest\030\023 \001(\0132,.gauge.messa" +
-      "ges.ScenarioDataStoreInitRequest\022J\n\030spec",
-      "DataStoreInitRequest\030\024 \001(\0132(.gauge.messa" +
-      "ges.SpecDataStoreInitRequest\022L\n\031suiteDat" +
-      "aStoreInitRequest\030\025 \001(\0132).gauge.messages" +
-      ".SuiteDataStoreInitRequest\0228\n\017stepNameRe" +
-      "quest\030\026 \001(\0132\037.gauge.messages.StepNameReq" +
-      "uest\022:\n\020stepNameResponse\030\027 \001(\0132 .gauge.m" +
-      "essages.StepNameResponse\0228\n\017refactorRequ" +
-      "est\030\030 \001(\0132\037.gauge.messages.RefactorReque" +
-      "st\022:\n\020refactorResponse\030\031 \001(\0132 .gauge.mes" +
-      "sages.RefactorResponse\"\275\004\n\013MessageType\022\025",
-      "\n\021ExecutionStarting\020\000\022\031\n\025SpecExecutionSt" +
-      "arting\020\001\022\027\n\023SpecExecutionEnding\020\002\022\035\n\031Sce" +
-      "narioExecutionStarting\020\003\022\033\n\027ScenarioExec" +
-      "utionEnding\020\004\022\031\n\025StepExecutionStarting\020\005" +
-      "\022\027\n\023StepExecutionEnding\020\006\022\017\n\013ExecuteStep" +
-      "\020\007\022\023\n\017ExecutionEnding\020\010\022\027\n\023StepValidateR" +
-      "equest\020\t\022\030\n\024StepValidateResponse\020\n\022\033\n\027Ex" +
-      "ecutionStatusResponse\020\013\022\024\n\020StepNamesRequ" +
-      "est\020\014\022\025\n\021StepNamesResponse\020\r\022\026\n\022KillProc" +
-      "essRequest\020\016\022\030\n\024SuiteExecutionResult\020\017\022\031",
-      "\n\025ScenarioDataStoreInit\020\020\022\025\n\021SpecDataSto" +
-      "reInit\020\021\022\026\n\022SuiteDataStoreInit\020\022\022\023\n\017Step" +
-      "NameRequest\020\023\022\024\n\020StepNameResponse\020\024\022\023\n\017R" +
-      "efactorRequest\020\025\022\024\n\020RefactorResponse\020\026"
+      "\t\022\032\n\022numberOfParameters\030\002 \002(\005\"\260\001\n\024StepVa" +
+      "lidateResponse\022\017\n\007isValid\030\001 \002(\010\022\024\n\014error" +
+      "Message\030\002 \001(\t\022A\n\terrorType\030\003 \001(\0162..gauge",
+      ".messages.StepValidateResponse.ErrorType" +
+      "\".\n\tErrorType\022!\n\035STEP_IMPLEMENTATION_NOT" +
+      "_FOUND\020\000\"M\n\024SuiteExecutionResult\0225\n\013suit" +
+      "eResult\030\001 \002(\0132 .gauge.messages.ProtoSuit" +
+      "eResult\"\022\n\020StepNamesRequest\"\"\n\021StepNames" +
+      "Response\022\r\n\005steps\030\001 \003(\t\"\036\n\034ScenarioDataS" +
+      "toreInitRequest\"\032\n\030SpecDataStoreInitRequ" +
+      "est\"\033\n\031SuiteDataStoreInitRequest\"=\n\021Para" +
+      "meterPosition\022\023\n\013oldPosition\030\001 \002(\005\022\023\n\013ne" +
+      "wPosition\030\002 \002(\005\"\270\001\n\017RefactorRequest\0224\n\014o",
+      "ldStepValue\030\001 \002(\0132\036.gauge.messages.Proto" +
+      "StepValue\0224\n\014newStepValue\030\002 \002(\0132\036.gauge." +
+      "messages.ProtoStepValue\0229\n\016paramPosition" +
+      "s\030\003 \003(\0132!.gauge.messages.ParameterPositi" +
+      "on\"H\n\020RefactorResponse\022\017\n\007success\030\001 \002(\010\022" +
+      "\r\n\005error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003(\t\"$\n\017" +
+      "StepNameRequest\022\021\n\tstepValue\030\001 \002(\t\"M\n\020St" +
+      "epNameResponse\022\025\n\risStepPresent\030\001 \002(\010\022\020\n" +
+      "\010stepName\030\002 \003(\t\022\020\n\010hasAlias\030\003 \002(\010\"-\n\032Uns" +
+      "upportedMessageResponse\022\017\n\007message\030\001 \001(\t",
+      "\"\376\022\n\007Message\0228\n\013messageType\030\001 \002(\0162#.gaug" +
+      "e.messages.Message.MessageType\022\021\n\tmessag" +
+      "eId\030\002 \002(\003\022J\n\030executionStartingRequest\030\003 " +
+      "\001(\0132(.gauge.messages.ExecutionStartingRe" +
+      "quest\022R\n\034specExecutionStartingRequest\030\004 " +
+      "\001(\0132,.gauge.messages.SpecExecutionStarti" +
+      "ngRequest\022N\n\032specExecutionEndingRequest\030" +
+      "\005 \001(\0132*.gauge.messages.SpecExecutionEndi" +
+      "ngRequest\022Z\n scenarioExecutionStartingRe" +
+      "quest\030\006 \001(\01320.gauge.messages.ScenarioExe",
+      "cutionStartingRequest\022V\n\036scenarioExecuti" +
+      "onEndingRequest\030\007 \001(\0132..gauge.messages.S" +
+      "cenarioExecutionEndingRequest\022R\n\034stepExe" +
+      "cutionStartingRequest\030\010 \001(\0132,.gauge.mess" +
+      "ages.StepExecutionStartingRequest\022N\n\032ste" +
+      "pExecutionEndingRequest\030\t \001(\0132*.gauge.me" +
+      "ssages.StepExecutionEndingRequest\022>\n\022exe" +
+      "cuteStepRequest\030\n \001(\0132\".gauge.messages.E" +
+      "xecuteStepRequest\022F\n\026executionEndingRequ" +
+      "est\030\013 \001(\0132&.gauge.messages.ExecutionEndi",
+      "ngRequest\022@\n\023stepValidateRequest\030\014 \001(\0132#" +
+      ".gauge.messages.StepValidateRequest\022B\n\024s" +
+      "tepValidateResponse\030\r \001(\0132$.gauge.messag" +
+      "es.StepValidateResponse\022H\n\027executionStat" +
+      "usResponse\030\016 \001(\0132\'.gauge.messages.Execut" +
+      "ionStatusResponse\022:\n\020stepNamesRequest\030\017 " +
+      "\001(\0132 .gauge.messages.StepNamesRequest\022<\n" +
+      "\021stepNamesResponse\030\020 \001(\0132!.gauge.message" +
+      "s.StepNamesResponse\022B\n\024suiteExecutionRes" +
+      "ult\030\021 \001(\0132$.gauge.messages.SuiteExecutio",
+      "nResult\022>\n\022killProcessRequest\030\022 \001(\0132\".ga" +
+      "uge.messages.KillProcessRequest\022R\n\034scena" +
+      "rioDataStoreInitRequest\030\023 \001(\0132,.gauge.me" +
+      "ssages.ScenarioDataStoreInitRequest\022J\n\030s" +
+      "pecDataStoreInitRequest\030\024 \001(\0132(.gauge.me" +
+      "ssages.SpecDataStoreInitRequest\022L\n\031suite" +
+      "DataStoreInitRequest\030\025 \001(\0132).gauge.messa" +
+      "ges.SuiteDataStoreInitRequest\0228\n\017stepNam" +
+      "eRequest\030\026 \001(\0132\037.gauge.messages.StepName" +
+      "Request\022:\n\020stepNameResponse\030\027 \001(\0132 .gaug",
+      "e.messages.StepNameResponse\0228\n\017refactorR" +
+      "equest\030\030 \001(\0132\037.gauge.messages.RefactorRe" +
+      "quest\022:\n\020refactorResponse\030\031 \001(\0132 .gauge." +
+      "messages.RefactorResponse\022N\n\032unsupported" +
+      "MessageResponse\030\032 \001(\0132*.gauge.messages.U" +
+      "nsupportedMessageResponse\"\335\004\n\013MessageTyp" +
+      "e\022\025\n\021ExecutionStarting\020\000\022\031\n\025SpecExecutio" +
+      "nStarting\020\001\022\027\n\023SpecExecutionEnding\020\002\022\035\n\031" +
+      "ScenarioExecutionStarting\020\003\022\033\n\027ScenarioE" +
+      "xecutionEnding\020\004\022\031\n\025StepExecutionStartin",
+      "g\020\005\022\027\n\023StepExecutionEnding\020\006\022\017\n\013ExecuteS" +
+      "tep\020\007\022\023\n\017ExecutionEnding\020\010\022\027\n\023StepValida" +
+      "teRequest\020\t\022\030\n\024StepValidateResponse\020\n\022\033\n" +
+      "\027ExecutionStatusResponse\020\013\022\024\n\020StepNamesR" +
+      "equest\020\014\022\025\n\021StepNamesResponse\020\r\022\026\n\022KillP" +
+      "rocessRequest\020\016\022\030\n\024SuiteExecutionResult\020" +
+      "\017\022\031\n\025ScenarioDataStoreInit\020\020\022\025\n\021SpecData" +
+      "StoreInit\020\021\022\026\n\022SuiteDataStoreInit\020\022\022\023\n\017S" +
+      "tepNameRequest\020\023\022\024\n\020StepNameResponse\020\024\022\023" +
+      "\n\017RefactorRequest\020\025\022\024\n\020RefactorResponse\020",
+      "\026\022\036\n\032UnsupportedMessageResponse\020\027"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -25395,7 +26309,7 @@ public final class Messages {
     internal_static_gauge_messages_StepValidateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_StepValidateResponse_descriptor,
-        new java.lang.String[] { "IsValid", "ErrorMessage", });
+        new java.lang.String[] { "IsValid", "ErrorMessage", "ErrorType", });
     internal_static_gauge_messages_SuiteExecutionResult_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_gauge_messages_SuiteExecutionResult_fieldAccessorTable = new
@@ -25462,12 +26376,18 @@ public final class Messages {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_StepNameResponse_descriptor,
         new java.lang.String[] { "IsStepPresent", "StepName", "HasAlias", });
-    internal_static_gauge_messages_Message_descriptor =
+    internal_static_gauge_messages_UnsupportedMessageResponse_descriptor =
       getDescriptor().getMessageTypes().get(28);
+    internal_static_gauge_messages_UnsupportedMessageResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_gauge_messages_UnsupportedMessageResponse_descriptor,
+        new java.lang.String[] { "Message", });
+    internal_static_gauge_messages_Message_descriptor =
+      getDescriptor().getMessageTypes().get(29);
     internal_static_gauge_messages_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_Message_descriptor,
-        new java.lang.String[] { "MessageType", "MessageId", "ExecutionStartingRequest", "SpecExecutionStartingRequest", "SpecExecutionEndingRequest", "ScenarioExecutionStartingRequest", "ScenarioExecutionEndingRequest", "StepExecutionStartingRequest", "StepExecutionEndingRequest", "ExecuteStepRequest", "ExecutionEndingRequest", "StepValidateRequest", "StepValidateResponse", "ExecutionStatusResponse", "StepNamesRequest", "StepNamesResponse", "SuiteExecutionResult", "KillProcessRequest", "ScenarioDataStoreInitRequest", "SpecDataStoreInitRequest", "SuiteDataStoreInitRequest", "StepNameRequest", "StepNameResponse", "RefactorRequest", "RefactorResponse", });
+        new java.lang.String[] { "MessageType", "MessageId", "ExecutionStartingRequest", "SpecExecutionStartingRequest", "SpecExecutionEndingRequest", "ScenarioExecutionStartingRequest", "ScenarioExecutionEndingRequest", "StepExecutionStartingRequest", "StepExecutionEndingRequest", "ExecuteStepRequest", "ExecutionEndingRequest", "StepValidateRequest", "StepValidateResponse", "ExecutionStatusResponse", "StepNamesRequest", "StepNamesResponse", "SuiteExecutionResult", "KillProcessRequest", "ScenarioDataStoreInitRequest", "SpecDataStoreInitRequest", "SuiteDataStoreInitRequest", "StepNameRequest", "StepNameResponse", "RefactorRequest", "RefactorResponse", "UnsupportedMessageResponse", });
     gauge.messages.Spec.getDescriptor();
   }
 

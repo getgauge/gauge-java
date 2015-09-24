@@ -7830,7 +7830,7 @@ public final class Api {
      * <code>required string path = 1;</code>
      *
      * <pre>
-     *&#47; Absolute apth to the Lib directory of the language.
+     *&#47; Absolute path to the Lib directory of the language.
      * </pre>
      */
     boolean hasPath();
@@ -7838,7 +7838,7 @@ public final class Api {
      * <code>required string path = 1;</code>
      *
      * <pre>
-     *&#47; Absolute apth to the Lib directory of the language.
+     *&#47; Absolute path to the Lib directory of the language.
      * </pre>
      */
     java.lang.String getPath();
@@ -7846,7 +7846,7 @@ public final class Api {
      * <code>required string path = 1;</code>
      *
      * <pre>
-     *&#47; Absolute apth to the Lib directory of the language.
+     *&#47; Absolute path to the Lib directory of the language.
      * </pre>
      */
     com.google.protobuf.ByteString
@@ -7960,7 +7960,7 @@ public final class Api {
      * <code>required string path = 1;</code>
      *
      * <pre>
-     *&#47; Absolute apth to the Lib directory of the language.
+     *&#47; Absolute path to the Lib directory of the language.
      * </pre>
      */
     public boolean hasPath() {
@@ -7970,7 +7970,7 @@ public final class Api {
      * <code>required string path = 1;</code>
      *
      * <pre>
-     *&#47; Absolute apth to the Lib directory of the language.
+     *&#47; Absolute path to the Lib directory of the language.
      * </pre>
      */
     public java.lang.String getPath() {
@@ -7991,7 +7991,7 @@ public final class Api {
      * <code>required string path = 1;</code>
      *
      * <pre>
-     *&#47; Absolute apth to the Lib directory of the language.
+     *&#47; Absolute path to the Lib directory of the language.
      * </pre>
      */
     public com.google.protobuf.ByteString
@@ -8256,7 +8256,7 @@ public final class Api {
        * <code>required string path = 1;</code>
        *
        * <pre>
-       *&#47; Absolute apth to the Lib directory of the language.
+       *&#47; Absolute path to the Lib directory of the language.
        * </pre>
        */
       public boolean hasPath() {
@@ -8266,7 +8266,7 @@ public final class Api {
        * <code>required string path = 1;</code>
        *
        * <pre>
-       *&#47; Absolute apth to the Lib directory of the language.
+       *&#47; Absolute path to the Lib directory of the language.
        * </pre>
        */
       public java.lang.String getPath() {
@@ -8287,7 +8287,7 @@ public final class Api {
        * <code>required string path = 1;</code>
        *
        * <pre>
-       *&#47; Absolute apth to the Lib directory of the language.
+       *&#47; Absolute path to the Lib directory of the language.
        * </pre>
        */
       public com.google.protobuf.ByteString
@@ -8307,7 +8307,7 @@ public final class Api {
        * <code>required string path = 1;</code>
        *
        * <pre>
-       *&#47; Absolute apth to the Lib directory of the language.
+       *&#47; Absolute path to the Lib directory of the language.
        * </pre>
        */
       public Builder setPath(
@@ -8324,7 +8324,7 @@ public final class Api {
        * <code>required string path = 1;</code>
        *
        * <pre>
-       *&#47; Absolute apth to the Lib directory of the language.
+       *&#47; Absolute path to the Lib directory of the language.
        * </pre>
        */
       public Builder clearPath() {
@@ -8337,7 +8337,7 @@ public final class Api {
        * <code>required string path = 1;</code>
        *
        * <pre>
-       *&#47; Absolute apth to the Lib directory of the language.
+       *&#47; Absolute path to the Lib directory of the language.
        * </pre>
        */
       public Builder setPathBytes(
@@ -15391,6 +15391,1728 @@ public final class Api {
     // @@protoc_insertion_point(class_scope:gauge.messages.ExtractConceptResponse)
   }
 
+  public interface FormatSpecsRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.FormatSpecsRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string specs = 1;</code>
+     *
+     * <pre>
+     *&#47; Specs to be formatted
+     * </pre>
+     */
+    com.google.protobuf.ProtocolStringList
+        getSpecsList();
+    /**
+     * <code>repeated string specs = 1;</code>
+     *
+     * <pre>
+     *&#47; Specs to be formatted
+     * </pre>
+     */
+    int getSpecsCount();
+    /**
+     * <code>repeated string specs = 1;</code>
+     *
+     * <pre>
+     *&#47; Specs to be formatted
+     * </pre>
+     */
+    java.lang.String getSpecs(int index);
+    /**
+     * <code>repeated string specs = 1;</code>
+     *
+     * <pre>
+     *&#47; Specs to be formatted
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getSpecsBytes(int index);
+  }
+  /**
+   * Protobuf type {@code gauge.messages.FormatSpecsRequest}
+   *
+   * <pre>
+   *&#47; Request to format spec files
+   * </pre>
+   */
+  public static final class FormatSpecsRequest extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.FormatSpecsRequest)
+      FormatSpecsRequestOrBuilder {
+    // Use FormatSpecsRequest.newBuilder() to construct.
+    private FormatSpecsRequest(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private FormatSpecsRequest(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final FormatSpecsRequest defaultInstance;
+    public static FormatSpecsRequest getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public FormatSpecsRequest getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FormatSpecsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                specs_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              specs_.add(bs);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          specs_ = specs_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Api.FormatSpecsRequest.class, gauge.messages.Api.FormatSpecsRequest.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<FormatSpecsRequest> PARSER =
+        new com.google.protobuf.AbstractParser<FormatSpecsRequest>() {
+      public FormatSpecsRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FormatSpecsRequest(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FormatSpecsRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public static final int SPECS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList specs_;
+    /**
+     * <code>repeated string specs = 1;</code>
+     *
+     * <pre>
+     *&#47; Specs to be formatted
+     * </pre>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSpecsList() {
+      return specs_;
+    }
+    /**
+     * <code>repeated string specs = 1;</code>
+     *
+     * <pre>
+     *&#47; Specs to be formatted
+     * </pre>
+     */
+    public int getSpecsCount() {
+      return specs_.size();
+    }
+    /**
+     * <code>repeated string specs = 1;</code>
+     *
+     * <pre>
+     *&#47; Specs to be formatted
+     * </pre>
+     */
+    public java.lang.String getSpecs(int index) {
+      return specs_.get(index);
+    }
+    /**
+     * <code>repeated string specs = 1;</code>
+     *
+     * <pre>
+     *&#47; Specs to be formatted
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getSpecsBytes(int index) {
+      return specs_.getByteString(index);
+    }
+
+    private void initFields() {
+      specs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < specs_.size(); i++) {
+        output.writeBytes(1, specs_.getByteString(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < specs_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(specs_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getSpecsList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static gauge.messages.Api.FormatSpecsRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.FormatSpecsRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.FormatSpecsRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.FormatSpecsRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.FormatSpecsRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.FormatSpecsRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.FormatSpecsRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static gauge.messages.Api.FormatSpecsRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.FormatSpecsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.FormatSpecsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(gauge.messages.Api.FormatSpecsRequest prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gauge.messages.FormatSpecsRequest}
+     *
+     * <pre>
+     *&#47; Request to format spec files
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.FormatSpecsRequest)
+        gauge.messages.Api.FormatSpecsRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Api.FormatSpecsRequest.class, gauge.messages.Api.FormatSpecsRequest.Builder.class);
+      }
+
+      // Construct using gauge.messages.Api.FormatSpecsRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        specs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsRequest_descriptor;
+      }
+
+      public gauge.messages.Api.FormatSpecsRequest getDefaultInstanceForType() {
+        return gauge.messages.Api.FormatSpecsRequest.getDefaultInstance();
+      }
+
+      public gauge.messages.Api.FormatSpecsRequest build() {
+        gauge.messages.Api.FormatSpecsRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Api.FormatSpecsRequest buildPartial() {
+        gauge.messages.Api.FormatSpecsRequest result = new gauge.messages.Api.FormatSpecsRequest(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          specs_ = specs_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.specs_ = specs_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Api.FormatSpecsRequest) {
+          return mergeFrom((gauge.messages.Api.FormatSpecsRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Api.FormatSpecsRequest other) {
+        if (other == gauge.messages.Api.FormatSpecsRequest.getDefaultInstance()) return this;
+        if (!other.specs_.isEmpty()) {
+          if (specs_.isEmpty()) {
+            specs_ = other.specs_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureSpecsIsMutable();
+            specs_.addAll(other.specs_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Api.FormatSpecsRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Api.FormatSpecsRequest) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList specs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureSpecsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          specs_ = new com.google.protobuf.LazyStringArrayList(specs_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string specs = 1;</code>
+       *
+       * <pre>
+       *&#47; Specs to be formatted
+       * </pre>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getSpecsList() {
+        return specs_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string specs = 1;</code>
+       *
+       * <pre>
+       *&#47; Specs to be formatted
+       * </pre>
+       */
+      public int getSpecsCount() {
+        return specs_.size();
+      }
+      /**
+       * <code>repeated string specs = 1;</code>
+       *
+       * <pre>
+       *&#47; Specs to be formatted
+       * </pre>
+       */
+      public java.lang.String getSpecs(int index) {
+        return specs_.get(index);
+      }
+      /**
+       * <code>repeated string specs = 1;</code>
+       *
+       * <pre>
+       *&#47; Specs to be formatted
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getSpecsBytes(int index) {
+        return specs_.getByteString(index);
+      }
+      /**
+       * <code>repeated string specs = 1;</code>
+       *
+       * <pre>
+       *&#47; Specs to be formatted
+       * </pre>
+       */
+      public Builder setSpecs(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureSpecsIsMutable();
+        specs_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specs = 1;</code>
+       *
+       * <pre>
+       *&#47; Specs to be formatted
+       * </pre>
+       */
+      public Builder addSpecs(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureSpecsIsMutable();
+        specs_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specs = 1;</code>
+       *
+       * <pre>
+       *&#47; Specs to be formatted
+       * </pre>
+       */
+      public Builder addAllSpecs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureSpecsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, specs_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specs = 1;</code>
+       *
+       * <pre>
+       *&#47; Specs to be formatted
+       * </pre>
+       */
+      public Builder clearSpecs() {
+        specs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string specs = 1;</code>
+       *
+       * <pre>
+       *&#47; Specs to be formatted
+       * </pre>
+       */
+      public Builder addSpecsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureSpecsIsMutable();
+        specs_.add(value);
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.FormatSpecsRequest)
+    }
+
+    static {
+      defaultInstance = new FormatSpecsRequest(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.FormatSpecsRequest)
+  }
+
+  public interface FormatSpecsResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.FormatSpecsResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string errors = 1;</code>
+     *
+     * <pre>
+     *&#47; Errors occurred on formatting
+     * </pre>
+     */
+    com.google.protobuf.ProtocolStringList
+        getErrorsList();
+    /**
+     * <code>repeated string errors = 1;</code>
+     *
+     * <pre>
+     *&#47; Errors occurred on formatting
+     * </pre>
+     */
+    int getErrorsCount();
+    /**
+     * <code>repeated string errors = 1;</code>
+     *
+     * <pre>
+     *&#47; Errors occurred on formatting
+     * </pre>
+     */
+    java.lang.String getErrors(int index);
+    /**
+     * <code>repeated string errors = 1;</code>
+     *
+     * <pre>
+     *&#47; Errors occurred on formatting
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getErrorsBytes(int index);
+
+    /**
+     * <code>repeated string warnings = 2;</code>
+     *
+     * <pre>
+     *&#47; Warnings occurred on formatting
+     * </pre>
+     */
+    com.google.protobuf.ProtocolStringList
+        getWarningsList();
+    /**
+     * <code>repeated string warnings = 2;</code>
+     *
+     * <pre>
+     *&#47; Warnings occurred on formatting
+     * </pre>
+     */
+    int getWarningsCount();
+    /**
+     * <code>repeated string warnings = 2;</code>
+     *
+     * <pre>
+     *&#47; Warnings occurred on formatting
+     * </pre>
+     */
+    java.lang.String getWarnings(int index);
+    /**
+     * <code>repeated string warnings = 2;</code>
+     *
+     * <pre>
+     *&#47; Warnings occurred on formatting
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getWarningsBytes(int index);
+  }
+  /**
+   * Protobuf type {@code gauge.messages.FormatSpecsResponse}
+   *
+   * <pre>
+   *&#47; Response on formatting spec files
+   * </pre>
+   */
+  public static final class FormatSpecsResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.FormatSpecsResponse)
+      FormatSpecsResponseOrBuilder {
+    // Use FormatSpecsResponse.newBuilder() to construct.
+    private FormatSpecsResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private FormatSpecsResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final FormatSpecsResponse defaultInstance;
+    public static FormatSpecsResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public FormatSpecsResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private FormatSpecsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                errors_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              errors_.add(bs);
+              break;
+            }
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                warnings_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              warnings_.add(bs);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          errors_ = errors_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          warnings_ = warnings_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Api.FormatSpecsResponse.class, gauge.messages.Api.FormatSpecsResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<FormatSpecsResponse> PARSER =
+        new com.google.protobuf.AbstractParser<FormatSpecsResponse>() {
+      public FormatSpecsResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new FormatSpecsResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FormatSpecsResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public static final int ERRORS_FIELD_NUMBER = 1;
+    private com.google.protobuf.LazyStringList errors_;
+    /**
+     * <code>repeated string errors = 1;</code>
+     *
+     * <pre>
+     *&#47; Errors occurred on formatting
+     * </pre>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getErrorsList() {
+      return errors_;
+    }
+    /**
+     * <code>repeated string errors = 1;</code>
+     *
+     * <pre>
+     *&#47; Errors occurred on formatting
+     * </pre>
+     */
+    public int getErrorsCount() {
+      return errors_.size();
+    }
+    /**
+     * <code>repeated string errors = 1;</code>
+     *
+     * <pre>
+     *&#47; Errors occurred on formatting
+     * </pre>
+     */
+    public java.lang.String getErrors(int index) {
+      return errors_.get(index);
+    }
+    /**
+     * <code>repeated string errors = 1;</code>
+     *
+     * <pre>
+     *&#47; Errors occurred on formatting
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getErrorsBytes(int index) {
+      return errors_.getByteString(index);
+    }
+
+    public static final int WARNINGS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList warnings_;
+    /**
+     * <code>repeated string warnings = 2;</code>
+     *
+     * <pre>
+     *&#47; Warnings occurred on formatting
+     * </pre>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getWarningsList() {
+      return warnings_;
+    }
+    /**
+     * <code>repeated string warnings = 2;</code>
+     *
+     * <pre>
+     *&#47; Warnings occurred on formatting
+     * </pre>
+     */
+    public int getWarningsCount() {
+      return warnings_.size();
+    }
+    /**
+     * <code>repeated string warnings = 2;</code>
+     *
+     * <pre>
+     *&#47; Warnings occurred on formatting
+     * </pre>
+     */
+    public java.lang.String getWarnings(int index) {
+      return warnings_.get(index);
+    }
+    /**
+     * <code>repeated string warnings = 2;</code>
+     *
+     * <pre>
+     *&#47; Warnings occurred on formatting
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getWarningsBytes(int index) {
+      return warnings_.getByteString(index);
+    }
+
+    private void initFields() {
+      errors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      warnings_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      for (int i = 0; i < errors_.size(); i++) {
+        output.writeBytes(1, errors_.getByteString(i));
+      }
+      for (int i = 0; i < warnings_.size(); i++) {
+        output.writeBytes(2, warnings_.getByteString(i));
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < errors_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(errors_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getErrorsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < warnings_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(warnings_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getWarningsList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static gauge.messages.Api.FormatSpecsResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.FormatSpecsResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.FormatSpecsResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.FormatSpecsResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.FormatSpecsResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.FormatSpecsResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.FormatSpecsResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static gauge.messages.Api.FormatSpecsResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.FormatSpecsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.FormatSpecsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(gauge.messages.Api.FormatSpecsResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gauge.messages.FormatSpecsResponse}
+     *
+     * <pre>
+     *&#47; Response on formatting spec files
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.FormatSpecsResponse)
+        gauge.messages.Api.FormatSpecsResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Api.FormatSpecsResponse.class, gauge.messages.Api.FormatSpecsResponse.Builder.class);
+      }
+
+      // Construct using gauge.messages.Api.FormatSpecsResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        errors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        warnings_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsResponse_descriptor;
+      }
+
+      public gauge.messages.Api.FormatSpecsResponse getDefaultInstanceForType() {
+        return gauge.messages.Api.FormatSpecsResponse.getDefaultInstance();
+      }
+
+      public gauge.messages.Api.FormatSpecsResponse build() {
+        gauge.messages.Api.FormatSpecsResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Api.FormatSpecsResponse buildPartial() {
+        gauge.messages.Api.FormatSpecsResponse result = new gauge.messages.Api.FormatSpecsResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          errors_ = errors_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.errors_ = errors_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          warnings_ = warnings_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.warnings_ = warnings_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Api.FormatSpecsResponse) {
+          return mergeFrom((gauge.messages.Api.FormatSpecsResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Api.FormatSpecsResponse other) {
+        if (other == gauge.messages.Api.FormatSpecsResponse.getDefaultInstance()) return this;
+        if (!other.errors_.isEmpty()) {
+          if (errors_.isEmpty()) {
+            errors_ = other.errors_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureErrorsIsMutable();
+            errors_.addAll(other.errors_);
+          }
+          onChanged();
+        }
+        if (!other.warnings_.isEmpty()) {
+          if (warnings_.isEmpty()) {
+            warnings_ = other.warnings_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureWarningsIsMutable();
+            warnings_.addAll(other.warnings_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Api.FormatSpecsResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Api.FormatSpecsResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList errors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureErrorsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          errors_ = new com.google.protobuf.LazyStringArrayList(errors_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string errors = 1;</code>
+       *
+       * <pre>
+       *&#47; Errors occurred on formatting
+       * </pre>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getErrorsList() {
+        return errors_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string errors = 1;</code>
+       *
+       * <pre>
+       *&#47; Errors occurred on formatting
+       * </pre>
+       */
+      public int getErrorsCount() {
+        return errors_.size();
+      }
+      /**
+       * <code>repeated string errors = 1;</code>
+       *
+       * <pre>
+       *&#47; Errors occurred on formatting
+       * </pre>
+       */
+      public java.lang.String getErrors(int index) {
+        return errors_.get(index);
+      }
+      /**
+       * <code>repeated string errors = 1;</code>
+       *
+       * <pre>
+       *&#47; Errors occurred on formatting
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getErrorsBytes(int index) {
+        return errors_.getByteString(index);
+      }
+      /**
+       * <code>repeated string errors = 1;</code>
+       *
+       * <pre>
+       *&#47; Errors occurred on formatting
+       * </pre>
+       */
+      public Builder setErrors(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureErrorsIsMutable();
+        errors_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string errors = 1;</code>
+       *
+       * <pre>
+       *&#47; Errors occurred on formatting
+       * </pre>
+       */
+      public Builder addErrors(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureErrorsIsMutable();
+        errors_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string errors = 1;</code>
+       *
+       * <pre>
+       *&#47; Errors occurred on formatting
+       * </pre>
+       */
+      public Builder addAllErrors(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureErrorsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, errors_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string errors = 1;</code>
+       *
+       * <pre>
+       *&#47; Errors occurred on formatting
+       * </pre>
+       */
+      public Builder clearErrors() {
+        errors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string errors = 1;</code>
+       *
+       * <pre>
+       *&#47; Errors occurred on formatting
+       * </pre>
+       */
+      public Builder addErrorsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureErrorsIsMutable();
+        errors_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList warnings_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureWarningsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          warnings_ = new com.google.protobuf.LazyStringArrayList(warnings_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string warnings = 2;</code>
+       *
+       * <pre>
+       *&#47; Warnings occurred on formatting
+       * </pre>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getWarningsList() {
+        return warnings_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string warnings = 2;</code>
+       *
+       * <pre>
+       *&#47; Warnings occurred on formatting
+       * </pre>
+       */
+      public int getWarningsCount() {
+        return warnings_.size();
+      }
+      /**
+       * <code>repeated string warnings = 2;</code>
+       *
+       * <pre>
+       *&#47; Warnings occurred on formatting
+       * </pre>
+       */
+      public java.lang.String getWarnings(int index) {
+        return warnings_.get(index);
+      }
+      /**
+       * <code>repeated string warnings = 2;</code>
+       *
+       * <pre>
+       *&#47; Warnings occurred on formatting
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getWarningsBytes(int index) {
+        return warnings_.getByteString(index);
+      }
+      /**
+       * <code>repeated string warnings = 2;</code>
+       *
+       * <pre>
+       *&#47; Warnings occurred on formatting
+       * </pre>
+       */
+      public Builder setWarnings(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureWarningsIsMutable();
+        warnings_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string warnings = 2;</code>
+       *
+       * <pre>
+       *&#47; Warnings occurred on formatting
+       * </pre>
+       */
+      public Builder addWarnings(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureWarningsIsMutable();
+        warnings_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string warnings = 2;</code>
+       *
+       * <pre>
+       *&#47; Warnings occurred on formatting
+       * </pre>
+       */
+      public Builder addAllWarnings(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureWarningsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, warnings_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string warnings = 2;</code>
+       *
+       * <pre>
+       *&#47; Warnings occurred on formatting
+       * </pre>
+       */
+      public Builder clearWarnings() {
+        warnings_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string warnings = 2;</code>
+       *
+       * <pre>
+       *&#47; Warnings occurred on formatting
+       * </pre>
+       */
+      public Builder addWarningsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureWarningsIsMutable();
+        warnings_.add(value);
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.FormatSpecsResponse)
+    }
+
+    static {
+      defaultInstance = new FormatSpecsResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.FormatSpecsResponse)
+  }
+
+  public interface UnsupportedApiMessageResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.UnsupportedApiMessageResponse)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code gauge.messages.UnsupportedApiMessageResponse}
+   *
+   * <pre>
+   *&#47; Response when a API message request is not supported.
+   * </pre>
+   */
+  public static final class UnsupportedApiMessageResponse extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.UnsupportedApiMessageResponse)
+      UnsupportedApiMessageResponseOrBuilder {
+    // Use UnsupportedApiMessageResponse.newBuilder() to construct.
+    private UnsupportedApiMessageResponse(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private UnsupportedApiMessageResponse(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final UnsupportedApiMessageResponse defaultInstance;
+    public static UnsupportedApiMessageResponse getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public UnsupportedApiMessageResponse getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private UnsupportedApiMessageResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Api.internal_static_gauge_messages_UnsupportedApiMessageResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Api.internal_static_gauge_messages_UnsupportedApiMessageResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Api.UnsupportedApiMessageResponse.class, gauge.messages.Api.UnsupportedApiMessageResponse.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<UnsupportedApiMessageResponse> PARSER =
+        new com.google.protobuf.AbstractParser<UnsupportedApiMessageResponse>() {
+      public UnsupportedApiMessageResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new UnsupportedApiMessageResponse(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<UnsupportedApiMessageResponse> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static gauge.messages.Api.UnsupportedApiMessageResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.UnsupportedApiMessageResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.UnsupportedApiMessageResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Api.UnsupportedApiMessageResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Api.UnsupportedApiMessageResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.UnsupportedApiMessageResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.UnsupportedApiMessageResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static gauge.messages.Api.UnsupportedApiMessageResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Api.UnsupportedApiMessageResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Api.UnsupportedApiMessageResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(gauge.messages.Api.UnsupportedApiMessageResponse prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gauge.messages.UnsupportedApiMessageResponse}
+     *
+     * <pre>
+     *&#47; Response when a API message request is not supported.
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.UnsupportedApiMessageResponse)
+        gauge.messages.Api.UnsupportedApiMessageResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Api.internal_static_gauge_messages_UnsupportedApiMessageResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Api.internal_static_gauge_messages_UnsupportedApiMessageResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Api.UnsupportedApiMessageResponse.class, gauge.messages.Api.UnsupportedApiMessageResponse.Builder.class);
+      }
+
+      // Construct using gauge.messages.Api.UnsupportedApiMessageResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Api.internal_static_gauge_messages_UnsupportedApiMessageResponse_descriptor;
+      }
+
+      public gauge.messages.Api.UnsupportedApiMessageResponse getDefaultInstanceForType() {
+        return gauge.messages.Api.UnsupportedApiMessageResponse.getDefaultInstance();
+      }
+
+      public gauge.messages.Api.UnsupportedApiMessageResponse build() {
+        gauge.messages.Api.UnsupportedApiMessageResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Api.UnsupportedApiMessageResponse buildPartial() {
+        gauge.messages.Api.UnsupportedApiMessageResponse result = new gauge.messages.Api.UnsupportedApiMessageResponse(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Api.UnsupportedApiMessageResponse) {
+          return mergeFrom((gauge.messages.Api.UnsupportedApiMessageResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Api.UnsupportedApiMessageResponse other) {
+        if (other == gauge.messages.Api.UnsupportedApiMessageResponse.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Api.UnsupportedApiMessageResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Api.UnsupportedApiMessageResponse) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.UnsupportedApiMessageResponse)
+    }
+
+    static {
+      defaultInstance = new UnsupportedApiMessageResponse(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.UnsupportedApiMessageResponse)
+  }
+
   public interface APIMessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:gauge.messages.APIMessage)
       com.google.protobuf.MessageOrBuilder {
@@ -15905,6 +17627,81 @@ public final class Api {
      * </pre>
      */
     gauge.messages.Api.ExtractConceptResponseOrBuilder getExtractConceptResponseOrBuilder();
+
+    /**
+     * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+     * </pre>
+     */
+    boolean hasFormatSpecsRequest();
+    /**
+     * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+     * </pre>
+     */
+    gauge.messages.Api.FormatSpecsRequest getFormatSpecsRequest();
+    /**
+     * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+     * </pre>
+     */
+    gauge.messages.Api.FormatSpecsRequestOrBuilder getFormatSpecsRequestOrBuilder();
+
+    /**
+     * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+     * </pre>
+     */
+    boolean hasFormatSpecsResponse();
+    /**
+     * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+     * </pre>
+     */
+    gauge.messages.Api.FormatSpecsResponse getFormatSpecsResponse();
+    /**
+     * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+     * </pre>
+     */
+    gauge.messages.Api.FormatSpecsResponseOrBuilder getFormatSpecsResponseOrBuilder();
+
+    /**
+     * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+     * </pre>
+     */
+    boolean hasUnsupportedApiMessageResponse();
+    /**
+     * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+     * </pre>
+     */
+    gauge.messages.Api.UnsupportedApiMessageResponse getUnsupportedApiMessageResponse();
+    /**
+     * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+     * </pre>
+     */
+    gauge.messages.Api.UnsupportedApiMessageResponseOrBuilder getUnsupportedApiMessageResponseOrBuilder();
   }
   /**
    * Protobuf type {@code gauge.messages.APIMessage}
@@ -16226,6 +18023,45 @@ public final class Api {
               bitField0_ |= 0x00100000;
               break;
             }
+            case 178: {
+              gauge.messages.Api.FormatSpecsRequest.Builder subBuilder = null;
+              if (((bitField0_ & 0x00200000) == 0x00200000)) {
+                subBuilder = formatSpecsRequest_.toBuilder();
+              }
+              formatSpecsRequest_ = input.readMessage(gauge.messages.Api.FormatSpecsRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(formatSpecsRequest_);
+                formatSpecsRequest_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00200000;
+              break;
+            }
+            case 186: {
+              gauge.messages.Api.FormatSpecsResponse.Builder subBuilder = null;
+              if (((bitField0_ & 0x00400000) == 0x00400000)) {
+                subBuilder = formatSpecsResponse_.toBuilder();
+              }
+              formatSpecsResponse_ = input.readMessage(gauge.messages.Api.FormatSpecsResponse.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(formatSpecsResponse_);
+                formatSpecsResponse_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00400000;
+              break;
+            }
+            case 194: {
+              gauge.messages.Api.UnsupportedApiMessageResponse.Builder subBuilder = null;
+              if (((bitField0_ & 0x00800000) == 0x00800000)) {
+                subBuilder = unsupportedApiMessageResponse_.toBuilder();
+              }
+              unsupportedApiMessageResponse_ = input.readMessage(gauge.messages.Api.UnsupportedApiMessageResponse.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(unsupportedApiMessageResponse_);
+                unsupportedApiMessageResponse_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00800000;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -16346,6 +18182,18 @@ public final class Api {
        * <code>ExtractConceptResponse = 19;</code>
        */
       ExtractConceptResponse(18, 19),
+      /**
+       * <code>FormatSpecsRequest = 20;</code>
+       */
+      FormatSpecsRequest(19, 20),
+      /**
+       * <code>FormatSpecsResponse = 21;</code>
+       */
+      FormatSpecsResponse(20, 21),
+      /**
+       * <code>UnsupportedApiMessageResponse = 22;</code>
+       */
+      UnsupportedApiMessageResponse(21, 22),
       ;
 
       /**
@@ -16424,6 +18272,18 @@ public final class Api {
        * <code>ExtractConceptResponse = 19;</code>
        */
       public static final int ExtractConceptResponse_VALUE = 19;
+      /**
+       * <code>FormatSpecsRequest = 20;</code>
+       */
+      public static final int FormatSpecsRequest_VALUE = 20;
+      /**
+       * <code>FormatSpecsResponse = 21;</code>
+       */
+      public static final int FormatSpecsResponse_VALUE = 21;
+      /**
+       * <code>UnsupportedApiMessageResponse = 22;</code>
+       */
+      public static final int UnsupportedApiMessageResponse_VALUE = 22;
 
 
       public final int getNumber() { return value; }
@@ -16449,6 +18309,9 @@ public final class Api {
           case 17: return PerformRefactoringResponse;
           case 18: return ExtractConceptRequest;
           case 19: return ExtractConceptResponse;
+          case 20: return FormatSpecsRequest;
+          case 21: return FormatSpecsResponse;
+          case 22: return UnsupportedApiMessageResponse;
           default: return null;
         }
       }
@@ -17176,6 +19039,105 @@ public final class Api {
       return extractConceptResponse_;
     }
 
+    public static final int FORMATSPECSREQUEST_FIELD_NUMBER = 22;
+    private gauge.messages.Api.FormatSpecsRequest formatSpecsRequest_;
+    /**
+     * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+     * </pre>
+     */
+    public boolean hasFormatSpecsRequest() {
+      return ((bitField0_ & 0x00200000) == 0x00200000);
+    }
+    /**
+     * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+     * </pre>
+     */
+    public gauge.messages.Api.FormatSpecsRequest getFormatSpecsRequest() {
+      return formatSpecsRequest_;
+    }
+    /**
+     * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+     * </pre>
+     */
+    public gauge.messages.Api.FormatSpecsRequestOrBuilder getFormatSpecsRequestOrBuilder() {
+      return formatSpecsRequest_;
+    }
+
+    public static final int FORMATSPECSRESPONSE_FIELD_NUMBER = 23;
+    private gauge.messages.Api.FormatSpecsResponse formatSpecsResponse_;
+    /**
+     * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+     * </pre>
+     */
+    public boolean hasFormatSpecsResponse() {
+      return ((bitField0_ & 0x00400000) == 0x00400000);
+    }
+    /**
+     * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+     * </pre>
+     */
+    public gauge.messages.Api.FormatSpecsResponse getFormatSpecsResponse() {
+      return formatSpecsResponse_;
+    }
+    /**
+     * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+     *
+     * <pre>
+     *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+     * </pre>
+     */
+    public gauge.messages.Api.FormatSpecsResponseOrBuilder getFormatSpecsResponseOrBuilder() {
+      return formatSpecsResponse_;
+    }
+
+    public static final int UNSUPPORTEDAPIMESSAGERESPONSE_FIELD_NUMBER = 24;
+    private gauge.messages.Api.UnsupportedApiMessageResponse unsupportedApiMessageResponse_;
+    /**
+     * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+     * </pre>
+     */
+    public boolean hasUnsupportedApiMessageResponse() {
+      return ((bitField0_ & 0x00800000) == 0x00800000);
+    }
+    /**
+     * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+     * </pre>
+     */
+    public gauge.messages.Api.UnsupportedApiMessageResponse getUnsupportedApiMessageResponse() {
+      return unsupportedApiMessageResponse_;
+    }
+    /**
+     * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+     *
+     * <pre>
+     *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+     * </pre>
+     */
+    public gauge.messages.Api.UnsupportedApiMessageResponseOrBuilder getUnsupportedApiMessageResponseOrBuilder() {
+      return unsupportedApiMessageResponse_;
+    }
+
     private void initFields() {
       messageType_ = gauge.messages.Api.APIMessage.APIMessageType.GetProjectRootRequest;
       messageId_ = 0L;
@@ -17198,6 +19160,9 @@ public final class Api {
       performRefactoringResponse_ = gauge.messages.Api.PerformRefactoringResponse.getDefaultInstance();
       extractConceptRequest_ = gauge.messages.Api.ExtractConceptRequest.getDefaultInstance();
       extractConceptResponse_ = gauge.messages.Api.ExtractConceptResponse.getDefaultInstance();
+      formatSpecsRequest_ = gauge.messages.Api.FormatSpecsRequest.getDefaultInstance();
+      formatSpecsResponse_ = gauge.messages.Api.FormatSpecsResponse.getDefaultInstance();
+      unsupportedApiMessageResponse_ = gauge.messages.Api.UnsupportedApiMessageResponse.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -17367,6 +19332,15 @@ public final class Api {
       if (((bitField0_ & 0x00100000) == 0x00100000)) {
         output.writeMessage(21, extractConceptResponse_);
       }
+      if (((bitField0_ & 0x00200000) == 0x00200000)) {
+        output.writeMessage(22, formatSpecsRequest_);
+      }
+      if (((bitField0_ & 0x00400000) == 0x00400000)) {
+        output.writeMessage(23, formatSpecsResponse_);
+      }
+      if (((bitField0_ & 0x00800000) == 0x00800000)) {
+        output.writeMessage(24, unsupportedApiMessageResponse_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -17459,6 +19433,18 @@ public final class Api {
       if (((bitField0_ & 0x00100000) == 0x00100000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(21, extractConceptResponse_);
+      }
+      if (((bitField0_ & 0x00200000) == 0x00200000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(22, formatSpecsRequest_);
+      }
+      if (((bitField0_ & 0x00400000) == 0x00400000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(23, formatSpecsResponse_);
+      }
+      if (((bitField0_ & 0x00800000) == 0x00800000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(24, unsupportedApiMessageResponse_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -17593,6 +19579,9 @@ public final class Api {
           getPerformRefactoringResponseFieldBuilder();
           getExtractConceptRequestFieldBuilder();
           getExtractConceptResponseFieldBuilder();
+          getFormatSpecsRequestFieldBuilder();
+          getFormatSpecsResponseFieldBuilder();
+          getUnsupportedApiMessageResponseFieldBuilder();
         }
       }
       private static Builder create() {
@@ -17719,6 +19708,24 @@ public final class Api {
           extractConceptResponseBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00100000);
+        if (formatSpecsRequestBuilder_ == null) {
+          formatSpecsRequest_ = gauge.messages.Api.FormatSpecsRequest.getDefaultInstance();
+        } else {
+          formatSpecsRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00200000);
+        if (formatSpecsResponseBuilder_ == null) {
+          formatSpecsResponse_ = gauge.messages.Api.FormatSpecsResponse.getDefaultInstance();
+        } else {
+          formatSpecsResponseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00400000);
+        if (unsupportedApiMessageResponseBuilder_ == null) {
+          unsupportedApiMessageResponse_ = gauge.messages.Api.UnsupportedApiMessageResponse.getDefaultInstance();
+        } else {
+          unsupportedApiMessageResponseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00800000);
         return this;
       }
 
@@ -17907,6 +19914,30 @@ public final class Api {
         } else {
           result.extractConceptResponse_ = extractConceptResponseBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00200000) == 0x00200000)) {
+          to_bitField0_ |= 0x00200000;
+        }
+        if (formatSpecsRequestBuilder_ == null) {
+          result.formatSpecsRequest_ = formatSpecsRequest_;
+        } else {
+          result.formatSpecsRequest_ = formatSpecsRequestBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00400000) == 0x00400000)) {
+          to_bitField0_ |= 0x00400000;
+        }
+        if (formatSpecsResponseBuilder_ == null) {
+          result.formatSpecsResponse_ = formatSpecsResponse_;
+        } else {
+          result.formatSpecsResponse_ = formatSpecsResponseBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00800000) == 0x00800000)) {
+          to_bitField0_ |= 0x00800000;
+        }
+        if (unsupportedApiMessageResponseBuilder_ == null) {
+          result.unsupportedApiMessageResponse_ = unsupportedApiMessageResponse_;
+        } else {
+          result.unsupportedApiMessageResponse_ = unsupportedApiMessageResponseBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -17985,6 +20016,15 @@ public final class Api {
         }
         if (other.hasExtractConceptResponse()) {
           mergeExtractConceptResponse(other.getExtractConceptResponse());
+        }
+        if (other.hasFormatSpecsRequest()) {
+          mergeFormatSpecsRequest(other.getFormatSpecsRequest());
+        }
+        if (other.hasFormatSpecsResponse()) {
+          mergeFormatSpecsResponse(other.getFormatSpecsResponse());
+        }
+        if (other.hasUnsupportedApiMessageResponse()) {
+          mergeUnsupportedApiMessageResponse(other.getUnsupportedApiMessageResponse());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -21096,6 +23136,462 @@ public final class Api {
         return extractConceptResponseBuilder_;
       }
 
+      private gauge.messages.Api.FormatSpecsRequest formatSpecsRequest_ = gauge.messages.Api.FormatSpecsRequest.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Api.FormatSpecsRequest, gauge.messages.Api.FormatSpecsRequest.Builder, gauge.messages.Api.FormatSpecsRequestOrBuilder> formatSpecsRequestBuilder_;
+      /**
+       * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+       * </pre>
+       */
+      public boolean hasFormatSpecsRequest() {
+        return ((bitField0_ & 0x00200000) == 0x00200000);
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+       * </pre>
+       */
+      public gauge.messages.Api.FormatSpecsRequest getFormatSpecsRequest() {
+        if (formatSpecsRequestBuilder_ == null) {
+          return formatSpecsRequest_;
+        } else {
+          return formatSpecsRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+       * </pre>
+       */
+      public Builder setFormatSpecsRequest(gauge.messages.Api.FormatSpecsRequest value) {
+        if (formatSpecsRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          formatSpecsRequest_ = value;
+          onChanged();
+        } else {
+          formatSpecsRequestBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00200000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+       * </pre>
+       */
+      public Builder setFormatSpecsRequest(
+          gauge.messages.Api.FormatSpecsRequest.Builder builderForValue) {
+        if (formatSpecsRequestBuilder_ == null) {
+          formatSpecsRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          formatSpecsRequestBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00200000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+       * </pre>
+       */
+      public Builder mergeFormatSpecsRequest(gauge.messages.Api.FormatSpecsRequest value) {
+        if (formatSpecsRequestBuilder_ == null) {
+          if (((bitField0_ & 0x00200000) == 0x00200000) &&
+              formatSpecsRequest_ != gauge.messages.Api.FormatSpecsRequest.getDefaultInstance()) {
+            formatSpecsRequest_ =
+              gauge.messages.Api.FormatSpecsRequest.newBuilder(formatSpecsRequest_).mergeFrom(value).buildPartial();
+          } else {
+            formatSpecsRequest_ = value;
+          }
+          onChanged();
+        } else {
+          formatSpecsRequestBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00200000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+       * </pre>
+       */
+      public Builder clearFormatSpecsRequest() {
+        if (formatSpecsRequestBuilder_ == null) {
+          formatSpecsRequest_ = gauge.messages.Api.FormatSpecsRequest.getDefaultInstance();
+          onChanged();
+        } else {
+          formatSpecsRequestBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00200000);
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+       * </pre>
+       */
+      public gauge.messages.Api.FormatSpecsRequest.Builder getFormatSpecsRequestBuilder() {
+        bitField0_ |= 0x00200000;
+        onChanged();
+        return getFormatSpecsRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+       * </pre>
+       */
+      public gauge.messages.Api.FormatSpecsRequestOrBuilder getFormatSpecsRequestOrBuilder() {
+        if (formatSpecsRequestBuilder_ != null) {
+          return formatSpecsRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return formatSpecsRequest_;
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsRequest formatSpecsRequest = 22;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsRequest] (#gauge.messages.FormatSpecsRequest)
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Api.FormatSpecsRequest, gauge.messages.Api.FormatSpecsRequest.Builder, gauge.messages.Api.FormatSpecsRequestOrBuilder> 
+          getFormatSpecsRequestFieldBuilder() {
+        if (formatSpecsRequestBuilder_ == null) {
+          formatSpecsRequestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              gauge.messages.Api.FormatSpecsRequest, gauge.messages.Api.FormatSpecsRequest.Builder, gauge.messages.Api.FormatSpecsRequestOrBuilder>(
+                  getFormatSpecsRequest(),
+                  getParentForChildren(),
+                  isClean());
+          formatSpecsRequest_ = null;
+        }
+        return formatSpecsRequestBuilder_;
+      }
+
+      private gauge.messages.Api.FormatSpecsResponse formatSpecsResponse_ = gauge.messages.Api.FormatSpecsResponse.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Api.FormatSpecsResponse, gauge.messages.Api.FormatSpecsResponse.Builder, gauge.messages.Api.FormatSpecsResponseOrBuilder> formatSpecsResponseBuilder_;
+      /**
+       * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+       * </pre>
+       */
+      public boolean hasFormatSpecsResponse() {
+        return ((bitField0_ & 0x00400000) == 0x00400000);
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+       * </pre>
+       */
+      public gauge.messages.Api.FormatSpecsResponse getFormatSpecsResponse() {
+        if (formatSpecsResponseBuilder_ == null) {
+          return formatSpecsResponse_;
+        } else {
+          return formatSpecsResponseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+       * </pre>
+       */
+      public Builder setFormatSpecsResponse(gauge.messages.Api.FormatSpecsResponse value) {
+        if (formatSpecsResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          formatSpecsResponse_ = value;
+          onChanged();
+        } else {
+          formatSpecsResponseBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00400000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+       * </pre>
+       */
+      public Builder setFormatSpecsResponse(
+          gauge.messages.Api.FormatSpecsResponse.Builder builderForValue) {
+        if (formatSpecsResponseBuilder_ == null) {
+          formatSpecsResponse_ = builderForValue.build();
+          onChanged();
+        } else {
+          formatSpecsResponseBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00400000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+       * </pre>
+       */
+      public Builder mergeFormatSpecsResponse(gauge.messages.Api.FormatSpecsResponse value) {
+        if (formatSpecsResponseBuilder_ == null) {
+          if (((bitField0_ & 0x00400000) == 0x00400000) &&
+              formatSpecsResponse_ != gauge.messages.Api.FormatSpecsResponse.getDefaultInstance()) {
+            formatSpecsResponse_ =
+              gauge.messages.Api.FormatSpecsResponse.newBuilder(formatSpecsResponse_).mergeFrom(value).buildPartial();
+          } else {
+            formatSpecsResponse_ = value;
+          }
+          onChanged();
+        } else {
+          formatSpecsResponseBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00400000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+       * </pre>
+       */
+      public Builder clearFormatSpecsResponse() {
+        if (formatSpecsResponseBuilder_ == null) {
+          formatSpecsResponse_ = gauge.messages.Api.FormatSpecsResponse.getDefaultInstance();
+          onChanged();
+        } else {
+          formatSpecsResponseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00400000);
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+       * </pre>
+       */
+      public gauge.messages.Api.FormatSpecsResponse.Builder getFormatSpecsResponseBuilder() {
+        bitField0_ |= 0x00400000;
+        onChanged();
+        return getFormatSpecsResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+       * </pre>
+       */
+      public gauge.messages.Api.FormatSpecsResponseOrBuilder getFormatSpecsResponseOrBuilder() {
+        if (formatSpecsResponseBuilder_ != null) {
+          return formatSpecsResponseBuilder_.getMessageOrBuilder();
+        } else {
+          return formatSpecsResponse_;
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.FormatSpecsResponse formatSpecsResponse = 23;</code>
+       *
+       * <pre>
+       *&#47; [FormatSpecsResponse] (#gauge.messages.FormatSpecsResponse)
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Api.FormatSpecsResponse, gauge.messages.Api.FormatSpecsResponse.Builder, gauge.messages.Api.FormatSpecsResponseOrBuilder> 
+          getFormatSpecsResponseFieldBuilder() {
+        if (formatSpecsResponseBuilder_ == null) {
+          formatSpecsResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              gauge.messages.Api.FormatSpecsResponse, gauge.messages.Api.FormatSpecsResponse.Builder, gauge.messages.Api.FormatSpecsResponseOrBuilder>(
+                  getFormatSpecsResponse(),
+                  getParentForChildren(),
+                  isClean());
+          formatSpecsResponse_ = null;
+        }
+        return formatSpecsResponseBuilder_;
+      }
+
+      private gauge.messages.Api.UnsupportedApiMessageResponse unsupportedApiMessageResponse_ = gauge.messages.Api.UnsupportedApiMessageResponse.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Api.UnsupportedApiMessageResponse, gauge.messages.Api.UnsupportedApiMessageResponse.Builder, gauge.messages.Api.UnsupportedApiMessageResponseOrBuilder> unsupportedApiMessageResponseBuilder_;
+      /**
+       * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+       * </pre>
+       */
+      public boolean hasUnsupportedApiMessageResponse() {
+        return ((bitField0_ & 0x00800000) == 0x00800000);
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+       * </pre>
+       */
+      public gauge.messages.Api.UnsupportedApiMessageResponse getUnsupportedApiMessageResponse() {
+        if (unsupportedApiMessageResponseBuilder_ == null) {
+          return unsupportedApiMessageResponse_;
+        } else {
+          return unsupportedApiMessageResponseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+       * </pre>
+       */
+      public Builder setUnsupportedApiMessageResponse(gauge.messages.Api.UnsupportedApiMessageResponse value) {
+        if (unsupportedApiMessageResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          unsupportedApiMessageResponse_ = value;
+          onChanged();
+        } else {
+          unsupportedApiMessageResponseBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00800000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+       * </pre>
+       */
+      public Builder setUnsupportedApiMessageResponse(
+          gauge.messages.Api.UnsupportedApiMessageResponse.Builder builderForValue) {
+        if (unsupportedApiMessageResponseBuilder_ == null) {
+          unsupportedApiMessageResponse_ = builderForValue.build();
+          onChanged();
+        } else {
+          unsupportedApiMessageResponseBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00800000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+       * </pre>
+       */
+      public Builder mergeUnsupportedApiMessageResponse(gauge.messages.Api.UnsupportedApiMessageResponse value) {
+        if (unsupportedApiMessageResponseBuilder_ == null) {
+          if (((bitField0_ & 0x00800000) == 0x00800000) &&
+              unsupportedApiMessageResponse_ != gauge.messages.Api.UnsupportedApiMessageResponse.getDefaultInstance()) {
+            unsupportedApiMessageResponse_ =
+              gauge.messages.Api.UnsupportedApiMessageResponse.newBuilder(unsupportedApiMessageResponse_).mergeFrom(value).buildPartial();
+          } else {
+            unsupportedApiMessageResponse_ = value;
+          }
+          onChanged();
+        } else {
+          unsupportedApiMessageResponseBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00800000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+       * </pre>
+       */
+      public Builder clearUnsupportedApiMessageResponse() {
+        if (unsupportedApiMessageResponseBuilder_ == null) {
+          unsupportedApiMessageResponse_ = gauge.messages.Api.UnsupportedApiMessageResponse.getDefaultInstance();
+          onChanged();
+        } else {
+          unsupportedApiMessageResponseBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00800000);
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+       * </pre>
+       */
+      public gauge.messages.Api.UnsupportedApiMessageResponse.Builder getUnsupportedApiMessageResponseBuilder() {
+        bitField0_ |= 0x00800000;
+        onChanged();
+        return getUnsupportedApiMessageResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+       * </pre>
+       */
+      public gauge.messages.Api.UnsupportedApiMessageResponseOrBuilder getUnsupportedApiMessageResponseOrBuilder() {
+        if (unsupportedApiMessageResponseBuilder_ != null) {
+          return unsupportedApiMessageResponseBuilder_.getMessageOrBuilder();
+        } else {
+          return unsupportedApiMessageResponse_;
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.UnsupportedApiMessageResponse unsupportedApiMessageResponse = 24;</code>
+       *
+       * <pre>
+       *&#47; [UnsupportedApiMessageResponse] (#gauge.messages.UnsupportedApiMessageResponse)
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Api.UnsupportedApiMessageResponse, gauge.messages.Api.UnsupportedApiMessageResponse.Builder, gauge.messages.Api.UnsupportedApiMessageResponseOrBuilder> 
+          getUnsupportedApiMessageResponseFieldBuilder() {
+        if (unsupportedApiMessageResponseBuilder_ == null) {
+          unsupportedApiMessageResponseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              gauge.messages.Api.UnsupportedApiMessageResponse, gauge.messages.Api.UnsupportedApiMessageResponse.Builder, gauge.messages.Api.UnsupportedApiMessageResponseOrBuilder>(
+                  getUnsupportedApiMessageResponse(),
+                  getParentForChildren(),
+                  isClean());
+          unsupportedApiMessageResponse_ = null;
+        }
+        return unsupportedApiMessageResponseBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:gauge.messages.APIMessage)
     }
 
@@ -21223,6 +23719,21 @@ public final class Api {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ExtractConceptResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_FormatSpecsRequest_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_gauge_messages_FormatSpecsRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_FormatSpecsResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_gauge_messages_FormatSpecsResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_UnsupportedApiMessageResponse_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_gauge_messages_UnsupportedApiMessageResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_APIMessage_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -21272,56 +23783,67 @@ public final class Api {
       "dLineNo\030\003 \002(\005\";\n\004step\022\014\n\004name\030\001 \002(\t\022\r\n\005t" +
       "able\030\002 \001(\t\022\026\n\016paramTableName\030\003 \001(\t\"P\n\026Ex" +
       "tractConceptResponse\022\021\n\tisSuccess\030\001 \002(\010\022" +
-      "\r\n\005error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003(\t\"\233\017\n" +
-      "\nAPIMessage\022>\n\013messageType\030\001 \002(\0162).gauge" +
-      ".messages.APIMessage.APIMessageType\022\021\n\tm" +
-      "essageId\030\002 \002(\003\022A\n\022projectRootRequest\030\003 \001",
-      "(\0132%.gauge.messages.GetProjectRootReques" +
-      "t\022C\n\023projectRootResponse\030\004 \001(\0132&.gauge.m" +
-      "essages.GetProjectRootResponse\022K\n\027instal" +
-      "lationRootRequest\030\005 \001(\0132*.gauge.messages" +
-      ".GetInstallationRootRequest\022M\n\030installat" +
-      "ionRootResponse\030\006 \001(\0132+.gauge.messages.G" +
-      "etInstallationRootResponse\022;\n\017allStepsRe" +
-      "quest\030\007 \001(\0132\".gauge.messages.GetAllSteps" +
-      "Request\022=\n\020allStepsResponse\030\010 \001(\0132#.gaug" +
-      "e.messages.GetAllStepsResponse\022;\n\017allSpe",
-      "csRequest\030\t \001(\0132\".gauge.messages.GetAllS" +
-      "pecsRequest\022=\n\020allSpecsResponse\030\n \001(\0132#." +
-      "gauge.messages.GetAllSpecsResponse\022=\n\020st" +
-      "epValueRequest\030\013 \001(\0132#.gauge.messages.Ge" +
-      "tStepValueRequest\022?\n\021stepValueResponse\030\014" +
-      " \001(\0132$.gauge.messages.GetStepValueRespon" +
-      "se\022G\n\016libPathRequest\030\r \001(\0132/.gauge.messa" +
-      "ges.GetLanguagePluginLibPathRequest\022I\n\017l" +
-      "ibPathResponse\030\016 \001(\01320.gauge.messages.Ge" +
-      "tLanguagePluginLibPathResponse\022,\n\005error\030",
-      "\017 \001(\0132\035.gauge.messages.ErrorResponse\022A\n\022" +
-      "allConceptsRequest\030\020 \001(\0132%.gauge.message" +
-      "s.GetAllConceptsRequest\022C\n\023allConceptsRe" +
-      "sponse\030\021 \001(\0132&.gauge.messages.GetAllConc" +
-      "eptsResponse\022L\n\031performRefactoringReques" +
-      "t\030\022 \001(\0132).gauge.messages.PerformRefactor" +
-      "ingRequest\022N\n\032performRefactoringResponse" +
-      "\030\023 \001(\0132*.gauge.messages.PerformRefactori" +
-      "ngResponse\022D\n\025extractConceptRequest\030\024 \001(" +
-      "\0132%.gauge.messages.ExtractConceptRequest",
-      "\022F\n\026extractConceptResponse\030\025 \001(\0132&.gauge" +
-      ".messages.ExtractConceptResponse\"\247\004\n\016API" +
-      "MessageType\022\031\n\025GetProjectRootRequest\020\001\022\032" +
-      "\n\026GetProjectRootResponse\020\002\022\036\n\032GetInstall" +
-      "ationRootRequest\020\003\022\037\n\033GetInstallationRoo" +
-      "tResponse\020\004\022\026\n\022GetAllStepsRequest\020\005\022\026\n\022G" +
-      "etAllStepResponse\020\006\022\026\n\022GetAllSpecsReques" +
-      "t\020\007\022\027\n\023GetAllSpecsResponse\020\010\022\027\n\023GetStepV" +
-      "alueRequest\020\t\022\030\n\024GetStepValueResponse\020\n\022" +
-      "#\n\037GetLanguagePluginLibPathRequest\020\013\022$\n ",
-      "GetLanguagePluginLibPathResponse\020\014\022\021\n\rEr" +
-      "rorResponse\020\r\022\031\n\025GetAllConceptsRequest\020\016" +
-      "\022\032\n\026GetAllConceptsResponse\020\017\022\035\n\031PerformR" +
-      "efactoringRequest\020\020\022\036\n\032PerformRefactorin" +
-      "gResponse\020\021\022\031\n\025ExtractConceptRequest\020\022\022\032" +
-      "\n\026ExtractConceptResponse\020\023"
+      "\r\n\005error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003(\t\"#\n\022" +
+      "FormatSpecsRequest\022\r\n\005specs\030\001 \003(\t\"7\n\023For" +
+      "matSpecsResponse\022\016\n\006errors\030\001 \003(\t\022\020\n\010warn" +
+      "ings\030\002 \003(\t\"\037\n\035UnsupportedApiMessageRespo",
+      "nse\"\307\021\n\nAPIMessage\022>\n\013messageType\030\001 \002(\0162" +
+      ").gauge.messages.APIMessage.APIMessageTy" +
+      "pe\022\021\n\tmessageId\030\002 \002(\003\022A\n\022projectRootRequ" +
+      "est\030\003 \001(\0132%.gauge.messages.GetProjectRoo" +
+      "tRequest\022C\n\023projectRootResponse\030\004 \001(\0132&." +
+      "gauge.messages.GetProjectRootResponse\022K\n" +
+      "\027installationRootRequest\030\005 \001(\0132*.gauge.m" +
+      "essages.GetInstallationRootRequest\022M\n\030in" +
+      "stallationRootResponse\030\006 \001(\0132+.gauge.mes" +
+      "sages.GetInstallationRootResponse\022;\n\017all",
+      "StepsRequest\030\007 \001(\0132\".gauge.messages.GetA" +
+      "llStepsRequest\022=\n\020allStepsResponse\030\010 \001(\013" +
+      "2#.gauge.messages.GetAllStepsResponse\022;\n" +
+      "\017allSpecsRequest\030\t \001(\0132\".gauge.messages." +
+      "GetAllSpecsRequest\022=\n\020allSpecsResponse\030\n" +
+      " \001(\0132#.gauge.messages.GetAllSpecsRespons" +
+      "e\022=\n\020stepValueRequest\030\013 \001(\0132#.gauge.mess" +
+      "ages.GetStepValueRequest\022?\n\021stepValueRes" +
+      "ponse\030\014 \001(\0132$.gauge.messages.GetStepValu" +
+      "eResponse\022G\n\016libPathRequest\030\r \001(\0132/.gaug",
+      "e.messages.GetLanguagePluginLibPathReque" +
+      "st\022I\n\017libPathResponse\030\016 \001(\01320.gauge.mess" +
+      "ages.GetLanguagePluginLibPathResponse\022,\n" +
+      "\005error\030\017 \001(\0132\035.gauge.messages.ErrorRespo" +
+      "nse\022A\n\022allConceptsRequest\030\020 \001(\0132%.gauge." +
+      "messages.GetAllConceptsRequest\022C\n\023allCon" +
+      "ceptsResponse\030\021 \001(\0132&.gauge.messages.Get" +
+      "AllConceptsResponse\022L\n\031performRefactorin" +
+      "gRequest\030\022 \001(\0132).gauge.messages.PerformR" +
+      "efactoringRequest\022N\n\032performRefactoringR",
+      "esponse\030\023 \001(\0132*.gauge.messages.PerformRe" +
+      "factoringResponse\022D\n\025extractConceptReque" +
+      "st\030\024 \001(\0132%.gauge.messages.ExtractConcept" +
+      "Request\022F\n\026extractConceptResponse\030\025 \001(\0132" +
+      "&.gauge.messages.ExtractConceptResponse\022" +
+      ">\n\022formatSpecsRequest\030\026 \001(\0132\".gauge.mess" +
+      "ages.FormatSpecsRequest\022@\n\023formatSpecsRe" +
+      "sponse\030\027 \001(\0132#.gauge.messages.FormatSpec" +
+      "sResponse\022T\n\035unsupportedApiMessageRespon" +
+      "se\030\030 \001(\0132-.gauge.messages.UnsupportedApi",
+      "MessageResponse\"\373\004\n\016APIMessageType\022\031\n\025Ge" +
+      "tProjectRootRequest\020\001\022\032\n\026GetProjectRootR" +
+      "esponse\020\002\022\036\n\032GetInstallationRootRequest\020" +
+      "\003\022\037\n\033GetInstallationRootResponse\020\004\022\026\n\022Ge" +
+      "tAllStepsRequest\020\005\022\026\n\022GetAllStepResponse" +
+      "\020\006\022\026\n\022GetAllSpecsRequest\020\007\022\027\n\023GetAllSpec" +
+      "sResponse\020\010\022\027\n\023GetStepValueRequest\020\t\022\030\n\024" +
+      "GetStepValueResponse\020\n\022#\n\037GetLanguagePlu" +
+      "ginLibPathRequest\020\013\022$\n GetLanguagePlugin" +
+      "LibPathResponse\020\014\022\021\n\rErrorResponse\020\r\022\031\n\025",
+      "GetAllConceptsRequest\020\016\022\032\n\026GetAllConcept" +
+      "sResponse\020\017\022\035\n\031PerformRefactoringRequest" +
+      "\020\020\022\036\n\032PerformRefactoringResponse\020\021\022\031\n\025Ex" +
+      "tractConceptRequest\020\022\022\032\n\026ExtractConceptR" +
+      "esponse\020\023\022\026\n\022FormatSpecsRequest\020\024\022\027\n\023For" +
+      "matSpecsResponse\020\025\022!\n\035UnsupportedApiMess" +
+      "ageResponse\020\026"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -21474,12 +23996,30 @@ public final class Api {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ExtractConceptResponse_descriptor,
         new java.lang.String[] { "IsSuccess", "Error", "FilesChanged", });
-    internal_static_gauge_messages_APIMessage_descriptor =
+    internal_static_gauge_messages_FormatSpecsRequest_descriptor =
       getDescriptor().getMessageTypes().get(23);
+    internal_static_gauge_messages_FormatSpecsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_gauge_messages_FormatSpecsRequest_descriptor,
+        new java.lang.String[] { "Specs", });
+    internal_static_gauge_messages_FormatSpecsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(24);
+    internal_static_gauge_messages_FormatSpecsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_gauge_messages_FormatSpecsResponse_descriptor,
+        new java.lang.String[] { "Errors", "Warnings", });
+    internal_static_gauge_messages_UnsupportedApiMessageResponse_descriptor =
+      getDescriptor().getMessageTypes().get(25);
+    internal_static_gauge_messages_UnsupportedApiMessageResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_gauge_messages_UnsupportedApiMessageResponse_descriptor,
+        new java.lang.String[] { });
+    internal_static_gauge_messages_APIMessage_descriptor =
+      getDescriptor().getMessageTypes().get(26);
     internal_static_gauge_messages_APIMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_APIMessage_descriptor,
-        new java.lang.String[] { "MessageType", "MessageId", "ProjectRootRequest", "ProjectRootResponse", "InstallationRootRequest", "InstallationRootResponse", "AllStepsRequest", "AllStepsResponse", "AllSpecsRequest", "AllSpecsResponse", "StepValueRequest", "StepValueResponse", "LibPathRequest", "LibPathResponse", "Error", "AllConceptsRequest", "AllConceptsResponse", "PerformRefactoringRequest", "PerformRefactoringResponse", "ExtractConceptRequest", "ExtractConceptResponse", });
+        new java.lang.String[] { "MessageType", "MessageId", "ProjectRootRequest", "ProjectRootResponse", "InstallationRootRequest", "InstallationRootResponse", "AllStepsRequest", "AllStepsResponse", "AllSpecsRequest", "AllSpecsResponse", "StepValueRequest", "StepValueResponse", "LibPathRequest", "LibPathResponse", "Error", "AllConceptsRequest", "AllConceptsResponse", "PerformRefactoringRequest", "PerformRefactoringResponse", "ExtractConceptRequest", "ExtractConceptResponse", "FormatSpecsRequest", "FormatSpecsResponse", "UnsupportedApiMessageResponse", });
     gauge.messages.Spec.getDescriptor();
   }
 

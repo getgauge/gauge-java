@@ -15803,7 +15803,7 @@ public final class Spec {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      *
      * <pre>
      *&#47; The actual result of the execution
@@ -15811,7 +15811,7 @@ public final class Spec {
      */
     boolean hasExecutionResult();
     /**
-     * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      *
      * <pre>
      *&#47; The actual result of the execution
@@ -15819,7 +15819,7 @@ public final class Spec {
      */
     gauge.messages.Spec.ProtoExecutionResult getExecutionResult();
     /**
-     * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      *
      * <pre>
      *&#47; The actual result of the execution
@@ -15876,6 +15876,29 @@ public final class Spec {
      * </pre>
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder();
+
+    /**
+     * <code>required bool skipped = 4;</code>
+     */
+    boolean hasSkipped();
+    /**
+     * <code>required bool skipped = 4;</code>
+     */
+    boolean getSkipped();
+
+    /**
+     * <code>optional string skippedReason = 5;</code>
+     */
+    boolean hasSkippedReason();
+    /**
+     * <code>optional string skippedReason = 5;</code>
+     */
+    java.lang.String getSkippedReason();
+    /**
+     * <code>optional string skippedReason = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getSkippedReasonBytes();
   }
   /**
    * Protobuf type {@code gauge.messages.ProtoStepExecutionResult}
@@ -15972,6 +15995,17 @@ public final class Spec {
               bitField0_ |= 0x00000004;
               break;
             }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              skipped_ = input.readBool();
+              break;
+            }
+            case 42: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000010;
+              skippedReason_ = bs;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -16015,7 +16049,7 @@ public final class Spec {
     public static final int EXECUTIONRESULT_FIELD_NUMBER = 1;
     private gauge.messages.Spec.ProtoExecutionResult executionResult_;
     /**
-     * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      *
      * <pre>
      *&#47; The actual result of the execution
@@ -16025,7 +16059,7 @@ public final class Spec {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      *
      * <pre>
      *&#47; The actual result of the execution
@@ -16035,7 +16069,7 @@ public final class Spec {
       return executionResult_;
     }
     /**
-     * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      *
      * <pre>
      *&#47; The actual result of the execution
@@ -16111,10 +16145,69 @@ public final class Spec {
       return postHookFailure_;
     }
 
+    public static final int SKIPPED_FIELD_NUMBER = 4;
+    private boolean skipped_;
+    /**
+     * <code>required bool skipped = 4;</code>
+     */
+    public boolean hasSkipped() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required bool skipped = 4;</code>
+     */
+    public boolean getSkipped() {
+      return skipped_;
+    }
+
+    public static final int SKIPPEDREASON_FIELD_NUMBER = 5;
+    private java.lang.Object skippedReason_;
+    /**
+     * <code>optional string skippedReason = 5;</code>
+     */
+    public boolean hasSkippedReason() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional string skippedReason = 5;</code>
+     */
+    public java.lang.String getSkippedReason() {
+      java.lang.Object ref = skippedReason_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          skippedReason_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string skippedReason = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSkippedReasonBytes() {
+      java.lang.Object ref = skippedReason_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        skippedReason_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       executionResult_ = gauge.messages.Spec.ProtoExecutionResult.getDefaultInstance();
       preHookFailure_ = gauge.messages.Spec.ProtoHookFailure.getDefaultInstance();
       postHookFailure_ = gauge.messages.Spec.ProtoHookFailure.getDefaultInstance();
+      skipped_ = false;
+      skippedReason_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -16122,13 +16215,15 @@ public final class Spec {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasExecutionResult()) {
+      if (!hasSkipped()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getExecutionResult().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
+      if (hasExecutionResult()) {
+        if (!getExecutionResult().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
       }
       if (hasPreHookFailure()) {
         if (!getPreHookFailure().isInitialized()) {
@@ -16158,6 +16253,12 @@ public final class Spec {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeMessage(3, postHookFailure_);
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBool(4, skipped_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeBytes(5, getSkippedReasonBytes());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -16178,6 +16279,14 @@ public final class Spec {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, postHookFailure_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, skipped_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, getSkippedReasonBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -16321,6 +16430,10 @@ public final class Spec {
           postHookFailureBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000004);
+        skipped_ = false;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        skippedReason_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -16373,6 +16486,14 @@ public final class Spec {
         } else {
           result.postHookFailure_ = postHookFailureBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.skipped_ = skipped_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.skippedReason_ = skippedReason_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -16398,18 +16519,28 @@ public final class Spec {
         if (other.hasPostHookFailure()) {
           mergePostHookFailure(other.getPostHookFailure());
         }
+        if (other.hasSkipped()) {
+          setSkipped(other.getSkipped());
+        }
+        if (other.hasSkippedReason()) {
+          bitField0_ |= 0x00000010;
+          skippedReason_ = other.skippedReason_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasExecutionResult()) {
+        if (!hasSkipped()) {
           
           return false;
         }
-        if (!getExecutionResult().isInitialized()) {
-          
-          return false;
+        if (hasExecutionResult()) {
+          if (!getExecutionResult().isInitialized()) {
+            
+            return false;
+          }
         }
         if (hasPreHookFailure()) {
           if (!getPreHookFailure().isInitialized()) {
@@ -16449,7 +16580,7 @@ public final class Spec {
       private com.google.protobuf.SingleFieldBuilder<
           gauge.messages.Spec.ProtoExecutionResult, gauge.messages.Spec.ProtoExecutionResult.Builder, gauge.messages.Spec.ProtoExecutionResultOrBuilder> executionResultBuilder_;
       /**
-       * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        *
        * <pre>
        *&#47; The actual result of the execution
@@ -16459,7 +16590,7 @@ public final class Spec {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        *
        * <pre>
        *&#47; The actual result of the execution
@@ -16473,7 +16604,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        *
        * <pre>
        *&#47; The actual result of the execution
@@ -16493,7 +16624,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        *
        * <pre>
        *&#47; The actual result of the execution
@@ -16511,7 +16642,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        *
        * <pre>
        *&#47; The actual result of the execution
@@ -16534,7 +16665,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        *
        * <pre>
        *&#47; The actual result of the execution
@@ -16551,7 +16682,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        *
        * <pre>
        *&#47; The actual result of the execution
@@ -16563,7 +16694,7 @@ public final class Spec {
         return getExecutionResultFieldBuilder().getBuilder();
       }
       /**
-       * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        *
        * <pre>
        *&#47; The actual result of the execution
@@ -16577,7 +16708,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>required .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        *
        * <pre>
        *&#47; The actual result of the execution
@@ -16899,6 +17030,114 @@ public final class Spec {
           postHookFailure_ = null;
         }
         return postHookFailureBuilder_;
+      }
+
+      private boolean skipped_ ;
+      /**
+       * <code>required bool skipped = 4;</code>
+       */
+      public boolean hasSkipped() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required bool skipped = 4;</code>
+       */
+      public boolean getSkipped() {
+        return skipped_;
+      }
+      /**
+       * <code>required bool skipped = 4;</code>
+       */
+      public Builder setSkipped(boolean value) {
+        bitField0_ |= 0x00000008;
+        skipped_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool skipped = 4;</code>
+       */
+      public Builder clearSkipped() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        skipped_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object skippedReason_ = "";
+      /**
+       * <code>optional string skippedReason = 5;</code>
+       */
+      public boolean hasSkippedReason() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional string skippedReason = 5;</code>
+       */
+      public java.lang.String getSkippedReason() {
+        java.lang.Object ref = skippedReason_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            skippedReason_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string skippedReason = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSkippedReasonBytes() {
+        java.lang.Object ref = skippedReason_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          skippedReason_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string skippedReason = 5;</code>
+       */
+      public Builder setSkippedReason(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        skippedReason_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string skippedReason = 5;</code>
+       */
+      public Builder clearSkippedReason() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        skippedReason_ = getDefaultInstance().getSkippedReason();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string skippedReason = 5;</code>
+       */
+      public Builder setSkippedReasonBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000010;
+        skippedReason_ = value;
+        onChanged();
+        return this;
       }
 
       // @@protoc_insertion_point(builder_scope:gauge.messages.ProtoStepExecutionResult)
@@ -19496,6 +19735,15 @@ public final class Spec {
      */
     com.google.protobuf.ByteString
         getTimestampBytes();
+
+    /**
+     * <code>required int32 specsSkippedCount = 12;</code>
+     */
+    boolean hasSpecsSkippedCount();
+    /**
+     * <code>required int32 specsSkippedCount = 12;</code>
+     */
+    int getSpecsSkippedCount();
   }
   /**
    * Protobuf type {@code gauge.messages.ProtoSuiteResult}
@@ -19629,6 +19877,11 @@ public final class Spec {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000200;
               timestamp_ = bs;
+              break;
+            }
+            case 96: {
+              bitField0_ |= 0x00000400;
+              specsSkippedCount_ = input.readInt32();
               break;
             }
           }
@@ -20103,6 +20356,21 @@ public final class Spec {
       }
     }
 
+    public static final int SPECSSKIPPEDCOUNT_FIELD_NUMBER = 12;
+    private int specsSkippedCount_;
+    /**
+     * <code>required int32 specsSkippedCount = 12;</code>
+     */
+    public boolean hasSpecsSkippedCount() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
+    }
+    /**
+     * <code>required int32 specsSkippedCount = 12;</code>
+     */
+    public int getSpecsSkippedCount() {
+      return specsSkippedCount_;
+    }
+
     private void initFields() {
       specResults_ = java.util.Collections.emptyList();
       preHookFailure_ = gauge.messages.Spec.ProtoHookFailure.getDefaultInstance();
@@ -20115,6 +20383,7 @@ public final class Spec {
       tags_ = "";
       projectName_ = "";
       timestamp_ = "";
+      specsSkippedCount_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -20139,6 +20408,10 @@ public final class Spec {
         return false;
       }
       if (!hasTimestamp()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSpecsSkippedCount()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -20200,6 +20473,9 @@ public final class Spec {
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         output.writeBytes(11, getTimestampBytes());
       }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        output.writeInt32(12, specsSkippedCount_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -20252,6 +20528,10 @@ public final class Spec {
       if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(11, getTimestampBytes());
+      }
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, specsSkippedCount_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -20411,6 +20691,8 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000200);
         timestamp_ = "";
         bitField0_ = (bitField0_ & ~0x00000400);
+        specsSkippedCount_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -20496,6 +20778,10 @@ public final class Spec {
           to_bitField0_ |= 0x00000200;
         }
         result.timestamp_ = timestamp_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000400;
+        }
+        result.specsSkippedCount_ = specsSkippedCount_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -20576,6 +20862,9 @@ public final class Spec {
           timestamp_ = other.timestamp_;
           onChanged();
         }
+        if (other.hasSpecsSkippedCount()) {
+          setSpecsSkippedCount(other.getSpecsSkippedCount());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -20598,6 +20887,10 @@ public final class Spec {
           return false;
         }
         if (!hasTimestamp()) {
+          
+          return false;
+        }
+        if (!hasSpecsSkippedCount()) {
           
           return false;
         }
@@ -21849,6 +22142,38 @@ public final class Spec {
         return this;
       }
 
+      private int specsSkippedCount_ ;
+      /**
+       * <code>required int32 specsSkippedCount = 12;</code>
+       */
+      public boolean hasSpecsSkippedCount() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>required int32 specsSkippedCount = 12;</code>
+       */
+      public int getSpecsSkippedCount() {
+        return specsSkippedCount_;
+      }
+      /**
+       * <code>required int32 specsSkippedCount = 12;</code>
+       */
+      public Builder setSpecsSkippedCount(int value) {
+        bitField0_ |= 0x00000800;
+        specsSkippedCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 specsSkippedCount = 12;</code>
+       */
+      public Builder clearSpecsSkippedCount() {
+        bitField0_ = (bitField0_ & ~0x00000800);
+        specsSkippedCount_ = 0;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:gauge.messages.ProtoSuiteResult)
     }
 
@@ -21981,6 +22306,24 @@ public final class Spec {
      * </pre>
      */
     long getExecutionTime();
+
+    /**
+     * <code>required bool skipped = 7;</code>
+     */
+    boolean hasSkipped();
+    /**
+     * <code>required bool skipped = 7;</code>
+     */
+    boolean getSkipped();
+
+    /**
+     * <code>required int32 scenarioSkippedCount = 9;</code>
+     */
+    boolean hasScenarioSkippedCount();
+    /**
+     * <code>required int32 scenarioSkippedCount = 9;</code>
+     */
+    int getScenarioSkippedCount();
   }
   /**
    * Protobuf type {@code gauge.messages.ProtoSpecResult}
@@ -22090,6 +22433,16 @@ public final class Spec {
             case 48: {
               bitField0_ |= 0x00000010;
               executionTime_ = input.readInt64();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000020;
+              skipped_ = input.readBool();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000040;
+              scenarioSkippedCount_ = input.readInt32();
               break;
             }
           }
@@ -22294,6 +22647,36 @@ public final class Spec {
       return executionTime_;
     }
 
+    public static final int SKIPPED_FIELD_NUMBER = 7;
+    private boolean skipped_;
+    /**
+     * <code>required bool skipped = 7;</code>
+     */
+    public boolean hasSkipped() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required bool skipped = 7;</code>
+     */
+    public boolean getSkipped() {
+      return skipped_;
+    }
+
+    public static final int SCENARIOSKIPPEDCOUNT_FIELD_NUMBER = 9;
+    private int scenarioSkippedCount_;
+    /**
+     * <code>required int32 scenarioSkippedCount = 9;</code>
+     */
+    public boolean hasScenarioSkippedCount() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>required int32 scenarioSkippedCount = 9;</code>
+     */
+    public int getScenarioSkippedCount() {
+      return scenarioSkippedCount_;
+    }
+
     private void initFields() {
       protoSpec_ = gauge.messages.Spec.ProtoSpec.getDefaultInstance();
       scenarioCount_ = 0;
@@ -22301,6 +22684,8 @@ public final class Spec {
       failed_ = false;
       failedDataTableRows_ = java.util.Collections.emptyList();
       executionTime_ = 0L;
+      skipped_ = false;
+      scenarioSkippedCount_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -22321,6 +22706,14 @@ public final class Spec {
         return false;
       }
       if (!hasFailed()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSkipped()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasScenarioSkippedCount()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -22352,6 +22745,12 @@ public final class Spec {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt64(6, executionTime_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBool(7, skipped_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeInt32(9, scenarioSkippedCount_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -22390,6 +22789,14 @@ public final class Spec {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, executionTime_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(7, skipped_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(9, scenarioSkippedCount_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -22529,6 +22936,10 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000010);
         executionTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000020);
+        skipped_ = false;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        scenarioSkippedCount_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -22586,6 +22997,14 @@ public final class Spec {
           to_bitField0_ |= 0x00000010;
         }
         result.executionTime_ = executionTime_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.skipped_ = skipped_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.scenarioSkippedCount_ = scenarioSkippedCount_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -22627,6 +23046,12 @@ public final class Spec {
         if (other.hasExecutionTime()) {
           setExecutionTime(other.getExecutionTime());
         }
+        if (other.hasSkipped()) {
+          setSkipped(other.getSkipped());
+        }
+        if (other.hasScenarioSkippedCount()) {
+          setScenarioSkippedCount(other.getScenarioSkippedCount());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -22645,6 +23070,14 @@ public final class Spec {
           return false;
         }
         if (!hasFailed()) {
+          
+          return false;
+        }
+        if (!hasSkipped()) {
+          
+          return false;
+        }
+        if (!hasScenarioSkippedCount()) {
           
           return false;
         }
@@ -23108,6 +23541,70 @@ public final class Spec {
       public Builder clearExecutionTime() {
         bitField0_ = (bitField0_ & ~0x00000020);
         executionTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean skipped_ ;
+      /**
+       * <code>required bool skipped = 7;</code>
+       */
+      public boolean hasSkipped() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>required bool skipped = 7;</code>
+       */
+      public boolean getSkipped() {
+        return skipped_;
+      }
+      /**
+       * <code>required bool skipped = 7;</code>
+       */
+      public Builder setSkipped(boolean value) {
+        bitField0_ |= 0x00000040;
+        skipped_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool skipped = 7;</code>
+       */
+      public Builder clearSkipped() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        skipped_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int scenarioSkippedCount_ ;
+      /**
+       * <code>required int32 scenarioSkippedCount = 9;</code>
+       */
+      public boolean hasScenarioSkippedCount() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>required int32 scenarioSkippedCount = 9;</code>
+       */
+      public int getScenarioSkippedCount() {
+        return scenarioSkippedCount_;
+      }
+      /**
+       * <code>required int32 scenarioSkippedCount = 9;</code>
+       */
+      public Builder setScenarioSkippedCount(int value) {
+        bitField0_ |= 0x00000080;
+        scenarioSkippedCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 scenarioSkippedCount = 9;</code>
+       */
+      public Builder clearScenarioSkippedCount() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        scenarioSkippedCount_ = 0;
         onChanged();
         return this;
       }
@@ -24279,34 +24776,37 @@ public final class Spec {
       "\002(\t\"i\n\nProtoTable\022.\n\007headers\030\001 \002(\0132\035.gau" +
       "ge.messages.ProtoTableRow\022+\n\004rows\030\002 \003(\0132" +
       "\035.gauge.messages.ProtoTableRow\"\036\n\rProtoT" +
-      "ableRow\022\r\n\005cells\030\001 \003(\t\"\316\001\n\030ProtoStepExec" +
-      "utionResult\022=\n\017executionResult\030\001 \002(\0132$.g" +
+      "ableRow\022\r\n\005cells\030\001 \003(\t\"\366\001\n\030ProtoStepExec" +
+      "utionResult\022=\n\017executionResult\030\001 \001(\0132$.g" +
       "auge.messages.ProtoExecutionResult\0228\n\016pr" +
       "eHookFailure\030\002 \001(\0132 .gauge.messages.Prot" +
       "oHookFailure\0229\n\017postHookFailure\030\003 \001(\0132 ." +
-      "gauge.messages.ProtoHookFailure\"\246\001\n\024Prot" +
-      "oExecutionResult\022\016\n\006failed\030\001 \002(\010\022\030\n\020reco",
+      "gauge.messages.ProtoHookFailure\022\017\n\007skipp" +
+      "ed\030\004 \002(\010\022\025\n\rskippedReason\030\005 \001(\t\"\246\001\n\024Prot",
+      "oExecutionResult\022\016\n\006failed\030\001 \002(\010\022\030\n\020reco" +
       "verableError\030\002 \001(\010\022\024\n\014errorMessage\030\003 \001(\t" +
       "\022\022\n\nstackTrace\030\004 \001(\t\022\022\n\nscreenShot\030\005 \001(\014" +
       "\022\025\n\rexecutionTime\030\006 \002(\003\022\017\n\007message\030\007 \003(\t" +
       "\"P\n\020ProtoHookFailure\022\022\n\nstackTrace\030\001 \002(\t" +
       "\022\024\n\014errorMessage\030\002 \002(\t\022\022\n\nscreenShot\030\003 \001" +
-      "(\014\"\336\002\n\020ProtoSuiteResult\0224\n\013specResults\030\001" +
+      "(\014\"\371\002\n\020ProtoSuiteResult\0224\n\013specResults\030\001" +
       " \003(\0132\037.gauge.messages.ProtoSpecResult\0228\n" +
       "\016preHookFailure\030\002 \001(\0132 .gauge.messages.P" +
-      "rotoHookFailure\0229\n\017postHookFailure\030\003 \001(\013" +
-      "2 .gauge.messages.ProtoHookFailure\022\016\n\006fa",
+      "rotoHookFailure\0229\n\017postHookFailure\030\003 \001(\013",
+      "2 .gauge.messages.ProtoHookFailure\022\016\n\006fa" +
       "iled\030\004 \002(\010\022\030\n\020specsFailedCount\030\005 \002(\005\022\025\n\r" +
       "executionTime\030\006 \001(\003\022\023\n\013successRate\030\007 \002(\002" +
       "\022\023\n\013environment\030\010 \001(\t\022\014\n\004tags\030\t \001(\t\022\023\n\013p" +
-      "rojectName\030\n \002(\t\022\021\n\ttimestamp\030\013 \002(\t\"\267\001\n\017" +
-      "ProtoSpecResult\022,\n\tprotoSpec\030\001 \002(\0132\031.gau" +
-      "ge.messages.ProtoSpec\022\025\n\rscenarioCount\030\002" +
-      " \002(\005\022\033\n\023scenarioFailedCount\030\003 \002(\005\022\016\n\006fai" +
-      "led\030\004 \002(\010\022\033\n\023failedDataTableRows\030\005 \003(\005\022\025" +
-      "\n\rexecutionTime\030\006 \001(\003\"W\n\016ProtoStepValue\022" +
-      "\021\n\tstepValue\030\001 \002(\t\022\036\n\026parameterizedStepV",
-      "alue\030\002 \002(\t\022\022\n\nparameters\030\003 \003(\t"
+      "rojectName\030\n \002(\t\022\021\n\ttimestamp\030\013 \002(\t\022\031\n\021s" +
+      "pecsSkippedCount\030\014 \002(\005\"\346\001\n\017ProtoSpecResu" +
+      "lt\022,\n\tprotoSpec\030\001 \002(\0132\031.gauge.messages.P" +
+      "rotoSpec\022\025\n\rscenarioCount\030\002 \002(\005\022\033\n\023scena" +
+      "rioFailedCount\030\003 \002(\005\022\016\n\006failed\030\004 \002(\010\022\033\n\023" +
+      "failedDataTableRows\030\005 \003(\005\022\025\n\rexecutionTi",
+      "me\030\006 \001(\003\022\017\n\007skipped\030\007 \002(\010\022\034\n\024scenarioSki" +
+      "ppedCount\030\t \002(\005\"W\n\016ProtoStepValue\022\021\n\tste" +
+      "pValue\030\001 \002(\t\022\036\n\026parameterizedStepValue\030\002" +
+      " \002(\t\022\022\n\nparameters\030\003 \003(\t"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -24397,7 +24897,7 @@ public final class Spec {
     internal_static_gauge_messages_ProtoStepExecutionResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoStepExecutionResult_descriptor,
-        new java.lang.String[] { "ExecutionResult", "PreHookFailure", "PostHookFailure", });
+        new java.lang.String[] { "ExecutionResult", "PreHookFailure", "PostHookFailure", "Skipped", "SkippedReason", });
     internal_static_gauge_messages_ProtoExecutionResult_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_gauge_messages_ProtoExecutionResult_fieldAccessorTable = new
@@ -24415,13 +24915,13 @@ public final class Spec {
     internal_static_gauge_messages_ProtoSuiteResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoSuiteResult_descriptor,
-        new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", "ExecutionTime", "SuccessRate", "Environment", "Tags", "ProjectName", "Timestamp", });
+        new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", "ExecutionTime", "SuccessRate", "Environment", "Tags", "ProjectName", "Timestamp", "SpecsSkippedCount", });
     internal_static_gauge_messages_ProtoSpecResult_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_gauge_messages_ProtoSpecResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoSpecResult_descriptor,
-        new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", "ExecutionTime", });
+        new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", "ExecutionTime", "Skipped", "ScenarioSkippedCount", });
     internal_static_gauge_messages_ProtoStepValue_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_gauge_messages_ProtoStepValue_fieldAccessorTable = new
