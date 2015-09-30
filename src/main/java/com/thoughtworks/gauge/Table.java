@@ -33,6 +33,9 @@ public class Table {
     }
 
     public void addRow(List<String> row) {
+        if (row.size() != headers.size()){
+            throw new RowSizeMismatchException(String.format("Row size mismatch. Expected row size: %d. Obtained row size: %d.",headers.size(), row.size()));
+        }
         rows.add(row);
         TableRow rowToAdd = new TableRow();
         for (String header : headers) {

@@ -16,6 +16,10 @@ public class TableRow{
         cells.put(columnName, value);
     }
 
+    public int size() {
+        return cells.size();
+    }
+
     @Override
     public String toString() {
         return "TableRow{" +
