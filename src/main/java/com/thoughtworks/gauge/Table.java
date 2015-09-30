@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Custom Table structure used as parameter is steps
+ * Custom Table structure used as parameter in steps
  */
 public class Table {
     private final List<String> headers;
@@ -57,8 +57,7 @@ public class Table {
     public List<TableRow> getTableRows(){
         return tableRows;
     }
-
-
+    
     /**
      * @deprecated - Use getTableRows() method instead of this.
      * @return - List of TableRows in the table. Each Row is represented by a List of String values
@@ -69,6 +68,11 @@ public class Table {
         return rows;
     }
 
+    /**
+     * Get all the values of a column in Table.
+     * @param columnName - The column name of the Table
+     * @return - List of values against a column in Table.
+     */
     public List<String> getColumnValues(String columnName) {
         List<String> columnValues = new ArrayList<String>();
 
