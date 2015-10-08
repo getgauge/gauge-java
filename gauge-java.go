@@ -304,6 +304,9 @@ func getExecPathFrom(path string, alternatePath string, execName string) string 
 		}
 	}
 	filepath.Walk(home, func(currentPath string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
 		if info.Name() == execName {
 			execPath = currentPath
 		}
