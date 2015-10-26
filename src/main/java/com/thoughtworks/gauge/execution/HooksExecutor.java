@@ -22,9 +22,7 @@ import com.thoughtworks.gauge.tag.TagMatcher;
 import gauge.messages.Spec;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class HooksExecutor {
     private final Set<Hook> hooks;
@@ -38,7 +36,10 @@ public class HooksExecutor {
     public Spec.ProtoExecutionResult execute() {
         Spec.ProtoExecutionResult result;
         long totalHooksExecutionTime = 0;
-        for (Hook hook : hooks) {
+
+        ArrayList<Hook> hooksList = new ArrayList<Hook>(hooks);
+        Collections.sort(hooksList);
+        for (Hook hook : hooksList) {
             result = new TaggedHookExecutor(hook, info).execute();
             totalHooksExecutionTime += result.getExecutionTime();
             if (result.getFailed()) {

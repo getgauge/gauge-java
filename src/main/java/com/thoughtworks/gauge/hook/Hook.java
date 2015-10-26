@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Hook {
+public class Hook implements Comparable<Hook> {
     private Method method;
     private List<String> tags = new ArrayList<String>();
     private Operator operator = Operator.AND;
@@ -47,5 +47,20 @@ public class Hook {
 
     public Operator getTagsAggregation() {
         return operator;
+    }
+
+    public boolean isTagged(){
+        return !tags.isEmpty();
+    }
+
+    @Override
+    public int compareTo(Hook h) {
+        if (this.isTagged() && !h.isTagged()) {
+            return 1;
+        }
+        if (!this.isTagged() && h.isTagged()) {
+            return -1;
+        }
+        return this.getMethod().getName().compareTo(h.getMethod().getName());
     }
 }
