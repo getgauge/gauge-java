@@ -25,10 +25,10 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 public class HooksExecutor {
-    private final Set<Hook> hooks;
+    private final List<Hook> hooks;
     private final ExecutionContext info;
 
-    public HooksExecutor(Set<Hook> hooks, ExecutionContext executionInfo) {
+    public HooksExecutor(List<Hook> hooks, ExecutionContext executionInfo) {
         this.hooks = hooks;
         info = executionInfo;
     }
@@ -37,9 +37,7 @@ public class HooksExecutor {
         Spec.ProtoExecutionResult result;
         long totalHooksExecutionTime = 0;
 
-        ArrayList<Hook> hooksList = new ArrayList<Hook>(hooks);
-        Collections.sort(hooksList);
-        for (Hook hook : hooksList) {
+        for (Hook hook : hooks) {
             result = new TaggedHookExecutor(hook, info).execute();
             totalHooksExecutionTime += result.getExecutionTime();
             if (result.getFailed()) {

@@ -23,7 +23,9 @@ import gauge.messages.Messages;
 import gauge.messages.Spec;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public abstract class MethodExecutionMessageProcessor {
@@ -49,7 +51,7 @@ public abstract class MethodExecutionMessageProcessor {
         return createMessageWithExecutionStatusResponse(message, passingExecution);
     }
 
-    public Messages.Message executeHooks(Set<Hook> hooks, Messages.Message message, ExecutionContext executionInfo) {
+    public Messages.Message executeHooks(List<Hook> hooks, Messages.Message message, ExecutionContext executionInfo) {
         Spec.ProtoExecutionResult executionStatusResponse = new HooksExecutor(hooks, executionInfo).execute();
         return createMessageWithExecutionStatusResponse(message, executionStatusResponse);
     }

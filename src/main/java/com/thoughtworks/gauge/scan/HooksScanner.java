@@ -29,15 +29,15 @@ public class HooksScanner implements IScanner {
     }
 
     private void buildHooksRegistry(Reflections reflections) {
-        HooksRegistry.setBeforeSuiteHooks(reflections.getMethodsAnnotatedWith(BeforeSuite.class));
-        HooksRegistry.setAfterSuiteHooks(reflections.getMethodsAnnotatedWith(AfterSuite.class));
-        HooksRegistry.setBeforeSpecHooks(reflections.getMethodsAnnotatedWith(BeforeSpec.class));
-        HooksRegistry.setAfterSpecHooks(reflections.getMethodsAnnotatedWith(AfterSpec.class));
-        HooksRegistry.setBeforeScenarioHooks(reflections.getMethodsAnnotatedWith(BeforeScenario.class));
-        HooksRegistry.setAfterScenarioHooks(reflections.getMethodsAnnotatedWith(AfterScenario.class));
-        HooksRegistry.setBeforeStepHooks(reflections.getMethodsAnnotatedWith(BeforeStep.class));
+        HooksRegistry.addBeforeSuiteHooks(reflections.getMethodsAnnotatedWith(BeforeSuite.class));
+        HooksRegistry.addAfterSuiteHooks(reflections.getMethodsAnnotatedWith(AfterSuite.class));
+        HooksRegistry.addBeforeSpecHooks(reflections.getMethodsAnnotatedWith(BeforeSpec.class));
+        HooksRegistry.addAfterSpecHooks(reflections.getMethodsAnnotatedWith(AfterSpec.class));
+        HooksRegistry.addBeforeScenarioHooks(reflections.getMethodsAnnotatedWith(BeforeScenario.class));
+        HooksRegistry.addAfterScenarioHooks(reflections.getMethodsAnnotatedWith(AfterScenario.class));
+        HooksRegistry.addBeforeStepHooks(reflections.getMethodsAnnotatedWith(BeforeStep.class));
         HooksRegistry.setAfterStepHooks(reflections.getMethodsAnnotatedWith(AfterStep.class));
-        HooksRegistry.setBeforeClassStepsHooks(reflections.getMethodsAnnotatedWith(BeforeClassSteps.class));
-        HooksRegistry.setAfterClassStepsHooks(reflections.getMethodsAnnotatedWith(AfterClassSteps.class));
+        HooksRegistry.addBeforeClassStepsHooks(reflections.getMethodsAnnotatedWith(BeforeClassSteps.class));
+        HooksRegistry.addAfterClassStepsHooks(reflections.getMethodsAnnotatedWith(AfterClassSteps.class));
     }
 }

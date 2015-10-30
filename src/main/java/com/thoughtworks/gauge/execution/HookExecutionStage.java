@@ -19,14 +19,16 @@ import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.hook.Hook;
 import gauge.messages.Spec;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
 public class HookExecutionStage extends AbstractExecutionStage {
-    private Set<Hook> execHooks;
+    private List<Hook> execHooks;
     private ExecutionStage next;
 
-    public HookExecutionStage(Set<Hook> execHooks) {
+    public HookExecutionStage(List<Hook> execHooks) {
         this.execHooks = execHooks;
     }
 

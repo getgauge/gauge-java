@@ -31,7 +31,6 @@ public class ClassInstanceManagerTest extends TestCase {
         Object object2 = ClassInstanceManager.get(TestStepImplClass.class);
         assertTrue(object2 instanceof TestStepImplClass);
         assertEquals(object, object2);
-
     }
 
     public void testSettingClassInitializer() throws Exception {

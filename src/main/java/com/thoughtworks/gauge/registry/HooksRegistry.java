@@ -22,6 +22,9 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Set;
 
 public class HooksRegistry {
@@ -31,87 +34,99 @@ public class HooksRegistry {
 
     private static HashMap<Class, HashSet<Hook>> registryMap = new HashMap<Class, HashSet<Hook>>();
 
-    public static HashSet<Hook> getBeforeSpecHooks() {
-        return registryMap.get(BeforeSpec.class);
+    public static List<Hook> getBeforeSpecHooks() {
+        return sort(registryMap.get(BeforeSpec.class));
     }
 
-    public static void setBeforeSpecHooks(Set<Method> methods) {
+    public static void addBeforeSpecHooks(Set<Method> methods) {
         addHooksWithTags(methods, BeforeSpec.class);
     }
 
-    public static Set<Hook> getAfterSpecHooks() {
-        return registryMap.get(AfterSpec.class);
+    public static List<Hook> getAfterSpecHooks() {
+        return sortReverse(registryMap.get(AfterSpec.class));
     }
 
-    public static void setAfterSpecHooks(Set<Method> methods) {
+    public static void addAfterSpecHooks(Set<Method> methods) {
         addHooksWithTags(methods, AfterSpec.class);
     }
 
-    public static Set<Hook> getBeforeScenarioHooks() {
-        return registryMap.get(BeforeScenario.class);
+    public static List<Hook> getBeforeScenarioHooks() {
+        return sort(registryMap.get(BeforeScenario.class));
     }
 
-    public static void setBeforeScenarioHooks(Set<Method> methods) {
+    private static List<Hook> sort(Set<Hook> hooks) {
+        List<Hook> hooksList = new ArrayList<Hook>(hooks);
+        Collections.sort(hooksList);
+        return hooksList;
+    }
+
+    private static List<Hook> sortReverse(Set<Hook> hooks) {
+        List<Hook> hooksList = sort(hooks);
+        Collections.reverse(hooksList);
+        return hooksList;
+    }
+
+    public static void addBeforeScenarioHooks(Set<Method> methods) {
         addHooksWithTags(methods, BeforeScenario.class);
     }
 
-    public static Set<Hook> getAfterScenarioHooks() {
-        return registryMap.get(AfterScenario.class);
+    public static List<Hook> getAfterScenarioHooks() {
+        return sortReverse(registryMap.get(AfterScenario.class));
     }
 
-    public static void setAfterScenarioHooks(Set<Method> methods) {
+    public static void addAfterScenarioHooks(Set<Method> methods) {
         addHooksWithTags(methods, AfterScenario.class);
     }
 
-    public static Set<Hook> getBeforeStepHooks() {
-        return registryMap.get(BeforeStep.class);
+    public static List<Hook> getBeforeStepHooks() {
+        return sort(registryMap.get(BeforeStep.class));
     }
 
-    public static void setBeforeStepHooks(Set<Method> methods) {
+    public static void addBeforeStepHooks(Set<Method> methods) {
         addHooksWithTags(methods, BeforeStep.class);
     }
 
-    public static Set<Hook> getAfterStepHooks() {
-        return registryMap.get(AfterStep.class);
+    public static List<Hook> getAfterStepHooks() {
+        return sortReverse(registryMap.get(AfterStep.class));
     }
 
     public static void setAfterStepHooks(Set<Method> methods) {
         addHooksWithTags(methods, AfterStep.class);
     }
 
-    public static Set<Hook> getBeforeSuiteHooks() {
-        return registryMap.get(BeforeSuite.class);
+    public static List<Hook> getBeforeSuiteHooks() {
+        return sort(registryMap.get(BeforeSuite.class));
     }
 
-    public static void setBeforeSuiteHooks(Set<Method> methods) {
+    public static void addBeforeSuiteHooks(Set<Method> methods) {
         addHooks(methods, BeforeSuite.class);
     }
 
-    public static Set<Hook> getAfterSuiteHooks() {
-        return registryMap.get(AfterSuite.class);
+    public static List<Hook> getAfterSuiteHooks() {
+        return sortReverse(registryMap.get(AfterSuite.class));
     }
 
-    public static void setAfterSuiteHooks(Set<Method> methods) {
+    public static void addAfterSuiteHooks(Set<Method> methods) {
         addHooks(methods, AfterSuite.class);
     }
 
-    public static void setAfterClassStepsHooks(Set<Method> methods) {
+    public static void addAfterClassStepsHooks(Set<Method> methods) {
         addHooksWithTags(methods, AfterClassSteps.class);
     }
 
-    public static void setBeforeClassStepsHooks(Set<Method> methods) {
+    public static void addBeforeClassStepsHooks(Set<Method> methods) {
         addHooksWithTags(methods, BeforeClassSteps.class);
     }
 
-    public static Set<Hook> getBeforeClassStepsHooksOfClass(Class<?> aClass) {
-        return findClassHooksForClass(getBeforeClassHooks(), aClass);
+    public static List<Hook> getBeforeClassStepsHooksOfClass(Class<?> aClass) {
+        return sort(findClassHooksForClass(getBeforeClassHooks(), aClass));
     }
 
-    public static HashSet<Hook> getAfterClassStepsHooksOfClass(Class<?> aClass) {
-        return findClassHooksForClass(getAfterClassHooks(), aClass);
+    public static List<Hook> getAfterClassStepsHooksOfClass(Class<?> aClass) {
+        return sortReverse(findClassHooksForClass(getAfterClassHooks(), aClass));
     }
 
-    private static HashSet<Hook> findClassHooksForClass(Set<Hook> allClassHooks, Class<?> aClass) {
+    private static Set<Hook> findClassHooksForClass(List<Hook> allClassHooks, Class<?> aClass) {
         HashSet<Hook> matchingClassHooks = new HashSet<Hook>();
         for (Hook classStepsHook : allClassHooks) {
             if (classStepsHook.getMethod().getDeclaringClass().equals(aClass)) {
@@ -148,12 +163,12 @@ public class HooksRegistry {
         }
     }
 
-    private static Set<Hook> getBeforeClassHooks() {
-        return registryMap.get(BeforeClassSteps.class);
+    private static List<Hook> getBeforeClassHooks() {
+        return sort(registryMap.get(BeforeClassSteps.class));
     }
 
-    private static Set<Hook> getAfterClassHooks() {
-        return registryMap.get(AfterClassSteps.class);
+    private static List<Hook> getAfterClassHooks() {
+        return sortReverse(registryMap.get(AfterClassSteps.class));
     }
 
     static void remove(Class hookType) {
