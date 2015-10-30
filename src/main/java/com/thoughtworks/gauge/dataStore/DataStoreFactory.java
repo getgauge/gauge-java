@@ -22,21 +22,21 @@ public class DataStoreFactory {
 
 
     /**
-     * @return - The current instance of the SuiteDataStore
+     * @return The current instance of the SuiteDataStore
      */
     public static DataStore getSuiteDataStore() {
         return suiteDataStore;
     }
 
     /**
-     * @return - The current instance of the SpecDataStore
+     * @return The current instance of the SpecDataStore
      */
     public static DataStore getSpecDataStore() {
         return specDataStore;
     }
 
     /**
-     * @return - The current instance of the ScenarioDataStore
+     * @return The current instance of the ScenarioDataStore
      */
     public static DataStore getScenarioDataStore() {
         return scenarioDataStore;

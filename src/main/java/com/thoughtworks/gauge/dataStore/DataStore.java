@@ -33,7 +33,7 @@ public class DataStore {
 
     /**
      * @param key - Key of the data entry to remove
-     * @return - The value of the entry removed. Null if no entry.
+     * @return The value of the entry removed. Null if no entry.
      */
     public Object remove(Object key) {
         return map.remove(key);
@@ -41,7 +41,7 @@ public class DataStore {
 
     /**
      * @param key - Key of the data entry whose value is needed
-     * @return - The value corresponding to the key. null if there is no value stored
+     * @return The value corresponding to the key. null if there is no value stored
      */
     public Object get(Object key) {
         return map.get(key);

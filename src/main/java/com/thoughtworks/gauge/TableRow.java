@@ -26,7 +26,7 @@ public class TableRow{
     /**
      * Get the value of cell corresponding to a column name.
      * @param columnName - The column name of TableRow.
-     * @return - The value of cell corresponding to a column name.
+     * @return The value of cell corresponding to a column name.
      */
     public String getCell(String columnName){
         if (!cells.containsKey(columnName)){
@@ -37,8 +37,8 @@ public class TableRow{
 
     /**
      * Add a cell to the TableRow.
-     * @param columnName  - The column name against which the cell is added.
-     * @param value - The value to be stored in the cell.
+     * @param columnName  The column name against which the cell is added.
+     * @param value The value to be stored in the cell.
      */
     public void addCell(String columnName, String value) {
         cells.put(columnName, value);
@@ -46,7 +46,7 @@ public class TableRow{
 
     /**
      * Get the number of cells in TableRow.
-     * @return - The number of cells in TableRow.
+     * @return The number of cells in TableRow.
      */
     public int size() {
         return cells.size();

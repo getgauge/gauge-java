@@ -31,14 +31,14 @@ public class StepDetails {
     }
 
     /**
-     * @return - True if the current spec or scenario or step is failing due to error.
+     * @return True if the current spec or scenario or step is failing due to error.
      */
     public Boolean getIsFailing() {
         return isFailing;
     }
 
     /**
-     * @return - The name of the step as given in the spec file.
+     * @return The name of the step as given in the spec file.
      */
     public String getText() {
         return text;

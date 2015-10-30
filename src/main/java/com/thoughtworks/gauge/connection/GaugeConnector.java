@@ -21,8 +21,10 @@ import java.net.Socket;
 
 /**
  * Makes 2 important connections to the gauge core
- * 1. Core connection where messages are responded to based on message type.
- * 2. API connection used to for asking gauge for common actions.
+ * <ul>
+ * <li>Core connection where messages are responded to based on message type.
+ * <li>API connection used to for asking gauge for common actions.
+ * </ul>
  */
 public class GaugeConnector {
 

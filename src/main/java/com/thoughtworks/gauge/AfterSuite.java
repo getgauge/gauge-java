@@ -21,7 +21,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Methods annotated with this execute after the entire suite (all specs) execution completes.
+ * Methods annotated with this hook, execute after the entire suite (all specs) execution completes.
+ <p>If there is more than one method annotated with @AfterSuite, they are executed in reverse alphabetical order of their method names.</p>
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

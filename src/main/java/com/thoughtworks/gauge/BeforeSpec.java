@@ -21,20 +21,27 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Methods annotated with this execute before every Specification execution completes.
- * The specification can be filtered by passing additional attributes
+ * Methods annotated with this hook, execute before every Specification execution completes.
+ * The specification can be filtered by passing additional attributes.
+ * <p>If there is more than one method annotated with @BeforeSpec, the order of execution is as follows:
+ * <ul>
+ * <li>Hooks which are not filtered by tags.
+ * <li>Hooks filtered by tags.
+ * </ul>
+ * If there is more than one hook of these categories, they are executed in alphabetical order based on method names.
+ * </p>
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface BeforeSpec {
 
     /**
-     * @return - Array of tags to filter which specifications the hook runs before.
+     * @return Array of tags to filter which specifications the hook runs before.
      */
     String[] tags() default {};
 
     /**
-     * @return - OR: if hook should run for a specification containing any of the tags provided
+     * @return OR: if hook should run for a specification containing any of the tags provided
      * AND: if hook should run for a specification containing all of the tags provided
      * Default is AND
      */

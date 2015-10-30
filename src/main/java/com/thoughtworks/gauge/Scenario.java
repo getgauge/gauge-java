@@ -36,21 +36,21 @@ public class Scenario {
     }
 
     /**
-     * @return - List of all tags in just the scenario
+     * @return List of all tags in just the scenario
      */
     public List<String> getTags() {
         return tags;
     }
 
     /**
-     * @return - True if the scenario or spec is failing
+     * @return True if the scenario or spec is failing
      */
     public Boolean getIsFailing() {
         return isFailing;
     }
 
     /**
-     * @return - Name of the Scenario as mentioned in the scenario heading
+     * @return Name of the Scenario as mentioned in the scenario heading
      */
     public String getName() {
         return name;

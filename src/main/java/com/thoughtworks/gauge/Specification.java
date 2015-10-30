@@ -38,28 +38,28 @@ public class Specification {
     }
 
     /**
-     * @return - List of all the tags in the Spec
+     * @return List of all the tags in the Spec
      */
     public List<String> getTags() {
         return tags;
     }
 
     /**
-     * @return - True if the current spec is failing.
+     * @return True if the current spec is failing.
      */
     public Boolean getIsFailing() {
         return isFailing;
     }
 
     /**
-     * @return - Full path to the Spec
+     * @return Full path to the Spec
      */
     public String getFileName() {
         return fileName;
     }
 
     /**
-     * @return - The name of the Specification as mentioned in the Spec heading
+     * @return The name of the Specification as mentioned in the Spec heading
      */
     public String getName() {
         return name;
