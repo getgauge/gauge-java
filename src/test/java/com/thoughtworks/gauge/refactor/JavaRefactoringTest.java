@@ -227,6 +227,47 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(element.getText().contains("A step with comments"));
     }
 
+    public void testRefactoringWithOrphanComments() throws RefactoringException {
+        StepValue oldStepValue = new StepValue("A step with comments", "A step with comments", new ArrayList<String>());
+        StepValue newStepValue = new StepValue("with comments", "with comments", new ArrayList<String>());
+        File javaFile = getImplFile("StepImplWithComments.java");
+
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
+
+        String expectedValue = "    @Step(\"with comments\")" + System.getProperty("line.separator") +
+                "    public void someStepWithComments() {" + System.getProperty("line.separator") +
+                "        //comment1" + System.getProperty("line.separator") +
+                "        //comment2" + System.getProperty("line.separator") +
+                "        /*\n" +
+                "                    comment3\n" +
+                "                    comment4\n" +
+                "         */" + System.getProperty("line.separator") +
+                "        /*\n" +
+                "                comment6\n" +
+                "                    comment7\n" +
+                "                        comment8\n" +
+                "         */" + System.getProperty("line.separator") +
+                "        System.out.println(\"\");" + System.getProperty("line.separator") +
+                "    //comment9" + System.getProperty("line.separator") +
+                "    //comment10" + System.getProperty("line.separator") +
+                "    /*\n" +
+                "                    comment11\n" +
+                "                    comment12\n" +
+                "         */" + System.getProperty("line.separator") +
+                "    /*\n" +
+                "                comment13\n" +
+                "                    comment14\n" +
+                "                        comment15\n" +
+                "         */" + System.getProperty("line.separator") +
+                "    }";
+        String actualValue = element.getText();
+
+        assertEquals(javaFile.getName(), element.getFile().getName());
+        assertTrue(actualValue.contains(expectedValue));
+        assertFalse(actualValue.contains("A step with comments"));
+    }
+
     public void testJavaElementForRefactoringWithUnFormattedMethod() throws Exception {
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
         StepValue newStepValue = new StepValue("A step with no paramss", "A step with no paramss", new ArrayList<String>());
