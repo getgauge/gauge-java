@@ -60,13 +60,13 @@ func main() {
 	if *start {
 		startJava()
 	} else if *initialize {
-		initializePoject()
+		initializeProject()
 	} else {
 		printUsage()
 	}
 }
 
-func initializePoject() {
+func initializeProject() {
 	os.Chdir(projectRoot)
 	funcs := []initializerFunc{createSrcDirectory, createLibsDirectory, createStepImplementationClass, createJavaPropertiesFile}
 	for _, f := range funcs {
