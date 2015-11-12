@@ -375,7 +375,7 @@ func build(destination string, classpath string) {
 }
 
 func uniqueFileName() string {
-	return fmt.Sprintf("%d", common.GetUniqueId())
+	return fmt.Sprintf("%d", common.GetUniqueID())
 }
 
 func writeLines(lines []string, path string) error {
