@@ -42,6 +42,15 @@ public class TableTest {
     }
 
     @Test
+    public void shouldGetValuesForGivenColumnIndex() {
+        List<String> columnValues = table.getColumnValues(1);
+
+        assertEquals(2, columnValues.size());
+        assertTrue(columnValues.contains("bar1"));
+        assertTrue(columnValues.contains("bar2"));
+    }
+
+    @Test
     public void shouldGetEmptyValuesListForInvalidColumnName() {
         List<String> columnValues = table.getColumnValues("col3");
 

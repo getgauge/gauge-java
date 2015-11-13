@@ -74,10 +74,17 @@ public class Table {
      * @return List of values against a column in Table.
      */
     public List<String> getColumnValues(String columnName) {
-        List<String> columnValues = new ArrayList<String>();
-
         int columnIndex = headers.indexOf(columnName);
+        return getColumnValues(columnIndex);
+    }
 
+    /**
+     * Get all the values of a column in a Table.
+     * @param columnIndex - The column index of the table
+     * @return List of row values of a given column index in a Table.
+     */
+    public List<String> getColumnValues(int columnIndex) {
+        List<String> columnValues = new ArrayList<String>();
         if (columnIndex >= 0) {
             for (List<String> row : rows) {
                 columnValues.add(row.get(columnIndex));
