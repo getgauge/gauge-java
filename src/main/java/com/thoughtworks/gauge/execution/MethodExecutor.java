@@ -41,6 +41,8 @@ public class MethodExecutor {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
         builder.setScreenShot(ByteString.copyFrom(new ScreenshotFactory().getScreenshotBytes()));
         if (e.getCause() != null) {
+            if (e.getCause().getClass().equals(AssertionError.class))
+                builder.setErrorType(Spec.ProtoExecutionResult.ErrorType.ASSERTION);
             builder.setErrorMessage(e.getCause().toString());
             builder.setStackTrace(formatStackTrace(e.getCause().getStackTrace()));
         } else {
@@ -49,7 +51,8 @@ public class MethodExecutor {
         }
         builder.setRecoverableError(false);
         builder.setExecutionTime(execTime);
-        return builder.build();
+        Spec.ProtoExecutionResult build = builder.build();
+        return build;
     }
 
     private String formatStackTrace(StackTraceElement[] stackTrace) {
