@@ -16,13 +16,17 @@
 package com.thoughtworks.gauge.processor;
 
 import com.thoughtworks.gauge.ExecutionContext;
+import com.thoughtworks.gauge.MessageCollector;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import com.thoughtworks.gauge.registry.HooksRegistry;
 import gauge.messages.Messages;
+import gauge.messages.Spec;
 
 public class StepExecutionEndingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getStepExecutionEndingRequest().getCurrentExecutionInfo());
-        return executeHooks(HooksRegistry.getAfterStepHooks(), message, info);
+        Messages.Message result = executeHooks(HooksRegistry.getAfterStepHooks(), message, info);
+        Spec.ProtoExecutionResult executionResult = result.getExecutionStatusResponse().getExecutionResult();
+        return createMessageWithExecutionStatusResponse(message, new MessageCollector().addPendingMessagesTo(executionResult));
     }
 }
