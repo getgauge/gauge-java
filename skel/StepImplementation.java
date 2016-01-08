@@ -2,22 +2,46 @@ import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
 import com.thoughtworks.gauge.TableRow;
 
+import java.util.HashSet;
+
+import static org.junit.Assert.assertEquals;
+
 public class StepImplementation {
-    @Step("Say <greeting> to <product name>")
-    public void helloWorld(String greeting, String name) {
-        System.out.println(greeting + ", " + name);
-    }
 
-    @Step("Step that takes a table <table>")
-    public void stepWithTable(Table table) {
-        System.out.println(table.getColumnNames());
+    private HashSet<Character> vowels;
 
-        for (TableRow tableRow : table.getTableRows()) {
-            System.out.println(tableRow.getCell("Product") + " " + tableRow.getCell("Description"));
+    @Step("Vowels in English language are <vowelString>.")
+    public void setLanguageVowels(String vowelString) {
+        vowels = new HashSet<>();
+        for (char ch : vowelString.toCharArray()) {
+            vowels.add(ch);
         }
     }
 
-    @Step("A context step which gets executed before every scenario")
-    public void contextStep() {
+    @Step("The word <word> has <expectedCount> vowels.")
+    public void verifyVowelsCountInWord(String word, int expectedCount) {
+        int actualCount = countVowels(word);
+        assertEquals(expectedCount, actualCount);
+    }
+
+    @Step("Almost all words have vowels <wordsTable>")
+    public void verifyVowelsCountInMultipleWords(Table wordsTable) {
+        for (TableRow row : wordsTable.getTableRows()) {
+            String word = row.getCell("Word");
+            int expectedCount = Integer.parseInt(row.getCell("Vowel Count"));
+            int actualCount = countVowels(word);
+
+            assertEquals(expectedCount, actualCount);
+        }
+    }
+
+    private int countVowels(String word) {
+        int count = 0;
+        for (char ch : word.toCharArray()) {
+            if (vowels.contains(ch)) {
+                count++;
+            }
+        }
+        return count;
     }
 }
