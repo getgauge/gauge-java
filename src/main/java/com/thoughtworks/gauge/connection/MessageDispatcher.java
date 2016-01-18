@@ -71,8 +71,7 @@ public class MessageDispatcher {
                     IMessageProcessor messageProcessor = messageProcessors.get(message.getMessageType());
                     Messages.Message response = messageProcessor.process(message);
                     writeMessage(gaugeSocket, response);
-                    if (message.getMessageType() == Messages.Message.MessageType.ExecutionEnding
-                            || message.getMessageType() == Messages.Message.MessageType.KillProcessRequest) {
+                    if (message.getMessageType() == Messages.Message.MessageType.KillProcessRequest) {
                         gaugeSocket.close();
                         break;
                     }
