@@ -29,9 +29,6 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
-	"time"
-
-	"github.com/getgauge/common"
 )
 
 const (
@@ -280,22 +277,12 @@ func getFilesByExt(dir string, ext string) []string {
 	return files
 }
 
-var buildMetadata string
-
 func getGaugeJavaVersion() string {
 	javaRunnerProperties, err := getPluginProperties("java.json")
 	if err != nil {
 		panic(fmt.Sprintf("Failed to get gauge java properties file. %s", err))
 	}
 	return javaRunnerProperties["version"].(string)
-}
-
-func getGaugeJavaVersionWithBuildInfo() string {
-	metadata := getGaugeJavaVersion()
-	if buildMetadata != "" {
-		metadata += fmt.Sprintf(".%s", buildMetadata)
-	}
-	return metadata
 }
 
 func getBinDir() string {
@@ -332,7 +319,6 @@ func setEnv(envVariables map[string]string) {
 }
 
 var install = flag.Bool("install", false, "Install to the specified prefix")
-var nightly = flag.Bool("nightly", false, "Adds nightly build information")
 var pluginInstallPrefix = flag.String("plugin-prefix", "", "Specifies the prefix where gauge plugins will be installed")
 var distro = flag.Bool("distro", false, "Creates distributables for gauge java")
 var test = flag.Bool("test", false, "Runs tests")
@@ -368,9 +354,7 @@ func main() {
 	createGoPathForBuild()
 	copyGaugeJavaFilesToGoPath()
 	flag.Parse()
-	if *nightly {
-		buildMetadata = fmt.Sprintf("nightly-%s", time.Now().Format(common.NightlyDatelayout))
-	}
+
 	if *install {
 		updatePluginInstallPrefix()
 		installGaugeJava(*pluginInstallPrefix)
@@ -412,7 +396,7 @@ func createGaugeDistro(forAllPlatforms bool) {
 }
 
 func createDistro() {
-	packageName := fmt.Sprintf("%s-%s-%s.%s", gaugeJava, getGaugeJavaVersionWithBuildInfo(), getGOOS(), getArch())
+	packageName := fmt.Sprintf("%s-%s-%s.%s", gaugeJava, getGaugeJavaVersion(), getGOOS(), getArch())
 	distroDir := filepath.Join(deploy, packageName)
 	copyGaugeJavaFiles(distroDir)
 	createZipFromUtil(deploy, packageName)
@@ -498,7 +482,7 @@ func buildGaugeJavaJar() {
 func installGaugeJava(installPrefix string) {
 	os.RemoveAll(deployDir)
 	copyGaugeJavaFiles(deployDir)
-	javaRunnerInstallPath := filepath.Join(installPrefix, "java", getGaugeJavaVersionWithBuildInfo())
+	javaRunnerInstallPath := filepath.Join(installPrefix, "java", getGaugeJavaVersion())
 	log.Printf("Copying %s -> %s\n", deployDir, javaRunnerInstallPath)
 	mirrorDir(deployDir, javaRunnerInstallPath)
 }
