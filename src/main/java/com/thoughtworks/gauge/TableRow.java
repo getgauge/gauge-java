@@ -15,13 +15,13 @@
 
 package com.thoughtworks.gauge;
 
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * Represents a Row of Data in a Table.
  */
 public class TableRow{
-    private HashMap<String, String> cells = new HashMap<String, String>();
+    private LinkedHashMap<String, String> cells = new LinkedHashMap<String, String>();
 
     /**
      * Get the value of cell corresponding to a column name.
@@ -57,5 +57,33 @@ public class TableRow{
         return "TableRow{" +
                 "cells=" + cells +
                 '}';
+    }
+
+    /**
+     * The method converts our table row to an array list.
+     * @return an array list containing the String cell values.
+     */
+    public List<String> getCellValues() {
+        //The LinkedHaspMap inherits the values() method, which returns a Collection view of
+        //    the values contained in the LinkedHaspMap
+        Collection<String> values = cells.values();
+
+        return new ArrayList<String>(values);
+    }
+
+    /**
+     * This method returns a list of cell objects that contain a value with its associated
+     * column name.
+     * @return listOfCells  a list containing our cell objects.
+     */
+    public List<TableCell> getTableCells() {
+        List<TableCell> listOfCells = new ArrayList<TableCell>();
+
+        for (Map.Entry<String, String> mapEntry : cells.entrySet()) {
+            TableCell cell = new TableCell(mapEntry.getValue(), mapEntry.getKey());
+            listOfCells.add(cell);
+        }
+
+        return listOfCells;
     }
 }
