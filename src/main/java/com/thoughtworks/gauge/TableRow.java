@@ -60,27 +60,24 @@ public class TableRow{
     }
 
     /**
-     * The method converts our table row to an array list.
-     * @return an array list containing the String cell values.
+     * Returns a list containing the values of each cell in the table row.
+     * @return a list of the values of each cell in the table row.
      */
     public List<String> getCellValues() {
-        //The LinkedHaspMap inherits the values() method, which returns a Collection view of
-        //    the values contained in the LinkedHaspMap
-        Collection<String> values = cells.values();
-
-        return new ArrayList<String>(values);
+        //Since we have a LinkedHashMap, the order of values() is guaranteed.
+        return new ArrayList<String>(cells.values());
     }
 
     /**
-     * This method returns a list of cell objects that contain a value with its associated
-     * column name.
-     * @return listOfCells  a list containing our cell objects.
+     * Returns a list of TableCells representing each cell in the table row.
+     * @return a list of TableCells.
      */
     public List<TableCell> getTableCells() {
         List<TableCell> listOfCells = new ArrayList<TableCell>();
 
+        //Since we have a LinkedHashMap, the order of entrySet() is guaranteed.
         for (Map.Entry<String, String> mapEntry : cells.entrySet()) {
-            TableCell cell = new TableCell(mapEntry.getValue(), mapEntry.getKey());
+            TableCell cell = new TableCell(mapEntry.getKey(), mapEntry.getValue());
             listOfCells.add(cell);
         }
 

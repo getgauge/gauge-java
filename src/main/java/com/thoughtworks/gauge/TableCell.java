@@ -2,15 +2,15 @@ package com.thoughtworks.gauge;
 
 /**
  * This class represents a single table cell object containing
- * the cell's value and it's associated column name.
+ * the cell's column name and its associated value.
  */
 public class TableCell {
-    private String value;
     private String columnName;
+    private String value;
 
-    public TableCell(String cellValue, String columnName) {
-        value = cellValue;
+    public TableCell(String columnName, String value) {
         this.columnName = columnName;
+        this.value = value;
     }
 
     public String getColumnName() {
@@ -24,8 +24,9 @@ public class TableCell {
     @Override
     public String toString() {
         return "TableCell{" +
-                "value=" + value + ", " +
                 "columnName=" + columnName +
+                ", " +
+                "value=" + value +
                 '}';
     }
 }
