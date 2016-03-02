@@ -24,7 +24,7 @@ public class TableCell {
     @Override
     public String toString() {
         return "TableCell{" +
-                "value=" + value +
+                "value=" + value + ", " +
                 "columnName=" + columnName +
                 '}';
     }
