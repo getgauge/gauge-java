@@ -203,7 +203,7 @@ func executeCommand(command string, arg ...string) (string, error) {
 func compileGoPackage(packageName string) {
 	setGoEnv()
 	runProcess("go", BUILD_DIR, "get", "-d", "-u", commonDep)
-	runProcess("go", BUILD_DIR, "build", "-v", packageName)
+	runProcess("go", BUILD_DIR, "install", "-v", packageName)
 }
 
 func copyBinaries() {
