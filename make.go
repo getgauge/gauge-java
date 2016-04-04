@@ -171,6 +171,7 @@ func setGoEnv() {
 		panic(err)
 	}
 	set("GOPATH", absBuildDir)
+	set("GOBIN", filepath.Join(absBuildDir, bin))
 }
 
 func set(envName, envValue string) {
