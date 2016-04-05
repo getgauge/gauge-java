@@ -73,7 +73,10 @@ public class MessageDispatcher {
                     writeMessage(gaugeSocket, response);
                     if (message.getMessageType() == Messages.Message.MessageType.KillProcessRequest) {
                         gaugeSocket.close();
-                        break;
+                        System.out.close();
+                        System.err.close();
+                        System.in.close();
+                        System.exit(0);
                     }
                 }
             } catch (Throwable throwable) {
