@@ -91,7 +91,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
             }
             methodDeclaration.setParameters(newParameters);
             annotation.setMemberValue(memberValue);
-            this.javaElement = new JavaRefactoringElement(StringEscapeUtils.unescapeJava(getJavaFileText(methodDeclaration)), null);
+            this.javaElement = new JavaRefactoringElement(getJavaFileText(methodDeclaration), null);
             this.refactored = true;
         }
     }

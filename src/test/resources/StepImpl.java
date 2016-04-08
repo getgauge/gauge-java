@@ -42,4 +42,10 @@ public class StepImpl {
          */
         System.out.println("");
     }
+
+    @Step("A step with newLine")
+    public void someStepStep() {
+        System.out.println("\n");
+    }
+
 }
