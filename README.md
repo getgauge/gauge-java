@@ -1,7 +1,7 @@
 Gauge-java
 ==========
 
-This is the java [language plugin](http://getgauge.io/documentation/user/current/plugins/index.html) for [gauge](http://getgauge.io).
+This is the java [language plugin](http://getgauge.io/documentation/user/current/test_code/java/java.html) for [gauge](http://getgauge.io).
 
  [ ![Download Nightly](https://api.bintray.com/packages/gauge/gauge-java/Nightly/images/download.svg) ](https://bintray.com/gauge/gauge-java/Nightly/_latestVersion)
 
