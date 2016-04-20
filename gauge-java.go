@@ -396,7 +396,10 @@ func build(destination string, classpath string) {
 
 	// Writing all java src file names to a file and using it as a @filename parameter to javac. Eg: javac -cp jar1:jar2 @sources.txt
 	// This needs to be done because if the number of java files is too high the command length will be more than that permitted by the os.
-	sourcesFile := filepath.Join(common.GetTempDir(), uniqueFileName())
+	tempDir := common.GetTempDir()
+	defer os.RemoveAll(tempDir)
+
+	sourcesFile := filepath.Join(tempDir, uniqueFileName())
 	if err := writeLines(javaFiles, sourcesFile); err != nil {
 		panic("Unable to write file: " + err.Error())
 	}
@@ -407,7 +410,6 @@ func build(destination string, classpath string) {
 	//fmt.Println(fmt.Sprintf("Building files in %s directory to %s", "src", destination))
 	runCommand(javac, args)
 	copyResources(resourceFiles, destination)
-	defer os.Remove(sourcesFile)
 }
 
 func uniqueFileName() string {
