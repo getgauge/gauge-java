@@ -28,6 +28,7 @@ import (
 	"runtime"
 	"strings"
 	"syscall"
+	"time"
 )
 
 const (
@@ -47,6 +48,7 @@ const (
 	java                      = "java"
 	javaExt                   = ".java"
 	defaultSrcDir             = "src"
+	windows                   = "windows"
 )
 
 var pluginDir = ""
@@ -85,6 +87,7 @@ func startJava() {
 	args := createCommandArgs(cp)
 	cmd := runCommandAsync(javaPath, args)
 	listenForKillSignal(cmd)
+	go killIfGaugeIsDead(cmd) // Kills gauge-java.go process if gauge process i.e. parent process is already dead.
 
 	err := cmd.Wait()
 	if err != nil {
@@ -100,6 +103,39 @@ func listenForKillSignal(cmd *exec.Cmd) {
 		<-sigc
 		cmd.Process.Kill()
 	}()
+}
+
+func killIfGaugeIsDead(cmd *exec.Cmd) {
+	parentProcessID := os.Getppid()
+	for {
+		if !isProcessRunning(parentProcessID) {
+			// fmt.Printf("Parent Gauge process with pid %d has terminated.", parentProcessID)
+			cmd.Process.Kill()
+			os.Exit(0)
+		}
+		time.Sleep(1 * time.Second)
+	}
+}
+
+func isProcessRunning(pid int) bool {
+	process, err := os.FindProcess(pid)
+	if err != nil {
+		return false
+	}
+
+	if runtime.GOOS != windows {
+		return process.Signal(syscall.Signal(0)) == nil
+	}
+
+	processState, err := process.Wait()
+	if err != nil {
+		return false
+	}
+	if processState.Exited() {
+		return false
+	}
+
+	return true
 }
 
 func createCommandArgs(cp string) []string {
@@ -124,7 +160,7 @@ func encoding() string {
 }
 
 func execName(name string) string {
-	if runtime.GOOS == "windows" {
+	if runtime.GOOS == windows {
 		return fmt.Sprintf("%s.exe", name)
 	}
 	return name
