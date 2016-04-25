@@ -162,7 +162,7 @@ func createGoPathForBuild() {
 //Copy gauge java files to GOPATH
 func copyGaugeJavaFilesToGoPath() {
 	for _, f := range gaugeJavaFiles {
-		mirrorFile(f, path.Join(BUILD_DIR_SRC, gaugeJava, f))
+		mirrorFile(f, filepath.Join(BUILD_DIR_SRC, gaugeJava, f))
 	}
 }
 
@@ -289,11 +289,11 @@ func getBinDir() string {
 	if *binDir == "" {
 		return filepath.Join(bin, fmt.Sprintf("%s_%s", getGOOS(), getGOARCH()))
 	}
-	return path.Join(bin, *binDir)
+	return filepath.Join(bin, *binDir)
 }
 
 func moveOSBinaryToCurrentOSArchDirectory(targetName string) {
-	destDir := path.Join(bin, fmt.Sprintf("%s_%s", runtime.GOOS, runtime.GOARCH))
+	destDir := filepath.Join(bin, fmt.Sprintf("%s_%s", runtime.GOOS, runtime.GOARCH))
 	moveBinaryToDirectory(path.Base(targetName), destDir)
 }
 
@@ -301,8 +301,8 @@ func moveBinaryToDirectory(target, destDir string) error {
 	if runtime.GOOS == "windows" {
 		target = target + ".exe"
 	}
-	srcFile := path.Join(bin, target)
-	destFile := path.Join(destDir, target)
+	srcFile := filepath.Join(bin, target)
+	destFile := filepath.Join(destDir, target)
 	if err := os.MkdirAll(destDir, newDirPermissions); err != nil {
 		return err
 	}
