@@ -336,10 +336,7 @@ var (
 		map[string]string{GOARCH: X86, GOOS: WINDOWS, CGO_ENABLED: "0"},
 		map[string]string{GOARCH: X86_64, GOOS: WINDOWS, CGO_ENABLED: "0"},
 	}
-	osDistroMap = map[string]distroFunc{WINDOWS: createWindowsDistro, LINUX: createUnixDistro, DARWIN: createUnixDistro}
 )
-
-type distroFunc func()
 
 func getPluginProperties(jsonPropertiesFile string) (map[string]interface{}, error) {
 	pluginPropertiesJson, err := ioutil.ReadFile(jsonPropertiesFile)
@@ -401,23 +398,11 @@ func createGaugeDistro(forAllPlatforms bool) {
 }
 
 func createDistro() {
-	osDistroMap[getGOOS()]()
-}
-
-func createWindowsDistro() {
 	packageName := fmt.Sprintf("%s-%s-%s.%s", gaugeJava, getGaugeJavaVersion(), getGOOS(), getArch())
 	distroDir := filepath.Join(deploy, packageName)
 	copyGaugeJavaFiles(distroDir)
 	signExecutable(filepath.Join(distroDir, bin, gaugeJavaExe), *certFile, *certFilePwd)
-	createZip(deploy, packageName)
-	os.RemoveAll(distroDir)
-}
-
-func createUnixDistro() {
-	packageName := fmt.Sprintf("%s-%s-%s.%s", gaugeJava, getGaugeJavaVersion(), getGOOS(), getArch())
-	distroDir := filepath.Join(deploy, packageName)
-	copyGaugeJavaFiles(distroDir)
-	createZip(deploy, packageName)
+	createZipFromUtil(deploy, packageName)
 	os.RemoveAll(distroDir)
 }
 
@@ -441,6 +426,13 @@ func runCommand(command string, arg ...string) {
 	if err != nil {
 		panic(err)
 	}
+}
+
+func createZipFromUtil(dir, name string) {
+	wd, _ := os.Getwd()
+	os.Chdir(filepath.Join(dir, name))
+	runCommand("zip", "-r", filepath.Join("..", name+".zip"), ".")
+	os.Chdir(wd)
 }
 
 func createZip(dir, packageName string) {
