@@ -54,7 +54,6 @@ const (
 	commonDep         = "github.com/getgauge/common"
 	targetDir         = "target"
 	jarExt            = ".jar"
-	gaugeJavaExe      = "gauge-java.exe"
 )
 
 var BUILD_DIR_BIN = filepath.Join(BUILD_DIR, bin)
@@ -248,7 +247,7 @@ func copyFiles(files map[string]string, installDir string) {
 func copyGaugeJavaFiles(destDir string) {
 	files := make(map[string]string)
 	if getGOOS() == "windows" {
-		files[filepath.Join(getBinDir(), gaugeJavaExe)] = bin
+		files[filepath.Join(getBinDir(), "gauge-java.exe")] = bin
 	} else {
 		files[filepath.Join(getBinDir(), gaugeJava)] = bin
 	}
@@ -324,8 +323,6 @@ var distro = flag.Bool("distro", false, "Creates distributables for gauge java")
 var test = flag.Bool("test", false, "Runs tests")
 var allPlatforms = flag.Bool("all-platforms", false, "Compiles or creates distributables for all platforms windows, linux, darwin both x86 and x86_64")
 var binDir = flag.String("bin-dir", "", "Specifies OS_PLATFORM specific binaries to install when cross compiling")
-var certFile = flag.String("certFile", "", "Should be passed for signing the windows installer along with the password (certFilePwd)")
-var certFilePwd = flag.String("certFilePwd", "", "Password for certificate that will be used to sign the windows installer")
 
 var (
 	platformEnvs = []map[string]string{
@@ -401,20 +398,8 @@ func createDistro() {
 	packageName := fmt.Sprintf("%s-%s-%s.%s", gaugeJava, getGaugeJavaVersion(), getGOOS(), getArch())
 	distroDir := filepath.Join(deploy, packageName)
 	copyGaugeJavaFiles(distroDir)
-	signExecutable(filepath.Join(distroDir, bin, gaugeJavaExe), *certFile, *certFilePwd)
 	createZipFromUtil(deploy, packageName)
 	os.RemoveAll(distroDir)
-}
-
-func signExecutable(exeFilePath string, certFilePath string, certFilePwd string) {
-	if runtime.GOOS == "windows" {
-		if certFilePath != "" && certFilePwd != "" {
-			log.Printf("Signing: %s", exeFilePath)
-			runCommand("signtool", "sign", "/f", certFilePath, "/p", certFilePwd, exeFilePath)
-		} else {
-			log.Printf("No certificate file passed. Executable won't be signed.")
-		}
-	}
 }
 
 func runCommand(command string, arg ...string) {
