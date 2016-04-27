@@ -23,7 +23,6 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
-	"path"
 	"path/filepath"
 	"runtime"
 	"strings"
@@ -113,7 +112,7 @@ func killIfGaugeIsDead(cmd *exec.Cmd) {
 			cmd.Process.Kill()
 			os.Exit(0)
 		}
-		time.Sleep(1 * time.Second)
+		time.Sleep(100 * time.Millisecond)
 	}
 }
 
@@ -219,7 +218,7 @@ func showMessage(action, filename string) {
 }
 
 func createSrcDirectory() {
-	createDirectory(path.Join(defaultSrcDir, "test", java))
+	createDirectory(filepath.Join(defaultSrcDir, "test", java))
 }
 
 func createLibsDirectory() {
@@ -239,13 +238,13 @@ func createDirectory(filePath string) {
 }
 
 func createStepImplementationClass() {
-	javaSrc := path.Join(defaultSrcDir, "test", java)
-	destFile := path.Join(javaSrc, step_implementation_class)
+	javaSrc := filepath.Join(defaultSrcDir, "test", java)
+	destFile := filepath.Join(javaSrc, step_implementation_class)
 	showMessage("create", destFile)
 	if common.FileExists(destFile) {
 		showMessage("skip", destFile)
 	} else {
-		srcFile := path.Join(pluginDir, skelDir, step_implementation_class)
+		srcFile := filepath.Join(pluginDir, skelDir, step_implementation_class)
 		if !common.FileExists(srcFile) {
 			showMessage("error", fmt.Sprintf("%s Does not exist.\n", step_implementation_class))
 			return
@@ -258,12 +257,12 @@ func createStepImplementationClass() {
 }
 
 func createJavaPropertiesFile() {
-	destFile := path.Join(envDir, "default", "java.properties")
+	destFile := filepath.Join(envDir, "default", "java.properties")
 	showMessage("create", destFile)
 	if common.FileExists(destFile) {
 		showMessage("skip", destFile)
 	} else {
-		srcFile := path.Join(pluginDir, skelDir, envDir, "java.properties")
+		srcFile := filepath.Join(pluginDir, skelDir, envDir, "java.properties")
 		if !common.FileExists(srcFile) {
 			showMessage("error", fmt.Sprintf("java.properties does not exist at %s. \n", srcFile))
 			return
@@ -310,8 +309,8 @@ func customClasspath() string {
 
 func createClasspath() string {
 	cp := ""
-	appendClasspath(&cp, path.Join(pluginDir, "*"))
-	appendClasspath(&cp, path.Join(pluginDir, "libs", "*"))
+	appendClasspath(&cp, filepath.Join(pluginDir, "*"))
+	appendClasspath(&cp, filepath.Join(pluginDir, "libs", "*"))
 
 	additionalLibs := getClassPathForVariable(additional_libs_env_name)
 	appendClasspath(&cp, additionalLibs)
@@ -367,10 +366,10 @@ func build(destination string, classpath string) {
 	if len(value) > 0 {
 		paths := splitByComma(value)
 		for _, src := range paths {
-			srcDirs = append(srcDirs, path.Join(src))
+			srcDirs = append(srcDirs, src)
 		}
 	}
-	srcDirs = append(srcDirs, path.Join(defaultSrcDir))
+	srcDirs = append(srcDirs, defaultSrcDir)
 
 	for _, srcDirItem := range srcDirs {
 		filepath.Walk(srcDirItem, func(currentPath string, info os.FileInfo, err error) error {
