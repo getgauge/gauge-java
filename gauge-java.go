@@ -109,7 +109,10 @@ func killIfGaugeIsDead(cmd *exec.Cmd) {
 	for {
 		if !isProcessRunning(parentProcessID) {
 			// fmt.Printf("Parent Gauge process with pid %d has terminated.", parentProcessID)
-			cmd.Process.Kill()
+			err := cmd.Process.Kill()
+			if err != nil {
+				fmt.Printf("Failed to kill process with pid %d. %s\n", cmd.Process.Pid, err.Error())
+			}
 			os.Exit(0)
 		}
 		time.Sleep(100 * time.Millisecond)
