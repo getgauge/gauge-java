@@ -4,7 +4,7 @@
     <name>gauge-java</name>
     <groupId>com.thoughtworks.gauge</groupId>
     <artifactId>gauge-java</artifactId>
-    <version>0.4.1</version>
+    <version>${projectVersion}</version>
     <description>Java plugin for Gauge</description>
     <url>http://github.com/getgauge/gauge-java</url>
 
@@ -215,5 +215,27 @@
         <developerConnection>scm:git:git@github.com:getgauge/gauge-java.git</developerConnection>
         <url>git@github.com:getgauge/gauge-java.git</url>
     </scm>
+
+    <properties>
+        <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <projectVersion>0.4.1</projectVersion>
+            </properties>
+        </profile>
+        <profile>
+            <id>nightly</id>
+            <properties>
+                <projectVersion>0.4.1.nightly-${maven.build.timestamp}</projectVersion>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
