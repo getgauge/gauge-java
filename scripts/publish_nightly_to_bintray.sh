@@ -34,6 +34,7 @@ function setVersion () {
 }
 
 function bintrayUpload () {
+    $(mv pom.xml gauge-java-$VERSION.pom)
     for i in `ls`; do
         URL="https://api.bintray.com/content/gauge/$PACKAGE/$BINTRAY_PACKAGE/$VERSION/com/thoughtworks/gauge/gauge-java/$VERSION/$i?publish=1&override=1"
 
