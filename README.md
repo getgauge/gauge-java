@@ -4,6 +4,7 @@ Gauge-java
 This is the java [language plugin](http://getgauge.io/documentation/user/current/test_code/java/java.html) for [gauge](http://getgauge.io).
 
  [ ![Download Nightly](https://api.bintray.com/packages/gauge/gauge-java/Nightly/images/download.svg) ](https://bintray.com/gauge/gauge-java/Nightly/_latestVersion)
+ [ ![Download Maven Nightly](https://api.bintray.com/packages/gauge/maven-gauge-java/Nightly/images/download.svg) ](https://bintray.com/gauge/maven-gauge-java/Nightly/_latestVersion)
 
 It contains a launcher component (gauge-java.go) written in golang which is used to start the plugin from gauge.
 
