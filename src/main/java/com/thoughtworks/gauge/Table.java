@@ -92,4 +92,11 @@ public class Table {
         }
         return columnValues;
     }
+    
+    @Override
+    public String toString(){
+        return "Table{" +
+                        tableRows.toString() +
+                        '}';
+    }
 }

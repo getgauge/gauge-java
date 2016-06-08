@@ -1,13 +1,13 @@
 package com.thoughtworks.gauge;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TableTest {
 
@@ -69,5 +69,10 @@ public class TableTest {
         assertEquals("bar2",cellValue);
         cellValue = table.getTableRows().get(0).getCell("invalid");
         assertEquals("", cellValue);
+    }
+    
+    @Test
+    public void testToString(){
+        assertEquals("Table{[TableRow{cells={col1=foo1, col2=bar1}}, TableRow{cells={col1=foo2, col2=bar2}}]}",table.toString());
     }
 }
