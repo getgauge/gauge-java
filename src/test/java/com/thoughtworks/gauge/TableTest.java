@@ -4,10 +4,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.google.common.base.Joiner;
 
 public class TableTest {
 
@@ -73,6 +76,9 @@ public class TableTest {
     
     @Test
     public void testToString(){
-        assertEquals("Table{[TableRow{cells={col1=foo1, col2=bar1}}, TableRow{cells={col1=foo2, col2=bar2}}]}",table.toString());
+        List<String> expectedLines = Arrays.asList("| col1 | col2 |","| ---- | ---- |", "| foo1 | bar1 |","| foo2 | bar2 |");
+        String expected = Joiner.on(System.getProperty("line.separator")).join(expectedLines);
+        
+        assertEquals(expected,table.toString());
     }
 }
