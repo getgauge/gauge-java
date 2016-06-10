@@ -32,6 +32,7 @@ import java.lang.annotation.Target;
  * </p>
  */
 @Target(ElementType.METHOD)
+@Deprecated
 @Retention(RetentionPolicy.RUNTIME)
 public @interface BeforeClassSteps {
 
