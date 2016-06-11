@@ -81,4 +81,9 @@ public class TableTest {
         
         assertEquals(expected,table.toString());
     }
+    
+    @Test
+    public void testToStringWithEmptyHeaderAndRow(){
+        assertEquals("",new Table(new ArrayList<String>()).toString());
+    }
 }

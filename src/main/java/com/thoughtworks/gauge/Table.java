@@ -20,6 +20,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
@@ -103,6 +105,15 @@ public class Table {
     @Override
     public String toString(){
         int maxStringLength=getMaxStringLength();
+        if(maxStringLength>=0){
+            return formatAsMarkdownTable(maxStringLength);
+        }
+        return StringUtils.EMPTY;
+    }
+
+    private String formatAsMarkdownTable(
+        int maxStringLength) {
+
         List<String> formattedHeaderAndRows = new ArrayList<String>();
         addHeader(maxStringLength, formattedHeaderAndRows);
         addDashes(maxStringLength, formattedHeaderAndRows);
@@ -114,7 +125,7 @@ public class Table {
         int maxStringLength,
         List<String> formattedHeaderAndRows) {
 
-        String dashesString = Joiner.on("").join(Collections.nCopies(maxStringLength, "-"));
+        String dashesString = Joiner.on(StringUtils.EMPTY).join(Collections.nCopies(maxStringLength, "-"));
         List<String> dashes = Collections.nCopies(headers.size(), dashesString);
         String formattedDashes = formattedRow(dashes, maxStringLength);
         formattedHeaderAndRows.add(formattedDashes);
@@ -169,6 +180,10 @@ public class Table {
     }
     
     private int getMaxStringSize(List<String> candidates){
+        if(candidates==null || candidates.isEmpty())
+        {
+            return -1;
+        }
         return Collections.max(candidates, maxStringLength()).length();
     }
 
