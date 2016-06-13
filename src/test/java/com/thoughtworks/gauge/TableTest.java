@@ -76,7 +76,7 @@ public class TableTest {
     
     @Test
     public void testToString(){
-        List<String> expectedLines = Arrays.asList("| col1 | col2 |","| ---- | ---- |", "| foo1 | bar1 |","| foo2 | bar2 |");
+        List<String> expectedLines = Arrays.asList("|col1|col2|","|----|----|", "|foo1|bar1|","|foo2|bar2|");
         String expected = Joiner.on(System.getProperty("line.separator")).join(expectedLines);
         
         assertEquals(expected,table.toString());
