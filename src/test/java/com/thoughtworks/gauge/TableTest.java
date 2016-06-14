@@ -1,13 +1,16 @@
 package com.thoughtworks.gauge;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import com.google.common.base.Joiner;
 
 public class TableTest {
 
@@ -69,5 +72,18 @@ public class TableTest {
         assertEquals("bar2",cellValue);
         cellValue = table.getTableRows().get(0).getCell("invalid");
         assertEquals("", cellValue);
+    }
+    
+    @Test
+    public void testToString(){
+        List<String> expectedLines = Arrays.asList("|col1|col2|","|----|----|", "|foo1|bar1|","|foo2|bar2|");
+        String expected = Joiner.on(System.getProperty("line.separator")).join(expectedLines);
+        
+        assertEquals(expected,table.toString());
+    }
+    
+    @Test
+    public void testToStringWithEmptyHeaderAndRow(){
+        assertEquals("",new Table(new ArrayList<String>()).toString());
     }
 }

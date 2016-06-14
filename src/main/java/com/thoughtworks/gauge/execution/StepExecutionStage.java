@@ -16,21 +16,24 @@
 package com.thoughtworks.gauge.execution;
 
 
-import com.thoughtworks.gauge.Table;
-import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
+import gauge.messages.Spec.Parameter;
+import gauge.messages.Spec.Parameter.ParameterType;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.thoughtworks.gauge.registry.StepRegistry;
+
 
 public class StepExecutionStage extends AbstractExecutionStage {
     private ExecutionStage next;
     private Messages.ExecuteStepRequest executeStepRequest;
     private Map<Class<?>, StringToPrimitiveConverter> primitiveConverters = new HashMap<Class<?>, StringToPrimitiveConverter>();
+    private TableConverter tableConverter;
 
     public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest) {
         primitiveConverters.put(int.class, new StringToIntegerConverter());
@@ -43,7 +46,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
         primitiveConverters.put(Float.class, new StringToFloatConverter());
         primitiveConverters.put(double.class, new StringToDoubleConverter());
         primitiveConverters.put(Double.class, new StringToDoubleConverter());
-        primitiveConverters.put(Table.class, new TableConverter());
+        tableConverter=new TableConverter();
         this.executeStepRequest = executeStepRequest;
     }
 
@@ -85,16 +88,26 @@ public class StepExecutionStage extends AbstractExecutionStage {
             Class<?>[] parameterTypes = method.getParameterTypes();
             for (int i = 0; i < parameterTypes.length; i++) {
                 Class<?> parameterType = parameterTypes[i];
-                if (primitiveConverters.containsKey(parameterType)) {
-                    parameters[i] = primitiveConverters.get(parameterType).convert(args.get(i));
+                Parameter parameter = args.get(i);
+                if(isTable(parameter)){
+                    parameters[i] = this.tableConverter.convert(parameter);
+                }
+                else if (primitiveConverters.containsKey(parameterType)) {
+                    parameters[i] = primitiveConverters.get(parameterType).convert(parameter);
                 } else {
-                    parameters[i] = args.get(i).getValue();
+                    parameters[i] = parameter.getValue();
                 }
             }
             return methodExecutor.execute(method, parameters);
         } else {
             return methodExecutor.execute(method);
         }
+    }
+
+    private boolean isTable(
+        Spec.Parameter parameter) {
+
+        return parameter.getParameterType().equals(ParameterType.Special_Table) || parameter.getParameterType().equals(ParameterType.Table);
     }
 
     protected ExecutionStage next() {

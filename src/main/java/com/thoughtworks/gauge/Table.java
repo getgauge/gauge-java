@@ -16,12 +16,25 @@
 package com.thoughtworks.gauge;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+
+import com.google.common.base.Function;
+import com.google.common.base.Joiner;
+import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 
 /**
  * Custom Table structure used as parameter in steps
  */
 public class Table {
+    private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+    private static final String DASH = "-";
+    private static final String PIPE = "|";
+    private static final char SPACE_AS_CHAR = " ".charAt(0);
     private final List<String> headers;
     private final List<List<String>> rows;
     private final List<TableRow> tableRows;
@@ -91,5 +104,107 @@ public class Table {
             }
         }
         return columnValues;
+    }
+    
+    @Override
+    public String toString(){
+        int maxStringLength=getMaxStringLength();
+        if(maxStringLength>=0){
+            return formatAsMarkdownTable(maxStringLength);
+        }
+        return StringUtils.EMPTY;
+    }
+
+    private String formatAsMarkdownTable(
+        int maxStringLength) {
+
+        List<String> formattedHeaderAndRows = new ArrayList<String>();
+        addHeader(maxStringLength, formattedHeaderAndRows);
+        addDashes(maxStringLength, formattedHeaderAndRows);
+        addValues(maxStringLength, formattedHeaderAndRows);
+        return Joiner.on(LINE_SEPARATOR).join(formattedHeaderAndRows);
+    }
+
+    private void addDashes(
+        int maxStringLength,
+        List<String> formattedHeaderAndRows) {
+
+        String dashesString = Joiner.on(StringUtils.EMPTY).join(Collections.nCopies(maxStringLength, DASH));
+        List<String> dashes = Collections.nCopies(headers.size(), dashesString);
+        String formattedDashes = formattedRow(dashes, maxStringLength);
+        formattedHeaderAndRows.add(formattedDashes);
+    }
+
+    private void addHeader(
+        int maxStringLength,
+        List<String> formattedHeaderAndRows) {
+
+        String formattedHeaders = formattedRow(headers, maxStringLength);
+        formattedHeaderAndRows.add(formattedHeaders);
+    }
+
+    private void addValues(
+        int maxStringLength,
+        List<String> formattedHeaderAndRows) {
+
+        for(TableRow tableRow:tableRows){
+            formattedHeaderAndRows.add(formattedRow(tableRow.getCellValues(), maxStringLength));
+        }
+    }
+    
+    private String formattedRow(List<String> strings,int maxStringLength){
+        List<String> formattedStrings = Lists.transform(strings, format(maxStringLength));
+        return PIPE+Joiner.on(PIPE).join(formattedStrings)+PIPE;
+    }
+
+    private Function<String, String> format(
+        final int maxStringLength) {
+
+        
+        return new Function<String, String>() {
+
+            @Override
+            public String apply(
+                String input) {
+
+                
+                return Strings.padEnd(input, maxStringLength, SPACE_AS_CHAR);
+            }
+        };
+    }
+
+    private Integer getMaxStringLength() {
+
+        List<Integer> maxs = new ArrayList<Integer>();
+        maxs.add(getMaxStringSize(headers));
+        for(TableRow tableRow:tableRows){
+            maxs.add(getMaxStringSize(tableRow.getCellValues()));
+        }
+        return Collections.max(maxs);
+    }
+    
+    private int getMaxStringSize(List<String> candidates){
+        if(candidates==null || candidates.isEmpty())
+        {
+            return -1;
+        }
+        return Collections.max(candidates, maxStringLength()).length();
+    }
+
+    private Comparator<String> maxStringLength() {
+
+        return new Comparator<String>() {
+
+            @Override
+            public int compare(
+                String o1,
+                String o2) {
+                if(o1.length()<o2.length())
+                {
+                    return -1;
+                }
+                return 1;
+            }
+        };
     }
 }

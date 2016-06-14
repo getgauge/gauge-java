@@ -15,15 +15,19 @@
 
 package com.thoughtworks.gauge.execution;
 
-import gauge.messages.Messages;
-import gauge.messages.Spec;
-import junit.framework.TestCase;
-
-import java.lang.reflect.Method;
-
+import static org.mockito.Matchers.eq;
+import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
+import gauge.messages.Messages;
+import gauge.messages.Spec;
+
+import java.lang.reflect.Method;
+
+import junit.framework.TestCase;
+
+import com.thoughtworks.gauge.Table;
 
 public class StepExecutionStageTest extends TestCase {
     public void testStepMethodExecutionIsCalledWithoutParameters() throws Exception {
@@ -49,6 +53,18 @@ public class StepExecutionStageTest extends TestCase {
         verify(methodExecutor, times(1)).execute(fooBarMethod, 1, "foo");
 
     }
+    
+    public void testStepMethodExecutionCanBeCalledAsObjectForSpecialTable() throws Exception {
+        Spec.Parameter tableParameter = Spec.Parameter.newBuilder().setValue("table { headers {cells: \"Id\"}rows {cells: \"1\"}}").setName("table").setParameterType(Spec.Parameter.ParameterType.Special_Table).build();
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello {}").setActualStepText("hello <table>").addParameters(tableParameter).build();
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
+        MethodExecutor methodExecutor = mock(MethodExecutor.class);
+        Method tableMethod = this.getClass().getMethod("table", Object.class);
+        executionStage.executeStepMethod(methodExecutor, tableMethod);
+
+        verify(methodExecutor, times(1)).execute(eq(tableMethod), isA(Table.class));
+
+    }
 
 
     public void fooBar() {
@@ -56,6 +72,11 @@ public class StepExecutionStageTest extends TestCase {
     }
 
     public Object fooBar(int i, String hello) {
+        // Test methods checking methodExecutor with params
+        return null;
+    }
+    
+    public Object table(Object table) {
         // Test methods checking methodExecutor with params
         return null;
     }
