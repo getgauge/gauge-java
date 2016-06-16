@@ -22,35 +22,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 interface StringToPrimitiveConverter {
-    Object convert(Spec.Parameter source);
+    Object convert(Spec.Parameter source) throws Exception;
 }
 
-class StringToIntegerConverter implements StringToPrimitiveConverter {
-    public Object convert(Spec.Parameter source) {
+class StringToIntegerConverter implements StringToPrimitiveConverter{
+    public Object convert(Spec.Parameter source) throws Exception {
         return Integer.parseInt(source.getValue());
     }
 }
 
 class StringToBooleanConverter implements StringToPrimitiveConverter {
-    public Object convert(Spec.Parameter source) {
+    public Object convert(Spec.Parameter source) throws Exception {
         return Boolean.parseBoolean(source.getValue());
     }
 }
 
 class StringToDoubleConverter implements StringToPrimitiveConverter {
-    public Object convert(Spec.Parameter source) {
+    public Object convert(Spec.Parameter source) throws Exception {
         return Double.parseDouble(source.getValue());
     }
 }
 
 class StringToLongConverter implements StringToPrimitiveConverter {
-    public Object convert(Spec.Parameter source) {
+    public Object convert(Spec.Parameter source) throws Exception {
         return Long.parseLong(source.getValue());
     }
 }
 
 class StringToFloatConverter implements StringToPrimitiveConverter {
-    public Object convert(Spec.Parameter source) {
+    public Object convert(Spec.Parameter source) throws Exception {
         return Float.parseFloat(source.getValue());
     }
 }

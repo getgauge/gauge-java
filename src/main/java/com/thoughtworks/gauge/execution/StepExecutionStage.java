@@ -16,6 +16,7 @@
 package com.thoughtworks.gauge.execution;
 
 
+import com.google.common.base.Throwables;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 import gauge.messages.Spec.Parameter;
@@ -93,7 +94,17 @@ public class StepExecutionStage extends AbstractExecutionStage {
                     parameters[i] = this.tableConverter.convert(parameter);
                 }
                 else if (primitiveConverters.containsKey(parameterType)) {
-                    parameters[i] = primitiveConverters.get(parameterType).convert(parameter);
+                    try {
+                        parameters[i] = primitiveConverters.get(parameterType).convert(parameter);
+                    } catch (Exception e) {
+                        return Spec.ProtoExecutionResult.newBuilder()
+                                .setFailed(true)
+                                .setExecutionTime(0)
+                                .setStackTrace(Throwables.getStackTraceAsString(e))
+                                .setErrorMessage(String.format("Failed to convert argument from type String to type %s. %s", parameterType.toString(), e.getMessage()))
+                                .build();
+                    }
+
                 } else {
                     parameters[i] = parameter.getValue();
                 }

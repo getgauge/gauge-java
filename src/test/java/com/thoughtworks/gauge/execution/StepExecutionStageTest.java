@@ -66,6 +66,19 @@ public class StepExecutionStageTest extends TestCase {
 
     }
 
+    public void testStepMethodExecutionWithMethodHavingInvalidParamTypeConversion() throws Exception {
+        Spec.Parameter param1 = Spec.Parameter.newBuilder().setValue("a").setName("number").setParameterType(Spec.Parameter.ParameterType.Static).build();
+        Spec.Parameter param2 = Spec.Parameter.newBuilder().setValue("foo").setName("string").setParameterType(Spec.Parameter.ParameterType.Static).build();
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello {} world {}").setActualStepText("hello <a> world <b>").addParameters(param1).addParameters(param2).build();
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
+        MethodExecutor methodExecutor = mock(MethodExecutor.class);
+        Method fooBarMethod = this.getClass().getMethod("fooBar", int.class, String.class);
+        Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooBarMethod);
+
+        verify(methodExecutor, times(0)).execute(fooBarMethod, 1, "foo");
+        assertEquals(result.getErrorMessage(), "Failed to convert argument from type String to type int. For input string: \"a\"");
+    }
+
 
     public void fooBar() {
         // Test methods checking methodExecutor
