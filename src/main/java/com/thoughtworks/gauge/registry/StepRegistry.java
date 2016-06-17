@@ -15,18 +15,38 @@
 
 package com.thoughtworks.gauge.registry;
 
-import com.thoughtworks.gauge.StepValue;
-
 import java.io.File;
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.thoughtworks.gauge.StepValue;
 
 public class StepRegistry {
 
     private static HashMap<String, StepRegistryEntry> registry = new RegistryMap<String, StepRegistryEntry>();
+    private static HashMap<String, List<StepRegistryEntry>> rawRegistry = new ListRegistryMap<String, List<StepRegistryEntry>>();
 
     public static void addStepImplementation(StepValue stepValue, Method method) {
-        registry.put(stepValue.getStepText(), new StepRegistryEntry(stepValue, method));
+        StepRegistryEntry stepRegistryEntry = new StepRegistryEntry(stepValue, method);
+        String stepText = stepValue.getStepText();
+        registry.put(stepText, stepRegistryEntry);
+        addToRawRegistry(stepRegistryEntry, stepText);
+    }
+
+    private static void addToRawRegistry(
+        StepRegistryEntry stepRegistryEntry,
+        String stepText) {
+
+        if(!rawRegistry.containsKey(stepText))
+        {
+            rawRegistry.put(stepText, new ArrayList<StepRegistryEntry>());
+        }
+        rawRegistry.get(stepText).add(stepRegistryEntry);
     }
 
     public static boolean contains(String stepTemplateText) {
@@ -83,8 +103,19 @@ public class StepRegistry {
 
     static void remove(String stepTemplateText) {
         registry.remove(stepTemplateText);
+        rawRegistry.remove(stepTemplateText);
     }
 
+    public static List<Method> getAll(String stepText) {
+        List<Method> methods = new ArrayList<Method>();
+        List<StepRegistryEntry> entries = rawRegistry.get(stepText);
+        for(StepRegistryEntry entry : entries)
+        {
+            methods.add(entry.getMethod());
+        }
+        return methods;
+    }
+    
     private static class StepRegistryEntry {
 
         private final StepValue stepValue;
@@ -115,14 +146,36 @@ public class StepRegistry {
             return method.getDeclaringClass().getCanonicalName().replace(".", File.separator) + ".java";
         }
     }
-
-    private static class RegistryMap<T, T1> extends HashMap {
+    
+    protected static abstract class AbstractRegistryMap<T, T1> extends HashMap {
 
         public Object get(Object o) {
             if (super.get(o) == null) {
-                return new StepRegistryEntry();
+                return newObject();
             }
             return super.get(o);
         }
+        
+        protected abstract Object newObject();
     }
+
+    private static class RegistryMap<T, T1> extends AbstractRegistryMap<T, T1> {
+
+        @Override
+        protected Object newObject() {
+            return new StepRegistryEntry();
+        }
+
+        
+    }
+    
+    private static class ListRegistryMap<T, T1> extends AbstractRegistryMap<T,T1>{
+
+        @Override
+        protected Object newObject() {
+            return new ArrayList<StepRegistryEntry>();
+        }
+        
+    }
+    
 }
