@@ -227,13 +227,13 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <projectVersion>0.4.1</projectVersion>
+                <projectVersion>0.4.2</projectVersion>
             </properties>
         </profile>
         <profile>
             <id>nightly</id>
             <properties>
-                <projectVersion>0.4.1.nightly-${maven.build.timestamp}</projectVersion>
+                <projectVersion>0.4.2.nightly-${maven.build.timestamp}</projectVersion>
             </properties>
         </profile>
     </profiles>
