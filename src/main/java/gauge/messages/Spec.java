@@ -4858,6 +4858,101 @@ public final class Spec {
      */
     com.google.protobuf.ByteString
         getSkipErrorsBytes(int index);
+
+    /**
+     * <code>optional string ID = 11;</code>
+     *
+     * <pre>
+     *&#47; Holds the unique Identifier of a scenario.
+     * </pre>
+     */
+    boolean hasID();
+    /**
+     * <code>optional string ID = 11;</code>
+     *
+     * <pre>
+     *&#47; Holds the unique Identifier of a scenario.
+     * </pre>
+     */
+    java.lang.String getID();
+    /**
+     * <code>optional string ID = 11;</code>
+     *
+     * <pre>
+     *&#47; Holds the unique Identifier of a scenario.
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getIDBytes();
+
+    /**
+     * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+     *
+     * <pre>
+     *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+     * </pre>
+     */
+    java.util.List<gauge.messages.Spec.ProtoItem> 
+        getTearDownStepsList();
+    /**
+     * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+     *
+     * <pre>
+     *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+     * </pre>
+     */
+    gauge.messages.Spec.ProtoItem getTearDownSteps(int index);
+    /**
+     * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+     *
+     * <pre>
+     *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+     * </pre>
+     */
+    int getTearDownStepsCount();
+    /**
+     * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+     *
+     * <pre>
+     *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+     * </pre>
+     */
+    java.util.List<? extends gauge.messages.Spec.ProtoItemOrBuilder> 
+        getTearDownStepsOrBuilderList();
+    /**
+     * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+     *
+     * <pre>
+     *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+     * </pre>
+     */
+    gauge.messages.Spec.ProtoItemOrBuilder getTearDownStepsOrBuilder(
+        int index);
+
+    /**
+     * <code>optional .gauge.messages.Span span = 13;</code>
+     *
+     * <pre>
+     *&#47; Span(start, end) of scenario
+     * </pre>
+     */
+    boolean hasSpan();
+    /**
+     * <code>optional .gauge.messages.Span span = 13;</code>
+     *
+     * <pre>
+     *&#47; Span(start, end) of scenario
+     * </pre>
+     */
+    gauge.messages.Spec.Span getSpan();
+    /**
+     * <code>optional .gauge.messages.Span span = 13;</code>
+     *
+     * <pre>
+     *&#47; Span(start, end) of scenario
+     * </pre>
+     */
+    gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder();
   }
   /**
    * Protobuf type {@code gauge.messages.ProtoScenario}
@@ -4996,6 +5091,33 @@ public final class Spec {
               skipErrors_.add(bs);
               break;
             }
+            case 90: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              iD_ = bs;
+              break;
+            }
+            case 98: {
+              if (!((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+                tearDownSteps_ = new java.util.ArrayList<gauge.messages.Spec.ProtoItem>();
+                mutable_bitField0_ |= 0x00000800;
+              }
+              tearDownSteps_.add(input.readMessage(gauge.messages.Spec.ProtoItem.PARSER, extensionRegistry));
+              break;
+            }
+            case 106: {
+              gauge.messages.Spec.Span.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000080) == 0x00000080)) {
+                subBuilder = span_.toBuilder();
+              }
+              span_ = input.readMessage(gauge.messages.Spec.Span.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(span_);
+                span_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000080;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5015,6 +5137,9 @@ public final class Spec {
         }
         if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
           skipErrors_ = skipErrors_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+          tearDownSteps_ = java.util.Collections.unmodifiableList(tearDownSteps_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -5413,6 +5538,148 @@ public final class Spec {
       return skipErrors_.getByteString(index);
     }
 
+    public static final int ID_FIELD_NUMBER = 11;
+    private java.lang.Object iD_;
+    /**
+     * <code>optional string ID = 11;</code>
+     *
+     * <pre>
+     *&#47; Holds the unique Identifier of a scenario.
+     * </pre>
+     */
+    public boolean hasID() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional string ID = 11;</code>
+     *
+     * <pre>
+     *&#47; Holds the unique Identifier of a scenario.
+     * </pre>
+     */
+    public java.lang.String getID() {
+      java.lang.Object ref = iD_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          iD_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string ID = 11;</code>
+     *
+     * <pre>
+     *&#47; Holds the unique Identifier of a scenario.
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getIDBytes() {
+      java.lang.Object ref = iD_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        iD_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TEARDOWNSTEPS_FIELD_NUMBER = 12;
+    private java.util.List<gauge.messages.Spec.ProtoItem> tearDownSteps_;
+    /**
+     * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+     *
+     * <pre>
+     *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+     * </pre>
+     */
+    public java.util.List<gauge.messages.Spec.ProtoItem> getTearDownStepsList() {
+      return tearDownSteps_;
+    }
+    /**
+     * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+     *
+     * <pre>
+     *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+     * </pre>
+     */
+    public java.util.List<? extends gauge.messages.Spec.ProtoItemOrBuilder> 
+        getTearDownStepsOrBuilderList() {
+      return tearDownSteps_;
+    }
+    /**
+     * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+     *
+     * <pre>
+     *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+     * </pre>
+     */
+    public int getTearDownStepsCount() {
+      return tearDownSteps_.size();
+    }
+    /**
+     * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+     *
+     * <pre>
+     *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+     * </pre>
+     */
+    public gauge.messages.Spec.ProtoItem getTearDownSteps(int index) {
+      return tearDownSteps_.get(index);
+    }
+    /**
+     * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+     *
+     * <pre>
+     *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+     * </pre>
+     */
+    public gauge.messages.Spec.ProtoItemOrBuilder getTearDownStepsOrBuilder(
+        int index) {
+      return tearDownSteps_.get(index);
+    }
+
+    public static final int SPAN_FIELD_NUMBER = 13;
+    private gauge.messages.Spec.Span span_;
+    /**
+     * <code>optional .gauge.messages.Span span = 13;</code>
+     *
+     * <pre>
+     *&#47; Span(start, end) of scenario
+     * </pre>
+     */
+    public boolean hasSpan() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional .gauge.messages.Span span = 13;</code>
+     *
+     * <pre>
+     *&#47; Span(start, end) of scenario
+     * </pre>
+     */
+    public gauge.messages.Spec.Span getSpan() {
+      return span_;
+    }
+    /**
+     * <code>optional .gauge.messages.Span span = 13;</code>
+     *
+     * <pre>
+     *&#47; Span(start, end) of scenario
+     * </pre>
+     */
+    public gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder() {
+      return span_;
+    }
+
     private void initFields() {
       scenarioHeading_ = "";
       failed_ = false;
@@ -5424,6 +5691,9 @@ public final class Spec {
       executionTime_ = 0L;
       skipped_ = false;
       skipErrors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      iD_ = "";
+      tearDownSteps_ = java.util.Collections.emptyList();
+      span_ = gauge.messages.Spec.Span.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -5467,6 +5737,18 @@ public final class Spec {
           return false;
         }
       }
+      for (int i = 0; i < getTearDownStepsCount(); i++) {
+        if (!getTearDownSteps(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasSpan()) {
+        if (!getSpan().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -5503,6 +5785,15 @@ public final class Spec {
       }
       for (int i = 0; i < skipErrors_.size(); i++) {
         output.writeBytes(10, skipErrors_.getByteString(i));
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeBytes(11, getIDBytes());
+      }
+      for (int i = 0; i < tearDownSteps_.size(); i++) {
+        output.writeMessage(12, tearDownSteps_.get(i));
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeMessage(13, span_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -5562,6 +5853,18 @@ public final class Spec {
         }
         size += dataSize;
         size += 1 * getSkipErrorsList().size();
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(11, getIDBytes());
+      }
+      for (int i = 0; i < tearDownSteps_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(12, tearDownSteps_.get(i));
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(13, span_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -5680,6 +5983,8 @@ public final class Spec {
           getScenarioItemsFieldBuilder();
           getPreHookFailureFieldBuilder();
           getPostHookFailureFieldBuilder();
+          getTearDownStepsFieldBuilder();
+          getSpanFieldBuilder();
         }
       }
       private static Builder create() {
@@ -5724,6 +6029,20 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000100);
         skipErrors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000200);
+        iD_ = "";
+        bitField0_ = (bitField0_ & ~0x00000400);
+        if (tearDownStepsBuilder_ == null) {
+          tearDownSteps_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000800);
+        } else {
+          tearDownStepsBuilder_.clear();
+        }
+        if (spanBuilder_ == null) {
+          span_ = gauge.messages.Spec.Span.getDefaultInstance();
+        } else {
+          spanBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00001000);
         return this;
       }
 
@@ -5812,6 +6131,27 @@ public final class Spec {
           bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.skipErrors_ = skipErrors_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.iD_ = iD_;
+        if (tearDownStepsBuilder_ == null) {
+          if (((bitField0_ & 0x00000800) == 0x00000800)) {
+            tearDownSteps_ = java.util.Collections.unmodifiableList(tearDownSteps_);
+            bitField0_ = (bitField0_ & ~0x00000800);
+          }
+          result.tearDownSteps_ = tearDownSteps_;
+        } else {
+          result.tearDownSteps_ = tearDownStepsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        if (spanBuilder_ == null) {
+          result.span_ = span_;
+        } else {
+          result.span_ = spanBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -5920,6 +6260,40 @@ public final class Spec {
           }
           onChanged();
         }
+        if (other.hasID()) {
+          bitField0_ |= 0x00000400;
+          iD_ = other.iD_;
+          onChanged();
+        }
+        if (tearDownStepsBuilder_ == null) {
+          if (!other.tearDownSteps_.isEmpty()) {
+            if (tearDownSteps_.isEmpty()) {
+              tearDownSteps_ = other.tearDownSteps_;
+              bitField0_ = (bitField0_ & ~0x00000800);
+            } else {
+              ensureTearDownStepsIsMutable();
+              tearDownSteps_.addAll(other.tearDownSteps_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.tearDownSteps_.isEmpty()) {
+            if (tearDownStepsBuilder_.isEmpty()) {
+              tearDownStepsBuilder_.dispose();
+              tearDownStepsBuilder_ = null;
+              tearDownSteps_ = other.tearDownSteps_;
+              bitField0_ = (bitField0_ & ~0x00000800);
+              tearDownStepsBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getTearDownStepsFieldBuilder() : null;
+            } else {
+              tearDownStepsBuilder_.addAllMessages(other.tearDownSteps_);
+            }
+          }
+        }
+        if (other.hasSpan()) {
+          mergeSpan(other.getSpan());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -5957,6 +6331,18 @@ public final class Spec {
         }
         if (hasPostHookFailure()) {
           if (!getPostHookFailure().isInitialized()) {
+            
+            return false;
+          }
+        }
+        for (int i = 0; i < getTearDownStepsCount(); i++) {
+          if (!getTearDownSteps(i).isInitialized()) {
+            
+            return false;
+          }
+        }
+        if (hasSpan()) {
+          if (!getSpan().isInitialized()) {
             
             return false;
           }
@@ -7361,6 +7747,570 @@ public final class Spec {
         return this;
       }
 
+      private java.lang.Object iD_ = "";
+      /**
+       * <code>optional string ID = 11;</code>
+       *
+       * <pre>
+       *&#47; Holds the unique Identifier of a scenario.
+       * </pre>
+       */
+      public boolean hasID() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
+      }
+      /**
+       * <code>optional string ID = 11;</code>
+       *
+       * <pre>
+       *&#47; Holds the unique Identifier of a scenario.
+       * </pre>
+       */
+      public java.lang.String getID() {
+        java.lang.Object ref = iD_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            iD_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string ID = 11;</code>
+       *
+       * <pre>
+       *&#47; Holds the unique Identifier of a scenario.
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getIDBytes() {
+        java.lang.Object ref = iD_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          iD_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string ID = 11;</code>
+       *
+       * <pre>
+       *&#47; Holds the unique Identifier of a scenario.
+       * </pre>
+       */
+      public Builder setID(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000400;
+        iD_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string ID = 11;</code>
+       *
+       * <pre>
+       *&#47; Holds the unique Identifier of a scenario.
+       * </pre>
+       */
+      public Builder clearID() {
+        bitField0_ = (bitField0_ & ~0x00000400);
+        iD_ = getDefaultInstance().getID();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string ID = 11;</code>
+       *
+       * <pre>
+       *&#47; Holds the unique Identifier of a scenario.
+       * </pre>
+       */
+      public Builder setIDBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000400;
+        iD_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<gauge.messages.Spec.ProtoItem> tearDownSteps_ =
+        java.util.Collections.emptyList();
+      private void ensureTearDownStepsIsMutable() {
+        if (!((bitField0_ & 0x00000800) == 0x00000800)) {
+          tearDownSteps_ = new java.util.ArrayList<gauge.messages.Spec.ProtoItem>(tearDownSteps_);
+          bitField0_ |= 0x00000800;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder> tearDownStepsBuilder_;
+
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public java.util.List<gauge.messages.Spec.ProtoItem> getTearDownStepsList() {
+        if (tearDownStepsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(tearDownSteps_);
+        } else {
+          return tearDownStepsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public int getTearDownStepsCount() {
+        if (tearDownStepsBuilder_ == null) {
+          return tearDownSteps_.size();
+        } else {
+          return tearDownStepsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public gauge.messages.Spec.ProtoItem getTearDownSteps(int index) {
+        if (tearDownStepsBuilder_ == null) {
+          return tearDownSteps_.get(index);
+        } else {
+          return tearDownStepsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public Builder setTearDownSteps(
+          int index, gauge.messages.Spec.ProtoItem value) {
+        if (tearDownStepsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTearDownStepsIsMutable();
+          tearDownSteps_.set(index, value);
+          onChanged();
+        } else {
+          tearDownStepsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public Builder setTearDownSteps(
+          int index, gauge.messages.Spec.ProtoItem.Builder builderForValue) {
+        if (tearDownStepsBuilder_ == null) {
+          ensureTearDownStepsIsMutable();
+          tearDownSteps_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tearDownStepsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public Builder addTearDownSteps(gauge.messages.Spec.ProtoItem value) {
+        if (tearDownStepsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTearDownStepsIsMutable();
+          tearDownSteps_.add(value);
+          onChanged();
+        } else {
+          tearDownStepsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public Builder addTearDownSteps(
+          int index, gauge.messages.Spec.ProtoItem value) {
+        if (tearDownStepsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTearDownStepsIsMutable();
+          tearDownSteps_.add(index, value);
+          onChanged();
+        } else {
+          tearDownStepsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public Builder addTearDownSteps(
+          gauge.messages.Spec.ProtoItem.Builder builderForValue) {
+        if (tearDownStepsBuilder_ == null) {
+          ensureTearDownStepsIsMutable();
+          tearDownSteps_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tearDownStepsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public Builder addTearDownSteps(
+          int index, gauge.messages.Spec.ProtoItem.Builder builderForValue) {
+        if (tearDownStepsBuilder_ == null) {
+          ensureTearDownStepsIsMutable();
+          tearDownSteps_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tearDownStepsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public Builder addAllTearDownSteps(
+          java.lang.Iterable<? extends gauge.messages.Spec.ProtoItem> values) {
+        if (tearDownStepsBuilder_ == null) {
+          ensureTearDownStepsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, tearDownSteps_);
+          onChanged();
+        } else {
+          tearDownStepsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public Builder clearTearDownSteps() {
+        if (tearDownStepsBuilder_ == null) {
+          tearDownSteps_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000800);
+          onChanged();
+        } else {
+          tearDownStepsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public Builder removeTearDownSteps(int index) {
+        if (tearDownStepsBuilder_ == null) {
+          ensureTearDownStepsIsMutable();
+          tearDownSteps_.remove(index);
+          onChanged();
+        } else {
+          tearDownStepsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public gauge.messages.Spec.ProtoItem.Builder getTearDownStepsBuilder(
+          int index) {
+        return getTearDownStepsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public gauge.messages.Spec.ProtoItemOrBuilder getTearDownStepsOrBuilder(
+          int index) {
+        if (tearDownStepsBuilder_ == null) {
+          return tearDownSteps_.get(index);  } else {
+          return tearDownStepsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public java.util.List<? extends gauge.messages.Spec.ProtoItemOrBuilder> 
+           getTearDownStepsOrBuilderList() {
+        if (tearDownStepsBuilder_ != null) {
+          return tearDownStepsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(tearDownSteps_);
+        }
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public gauge.messages.Spec.ProtoItem.Builder addTearDownStepsBuilder() {
+        return getTearDownStepsFieldBuilder().addBuilder(
+            gauge.messages.Spec.ProtoItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public gauge.messages.Spec.ProtoItem.Builder addTearDownStepsBuilder(
+          int index) {
+        return getTearDownStepsFieldBuilder().addBuilder(
+            index, gauge.messages.Spec.ProtoItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .gauge.messages.ProtoItem tearDownSteps = 12;</code>
+       *
+       * <pre>
+       *&#47; Collection of Teardown steps. The Teardown steps are executed after every run.
+       * </pre>
+       */
+      public java.util.List<gauge.messages.Spec.ProtoItem.Builder> 
+           getTearDownStepsBuilderList() {
+        return getTearDownStepsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder> 
+          getTearDownStepsFieldBuilder() {
+        if (tearDownStepsBuilder_ == null) {
+          tearDownStepsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder>(
+                  tearDownSteps_,
+                  ((bitField0_ & 0x00000800) == 0x00000800),
+                  getParentForChildren(),
+                  isClean());
+          tearDownSteps_ = null;
+        }
+        return tearDownStepsBuilder_;
+      }
+
+      private gauge.messages.Spec.Span span_ = gauge.messages.Spec.Span.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Spec.Span, gauge.messages.Spec.Span.Builder, gauge.messages.Spec.SpanOrBuilder> spanBuilder_;
+      /**
+       * <code>optional .gauge.messages.Span span = 13;</code>
+       *
+       * <pre>
+       *&#47; Span(start, end) of scenario
+       * </pre>
+       */
+      public boolean hasSpan() {
+        return ((bitField0_ & 0x00001000) == 0x00001000);
+      }
+      /**
+       * <code>optional .gauge.messages.Span span = 13;</code>
+       *
+       * <pre>
+       *&#47; Span(start, end) of scenario
+       * </pre>
+       */
+      public gauge.messages.Spec.Span getSpan() {
+        if (spanBuilder_ == null) {
+          return span_;
+        } else {
+          return spanBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.Span span = 13;</code>
+       *
+       * <pre>
+       *&#47; Span(start, end) of scenario
+       * </pre>
+       */
+      public Builder setSpan(gauge.messages.Spec.Span value) {
+        if (spanBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          span_ = value;
+          onChanged();
+        } else {
+          spanBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00001000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.Span span = 13;</code>
+       *
+       * <pre>
+       *&#47; Span(start, end) of scenario
+       * </pre>
+       */
+      public Builder setSpan(
+          gauge.messages.Spec.Span.Builder builderForValue) {
+        if (spanBuilder_ == null) {
+          span_ = builderForValue.build();
+          onChanged();
+        } else {
+          spanBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00001000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.Span span = 13;</code>
+       *
+       * <pre>
+       *&#47; Span(start, end) of scenario
+       * </pre>
+       */
+      public Builder mergeSpan(gauge.messages.Spec.Span value) {
+        if (spanBuilder_ == null) {
+          if (((bitField0_ & 0x00001000) == 0x00001000) &&
+              span_ != gauge.messages.Spec.Span.getDefaultInstance()) {
+            span_ =
+              gauge.messages.Spec.Span.newBuilder(span_).mergeFrom(value).buildPartial();
+          } else {
+            span_ = value;
+          }
+          onChanged();
+        } else {
+          spanBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00001000;
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.Span span = 13;</code>
+       *
+       * <pre>
+       *&#47; Span(start, end) of scenario
+       * </pre>
+       */
+      public Builder clearSpan() {
+        if (spanBuilder_ == null) {
+          span_ = gauge.messages.Spec.Span.getDefaultInstance();
+          onChanged();
+        } else {
+          spanBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00001000);
+        return this;
+      }
+      /**
+       * <code>optional .gauge.messages.Span span = 13;</code>
+       *
+       * <pre>
+       *&#47; Span(start, end) of scenario
+       * </pre>
+       */
+      public gauge.messages.Spec.Span.Builder getSpanBuilder() {
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return getSpanFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .gauge.messages.Span span = 13;</code>
+       *
+       * <pre>
+       *&#47; Span(start, end) of scenario
+       * </pre>
+       */
+      public gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder() {
+        if (spanBuilder_ != null) {
+          return spanBuilder_.getMessageOrBuilder();
+        } else {
+          return span_;
+        }
+      }
+      /**
+       * <code>optional .gauge.messages.Span span = 13;</code>
+       *
+       * <pre>
+       *&#47; Span(start, end) of scenario
+       * </pre>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          gauge.messages.Spec.Span, gauge.messages.Spec.Span.Builder, gauge.messages.Spec.SpanOrBuilder> 
+          getSpanFieldBuilder() {
+        if (spanBuilder_ == null) {
+          spanBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              gauge.messages.Spec.Span, gauge.messages.Spec.Span.Builder, gauge.messages.Spec.SpanOrBuilder>(
+                  getSpan(),
+                  getParentForChildren(),
+                  isClean());
+          span_ = null;
+        }
+        return spanBuilder_;
+      }
+
       // @@protoc_insertion_point(builder_scope:gauge.messages.ProtoScenario)
     }
 
@@ -7370,6 +8320,505 @@ public final class Spec {
     }
 
     // @@protoc_insertion_point(class_scope:gauge.messages.ProtoScenario)
+  }
+
+  public interface SpanOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.Span)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int64 start = 1;</code>
+     */
+    boolean hasStart();
+    /**
+     * <code>required int64 start = 1;</code>
+     */
+    long getStart();
+
+    /**
+     * <code>required int64 end = 2;</code>
+     */
+    boolean hasEnd();
+    /**
+     * <code>required int64 end = 2;</code>
+     */
+    long getEnd();
+  }
+  /**
+   * Protobuf type {@code gauge.messages.Span}
+   *
+   * <pre>
+   *&#47; A proto object representing a Span of content
+   * </pre>
+   */
+  public static final class Span extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.Span)
+      SpanOrBuilder {
+    // Use Span.newBuilder() to construct.
+    private Span(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private Span(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final Span defaultInstance;
+    public static Span getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public Span getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Span(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              start_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              end_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Spec.internal_static_gauge_messages_Span_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Spec.internal_static_gauge_messages_Span_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Spec.Span.class, gauge.messages.Spec.Span.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<Span> PARSER =
+        new com.google.protobuf.AbstractParser<Span>() {
+      public Span parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Span(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Span> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    public static final int START_FIELD_NUMBER = 1;
+    private long start_;
+    /**
+     * <code>required int64 start = 1;</code>
+     */
+    public boolean hasStart() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 start = 1;</code>
+     */
+    public long getStart() {
+      return start_;
+    }
+
+    public static final int END_FIELD_NUMBER = 2;
+    private long end_;
+    /**
+     * <code>required int64 end = 2;</code>
+     */
+    public boolean hasEnd() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 end = 2;</code>
+     */
+    public long getEnd() {
+      return end_;
+    }
+
+    private void initFields() {
+      start_ = 0L;
+      end_ = 0L;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasStart()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasEnd()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, start_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(2, end_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, start_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, end_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static gauge.messages.Spec.Span parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.Span parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Spec.Span parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.Span parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Spec.Span parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Spec.Span parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Spec.Span parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static gauge.messages.Spec.Span parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static gauge.messages.Spec.Span parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static gauge.messages.Spec.Span parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(gauge.messages.Spec.Span prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gauge.messages.Span}
+     *
+     * <pre>
+     *&#47; A proto object representing a Span of content
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.Span)
+        gauge.messages.Spec.SpanOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Spec.internal_static_gauge_messages_Span_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Spec.internal_static_gauge_messages_Span_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Spec.Span.class, gauge.messages.Spec.Span.Builder.class);
+      }
+
+      // Construct using gauge.messages.Spec.Span.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        start_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        end_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Spec.internal_static_gauge_messages_Span_descriptor;
+      }
+
+      public gauge.messages.Spec.Span getDefaultInstanceForType() {
+        return gauge.messages.Spec.Span.getDefaultInstance();
+      }
+
+      public gauge.messages.Spec.Span build() {
+        gauge.messages.Spec.Span result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Spec.Span buildPartial() {
+        gauge.messages.Spec.Span result = new gauge.messages.Spec.Span(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.start_ = start_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.end_ = end_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Spec.Span) {
+          return mergeFrom((gauge.messages.Spec.Span)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Spec.Span other) {
+        if (other == gauge.messages.Spec.Span.getDefaultInstance()) return this;
+        if (other.hasStart()) {
+          setStart(other.getStart());
+        }
+        if (other.hasEnd()) {
+          setEnd(other.getEnd());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasStart()) {
+          
+          return false;
+        }
+        if (!hasEnd()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Spec.Span parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Spec.Span) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long start_ ;
+      /**
+       * <code>required int64 start = 1;</code>
+       */
+      public boolean hasStart() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 start = 1;</code>
+       */
+      public long getStart() {
+        return start_;
+      }
+      /**
+       * <code>required int64 start = 1;</code>
+       */
+      public Builder setStart(long value) {
+        bitField0_ |= 0x00000001;
+        start_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 start = 1;</code>
+       */
+      public Builder clearStart() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        start_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long end_ ;
+      /**
+       * <code>required int64 end = 2;</code>
+       */
+      public boolean hasEnd() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 end = 2;</code>
+       */
+      public long getEnd() {
+        return end_;
+      }
+      /**
+       * <code>required int64 end = 2;</code>
+       */
+      public Builder setEnd(long value) {
+        bitField0_ |= 0x00000002;
+        end_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 end = 2;</code>
+       */
+      public Builder clearEnd() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        end_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.Span)
+    }
+
+    static {
+      defaultInstance = new Span(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.Span)
   }
 
   public interface ProtoTableDrivenScenarioOrBuilder extends
@@ -17531,7 +18980,7 @@ public final class Spec {
      * <code>required int64 executionTime = 6;</code>
      *
      * <pre>
-     *&#47; Holds the time taken for executing this scenario. 
+     *&#47; Holds the time taken for executing this scenario.
      * </pre>
      */
     boolean hasExecutionTime();
@@ -17539,7 +18988,7 @@ public final class Spec {
      * <code>required int64 executionTime = 6;</code>
      *
      * <pre>
-     *&#47; Holds the time taken for executing this scenario. 
+     *&#47; Holds the time taken for executing this scenario.
      * </pre>
      */
     long getExecutionTime();
@@ -17580,7 +19029,7 @@ public final class Spec {
         getMessageBytes(int index);
 
     /**
-     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8 [default = ASSERTION];</code>
      *
      * <pre>
      *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
@@ -17588,7 +19037,7 @@ public final class Spec {
      */
     boolean hasErrorType();
     /**
-     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8 [default = ASSERTION];</code>
      *
      * <pre>
      *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
@@ -18012,7 +19461,7 @@ public final class Spec {
      * <code>required int64 executionTime = 6;</code>
      *
      * <pre>
-     *&#47; Holds the time taken for executing this scenario. 
+     *&#47; Holds the time taken for executing this scenario.
      * </pre>
      */
     public boolean hasExecutionTime() {
@@ -18022,7 +19471,7 @@ public final class Spec {
      * <code>required int64 executionTime = 6;</code>
      *
      * <pre>
-     *&#47; Holds the time taken for executing this scenario. 
+     *&#47; Holds the time taken for executing this scenario.
      * </pre>
      */
     public long getExecutionTime() {
@@ -18077,7 +19526,7 @@ public final class Spec {
     public static final int ERRORTYPE_FIELD_NUMBER = 8;
     private gauge.messages.Spec.ProtoExecutionResult.ErrorType errorType_;
     /**
-     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8 [default = ASSERTION];</code>
      *
      * <pre>
      *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
@@ -18087,7 +19536,7 @@ public final class Spec {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
-     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8 [default = ASSERTION];</code>
      *
      * <pre>
      *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
@@ -18834,7 +20283,7 @@ public final class Spec {
        * <code>required int64 executionTime = 6;</code>
        *
        * <pre>
-       *&#47; Holds the time taken for executing this scenario. 
+       *&#47; Holds the time taken for executing this scenario.
        * </pre>
        */
       public boolean hasExecutionTime() {
@@ -18844,7 +20293,7 @@ public final class Spec {
        * <code>required int64 executionTime = 6;</code>
        *
        * <pre>
-       *&#47; Holds the time taken for executing this scenario. 
+       *&#47; Holds the time taken for executing this scenario.
        * </pre>
        */
       public long getExecutionTime() {
@@ -18854,7 +20303,7 @@ public final class Spec {
        * <code>required int64 executionTime = 6;</code>
        *
        * <pre>
-       *&#47; Holds the time taken for executing this scenario. 
+       *&#47; Holds the time taken for executing this scenario.
        * </pre>
        */
       public Builder setExecutionTime(long value) {
@@ -18867,7 +20316,7 @@ public final class Spec {
        * <code>required int64 executionTime = 6;</code>
        *
        * <pre>
-       *&#47; Holds the time taken for executing this scenario. 
+       *&#47; Holds the time taken for executing this scenario.
        * </pre>
        */
       public Builder clearExecutionTime() {
@@ -19008,7 +20457,7 @@ public final class Spec {
 
       private gauge.messages.Spec.ProtoExecutionResult.ErrorType errorType_ = gauge.messages.Spec.ProtoExecutionResult.ErrorType.ASSERTION;
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8 [default = ASSERTION];</code>
        *
        * <pre>
        *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
@@ -19018,7 +20467,7 @@ public final class Spec {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8 [default = ASSERTION];</code>
        *
        * <pre>
        *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
@@ -19028,7 +20477,7 @@ public final class Spec {
         return errorType_;
       }
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8 [default = ASSERTION];</code>
        *
        * <pre>
        *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
@@ -19044,7 +20493,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8 [default = ASSERTION];</code>
        *
        * <pre>
        *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
@@ -20072,7 +21521,7 @@ public final class Spec {
      * <code>optional int64 executionTime = 6;</code>
      *
      * <pre>
-     *&#47; Holds the time taken for executing the whole suite. 
+     *&#47; Holds the time taken for executing the whole suite.
      * </pre>
      */
     boolean hasExecutionTime();
@@ -20080,7 +21529,7 @@ public final class Spec {
      * <code>optional int64 executionTime = 6;</code>
      *
      * <pre>
-     *&#47; Holds the time taken for executing the whole suite. 
+     *&#47; Holds the time taken for executing the whole suite.
      * </pre>
      */
     long getExecutionTime();
@@ -20570,7 +22019,7 @@ public final class Spec {
      * <code>optional int64 executionTime = 6;</code>
      *
      * <pre>
-     *&#47; Holds the time taken for executing the whole suite. 
+     *&#47; Holds the time taken for executing the whole suite.
      * </pre>
      */
     public boolean hasExecutionTime() {
@@ -20580,7 +22029,7 @@ public final class Spec {
      * <code>optional int64 executionTime = 6;</code>
      *
      * <pre>
-     *&#47; Holds the time taken for executing the whole suite. 
+     *&#47; Holds the time taken for executing the whole suite.
      * </pre>
      */
     public long getExecutionTime() {
@@ -22121,7 +23570,7 @@ public final class Spec {
        * <code>optional int64 executionTime = 6;</code>
        *
        * <pre>
-       *&#47; Holds the time taken for executing the whole suite. 
+       *&#47; Holds the time taken for executing the whole suite.
        * </pre>
        */
       public boolean hasExecutionTime() {
@@ -22131,7 +23580,7 @@ public final class Spec {
        * <code>optional int64 executionTime = 6;</code>
        *
        * <pre>
-       *&#47; Holds the time taken for executing the whole suite. 
+       *&#47; Holds the time taken for executing the whole suite.
        * </pre>
        */
       public long getExecutionTime() {
@@ -22141,7 +23590,7 @@ public final class Spec {
        * <code>optional int64 executionTime = 6;</code>
        *
        * <pre>
-       *&#47; Holds the time taken for executing the whole suite. 
+       *&#47; Holds the time taken for executing the whole suite.
        * </pre>
        */
       public Builder setExecutionTime(long value) {
@@ -22154,7 +23603,7 @@ public final class Spec {
        * <code>optional int64 executionTime = 6;</code>
        *
        * <pre>
-       *&#47; Holds the time taken for executing the whole suite. 
+       *&#47; Holds the time taken for executing the whole suite.
        * </pre>
        */
       public Builder clearExecutionTime() {
@@ -25110,6 +26559,11 @@ public final class Spec {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_gauge_messages_ProtoScenario_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_Span_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_gauge_messages_Span_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -25212,7 +26666,7 @@ public final class Spec {
       "ble\022\'\n\004tags\030\010 \001(\0132\031.gauge.messages.Proto" +
       "Tags\"j\n\010ItemType\022\010\n\004Step\020\001\022\013\n\007Comment\020\002\022" +
       "\013\n\007Concept\020\003\022\014\n\010Scenario\020\004\022\027\n\023TableDrive" +
-      "nScenario\020\005\022\t\n\005Table\020\006\022\010\n\004Tags\020\007\"\326\002\n\rPro",
+      "nScenario\020\005\022\t\n\005Table\020\006\022\010\n\004Tags\020\007\"\270\003\n\rPro",
       "toScenario\022\027\n\017scenarioHeading\030\001 \002(\t\022\016\n\006f" +
       "ailed\030\002 \002(\010\022+\n\010contexts\030\003 \003(\0132\031.gauge.me" +
       "ssages.ProtoItem\0220\n\rscenarioItems\030\004 \003(\0132" +
@@ -25221,66 +26675,69 @@ public final class Spec {
       "lure\0229\n\017postHookFailure\030\006 \001(\0132 .gauge.me" +
       "ssages.ProtoHookFailure\022\014\n\004tags\030\007 \003(\t\022\025\n" +
       "\rexecutionTime\030\010 \001(\003\022\017\n\007skipped\030\t \002(\010\022\022\n" +
-      "\nskipErrors\030\n \003(\t\"L\n\030ProtoTableDrivenSce" +
-      "nario\0220\n\tscenarios\030\001 \003(\0132\035.gauge.message",
-      "s.ProtoScenario\"\247\001\n\tProtoStep\022\022\n\nactualT" +
-      "ext\030\001 \002(\t\022\022\n\nparsedText\030\002 \002(\t\022+\n\tfragmen" +
-      "ts\030\003 \003(\0132\030.gauge.messages.Fragment\022E\n\023st" +
-      "epExecutionResult\030\004 \001(\0132(.gauge.messages" +
-      ".ProtoStepExecutionResult\"\262\001\n\014ProtoConce" +
-      "pt\022.\n\013conceptStep\030\001 \002(\0132\031.gauge.messages" +
-      ".ProtoStep\022(\n\005steps\030\002 \003(\0132\031.gauge.messag" +
-      "es.ProtoItem\022H\n\026conceptExecutionResult\030\003" +
-      " \001(\0132(.gauge.messages.ProtoStepExecution" +
-      "Result\"\031\n\tProtoTags\022\014\n\004tags\030\001 \003(\t\"\254\001\n\010Fr",
-      "agment\022;\n\014fragmentType\030\001 \002(\0162%.gauge.mes" +
-      "sages.Fragment.FragmentType\022\014\n\004text\030\002 \001(" +
-      "\t\022,\n\tparameter\030\003 \001(\0132\031.gauge.messages.Pa" +
-      "rameter\"\'\n\014FragmentType\022\010\n\004Text\020\001\022\r\n\tPar" +
-      "ameter\020\002\"\357\001\n\tParameter\022>\n\rparameterType\030" +
-      "\001 \002(\0162\'.gauge.messages.Parameter.Paramet" +
-      "erType\022\r\n\005value\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022)\n\005t" +
-      "able\030\004 \001(\0132\032.gauge.messages.ProtoTable\"Z" +
-      "\n\rParameterType\022\n\n\006Static\020\001\022\013\n\007Dynamic\020\002" +
-      "\022\022\n\016Special_String\020\003\022\021\n\rSpecial_Table\020\004\022",
-      "\t\n\005Table\020\005\"\034\n\014ProtoComment\022\014\n\004text\030\001 \002(\t" +
-      "\"i\n\nProtoTable\022.\n\007headers\030\001 \002(\0132\035.gauge." +
-      "messages.ProtoTableRow\022+\n\004rows\030\002 \003(\0132\035.g" +
-      "auge.messages.ProtoTableRow\"\036\n\rProtoTabl" +
-      "eRow\022\r\n\005cells\030\001 \003(\t\"\366\001\n\030ProtoStepExecuti" +
-      "onResult\022=\n\017executionResult\030\001 \001(\0132$.gaug" +
-      "e.messages.ProtoExecutionResult\0228\n\016preHo" +
-      "okFailure\030\002 \001(\0132 .gauge.messages.ProtoHo" +
-      "okFailure\0229\n\017postHookFailure\030\003 \001(\0132 .gau" +
-      "ge.messages.ProtoHookFailure\022\017\n\007skipped\030",
-      "\004 \002(\010\022\025\n\rskippedReason\030\005 \001(\t\"\227\002\n\024ProtoEx" +
-      "ecutionResult\022\016\n\006failed\030\001 \002(\010\022\030\n\020recover" +
-      "ableError\030\002 \001(\010\022\024\n\014errorMessage\030\003 \001(\t\022\022\n" +
-      "\nstackTrace\030\004 \001(\t\022\022\n\nscreenShot\030\005 \001(\014\022\025\n" +
-      "\rexecutionTime\030\006 \002(\003\022\017\n\007message\030\007 \003(\t\022A\n" +
-      "\terrorType\030\010 \001(\0162..gauge.messages.ProtoE" +
-      "xecutionResult.ErrorType\",\n\tErrorType\022\r\n" +
-      "\tASSERTION\020\001\022\020\n\014VERIFICATION\020\002\"P\n\020ProtoH" +
-      "ookFailure\022\022\n\nstackTrace\030\001 \002(\t\022\024\n\014errorM" +
-      "essage\030\002 \002(\t\022\022\n\nscreenShot\030\003 \001(\014\"\371\002\n\020Pro",
-      "toSuiteResult\0224\n\013specResults\030\001 \003(\0132\037.gau" +
-      "ge.messages.ProtoSpecResult\0228\n\016preHookFa" +
-      "ilure\030\002 \001(\0132 .gauge.messages.ProtoHookFa" +
-      "ilure\0229\n\017postHookFailure\030\003 \001(\0132 .gauge.m" +
-      "essages.ProtoHookFailure\022\016\n\006failed\030\004 \002(\010" +
-      "\022\030\n\020specsFailedCount\030\005 \002(\005\022\025\n\rexecutionT" +
-      "ime\030\006 \001(\003\022\023\n\013successRate\030\007 \002(\002\022\023\n\013enviro" +
-      "nment\030\010 \001(\t\022\014\n\004tags\030\t \001(\t\022\023\n\013projectName" +
-      "\030\n \002(\t\022\021\n\ttimestamp\030\013 \002(\t\022\031\n\021specsSkippe" +
-      "dCount\030\014 \002(\005\"\346\001\n\017ProtoSpecResult\022,\n\tprot",
-      "oSpec\030\001 \002(\0132\031.gauge.messages.ProtoSpec\022\025" +
-      "\n\rscenarioCount\030\002 \002(\005\022\033\n\023scenarioFailedC" +
-      "ount\030\003 \002(\005\022\016\n\006failed\030\004 \002(\010\022\033\n\023failedData" +
-      "TableRows\030\005 \003(\005\022\025\n\rexecutionTime\030\006 \001(\003\022\017" +
-      "\n\007skipped\030\007 \002(\010\022\034\n\024scenarioSkippedCount\030" +
-      "\t \002(\005\"W\n\016ProtoStepValue\022\021\n\tstepValue\030\001 \002" +
-      "(\t\022\036\n\026parameterizedStepValue\030\002 \002(\t\022\022\n\npa" +
-      "rameters\030\003 \003(\t"
+      "\nskipErrors\030\n \003(\t\022\n\n\002ID\030\013 \001(\t\0220\n\rtearDow" +
+      "nSteps\030\014 \003(\0132\031.gauge.messages.ProtoItem\022",
+      "\"\n\004span\030\r \001(\0132\024.gauge.messages.Span\"\"\n\004S" +
+      "pan\022\r\n\005start\030\001 \002(\003\022\013\n\003end\030\002 \002(\003\"L\n\030Proto" +
+      "TableDrivenScenario\0220\n\tscenarios\030\001 \003(\0132\035" +
+      ".gauge.messages.ProtoScenario\"\247\001\n\tProtoS" +
+      "tep\022\022\n\nactualText\030\001 \002(\t\022\022\n\nparsedText\030\002 " +
+      "\002(\t\022+\n\tfragments\030\003 \003(\0132\030.gauge.messages." +
+      "Fragment\022E\n\023stepExecutionResult\030\004 \001(\0132(." +
+      "gauge.messages.ProtoStepExecutionResult\"" +
+      "\262\001\n\014ProtoConcept\022.\n\013conceptStep\030\001 \002(\0132\031." +
+      "gauge.messages.ProtoStep\022(\n\005steps\030\002 \003(\0132",
+      "\031.gauge.messages.ProtoItem\022H\n\026conceptExe" +
+      "cutionResult\030\003 \001(\0132(.gauge.messages.Prot" +
+      "oStepExecutionResult\"\031\n\tProtoTags\022\014\n\004tag" +
+      "s\030\001 \003(\t\"\254\001\n\010Fragment\022;\n\014fragmentType\030\001 \002" +
+      "(\0162%.gauge.messages.Fragment.FragmentTyp" +
+      "e\022\014\n\004text\030\002 \001(\t\022,\n\tparameter\030\003 \001(\0132\031.gau" +
+      "ge.messages.Parameter\"\'\n\014FragmentType\022\010\n" +
+      "\004Text\020\001\022\r\n\tParameter\020\002\"\357\001\n\tParameter\022>\n\r" +
+      "parameterType\030\001 \002(\0162\'.gauge.messages.Par" +
+      "ameter.ParameterType\022\r\n\005value\030\002 \001(\t\022\014\n\004n",
+      "ame\030\003 \001(\t\022)\n\005table\030\004 \001(\0132\032.gauge.message" +
+      "s.ProtoTable\"Z\n\rParameterType\022\n\n\006Static\020" +
+      "\001\022\013\n\007Dynamic\020\002\022\022\n\016Special_String\020\003\022\021\n\rSp" +
+      "ecial_Table\020\004\022\t\n\005Table\020\005\"\034\n\014ProtoComment" +
+      "\022\014\n\004text\030\001 \002(\t\"i\n\nProtoTable\022.\n\007headers\030" +
+      "\001 \002(\0132\035.gauge.messages.ProtoTableRow\022+\n\004" +
+      "rows\030\002 \003(\0132\035.gauge.messages.ProtoTableRo" +
+      "w\"\036\n\rProtoTableRow\022\r\n\005cells\030\001 \003(\t\"\366\001\n\030Pr" +
+      "otoStepExecutionResult\022=\n\017executionResul" +
+      "t\030\001 \001(\0132$.gauge.messages.ProtoExecutionR",
+      "esult\0228\n\016preHookFailure\030\002 \001(\0132 .gauge.me" +
+      "ssages.ProtoHookFailure\0229\n\017postHookFailu" +
+      "re\030\003 \001(\0132 .gauge.messages.ProtoHookFailu" +
+      "re\022\017\n\007skipped\030\004 \002(\010\022\025\n\rskippedReason\030\005 \001" +
+      "(\t\"\242\002\n\024ProtoExecutionResult\022\016\n\006failed\030\001 " +
+      "\002(\010\022\030\n\020recoverableError\030\002 \001(\010\022\024\n\014errorMe" +
+      "ssage\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(\t\022\022\n\nscree" +
+      "nShot\030\005 \001(\014\022\025\n\rexecutionTime\030\006 \002(\003\022\017\n\007me" +
+      "ssage\030\007 \003(\t\022L\n\terrorType\030\010 \001(\0162..gauge.m" +
+      "essages.ProtoExecutionResult.ErrorType:\t",
+      "ASSERTION\",\n\tErrorType\022\r\n\tASSERTION\020\001\022\020\n" +
+      "\014VERIFICATION\020\002\"P\n\020ProtoHookFailure\022\022\n\ns" +
+      "tackTrace\030\001 \002(\t\022\024\n\014errorMessage\030\002 \002(\t\022\022\n" +
+      "\nscreenShot\030\003 \001(\014\"\371\002\n\020ProtoSuiteResult\0224" +
+      "\n\013specResults\030\001 \003(\0132\037.gauge.messages.Pro" +
+      "toSpecResult\0228\n\016preHookFailure\030\002 \001(\0132 .g" +
+      "auge.messages.ProtoHookFailure\0229\n\017postHo" +
+      "okFailure\030\003 \001(\0132 .gauge.messages.ProtoHo" +
+      "okFailure\022\016\n\006failed\030\004 \002(\010\022\030\n\020specsFailed" +
+      "Count\030\005 \002(\005\022\025\n\rexecutionTime\030\006 \001(\003\022\023\n\013su",
+      "ccessRate\030\007 \002(\002\022\023\n\013environment\030\010 \001(\t\022\014\n\004" +
+      "tags\030\t \001(\t\022\023\n\013projectName\030\n \002(\t\022\021\n\ttimes" +
+      "tamp\030\013 \002(\t\022\031\n\021specsSkippedCount\030\014 \002(\005\"\346\001" +
+      "\n\017ProtoSpecResult\022,\n\tprotoSpec\030\001 \002(\0132\031.g" +
+      "auge.messages.ProtoSpec\022\025\n\rscenarioCount" +
+      "\030\002 \002(\005\022\033\n\023scenarioFailedCount\030\003 \002(\005\022\016\n\006f" +
+      "ailed\030\004 \002(\010\022\033\n\023failedDataTableRows\030\005 \003(\005" +
+      "\022\025\n\rexecutionTime\030\006 \001(\003\022\017\n\007skipped\030\007 \002(\010" +
+      "\022\034\n\024scenarioSkippedCount\030\t \002(\005\"W\n\016ProtoS" +
+      "tepValue\022\021\n\tstepValue\030\001 \002(\t\022\036\n\026parameter",
+      "izedStepValue\030\002 \002(\t\022\022\n\nparameters\030\003 \003(\t"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -25311,93 +26768,99 @@ public final class Spec {
     internal_static_gauge_messages_ProtoScenario_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoScenario_descriptor,
-        new java.lang.String[] { "ScenarioHeading", "Failed", "Contexts", "ScenarioItems", "PreHookFailure", "PostHookFailure", "Tags", "ExecutionTime", "Skipped", "SkipErrors", });
-    internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor =
+        new java.lang.String[] { "ScenarioHeading", "Failed", "Contexts", "ScenarioItems", "PreHookFailure", "PostHookFailure", "Tags", "ExecutionTime", "Skipped", "SkipErrors", "ID", "TearDownSteps", "Span", });
+    internal_static_gauge_messages_Span_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_gauge_messages_Span_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_gauge_messages_Span_descriptor,
+        new java.lang.String[] { "Start", "End", });
+    internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor =
+      getDescriptor().getMessageTypes().get(4);
     internal_static_gauge_messages_ProtoTableDrivenScenario_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor,
         new java.lang.String[] { "Scenarios", });
     internal_static_gauge_messages_ProtoStep_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_gauge_messages_ProtoStep_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoStep_descriptor,
         new java.lang.String[] { "ActualText", "ParsedText", "Fragments", "StepExecutionResult", });
     internal_static_gauge_messages_ProtoConcept_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_gauge_messages_ProtoConcept_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoConcept_descriptor,
         new java.lang.String[] { "ConceptStep", "Steps", "ConceptExecutionResult", });
     internal_static_gauge_messages_ProtoTags_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_gauge_messages_ProtoTags_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoTags_descriptor,
         new java.lang.String[] { "Tags", });
     internal_static_gauge_messages_Fragment_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_gauge_messages_Fragment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_Fragment_descriptor,
         new java.lang.String[] { "FragmentType", "Text", "Parameter", });
     internal_static_gauge_messages_Parameter_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_gauge_messages_Parameter_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_Parameter_descriptor,
         new java.lang.String[] { "ParameterType", "Value", "Name", "Table", });
     internal_static_gauge_messages_ProtoComment_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_gauge_messages_ProtoComment_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoComment_descriptor,
         new java.lang.String[] { "Text", });
     internal_static_gauge_messages_ProtoTable_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_gauge_messages_ProtoTable_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoTable_descriptor,
         new java.lang.String[] { "Headers", "Rows", });
     internal_static_gauge_messages_ProtoTableRow_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_gauge_messages_ProtoTableRow_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoTableRow_descriptor,
         new java.lang.String[] { "Cells", });
     internal_static_gauge_messages_ProtoStepExecutionResult_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_gauge_messages_ProtoStepExecutionResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoStepExecutionResult_descriptor,
         new java.lang.String[] { "ExecutionResult", "PreHookFailure", "PostHookFailure", "Skipped", "SkippedReason", });
     internal_static_gauge_messages_ProtoExecutionResult_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_gauge_messages_ProtoExecutionResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoExecutionResult_descriptor,
         new java.lang.String[] { "Failed", "RecoverableError", "ErrorMessage", "StackTrace", "ScreenShot", "ExecutionTime", "Message", "ErrorType", });
     internal_static_gauge_messages_ProtoHookFailure_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_gauge_messages_ProtoHookFailure_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoHookFailure_descriptor,
         new java.lang.String[] { "StackTrace", "ErrorMessage", "ScreenShot", });
     internal_static_gauge_messages_ProtoSuiteResult_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_gauge_messages_ProtoSuiteResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoSuiteResult_descriptor,
         new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", "ExecutionTime", "SuccessRate", "Environment", "Tags", "ProjectName", "Timestamp", "SpecsSkippedCount", });
     internal_static_gauge_messages_ProtoSpecResult_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_gauge_messages_ProtoSpecResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoSpecResult_descriptor,
         new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", "ExecutionTime", "Skipped", "ScenarioSkippedCount", });
     internal_static_gauge_messages_ProtoStepValue_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_gauge_messages_ProtoStepValue_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoStepValue_descriptor,

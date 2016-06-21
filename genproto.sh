@@ -14,7 +14,7 @@
 
 #!/bin/sh
 
-#Using protoc version 2.5.0
+#Using protoc version 2.6.1
 cd gauge-proto
 protoc --java_out=../src/main/java/ spec.proto
 protoc --java_out=../src/main/java/ messages.proto
