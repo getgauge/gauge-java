@@ -11341,12 +11341,20 @@ public final class Messages {
        * <code>STEP_IMPLEMENTATION_NOT_FOUND = 0;</code>
        */
       STEP_IMPLEMENTATION_NOT_FOUND(0, 0),
+      /**
+       * <code>DUPLICATE_STEP_IMPLEMENTATION = 1;</code>
+       */
+      DUPLICATE_STEP_IMPLEMENTATION(1, 1),
       ;
 
       /**
        * <code>STEP_IMPLEMENTATION_NOT_FOUND = 0;</code>
        */
       public static final int STEP_IMPLEMENTATION_NOT_FOUND_VALUE = 0;
+      /**
+       * <code>DUPLICATE_STEP_IMPLEMENTATION = 1;</code>
+       */
+      public static final int DUPLICATE_STEP_IMPLEMENTATION_VALUE = 1;
 
 
       public final int getNumber() { return value; }
@@ -11354,6 +11362,7 @@ public final class Messages {
       public static ErrorType valueOf(int value) {
         switch (value) {
           case 0: return STEP_IMPLEMENTATION_NOT_FOUND;
+          case 1: return DUPLICATE_STEP_IMPLEMENTATION;
           default: return null;
         }
       }
@@ -26110,90 +26119,91 @@ public final class Messages {
       "xt\030\002 \002(\t\022\027\n\017scenarioFailing\030\003 \001(\010\022-\n\npar" +
       "ameters\030\004 \003(\0132\031.gauge.messages.Parameter" +
       "\"C\n\023StepValidateRequest\022\020\n\010stepText\030\001 \002(" +
-      "\t\022\032\n\022numberOfParameters\030\002 \002(\005\"\260\001\n\024StepVa" +
+      "\t\022\032\n\022numberOfParameters\030\002 \002(\005\"\323\001\n\024StepVa" +
       "lidateResponse\022\017\n\007isValid\030\001 \002(\010\022\024\n\014error" +
       "Message\030\002 \001(\t\022A\n\terrorType\030\003 \001(\0162..gauge",
       ".messages.StepValidateResponse.ErrorType" +
-      "\".\n\tErrorType\022!\n\035STEP_IMPLEMENTATION_NOT" +
-      "_FOUND\020\000\"M\n\024SuiteExecutionResult\0225\n\013suit" +
-      "eResult\030\001 \002(\0132 .gauge.messages.ProtoSuit" +
-      "eResult\"\022\n\020StepNamesRequest\"\"\n\021StepNames" +
-      "Response\022\r\n\005steps\030\001 \003(\t\"\036\n\034ScenarioDataS" +
-      "toreInitRequest\"\032\n\030SpecDataStoreInitRequ" +
-      "est\"\033\n\031SuiteDataStoreInitRequest\"=\n\021Para" +
-      "meterPosition\022\023\n\013oldPosition\030\001 \002(\005\022\023\n\013ne" +
-      "wPosition\030\002 \002(\005\"\270\001\n\017RefactorRequest\0224\n\014o",
-      "ldStepValue\030\001 \002(\0132\036.gauge.messages.Proto" +
-      "StepValue\0224\n\014newStepValue\030\002 \002(\0132\036.gauge." +
-      "messages.ProtoStepValue\0229\n\016paramPosition" +
-      "s\030\003 \003(\0132!.gauge.messages.ParameterPositi" +
-      "on\"H\n\020RefactorResponse\022\017\n\007success\030\001 \002(\010\022" +
-      "\r\n\005error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003(\t\"$\n\017" +
-      "StepNameRequest\022\021\n\tstepValue\030\001 \002(\t\"M\n\020St" +
-      "epNameResponse\022\025\n\risStepPresent\030\001 \002(\010\022\020\n" +
-      "\010stepName\030\002 \003(\t\022\020\n\010hasAlias\030\003 \002(\010\"-\n\032Uns" +
-      "upportedMessageResponse\022\017\n\007message\030\001 \001(\t",
-      "\"\376\022\n\007Message\0228\n\013messageType\030\001 \002(\0162#.gaug" +
-      "e.messages.Message.MessageType\022\021\n\tmessag" +
-      "eId\030\002 \002(\003\022J\n\030executionStartingRequest\030\003 " +
-      "\001(\0132(.gauge.messages.ExecutionStartingRe" +
-      "quest\022R\n\034specExecutionStartingRequest\030\004 " +
-      "\001(\0132,.gauge.messages.SpecExecutionStarti" +
-      "ngRequest\022N\n\032specExecutionEndingRequest\030" +
-      "\005 \001(\0132*.gauge.messages.SpecExecutionEndi" +
-      "ngRequest\022Z\n scenarioExecutionStartingRe" +
-      "quest\030\006 \001(\01320.gauge.messages.ScenarioExe",
-      "cutionStartingRequest\022V\n\036scenarioExecuti" +
-      "onEndingRequest\030\007 \001(\0132..gauge.messages.S" +
-      "cenarioExecutionEndingRequest\022R\n\034stepExe" +
-      "cutionStartingRequest\030\010 \001(\0132,.gauge.mess" +
-      "ages.StepExecutionStartingRequest\022N\n\032ste" +
-      "pExecutionEndingRequest\030\t \001(\0132*.gauge.me" +
-      "ssages.StepExecutionEndingRequest\022>\n\022exe" +
-      "cuteStepRequest\030\n \001(\0132\".gauge.messages.E" +
-      "xecuteStepRequest\022F\n\026executionEndingRequ" +
-      "est\030\013 \001(\0132&.gauge.messages.ExecutionEndi",
-      "ngRequest\022@\n\023stepValidateRequest\030\014 \001(\0132#" +
-      ".gauge.messages.StepValidateRequest\022B\n\024s" +
-      "tepValidateResponse\030\r \001(\0132$.gauge.messag" +
-      "es.StepValidateResponse\022H\n\027executionStat" +
-      "usResponse\030\016 \001(\0132\'.gauge.messages.Execut" +
-      "ionStatusResponse\022:\n\020stepNamesRequest\030\017 " +
-      "\001(\0132 .gauge.messages.StepNamesRequest\022<\n" +
-      "\021stepNamesResponse\030\020 \001(\0132!.gauge.message" +
-      "s.StepNamesResponse\022B\n\024suiteExecutionRes" +
-      "ult\030\021 \001(\0132$.gauge.messages.SuiteExecutio",
-      "nResult\022>\n\022killProcessRequest\030\022 \001(\0132\".ga" +
-      "uge.messages.KillProcessRequest\022R\n\034scena" +
-      "rioDataStoreInitRequest\030\023 \001(\0132,.gauge.me" +
-      "ssages.ScenarioDataStoreInitRequest\022J\n\030s" +
-      "pecDataStoreInitRequest\030\024 \001(\0132(.gauge.me" +
-      "ssages.SpecDataStoreInitRequest\022L\n\031suite" +
-      "DataStoreInitRequest\030\025 \001(\0132).gauge.messa" +
-      "ges.SuiteDataStoreInitRequest\0228\n\017stepNam" +
-      "eRequest\030\026 \001(\0132\037.gauge.messages.StepName" +
-      "Request\022:\n\020stepNameResponse\030\027 \001(\0132 .gaug",
-      "e.messages.StepNameResponse\0228\n\017refactorR" +
-      "equest\030\030 \001(\0132\037.gauge.messages.RefactorRe" +
-      "quest\022:\n\020refactorResponse\030\031 \001(\0132 .gauge." +
-      "messages.RefactorResponse\022N\n\032unsupported" +
-      "MessageResponse\030\032 \001(\0132*.gauge.messages.U" +
-      "nsupportedMessageResponse\"\335\004\n\013MessageTyp" +
-      "e\022\025\n\021ExecutionStarting\020\000\022\031\n\025SpecExecutio" +
-      "nStarting\020\001\022\027\n\023SpecExecutionEnding\020\002\022\035\n\031" +
-      "ScenarioExecutionStarting\020\003\022\033\n\027ScenarioE" +
-      "xecutionEnding\020\004\022\031\n\025StepExecutionStartin",
-      "g\020\005\022\027\n\023StepExecutionEnding\020\006\022\017\n\013ExecuteS" +
-      "tep\020\007\022\023\n\017ExecutionEnding\020\010\022\027\n\023StepValida" +
-      "teRequest\020\t\022\030\n\024StepValidateResponse\020\n\022\033\n" +
-      "\027ExecutionStatusResponse\020\013\022\024\n\020StepNamesR" +
-      "equest\020\014\022\025\n\021StepNamesResponse\020\r\022\026\n\022KillP" +
-      "rocessRequest\020\016\022\030\n\024SuiteExecutionResult\020" +
-      "\017\022\031\n\025ScenarioDataStoreInit\020\020\022\025\n\021SpecData" +
-      "StoreInit\020\021\022\026\n\022SuiteDataStoreInit\020\022\022\023\n\017S" +
-      "tepNameRequest\020\023\022\024\n\020StepNameResponse\020\024\022\023" +
-      "\n\017RefactorRequest\020\025\022\024\n\020RefactorResponse\020",
-      "\026\022\036\n\032UnsupportedMessageResponse\020\027"
+      "\"Q\n\tErrorType\022!\n\035STEP_IMPLEMENTATION_NOT" +
+      "_FOUND\020\000\022!\n\035DUPLICATE_STEP_IMPLEMENTATIO" +
+      "N\020\001\"M\n\024SuiteExecutionResult\0225\n\013suiteResu" +
+      "lt\030\001 \002(\0132 .gauge.messages.ProtoSuiteResu" +
+      "lt\"\022\n\020StepNamesRequest\"\"\n\021StepNamesRespo" +
+      "nse\022\r\n\005steps\030\001 \003(\t\"\036\n\034ScenarioDataStoreI" +
+      "nitRequest\"\032\n\030SpecDataStoreInitRequest\"\033" +
+      "\n\031SuiteDataStoreInitRequest\"=\n\021Parameter" +
+      "Position\022\023\n\013oldPosition\030\001 \002(\005\022\023\n\013newPosi",
+      "tion\030\002 \002(\005\"\270\001\n\017RefactorRequest\0224\n\014oldSte" +
+      "pValue\030\001 \002(\0132\036.gauge.messages.ProtoStepV" +
+      "alue\0224\n\014newStepValue\030\002 \002(\0132\036.gauge.messa" +
+      "ges.ProtoStepValue\0229\n\016paramPositions\030\003 \003" +
+      "(\0132!.gauge.messages.ParameterPosition\"H\n" +
+      "\020RefactorResponse\022\017\n\007success\030\001 \002(\010\022\r\n\005er" +
+      "ror\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003(\t\"$\n\017StepN" +
+      "ameRequest\022\021\n\tstepValue\030\001 \002(\t\"M\n\020StepNam" +
+      "eResponse\022\025\n\risStepPresent\030\001 \002(\010\022\020\n\010step" +
+      "Name\030\002 \003(\t\022\020\n\010hasAlias\030\003 \002(\010\"-\n\032Unsuppor",
+      "tedMessageResponse\022\017\n\007message\030\001 \001(\t\"\376\022\n\007" +
+      "Message\0228\n\013messageType\030\001 \002(\0162#.gauge.mes" +
+      "sages.Message.MessageType\022\021\n\tmessageId\030\002" +
+      " \002(\003\022J\n\030executionStartingRequest\030\003 \001(\0132(" +
+      ".gauge.messages.ExecutionStartingRequest" +
+      "\022R\n\034specExecutionStartingRequest\030\004 \001(\0132," +
+      ".gauge.messages.SpecExecutionStartingReq" +
+      "uest\022N\n\032specExecutionEndingRequest\030\005 \001(\013" +
+      "2*.gauge.messages.SpecExecutionEndingReq" +
+      "uest\022Z\n scenarioExecutionStartingRequest",
+      "\030\006 \001(\01320.gauge.messages.ScenarioExecutio" +
+      "nStartingRequest\022V\n\036scenarioExecutionEnd" +
+      "ingRequest\030\007 \001(\0132..gauge.messages.Scenar" +
+      "ioExecutionEndingRequest\022R\n\034stepExecutio" +
+      "nStartingRequest\030\010 \001(\0132,.gauge.messages." +
+      "StepExecutionStartingRequest\022N\n\032stepExec" +
+      "utionEndingRequest\030\t \001(\0132*.gauge.message" +
+      "s.StepExecutionEndingRequest\022>\n\022executeS" +
+      "tepRequest\030\n \001(\0132\".gauge.messages.Execut" +
+      "eStepRequest\022F\n\026executionEndingRequest\030\013",
+      " \001(\0132&.gauge.messages.ExecutionEndingReq" +
+      "uest\022@\n\023stepValidateRequest\030\014 \001(\0132#.gaug" +
+      "e.messages.StepValidateRequest\022B\n\024stepVa" +
+      "lidateResponse\030\r \001(\0132$.gauge.messages.St" +
+      "epValidateResponse\022H\n\027executionStatusRes" +
+      "ponse\030\016 \001(\0132\'.gauge.messages.ExecutionSt" +
+      "atusResponse\022:\n\020stepNamesRequest\030\017 \001(\0132 " +
+      ".gauge.messages.StepNamesRequest\022<\n\021step" +
+      "NamesResponse\030\020 \001(\0132!.gauge.messages.Ste" +
+      "pNamesResponse\022B\n\024suiteExecutionResult\030\021",
+      " \001(\0132$.gauge.messages.SuiteExecutionResu" +
+      "lt\022>\n\022killProcessRequest\030\022 \001(\0132\".gauge.m" +
+      "essages.KillProcessRequest\022R\n\034scenarioDa" +
+      "taStoreInitRequest\030\023 \001(\0132,.gauge.message" +
+      "s.ScenarioDataStoreInitRequest\022J\n\030specDa" +
+      "taStoreInitRequest\030\024 \001(\0132(.gauge.message" +
+      "s.SpecDataStoreInitRequest\022L\n\031suiteDataS" +
+      "toreInitRequest\030\025 \001(\0132).gauge.messages.S" +
+      "uiteDataStoreInitRequest\0228\n\017stepNameRequ" +
+      "est\030\026 \001(\0132\037.gauge.messages.StepNameReque",
+      "st\022:\n\020stepNameResponse\030\027 \001(\0132 .gauge.mes" +
+      "sages.StepNameResponse\0228\n\017refactorReques" +
+      "t\030\030 \001(\0132\037.gauge.messages.RefactorRequest" +
+      "\022:\n\020refactorResponse\030\031 \001(\0132 .gauge.messa" +
+      "ges.RefactorResponse\022N\n\032unsupportedMessa" +
+      "geResponse\030\032 \001(\0132*.gauge.messages.Unsupp" +
+      "ortedMessageResponse\"\335\004\n\013MessageType\022\025\n\021" +
+      "ExecutionStarting\020\000\022\031\n\025SpecExecutionStar" +
+      "ting\020\001\022\027\n\023SpecExecutionEnding\020\002\022\035\n\031Scena" +
+      "rioExecutionStarting\020\003\022\033\n\027ScenarioExecut",
+      "ionEnding\020\004\022\031\n\025StepExecutionStarting\020\005\022\027" +
+      "\n\023StepExecutionEnding\020\006\022\017\n\013ExecuteStep\020\007" +
+      "\022\023\n\017ExecutionEnding\020\010\022\027\n\023StepValidateReq" +
+      "uest\020\t\022\030\n\024StepValidateResponse\020\n\022\033\n\027Exec" +
+      "utionStatusResponse\020\013\022\024\n\020StepNamesReques" +
+      "t\020\014\022\025\n\021StepNamesResponse\020\r\022\026\n\022KillProces" +
+      "sRequest\020\016\022\030\n\024SuiteExecutionResult\020\017\022\031\n\025" +
+      "ScenarioDataStoreInit\020\020\022\025\n\021SpecDataStore" +
+      "Init\020\021\022\026\n\022SuiteDataStoreInit\020\022\022\023\n\017StepNa" +
+      "meRequest\020\023\022\024\n\020StepNameResponse\020\024\022\023\n\017Ref",
+      "actorRequest\020\025\022\024\n\020RefactorResponse\020\026\022\036\n\032" +
+      "UnsupportedMessageResponse\020\027"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

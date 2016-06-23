@@ -15,12 +15,14 @@
 
 package com.thoughtworks.gauge.processor;
 
-import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Messages.StepValidateResponse;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
 
 import java.lang.reflect.Method;
+import java.util.List;
+
+import com.thoughtworks.gauge.registry.StepRegistry;
 
 public class ValidateStepProcessor implements IMessageProcessor {
 
@@ -34,18 +36,20 @@ public class ValidateStepProcessor implements IMessageProcessor {
     }
 
     private StepValidateResponse validateStep(Messages.StepValidateRequest stepValidateRequest) {
-        Method methodImplementation = StepRegistry.get(stepValidateRequest.getStepText());
-        if (methodImplementation != null) {
+        List<Method> methodImplementations = StepRegistry.getAll(stepValidateRequest.getStepText());
+        if (methodImplementations != null && methodImplementations.size()==1) {
             return buildSuccessValidationResponse();
+        } else if(methodImplementations.isEmpty()) {
+            return buildFailureValidationResponse("Step implementation not found",ErrorType.STEP_IMPLEMENTATION_NOT_FOUND);
         } else {
-            return buildFailureValidationResponse("Step implementation not found");
+            return buildFailureValidationResponse("Duplicate step implementation found",ErrorType.DUPLICATE_STEP_IMPLEMENTATION);
         }
     }
 
-    private StepValidateResponse buildFailureValidationResponse(String errorMessage) {
+    private StepValidateResponse buildFailureValidationResponse(String errorMessage,ErrorType errorType) {
         return StepValidateResponse.newBuilder()
                 .setIsValid(false)
-                .setErrorType(ErrorType.STEP_IMPLEMENTATION_NOT_FOUND)
+                .setErrorType(errorType)
                 .setErrorMessage(errorMessage)
                 .build();
     }
