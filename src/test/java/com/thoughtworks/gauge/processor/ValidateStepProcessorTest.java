@@ -13,6 +13,9 @@ import gauge.messages.Messages.StepValidateRequest;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -48,6 +51,7 @@ public class ValidateStepProcessorTest {
     
     @Test
     public void shouldFailIfStepIsNotFound(){
+        mockStepRegistry(new ArrayList<Method>());
         
         Message outputMessage=stepProcessor.process(message);
         
@@ -57,24 +61,36 @@ public class ValidateStepProcessorTest {
     
     @Test
     public void shouldNotFailIfStepIsFound(){
-        mockStepRegistry();
+        mockStepRegistry(Arrays.asList(anyMethod()));
+        
+        Message outputMessage=stepProcessor.process(message);
+
+        assertTrue(outputMessage.getStepValidateResponse().getIsValid());
+    }
+    
+    @Test
+    public void shouldFailIfStepIsDefinedTwice(){
+        mockStepRegistry(Arrays.asList(anyMethod(),anyMethod()));
         
         Message outputMessage=stepProcessor.process(message);
         
-        assertTrue(outputMessage.getStepValidateResponse().getIsValid());
+        assertEquals(ErrorType.DUPLICATE_STEP_IMPLEMENTATION,outputMessage.getStepValidateResponse().getErrorType());
+        assertFalse(outputMessage.getStepValidateResponse().getIsValid());
     }
 
-    private void mockStepRegistry(){
+    private Method anyMethod() {
+
         try {
-            mockStatic(StepRegistry.class);
-            Method method = String.class.getMethod("toString");
-            when(StepRegistry.get(STEP_TEXT)).thenReturn(method);
+            return String.class.getMethod("toString");
         } catch (NoSuchMethodException exception) {
             throw new RuntimeException(exception);
         } catch (SecurityException exception) {
-            // TODO Auto-generated catch block
             throw new RuntimeException(exception);
         }
-        
+    }
+
+    private void mockStepRegistry(List<Method> methods){
+        mockStatic(StepRegistry.class);
+        when(StepRegistry.getAll(STEP_TEXT)).thenReturn(methods);
     }
 }
