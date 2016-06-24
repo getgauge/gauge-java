@@ -120,7 +120,7 @@ public class StepRegistryTest extends TestCase {
         
         StepRegistry.addStepImplementation(stepValue1, method2);
         
-        List<Method> methods = StepRegistry.getAll(stepValue1.getStepText());
+        Set<Method> methods = StepRegistry.getAll(stepValue1.getStepText());
         
         assertTrue(methods.contains(method1));
         assertTrue(methods.contains(method2));
@@ -130,9 +130,9 @@ public class StepRegistryTest extends TestCase {
 
     protected void tearDown() throws Exception {
         StepRegistry.remove(stepValue1.getStepText());
-        StepRegistry.remove(stepValue1.getStepText());
-        StepRegistry.remove(stepValue1.getStepText());
-        StepRegistry.remove(stepValue1.getStepText());
-        StepRegistry.remove(stepValue1.getStepText());
+        StepRegistry.remove(stepValue2.getStepText());
+        StepRegistry.remove(stepValue3.getStepText());
+        StepRegistry.remove(aliasStep1.getStepText());
+        StepRegistry.remove(aliasStep2.getStepText());
     }
 }

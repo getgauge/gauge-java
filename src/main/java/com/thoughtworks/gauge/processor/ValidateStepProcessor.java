@@ -20,7 +20,7 @@ import gauge.messages.Messages.StepValidateResponse;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
 
 import java.lang.reflect.Method;
-import java.util.List;
+import java.util.Set;
 
 import com.thoughtworks.gauge.registry.StepRegistry;
 
@@ -36,7 +36,7 @@ public class ValidateStepProcessor implements IMessageProcessor {
     }
 
     private StepValidateResponse validateStep(Messages.StepValidateRequest stepValidateRequest) {
-        List<Method> methodImplementations = StepRegistry.getAll(stepValidateRequest.getStepText());
+        Set<Method> methodImplementations = StepRegistry.getAll(stepValidateRequest.getStepText());
         if (methodImplementations != null && methodImplementations.size()==1) {
             return buildSuccessValidationResponse();
         } else if(methodImplementations.isEmpty()) {

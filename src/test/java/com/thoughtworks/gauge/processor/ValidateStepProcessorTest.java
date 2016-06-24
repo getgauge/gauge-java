@@ -13,9 +13,8 @@ import gauge.messages.Messages.StepValidateRequest;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,6 +22,7 @@ import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import com.google.common.collect.Sets;
 import com.thoughtworks.gauge.registry.StepRegistry;
 
 
@@ -51,7 +51,7 @@ public class ValidateStepProcessorTest {
     
     @Test
     public void shouldFailIfStepIsNotFound(){
-        mockStepRegistry(new ArrayList<Method>());
+        mockStepRegistry(new HashSet<Method>());
         
         Message outputMessage=stepProcessor.process(message);
         
@@ -61,7 +61,7 @@ public class ValidateStepProcessorTest {
     
     @Test
     public void shouldNotFailIfStepIsFound(){
-        mockStepRegistry(Arrays.asList(anyMethod()));
+        mockStepRegistry(Sets.newHashSet(anyMethod()));
         
         Message outputMessage=stepProcessor.process(message);
 
@@ -70,7 +70,7 @@ public class ValidateStepProcessorTest {
     
     @Test
     public void shouldFailIfStepIsDefinedTwice(){
-        mockStepRegistry(Arrays.asList(anyMethod(),anyMethod()));
+        mockStepRegistry(Sets.newHashSet(anyMethod(),anyOtherMethod()));
         
         Message outputMessage=stepProcessor.process(message);
         
@@ -88,8 +88,19 @@ public class ValidateStepProcessorTest {
             throw new RuntimeException(exception);
         }
     }
+    
+    private Method anyOtherMethod() {
 
-    private void mockStepRegistry(List<Method> methods){
+        try {
+            return String.class.getMethod("hashCode");
+        } catch (NoSuchMethodException exception) {
+            throw new RuntimeException(exception);
+        } catch (SecurityException exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
+    private void mockStepRegistry(Set<Method> methods){
         mockStatic(StepRegistry.class);
         when(StepRegistry.getAll(STEP_TEXT)).thenReturn(methods);
     }
