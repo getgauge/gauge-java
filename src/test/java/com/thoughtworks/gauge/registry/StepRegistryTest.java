@@ -15,14 +15,15 @@
 
 package com.thoughtworks.gauge.registry;
 
-import com.thoughtworks.gauge.StepValue;
-import com.thoughtworks.gauge.TestStepImplClass;
-import junit.framework.TestCase;
-
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Set;
+
+import junit.framework.TestCase;
+
+import com.thoughtworks.gauge.StepValue;
+import com.thoughtworks.gauge.TestStepImplClass;
 
 public class StepRegistryTest extends TestCase {
 
@@ -110,15 +111,28 @@ public class StepRegistryTest extends TestCase {
         StepRegistry.remove(stepValue1.getStepText());
         assertFalse(StepRegistry.contains(stepValue1.getStepText()));
         assertNull(StepRegistry.get(stepValue1.getStepText()));
+        assertTrue(StepRegistry.getAll(stepValue1.getStepText()).isEmpty());
         assertEquals("", StepRegistry.getStepAnnotationFor(stepValue1.getStepText()));
         assertEquals(false, StepRegistry.hasAlias(stepValue1.getStepText()));
+    }
+    
+    public void testAddedToRawRegistry(){
+        
+        StepRegistry.addStepImplementation(stepValue1, method2);
+        
+        Set<Method> methods = StepRegistry.getAll(stepValue1.getStepText());
+        
+        assertTrue(methods.contains(method1));
+        assertTrue(methods.contains(method2));
+        
+        
     }
 
     protected void tearDown() throws Exception {
         StepRegistry.remove(stepValue1.getStepText());
-        StepRegistry.remove(stepValue1.getStepText());
-        StepRegistry.remove(stepValue1.getStepText());
-        StepRegistry.remove(stepValue1.getStepText());
-        StepRegistry.remove(stepValue1.getStepText());
+        StepRegistry.remove(stepValue2.getStepText());
+        StepRegistry.remove(stepValue3.getStepText());
+        StepRegistry.remove(aliasStep1.getStepText());
+        StepRegistry.remove(aliasStep2.getStepText());
     }
 }
