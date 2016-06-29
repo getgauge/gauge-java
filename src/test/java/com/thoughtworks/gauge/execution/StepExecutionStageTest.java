@@ -20,6 +20,8 @@ import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
+
+import com.thoughtworks.gauge.ContinueOnFailure;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
@@ -79,6 +81,22 @@ public class StepExecutionStageTest extends TestCase {
         assertEquals(result.getErrorMessage(), "Failed to convert argument from type String to type int. For input string: \"a\"");
     }
 
+    public void testStepMethodExecutionWithContinueOnFailure() throws Exception {
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
+        MethodExecutor methodExecutor = new MethodExecutor();
+        Method fooMethod = this.getClass().getMethod("foo");
+        Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
+
+        assertEquals(result.getFailed(), true);
+        assertEquals(result.getRecoverableError(), true);
+        assertEquals(result.getErrorMessage(), "java.lang.RuntimeException: my exception");
+    }
+
+    @ContinueOnFailure
+    public void foo() {
+        throw new RuntimeException("my exception");
+    }
 
     public void fooBar() {
         // Test methods checking methodExecutor

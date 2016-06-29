@@ -17,6 +17,7 @@ package com.thoughtworks.gauge.execution;
 
 import com.google.protobuf.ByteString;
 import com.thoughtworks.gauge.ClassInstanceManager;
+import com.thoughtworks.gauge.ContinueOnFailure;
 import com.thoughtworks.gauge.screenshot.ScreenshotFactory;
 import gauge.messages.Spec;
 
@@ -32,12 +33,13 @@ public class MethodExecutor {
             long endTime = System.currentTimeMillis();
             return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(endTime - startTime).build();
         } catch (Throwable e) {
+            boolean recoverable = method.isAnnotationPresent(ContinueOnFailure.class);
             long endTime = System.currentTimeMillis();
-            return createFailureExecResult(endTime - startTime, e);
+            return createFailureExecResult(endTime - startTime, e ,recoverable);
         }
     }
 
-    private Spec.ProtoExecutionResult createFailureExecResult(long execTime, Throwable e) {
+    private Spec.ProtoExecutionResult createFailureExecResult(long execTime, Throwable e, boolean recoverable) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
         builder.setScreenShot(ByteString.copyFrom(new ScreenshotFactory().getScreenshotBytes()));
         if (e.getCause() != null) {
@@ -49,10 +51,9 @@ public class MethodExecutor {
             builder.setErrorMessage(e.toString());
             builder.setStackTrace(formatStackTrace(e.getStackTrace()));
         }
-        builder.setRecoverableError(false);
+        builder.setRecoverableError(recoverable);
         builder.setExecutionTime(execTime);
-        Spec.ProtoExecutionResult build = builder.build();
-        return build;
+        return builder.build();
     }
 
     private String formatStackTrace(StackTraceElement[] stackTrace) {
