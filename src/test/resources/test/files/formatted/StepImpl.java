@@ -1,3 +1,5 @@
+package test.files.formatted;
+
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
 

@@ -22,3 +22,5 @@ tmp
 deploy
 *.iml
 build/
+
+.DS_Store

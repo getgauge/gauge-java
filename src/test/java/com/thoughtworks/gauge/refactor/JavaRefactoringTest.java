@@ -49,7 +49,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForSimpleRefactoring() throws Exception {
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
         StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
-        File javaFile = getImplFile("StepImpl.java");
+        File javaFile = getImplFile("test/files/formatted/StepImpl.java");
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
@@ -64,7 +64,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForRefactoringWithNewParameter() throws Exception {
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
         StepValue newStepValue = new StepValue("step with {}", "step with <param 1>", Arrays.asList("param 1"));
-        File javaFile = getImplFile("StepImpl.java");
+        File javaFile = getImplFile("test/files/formatted/StepImpl.java");
         Messages.ParameterPosition parameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(0).build();
         ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
         parameterPositions.add(parameterPosition);
@@ -81,7 +81,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForRefactoringWithNewParameterWhenParametersPresent() throws Exception {
         StepValue oldStepValue = new StepValue("Tell {} to {}", "Tell <greeting> to <name>", Arrays.asList("greeting", "name"));
         StepValue newStepValue = new StepValue("Tell {} to {} {}", "Tell <greeting> to <name> <DD>", Arrays.asList("greeting", "name", "DD"));
-        File javaFile = getImplFile("StepImpl.java");
+        File javaFile = getImplFile("test/files/formatted/StepImpl.java");
         Messages.ParameterPosition parameterPosition1 = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(0).build();
         Messages.ParameterPosition parameterPosition2 = Messages.ParameterPosition.newBuilder().setOldPosition(1).setNewPosition(1).build();
         Messages.ParameterPosition parameterPosition3 = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(2).build();
@@ -108,7 +108,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForRefactoringWithParametersRemoved() throws Exception {
         StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<String>());
         StepValue newStepValue = new StepValue("{} changed {} and added {}", "<table> changed <c> and added <a>", Arrays.asList("b", "a", "c"));
-        File javaFile = getImplFile("StepImpl.java");
+        File javaFile = getImplFile("test/files/formatted/StepImpl.java");
 
         Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(2).build();
         Messages.ParameterPosition secondParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(1).setNewPosition(0).build();
@@ -133,7 +133,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForRefactoringForStepWithUnicodeCharacters() throws Exception {
         StepValue oldStepValue = new StepValue("† ‡ µ ¢ step with {} and {}", "† ‡ µ ¢ step with <Û> and <į>", Arrays.asList("Û", "į"));
         StepValue newStepValue = new StepValue("† ‡ µ ¢ step with {}", "† ‡ µ ¢ step with <Û>", Arrays.asList("Û"));
-        File javaFile = getImplFile("StepImpl.java");
+        File javaFile = getImplFile("test/files/formatted/StepImpl.java");
 
         Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(0).build();
         ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
@@ -153,7 +153,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForRefactoringWithParametersRemovedAndAdded() throws Exception {
         StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<String>());
         StepValue newStepValue = new StepValue("{} changed {} and added {}", "<b> changed <a> and added <c>", Arrays.asList("b", "a", "c"));
-        File javaFile = getImplFile("StepImpl.java");
+        File javaFile = getImplFile("test/files/formatted/StepImpl.java");
 
         Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(0).build();
         Messages.ParameterPosition secondParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(1).build();
@@ -204,7 +204,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForRefactoringWithMethodWithComments() throws Exception {
         StepValue oldStepValue = new StepValue("A step with comments", "A step with comments", new ArrayList<String>());
         StepValue newStepValue = new StepValue("with comments", "with comments", new ArrayList<String>());
-        File javaFile = getImplFile("StepImpl.java");
+        File javaFile = getImplFile("test/files/formatted/StepImpl.java");
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
@@ -230,7 +230,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testRefactoringWithOrphanComments() throws RefactoringException {
         StepValue oldStepValue = new StepValue("A step with comments", "A step with comments", new ArrayList<String>());
         StepValue newStepValue = new StepValue("with comments", "with comments", new ArrayList<String>());
-        File javaFile = getImplFile("StepImplWithComments.java");
+        File javaFile = getImplFile("test/files/formatted/StepImplWithComments.java");
 
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
@@ -271,7 +271,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForRefactoringWithUnFormattedMethod() throws Exception {
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
         StepValue newStepValue = new StepValue("A step with no paramss", "A step with no paramss", new ArrayList<String>());
-        File javaFile = getImplFile("UnFormattedStepImpl.java");
+        File javaFile = getImplFile("test/files/unformatted/UnFormattedStepImpl.java");
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
@@ -287,7 +287,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForRefactoringWithMethodHavingNewLineCharInString() throws Exception {
         StepValue oldStepValue = new StepValue("A step with newLine", "A step with newLine", new ArrayList<String>());
         StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
-        File javaFile = getImplFile("StepImpl.java");
+        File javaFile = getImplFile("test/files/formatted/StepImpl.java");
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
