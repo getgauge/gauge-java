@@ -60,12 +60,16 @@ public class JavaRefactoring {
     }
 
     public JavaRefactoringElement createJavaRefactoringElement(String fileName) throws RefactoringException {
+        System.out.println("WD: " +Util.workingDir());
+        System.out.println("Filename: " + fileName);
+
         List<JavaParseWorker> javaParseWorkers = parseJavaFiles(Util.workingDir(), fileName);
         if (javaParseWorkers.isEmpty()) {
             throw new RefactoringException("Unable to find file: " + fileName);
         }
         try {
             for (JavaParseWorker javaFile : javaParseWorkers) {
+                System.out.println("Processing: " + javaFile.getJavaFile().getAbsolutePath());
                 CompilationUnit compilationUnit = javaFile.getCompilationUnit();
                 RefactoringMethodVisitor methodVisitor = new RefactoringMethodVisitor(oldStepValue, newStepValue, paramPositions);
                 methodVisitor.visit(compilationUnit, null);

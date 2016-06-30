@@ -51,10 +51,10 @@ public class JavaRefactoringTest extends TestCase {
         StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
         File javaFile = getImplFile("StepImpl.java");
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
-        JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
-        System.out.println(javaFile.getAbsolutePath());
-        System.out.println(element.getFile().getAbsoluteFile());
+        System.out.println("Creating element for: " + javaFile.getAbsolutePath());
+        JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
+        System.out.println("Got element for: " + element.getFile().getAbsoluteFile());
 
         assertEquals(javaFile.getName(), element.getFile().getName());
         assertTrue(element.getText().contains("    @Step(\"step changed\")" + System.getProperty("line.separator") +
