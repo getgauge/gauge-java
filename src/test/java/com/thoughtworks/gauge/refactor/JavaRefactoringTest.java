@@ -53,9 +53,6 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
-        System.out.println(javaFile.getAbsolutePath());
-        System.out.println(element.getFile().getAbsoluteFile());
-
         assertEquals(javaFile.getName(), element.getFile().getName());
         assertTrue(element.getText().contains("    @Step(\"step changed\")" + System.getProperty("line.separator") +
                 "    public void someStepStep() {" + System.getProperty("line.separator") +
