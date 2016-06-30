@@ -88,7 +88,7 @@ public class JavaRefactoring {
             if (file.isDirectory()) {
                 javaFiles.addAll(parseJavaFiles(file, fileName));
             } else {
-                if (file.getAbsolutePath().contains(fileName)) {
+                if (file.getAbsolutePath().endsWith(fileName)) {
                     JavaParseWorker worker = new JavaParseWorker(file);
                     worker.start();
                     javaFiles.add(worker);
