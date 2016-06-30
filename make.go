@@ -323,7 +323,7 @@ var distro = flag.Bool("distro", false, "Creates distributables for gauge java")
 var test = flag.Bool("test", false, "Runs tests")
 var allPlatforms = flag.Bool("all-platforms", false, "Compiles or creates distributables for all platforms windows, linux, darwin both x86 and x86_64")
 var binDir = flag.String("bin-dir", "", "Specifies OS_PLATFORM specific binaries to install when cross compiling")
-var profile = flag.String("profile", "release", "Specify profile to use while building")
+var profile = flag.String("profile", "", "Specify profile to use while building")
 
 var (
 	platformEnvs = []map[string]string{
@@ -476,7 +476,11 @@ func compileGaugeJavaAcrossPlatforms() {
 
 func buildGaugeJavaJar() {
 	os.RemoveAll(targetDir)
-	runCommand("mvn", "package", "-P", *profile)
+	if *profile != "" {
+	    runCommand("mvn", "package", "-P", *profile)
+	} else {
+	    runCommand("mvn", "package")
+	}
 }
 
 func installGaugeJava(installPrefix string) {

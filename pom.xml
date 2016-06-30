@@ -224,18 +224,10 @@
 
     <properties>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+        <projectVersion>0.4.2</projectVersion>
     </properties>
 
     <profiles>
-        <profile>
-            <id>release</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <projectVersion>0.4.2</projectVersion>
-            </properties>
-        </profile>
         <profile>
             <id>nightly</id>
             <properties>
