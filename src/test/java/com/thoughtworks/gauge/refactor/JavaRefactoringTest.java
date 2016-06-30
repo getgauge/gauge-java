@@ -271,7 +271,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testJavaElementForRefactoringWithUnFormattedMethod() throws Exception {
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
         StepValue newStepValue = new StepValue("A step with no paramss", "A step with no paramss", new ArrayList<String>());
-        File javaFile = getImplFile("StepImpl.java");
+        File javaFile = getImplFile("UnFormattedStepImpl.java");
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(javaFile.getName());
 
