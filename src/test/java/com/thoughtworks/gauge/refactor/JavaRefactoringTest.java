@@ -24,9 +24,13 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.File;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
+import static org.mockito.Mockito.mock;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 import static org.powermock.api.mockito.PowerMockito.when;
 
@@ -44,6 +48,20 @@ public class JavaRefactoringTest extends TestCase {
         RefactoringResult result = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>()).performRefactoring();
         assertEquals(false, result.passed());
         assertEquals("Refactoring for steps having aliases are not supported.", result.errorMessage());
+    }
+
+    public void testRefactoringWithDuplicateImplementations() throws Exception {
+        HashSet<Method> set = mock(HashSet.class);
+        mockStatic(StepRegistry.class);
+        when(StepRegistry.getAll("old step")).thenReturn(set);
+        when(set.size()).thenReturn(2);
+        when(StepRegistry.getFileName("old step")).thenReturn("foo");
+
+        StepValue oldStepValue = new StepValue("old step", "", new ArrayList<String>());
+        StepValue newStepValue = new StepValue("", "", new ArrayList<String>());
+        RefactoringResult result = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>()).performRefactoring();
+        assertEquals(false, result.passed());
+        assertEquals("Duplicate step implementation found.", result.errorMessage());
     }
 
     public void testJavaElementForSimpleRefactoring() throws Exception {

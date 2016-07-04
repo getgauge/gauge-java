@@ -37,13 +37,18 @@ public class JavaRefactoring {
     }
 
     public RefactoringResult performRefactoring() {
-        String fileName = StepRegistry.getFileName(oldStepValue.getStepText());
+        String oldStepText = oldStepValue.getStepText();
+        String fileName = StepRegistry.getFileName(oldStepText);
         if (fileName == null || fileName.isEmpty()) {
             return new RefactoringResult(false, "Step Implementation Not Found: Unable to find a file Name to refactor");
         }
-        if (StepRegistry.hasAlias(oldStepValue.getStepText())) {
+        if (StepRegistry.hasAlias(oldStepText)) {
             return new RefactoringResult(false, "Refactoring for steps having aliases are not supported.");
         }
+        if (StepRegistry.getAll(oldStepText).size() > 1) {
+            return new RefactoringResult(false, "Duplicate step implementation found.");
+        }
+
         JavaRefactoringElement element;
         try {
             element = createJavaRefactoringElement(fileName);
