@@ -95,7 +95,8 @@ public class HooksExecutor {
             if (methodHasArguments(hook.getMethod(), info)) {
                 return methodExecutor.execute(hook.getMethod(), info);
             }
-            return methodExecutor.execute(hook.getMethod());
+            Spec.ProtoExecutionResult result = methodExecutor.execute(hook.getMethod());
+            return result.toBuilder().setRecoverableError(false).build();
         }
     }
 }
