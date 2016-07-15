@@ -84,8 +84,13 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
             memberValue.setValue(newStepValue.getStepAnnotationText());
             List<Parameter> parameters = methodDeclaration.getParameters();
             for (int i = 0, paramPositionsSize = paramPositions.size(); i < paramPositionsSize; i++) {
-                if (paramPositions.get(i).getOldPosition() < 0)
-                    newParameters.set(paramPositions.get(i).getNewPosition(), new Parameter(new ClassOrInterfaceType("String"), new VariableDeclaratorId(Util.convertToCamelCase("arg " + newStepValue.getParameters().get(i)))));
+                if (paramPositions.get(i).getOldPosition() < 0) {
+                    String paramName = Util.getValidJavaIdentifier(Util.convertToCamelCase("arg " + newStepValue.getParameters().get(i)));
+                    if (paramName.equals("arg")) {
+                        paramName += i;
+                    }
+                    newParameters.set(paramPositions.get(i).getNewPosition(), new Parameter(new ClassOrInterfaceType("String"), new VariableDeclaratorId(paramName)));
+                }
                 else
                     newParameters.set(paramPositions.get(i).getNewPosition(), parameters.get(paramPositions.get(i).getOldPosition()));
             }

@@ -38,4 +38,14 @@ public class Util {
     public static String lineSeparator() {
         return System.getProperty("line.separator");
     }
+
+    public static String getValidJavaIdentifier(String s) {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isJavaIdentifierPart(s.charAt(i))) {
+                builder.append(s.charAt(i));
+            }
+        }
+        return builder.toString();
+    }
 }

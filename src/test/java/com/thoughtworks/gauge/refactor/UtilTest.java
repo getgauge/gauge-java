@@ -26,4 +26,16 @@ public class UtilTest extends TestCase {
         assertEquals("allhailTheKing", Util.convertToCamelCase("   AllHaiL tHe king"));
 
     }
+
+    public void testGetValidJavaIdentifier() {
+        assertEquals("", Util.getValidJavaIdentifier("%"));
+        assertEquals("", Util.getValidJavaIdentifier("^%@!*^&|()"));
+        assertEquals("", Util.getValidJavaIdentifier("|"));
+        assertEquals("hello", Util.getValidJavaIdentifier("hello"));
+        assertEquals("hello", Util.getValidJavaIdentifier("hello&"));
+        assertEquals("_hello", Util.getValidJavaIdentifier("_hello&"));
+        assertEquals("_hello", Util.getValidJavaIdentifier("_hello&("));
+        assertEquals("2hello", Util.getValidJavaIdentifier("2hello&("));
+        assertEquals("ƒ", Util.getValidJavaIdentifier("˚¬∆˙©ƒ∂"));
+    }
 }
