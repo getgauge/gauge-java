@@ -1,6 +1,6 @@
 {
     "id": "java",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "description": "Java support for gauge",
     "install": {
         "windows": [],
@@ -19,7 +19,7 @@
     },
     "lib": "libs",
     "gaugeVersionSupport": {
-        "minimum": "0.3.0",
+        "minimum": "0.6.0",
         "maximum": ""
     }
 }

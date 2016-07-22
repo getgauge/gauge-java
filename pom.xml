@@ -224,14 +224,14 @@
 
     <properties>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
-        <projectVersion>0.5.0</projectVersion>
+        <projectVersion>0.5.1</projectVersion>
     </properties>
 
     <profiles>
         <profile>
             <id>nightly</id>
             <properties>
-                <projectVersion>0.5.0.nightly-${maven.build.timestamp}</projectVersion>
+                <projectVersion>0.5.1.nightly-${maven.build.timestamp}</projectVersion>
             </properties>
         </profile>
     </profiles>
