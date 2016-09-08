@@ -43,15 +43,23 @@ public class MethodExecutor {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
         builder.setScreenShot(ByteString.copyFrom(new ScreenshotFactory().getScreenshotBytes()));
         if (e.getCause() != null) {
-            if (e.getCause().getClass().equals(AssertionError.class))
+            if (e.getCause().getClass().equals(AssertionError.class)) {
                 builder.setErrorType(Spec.ProtoExecutionResult.ErrorType.ASSERTION);
+                if (recoverable) {
+                    builder.setRecoverableError(true);
+                } else {
+                    builder.setRecoverableError(false);
+                }
+            } else {
+                builder.setRecoverableError(false);
+            }
             builder.setErrorMessage(e.getCause().toString());
             builder.setStackTrace(formatStackTrace(e.getCause().getStackTrace()));
         } else {
+            builder.setRecoverableError(recoverable);
             builder.setErrorMessage(e.toString());
             builder.setStackTrace(formatStackTrace(e.getStackTrace()));
         }
-        builder.setRecoverableError(recoverable);
         builder.setExecutionTime(execTime);
         return builder.build();
     }

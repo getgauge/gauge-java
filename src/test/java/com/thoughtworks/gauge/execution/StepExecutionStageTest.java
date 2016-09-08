@@ -81,7 +81,7 @@ public class StepExecutionStageTest extends TestCase {
         assertEquals(result.getErrorMessage(), "Failed to convert argument from type String to type int. For input string: \"a\"");
     }
 
-    public void testStepMethodExecutionWithContinueOnFailure() throws Exception {
+    public void testStepMethodExecutionWithCOFOnRuntimeException() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
         MethodExecutor methodExecutor = new MethodExecutor();
@@ -89,13 +89,30 @@ public class StepExecutionStageTest extends TestCase {
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
 
         assertEquals(result.getFailed(), true);
-        assertEquals(result.getRecoverableError(), true);
+        assertEquals(result.getRecoverableError(), false);
         assertEquals(result.getErrorMessage(), "java.lang.RuntimeException: my exception");
+    }
+
+    public void testStepMethodExecutionWithCOFOnAssertionFailure() throws Exception {
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
+        MethodExecutor methodExecutor = new MethodExecutor();
+        Method fooMethod = this.getClass().getMethod("bar");
+        Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
+
+        assertEquals(true, result.getFailed());
+        assertEquals(true, result.getRecoverableError());
+        assertEquals("java.lang.AssertionError: assertion failed", result.getErrorMessage());
     }
 
     @ContinueOnFailure
     public void foo() {
         throw new RuntimeException("my exception");
+    }
+
+    @ContinueOnFailure
+    public void bar() {
+        throw new AssertionError("assertion failed");
     }
 
     public void fooBar() {
