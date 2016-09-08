@@ -34,24 +34,25 @@ public class MethodExecutor {
             return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(endTime - startTime).build();
         } catch (Throwable e) {
             boolean recoverable = method.isAnnotationPresent(ContinueOnFailure.class);
+            Class[] COFSkipList = new Class[]{};
+            if (recoverable) {
+                COFSkipList = method.getAnnotation(ContinueOnFailure.class).value();
+            }
             long endTime = System.currentTimeMillis();
-            return createFailureExecResult(endTime - startTime, e ,recoverable);
+            return createFailureExecResult(endTime - startTime, e ,recoverable, COFSkipList);
         }
     }
 
-    private Spec.ProtoExecutionResult createFailureExecResult(long execTime, Throwable e, boolean recoverable) {
+    private Spec.ProtoExecutionResult createFailureExecResult(long execTime, Throwable e, boolean recoverable, Class[] COFSkipList) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
         builder.setScreenShot(ByteString.copyFrom(new ScreenshotFactory().getScreenshotBytes()));
         if (e.getCause() != null) {
-            if (e.getCause().getClass().equals(AssertionError.class)) {
-                builder.setErrorType(Spec.ProtoExecutionResult.ErrorType.ASSERTION);
-                if (recoverable) {
+            builder.setRecoverableError(false);
+            for (Class c : COFSkipList) {
+                if (c.isAssignableFrom(e.getCause().getClass()) && recoverable) {
                     builder.setRecoverableError(true);
-                } else {
-                    builder.setRecoverableError(false);
+                    break;
                 }
-            } else {
-                builder.setRecoverableError(false);
             }
             builder.setErrorMessage(e.getCause().toString());
             builder.setStackTrace(formatStackTrace(e.getCause().getStackTrace()));
@@ -68,7 +69,7 @@ public class MethodExecutor {
         if (stackTrace == null)
             return "";
 
-        StringBuffer output = new StringBuffer();
+        StringBuilder output = new StringBuilder();
         for (StackTraceElement element : stackTrace) {
             output.append(element.toString());
             output.append("\n");

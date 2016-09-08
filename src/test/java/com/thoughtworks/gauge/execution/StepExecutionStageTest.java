@@ -89,7 +89,7 @@ public class StepExecutionStageTest extends TestCase {
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
 
         assertEquals(result.getFailed(), true);
-        assertEquals(result.getRecoverableError(), false);
+        assertEquals(result.getRecoverableError(), true);
         assertEquals(result.getErrorMessage(), "java.lang.RuntimeException: my exception");
     }
 
@@ -105,6 +105,42 @@ public class StepExecutionStageTest extends TestCase {
         assertEquals("java.lang.AssertionError: assertion failed", result.getErrorMessage());
     }
 
+    public void testStepMethodExecutionWithCOFOnErrorNotWhitelisted() throws Exception {
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
+        MethodExecutor methodExecutor = new MethodExecutor();
+        Method fooMethod = this.getClass().getMethod("barfoo");
+        Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
+
+        assertEquals(true, result.getFailed());
+        assertEquals(false, result.getRecoverableError());
+        assertEquals("java.lang.RuntimeException: not recoverable!", result.getErrorMessage());
+    }
+
+    public void testStepMethodExecutionWithCOFOnErrorWhitelisted() throws Exception {
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
+        MethodExecutor methodExecutor = new MethodExecutor();
+        Method fooMethod = this.getClass().getMethod("ding");
+        Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
+
+        assertEquals(true, result.getFailed());
+        assertEquals(true, result.getRecoverableError());
+        assertEquals("java.lang.RuntimeException: recoverable!", result.getErrorMessage());
+    }
+
+    public void testFailingStepMethodExecutionWithNoCOF() throws Exception {
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
+        MethodExecutor methodExecutor = new MethodExecutor();
+        Method fooMethod = this.getClass().getMethod("noCOF");
+        Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
+
+        assertEquals(true, result.getFailed());
+        assertEquals(false, result.getRecoverableError());
+        assertEquals("java.lang.RuntimeException: my exception", result.getErrorMessage());
+    }
+
     @ContinueOnFailure
     public void foo() {
         throw new RuntimeException("my exception");
@@ -113,6 +149,20 @@ public class StepExecutionStageTest extends TestCase {
     @ContinueOnFailure
     public void bar() {
         throw new AssertionError("assertion failed");
+    }
+
+    @ContinueOnFailure(AssertionError.class)
+    public void barfoo(){
+        throw new RuntimeException("not recoverable!");
+    }
+
+    @ContinueOnFailure(RuntimeException.class)
+    public void ding(){
+        throw new RuntimeException("recoverable!");
+    }
+
+    public void noCOF() {
+        throw new RuntimeException("my exception");
     }
 
     public void fooBar() {
