@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.processor;
 
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.MessageCollector;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
@@ -22,6 +23,11 @@ import com.thoughtworks.gauge.registry.HooksRegistry;
 import gauge.messages.Messages;
 
 public class StepExecutionStartingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
+
+    public StepExecutionStartingProcessor(ClassInstanceManager instanceManager) {
+        super(instanceManager);
+    }
+
     public Messages.Message process(Messages.Message message) {
         new MessageCollector().clearMessages();
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getStepExecutionStartingRequest().getCurrentExecutionInfo());

@@ -16,11 +16,18 @@
 package com.thoughtworks.gauge.datastore;
 
 
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.processor.IMessageProcessor;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
 public class DataStoreInitializer implements IMessageProcessor {
+    private ClassInstanceManager instanceManager;
+
+    public DataStoreInitializer(ClassInstanceManager instanceManager) {
+        this.instanceManager = instanceManager;
+    }
+
     public Messages.Message process(Messages.Message message) {
         switch (message.getMessageType()) {
             case SuiteDataStoreInit:

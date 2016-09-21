@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.execution;
 
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.hook.Hook;
 import gauge.messages.Spec;
@@ -26,10 +27,12 @@ import java.util.Set;
 
 public class HookExecutionStage extends AbstractExecutionStage {
     private List<Hook> execHooks;
+    private ClassInstanceManager manager;
     private ExecutionStage next;
 
-    public HookExecutionStage(List<Hook> execHooks) {
+    public HookExecutionStage(List<Hook> execHooks, ClassInstanceManager manager) {
         this.execHooks = execHooks;
+        this.manager = manager;
     }
 
     public void setNextStage(ExecutionStage stage) {
@@ -47,6 +50,6 @@ public class HookExecutionStage extends AbstractExecutionStage {
     }
 
     private Spec.ProtoExecutionResult execute() {
-        return new HooksExecutor(execHooks, new ExecutionContext()).execute();
+        return new HooksExecutor(execHooks, new ExecutionContext(), manager).execute();
     }
 }

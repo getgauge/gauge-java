@@ -18,6 +18,7 @@ package com.thoughtworks.gauge.connection;
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
 import com.thoughtworks.gauge.processor.*;
 import gauge.messages.Messages;
@@ -37,24 +38,25 @@ public class MessageDispatcher {
     private final HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors;
 
     public MessageDispatcher() {
+        final ClassInstanceManager instanceManager = new ClassInstanceManager();
         messageProcessors = new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
-            put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor());
-            put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor());
-            put(Messages.Message.MessageType.SpecExecutionStarting, new SpecExecutionStartingProcessor());
-            put(Messages.Message.MessageType.SpecExecutionEnding, new SpecExecutionEndingProcessor());
-            put(Messages.Message.MessageType.ScenarioExecutionStarting, new ScenarioExecutionStartingProcessor());
-            put(Messages.Message.MessageType.ScenarioExecutionEnding, new ScenarioExecutionEndingProcessor());
-            put(Messages.Message.MessageType.StepExecutionStarting, new StepExecutionStartingProcessor());
-            put(Messages.Message.MessageType.StepExecutionEnding, new StepExecutionEndingProcessor());
-            put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor());
-            put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor());
-            put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor());
-            put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer());
-            put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer());
-            put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer());
-            put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor());
-            put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor());
-            put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor());
+            put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
+            put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));
+            put(Messages.Message.MessageType.SpecExecutionStarting, new SpecExecutionStartingProcessor(instanceManager));
+            put(Messages.Message.MessageType.SpecExecutionEnding, new SpecExecutionEndingProcessor(instanceManager));
+            put(Messages.Message.MessageType.ScenarioExecutionStarting, new ScenarioExecutionStartingProcessor(instanceManager));
+            put(Messages.Message.MessageType.ScenarioExecutionEnding, new ScenarioExecutionEndingProcessor(instanceManager));
+            put(Messages.Message.MessageType.StepExecutionStarting, new StepExecutionStartingProcessor(instanceManager));
+            put(Messages.Message.MessageType.StepExecutionEnding, new StepExecutionEndingProcessor(instanceManager));
+            put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager));
+            put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor(instanceManager));
+            put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor(instanceManager));
+            put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer(instanceManager));
+            put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer(instanceManager));
+            put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer(instanceManager));
+            put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor(instanceManager));
+            put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(instanceManager));
+            put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor(instanceManager));
         }};
     }
 

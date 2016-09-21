@@ -15,9 +15,14 @@
 
 package com.thoughtworks.gauge.processor;
 
+import com.thoughtworks.gauge.ClassInstanceManager;
 import gauge.messages.Messages;
 
 public class KillProcessProcessor implements IMessageProcessor {
+
+    public KillProcessProcessor(ClassInstanceManager instanceManager) {
+    }
+
     public Messages.Message process(Messages.Message message) {
         return message;
     }

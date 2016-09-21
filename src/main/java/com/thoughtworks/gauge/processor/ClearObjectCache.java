@@ -26,10 +26,10 @@ public enum ClearObjectCache {
         this.level = level;
     }
 
-    public static void clear(ClearObjectCache currentPosition) {
+    public static void clear(ClearObjectCache currentPosition, ClassInstanceManager manager) {
         String level = System.getenv(clear_state_flag);
         if (level != null && level.equals(currentPosition.level)) {
-            ClassInstanceManager.clearCache();
+            manager.clearCache();
         }
     }
 }

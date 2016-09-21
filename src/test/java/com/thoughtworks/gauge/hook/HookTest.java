@@ -24,8 +24,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.Assert.assertEquals;
-
 public class HookTest extends TestCase {
 
     public void testSortingOfHookCollection() throws NoSuchMethodException {
@@ -34,7 +32,7 @@ public class HookTest extends TestCase {
         final Hook hook3 = new Hook(TestHook.class.getMethod("bar"), new String[0], Operator.AND);
         final Hook hook4 = new Hook(TestHook.class.getMethod("foobar"), new String[]{"hello"}, Operator.AND);
 
-        Set<Hook> hooks = new HashSet<Hook>(){{
+        Set<Hook> hooks = new HashSet<Hook>() {{
             add(hook1);
             add(hook2);
             add(hook3);
@@ -48,17 +46,21 @@ public class HookTest extends TestCase {
         assertEquals("foobar", hooksList.get(3).getMethod().getName());
     }
 
-    private class TestHook{
+    private class TestHook {
         @BeforeScenario
-        public void foo(){}
+        public void foo() {
+        }
 
         @BeforeScenario
-        public void bar(){}
+        public void bar() {
+        }
 
-        @BeforeScenario(tags="hello")
-        public void foobar(){}
+        @BeforeScenario(tags = "hello")
+        public void foobar() {
+        }
 
-        @BeforeScenario(tags="hello")
-        public void barfoo(){}
+        @BeforeScenario(tags = "hello")
+        public void barfoo() {
+        }
     }
 }

@@ -19,37 +19,35 @@ import junit.framework.TestCase;
 
 public class ClassInstanceManagerTest extends TestCase {
 
-    protected void setUp() throws Exception {
-        ClassInstanceManager.clearCache();
-        ClassInstanceManager.setClassInitializer(null);
-    }
-
     public void testObjectsAreCachedInClassInstanceManager() throws Exception {
-        Object object = ClassInstanceManager.get(TestStepImplClass.class);
+        ClassInstanceManager manager = new ClassInstanceManager();
+        Object object = manager.get(TestStepImplClass.class);
         assertTrue(object instanceof TestStepImplClass);
 
-        Object object2 = ClassInstanceManager.get(TestStepImplClass.class);
+        Object object2 = manager.get(TestStepImplClass.class);
         assertTrue(object2 instanceof TestStepImplClass);
         assertEquals(object, object2);
     }
 
     public void testSettingClassInitializer() throws Exception {
         final TestStepImplClass expectedObject = new TestStepImplClass();
-        ClassInstanceManager.setClassInitializer(new ClassInitializer() {
+        ClassInstanceManager manager = new ClassInstanceManager();
+        manager.setClassInitializer(new ClassInitializer() {
             public Object initialize(Class<?> classToInitialize) throws Exception {
                 return expectedObject;
             }
         });
-        Object object1 = ClassInstanceManager.get(TestStepImplClass.class);
-        Object object2 = ClassInstanceManager.get(String.class);
+        Object object1 = manager.get(TestStepImplClass.class);
+        Object object2 = manager.get(String.class);
         assertEquals(expectedObject, object1);
         assertEquals(expectedObject, object2);
     }
 
     public void testClearingCache() throws Exception {
-        Object object1 = ClassInstanceManager.get(TestStepImplClass.class);
-        ClassInstanceManager.clearCache();
-        Object object2 = ClassInstanceManager.get(TestStepImplClass.class);
+        ClassInstanceManager manager = new ClassInstanceManager();
+        Object object1 = manager.get(TestStepImplClass.class);
+        manager.clearCache();
+        Object object2 = manager.get(TestStepImplClass.class);
         assertTrue(object1 instanceof TestStepImplClass);
         assertTrue(object2 instanceof TestStepImplClass);
         assertFalse(object1.equals(object2));

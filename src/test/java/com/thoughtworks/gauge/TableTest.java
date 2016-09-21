@@ -1,16 +1,15 @@
 package com.thoughtworks.gauge;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import com.google.common.base.Joiner;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import com.google.common.base.Joiner;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TableTest {
 
@@ -61,29 +60,29 @@ public class TableTest {
     }
 
     @Test
-    public void shouldBeAbleToGetTableCellFromColumnName(){
+    public void shouldBeAbleToGetTableCellFromColumnName() {
         String cellValue = table.getTableRows().get(0).getCell("col1");
-        assertEquals("foo1",cellValue);
+        assertEquals("foo1", cellValue);
         cellValue = table.getTableRows().get(0).getCell("col2");
-        assertEquals("bar1",cellValue);
+        assertEquals("bar1", cellValue);
         cellValue = table.getTableRows().get(1).getCell("col1");
-        assertEquals("foo2",cellValue);
+        assertEquals("foo2", cellValue);
         cellValue = table.getTableRows().get(1).getCell("col2");
-        assertEquals("bar2",cellValue);
+        assertEquals("bar2", cellValue);
         cellValue = table.getTableRows().get(0).getCell("invalid");
         assertEquals("", cellValue);
     }
-    
+
     @Test
-    public void testToString(){
-        List<String> expectedLines = Arrays.asList("|col1|col2|","|----|----|", "|foo1|bar1|","|foo2|bar2|");
+    public void testToString() {
+        List<String> expectedLines = Arrays.asList("|col1|col2|", "|----|----|", "|foo1|bar1|", "|foo2|bar2|");
         String expected = Joiner.on(System.getProperty("line.separator")).join(expectedLines);
-        
-        assertEquals(expected,table.toString());
+
+        assertEquals(expected, table.toString());
     }
-    
+
     @Test
-    public void testToStringWithEmptyHeaderAndRow(){
-        assertEquals("",new Table(new ArrayList<String>()).toString());
+    public void testToStringWithEmptyHeaderAndRow() {
+        assertEquals("", new Table(new ArrayList<String>()).toString());
     }
 }

@@ -16,6 +16,7 @@
 package com.thoughtworks.gauge.execution;
 
 import com.thoughtworks.gauge.BeforeScenario;
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ContinueOnFailure;
 import com.thoughtworks.gauge.Operator;
 import com.thoughtworks.gauge.hook.Hook;
@@ -28,17 +29,18 @@ public class HooksExecutorTest extends TestCase {
 
     public void testHookExecutor() throws Exception {
         final Hook hook1 = new Hook(HooksExecutorTest.TestHook.class.getMethod("foo"), new String[0], Operator.AND);
-        HookExecutionStage hookExecutionStage = new HookExecutionStage(new ArrayList<Hook>(){{
+        HookExecutionStage hookExecutionStage = new HookExecutionStage(new ArrayList<Hook>() {{
             add(hook1);
-        }});
+        }}, new ClassInstanceManager());
         Spec.ProtoExecutionResult prevResult = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(0).build();
         Spec.ProtoExecutionResult result = hookExecutionStage.execute(prevResult);
         assertFalse(result.getRecoverableError());
     }
 
-    private class TestHook{
+    private class TestHook {
         @ContinueOnFailure
         @BeforeScenario
-        public void foo(){}
+        public void foo() {
+        }
     }
 }

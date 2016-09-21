@@ -17,6 +17,7 @@ package com.thoughtworks.gauge.execution;
 
 
 import com.google.common.base.Throwables;
+import com.thoughtworks.gauge.ClassInstanceManager;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 import gauge.messages.Spec.Parameter;
@@ -35,8 +36,10 @@ public class StepExecutionStage extends AbstractExecutionStage {
     private Messages.ExecuteStepRequest executeStepRequest;
     private Map<Class<?>, StringToPrimitiveConverter> primitiveConverters = new HashMap<Class<?>, StringToPrimitiveConverter>();
     private TableConverter tableConverter;
+    private ClassInstanceManager manager;
 
-    public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest) {
+    public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest, ClassInstanceManager manager) {
+        this.manager = manager;
         primitiveConverters.put(int.class, new StringToIntegerConverter());
         primitiveConverters.put(Integer.class, new StringToIntegerConverter());
         primitiveConverters.put(boolean.class, new StringToBooleanConverter());
@@ -77,7 +80,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
                             this.executeStepRequest.getActualStepText(), implementationParamCount, numberOfParameters))
                     .build();
         }
-        MethodExecutor methodExecutor = new MethodExecutor();
+        MethodExecutor methodExecutor = new MethodExecutor(manager);
         return executeStepMethod(methodExecutor, method);
 
     }

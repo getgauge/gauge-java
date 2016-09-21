@@ -30,6 +30,11 @@ public class ScreenshotFactory {
 
     public static final String IMAGE_EXTENSION = "png";
     private static Class<? extends ICustomScreenshotGrabber> customScreenshotGrabber;
+    private static ClassInstanceManager manager;
+
+    public ScreenshotFactory(ClassInstanceManager manager) {
+        this.manager = manager;
+    }
 
     static void setCustomScreenshotGrabber(Class<? extends ICustomScreenshotGrabber> customScreenGrabber) {
         customScreenshotGrabber = customScreenGrabber;
@@ -45,7 +50,7 @@ public class ScreenshotFactory {
     private byte[] takeScreenshot() {
         if (customScreenshotGrabber != null) {
             try {
-                ICustomScreenshotGrabber customScreenGrabberInstance = (ICustomScreenshotGrabber) ClassInstanceManager.get(customScreenshotGrabber);
+                ICustomScreenshotGrabber customScreenGrabberInstance = (ICustomScreenshotGrabber) manager.get(customScreenshotGrabber);
                 byte[] bytes = customScreenGrabberInstance.takeScreenshot();
                 if (bytes == null) {
                     bytes = new byte[0];

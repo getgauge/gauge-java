@@ -25,10 +25,16 @@ import java.lang.reflect.Method;
 import java.util.Set;
 
 public class MethodExecutor {
+    private ClassInstanceManager instanceManager;
+
+    public MethodExecutor(ClassInstanceManager instanceManager) {
+        this.instanceManager = instanceManager;
+    }
+
     public Spec.ProtoExecutionResult execute(Method method, Object... args) {
         long startTime = System.currentTimeMillis();
         try {
-            Object instance = ClassInstanceManager.get(method.getDeclaringClass());
+            Object instance = instanceManager.get(method.getDeclaringClass());
             method.invoke(instance, args);
             long endTime = System.currentTimeMillis();
             return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(endTime - startTime).build();
@@ -45,7 +51,7 @@ public class MethodExecutor {
 
     private Spec.ProtoExecutionResult createFailureExecResult(long execTime, Throwable e, boolean recoverable, Class[] COFSkipList) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
-        builder.setScreenShot(ByteString.copyFrom(new ScreenshotFactory().getScreenshotBytes()));
+        builder.setScreenShot(ByteString.copyFrom(new ScreenshotFactory(instanceManager).getScreenshotBytes()));
         if (e.getCause() != null) {
             builder.setRecoverableError(false);
             for (Class c : COFSkipList) {

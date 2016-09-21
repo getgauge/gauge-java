@@ -15,16 +15,22 @@
 
 package com.thoughtworks.gauge.processor;
 
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import com.thoughtworks.gauge.registry.HooksRegistry;
 import gauge.messages.Messages;
 
 public class SuiteExecutionEndingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
+
+    public SuiteExecutionEndingProcessor(ClassInstanceManager instanceManager) {
+        super(instanceManager);
+    }
+
     public Messages.Message process(Messages.Message message) {
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getExecutionEndingRequest().getCurrentExecutionInfo());
         Messages.Message result = executeHooks(HooksRegistry.getAfterSuiteHooks(), message, info);
-        ClearObjectCache.clear(ClearObjectCache.SPEC_LEVEL);
+        ClearObjectCache.clear(ClearObjectCache.SPEC_LEVEL, instanceManager);
         return result;
     }
 }

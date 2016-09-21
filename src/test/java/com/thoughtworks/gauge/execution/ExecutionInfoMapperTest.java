@@ -15,9 +15,9 @@
 
 package com.thoughtworks.gauge.execution;
 
+import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.Scenario;
 import com.thoughtworks.gauge.Specification;
-import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.StepDetails;
 import gauge.messages.Messages;
 import junit.framework.TestCase;

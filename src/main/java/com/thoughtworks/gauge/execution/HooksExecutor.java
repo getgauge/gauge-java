@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.execution;
 
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.Operator;
 import com.thoughtworks.gauge.hook.Hook;
@@ -27,10 +28,12 @@ import java.util.*;
 public class HooksExecutor {
     private final List<Hook> hooks;
     private final ExecutionContext info;
+    private ClassInstanceManager manager;
 
-    public HooksExecutor(List<Hook> hooks, ExecutionContext executionInfo) {
+    public HooksExecutor(List<Hook> hooks, ExecutionContext executionInfo, ClassInstanceManager manager) {
         this.hooks = hooks;
-        info = executionInfo;
+        this.info = executionInfo;
+        this.manager = manager;
     }
 
     public Spec.ProtoExecutionResult execute() {
@@ -91,7 +94,7 @@ public class HooksExecutor {
         }
 
         private Spec.ProtoExecutionResult executeHook() {
-            MethodExecutor methodExecutor = new MethodExecutor();
+            MethodExecutor methodExecutor = new MethodExecutor(manager);
             if (methodHasArguments(hook.getMethod(), info)) {
                 return methodExecutor.execute(hook.getMethod(), info);
             }

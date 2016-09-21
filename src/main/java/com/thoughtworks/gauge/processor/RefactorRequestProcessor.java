@@ -16,12 +16,15 @@
 package com.thoughtworks.gauge.processor;
 
 
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.refactor.JavaRefactoring;
 import com.thoughtworks.gauge.refactor.RefactoringResult;
 import gauge.messages.Messages;
 
 public class RefactorRequestProcessor implements IMessageProcessor {
+    public RefactorRequestProcessor(ClassInstanceManager instanceManager) {
+    }
 
     public Messages.Message process(Messages.Message message) {
         Messages.RefactorRequest refactorRequest = message.getRefactorRequest();

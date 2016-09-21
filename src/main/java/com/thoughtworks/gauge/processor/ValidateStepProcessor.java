@@ -15,6 +15,8 @@
 
 package com.thoughtworks.gauge.processor;
 
+import com.thoughtworks.gauge.ClassInstanceManager;
+import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Messages.StepValidateResponse;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
@@ -22,9 +24,9 @@ import gauge.messages.Messages.StepValidateResponse.ErrorType;
 import java.lang.reflect.Method;
 import java.util.Set;
 
-import com.thoughtworks.gauge.registry.StepRegistry;
-
 public class ValidateStepProcessor implements IMessageProcessor {
+    public ValidateStepProcessor(ClassInstanceManager instanceManager) {
+    }
 
     public Messages.Message process(Messages.Message message) {
         StepValidateResponse stepValidationResponse = validateStep(message.getStepValidateRequest());
@@ -37,16 +39,16 @@ public class ValidateStepProcessor implements IMessageProcessor {
 
     private StepValidateResponse validateStep(Messages.StepValidateRequest stepValidateRequest) {
         Set<Method> methodImplementations = StepRegistry.getAll(stepValidateRequest.getStepText());
-        if (methodImplementations != null && methodImplementations.size()==1) {
+        if (methodImplementations != null && methodImplementations.size() == 1) {
             return buildSuccessValidationResponse();
-        } else if(methodImplementations.isEmpty()) {
-            return buildFailureValidationResponse("Step implementation not found",ErrorType.STEP_IMPLEMENTATION_NOT_FOUND);
+        } else if (methodImplementations.isEmpty()) {
+            return buildFailureValidationResponse("Step implementation not found", ErrorType.STEP_IMPLEMENTATION_NOT_FOUND);
         } else {
-            return buildFailureValidationResponse("Duplicate step implementation found",ErrorType.DUPLICATE_STEP_IMPLEMENTATION);
+            return buildFailureValidationResponse("Duplicate step implementation found", ErrorType.DUPLICATE_STEP_IMPLEMENTATION);
         }
     }
 
-    private StepValidateResponse buildFailureValidationResponse(String errorMessage,ErrorType errorType) {
+    private StepValidateResponse buildFailureValidationResponse(String errorMessage, ErrorType errorType) {
         return StepValidateResponse.newBuilder()
                 .setIsValid(false)
                 .setErrorType(errorType)

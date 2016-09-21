@@ -15,15 +15,14 @@
 
 package com.thoughtworks.gauge.registry;
 
+import com.thoughtworks.gauge.StepValue;
+import com.thoughtworks.gauge.TestStepImplClass;
+import junit.framework.TestCase;
+
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Set;
-
-import junit.framework.TestCase;
-
-import com.thoughtworks.gauge.StepValue;
-import com.thoughtworks.gauge.TestStepImplClass;
 
 public class StepRegistryTest extends TestCase {
 
@@ -115,17 +114,14 @@ public class StepRegistryTest extends TestCase {
         assertEquals("", StepRegistry.getStepAnnotationFor(stepValue1.getStepText()));
         assertEquals(false, StepRegistry.hasAlias(stepValue1.getStepText()));
     }
-    
-    public void testAddedToRawRegistry(){
-        
+
+    public void testAddedToRawRegistry() {
         StepRegistry.addStepImplementation(stepValue1, method2);
-        
+
         Set<Method> methods = StepRegistry.getAll(stepValue1.getStepText());
-        
+
         assertTrue(methods.contains(method1));
         assertTrue(methods.contains(method2));
-        
-        
     }
 
     protected void tearDown() throws Exception {

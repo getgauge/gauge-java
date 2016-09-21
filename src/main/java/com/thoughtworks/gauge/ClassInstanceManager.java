@@ -22,10 +22,10 @@ import java.util.Map;
  * Manages class instance creation, lifetime and caching
  */
 public class ClassInstanceManager {
-    private static Map<Class<?>, Object> classInstanceMap = new HashMap<Class<?>, Object>();
-    private static ClassInitializer initializer;
+    private Map<Class<?>, Object> classInstanceMap = new HashMap<Class<?>, Object>();
+    private ClassInitializer initializer;
 
-    public static Object get(Class<?> declaringClass) throws Exception {
+    public Object get(Class<?> declaringClass) throws Exception {
         Object classInstance = classInstanceMap.get(declaringClass);
         if (classInstance == null) {
             if (initializer != null) {
@@ -37,11 +37,11 @@ public class ClassInstanceManager {
         return classInstance;
     }
 
-    public static void setClassInitializer(ClassInitializer initializer) {
-        ClassInstanceManager.initializer = initializer;
+    public void setClassInitializer(ClassInitializer initializer) {
+        this.initializer = initializer;
     }
 
-    public static void clearCache() {
-        classInstanceMap.clear();
+    public void clearCache() {
+        this.classInstanceMap.clear();
     }
 }

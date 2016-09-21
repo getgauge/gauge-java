@@ -15,12 +15,18 @@
 
 package com.thoughtworks.gauge.processor;
 
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import com.thoughtworks.gauge.registry.HooksRegistry;
 import com.thoughtworks.gauge.ExecutionContext;
 import gauge.messages.Messages;
 
 public class SpecExecutionStartingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
+
+    public SpecExecutionStartingProcessor(ClassInstanceManager instanceManager) {
+        super(instanceManager);
+    }
+
     public Messages.Message process(Messages.Message message) {
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getSpecExecutionStartingRequest().getCurrentExecutionInfo());
         return executeHooks(HooksRegistry.getBeforeSpecHooks(), message, info);

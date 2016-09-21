@@ -16,12 +16,16 @@
 package com.thoughtworks.gauge.processor;
 
 
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 
 import java.util.List;
 
 public class StepNamesRequestProcessor implements IMessageProcessor {
+    public StepNamesRequestProcessor(ClassInstanceManager instanceManager) {
+    }
+
     public Messages.Message process(Messages.Message receivedMessage) {
         List<String> stepTexts = StepRegistry.getAllStepAnnotationTexts();
 

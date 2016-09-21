@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.processor;
 
+import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.execution.ExecutionPipeline;
 import com.thoughtworks.gauge.execution.HookExecutionStage;
 import com.thoughtworks.gauge.execution.StepExecutionStage;
@@ -26,11 +27,15 @@ import java.lang.reflect.Method;
 
 public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
 
+    public ExecuteStepProcessor(ClassInstanceManager instanceManager) {
+        super(instanceManager);
+    }
+
     public Messages.Message process(Messages.Message message) {
         Method method = StepRegistry.get(message.getExecuteStepRequest().getParsedStepText());
-        ExecutionPipeline pipeline = new ExecutionPipeline(new HookExecutionStage(HooksRegistry.getBeforeClassStepsHooksOfClass(method.getDeclaringClass())));
-        pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest()),
-                new HookExecutionStage(HooksRegistry.getAfterClassStepsHooksOfClass(method.getDeclaringClass())));
+        ExecutionPipeline pipeline = new ExecutionPipeline(new HookExecutionStage(HooksRegistry.getBeforeClassStepsHooksOfClass(method.getDeclaringClass()), instanceManager));
+        pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest(), instanceManager),
+                new HookExecutionStage(HooksRegistry.getAfterClassStepsHooksOfClass(method.getDeclaringClass()), instanceManager));
         return createMessageWithExecutionStatusResponse(message, pipeline.start());
     }
 }

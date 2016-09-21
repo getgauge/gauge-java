@@ -1,29 +1,27 @@
 package com.thoughtworks.gauge.processor;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.powermock.api.mockito.PowerMockito.mockStatic;
-import static org.powermock.api.mockito.PowerMockito.when;
+import com.google.common.collect.Sets;
+import com.thoughtworks.gauge.ClassInstanceManager;
+import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Messages.Message;
 import gauge.messages.Messages.Message.Builder;
 import gauge.messages.Messages.Message.MessageType;
 import gauge.messages.Messages.StepValidateRequest;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
-
-import java.lang.reflect.Method;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import com.google.common.collect.Sets;
-import com.thoughtworks.gauge.registry.StepRegistry;
+import java.lang.reflect.Method;
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.junit.Assert.*;
+import static org.powermock.api.mockito.PowerMockito.mockStatic;
+import static org.powermock.api.mockito.PowerMockito.when;
 
 
 @RunWith(PowerMockRunner.class)
@@ -33,48 +31,48 @@ public class ValidateStepProcessorTest {
     private static final String STEP_TEXT = "stepText";
 
     private Message message;
-    
+
     private ValidateStepProcessor stepProcessor;
 
     @Before
-    public void setupMessage(){
-        Builder messageBuilder=Messages.Message.newBuilder().setMessageType(MessageType.StepValidateRequest).setMessageId(1l);
+    public void setupMessage() {
+        Builder messageBuilder = Messages.Message.newBuilder().setMessageType(MessageType.StepValidateRequest).setMessageId(1l);
         StepValidateRequest stepValidationRequest = StepValidateRequest.newBuilder().setStepText(STEP_TEXT).setNumberOfParameters(1).build();
         messageBuilder.setStepValidateRequest(stepValidationRequest);
-        this.message=messageBuilder.build();
+        this.message = messageBuilder.build();
     }
-    
+
     @Before
-    public void setupStepProcessor(){
-        stepProcessor = new ValidateStepProcessor();
+    public void setupStepProcessor() {
+        stepProcessor = new ValidateStepProcessor(new ClassInstanceManager());
     }
-    
+
     @Test
-    public void shouldFailIfStepIsNotFound(){
+    public void shouldFailIfStepIsNotFound() {
         mockStepRegistry(new HashSet<Method>());
-        
-        Message outputMessage=stepProcessor.process(message);
-        
-        assertEquals(ErrorType.STEP_IMPLEMENTATION_NOT_FOUND,outputMessage.getStepValidateResponse().getErrorType());
+
+        Message outputMessage = stepProcessor.process(message);
+
+        assertEquals(ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, outputMessage.getStepValidateResponse().getErrorType());
         assertFalse(outputMessage.getStepValidateResponse().getIsValid());
     }
-    
+
     @Test
-    public void shouldNotFailIfStepIsFound(){
+    public void shouldNotFailIfStepIsFound() {
         mockStepRegistry(Sets.newHashSet(anyMethod()));
-        
-        Message outputMessage=stepProcessor.process(message);
+
+        Message outputMessage = stepProcessor.process(message);
 
         assertTrue(outputMessage.getStepValidateResponse().getIsValid());
     }
-    
+
     @Test
-    public void shouldFailIfStepIsDefinedTwice(){
-        mockStepRegistry(Sets.newHashSet(anyMethod(),anyOtherMethod()));
-        
-        Message outputMessage=stepProcessor.process(message);
-        
-        assertEquals(ErrorType.DUPLICATE_STEP_IMPLEMENTATION,outputMessage.getStepValidateResponse().getErrorType());
+    public void shouldFailIfStepIsDefinedTwice() {
+        mockStepRegistry(Sets.newHashSet(anyMethod(), anyOtherMethod()));
+
+        Message outputMessage = stepProcessor.process(message);
+
+        assertEquals(ErrorType.DUPLICATE_STEP_IMPLEMENTATION, outputMessage.getStepValidateResponse().getErrorType());
         assertFalse(outputMessage.getStepValidateResponse().getIsValid());
     }
 
@@ -88,7 +86,7 @@ public class ValidateStepProcessorTest {
             throw new RuntimeException(exception);
         }
     }
-    
+
     private Method anyOtherMethod() {
 
         try {
@@ -100,7 +98,7 @@ public class ValidateStepProcessorTest {
         }
     }
 
-    private void mockStepRegistry(Set<Method> methods){
+    private void mockStepRegistry(Set<Method> methods) {
         mockStatic(StepRegistry.class);
         when(StepRegistry.getAll(STEP_TEXT)).thenReturn(methods);
     }
