@@ -15,8 +15,6 @@
 
 package com.thoughtworks.gauge.connection;
 
-import com.thoughtworks.gauge.GaugeConstant;
-
 import java.net.Socket;
 
 /**
@@ -32,19 +30,13 @@ public class GaugeConnector {
     private Socket gaugeSocket;
     private GaugeConnection gaugeApiConnection;
 
-    public void makeConnectionsToGaugeCore() {
-        gaugeSocket = connect(GaugeConstant.GAUGE_INTERNAL_PORT);
-        Socket apiSocket = connect(GaugeConstant.GAUGE_API_PORT);
+    public void makeConnectionsToGaugeCore(int gaugeInternalPort, int gaugeApiPort) {
+        gaugeSocket = connect(gaugeInternalPort);
+        Socket apiSocket = connect(gaugeApiPort);
         gaugeApiConnection = new GaugeConnection(apiSocket);
     }
 
-    private static Socket connect(String portEnvVariable) {
-        String gaugePort = System.getenv(portEnvVariable);
-
-        if (gaugePort == null || gaugePort.equalsIgnoreCase("")) {
-            throw new RuntimeException(portEnvVariable + " not set");
-        }
-        int port = Integer.parseInt(gaugePort);
+    private static Socket connect(int port) {
         Socket clientSocket;
         for (; ; ) {
             try {

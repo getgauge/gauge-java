@@ -17,6 +17,7 @@ package com.thoughtworks.gauge.connection;
 
 import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
 import com.thoughtworks.gauge.processor.*;
 import gauge.messages.Messages;
@@ -73,18 +74,20 @@ public class MessageDispatcher {
                     writeMessage(gaugeSocket, response);
                     if (message.getMessageType() == Messages.Message.MessageType.KillProcessRequest) {
                         gaugeSocket.close();
-                        System.exit(0);
+                        return;
                     }
                 }
-            } catch (Throwable throwable) {
+            }
+            catch(InvalidProtocolBufferException e){
+                return;
+            }
+            catch (Throwable throwable) {
                 throwable.printStackTrace();
                 System.err.println(throwable.toString());
                 return;
             }
         }
-
     }
-
 
     private MessageLength getMessageLength(InputStream is) throws IOException {
         CodedInputStream codedInputStream = CodedInputStream.newInstance(is);
