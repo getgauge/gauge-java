@@ -18,15 +18,11 @@ package com.thoughtworks.gauge;
 import com.thoughtworks.gauge.connection.GaugeConnector;
 import com.thoughtworks.gauge.connection.MessageDispatcher;
 import com.thoughtworks.gauge.scan.ClasspathScanner;
-import com.thoughtworks.gauge.screenshot.CustomScreenshotScanner;
 import com.thoughtworks.gauge.scan.HooksScanner;
 import com.thoughtworks.gauge.scan.StepsScanner;
+import com.thoughtworks.gauge.screenshot.CustomScreenshotScanner;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,24 +35,20 @@ import java.util.List;
 public class GaugeRuntime {
 
     private static List<Thread> threads = new ArrayList<Thread>();
-    private static boolean initialRequest = true;
+
     public static void main(String[] args) throws Exception {
         listenForRequests(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), readEnvVar(GaugeConstant.GAUGE_API_PORT));
-        ServerSocket serverSocket = new ServerSocket(9876);
-        while (!initialRequest && !allThreadsClosed()) {
-            Socket accept = serverSocket.accept();
-            String s = new BufferedReader(new InputStreamReader(accept.getInputStream())).readLine();
-            String[] ports = s.split("\\|");
-            listenForRequests(Integer.parseInt(ports[0]), Integer.parseInt(ports[1]));
-            accept.close();
+        String portInfo = System.getenv("GAUGE_API_PORTS");
+        if (portInfo != null && !portInfo.trim().isEmpty()) {
+            String[] ports = portInfo.split(",");
+            int apiPort = readEnvVar(GaugeConstant.GAUGE_API_PORT);
+            for (String port : ports) {
+                listenForRequests(Integer.parseInt(port), apiPort);
+            }
         }
-    }
-
-    private static boolean allThreadsClosed() {
         for (Thread thread : threads) {
-            if (thread.isAlive()) return false;
+            thread.join();
         }
-        return true;
     }
 
     private static int readEnvVar(String env) {
@@ -68,7 +60,6 @@ public class GaugeRuntime {
     }
 
     private static void listenForRequests(final int gaugeInternalPort, final int gaugeApiPort) {
-        initialRequest = false;
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {

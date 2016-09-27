@@ -477,9 +477,9 @@ func compileGaugeJavaAcrossPlatforms() {
 func buildGaugeJavaJar() {
 	os.RemoveAll(targetDir)
 	if *profile != "" {
-	    runCommand("mvn", "package", "-P", *profile)
+		runCommand("mvn", "package", "-P", *profile)
 	} else {
-	    runCommand("mvn", "package")
+		runCommand("mvn", "package")
 	}
 }
 

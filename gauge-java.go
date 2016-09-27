@@ -19,14 +19,11 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	"io/ioutil"
-	"net"
 	"os"
 	"os/exec"
 	"os/signal"
 	"path/filepath"
 	"runtime"
-	"strconv"
 	"strings"
 	"syscall"
 	"time"
@@ -63,47 +60,12 @@ func main() {
 	flag.Parse()
 	setPluginAndProjectRoots()
 	if *start {
-		if firstTime() {
-			cleanExistingSocketFiles()
-			startJava()
-		} else {
-			connectToExistingProcess()
-		}
+		startJava()
 	} else if *initialize {
 		initializeProject()
 	} else {
 		printUsage()
 	}
-}
-
-func firstTime() bool {
-	return !common.FileExists(filepath.Join(projectRoot, ".gauge", lockFileName()))
-}
-
-func lockFileName() string {
-	return fmt.Sprintf("%d.lock", os.Getppid())
-}
-
-func cleanExistingSocketFiles() {
-	files, err := ioutil.ReadDir(filepath.Join(projectRoot, ".gauge"))
-	if err != nil {
-		fmt.Printf("[ERROR] Unable to delete .lock files\n%s", err.Error())
-		return
-	}
-	for _, f := range files {
-		os.Remove(f.Name())
-	}
-}
-
-func connectToExistingProcess() {
-	c, err := net.Dial("tcp", "localhost:9876")
-	if err != nil {
-		fmt.Printf("[ERROR] %s\n", err.Error())
-		return
-	}
-	defer c.Close()
-	message := fmt.Sprintf("%s|%s", os.Getenv(common.GaugeInternalPortEnvName), os.Getenv(common.APIPortEnvVariableName))
-	c.Write([]byte(message))
 }
 
 func initializeProject() {
@@ -127,7 +89,6 @@ func startJava() {
 	listenForKillSignal(cmd)
 	go killIfGaugeIsDead(cmd) // Kills gauge-java.go process if gauge process i.e. parent process is already dead.
 
-	ioutil.WriteFile(filepath.Join(projectRoot, ".gauge", lockFileName()), []byte(strconv.Itoa(cmd.Process.Pid)), 0644)
 	err := cmd.Wait()
 	if err != nil {
 		fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())

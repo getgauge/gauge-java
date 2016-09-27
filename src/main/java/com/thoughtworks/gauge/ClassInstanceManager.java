@@ -30,8 +30,9 @@ public class ClassInstanceManager {
         if (classInstance == null) {
             if (initializer != null) {
                 classInstance = initializer.initialize(declaringClass);
-            } else
+            } else {
                 classInstance = Class.forName(declaringClass.getName()).newInstance();
+            }
             classInstanceMap.put(declaringClass, classInstance);
         }
         return classInstance;
