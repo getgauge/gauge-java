@@ -18,6 +18,7 @@
         "darwin": ["bin/gauge-java", "--init"]
     },
     "lib": "libs",
+    "multithreaded": true,
     "gaugeVersionSupport": {
         "minimum": "0.6.0",
         "maximum": ""
