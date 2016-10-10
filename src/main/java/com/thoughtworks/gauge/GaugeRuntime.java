@@ -37,18 +37,16 @@ public class GaugeRuntime {
     private static List<Thread> threads = new ArrayList<Thread>();
 
     public static void main(String[] args) throws Exception {
-        listenForRequests(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), readEnvVar(GaugeConstant.GAUGE_API_PORT));
         String portInfo = System.getenv("GAUGE_API_PORTS");
         if (portInfo != null && !portInfo.trim().isEmpty()) {
             String[] ports = portInfo.split(",");
             int apiPort = readEnvVar(GaugeConstant.GAUGE_API_PORT);
-            for (String port : ports) {
+            for (String port : ports)
                 listenForRequests(Integer.parseInt(port), apiPort);
-            }
+        } else {
+            listenForRequests(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), readEnvVar(GaugeConstant.GAUGE_API_PORT));
         }
-        for (Thread thread : threads) {
-            thread.join();
-        }
+        for (Thread thread : threads) thread.join();
     }
 
     private static int readEnvVar(String env) {

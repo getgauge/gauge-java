@@ -63,4 +63,12 @@ public class Hook implements Comparable<Hook> {
         }
         return this.getMethod().getName().compareTo(h.getMethod().getName());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Hook hook = (Hook) o;
+        return method != null ? method.equals(hook.method) : hook.method == null;
+    }
 }
