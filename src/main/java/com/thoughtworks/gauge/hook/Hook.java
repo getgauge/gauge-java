@@ -49,7 +49,7 @@ public class Hook implements Comparable<Hook> {
         return operator;
     }
 
-    public boolean isTagged(){
+    public boolean isTagged() {
         return !tags.isEmpty();
     }
 
@@ -69,6 +69,11 @@ public class Hook implements Comparable<Hook> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Hook hook = (Hook) o;
-        return method != null ? method.equals(hook.method) : hook.method == null;
+        return getMethod() != null ? getMethod().equals(hook.getMethod()) : hook.getMethod() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return getMethod() != null ? getMethod().hashCode() : 0;
     }
 }
