@@ -34,7 +34,6 @@ public class StepExecutionStage extends AbstractExecutionStage {
     private ExecutionStage next;
     private Messages.ExecuteStepRequest executeStepRequest;
     private Map<Class<?>, StringToPrimitiveConverter> primitiveConverters = new HashMap<Class<?>, StringToPrimitiveConverter>();
-    private Map<Class<?>, StringToPrimitiveConverter> assignsConverters = new HashMap<Class<?>, StringToPrimitiveConverter>();
     private TableConverter tableConverter;
 
     public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest) {
@@ -48,7 +47,6 @@ public class StepExecutionStage extends AbstractExecutionStage {
         primitiveConverters.put(Float.class, new StringToFloatConverter());
         primitiveConverters.put(double.class, new StringToDoubleConverter());
         primitiveConverters.put(Double.class, new StringToDoubleConverter());
-//        assignsConverters.put(Enum.class, new StringToEnumConverter());
         tableConverter=new TableConverter();
         this.executeStepRequest = executeStepRequest;
     }
