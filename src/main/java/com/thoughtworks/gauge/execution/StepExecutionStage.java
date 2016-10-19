@@ -34,6 +34,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
     private ExecutionStage next;
     private Messages.ExecuteStepRequest executeStepRequest;
     private Map<Class<?>, StringToPrimitiveConverter> primitiveConverters = new HashMap<Class<?>, StringToPrimitiveConverter>();
+    private Map<Class<?>, StringToPrimitiveConverter> assignsConverters = new HashMap<Class<?>, StringToPrimitiveConverter>();
     private TableConverter tableConverter;
 
     public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest) {
@@ -47,6 +48,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
         primitiveConverters.put(Float.class, new StringToFloatConverter());
         primitiveConverters.put(double.class, new StringToDoubleConverter());
         primitiveConverters.put(Double.class, new StringToDoubleConverter());
+//        assignsConverters.put(Enum.class, new StringToEnumConverter());
         tableConverter=new TableConverter();
         this.executeStepRequest = executeStepRequest;
     }
@@ -93,6 +95,9 @@ public class StepExecutionStage extends AbstractExecutionStage {
                 if(isTable(parameter)){
                     parameters[i] = this.tableConverter.convert(parameter);
                 }
+                else if(parameterType.isEnum()) {
+                    parameters[i] = getEnumInstance((Class<? extends Enum<?>>) parameterType, parameter.getValue());
+                }
                 else if (primitiveConverters.containsKey(parameterType)) {
                     try {
                         parameters[i] = primitiveConverters.get(parameterType).convert(parameter);
@@ -113,6 +118,10 @@ public class StepExecutionStage extends AbstractExecutionStage {
         } else {
             return methodExecutor.execute(method);
         }
+    }
+
+    public <T extends Enum<T>> Enum<T> getEnumInstance(Class<? extends Enum> clazz, String name) {
+        return Enum.valueOf(clazz, name);
     }
 
     private boolean isTable(

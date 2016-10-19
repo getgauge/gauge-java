@@ -22,6 +22,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 import com.thoughtworks.gauge.ContinueOnFailure;
+import com.thoughtworks.gauge.test.anEnum;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
@@ -117,6 +118,17 @@ public class StepExecutionStageTest extends TestCase {
         assertEquals("java.lang.RuntimeException: not recoverable!", result.getErrorMessage());
     }
 
+    public void testStepMethodExecutionWithEnumParamIsExecutingTheStep() throws Exception {
+        Spec.Parameter anEnumParam = Spec.Parameter.newBuilder().setValue(anEnum.FIRST.name()).setName("enum").setParameterType(Spec.Parameter.ParameterType.Static).build();
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("Test an enum parameter: {}").setActualStepText("Test an enum parameter: <anEnumValue>").addParameters(anEnumParam).build();
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
+        MethodExecutor methodExecutor = mock(MethodExecutor.class);
+        Method fooBarWithEnumMethod = this.getClass().getMethod("fooBarWithEnumParameter", anEnum.class);
+        executionStage.executeStepMethod(methodExecutor, fooBarWithEnumMethod);
+
+        verify(methodExecutor, times(1)).execute(fooBarWithEnumMethod, anEnum.FIRST);
+    }
+
     public void testStepMethodExecutionWithCOFOnErrorWhitelisted() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
@@ -172,6 +184,10 @@ public class StepExecutionStageTest extends TestCase {
     public Object fooBar(int i, String hello) {
         // Test methods checking methodExecutor with params
         return null;
+    }
+
+    public void fooBarWithEnumParameter(anEnum anEnumValue) {
+        // Implementation goes here
     }
     
     public Object table(Object table) {
