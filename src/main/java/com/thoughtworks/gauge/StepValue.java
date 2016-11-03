@@ -59,21 +59,34 @@ public class StepValue {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof StepValue)) return false;
-        StepValue stepValue = (StepValue) o;
-        return !(parameterizedStepText != null ? !parameterizedStepText.equals(stepValue.parameterizedStepText) : stepValue.parameterizedStepText != null) &&
-                !(parameters != null ? !parameters.equals(stepValue.parameters) : stepValue.parameters != null) &&
-                !(stepText != null ? !stepText.equals(stepValue.stepText) : stepValue.stepText != null);
+        if (this == o) {
+            return true;
+        }
 
+        if (!(o instanceof StepValue)) {
+            return false;
+        }
+
+        StepValue stepValue = (StepValue) o;
+        return !(parameterizedStepText != null ? !parameterizedStepText.equals(stepValue.parameterizedStepText) : stepValue.parameterizedStepText != null)
+                && !(parameters != null ? !parameters.equals(stepValue.parameters) : stepValue.parameters != null)
+                && !(stepText != null ? !stepText.equals(stepValue.stepText) : stepValue.stepText != null);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = stepText != null ? stepText.hashCode() : 0;
+        result = 31 * result + (parameterizedStepText != null ? parameterizedStepText.hashCode() : 0); // SUPPRESS CHECKSTYLE
+        result = 31 * result + (parameters != null ? parameters.hashCode() : 0); // SUPPRESS CHECKSTYLE
+        return result;
     }
 
     @Override
     public String toString() {
-        return "StepValue{" +
-                "stepText='" + stepText + '\'' +
-                ", parameterizedStepText='" + parameterizedStepText + '\'' +
-                ", parameters=" + parameters +
-                '}';
+        return "StepValue{"
+                + "stepText='" + stepText + '\''
+                + ", parameterizedStepText='" + parameterizedStepText + '\''
+                + ", parameters=" + parameters
+                + '}';
     }
 }

@@ -22,7 +22,7 @@ import gauge.messages.Spec;
 
 public class DataStoreInitializer implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
-        switch (message.getMessageType()) {
+        switch (message.getMessageType()) { // SUPPRESS CHECKSTYLE
             case SuiteDataStoreInit:
                 DataStoreFactory.getSuiteDataStore().clear();
                 break;

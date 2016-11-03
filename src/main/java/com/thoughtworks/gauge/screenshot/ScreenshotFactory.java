@@ -19,12 +19,15 @@ import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.GaugeConstant;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
+
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 
 /**
- * Used to take screenshots on failure
+ * Used to take screenshots on failure.
  */
 public class ScreenshotFactory {
 

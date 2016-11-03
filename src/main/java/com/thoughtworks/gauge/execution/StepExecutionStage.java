@@ -47,7 +47,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
         primitiveConverters.put(Float.class, new StringToFloatConverter());
         primitiveConverters.put(double.class, new StringToDoubleConverter());
         primitiveConverters.put(Double.class, new StringToDoubleConverter());
-        tableConverter=new TableConverter();
+        tableConverter = new TableConverter();
         this.executeStepRequest = executeStepRequest;
     }
 
@@ -90,13 +90,11 @@ public class StepExecutionStage extends AbstractExecutionStage {
             for (int i = 0; i < parameterTypes.length; i++) {
                 Class<?> parameterType = parameterTypes[i];
                 Parameter parameter = args.get(i);
-                if(isTable(parameter)){
+                if (isTable(parameter)) {
                     parameters[i] = this.tableConverter.convert(parameter);
-                }
-                else if(parameterType.isEnum()) {
+                } else if (parameterType.isEnum()) {
                     parameters[i] = getEnumInstance((Class<? extends Enum<?>>) parameterType, parameter.getValue());
-                }
-                else if (primitiveConverters.containsKey(parameterType)) {
+                } else if (primitiveConverters.containsKey(parameterType)) {
                     try {
                         parameters[i] = primitiveConverters.get(parameterType).convert(parameter);
                     } catch (Exception e) {
@@ -123,7 +121,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
     }
 
     private boolean isTable(
-        Spec.Parameter parameter) {
+            Spec.Parameter parameter) {
 
         return parameter.getParameterType().equals(ParameterType.Special_Table) || parameter.getParameterType().equals(ParameterType.Table);
     }

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Holds the information about the current Specification executing at Runtime
+ * Holds the information about the current Specification executing at runtime.
  */
 public class Specification {
     private String name = "";

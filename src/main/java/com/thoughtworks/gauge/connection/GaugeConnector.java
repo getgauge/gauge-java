@@ -46,7 +46,7 @@ public class GaugeConnector {
         }
         int port = Integer.parseInt(gaugePort);
         Socket clientSocket;
-        for (; ; ) {
+        while (true) {
             try {
                 clientSocket = new Socket(LOCALHOST, port);
                 break;

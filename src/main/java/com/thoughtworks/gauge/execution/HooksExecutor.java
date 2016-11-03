@@ -22,7 +22,8 @@ import com.thoughtworks.gauge.tag.TagMatcher;
 import gauge.messages.Spec;
 
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HooksExecutor {
     private final List<Hook> hooks;
@@ -74,7 +75,7 @@ public class HooksExecutor {
         private final Hook hook;
         private final ExecutionContext info;
 
-        public TaggedHookExecutor(Hook hook, ExecutionContext info) {
+        TaggedHookExecutor(Hook hook, ExecutionContext info) {
             this.hook = hook;
             this.info = info;
         }

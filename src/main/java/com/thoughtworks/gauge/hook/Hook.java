@@ -49,7 +49,7 @@ public class Hook implements Comparable<Hook> {
         return operator;
     }
 
-    public boolean isTagged(){
+    public boolean isTagged() {
         return !tags.isEmpty();
     }
 

@@ -19,7 +19,8 @@ import com.thoughtworks.gauge.ClassInstanceManager;
 
 public enum ClearObjectCache {
     SUITE_LEVEL("suite"), SPEC_LEVEL("spec"), SCENARIO_LEVEL("scenario");
-    public static final String clear_state_flag = "gauge_clear_state_level";
+
+    private static final String CLEAR_STATE_FLAG = "gauge_clear_state_level";
     private final String level;
 
     ClearObjectCache(String level) {
@@ -27,7 +28,7 @@ public enum ClearObjectCache {
     }
 
     public static void clear(ClearObjectCache currentPosition) {
-        String level = System.getenv(clear_state_flag);
+        String level = System.getenv(CLEAR_STATE_FLAG);
         if (level != null && level.equals(currentPosition.level)) {
             ClassInstanceManager.clearCache();
         }

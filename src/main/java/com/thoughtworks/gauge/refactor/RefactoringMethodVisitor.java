@@ -29,6 +29,7 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.StepValue;
 import gauge.messages.Messages;
 import org.apache.commons.lang.StringEscapeUtils;
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -53,11 +54,13 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
     public void visit(MethodDeclaration methodDeclaration, Object arg) {
         try {
             List<AnnotationExpr> annotations = methodDeclaration.getAnnotations();
-            if (annotations == null)
+            if (annotations == null) {
                 return;
+            }
             for (AnnotationExpr annotationExpr : annotations) {
-                if (!(annotationExpr instanceof SingleMemberAnnotationExpr))
+                if (!(annotationExpr instanceof SingleMemberAnnotationExpr)) {
                     continue;
+                }
 
                 SingleMemberAnnotationExpr annotation = (SingleMemberAnnotationExpr) annotationExpr;
                 if (annotation.getMemberValue() instanceof BinaryExpr) {
@@ -90,9 +93,9 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
                         paramName += i;
                     }
                     newParameters.set(paramPositions.get(i).getNewPosition(), new Parameter(new ClassOrInterfaceType("String"), new VariableDeclaratorId(paramName)));
-                }
-                else
+                } else {
                     newParameters.set(paramPositions.get(i).getNewPosition(), parameters.get(paramPositions.get(i).getOldPosition()));
+                }
             }
             methodDeclaration.setParameters(newParameters);
             annotation.setMemberValue(memberValue);
@@ -106,7 +109,9 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
     }
 
     private Node getFileElement(Node node) {
-        if (node instanceof CompilationUnit) return node;
+        if (node instanceof CompilationUnit) {
+            return node;
+        }
         return getFileElement(node.getParentNode());
     }
 

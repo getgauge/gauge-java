@@ -28,7 +28,7 @@ import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 
 /**
- * Custom Table structure used as parameter in steps
+ * Custom Table structure used as parameter in steps.
  */
 public class Table {
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
@@ -46,8 +46,8 @@ public class Table {
     }
 
     public void addRow(List<String> row) {
-        if (row.size() != headers.size()){
-            throw new RowSizeMismatchException(String.format("Row size mismatch. Expected row size: %d. Obtained row size: %d.",headers.size(), row.size()));
+        if (row.size() != headers.size()) {
+            throw new RowSizeMismatchException(String.format("Row size mismatch. Expected row size: %d. Obtained row size: %d.", headers.size(), row.size()));
         }
         rows.add(row);
         TableRow rowToAdd = new TableRow();
@@ -67,14 +67,14 @@ public class Table {
     /**
      * @return List of Rows in the table. Each Row is represented by a TableRow.
      */
-    public List<TableRow> getTableRows(){
+    public List<TableRow> getTableRows() {
         return tableRows;
     }
-    
+
     /**
-     * @deprecated Use getTableRows() method instead of this.
      * @return List of TableRows in the table. Each Row is represented by a List of String values
      * according to the order of column names
+     * @deprecated Use getTableRows() method instead of this.
      */
     @Deprecated
     public List<List<String>> getRows() {
@@ -83,6 +83,7 @@ public class Table {
 
     /**
      * Get all the values of a column in Table.
+     *
      * @param columnName - The column name of the Table
      * @return List of values against a column in Table.
      */
@@ -93,6 +94,7 @@ public class Table {
 
     /**
      * Get all the values of a column in a Table.
+     *
      * @param columnIndex - The column index of the table
      * @return List of row values of a given column index in a Table.
      */
@@ -105,18 +107,18 @@ public class Table {
         }
         return columnValues;
     }
-    
+
     @Override
-    public String toString(){
-        int maxStringLength=getMaxStringLength();
-        if(maxStringLength>=0){
+    public String toString() {
+        int maxStringLength = getMaxStringLength();
+        if (maxStringLength >= 0) {
             return formatAsMarkdownTable(maxStringLength);
         }
         return StringUtils.EMPTY;
     }
 
     private String formatAsMarkdownTable(
-        int maxStringLength) {
+            int maxStringLength) {
 
         List<String> formattedHeaderAndRows = new ArrayList<String>();
         addHeader(maxStringLength, formattedHeaderAndRows);
@@ -126,8 +128,8 @@ public class Table {
     }
 
     private void addDashes(
-        int maxStringLength,
-        List<String> formattedHeaderAndRows) {
+            int maxStringLength,
+            List<String> formattedHeaderAndRows) {
 
         String dashesString = Joiner.on(StringUtils.EMPTY).join(Collections.nCopies(maxStringLength, DASH));
         List<String> dashes = Collections.nCopies(headers.size(), dashesString);
@@ -136,38 +138,38 @@ public class Table {
     }
 
     private void addHeader(
-        int maxStringLength,
-        List<String> formattedHeaderAndRows) {
+            int maxStringLength,
+            List<String> formattedHeaderAndRows) {
 
         String formattedHeaders = formattedRow(headers, maxStringLength);
         formattedHeaderAndRows.add(formattedHeaders);
     }
 
     private void addValues(
-        int maxStringLength,
-        List<String> formattedHeaderAndRows) {
+            int maxStringLength,
+            List<String> formattedHeaderAndRows) {
 
-        for(TableRow tableRow:tableRows){
+        for (TableRow tableRow : tableRows) {
             formattedHeaderAndRows.add(formattedRow(tableRow.getCellValues(), maxStringLength));
         }
     }
-    
-    private String formattedRow(List<String> strings,int maxStringLength){
+
+    private String formattedRow(List<String> strings, int maxStringLength) {
         List<String> formattedStrings = Lists.transform(strings, format(maxStringLength));
-        return PIPE+Joiner.on(PIPE).join(formattedStrings)+PIPE;
+        return PIPE + Joiner.on(PIPE).join(formattedStrings) + PIPE;
     }
 
     private Function<String, String> format(
-        final int maxStringLength) {
+            final int maxStringLength) {
 
-        
+
         return new Function<String, String>() {
 
             @Override
             public String apply(
-                String input) {
+                    String input) {
 
-                
+
                 return Strings.padEnd(input, maxStringLength, SPACE_AS_CHAR);
             }
         };
@@ -177,15 +179,14 @@ public class Table {
 
         List<Integer> maxs = new ArrayList<Integer>();
         maxs.add(getMaxStringSize(headers));
-        for(TableRow tableRow:tableRows){
+        for (TableRow tableRow : tableRows) {
             maxs.add(getMaxStringSize(tableRow.getCellValues()));
         }
         return Collections.max(maxs);
     }
-    
-    private int getMaxStringSize(List<String> candidates){
-        if(candidates==null || candidates.isEmpty())
-        {
+
+    private int getMaxStringSize(List<String> candidates) {
+        if (candidates == null || candidates.isEmpty()) {
             return -1;
         }
         return Collections.max(candidates, maxStringLength()).length();
@@ -197,10 +198,9 @@ public class Table {
 
             @Override
             public int compare(
-                String o1,
-                String o2) {
-                if(o1.length()<o2.length())
-                {
+                    String o1,
+                    String o2) {
+                if (o1.length() < o2.length()) {
                     return -1;
                 }
                 return 1;

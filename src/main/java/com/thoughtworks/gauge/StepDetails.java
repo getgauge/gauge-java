@@ -16,7 +16,7 @@
 package com.thoughtworks.gauge;
 
 /**
- * Holds the information about the current Step executing at Runtime
+ * Holds the information about the current step executing at runtime.
  */
 public class StepDetails {
     private String text = "";

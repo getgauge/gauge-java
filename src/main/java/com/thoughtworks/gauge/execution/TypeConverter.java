@@ -25,7 +25,7 @@ interface StringToPrimitiveConverter {
     Object convert(Spec.Parameter source) throws Exception;
 }
 
-class StringToIntegerConverter implements StringToPrimitiveConverter{
+class StringToIntegerConverter implements StringToPrimitiveConverter {
     public Object convert(Spec.Parameter source) throws Exception {
         return Integer.parseInt(source.getValue());
     }

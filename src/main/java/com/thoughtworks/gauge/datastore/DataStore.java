@@ -21,7 +21,7 @@ import java.util.Set;
 
 public class DataStore {
 
-    HashMap<Object, Object> map = new HashMap<Object, Object>();
+    private HashMap<Object, Object> map = new HashMap<Object, Object>();
 
     /**
      * @param key - Key of the data entry

@@ -16,7 +16,7 @@
 package com.thoughtworks.gauge;
 
 /**
- * Interface to provide a Custom Class Initializer for managing Class Objects
+ * Interface to provide a Custom Class Initializer for managing Class Objects.
  */
 public interface ClassInitializer {
     Object initialize(Class<?> classToInitialize) throws Exception;

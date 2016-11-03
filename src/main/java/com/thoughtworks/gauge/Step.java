@@ -21,7 +21,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation added to methods which are Gauge Step implementations
+ * Annotation added to methods which are Gauge Step implementations.
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
