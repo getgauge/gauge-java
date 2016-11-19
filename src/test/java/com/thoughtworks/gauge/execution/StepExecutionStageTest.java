@@ -25,6 +25,7 @@ import com.thoughtworks.gauge.ContinueOnFailure;
 import com.thoughtworks.gauge.test.anEnum;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
+import gauge.messages.Spec.ProtoExecutionResult;
 
 import java.lang.reflect.Method;
 
@@ -33,6 +34,9 @@ import junit.framework.TestCase;
 import com.thoughtworks.gauge.Table;
 
 public class StepExecutionStageTest extends TestCase {
+    private static final boolean STEP_FAILED = true;
+    private static final String NON_EXISTING_VALUE = "nonExistingValue";
+
     public void testStepMethodExecutionIsCalledWithoutParameters() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("foo bar").setActualStepText("foo bar").build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
@@ -56,7 +60,7 @@ public class StepExecutionStageTest extends TestCase {
         verify(methodExecutor, times(1)).execute(fooBarMethod, 1, "foo");
 
     }
-    
+
     public void testStepMethodExecutionCanBeCalledAsObjectForSpecialTable() throws Exception {
         Spec.Parameter tableParameter = Spec.Parameter.newBuilder().setValue("table { headers {cells: \"Id\"}rows {cells: \"1\"}}").setName("table").setParameterType(Spec.Parameter.ParameterType.Special_Table).build();
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello {}").setActualStepText("hello <table>").addParameters(tableParameter).build();
@@ -118,6 +122,26 @@ public class StepExecutionStageTest extends TestCase {
         assertEquals("java.lang.RuntimeException: not recoverable!", result.getErrorMessage());
     }
 
+    public void testStepMethodExecutionWithWrongInputToAnEnumParamIsFailingCorrectly()
+            throws Exception {
+        Spec.Parameter anEnumParam = Spec.Parameter.newBuilder().setValue(NON_EXISTING_VALUE)
+                .setName("enum").setParameterType(Spec.Parameter.ParameterType.Static).build();
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder()
+                .setParsedStepText("Test an enum parameter: {}")
+                .setActualStepText("Test an enum parameter: <anEnumValue>")
+                .addParameters(anEnumParam).build();
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest);
+        MethodExecutor methodExecutor = mock(MethodExecutor.class);
+        Method fooBarWithEnumMethod = this.getClass().getMethod("fooBarWithEnumParameter",
+                anEnum.class);
+        ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor,
+                fooBarWithEnumMethod);
+
+        assertEquals(STEP_FAILED, result.getFailed());
+        assertEquals(String.format(StepExecutionStage.ENUM_VALUE_NOT_FOUND_MESSAGE,
+                NON_EXISTING_VALUE, anEnum.class.getSimpleName()), result.getErrorMessage());
+    }
+
     public void testStepMethodExecutionWithEnumParamIsExecutingTheStep() throws Exception {
         Spec.Parameter anEnumParam = Spec.Parameter.newBuilder().setValue(anEnum.FIRST.name()).setName("enum").setParameterType(Spec.Parameter.ParameterType.Static).build();
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("Test an enum parameter: {}").setActualStepText("Test an enum parameter: <anEnumValue>").addParameters(anEnumParam).build();
@@ -164,12 +188,12 @@ public class StepExecutionStageTest extends TestCase {
     }
 
     @ContinueOnFailure(AssertionError.class)
-    public void barfoo(){
+    public void barfoo() {
         throw new RuntimeException("not recoverable!");
     }
 
     @ContinueOnFailure(RuntimeException.class)
-    public void ding(){
+    public void ding() {
         throw new RuntimeException("recoverable!");
     }
 
@@ -189,7 +213,7 @@ public class StepExecutionStageTest extends TestCase {
     public void fooBarWithEnumParameter(anEnum anEnumValue) {
         // Implementation goes here
     }
-    
+
     public Object table(Object table) {
         // Test methods checking methodExecutor with params
         return null;
