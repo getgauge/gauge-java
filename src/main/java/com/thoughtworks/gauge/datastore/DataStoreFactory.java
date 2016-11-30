@@ -16,12 +16,7 @@
 package com.thoughtworks.gauge.datastore;
 
 public class DataStoreFactory {
-    private static ThreadLocal<DataStore> suiteDataStore = new ThreadLocal<DataStore>() {
-        @Override
-        protected DataStore initialValue() {
-            return new DataStore();
-        }
-    };
+    private static DataStore suiteDataStore = new DataStore();
     private static ThreadLocal<DataStore> specDataStore = new ThreadLocal<DataStore>() {
         @Override
         protected DataStore initialValue() {
@@ -40,7 +35,7 @@ public class DataStoreFactory {
      * @return The current instance of the SuiteDataStore
      */
     public static DataStore getSuiteDataStore() {
-        return suiteDataStore.get();
+        return suiteDataStore;
     }
 
     /**
