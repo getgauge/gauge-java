@@ -16,29 +16,45 @@
 package com.thoughtworks.gauge.datastore;
 
 public class DataStoreFactory {
-    private static DataStore suiteDataStore = new DataStore();
-    private static DataStore specDataStore = new DataStore();
-    private static DataStore scenarioDataStore = new DataStore();
+    private static ThreadLocal<DataStore> suiteDataStore = new ThreadLocal<DataStore>() {
+        @Override
+        protected DataStore initialValue() {
+            return new DataStore();
+        }
+    };
+    private static ThreadLocal<DataStore> specDataStore = new ThreadLocal<DataStore>() {
+        @Override
+        protected DataStore initialValue() {
+            return new DataStore();
+        }
+    };
+    private static ThreadLocal<DataStore> scenarioDataStore = new ThreadLocal<DataStore>() {
+        @Override
+        protected DataStore initialValue() {
+            return new DataStore();
+        }
+    };
 
 
     /**
      * @return The current instance of the SuiteDataStore
      */
     public static DataStore getSuiteDataStore() {
-        return suiteDataStore;
+        return suiteDataStore.get();
     }
 
     /**
      * @return The current instance of the SpecDataStore
      */
     public static DataStore getSpecDataStore() {
-        return specDataStore;
+        return specDataStore.get();
     }
 
     /**
      * @return The current instance of the ScenarioDataStore
      */
     public static DataStore getScenarioDataStore() {
-        return scenarioDataStore;
+        return scenarioDataStore.get();
     }
+
 }
