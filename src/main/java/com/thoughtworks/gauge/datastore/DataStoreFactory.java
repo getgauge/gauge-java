@@ -17,13 +17,13 @@ package com.thoughtworks.gauge.datastore;
 
 public class DataStoreFactory {
     private static DataStore suiteDataStore = new DataStore();
-    private static ThreadLocal<DataStore> specDataStore = new ThreadLocal<DataStore>() {
+    private static ThreadLocal<DataStore> specDataStore = new InheritableThreadLocal<DataStore>() {
         @Override
         protected DataStore initialValue() {
             return new DataStore();
         }
     };
-    private static ThreadLocal<DataStore> scenarioDataStore = new ThreadLocal<DataStore>() {
+    private static ThreadLocal<DataStore> scenarioDataStore = new InheritableThreadLocal<DataStore>() {
         @Override
         protected DataStore initialValue() {
             return new DataStore();
