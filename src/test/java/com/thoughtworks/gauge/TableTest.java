@@ -1,20 +1,24 @@
 package com.thoughtworks.gauge;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import com.google.common.base.Joiner;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import com.google.common.base.Joiner;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TableTest {
 
     private Table table;
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     @Before
     public void setUp() throws Exception {
@@ -33,6 +37,32 @@ public class TableTest {
 
         table.addRow(row1);
         table.addRow(row2);
+    }
+
+    @Test
+    public void shouldGetListOfColumnNames() {
+        List<String> columnNames = table.getColumnNames();
+
+        assertEquals(2, columnNames.size());
+        assertEquals("col1", columnNames.get(0));
+        assertEquals("col2", columnNames.get(1));
+    }
+
+    @Test
+    public void shouldGetAColumnNameByIndex() {
+        String columnName = table.getColumnName(0);
+        assertEquals("col1", columnName);
+        columnName = table.getColumnName(1);
+        assertEquals("col2", columnName);
+    }
+
+    @Test
+    public void shouldThrowAnExceptionWhenInvalidColumnIndex() {
+        int invalidColumnIndex = 3;
+        thrown.expect(ColumnNotFoundException.class);
+        thrown.expectMessage(String.format("Column with index %d not found. Actual column size: %d.", invalidColumnIndex, table.getColumnNames().size()));
+
+        table.getColumnName(invalidColumnIndex);
     }
 
     @Test
