@@ -65,7 +65,7 @@ public class Table {
     }
 
     /**
-     * Gets a Column name by index
+     * Gets a Column name by index.
      * @param columnIndex
      * @return a single column name by given column index.
      */
