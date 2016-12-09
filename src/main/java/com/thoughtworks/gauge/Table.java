@@ -70,7 +70,7 @@ public class Table {
      * @return a single column name by given column index.
      */
     public String getColumnName(int columnIndex) {
-        if (columnIndex < 0 || columnIndex > getColumnNames().size()) {
+        if (columnIndex < 0 || columnIndex >= getColumnNames().size()) {
             throw new ColumnNotFoundException(String.format("Column with index %d not found. Actual column size: %d.", columnIndex, getColumnNames().size()));
         }
         return getColumnNames().get(columnIndex);
