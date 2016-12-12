@@ -24,6 +24,7 @@ import com.thoughtworks.gauge.screenshot.CustomScreenshotScanner;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -37,15 +38,17 @@ public class GaugeRuntime {
     private static List<Thread> threads = new ArrayList<Thread>();
 
     public static void main(String[] args) throws Exception {
+        int apiPort = readEnvVar(GaugeConstant.GAUGE_API_PORT);
         String portInfo = System.getenv("GAUGE_API_PORTS");
         if (portInfo != null && !portInfo.trim().isEmpty()) {
-            String[] ports = portInfo.split(",");
-            int apiPort = readEnvVar(GaugeConstant.GAUGE_API_PORT);
-            for (String port : ports)
-                listenForRequests(Integer.parseInt(port), apiPort);
-        } else {
-            listenForRequests(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), readEnvVar(GaugeConstant.GAUGE_API_PORT));
-        }
+            List<String> ports = Arrays.asList(portInfo.split(","));
+            for (int i = 0, portsSize = ports.size(); i < portsSize; i++)
+                if (i == 0)
+                    connectSynchronously(Integer.parseInt(ports.get(i)), apiPort);
+                else
+                    connectInParallel(Integer.parseInt(ports.get(i)), apiPort);
+        } else
+            connectSynchronously(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), apiPort);
         for (Thread thread : threads) thread.join();
     }
 
@@ -57,22 +60,45 @@ public class GaugeRuntime {
         return Integer.parseInt(port);
     }
 
-    private static void listenForRequests(final int gaugeInternalPort, final int gaugeApiPort) {
+    private static void connectInParallel(final int gaugeInternalPort, final int gaugeApiPort) {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                GaugeConnector connector = new GaugeConnector();
-                connector.makeConnectionsToGaugeCore(gaugeInternalPort, gaugeApiPort);
-                new ClasspathScanner().scan(new StepsScanner(connector), new HooksScanner(), new CustomScreenshotScanner());
-                try {
-                    new MessageDispatcher().dispatchMessages(connector);
-                } catch (IOException e) {
-                    Thread t = Thread.currentThread();
-                    t.getUncaughtExceptionHandler().uncaughtException(t,e);
-                }
+                dispatchMessages(makeConnection(gaugeInternalPort, gaugeApiPort));
             }
         });
+        startThread(thread);
+    }
+
+    private static void connectSynchronously(final int gaugeInternalPort, final int gaugeApiPort) {
+        final GaugeConnector connector = makeConnection(gaugeInternalPort, gaugeApiPort);
+        new ClasspathScanner().scan(new StepsScanner(connector), new HooksScanner(), new CustomScreenshotScanner());
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                dispatchMessages(connector);
+            }
+        });
+        startThread(thread);
+    }
+
+    private static void startThread(Thread thread) {
         threads.add(thread);
         thread.start();
+    }
+
+    private static GaugeConnector makeConnection(int gaugeInternalPort, int gaugeApiPort) {
+        GaugeConnector connector = new GaugeConnector();
+        connector.makeConnectionsToGaugeCore(gaugeInternalPort, gaugeApiPort);
+        return connector;
+    }
+
+    private static void dispatchMessages(GaugeConnector connector) {
+        try {
+            new MessageDispatcher().dispatchMessages(connector);
+        } catch (IOException e) {
+            Thread t = Thread.currentThread();
+            t.getUncaughtExceptionHandler().uncaughtException(t, e);
+        }
     }
 }
