@@ -23,10 +23,10 @@ public class TableCell {
 
     @Override
     public String toString() {
-        return "TableCell{" +
-                "columnName=" + columnName +
-                ", " +
-                "value=" + value +
-                '}';
+        return "TableCell{"
+                + "columnName=" + columnName
+                + ", "
+                + "value=" + value
+                + '}';
     }
 }

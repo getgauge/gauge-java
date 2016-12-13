@@ -42,14 +42,19 @@ public class GaugeRuntime {
         String portInfo = System.getenv("GAUGE_API_PORTS");
         if (portInfo != null && !portInfo.trim().isEmpty()) {
             List<String> ports = Arrays.asList(portInfo.split(","));
-            for (int i = 0, portsSize = ports.size(); i < portsSize; i++)
-                if (i == 0)
+            for (int i = 0, portsSize = ports.size(); i < portsSize; i++) {
+                if (i == 0) {
                     connectSynchronously(Integer.parseInt(ports.get(i)), apiPort);
-                else
+                } else {
                     connectInParallel(Integer.parseInt(ports.get(i)), apiPort);
-        } else
+                }
+            }
+        } else {
             connectSynchronously(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), apiPort);
-        for (Thread thread : threads) thread.join();
+        }
+        for (Thread thread : threads) {
+            thread.join();
+        }
     }
 
     private static int readEnvVar(String env) {

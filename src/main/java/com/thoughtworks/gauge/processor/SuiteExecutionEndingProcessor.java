@@ -30,7 +30,7 @@ public class SuiteExecutionEndingProcessor extends MethodExecutionMessageProcess
     public Messages.Message process(Messages.Message message) {
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getExecutionEndingRequest().getCurrentExecutionInfo());
         Messages.Message result = executeHooks(HooksRegistry.getAfterSuiteHooks(), message, info);
-        ClearObjectCache.clear(ClearObjectCache.SPEC_LEVEL, instanceManager);
+        ClearObjectCache.clear(ClearObjectCache.SPEC_LEVEL, getInstanceManager());
         return result;
     }
 }

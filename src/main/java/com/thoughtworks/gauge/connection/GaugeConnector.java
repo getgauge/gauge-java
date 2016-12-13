@@ -38,7 +38,7 @@ public class GaugeConnector {
 
     private static Socket connect(int port) {
         Socket clientSocket;
-        for (; ; ) {
+        while (true) {
             try {
                 clientSocket = new Socket(LOCALHOST, port);
                 break;

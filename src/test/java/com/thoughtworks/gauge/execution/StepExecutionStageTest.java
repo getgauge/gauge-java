@@ -18,8 +18,10 @@ package com.thoughtworks.gauge.execution;
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ContinueOnFailure;
 import com.thoughtworks.gauge.Table;
+import com.thoughtworks.gauge.test.anEnum;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
+import gauge.messages.Spec.ProtoExecutionResult;
 import junit.framework.TestCase;
 
 import java.lang.reflect.Method;
@@ -31,6 +33,9 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 
 public class StepExecutionStageTest extends TestCase {
+    private static final boolean STEP_FAILED = true;
+    private static final String NON_EXISTING_VALUE = "nonExistingValue";
+
     public void testStepMethodExecutionIsCalledWithoutParameters() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("foo bar").setActualStepText("foo bar").build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
@@ -116,6 +121,37 @@ public class StepExecutionStageTest extends TestCase {
         assertEquals("java.lang.RuntimeException: not recoverable!", result.getErrorMessage());
     }
 
+    public void testStepMethodExecutionWithWrongInputToAnEnumParamIsFailingCorrectly()
+            throws Exception {
+        Spec.Parameter anEnumParam = Spec.Parameter.newBuilder().setValue(NON_EXISTING_VALUE)
+                .setName("enum").setParameterType(Spec.Parameter.ParameterType.Static).build();
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder()
+                .setParsedStepText("Test an enum parameter: {}")
+                .setActualStepText("Test an enum parameter: <anEnumValue>")
+                .addParameters(anEnumParam).build();
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        MethodExecutor methodExecutor = mock(MethodExecutor.class);
+        Method fooBarWithEnumMethod = this.getClass().getMethod("fooBarWithEnumParameter",
+                anEnum.class);
+        ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor,
+                fooBarWithEnumMethod);
+
+        assertEquals(STEP_FAILED, result.getFailed());
+        assertEquals(String.format(StepExecutionStage.ENUM_VALUE_NOT_FOUND_MESSAGE,
+                NON_EXISTING_VALUE, anEnum.class.getSimpleName()), result.getErrorMessage());
+    }
+
+    public void testStepMethodExecutionWithEnumParamIsExecutingTheStep() throws Exception {
+        Spec.Parameter anEnumParam = Spec.Parameter.newBuilder().setValue(anEnum.FIRST.name()).setName("enum").setParameterType(Spec.Parameter.ParameterType.Static).build();
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("Test an enum parameter: {}").setActualStepText("Test an enum parameter: <anEnumValue>").addParameters(anEnumParam).build();
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        MethodExecutor methodExecutor = mock(MethodExecutor.class);
+        Method fooBarWithEnumMethod = this.getClass().getMethod("fooBarWithEnumParameter", anEnum.class);
+        executionStage.executeStepMethod(methodExecutor, fooBarWithEnumMethod);
+
+        verify(methodExecutor, times(1)).execute(fooBarWithEnumMethod, anEnum.FIRST);
+    }
+
     public void testStepMethodExecutionWithCOFOnErrorWhitelisted() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
@@ -171,6 +207,10 @@ public class StepExecutionStageTest extends TestCase {
     public Object fooBar(int i, String hello) {
         // Test methods checking methodExecutor with params
         return null;
+    }
+
+    public void fooBarWithEnumParameter(anEnum anEnumValue) {
+        // Implementation goes here
     }
 
     public Object table(Object table) {

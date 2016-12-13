@@ -18,11 +18,19 @@ package com.thoughtworks.gauge.connection;
 import com.google.protobuf.CodedInputStream;
 
 class MessageLength {
-    public long length;
-    public CodedInputStream remainingStream;
+    private long length;
+    private CodedInputStream remainingStream;
 
-    public MessageLength(long length, CodedInputStream remainingStream) {
+    MessageLength(long length, CodedInputStream remainingStream) {
         this.length = length;
         this.remainingStream = remainingStream;
+    }
+
+    public long getLength() {
+        return length;
+    }
+
+    public CodedInputStream getRemainingStream() {
+        return remainingStream;
     }
 }

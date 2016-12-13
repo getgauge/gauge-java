@@ -19,6 +19,6 @@ import org.reflections.Reflections;
 
 public interface IScanner {
 
-    public void scan(Reflections reflections);
+    void scan(Reflections reflections);
 
 }

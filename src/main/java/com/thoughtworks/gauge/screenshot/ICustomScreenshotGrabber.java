@@ -27,6 +27,6 @@ public interface ICustomScreenshotGrabber {
      * @return Byte array of the screenshot taken.
      * Return an empty Byte array if unable to capture screen.
      */
-    public byte[] takeScreenshot();
+    byte[] takeScreenshot();
 
 }

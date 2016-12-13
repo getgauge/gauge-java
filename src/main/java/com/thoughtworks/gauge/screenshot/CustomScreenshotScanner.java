@@ -6,7 +6,7 @@ import org.reflections.Reflections;
 import java.util.Set;
 
 /**
- * Scans for a custom screenshot grabber
+ * Scans for a custom screenshot grabber.
  */
 public class CustomScreenshotScanner implements IScanner {
     public void scan(Reflections reflections) {

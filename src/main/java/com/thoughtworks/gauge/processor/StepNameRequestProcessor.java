@@ -28,8 +28,15 @@ public class StepNameRequestProcessor implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
         Set<String> stepAnnotations = StepRegistry.getAllAliasAnnotationTextsFor(message.getStepNameRequest().getStepValue());
         boolean hasAlias = false, isStepPresent = false;
-        if (stepAnnotations.size() > 1) hasAlias = true;
-        if (stepAnnotations.size() >= 1) isStepPresent = true;
+
+        if (stepAnnotations.size() > 1) {
+            hasAlias = true;
+        }
+
+        if (stepAnnotations.size() >= 1) {
+            isStepPresent = true;
+        }
+
         return Messages.Message.newBuilder()
                 .setMessageId(message.getMessageId())
                 .setMessageType(Messages.Message.MessageType.StepNameResponse)

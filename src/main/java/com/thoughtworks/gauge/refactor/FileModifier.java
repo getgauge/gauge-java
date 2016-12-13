@@ -18,7 +18,6 @@ package com.thoughtworks.gauge.refactor;
 import org.apache.commons.io.FileUtils;
 
 import java.io.IOException;
-import java.util.List;
 
 public class FileModifier {
     private JavaRefactoringElement javaElement;

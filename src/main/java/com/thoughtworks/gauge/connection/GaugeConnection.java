@@ -33,12 +33,20 @@ import java.util.List;
 
 public class GaugeConnection {
 
+    private static final int GET_STEP_MSG_ID = 2;
+    private static final int GET_INSTALLATION_ROOT_MSG_ID = 3;
+    private static final int GET_STEP_VALUE_MSG_ID = 4;
+    private static final int GET_LIB_PATH_MSG_ID = 5;
+    private static final int GET_CONCEPT_MSG_ID = 6;
+    private static final int PERFORM_REFACTORING_MSG_ID = 7;
+    private static final int EXTRACT_CONCEPT_MSG_ID = 8;
+
     private final int port;
     private Socket gaugeSocket;
 
     public GaugeConnection(int port) {
         this.port = port;
-        createConnection(5);
+        createConnection(5); // SUPPRESS CHECKSTYLE
     }
 
     public GaugeConnection(Socket socket) {
@@ -53,8 +61,8 @@ public class GaugeConnection {
     }
 
     private static byte[] toBytes(MessageLength messageLength) throws IOException {
-        long messageSize = messageLength.length;
-        CodedInputStream stream = messageLength.remainingStream;
+        long messageSize = messageLength.getLength();
+        CodedInputStream stream = messageLength.getRemainingStream();
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         for (int i = 0; i < messageSize; i++) {
             outputStream.write(stream.readRawByte());
@@ -72,7 +80,7 @@ public class GaugeConnection {
         } catch (IOException e) {
             try {
                 //waits for the process to start accepting connection
-                Thread.sleep(1000);
+                Thread.sleep(1000); // SUPPRESS CHECKSTYLE
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }
@@ -81,7 +89,7 @@ public class GaugeConnection {
     }
 
     /**
-     * Fetches all the steps in the gauge project as a list
+     * Fetches all the steps in the gauge project as a list.
      *
      * @return
      * @throws IOException
@@ -119,7 +127,7 @@ public class GaugeConnection {
     }
 
     /**
-     * Gets the Absolute path to libs location for the particular language plugin
+     * Gets the Absolute path to libs location for the particular language plugin.
      *
      * @param language - The language plugin name, eg. java
      * @return
@@ -177,7 +185,7 @@ public class GaugeConnection {
     }
 
     /**
-     * Gets the step value for a particular step name
+     * Gets the step value for a particular step name.
      *
      * @param stepText       - The name of the step, eg. login as "admin"
      * @param hasInlineTable - set to true if the step has an inline table parameter
@@ -201,7 +209,7 @@ public class GaugeConnection {
     }
 
     /**
-     * Check if gauge connection is still active
+     * Check if gauge connection is still active.
      *
      * @return true if connected
      */
@@ -210,7 +218,7 @@ public class GaugeConnection {
     }
 
     /**
-     * Closes the connection
+     * Closes the connection.
      *
      * @throws IOException - If fails to close the socket
      */
@@ -242,7 +250,7 @@ public class GaugeConnection {
         Api.GetAllStepsRequest stepRequest = Api.GetAllStepsRequest.newBuilder().build();
         return Api.APIMessage.newBuilder()
                 .setMessageType(Api.APIMessage.APIMessageType.GetAllStepsRequest)
-                .setMessageId(2)
+                .setMessageId(GET_STEP_MSG_ID)
                 .setAllStepsRequest(stepRequest)
                 .build();
     }
@@ -251,7 +259,7 @@ public class GaugeConnection {
         Api.GetInstallationRootRequest installationRootRequest = Api.GetInstallationRootRequest.newBuilder().build();
         return Api.APIMessage.newBuilder()
                 .setMessageType(Api.APIMessage.APIMessageType.GetInstallationRootRequest)
-                .setMessageId(3)
+                .setMessageId(GET_INSTALLATION_ROOT_MSG_ID)
                 .setInstallationRootRequest(installationRootRequest)
                 .build();
     }
@@ -260,7 +268,7 @@ public class GaugeConnection {
         Api.GetStepValueRequest stepValueRequest = Api.GetStepValueRequest.newBuilder().setStepText(stepText).setHasInlineTable(hasInlineTable).build();
         return Api.APIMessage.newBuilder()
                 .setMessageType(Api.APIMessage.APIMessageType.GetStepValueRequest)
-                .setMessageId(4)
+                .setMessageId(GET_STEP_VALUE_MSG_ID)
                 .setStepValueRequest(stepValueRequest)
                 .build();
     }
@@ -269,7 +277,7 @@ public class GaugeConnection {
         Api.GetLanguagePluginLibPathRequest libPathRequest = Api.GetLanguagePluginLibPathRequest.newBuilder().setLanguage(language).build();
         return Api.APIMessage.newBuilder()
                 .setMessageType(Api.APIMessage.APIMessageType.GetLanguagePluginLibPathRequest)
-                .setMessageId(5)
+                .setMessageId(GET_LIB_PATH_MSG_ID)
                 .setLibPathRequest(libPathRequest)
                 .build();
     }
@@ -278,7 +286,7 @@ public class GaugeConnection {
         Api.GetAllConceptsRequest conceptRequest = Api.GetAllConceptsRequest.newBuilder().build();
         return Api.APIMessage.newBuilder()
                 .setMessageType(Api.APIMessage.APIMessageType.GetAllConceptsRequest)
-                .setMessageId(6)
+                .setMessageId(GET_CONCEPT_MSG_ID)
                 .setAllConceptsRequest(conceptRequest)
                 .build();
     }
@@ -290,7 +298,7 @@ public class GaugeConnection {
                 .build();
         return Api.APIMessage.newBuilder()
                 .setMessageType(Api.APIMessage.APIMessageType.PerformRefactoringRequest)
-                .setMessageId(7)
+                .setMessageId(PERFORM_REFACTORING_MSG_ID)
                 .setPerformRefactoringRequest(performRefactoringRequest)
                 .build();
     }
@@ -300,7 +308,7 @@ public class GaugeConnection {
                 .setSelectedTextInfo(selectedTextInfo).setConceptFileName(fileName).setConceptName(concept).build();
         return Api.APIMessage.newBuilder()
                 .setMessageType(Api.APIMessage.APIMessageType.ExtractConceptRequest)
-                .setMessageId(8)
+                .setMessageId(EXTRACT_CONCEPT_MSG_ID)
                 .setExtractConceptRequest(request)
                 .build();
     }

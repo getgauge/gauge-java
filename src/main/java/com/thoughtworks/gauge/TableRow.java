@@ -15,21 +15,26 @@
 
 package com.thoughtworks.gauge;
 
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Represents a Row of Data in a Table.
  */
-public class TableRow{
+public class TableRow {
     private LinkedHashMap<String, String> cells = new LinkedHashMap<String, String>();
 
     /**
      * Get the value of cell corresponding to a column name.
+     *
      * @param columnName - The column name of TableRow.
      * @return The value of cell corresponding to a column name.
      */
-    public String getCell(String columnName){
-        if (!cells.containsKey(columnName)){
+    public String getCell(String columnName) {
+        if (!cells.containsKey(columnName)) {
             return "";
         }
         return cells.get(columnName);
@@ -37,8 +42,9 @@ public class TableRow{
 
     /**
      * Add a cell to the TableRow.
-     * @param columnName  The column name against which the cell is added.
-     * @param value The value to be stored in the cell.
+     *
+     * @param columnName The column name against which the cell is added.
+     * @param value      The value to be stored in the cell.
      */
     public void addCell(String columnName, String value) {
         cells.put(columnName, value);
@@ -46,6 +52,7 @@ public class TableRow{
 
     /**
      * Get the number of cells in TableRow.
+     *
      * @return The number of cells in TableRow.
      */
     public int size() {
@@ -54,13 +61,14 @@ public class TableRow{
 
     @Override
     public String toString() {
-        return "TableRow{" +
-                "cells=" + cells +
-                '}';
+        return "TableRow{"
+                + "cells=" + cells
+                + '}';
     }
 
     /**
      * Returns a list containing the values of each cell in the table row.
+     *
      * @return a list of the values of each cell in the table row.
      */
     public List<String> getCellValues() {
@@ -70,6 +78,7 @@ public class TableRow{
 
     /**
      * Returns a list of TableCells representing each cell in the table row.
+     *
      * @return a list of TableCells.
      */
     public List<TableCell> getTableCells() {

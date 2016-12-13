@@ -37,11 +37,10 @@ public class StepRegistry {
     }
 
     private static void addToRegistry(
-        StepRegistryEntry stepRegistryEntry,
-        String stepText) {
+            StepRegistryEntry stepRegistryEntry,
+            String stepText) {
 
-        if(!registry.containsKey(stepText))
-        {
+        if (!registry.containsKey(stepText)) {
             registry.put(stepText, new HashSet<StepRegistryEntry>());
         }
         registry.get(stepText).add(stepRegistryEntry);
@@ -55,15 +54,14 @@ public class StepRegistry {
         return getFirstEntry(stepTemplateText).getMethod();
     }
 
-    private static StepRegistryEntry getFirstEntry(String stepTemplateText){
+    private static StepRegistryEntry getFirstEntry(String stepTemplateText) {
         Set<StepRegistryEntry> entries = registry.get(stepTemplateText);
-        if(entries.isEmpty())
-        {
+        if (entries.isEmpty()) {
             return new StepRegistryEntry();
         }
         return entries.iterator().next();
     }
-    
+
     public static String getFileName(String stepTemplateText) {
         return getFirstEntry(stepTemplateText).getFileName();
     }
@@ -71,7 +69,7 @@ public class StepRegistry {
     public static List<String> getAllStepAnnotationTexts() {
         List<String> stepTexts = new ArrayList<String>();
         for (Set<StepRegistryEntry> entries : registry.values()) {
-            for(StepRegistryEntry entry:entries){
+            for (StepRegistryEntry entry : entries) {
                 stepTexts.add(entry.getStepValue().getStepAnnotationText());
             }
         }
@@ -88,8 +86,7 @@ public class StepRegistry {
 
     public static String getStepAnnotationFor(String stepTemplateText) {
         for (Set<StepRegistryEntry> entries : registry.values()) {
-            for(StepRegistryEntry stepRegistryEntry:entries)
-            {
+            for (StepRegistryEntry stepRegistryEntry : entries) {
                 StepValue stepValue = stepRegistryEntry.getStepValue();
                 if (stepValue.getStepText().equals(stepTemplateText)) {
                     return stepValue.getStepAnnotationText();
@@ -104,7 +101,7 @@ public class StepRegistry {
         HashSet<String> aliases = new HashSet<String>();
         for (Entry<String, Set<StepRegistryEntry>> entry : registry.entrySet()) {
             Set<StepRegistryEntry> registryEntries = entry.getValue();
-            for(StepRegistryEntry registryEntry:registryEntries){
+            for (StepRegistryEntry registryEntry : registryEntries) {
                 if (registryEntry.getMethod().equals(method)) {
                     aliases.add(registryEntry.getStepValue().getStepAnnotationText());
                 }
@@ -124,24 +121,23 @@ public class StepRegistry {
     public static Set<Method> getAll(String stepText) {
         Set<Method> methods = new HashSet<Method>();
         Set<StepRegistryEntry> entries = registry.get(stepText);
-        for(StepRegistryEntry entry : entries)
-        {
+        for (StepRegistryEntry entry : entries) {
             methods.add(entry.getMethod());
         }
         return methods;
     }
-    
+
     private static class StepRegistryEntry {
 
         private final StepValue stepValue;
         private final Method method;
 
-        public StepRegistryEntry(StepValue stepValue, Method method) {
+        StepRegistryEntry(StepValue stepValue, Method method) {
             this.stepValue = stepValue;
             this.method = method;
         }
 
-        public StepRegistryEntry() {
+        StepRegistryEntry() {
             stepValue = new StepValue("", "", new ArrayList<String>());
             method = null;
         }
@@ -161,8 +157,8 @@ public class StepRegistry {
             return method.getDeclaringClass().getCanonicalName().replace(".", File.separator) + ".java";
         }
     }
-    
-    protected static  class RegistryMap<T, T1> extends HashMap {
+
+    protected static class RegistryMap<T, T1> extends HashMap {
 
         public Object get(Object o) {
             if (super.get(o) == null) {
@@ -170,7 +166,7 @@ public class StepRegistry {
             }
             return super.get(o);
         }
-        
+
     }
-    
+
 }

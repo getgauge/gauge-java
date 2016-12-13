@@ -33,9 +33,9 @@ public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implem
 
     public Messages.Message process(Messages.Message message) {
         Method method = StepRegistry.get(message.getExecuteStepRequest().getParsedStepText());
-        ExecutionPipeline pipeline = new ExecutionPipeline(new HookExecutionStage(HooksRegistry.getBeforeClassStepsHooksOfClass(method.getDeclaringClass()), instanceManager));
-        pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest(), instanceManager),
-                new HookExecutionStage(HooksRegistry.getAfterClassStepsHooksOfClass(method.getDeclaringClass()), instanceManager));
+        ExecutionPipeline pipeline = new ExecutionPipeline(new HookExecutionStage(HooksRegistry.getBeforeClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));
+        pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest(), getInstanceManager()),
+                new HookExecutionStage(HooksRegistry.getAfterClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));
         return createMessageWithExecutionStatusResponse(message, pipeline.start());
     }
 }

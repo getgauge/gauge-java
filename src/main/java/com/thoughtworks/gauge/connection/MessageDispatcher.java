@@ -20,7 +20,21 @@ import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
-import com.thoughtworks.gauge.processor.*;
+import com.thoughtworks.gauge.processor.ExecuteStepProcessor;
+import com.thoughtworks.gauge.processor.IMessageProcessor;
+import com.thoughtworks.gauge.processor.KillProcessProcessor;
+import com.thoughtworks.gauge.processor.RefactorRequestProcessor;
+import com.thoughtworks.gauge.processor.ScenarioExecutionEndingProcessor;
+import com.thoughtworks.gauge.processor.ScenarioExecutionStartingProcessor;
+import com.thoughtworks.gauge.processor.SpecExecutionEndingProcessor;
+import com.thoughtworks.gauge.processor.SpecExecutionStartingProcessor;
+import com.thoughtworks.gauge.processor.StepExecutionEndingProcessor;
+import com.thoughtworks.gauge.processor.StepExecutionStartingProcessor;
+import com.thoughtworks.gauge.processor.StepNameRequestProcessor;
+import com.thoughtworks.gauge.processor.StepNamesRequestProcessor;
+import com.thoughtworks.gauge.processor.SuiteExecutionEndingProcessor;
+import com.thoughtworks.gauge.processor.SuiteExecutionStartingProcessor;
+import com.thoughtworks.gauge.processor.ValidateStepProcessor;
 import gauge.messages.Messages;
 
 import java.io.ByteArrayOutputStream;
@@ -79,11 +93,9 @@ public class MessageDispatcher {
                         return;
                     }
                 }
-            }
-            catch(InvalidProtocolBufferException e){
+            } catch (InvalidProtocolBufferException e) {
                 return;
-            }
-            catch (Throwable throwable) {
+            } catch (Throwable throwable) {
                 throwable.printStackTrace();
                 System.err.println(throwable.toString());
                 return;
@@ -98,8 +110,8 @@ public class MessageDispatcher {
     }
 
     private byte[] toBytes(MessageLength messageLength) throws IOException {
-        long messageSize = messageLength.length;
-        CodedInputStream stream = messageLength.remainingStream;
+        long messageSize = messageLength.getLength();
+        CodedInputStream stream = messageLength.getRemainingStream();
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         for (int i = 0; i < messageSize; i++) {
             outputStream.write(stream.readRawByte());

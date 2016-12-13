@@ -29,7 +29,8 @@ import java.util.List;
 import java.util.Set;
 
 public abstract class MethodExecutionMessageProcessor {
-    protected ClassInstanceManager instanceManager;
+
+    private ClassInstanceManager instanceManager;
 
     public MethodExecutionMessageProcessor(ClassInstanceManager instanceManager) {
         this.instanceManager = instanceManager;
@@ -39,6 +40,10 @@ public abstract class MethodExecutionMessageProcessor {
         HashSet<Method> methods = new HashSet<Method>();
         methods.add(method);
         return execute(methods, message, args);
+    }
+
+    protected ClassInstanceManager getInstanceManager() {
+        return instanceManager;
     }
 
     public Messages.Message execute(Set<Method> methods, Messages.Message message, Object... args) {

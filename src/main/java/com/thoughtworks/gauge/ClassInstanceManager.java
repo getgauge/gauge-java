@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Manages class instance creation, lifetime and caching
+ * Manages class instance creation, lifetime and caching.
  */
 public class ClassInstanceManager {
     private Map<Class<?>, Object> classInstanceMap = new HashMap<Class<?>, Object>();
@@ -38,8 +38,8 @@ public class ClassInstanceManager {
         return classInstance;
     }
 
-    public void setClassInitializer(ClassInitializer initializer) {
-        this.initializer = initializer;
+    public void setClassInitializer(ClassInitializer classInitializer) {
+        this.initializer = classInitializer;
     }
 
     public void clearCache() {

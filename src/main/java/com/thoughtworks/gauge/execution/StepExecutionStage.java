@@ -32,6 +32,8 @@ import com.thoughtworks.gauge.registry.StepRegistry;
 
 
 public class StepExecutionStage extends AbstractExecutionStage {
+    public static final String ENUM_VALUE_NOT_FOUND_MESSAGE = "%s is not an enum value of %s.";
+
     private ExecutionStage next;
     private Messages.ExecuteStepRequest executeStepRequest;
     private Map<Class<?>, StringToPrimitiveConverter> primitiveConverters = new HashMap<Class<?>, StringToPrimitiveConverter>();
@@ -50,7 +52,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
         primitiveConverters.put(Float.class, new StringToFloatConverter());
         primitiveConverters.put(double.class, new StringToDoubleConverter());
         primitiveConverters.put(Double.class, new StringToDoubleConverter());
-        tableConverter=new TableConverter();
+        tableConverter = new TableConverter();
         this.executeStepRequest = executeStepRequest;
     }
 
@@ -93,10 +95,23 @@ public class StepExecutionStage extends AbstractExecutionStage {
             for (int i = 0; i < parameterTypes.length; i++) {
                 Class<?> parameterType = parameterTypes[i];
                 Parameter parameter = args.get(i);
-                if(isTable(parameter)){
+                if (isTable(parameter)) {
                     parameters[i] = this.tableConverter.convert(parameter);
-                }
-                else if (primitiveConverters.containsKey(parameterType)) {
+                } else if (parameterType.isEnum()) {
+                    @SuppressWarnings("unchecked")
+                    Class<? extends Enum<?>> enumClass = (Class<? extends Enum<?>>) parameterType;
+                    String enumValue = parameter.getValue();
+                    try {
+                        parameters[i] = getEnumInstance(enumClass, enumValue);
+                    } catch (IllegalArgumentException e) {
+                        return Spec.ProtoExecutionResult.newBuilder().setFailed(true)
+                                .setExecutionTime(0)
+                                .setStackTrace(Throwables.getStackTraceAsString(e))
+                                .setErrorMessage(String.format(ENUM_VALUE_NOT_FOUND_MESSAGE,
+                                        enumValue, enumClass.getSimpleName()))
+                                .build();
+                    }
+                } else if (primitiveConverters.containsKey(parameterType)) {
                     try {
                         parameters[i] = primitiveConverters.get(parameterType).convert(parameter);
                     } catch (Exception e) {
@@ -118,8 +133,13 @@ public class StepExecutionStage extends AbstractExecutionStage {
         }
     }
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public <T extends Enum<T>> Enum<T> getEnumInstance(Class<? extends Enum> clazz, String name) {
+        return Enum.valueOf(clazz, name);
+    }
+
     private boolean isTable(
-        Spec.Parameter parameter) {
+            Spec.Parameter parameter) {
 
         return parameter.getParameterType().equals(ParameterType.Special_Table) || parameter.getParameterType().equals(ParameterType.Table);
     }

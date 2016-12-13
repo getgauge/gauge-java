@@ -25,7 +25,7 @@ import java.lang.reflect.Method;
 import java.util.Set;
 
 /**
- * Scans for Step Implementations
+ * Scans for step implementations.
  */
 public class StepsScanner implements IScanner {
     private GaugeConnector connector;

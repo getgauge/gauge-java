@@ -66,8 +66,12 @@ public class Hook implements Comparable<Hook> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Hook hook = (Hook) o;
         return getMethod() != null ? getMethod().equals(hook.getMethod()) : hook.getMethod() == null;
     }

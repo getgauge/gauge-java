@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Holds the information about the current Scenario executing at Runtime
+ * Holds the information about the current Scenario executing at Runtime.
  */
 public class Scenario {
     private String name = "";
