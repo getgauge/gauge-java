@@ -59,7 +59,7 @@ public class TableTest {
     @Test
     public void shouldThrowAnExceptionWhenInvalidColumnIndex() {
         int invalidColumnIndex = 3;
-        thrown.expect(ColumnNotFoundException.class);
+        thrown.expect(IndexOutOfBoundsException.class);
         thrown.expectMessage(String.format("Column with index %d not found. Actual column size: %d.", invalidColumnIndex, table.getColumnNames().size()));
 
         table.getColumnName(invalidColumnIndex);

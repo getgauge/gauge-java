@@ -71,7 +71,7 @@ public class Table {
      */
     public String getColumnName(int columnIndex) {
         if (columnIndex < 0 || columnIndex >= getColumnNames().size()) {
-            throw new ColumnNotFoundException(String.format("Column with index %d not found. Actual column size: %d.", columnIndex, getColumnNames().size()));
+            throw new IndexOutOfBoundsException(String.format("Column with index %d not found. Actual column size: %d.", columnIndex, getColumnNames().size()));
         }
         return getColumnNames().get(columnIndex);
     }
