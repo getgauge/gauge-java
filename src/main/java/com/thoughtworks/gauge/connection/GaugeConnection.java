@@ -91,7 +91,7 @@ public class GaugeConnection {
     /**
      * Fetches all the steps in the gauge project as a list.
      *
-     * @return
+     * @return a list of all steps
      * @throws IOException
      */
     public List<StepValue> fetchAllSteps() throws IOException {
@@ -109,7 +109,7 @@ public class GaugeConnection {
     /**
      * Fetches all the concepts in the Gauge project as a list of ConceptInfos which has details of file location.
      *
-     * @return
+     * @return a list of all the ConceptInfo
      * @throws IOException
      */
     public List<ConceptInfo> fetchAllConcepts() throws IOException {
@@ -130,7 +130,7 @@ public class GaugeConnection {
      * Gets the Absolute path to libs location for the particular language plugin.
      *
      * @param language - The language plugin name, eg. java
-     * @return
+     * @return absolute path to libs location
      * @throws IOException
      * @throws com.thoughtworks.gauge.PluginNotInstalledException
      */
@@ -165,7 +165,7 @@ public class GaugeConnection {
     /**
      * Gets the location of gauge installation on the system.
      *
-     * @return
+     * @return gauge installation file
      * @throws IOException
      */
     public File getInstallationRoot() throws IOException {
@@ -189,7 +189,7 @@ public class GaugeConnection {
      *
      * @param stepText       - The name of the step, eg. login as "admin"
      * @param hasInlineTable - set to true if the step has an inline table parameter
-     * @return
+     * @return value of the given step name
      */
     public StepValue getStepValue(String stepText, boolean hasInlineTable) {
         Api.APIMessage stepValueRequest = getStepValueRequest(stepText, hasInlineTable);

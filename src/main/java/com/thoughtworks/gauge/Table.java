@@ -15,22 +15,22 @@
 
 package com.thoughtworks.gauge;
 
+import com.google.common.base.Function;
+import com.google.common.base.Joiner;
+import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
+import org.apache.commons.lang.StringUtils;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
-
-import com.google.common.base.Function;
-import com.google.common.base.Joiner;
-import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
-
 /**
  * Custom Table structure used as parameter in steps.
  */
 public class Table {
+
     private static final String LINE_SEPARATOR = System.getProperty("line.separator");
     private static final String DASH = "-";
     private static final String PIPE = "|";
@@ -62,6 +62,18 @@ public class Table {
      */
     public List<String> getColumnNames() {
         return headers;
+    }
+
+    /**
+     * Gets a Column name by index.
+     * @param columnIndex
+     * @return a single column name by given column index.
+     */
+    public String getColumnName(int columnIndex) {
+        if (columnIndex < 0 || columnIndex >= getColumnNames().size()) {
+            throw new IndexOutOfBoundsException(String.format("Column with index %d not found. Actual column size: %d.", columnIndex, getColumnNames().size()));
+        }
+        return getColumnNames().get(columnIndex);
     }
 
     /**
