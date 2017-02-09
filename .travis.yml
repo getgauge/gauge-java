@@ -1,0 +1,30 @@
+os:
+  - linux
+  - osx
+language: go
+go:
+  - 1.7.3
+env:
+  - GAUGE_ROOT="/tmp/gauge"
+addons:
+  apt:
+    packages:
+      - oracle-java8-set-default
+before_install:
+  - go get github.com/tools/godep
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export JAVA_HOME="/usr/lib/jvm/java-8-oracle"; fi
+script:
+  - go run make.go
+  - go test ./...
+  - go run make.go --install
+  - go get -d -u -v github.com/getgauge/gauge
+  - cd $GOPATH/src/github.com/getgauge/gauge
+  - godep restore
+  - echo "gauge_repository_url = https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/" >> skel/gauge.properties
+  - go run build/make.go
+  - go run build/make.go --install --prefix=$GAUGE_ROOT
+  - cd ..
+  - git clone --depth=1 https://github.com/getgauge/gauge-tests
+  - cd gauge-tests
+  - $GAUGE_ROOT/bin/gauge --install-all
+  - TAGS="!unimplemented" ./starttests.sh java
