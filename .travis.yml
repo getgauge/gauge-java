@@ -1,21 +1,20 @@
 os:
   - linux
   - osx
-language: go
-go:
-  - 1.7.3
+language: java
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+  - openjdk6
 env:
+  - GOPATH="/tmp"
   - GAUGE_ROOT="/tmp/gauge"
-addons:
-  apt:
-    packages:
-      - oracle-java8-set-default
 before_install:
+  - sudo apt-get update
+  - sudo apt-get install golang
   - go get github.com/tools/godep
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export JAVA_HOME="/usr/lib/jvm/java-8-oracle"; fi
-script:
+script: 
   - go run make.go
-  - go test ./...
   - go run make.go --install
   - go get -d -u -v github.com/getgauge/gauge
   - cd $GOPATH/src/github.com/getgauge/gauge
