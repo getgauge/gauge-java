@@ -7,8 +7,7 @@ jdk:
   - oraclejdk7
   - openjdk6
 env:
-  - GOPATH="/tmp"
-  - GAUGE_ROOT="/tmp/gauge"
+  - GOPATH="/tmp" GAUGE_ROOT="/tmp/gauge"
 before_install:
   - sudo apt-get update
   - sudo apt-get install golang
