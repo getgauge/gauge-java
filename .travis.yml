@@ -9,9 +9,9 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install golang
   - go get github.com/tools/godep
-script: 
-  - mvn clean
+install:
   - go run make.go
+script: 
   - go run make.go --install
   - go get -d -u -v github.com/getgauge/gauge
   - cd $GOPATH/src/github.com/getgauge/gauge
