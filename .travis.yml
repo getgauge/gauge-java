@@ -1,6 +1,5 @@
 os:
   - linux
-  - osx
 language: java
 jdk:
   - oraclejdk8
@@ -11,6 +10,7 @@ before_install:
   - sudo apt-get install golang
   - go get github.com/tools/godep
 script: 
+  - mvn clean
   - go run make.go
   - go run make.go --install
   - go get -d -u -v github.com/getgauge/gauge
