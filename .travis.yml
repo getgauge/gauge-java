@@ -7,7 +7,12 @@ env:
   - GOPATH="/tmp" GAUGE_ROOT="/tmp/gauge"
 before_install:
   - sudo apt-get update
-  - sudo apt-get install golang
+  - sudo apt-get -y upgrade
+  - wget https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz
+  - sudo tar -xvf go1.7.4.linux-amd64.tar.gz
+  - sudo mv go /usr/local
+  - export GOROOT=/usr/local/go
+  - export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
   - go get github.com/tools/godep
 install:
   - go run make.go
