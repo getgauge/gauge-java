@@ -12,6 +12,9 @@ before_install:
 install:
   - go run make.go
 script: 
+  - echo $GOROOT
+  - echo $GOPATH
+  - go version
   - go run make.go --install
   - go get -d -u -v github.com/getgauge/gauge
   - cd $GOPATH/src/github.com/getgauge/gauge
