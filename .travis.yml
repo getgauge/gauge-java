@@ -1,0 +1,32 @@
+os:
+  - linux
+language: java
+jdk:
+  - oraclejdk8
+env:
+  - GOPATH="/tmp" GAUGE_ROOT="/tmp/gauge"
+before_install:
+  - wget https://storage.googleapis.com/golang/go1.7.4.linux-amd64.tar.gz
+  - sudo tar -xvf go1.7.4.linux-amd64.tar.gz
+  - sudo mv go /usr/local
+  - export GOROOT=/usr/local/go
+  - export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+  - go get github.com/tools/godep
+install:
+  - go run make.go
+script: 
+  - echo $GOROOT
+  - echo $GOPATH
+  - go version
+  - go run make.go --install
+  - go get -d -u -v github.com/getgauge/gauge
+  - cd $GOPATH/src/github.com/getgauge/gauge
+  - godep restore
+  - echo "gauge_repository_url = https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/" >> skel/gauge.properties
+  - go run build/make.go
+  - go run build/make.go --install --prefix=$GAUGE_ROOT
+  - cd ..
+  - git clone --depth=1 https://github.com/getgauge/gauge-tests
+  - cd gauge-tests
+  - $GAUGE_ROOT/bin/gauge --install-all
+  - TAGS="!unimplemented" ./starttests.sh java

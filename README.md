@@ -5,6 +5,7 @@ This is the java [language plugin](http://getgauge.io/documentation/user/current
 
  [![Build Status](https://snap-ci.com/getgauge/gauge-java/branch/master/build_image)](https://snap-ci.com/getgauge/gauge-java/branch/master)
  [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java)
+ [![Build Status](https://travis-ci.org/getgauge/gauge-java.svg?branch=master)](https://travis-ci.org/getgauge/gauge-java)
 
 |Gauge-Java Nightly|Maven-Gauge-Java Nightly|
 |----------|----------------|
