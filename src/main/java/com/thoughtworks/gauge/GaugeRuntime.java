@@ -55,6 +55,7 @@ public class GaugeRuntime {
         for (Thread thread : threads) {
             thread.join();
         }
+        System.exit(0);
     }
 
     private static int readEnvVar(String env) {
