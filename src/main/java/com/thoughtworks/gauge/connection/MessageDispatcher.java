@@ -52,7 +52,7 @@ public class MessageDispatcher {
     private final HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors;
 
     public MessageDispatcher() {
-        final ClassInstanceManager instanceManager = ClassInstanceManager.getInstance();
+        final ClassInstanceManager instanceManager = new ClassInstanceManager();
         messageProcessors = new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));

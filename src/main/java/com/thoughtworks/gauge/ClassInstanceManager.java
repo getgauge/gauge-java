@@ -25,13 +25,6 @@ public class ClassInstanceManager {
     private Map<Class<?>, Object> classInstanceMap = new HashMap<Class<?>, Object>();
     private ClassInitializer initializer;
 
-    private static class Holder {
-        static final ClassInstanceManager INSTANCE = new ClassInstanceManager();
-    }
-    public static ClassInstanceManager getInstance() {
-        return Holder.INSTANCE;
-    }
-
     public Object get(Class<?> declaringClass) throws Exception {
         Object classInstance = classInstanceMap.get(declaringClass);
         if (classInstance == null) {

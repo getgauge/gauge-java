@@ -18,7 +18,6 @@ package com.thoughtworks.gauge;
 import com.thoughtworks.gauge.connection.GaugeConnector;
 import com.thoughtworks.gauge.connection.MessageDispatcher;
 import com.thoughtworks.gauge.scan.ClasspathScanner;
-import com.thoughtworks.gauge.scan.ClassInitializerScanner;
 import com.thoughtworks.gauge.scan.HooksScanner;
 import com.thoughtworks.gauge.scan.StepsScanner;
 import com.thoughtworks.gauge.screenshot.CustomScreenshotScanner;
@@ -79,7 +78,7 @@ public class GaugeRuntime {
 
     private static void connectSynchronously(final int gaugeInternalPort, final int gaugeApiPort) {
         final GaugeConnector connector = makeConnection(gaugeInternalPort, gaugeApiPort);
-        new ClasspathScanner().scan(new ClassInitializerScanner(), new StepsScanner(connector), new HooksScanner(), new CustomScreenshotScanner());
+        new ClasspathScanner().scan(new StepsScanner(connector), new HooksScanner(), new CustomScreenshotScanner());
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
