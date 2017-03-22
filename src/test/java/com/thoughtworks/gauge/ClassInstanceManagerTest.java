@@ -32,13 +32,15 @@ public class ClassInstanceManagerTest extends TestCase {
     public void testSettingClassInitializer() throws Exception {
         final TestStepImplClass expectedObject = new TestStepImplClass();
         ClassInstanceManager manager = new ClassInstanceManager();
-        manager.setClassInitializer(new ClassInitializer() {
+        ClassInstanceManager.setClassInitializer(new ClassInitializer() {
             public Object initialize(Class<?> classToInitialize) throws Exception {
                 return expectedObject;
             }
         });
         Object object1 = manager.get(TestStepImplClass.class);
         Object object2 = manager.get(String.class);
+        ClassInstanceManager.setClassInitializer(null);
+
         assertEquals(expectedObject, object1);
         assertEquals(expectedObject, object2);
     }

@@ -23,13 +23,13 @@ import java.util.Map;
  */
 public class ClassInstanceManager {
     private Map<Class<?>, Object> classInstanceMap = new HashMap<Class<?>, Object>();
-    private ClassInitializer initializer;
+    private static ThreadLocal<ClassInitializer> initializer = new InheritableThreadLocal<ClassInitializer>();
 
     public Object get(Class<?> declaringClass) throws Exception {
         Object classInstance = classInstanceMap.get(declaringClass);
         if (classInstance == null) {
-            if (initializer != null) {
-                classInstance = initializer.initialize(declaringClass);
+            if (getInitializer() != null) {
+                classInstance = getInitializer().initialize(declaringClass);
             } else {
                 classInstance = Class.forName(declaringClass.getName()).newInstance();
             }
@@ -38,11 +38,15 @@ public class ClassInstanceManager {
         return classInstance;
     }
 
-    public void setClassInitializer(ClassInitializer classInitializer) {
-        this.initializer = classInitializer;
+    public static void setClassInitializer(ClassInitializer classInitializer) {
+        initializer.set(classInitializer);
     }
 
     public void clearCache() {
         this.classInstanceMap.clear();
+    }
+
+    private static ClassInitializer getInitializer() {
+        return initializer.get();
     }
 }
