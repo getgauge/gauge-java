@@ -18,7 +18,6 @@ package com.thoughtworks.gauge.processor;
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
-import org.apache.commons.lang.StringEscapeUtils;
 
 import java.util.Set;
 
@@ -27,7 +26,7 @@ public class StepNameRequestProcessor implements IMessageProcessor {
     }
 
     public Messages.Message process(Messages.Message message) {
-        Set<String> stepAnnotations = StepRegistry.getAllAliasAnnotationTextsFor(StringEscapeUtils.escapeJava(message.getStepNameRequest().getStepValue()));
+        Set<String> stepAnnotations = StepRegistry.getAllAliasAnnotationTextsFor(message.getStepNameRequest().getStepValue());
         boolean hasAlias = false, isStepPresent = false;
 
         if (stepAnnotations.size() > 1) {

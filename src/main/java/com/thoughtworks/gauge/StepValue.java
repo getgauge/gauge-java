@@ -16,7 +16,6 @@
 package com.thoughtworks.gauge;
 
 import gauge.messages.Spec;
-import org.apache.commons.lang.StringEscapeUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +38,7 @@ public class StepValue {
     }
 
     public static StepValue from(Spec.ProtoStepValue protoStepValue) {
-        return new StepValue(StringEscapeUtils.escapeJava(protoStepValue.getStepValue()), StringEscapeUtils.escapeJava(protoStepValue.getParameterizedStepValue()), protoStepValue.getParametersList());
+        return new StepValue(protoStepValue.getStepValue(), protoStepValue.getParameterizedStepValue(), protoStepValue.getParametersList());
     }
 
     public String getStepText() {
