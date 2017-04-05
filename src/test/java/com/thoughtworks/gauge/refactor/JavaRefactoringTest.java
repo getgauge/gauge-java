@@ -178,11 +178,25 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        System.out.println(element.getText());
         assertTrue(element.getText().contains("    @Step(\"step changed to \\\\\")" + System.getProperty("line.separator") +
                 "    public void stepWithSlash() {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("A step with \\"));
+    }
+
+    public void testJavaElementForRefactoringWithTab() throws Exception {
+        StepValue oldStepValue = new StepValue("A step 123", "A step 123", new ArrayList<String>());
+        StepValue newStepValue = new StepValue("step changed to \t", "step changed to \t", new ArrayList<String>());
+        String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
+
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
+
+        assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
+        assertTrue(element.getText().contains("    @Step(\"step changed to \\t\")" + System.getProperty("line.separator") +
+                "    public void stepWithTab() {" + System.getProperty("line.separator") +
+                "    }"));
+        assertFalse(element.getText().contains("A step 123"));
     }
 
     public void testJavaElementForRefactoringWithParametersRemovedAndAdded() throws Exception {

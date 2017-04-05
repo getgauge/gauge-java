@@ -54,4 +54,7 @@ public class StepImpl {
     public void stepWithSlash() {
     }
 
+    @Step("A step 123")
+    public void stepWithTab() {
+    }
 }
