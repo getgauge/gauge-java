@@ -50,4 +50,11 @@ public class StepImpl {
         System.out.println("\n");
     }
 
+    @Step("A step with \\")
+    public void stepWithSlash() {
+    }
+
+    @Step("A step 123")
+    public void stepWithTab() {
+    }
 }
