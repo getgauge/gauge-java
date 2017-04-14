@@ -13,7 +13,7 @@
 // You can redistribute it and/or modify it under the terms of either license.
 // We would then provide copied of each license in a separate .txt file with the name of the license as the title of the file.
 
-package com.thoughtworks.gauge.execution;
+package com.thoughtworks.gauge.execution.parameters.parsers.types;
 
 import com.thoughtworks.gauge.Table;
 import gauge.messages.Spec;

@@ -15,22 +15,24 @@
 
 package com.thoughtworks.gauge.execution;
 
-import com.thoughtworks.gauge.ClassInstanceManager;
-import com.thoughtworks.gauge.ContinueOnFailure;
-import com.thoughtworks.gauge.Table;
-import com.thoughtworks.gauge.test.anEnum;
-import gauge.messages.Messages;
-import gauge.messages.Spec;
-import gauge.messages.Spec.ProtoExecutionResult;
-import junit.framework.TestCase;
-
-import java.lang.reflect.Method;
-
 import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
+
+import java.lang.reflect.Method;
+
+import com.thoughtworks.gauge.ClassInstanceManager;
+import com.thoughtworks.gauge.ContinueOnFailure;
+import com.thoughtworks.gauge.Table;
+import com.thoughtworks.gauge.execution.parameters.parsers.types.EnumParameterParser;
+import com.thoughtworks.gauge.test.anEnum;
+
+import gauge.messages.Messages;
+import gauge.messages.Spec;
+import gauge.messages.Spec.ProtoExecutionResult;
+import junit.framework.TestCase;
 
 public class StepExecutionStageTest extends TestCase {
     private static final boolean STEP_FAILED = true;
@@ -137,7 +139,7 @@ public class StepExecutionStageTest extends TestCase {
                 fooBarWithEnumMethod);
 
         assertEquals(STEP_FAILED, result.getFailed());
-        assertEquals(String.format(StepExecutionStage.ENUM_VALUE_NOT_FOUND_MESSAGE,
+        assertEquals(String.format(EnumParameterParser.ENUM_VALUE_NOT_FOUND_MESSAGE,
                 NON_EXISTING_VALUE, anEnum.class.getSimpleName()), result.getErrorMessage());
     }
 
