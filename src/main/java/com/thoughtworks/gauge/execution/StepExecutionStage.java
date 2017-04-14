@@ -15,44 +15,26 @@
 
 package com.thoughtworks.gauge.execution;
 
-
-import com.google.common.base.Throwables;
-import com.thoughtworks.gauge.ClassInstanceManager;
-import gauge.messages.Messages;
-import gauge.messages.Spec;
-import gauge.messages.Spec.Parameter;
-import gauge.messages.Spec.Parameter.ParameterType;
-
 import java.lang.reflect.Method;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import com.thoughtworks.gauge.ClassInstanceManager;
+import com.thoughtworks.gauge.execution.parameters.ParametersExtractor;
+import com.thoughtworks.gauge.execution.parameters.ParsingException;
 import com.thoughtworks.gauge.registry.StepRegistry;
 
+import gauge.messages.Messages;
+import gauge.messages.Spec;
 
 public class StepExecutionStage extends AbstractExecutionStage {
-    public static final String ENUM_VALUE_NOT_FOUND_MESSAGE = "%s is not an enum value of %s.";
 
     private ExecutionStage next;
     private Messages.ExecuteStepRequest executeStepRequest;
-    private Map<Class<?>, StringToPrimitiveConverter> primitiveConverters = new HashMap<Class<?>, StringToPrimitiveConverter>();
-    private TableConverter tableConverter;
     private ClassInstanceManager manager;
+    private ParametersExtractor parametersExtractor = new ParametersExtractor();
 
     public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest, ClassInstanceManager manager) {
         this.manager = manager;
-        primitiveConverters.put(int.class, new StringToIntegerConverter());
-        primitiveConverters.put(Integer.class, new StringToIntegerConverter());
-        primitiveConverters.put(boolean.class, new StringToBooleanConverter());
-        primitiveConverters.put(Boolean.class, new StringToBooleanConverter());
-        primitiveConverters.put(long.class, new StringToLongConverter());
-        primitiveConverters.put(Long.class, new StringToLongConverter());
-        primitiveConverters.put(float.class, new StringToFloatConverter());
-        primitiveConverters.put(Float.class, new StringToFloatConverter());
-        primitiveConverters.put(double.class, new StringToDoubleConverter());
-        primitiveConverters.put(Double.class, new StringToDoubleConverter());
-        tableConverter = new TableConverter();
         this.executeStepRequest = executeStepRequest;
     }
 
@@ -75,10 +57,9 @@ public class StepExecutionStage extends AbstractExecutionStage {
         int numberOfParameters = this.executeStepRequest.getParametersCount();
 
         if (implementationParamCount != numberOfParameters) {
-            return Spec.ProtoExecutionResult.newBuilder()
-                    .setFailed(true)
-                    .setExecutionTime(0)
-                    .setErrorMessage(String.format("Argument length mismatch for: %s. Actual Count: [%d], Expected Count: [%d]",
+            return Spec.ProtoExecutionResult.newBuilder().setFailed(true).setExecutionTime(0)
+                    .setErrorMessage(String.format(
+                            "Argument length mismatch for: %s. Actual Count: [%d], Expected Count: [%d]",
                             this.executeStepRequest.getActualStepText(), implementationParamCount, numberOfParameters))
                     .build();
         }
@@ -88,60 +69,13 @@ public class StepExecutionStage extends AbstractExecutionStage {
     }
 
     public Spec.ProtoExecutionResult executeStepMethod(MethodExecutor methodExecutor, Method method) {
-        List<Spec.Parameter> args = executeStepRequest.getParametersList();
-        if (args != null && args.size() > 0) {
-            Object[] parameters = new Object[args.size()];
-            Class<?>[] parameterTypes = method.getParameterTypes();
-            for (int i = 0; i < parameterTypes.length; i++) {
-                Class<?> parameterType = parameterTypes[i];
-                Parameter parameter = args.get(i);
-                if (isTable(parameter)) {
-                    parameters[i] = this.tableConverter.convert(parameter);
-                } else if (parameterType.isEnum()) {
-                    @SuppressWarnings("unchecked")
-                    Class<? extends Enum<?>> enumClass = (Class<? extends Enum<?>>) parameterType;
-                    String enumValue = parameter.getValue();
-                    try {
-                        parameters[i] = getEnumInstance(enumClass, enumValue);
-                    } catch (IllegalArgumentException e) {
-                        return Spec.ProtoExecutionResult.newBuilder().setFailed(true)
-                                .setExecutionTime(0)
-                                .setStackTrace(Throwables.getStackTraceAsString(e))
-                                .setErrorMessage(String.format(ENUM_VALUE_NOT_FOUND_MESSAGE,
-                                        enumValue, enumClass.getSimpleName()))
-                                .build();
-                    }
-                } else if (primitiveConverters.containsKey(parameterType)) {
-                    try {
-                        parameters[i] = primitiveConverters.get(parameterType).convert(parameter);
-                    } catch (Exception e) {
-                        return Spec.ProtoExecutionResult.newBuilder()
-                                .setFailed(true)
-                                .setExecutionTime(0)
-                                .setStackTrace(Throwables.getStackTraceAsString(e))
-                                .setErrorMessage(String.format("Failed to convert argument from type String to type %s. %s", parameterType.toString(), e.getMessage()))
-                                .build();
-                    }
+        List<Spec.Parameter> arguments = executeStepRequest.getParametersList();
 
-                } else {
-                    parameters[i] = parameter.getValue();
-                }
-            }
-            return methodExecutor.execute(method, parameters);
-        } else {
-            return methodExecutor.execute(method);
+        try {
+            return methodExecutor.execute(method, parametersExtractor.extract(arguments, method.getParameterTypes()));
+        } catch (ParsingException e) {
+            return e.getExecutionResult();
         }
-    }
-
-    @SuppressWarnings({ "unchecked", "rawtypes" })
-    public <T extends Enum<T>> Enum<T> getEnumInstance(Class<? extends Enum> clazz, String name) {
-        return Enum.valueOf(clazz, name);
-    }
-
-    private boolean isTable(
-            Spec.Parameter parameter) {
-
-        return parameter.getParameterType().equals(ParameterType.Special_Table) || parameter.getParameterType().equals(ParameterType.Table);
     }
 
     protected ExecutionStage next() {
