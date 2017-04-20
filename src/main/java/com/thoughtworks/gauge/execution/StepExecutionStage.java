@@ -21,17 +21,17 @@ import java.util.List;
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.execution.parameters.ParametersExtractor;
 import com.thoughtworks.gauge.execution.parameters.ParsingException;
+import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.registry.StepRegistry;
 
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
 public class StepExecutionStage extends AbstractExecutionStage {
-
     private ExecutionStage next;
     private Messages.ExecuteStepRequest executeStepRequest;
     private ClassInstanceManager manager;
-    private ParametersExtractor parametersExtractor = new ParametersExtractor();
+    private ParametersExtractor parametersExtractor = new ParametersExtractor(new ParameterParsingChain());
 
     public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest, ClassInstanceManager manager) {
         this.manager = manager;
@@ -69,9 +69,8 @@ public class StepExecutionStage extends AbstractExecutionStage {
     }
 
     public Spec.ProtoExecutionResult executeStepMethod(MethodExecutor methodExecutor, Method method) {
-        List<Spec.Parameter> arguments = executeStepRequest.getParametersList();
-
         try {
+            List<Spec.Parameter> arguments = executeStepRequest.getParametersList();
             return methodExecutor.execute(method, parametersExtractor.extract(arguments, method.getParameterTypes()));
         } catch (ParsingException e) {
             return e.getExecutionResult();

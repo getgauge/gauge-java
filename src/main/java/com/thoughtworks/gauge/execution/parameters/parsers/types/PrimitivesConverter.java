@@ -3,6 +3,13 @@ package com.thoughtworks.gauge.execution.parameters.parsers.types;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.thoughtworks.gauge.execution.parameters.parsers.converters.StringToBooleanConverter;
+import com.thoughtworks.gauge.execution.parameters.parsers.converters.StringToDoubleConverter;
+import com.thoughtworks.gauge.execution.parameters.parsers.converters.StringToFloatConverter;
+import com.thoughtworks.gauge.execution.parameters.parsers.converters.StringToIntegerConverter;
+import com.thoughtworks.gauge.execution.parameters.parsers.converters.StringToLongConverter;
+import com.thoughtworks.gauge.execution.parameters.parsers.converters.StringToPrimitiveConverter;
+
 import gauge.messages.Spec.Parameter;
 
 public class PrimitivesConverter {
