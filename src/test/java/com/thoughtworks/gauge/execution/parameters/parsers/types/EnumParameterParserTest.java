@@ -1,9 +1,12 @@
 package com.thoughtworks.gauge.execution.parameters.parsers.types;
 
-import static com.thoughtworks.gauge.execution.ParameterTestHelpers.asObject;
 import static com.thoughtworks.gauge.execution.ParameterTestHelpers.parameter;
-import static org.hamcrest.CoreMatchers.is;
+import static com.thoughtworks.gauge.test.TestHelpers.asObject;
+import static com.thoughtworks.gauge.test.TestValues.A_NON_ENUM_TYPE;
+import static com.thoughtworks.gauge.test.TestValues.A_VALUE;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParser;
+import com.thoughtworks.gauge.test.AnEnum;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EnumParameterParserTest {
@@ -22,10 +26,14 @@ public class EnumParameterParserTest {
 
     @Test
     public void givenAnEnumParameterTypeAndAValidParameterForThatEnumThenTheEnumInstanceIsReturned() throws Exception {
-        assertThat(enumParameterParser.parse(TestEnum.class, parameter("FIRST")), is(asObject(TestEnum.FIRST)));
+        assertThat(enumParameterParser.parse(AnEnum.class, parameter(AnEnum.VALUE.name())),
+                equalTo(asObject(AnEnum.VALUE)));
     }
 
-    private enum TestEnum {
-        FIRST
+    @Test
+    public void whenParseANonEnumTypeThenTheParameterIsPassedAlong() throws Exception {
+        enumParameterParser.parse(A_NON_ENUM_TYPE, parameter(A_VALUE));
+
+        verify(parameterParserMock).parse(A_NON_ENUM_TYPE, parameter(A_VALUE));
     }
 }

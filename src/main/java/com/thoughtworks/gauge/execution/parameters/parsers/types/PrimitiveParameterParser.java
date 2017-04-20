@@ -9,10 +9,11 @@ import gauge.messages.Spec;
 import gauge.messages.Spec.Parameter;
 
 public class PrimitiveParameterParser extends BaseParameterParser implements ParameterParser {
-    private PrimitivesConverter primitivesConverter = new PrimitivesConverter();
+    private PrimitivesConverter primitivesConverter;
 
-    public PrimitiveParameterParser(ParameterParser next) {
+    public PrimitiveParameterParser(ParameterParser next, PrimitivesConverter primitivesConverter) {
         super(next);
+        this.primitivesConverter = primitivesConverter;
     }
 
     @Override

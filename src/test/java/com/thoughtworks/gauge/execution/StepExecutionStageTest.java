@@ -27,7 +27,7 @@ import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ContinueOnFailure;
 import com.thoughtworks.gauge.Table;
 import com.thoughtworks.gauge.execution.parameters.parsers.types.EnumParameterParser;
-import com.thoughtworks.gauge.test.anEnum;
+import com.thoughtworks.gauge.test.AnEnum;
 
 import gauge.messages.Messages;
 import gauge.messages.Spec;
@@ -134,24 +134,24 @@ public class StepExecutionStageTest extends TestCase {
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
         MethodExecutor methodExecutor = mock(MethodExecutor.class);
         Method fooBarWithEnumMethod = this.getClass().getMethod("fooBarWithEnumParameter",
-                anEnum.class);
+                AnEnum.class);
         ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor,
                 fooBarWithEnumMethod);
 
         assertEquals(STEP_FAILED, result.getFailed());
         assertEquals(String.format(EnumParameterParser.ENUM_VALUE_NOT_FOUND_MESSAGE,
-                NON_EXISTING_VALUE, anEnum.class.getSimpleName()), result.getErrorMessage());
+                NON_EXISTING_VALUE, AnEnum.class.getSimpleName()), result.getErrorMessage());
     }
 
     public void testStepMethodExecutionWithEnumParamIsExecutingTheStep() throws Exception {
-        Spec.Parameter anEnumParam = Spec.Parameter.newBuilder().setValue(anEnum.FIRST.name()).setName("enum").setParameterType(Spec.Parameter.ParameterType.Static).build();
+        Spec.Parameter anEnumParam = Spec.Parameter.newBuilder().setValue(AnEnum.FIRST.name()).setName("enum").setParameterType(Spec.Parameter.ParameterType.Static).build();
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("Test an enum parameter: {}").setActualStepText("Test an enum parameter: <anEnumValue>").addParameters(anEnumParam).build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
         MethodExecutor methodExecutor = mock(MethodExecutor.class);
-        Method fooBarWithEnumMethod = this.getClass().getMethod("fooBarWithEnumParameter", anEnum.class);
+        Method fooBarWithEnumMethod = this.getClass().getMethod("fooBarWithEnumParameter", AnEnum.class);
         executionStage.executeStepMethod(methodExecutor, fooBarWithEnumMethod);
 
-        verify(methodExecutor, times(1)).execute(fooBarWithEnumMethod, anEnum.FIRST);
+        verify(methodExecutor, times(1)).execute(fooBarWithEnumMethod, AnEnum.FIRST);
     }
 
     public void testStepMethodExecutionWithCOFOnErrorWhitelisted() throws Exception {
@@ -211,7 +211,7 @@ public class StepExecutionStageTest extends TestCase {
         return null;
     }
 
-    public void fooBarWithEnumParameter(anEnum anEnumValue) {
+    public void fooBarWithEnumParameter(AnEnum anEnumValue) {
         // Implementation goes here
     }
 
