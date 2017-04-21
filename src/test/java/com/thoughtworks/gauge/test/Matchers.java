@@ -1,8 +1,8 @@
 package com.thoughtworks.gauge.test;
 
 import static java.lang.String.format;
-import static java.util.Arrays.asList;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -11,12 +11,12 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
 public class Matchers {
-    public static <T> Matcher<? super T[]> aslist(final Matcher<? super Collection<T>> matcher) {
+    public static <T> Matcher<? super T[]> asList(final Matcher<? super Collection<T>> matcher) {
         return new BaseMatcher<T[]>() {
             @SuppressWarnings("unchecked")
             @Override
             public boolean matches(Object item) {
-                return matcher.matches(asList((T[]) item));
+                return matcher.matches(Arrays.asList((T[]) item));
             }
 
             @Override
@@ -33,11 +33,7 @@ public class Matchers {
             @SuppressWarnings("unchecked")
             @Override
             public boolean matches(Object item) {
-                if (!(item instanceof Collection)) {
-                    return false;
-                }
-
-                return everyItemMatches((Collection<T>) item, matchers);
+                return item instanceof Collection && everyItemMatches((Collection<T>) item, matchers);
             }
 
             private boolean everyItemMatches(Collection<T> collection, final Matcher<T>... matchers) {

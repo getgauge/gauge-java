@@ -1,13 +1,14 @@
 package com.thoughtworks.gauge.execution.parameters;
 
 import static com.thoughtworks.gauge.execution.ParameterTestHelpers.aParameter;
-import static com.thoughtworks.gauge.test.Matchers.aslist;
+import static com.thoughtworks.gauge.test.Matchers.asList;
 import static com.thoughtworks.gauge.test.Matchers.containsOnly;
 import static com.thoughtworks.gauge.test.TestHelpers.array;
 import static com.thoughtworks.gauge.test.TestValues.ANY_TYPE;
 import static com.thoughtworks.gauge.test.TestValues.SPECIFIC_VALUE;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
+import static java.util.Collections.singletonList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.junit.Assert.assertThat;
@@ -61,8 +62,8 @@ public class ParametersExtractorTest {
     public void whenExtractAParameterThenTheParsedParameterIsReturned() throws Exception {
         when(parameterParser.parse(ANY_TYPE, aParameter())).thenReturn(SPECIFIC_VALUE);
 
-        assertThat(parametersExtractor.extract(asList(aParameter()), array(ANY_TYPE)),
-                aslist(containsOnly(sameInstance(SPECIFIC_VALUE))));
+        assertThat(parametersExtractor.extract(singletonList(aParameter()), array(ANY_TYPE)),
+                asList(containsOnly(sameInstance(SPECIFIC_VALUE))));
     }
 
     @Test
@@ -71,6 +72,6 @@ public class ParametersExtractorTest {
         when(parameterParser.parse(ANY_TYPE, aParameter())).thenReturn(SPECIFIC_VALUE, ANOTHER_SPECIFIC_VALUE);
 
         assertThat(parametersExtractor.extract(asList(aParameter(), aParameter()), array(ANY_TYPE, ANY_TYPE)),
-                aslist(containsOnly(sameInstance(SPECIFIC_VALUE), sameInstance(ANOTHER_SPECIFIC_VALUE))));
+                asList(containsOnly(sameInstance(SPECIFIC_VALUE), sameInstance(ANOTHER_SPECIFIC_VALUE))));
     }
 }
