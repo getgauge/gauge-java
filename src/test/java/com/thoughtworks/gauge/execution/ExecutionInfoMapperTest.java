@@ -28,10 +28,12 @@ public class ExecutionInfoMapperTest extends TestCase {
 
     public void testStepDetailsCreation() throws Exception {
         Messages.ExecuteStepRequest step = Messages.ExecuteStepRequest.newBuilder().setActualStepText("hello world <a>").setParsedStepText("hello world {}").build();
+        String stackTrace = "StackTrace";
         Messages.StepInfo stepInfo = Messages.StepInfo.newBuilder().setIsFailed(true).setStep(step).build();
-        StepDetails stepDetails = new ExecutionInfoMapper().stepFrom(stepInfo);
+        StepDetails stepDetails = new ExecutionInfoMapper().stepFrom(stepInfo,stackTrace);
 
         assertEquals("hello world <a>", stepDetails.getText());
+        assertEquals("StackTrace", stepDetails.getStackTrace());
         assertTrue(stepDetails.getIsFailing());
     }
 
