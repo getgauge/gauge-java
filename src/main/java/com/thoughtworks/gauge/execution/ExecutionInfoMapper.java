@@ -15,7 +15,6 @@
 
 package com.thoughtworks.gauge.execution;
 
-
 import com.thoughtworks.gauge.Scenario;
 import com.thoughtworks.gauge.Specification;
 import com.thoughtworks.gauge.ExecutionContext;
@@ -27,8 +26,7 @@ public class ExecutionInfoMapper {
         if (!currentExecutionInfo.isInitialized()) {
             return new ExecutionContext();
         }
-        return new ExecutionContext(specificationFrom(currentExecutionInfo.getCurrentSpec()),
-                scenarioFrom(currentExecutionInfo.getCurrentScenario()),
+        return new ExecutionContext(specificationFrom(currentExecutionInfo.getCurrentSpec()), scenarioFrom(currentExecutionInfo.getCurrentScenario()),
                 stepFrom(currentExecutionInfo.getCurrentStep()));
     }
 
@@ -48,7 +46,7 @@ public class ExecutionInfoMapper {
 
     public StepDetails stepFrom(Messages.StepInfo currentStep) {
         if (currentStep.isInitialized()) {
-            return new StepDetails(currentStep.getStep().getActualStepText(), currentStep.getIsFailed());
+            return new StepDetails(currentStep.getStep().getActualStepText(), currentStep.getIsFailed(), currentStep.getStackTrace());
         }
         return new StepDetails();
 

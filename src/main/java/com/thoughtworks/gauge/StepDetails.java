@@ -20,11 +20,13 @@ package com.thoughtworks.gauge;
  */
 public class StepDetails {
     private String text = "";
+    private String stackTrace = "";
     private Boolean isFailing = false;
 
-    public StepDetails(String text, boolean isFailing) {
+    public StepDetails(String text, boolean isFailing, String stackTrace) {
         this.text = text;
         this.isFailing = isFailing;
+        this.stackTrace = stackTrace;
     }
 
     public StepDetails() {
@@ -42,6 +44,10 @@ public class StepDetails {
      */
     public String getText() {
         return text;
+    }
+
+    public String getStackTrace() {
+        return stackTrace;
     }
 
 }

@@ -127,7 +127,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -392,15 +392,15 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     boolean hasExecutionResult();
     /**
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     gauge.messages.Spec.ProtoExecutionResult getExecutionResult();
     /**
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     gauge.messages.Spec.ProtoExecutionResultOrBuilder getExecutionResultOrBuilder();
   }
@@ -487,19 +487,19 @@ public final class Messages {
     public static final int EXECUTIONRESULT_FIELD_NUMBER = 1;
     private gauge.messages.Spec.ProtoExecutionResult executionResult_;
     /**
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     public boolean hasExecutionResult() {
       return executionResult_ != null;
     }
     /**
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     public gauge.messages.Spec.ProtoExecutionResult getExecutionResult() {
       return executionResult_ == null ? gauge.messages.Spec.ProtoExecutionResult.getDefaultInstance() : executionResult_;
     }
     /**
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     public gauge.messages.Spec.ProtoExecutionResultOrBuilder getExecutionResultOrBuilder() {
       return getExecutionResult();
@@ -561,7 +561,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasExecutionResult()) {
         hash = (37 * hash) + EXECUTIONRESULT_FIELD_NUMBER;
         hash = (53 * hash) + getExecutionResult().hashCode();
@@ -796,13 +796,13 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoExecutionResult, gauge.messages.Spec.ProtoExecutionResult.Builder, gauge.messages.Spec.ProtoExecutionResultOrBuilder> executionResultBuilder_;
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public boolean hasExecutionResult() {
         return executionResultBuilder_ != null || executionResult_ != null;
       }
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoExecutionResult getExecutionResult() {
         if (executionResultBuilder_ == null) {
@@ -812,7 +812,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder setExecutionResult(gauge.messages.Spec.ProtoExecutionResult value) {
         if (executionResultBuilder_ == null) {
@@ -828,7 +828,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder setExecutionResult(
           gauge.messages.Spec.ProtoExecutionResult.Builder builderForValue) {
@@ -842,7 +842,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder mergeExecutionResult(gauge.messages.Spec.ProtoExecutionResult value) {
         if (executionResultBuilder_ == null) {
@@ -860,7 +860,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder clearExecutionResult() {
         if (executionResultBuilder_ == null) {
@@ -874,7 +874,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoExecutionResult.Builder getExecutionResultBuilder() {
         
@@ -882,7 +882,7 @@ public final class Messages {
         return getExecutionResultFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoExecutionResultOrBuilder getExecutionResultOrBuilder() {
         if (executionResultBuilder_ != null) {
@@ -893,7 +893,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoExecutionResult, gauge.messages.Spec.ProtoExecutionResult.Builder, gauge.messages.Spec.ProtoExecutionResultOrBuilder> 
@@ -962,15 +962,15 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
   }
@@ -1056,19 +1056,19 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
@@ -1130,7 +1130,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
@@ -1364,13 +1364,13 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -1380,7 +1380,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -1396,7 +1396,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
           gauge.messages.Messages.ExecutionInfo.Builder builderForValue) {
@@ -1410,7 +1410,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -1428,7 +1428,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -1442,7 +1442,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
         
@@ -1450,7 +1450,7 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
         if (currentExecutionInfoBuilder_ != null) {
@@ -1461,7 +1461,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> 
@@ -1530,15 +1530,15 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
   }
@@ -1624,19 +1624,19 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
@@ -1698,7 +1698,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
@@ -1932,13 +1932,13 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -1948,7 +1948,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -1964,7 +1964,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
           gauge.messages.Messages.ExecutionInfo.Builder builderForValue) {
@@ -1978,7 +1978,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -1996,7 +1996,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -2010,7 +2010,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
         
@@ -2018,7 +2018,7 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
         if (currentExecutionInfoBuilder_ != null) {
@@ -2029,7 +2029,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> 
@@ -2098,15 +2098,15 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
   }
@@ -2192,19 +2192,19 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
@@ -2266,7 +2266,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
@@ -2500,13 +2500,13 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -2516,7 +2516,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -2532,7 +2532,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
           gauge.messages.Messages.ExecutionInfo.Builder builderForValue) {
@@ -2546,7 +2546,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -2564,7 +2564,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -2578,7 +2578,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
         
@@ -2586,7 +2586,7 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
         if (currentExecutionInfoBuilder_ != null) {
@@ -2597,7 +2597,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> 
@@ -2666,15 +2666,15 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
   }
@@ -2760,19 +2760,19 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
@@ -2834,7 +2834,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
@@ -3068,13 +3068,13 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -3084,7 +3084,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -3100,7 +3100,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
           gauge.messages.Messages.ExecutionInfo.Builder builderForValue) {
@@ -3114,7 +3114,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -3132,7 +3132,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -3146,7 +3146,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
         
@@ -3154,7 +3154,7 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
         if (currentExecutionInfoBuilder_ != null) {
@@ -3165,7 +3165,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> 
@@ -3234,15 +3234,15 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
   }
@@ -3328,19 +3328,19 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
@@ -3402,7 +3402,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
@@ -3636,13 +3636,13 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -3652,7 +3652,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -3668,7 +3668,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
           gauge.messages.Messages.ExecutionInfo.Builder builderForValue) {
@@ -3682,7 +3682,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -3700,7 +3700,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -3714,7 +3714,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
         
@@ -3722,7 +3722,7 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
         if (currentExecutionInfoBuilder_ != null) {
@@ -3733,7 +3733,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> 
@@ -3802,15 +3802,15 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
   }
@@ -3896,19 +3896,19 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
@@ -3970,7 +3970,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
@@ -4204,13 +4204,13 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -4220,7 +4220,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -4236,7 +4236,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
           gauge.messages.Messages.ExecutionInfo.Builder builderForValue) {
@@ -4250,7 +4250,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -4268,7 +4268,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -4282,7 +4282,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
         
@@ -4290,7 +4290,7 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
         if (currentExecutionInfoBuilder_ != null) {
@@ -4301,7 +4301,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> 
@@ -4370,15 +4370,15 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
   }
@@ -4464,19 +4464,19 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
@@ -4538,7 +4538,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
@@ -4772,13 +4772,13 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -4788,7 +4788,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -4804,7 +4804,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
           gauge.messages.Messages.ExecutionInfo.Builder builderForValue) {
@@ -4818,7 +4818,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -4836,7 +4836,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -4850,7 +4850,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
         
@@ -4858,7 +4858,7 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
         if (currentExecutionInfoBuilder_ != null) {
@@ -4869,7 +4869,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> 
@@ -4938,15 +4938,15 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
   }
@@ -5032,19 +5032,19 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
-     * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+     * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
@@ -5106,7 +5106,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
@@ -5340,13 +5340,13 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -5356,7 +5356,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -5372,7 +5372,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
           gauge.messages.Messages.ExecutionInfo.Builder builderForValue) {
@@ -5386,7 +5386,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
         if (currentExecutionInfoBuilder_ == null) {
@@ -5404,7 +5404,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
         if (currentExecutionInfoBuilder_ == null) {
@@ -5418,7 +5418,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
         
@@ -5426,7 +5426,7 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
         if (currentExecutionInfoBuilder_ != null) {
@@ -5437,7 +5437,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
+       * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> 
@@ -5510,7 +5510,7 @@ public final class Messages {
      *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+     * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
      */
     boolean hasCurrentSpec();
     /**
@@ -5518,7 +5518,7 @@ public final class Messages {
      *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+     * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
      */
     gauge.messages.Messages.SpecInfo getCurrentSpec();
     /**
@@ -5526,7 +5526,7 @@ public final class Messages {
      *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+     * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
      */
     gauge.messages.Messages.SpecInfoOrBuilder getCurrentSpecOrBuilder();
 
@@ -5535,7 +5535,7 @@ public final class Messages {
      *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+     * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
      */
     boolean hasCurrentScenario();
     /**
@@ -5543,7 +5543,7 @@ public final class Messages {
      *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+     * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
      */
     gauge.messages.Messages.ScenarioInfo getCurrentScenario();
     /**
@@ -5551,7 +5551,7 @@ public final class Messages {
      *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+     * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
      */
     gauge.messages.Messages.ScenarioInfoOrBuilder getCurrentScenarioOrBuilder();
 
@@ -5560,7 +5560,7 @@ public final class Messages {
      *&#47; Holds the information of the current Step. Valid in context of Step execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+     * <code>.gauge.messages.StepInfo currentStep = 3;</code>
      */
     boolean hasCurrentStep();
     /**
@@ -5568,7 +5568,7 @@ public final class Messages {
      *&#47; Holds the information of the current Step. Valid in context of Step execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+     * <code>.gauge.messages.StepInfo currentStep = 3;</code>
      */
     gauge.messages.Messages.StepInfo getCurrentStep();
     /**
@@ -5576,7 +5576,7 @@ public final class Messages {
      *&#47; Holds the information of the current Step. Valid in context of Step execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+     * <code>.gauge.messages.StepInfo currentStep = 3;</code>
      */
     gauge.messages.Messages.StepInfoOrBuilder getCurrentStepOrBuilder();
 
@@ -5585,7 +5585,7 @@ public final class Messages {
      *&#47; Stacktrace of the execution. Valid only if there is an error in execution.
      * </pre>
      *
-     * <code>optional string stacktrace = 4;</code>
+     * <code>string stacktrace = 4;</code>
      */
     java.lang.String getStacktrace();
     /**
@@ -5593,7 +5593,7 @@ public final class Messages {
      *&#47; Stacktrace of the execution. Valid only if there is an error in execution.
      * </pre>
      *
-     * <code>optional string stacktrace = 4;</code>
+     * <code>string stacktrace = 4;</code>
      */
     com.google.protobuf.ByteString
         getStacktraceBytes();
@@ -5718,7 +5718,7 @@ public final class Messages {
      *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+     * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
      */
     public boolean hasCurrentSpec() {
       return currentSpec_ != null;
@@ -5728,7 +5728,7 @@ public final class Messages {
      *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+     * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
      */
     public gauge.messages.Messages.SpecInfo getCurrentSpec() {
       return currentSpec_ == null ? gauge.messages.Messages.SpecInfo.getDefaultInstance() : currentSpec_;
@@ -5738,7 +5738,7 @@ public final class Messages {
      *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+     * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
      */
     public gauge.messages.Messages.SpecInfoOrBuilder getCurrentSpecOrBuilder() {
       return getCurrentSpec();
@@ -5751,7 +5751,7 @@ public final class Messages {
      *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+     * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
      */
     public boolean hasCurrentScenario() {
       return currentScenario_ != null;
@@ -5761,7 +5761,7 @@ public final class Messages {
      *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+     * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
      */
     public gauge.messages.Messages.ScenarioInfo getCurrentScenario() {
       return currentScenario_ == null ? gauge.messages.Messages.ScenarioInfo.getDefaultInstance() : currentScenario_;
@@ -5771,7 +5771,7 @@ public final class Messages {
      *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+     * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
      */
     public gauge.messages.Messages.ScenarioInfoOrBuilder getCurrentScenarioOrBuilder() {
       return getCurrentScenario();
@@ -5784,7 +5784,7 @@ public final class Messages {
      *&#47; Holds the information of the current Step. Valid in context of Step execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+     * <code>.gauge.messages.StepInfo currentStep = 3;</code>
      */
     public boolean hasCurrentStep() {
       return currentStep_ != null;
@@ -5794,7 +5794,7 @@ public final class Messages {
      *&#47; Holds the information of the current Step. Valid in context of Step execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+     * <code>.gauge.messages.StepInfo currentStep = 3;</code>
      */
     public gauge.messages.Messages.StepInfo getCurrentStep() {
       return currentStep_ == null ? gauge.messages.Messages.StepInfo.getDefaultInstance() : currentStep_;
@@ -5804,7 +5804,7 @@ public final class Messages {
      *&#47; Holds the information of the current Step. Valid in context of Step execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+     * <code>.gauge.messages.StepInfo currentStep = 3;</code>
      */
     public gauge.messages.Messages.StepInfoOrBuilder getCurrentStepOrBuilder() {
       return getCurrentStep();
@@ -5817,7 +5817,7 @@ public final class Messages {
      *&#47; Stacktrace of the execution. Valid only if there is an error in execution.
      * </pre>
      *
-     * <code>optional string stacktrace = 4;</code>
+     * <code>string stacktrace = 4;</code>
      */
     public java.lang.String getStacktrace() {
       java.lang.Object ref = stacktrace_;
@@ -5836,7 +5836,7 @@ public final class Messages {
      *&#47; Stacktrace of the execution. Valid only if there is an error in execution.
      * </pre>
      *
-     * <code>optional string stacktrace = 4;</code>
+     * <code>string stacktrace = 4;</code>
      */
     public com.google.protobuf.ByteString
         getStacktraceBytes() {
@@ -5940,7 +5940,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasCurrentSpec()) {
         hash = (37 * hash) + CURRENTSPEC_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentSpec().hashCode();
@@ -6224,7 +6224,7 @@ public final class Messages {
        *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+       * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
        */
       public boolean hasCurrentSpec() {
         return currentSpecBuilder_ != null || currentSpec_ != null;
@@ -6234,7 +6234,7 @@ public final class Messages {
        *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+       * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
        */
       public gauge.messages.Messages.SpecInfo getCurrentSpec() {
         if (currentSpecBuilder_ == null) {
@@ -6248,7 +6248,7 @@ public final class Messages {
        *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+       * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
        */
       public Builder setCurrentSpec(gauge.messages.Messages.SpecInfo value) {
         if (currentSpecBuilder_ == null) {
@@ -6268,7 +6268,7 @@ public final class Messages {
        *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+       * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
        */
       public Builder setCurrentSpec(
           gauge.messages.Messages.SpecInfo.Builder builderForValue) {
@@ -6286,7 +6286,7 @@ public final class Messages {
        *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+       * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
        */
       public Builder mergeCurrentSpec(gauge.messages.Messages.SpecInfo value) {
         if (currentSpecBuilder_ == null) {
@@ -6308,7 +6308,7 @@ public final class Messages {
        *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+       * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
        */
       public Builder clearCurrentSpec() {
         if (currentSpecBuilder_ == null) {
@@ -6326,7 +6326,7 @@ public final class Messages {
        *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+       * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
        */
       public gauge.messages.Messages.SpecInfo.Builder getCurrentSpecBuilder() {
         
@@ -6338,7 +6338,7 @@ public final class Messages {
        *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+       * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
        */
       public gauge.messages.Messages.SpecInfoOrBuilder getCurrentSpecOrBuilder() {
         if (currentSpecBuilder_ != null) {
@@ -6353,7 +6353,7 @@ public final class Messages {
        *&#47; Holds the information of the current Spec. Valid in context of Spec execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecInfo currentSpec = 1;</code>
+       * <code>.gauge.messages.SpecInfo currentSpec = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.SpecInfo, gauge.messages.Messages.SpecInfo.Builder, gauge.messages.Messages.SpecInfoOrBuilder> 
@@ -6377,7 +6377,7 @@ public final class Messages {
        *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+       * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
        */
       public boolean hasCurrentScenario() {
         return currentScenarioBuilder_ != null || currentScenario_ != null;
@@ -6387,7 +6387,7 @@ public final class Messages {
        *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+       * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
        */
       public gauge.messages.Messages.ScenarioInfo getCurrentScenario() {
         if (currentScenarioBuilder_ == null) {
@@ -6401,7 +6401,7 @@ public final class Messages {
        *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+       * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
        */
       public Builder setCurrentScenario(gauge.messages.Messages.ScenarioInfo value) {
         if (currentScenarioBuilder_ == null) {
@@ -6421,7 +6421,7 @@ public final class Messages {
        *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+       * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
        */
       public Builder setCurrentScenario(
           gauge.messages.Messages.ScenarioInfo.Builder builderForValue) {
@@ -6439,7 +6439,7 @@ public final class Messages {
        *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+       * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
        */
       public Builder mergeCurrentScenario(gauge.messages.Messages.ScenarioInfo value) {
         if (currentScenarioBuilder_ == null) {
@@ -6461,7 +6461,7 @@ public final class Messages {
        *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+       * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
        */
       public Builder clearCurrentScenario() {
         if (currentScenarioBuilder_ == null) {
@@ -6479,7 +6479,7 @@ public final class Messages {
        *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+       * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
        */
       public gauge.messages.Messages.ScenarioInfo.Builder getCurrentScenarioBuilder() {
         
@@ -6491,7 +6491,7 @@ public final class Messages {
        *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+       * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
        */
       public gauge.messages.Messages.ScenarioInfoOrBuilder getCurrentScenarioOrBuilder() {
         if (currentScenarioBuilder_ != null) {
@@ -6506,7 +6506,7 @@ public final class Messages {
        *&#47; Holds the information of the current Scenario. Valid in context of Scenario execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioInfo currentScenario = 2;</code>
+       * <code>.gauge.messages.ScenarioInfo currentScenario = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ScenarioInfo, gauge.messages.Messages.ScenarioInfo.Builder, gauge.messages.Messages.ScenarioInfoOrBuilder> 
@@ -6530,7 +6530,7 @@ public final class Messages {
        *&#47; Holds the information of the current Step. Valid in context of Step execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+       * <code>.gauge.messages.StepInfo currentStep = 3;</code>
        */
       public boolean hasCurrentStep() {
         return currentStepBuilder_ != null || currentStep_ != null;
@@ -6540,7 +6540,7 @@ public final class Messages {
        *&#47; Holds the information of the current Step. Valid in context of Step execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+       * <code>.gauge.messages.StepInfo currentStep = 3;</code>
        */
       public gauge.messages.Messages.StepInfo getCurrentStep() {
         if (currentStepBuilder_ == null) {
@@ -6554,7 +6554,7 @@ public final class Messages {
        *&#47; Holds the information of the current Step. Valid in context of Step execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+       * <code>.gauge.messages.StepInfo currentStep = 3;</code>
        */
       public Builder setCurrentStep(gauge.messages.Messages.StepInfo value) {
         if (currentStepBuilder_ == null) {
@@ -6574,7 +6574,7 @@ public final class Messages {
        *&#47; Holds the information of the current Step. Valid in context of Step execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+       * <code>.gauge.messages.StepInfo currentStep = 3;</code>
        */
       public Builder setCurrentStep(
           gauge.messages.Messages.StepInfo.Builder builderForValue) {
@@ -6592,7 +6592,7 @@ public final class Messages {
        *&#47; Holds the information of the current Step. Valid in context of Step execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+       * <code>.gauge.messages.StepInfo currentStep = 3;</code>
        */
       public Builder mergeCurrentStep(gauge.messages.Messages.StepInfo value) {
         if (currentStepBuilder_ == null) {
@@ -6614,7 +6614,7 @@ public final class Messages {
        *&#47; Holds the information of the current Step. Valid in context of Step execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+       * <code>.gauge.messages.StepInfo currentStep = 3;</code>
        */
       public Builder clearCurrentStep() {
         if (currentStepBuilder_ == null) {
@@ -6632,7 +6632,7 @@ public final class Messages {
        *&#47; Holds the information of the current Step. Valid in context of Step execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+       * <code>.gauge.messages.StepInfo currentStep = 3;</code>
        */
       public gauge.messages.Messages.StepInfo.Builder getCurrentStepBuilder() {
         
@@ -6644,7 +6644,7 @@ public final class Messages {
        *&#47; Holds the information of the current Step. Valid in context of Step execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+       * <code>.gauge.messages.StepInfo currentStep = 3;</code>
        */
       public gauge.messages.Messages.StepInfoOrBuilder getCurrentStepOrBuilder() {
         if (currentStepBuilder_ != null) {
@@ -6659,7 +6659,7 @@ public final class Messages {
        *&#47; Holds the information of the current Step. Valid in context of Step execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.StepInfo currentStep = 3;</code>
+       * <code>.gauge.messages.StepInfo currentStep = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.StepInfo, gauge.messages.Messages.StepInfo.Builder, gauge.messages.Messages.StepInfoOrBuilder> 
@@ -6681,7 +6681,7 @@ public final class Messages {
        *&#47; Stacktrace of the execution. Valid only if there is an error in execution.
        * </pre>
        *
-       * <code>optional string stacktrace = 4;</code>
+       * <code>string stacktrace = 4;</code>
        */
       public java.lang.String getStacktrace() {
         java.lang.Object ref = stacktrace_;
@@ -6700,7 +6700,7 @@ public final class Messages {
        *&#47; Stacktrace of the execution. Valid only if there is an error in execution.
        * </pre>
        *
-       * <code>optional string stacktrace = 4;</code>
+       * <code>string stacktrace = 4;</code>
        */
       public com.google.protobuf.ByteString
           getStacktraceBytes() {
@@ -6720,7 +6720,7 @@ public final class Messages {
        *&#47; Stacktrace of the execution. Valid only if there is an error in execution.
        * </pre>
        *
-       * <code>optional string stacktrace = 4;</code>
+       * <code>string stacktrace = 4;</code>
        */
       public Builder setStacktrace(
           java.lang.String value) {
@@ -6737,7 +6737,7 @@ public final class Messages {
        *&#47; Stacktrace of the execution. Valid only if there is an error in execution.
        * </pre>
        *
-       * <code>optional string stacktrace = 4;</code>
+       * <code>string stacktrace = 4;</code>
        */
       public Builder clearStacktrace() {
         
@@ -6750,7 +6750,7 @@ public final class Messages {
        *&#47; Stacktrace of the execution. Valid only if there is an error in execution.
        * </pre>
        *
-       * <code>optional string stacktrace = 4;</code>
+       * <code>string stacktrace = 4;</code>
        */
       public Builder setStacktraceBytes(
           com.google.protobuf.ByteString value) {
@@ -6821,7 +6821,7 @@ public final class Messages {
      *&#47; Name of the current Spec being executed.
      * </pre>
      *
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     java.lang.String getName();
     /**
@@ -6829,7 +6829,7 @@ public final class Messages {
      *&#47; Name of the current Spec being executed.
      * </pre>
      *
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -6839,7 +6839,7 @@ public final class Messages {
      *&#47; Full File path containing the current Spec being executed.
      * </pre>
      *
-     * <code>optional string fileName = 2;</code>
+     * <code>string fileName = 2;</code>
      */
     java.lang.String getFileName();
     /**
@@ -6847,7 +6847,7 @@ public final class Messages {
      *&#47; Full File path containing the current Spec being executed.
      * </pre>
      *
-     * <code>optional string fileName = 2;</code>
+     * <code>string fileName = 2;</code>
      */
     com.google.protobuf.ByteString
         getFileNameBytes();
@@ -6857,7 +6857,7 @@ public final class Messages {
      *&#47; Flag to indicate if the current Spec execution failed.
      * </pre>
      *
-     * <code>optional bool isFailed = 3;</code>
+     * <code>bool isFailed = 3;</code>
      */
     boolean getIsFailed();
 
@@ -7003,7 +7003,7 @@ public final class Messages {
      *&#47; Name of the current Spec being executed.
      * </pre>
      *
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -7022,7 +7022,7 @@ public final class Messages {
      *&#47; Name of the current Spec being executed.
      * </pre>
      *
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -7045,7 +7045,7 @@ public final class Messages {
      *&#47; Full File path containing the current Spec being executed.
      * </pre>
      *
-     * <code>optional string fileName = 2;</code>
+     * <code>string fileName = 2;</code>
      */
     public java.lang.String getFileName() {
       java.lang.Object ref = fileName_;
@@ -7064,7 +7064,7 @@ public final class Messages {
      *&#47; Full File path containing the current Spec being executed.
      * </pre>
      *
-     * <code>optional string fileName = 2;</code>
+     * <code>string fileName = 2;</code>
      */
     public com.google.protobuf.ByteString
         getFileNameBytes() {
@@ -7087,7 +7087,7 @@ public final class Messages {
      *&#47; Flag to indicate if the current Spec execution failed.
      * </pre>
      *
-     * <code>optional bool isFailed = 3;</code>
+     * <code>bool isFailed = 3;</code>
      */
     public boolean getIsFailed() {
       return isFailed_;
@@ -7220,7 +7220,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + FILENAME_FIELD_NUMBER;
@@ -7490,7 +7490,7 @@ public final class Messages {
        *&#47; Name of the current Spec being executed.
        * </pre>
        *
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -7509,7 +7509,7 @@ public final class Messages {
        *&#47; Name of the current Spec being executed.
        * </pre>
        *
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -7529,7 +7529,7 @@ public final class Messages {
        *&#47; Name of the current Spec being executed.
        * </pre>
        *
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -7546,7 +7546,7 @@ public final class Messages {
        *&#47; Name of the current Spec being executed.
        * </pre>
        *
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder clearName() {
         
@@ -7559,7 +7559,7 @@ public final class Messages {
        *&#47; Name of the current Spec being executed.
        * </pre>
        *
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -7579,7 +7579,7 @@ public final class Messages {
        *&#47; Full File path containing the current Spec being executed.
        * </pre>
        *
-       * <code>optional string fileName = 2;</code>
+       * <code>string fileName = 2;</code>
        */
       public java.lang.String getFileName() {
         java.lang.Object ref = fileName_;
@@ -7598,7 +7598,7 @@ public final class Messages {
        *&#47; Full File path containing the current Spec being executed.
        * </pre>
        *
-       * <code>optional string fileName = 2;</code>
+       * <code>string fileName = 2;</code>
        */
       public com.google.protobuf.ByteString
           getFileNameBytes() {
@@ -7618,7 +7618,7 @@ public final class Messages {
        *&#47; Full File path containing the current Spec being executed.
        * </pre>
        *
-       * <code>optional string fileName = 2;</code>
+       * <code>string fileName = 2;</code>
        */
       public Builder setFileName(
           java.lang.String value) {
@@ -7635,7 +7635,7 @@ public final class Messages {
        *&#47; Full File path containing the current Spec being executed.
        * </pre>
        *
-       * <code>optional string fileName = 2;</code>
+       * <code>string fileName = 2;</code>
        */
       public Builder clearFileName() {
         
@@ -7648,7 +7648,7 @@ public final class Messages {
        *&#47; Full File path containing the current Spec being executed.
        * </pre>
        *
-       * <code>optional string fileName = 2;</code>
+       * <code>string fileName = 2;</code>
        */
       public Builder setFileNameBytes(
           com.google.protobuf.ByteString value) {
@@ -7668,7 +7668,7 @@ public final class Messages {
        *&#47; Flag to indicate if the current Spec execution failed.
        * </pre>
        *
-       * <code>optional bool isFailed = 3;</code>
+       * <code>bool isFailed = 3;</code>
        */
       public boolean getIsFailed() {
         return isFailed_;
@@ -7678,7 +7678,7 @@ public final class Messages {
        *&#47; Flag to indicate if the current Spec execution failed.
        * </pre>
        *
-       * <code>optional bool isFailed = 3;</code>
+       * <code>bool isFailed = 3;</code>
        */
       public Builder setIsFailed(boolean value) {
         
@@ -7691,7 +7691,7 @@ public final class Messages {
        *&#47; Flag to indicate if the current Spec execution failed.
        * </pre>
        *
-       * <code>optional bool isFailed = 3;</code>
+       * <code>bool isFailed = 3;</code>
        */
       public Builder clearIsFailed() {
         
@@ -7887,7 +7887,7 @@ public final class Messages {
      *&#47; Name of the current Scenario being executed.
      * </pre>
      *
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     java.lang.String getName();
     /**
@@ -7895,7 +7895,7 @@ public final class Messages {
      *&#47; Name of the current Scenario being executed.
      * </pre>
      *
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -7905,7 +7905,7 @@ public final class Messages {
      *&#47; Flag to indicate if the current Scenario execution failed.
      * </pre>
      *
-     * <code>optional bool isFailed = 2;</code>
+     * <code>bool isFailed = 2;</code>
      */
     boolean getIsFailed();
 
@@ -8044,7 +8044,7 @@ public final class Messages {
      *&#47; Name of the current Scenario being executed.
      * </pre>
      *
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -8063,7 +8063,7 @@ public final class Messages {
      *&#47; Name of the current Scenario being executed.
      * </pre>
      *
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -8086,7 +8086,7 @@ public final class Messages {
      *&#47; Flag to indicate if the current Scenario execution failed.
      * </pre>
      *
-     * <code>optional bool isFailed = 2;</code>
+     * <code>bool isFailed = 2;</code>
      */
     public boolean getIsFailed() {
       return isFailed_;
@@ -8211,7 +8211,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + ISFAILED_FIELD_NUMBER;
@@ -8472,7 +8472,7 @@ public final class Messages {
        *&#47; Name of the current Scenario being executed.
        * </pre>
        *
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -8491,7 +8491,7 @@ public final class Messages {
        *&#47; Name of the current Scenario being executed.
        * </pre>
        *
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -8511,7 +8511,7 @@ public final class Messages {
        *&#47; Name of the current Scenario being executed.
        * </pre>
        *
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -8528,7 +8528,7 @@ public final class Messages {
        *&#47; Name of the current Scenario being executed.
        * </pre>
        *
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder clearName() {
         
@@ -8541,7 +8541,7 @@ public final class Messages {
        *&#47; Name of the current Scenario being executed.
        * </pre>
        *
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -8561,7 +8561,7 @@ public final class Messages {
        *&#47; Flag to indicate if the current Scenario execution failed.
        * </pre>
        *
-       * <code>optional bool isFailed = 2;</code>
+       * <code>bool isFailed = 2;</code>
        */
       public boolean getIsFailed() {
         return isFailed_;
@@ -8571,7 +8571,7 @@ public final class Messages {
        *&#47; Flag to indicate if the current Scenario execution failed.
        * </pre>
        *
-       * <code>optional bool isFailed = 2;</code>
+       * <code>bool isFailed = 2;</code>
        */
       public Builder setIsFailed(boolean value) {
         
@@ -8584,7 +8584,7 @@ public final class Messages {
        *&#47; Flag to indicate if the current Scenario execution failed.
        * </pre>
        *
-       * <code>optional bool isFailed = 2;</code>
+       * <code>bool isFailed = 2;</code>
        */
       public Builder clearIsFailed() {
         
@@ -8780,7 +8780,7 @@ public final class Messages {
      *&#47; The current request to execute Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+     * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
      */
     boolean hasStep();
     /**
@@ -8788,7 +8788,7 @@ public final class Messages {
      *&#47; The current request to execute Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+     * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
      */
     gauge.messages.Messages.ExecuteStepRequest getStep();
     /**
@@ -8796,7 +8796,7 @@ public final class Messages {
      *&#47; The current request to execute Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+     * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
      */
     gauge.messages.Messages.ExecuteStepRequestOrBuilder getStepOrBuilder();
 
@@ -8805,9 +8805,27 @@ public final class Messages {
      *&#47; Flag to indicate if the current Step execution failed.
      * </pre>
      *
-     * <code>optional bool isFailed = 2;</code>
+     * <code>bool isFailed = 2;</code>
      */
     boolean getIsFailed();
+
+    /**
+     * <pre>
+     *&#47; The current stack trace in case of failure
+     * </pre>
+     *
+     * <code>string stackTrace = 3;</code>
+     */
+    java.lang.String getStackTrace();
+    /**
+     * <pre>
+     *&#47; The current stack trace in case of failure
+     * </pre>
+     *
+     * <code>string stackTrace = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getStackTraceBytes();
   }
   /**
    * <pre>
@@ -8826,6 +8844,7 @@ public final class Messages {
     }
     private StepInfo() {
       isFailed_ = false;
+      stackTrace_ = "";
     }
 
     @java.lang.Override
@@ -8871,6 +8890,12 @@ public final class Messages {
               isFailed_ = input.readBool();
               break;
             }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              stackTrace_ = s;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -8901,7 +8926,7 @@ public final class Messages {
      *&#47; The current request to execute Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+     * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
      */
     public boolean hasStep() {
       return step_ != null;
@@ -8911,7 +8936,7 @@ public final class Messages {
      *&#47; The current request to execute Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+     * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
      */
     public gauge.messages.Messages.ExecuteStepRequest getStep() {
       return step_ == null ? gauge.messages.Messages.ExecuteStepRequest.getDefaultInstance() : step_;
@@ -8921,7 +8946,7 @@ public final class Messages {
      *&#47; The current request to execute Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+     * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
      */
     public gauge.messages.Messages.ExecuteStepRequestOrBuilder getStepOrBuilder() {
       return getStep();
@@ -8934,10 +8959,52 @@ public final class Messages {
      *&#47; Flag to indicate if the current Step execution failed.
      * </pre>
      *
-     * <code>optional bool isFailed = 2;</code>
+     * <code>bool isFailed = 2;</code>
      */
     public boolean getIsFailed() {
       return isFailed_;
+    }
+
+    public static final int STACKTRACE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object stackTrace_;
+    /**
+     * <pre>
+     *&#47; The current stack trace in case of failure
+     * </pre>
+     *
+     * <code>string stackTrace = 3;</code>
+     */
+    public java.lang.String getStackTrace() {
+      java.lang.Object ref = stackTrace_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        stackTrace_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; The current stack trace in case of failure
+     * </pre>
+     *
+     * <code>string stackTrace = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getStackTraceBytes() {
+      java.lang.Object ref = stackTrace_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        stackTrace_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8958,6 +9025,9 @@ public final class Messages {
       if (isFailed_ != false) {
         output.writeBool(2, isFailed_);
       }
+      if (!getStackTraceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, stackTrace_);
+      }
     }
 
     public int getSerializedSize() {
@@ -8972,6 +9042,9 @@ public final class Messages {
       if (isFailed_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, isFailed_);
+      }
+      if (!getStackTraceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, stackTrace_);
       }
       memoizedSize = size;
       return size;
@@ -8996,6 +9069,8 @@ public final class Messages {
       }
       result = result && (getIsFailed()
           == other.getIsFailed());
+      result = result && getStackTrace()
+          .equals(other.getStackTrace());
       return result;
     }
 
@@ -9005,7 +9080,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasStep()) {
         hash = (37 * hash) + STEP_FIELD_NUMBER;
         hash = (53 * hash) + getStep().hashCode();
@@ -9013,6 +9088,8 @@ public final class Messages {
       hash = (37 * hash) + ISFAILED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsFailed());
+      hash = (37 * hash) + STACKTRACE_FIELD_NUMBER;
+      hash = (53 * hash) + getStackTrace().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -9143,6 +9220,8 @@ public final class Messages {
         }
         isFailed_ = false;
 
+        stackTrace_ = "";
+
         return this;
       }
 
@@ -9171,6 +9250,7 @@ public final class Messages {
           result.step_ = stepBuilder_.build();
         }
         result.isFailed_ = isFailed_;
+        result.stackTrace_ = stackTrace_;
         onBuilt();
         return result;
       }
@@ -9218,6 +9298,10 @@ public final class Messages {
         if (other.getIsFailed() != false) {
           setIsFailed(other.getIsFailed());
         }
+        if (!other.getStackTrace().isEmpty()) {
+          stackTrace_ = other.stackTrace_;
+          onChanged();
+        }
         onChanged();
         return this;
       }
@@ -9252,7 +9336,7 @@ public final class Messages {
        *&#47; The current request to execute Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+       * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
        */
       public boolean hasStep() {
         return stepBuilder_ != null || step_ != null;
@@ -9262,7 +9346,7 @@ public final class Messages {
        *&#47; The current request to execute Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+       * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
        */
       public gauge.messages.Messages.ExecuteStepRequest getStep() {
         if (stepBuilder_ == null) {
@@ -9276,7 +9360,7 @@ public final class Messages {
        *&#47; The current request to execute Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+       * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
        */
       public Builder setStep(gauge.messages.Messages.ExecuteStepRequest value) {
         if (stepBuilder_ == null) {
@@ -9296,7 +9380,7 @@ public final class Messages {
        *&#47; The current request to execute Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+       * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
        */
       public Builder setStep(
           gauge.messages.Messages.ExecuteStepRequest.Builder builderForValue) {
@@ -9314,7 +9398,7 @@ public final class Messages {
        *&#47; The current request to execute Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+       * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
        */
       public Builder mergeStep(gauge.messages.Messages.ExecuteStepRequest value) {
         if (stepBuilder_ == null) {
@@ -9336,7 +9420,7 @@ public final class Messages {
        *&#47; The current request to execute Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+       * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
        */
       public Builder clearStep() {
         if (stepBuilder_ == null) {
@@ -9354,7 +9438,7 @@ public final class Messages {
        *&#47; The current request to execute Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+       * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
        */
       public gauge.messages.Messages.ExecuteStepRequest.Builder getStepBuilder() {
         
@@ -9366,7 +9450,7 @@ public final class Messages {
        *&#47; The current request to execute Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+       * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
        */
       public gauge.messages.Messages.ExecuteStepRequestOrBuilder getStepOrBuilder() {
         if (stepBuilder_ != null) {
@@ -9381,7 +9465,7 @@ public final class Messages {
        *&#47; The current request to execute Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest step = 1;</code>
+       * <code>.gauge.messages.ExecuteStepRequest step = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecuteStepRequest, gauge.messages.Messages.ExecuteStepRequest.Builder, gauge.messages.Messages.ExecuteStepRequestOrBuilder> 
@@ -9403,7 +9487,7 @@ public final class Messages {
        *&#47; Flag to indicate if the current Step execution failed.
        * </pre>
        *
-       * <code>optional bool isFailed = 2;</code>
+       * <code>bool isFailed = 2;</code>
        */
       public boolean getIsFailed() {
         return isFailed_;
@@ -9413,7 +9497,7 @@ public final class Messages {
        *&#47; Flag to indicate if the current Step execution failed.
        * </pre>
        *
-       * <code>optional bool isFailed = 2;</code>
+       * <code>bool isFailed = 2;</code>
        */
       public Builder setIsFailed(boolean value) {
         
@@ -9426,11 +9510,100 @@ public final class Messages {
        *&#47; Flag to indicate if the current Step execution failed.
        * </pre>
        *
-       * <code>optional bool isFailed = 2;</code>
+       * <code>bool isFailed = 2;</code>
        */
       public Builder clearIsFailed() {
         
         isFailed_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object stackTrace_ = "";
+      /**
+       * <pre>
+       *&#47; The current stack trace in case of failure
+       * </pre>
+       *
+       * <code>string stackTrace = 3;</code>
+       */
+      public java.lang.String getStackTrace() {
+        java.lang.Object ref = stackTrace_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          stackTrace_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; The current stack trace in case of failure
+       * </pre>
+       *
+       * <code>string stackTrace = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStackTraceBytes() {
+        java.lang.Object ref = stackTrace_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stackTrace_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; The current stack trace in case of failure
+       * </pre>
+       *
+       * <code>string stackTrace = 3;</code>
+       */
+      public Builder setStackTrace(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        stackTrace_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; The current stack trace in case of failure
+       * </pre>
+       *
+       * <code>string stackTrace = 3;</code>
+       */
+      public Builder clearStackTrace() {
+        
+        stackTrace_ = getDefaultInstance().getStackTrace();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; The current stack trace in case of failure
+       * </pre>
+       *
+       * <code>string stackTrace = 3;</code>
+       */
+      public Builder setStackTraceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        stackTrace_ = value;
         onChanged();
         return this;
       }
@@ -9493,7 +9666,7 @@ public final class Messages {
      * / This contains the parameters as defined in the Spec.
      * </pre>
      *
-     * <code>optional string actualStepText = 1;</code>
+     * <code>string actualStepText = 1;</code>
      */
     java.lang.String getActualStepText();
     /**
@@ -9502,7 +9675,7 @@ public final class Messages {
      * / This contains the parameters as defined in the Spec.
      * </pre>
      *
-     * <code>optional string actualStepText = 1;</code>
+     * <code>string actualStepText = 1;</code>
      */
     com.google.protobuf.ByteString
         getActualStepTextBytes();
@@ -9513,7 +9686,7 @@ public final class Messages {
      * / The paramters are replaced with placeholders.
      * </pre>
      *
-     * <code>optional string parsedStepText = 2;</code>
+     * <code>string parsedStepText = 2;</code>
      */
     java.lang.String getParsedStepText();
     /**
@@ -9522,7 +9695,7 @@ public final class Messages {
      * / The paramters are replaced with placeholders.
      * </pre>
      *
-     * <code>optional string parsedStepText = 2;</code>
+     * <code>string parsedStepText = 2;</code>
      */
     com.google.protobuf.ByteString
         getParsedStepTextBytes();
@@ -9532,7 +9705,7 @@ public final class Messages {
      *&#47; Flag to indicate if the execution of the Scenario, containing the current Step, failed.
      * </pre>
      *
-     * <code>optional bool scenarioFailing = 3;</code>
+     * <code>bool scenarioFailing = 3;</code>
      */
     boolean getScenarioFailing();
 
@@ -9688,7 +9861,7 @@ public final class Messages {
      * / This contains the parameters as defined in the Spec.
      * </pre>
      *
-     * <code>optional string actualStepText = 1;</code>
+     * <code>string actualStepText = 1;</code>
      */
     public java.lang.String getActualStepText() {
       java.lang.Object ref = actualStepText_;
@@ -9708,7 +9881,7 @@ public final class Messages {
      * / This contains the parameters as defined in the Spec.
      * </pre>
      *
-     * <code>optional string actualStepText = 1;</code>
+     * <code>string actualStepText = 1;</code>
      */
     public com.google.protobuf.ByteString
         getActualStepTextBytes() {
@@ -9732,7 +9905,7 @@ public final class Messages {
      * / The paramters are replaced with placeholders.
      * </pre>
      *
-     * <code>optional string parsedStepText = 2;</code>
+     * <code>string parsedStepText = 2;</code>
      */
     public java.lang.String getParsedStepText() {
       java.lang.Object ref = parsedStepText_;
@@ -9752,7 +9925,7 @@ public final class Messages {
      * / The paramters are replaced with placeholders.
      * </pre>
      *
-     * <code>optional string parsedStepText = 2;</code>
+     * <code>string parsedStepText = 2;</code>
      */
     public com.google.protobuf.ByteString
         getParsedStepTextBytes() {
@@ -9775,7 +9948,7 @@ public final class Messages {
      *&#47; Flag to indicate if the execution of the Scenario, containing the current Step, failed.
      * </pre>
      *
-     * <code>optional bool scenarioFailing = 3;</code>
+     * <code>bool scenarioFailing = 3;</code>
      */
     public boolean getScenarioFailing() {
       return scenarioFailing_;
@@ -9914,7 +10087,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ACTUALSTEPTEXT_FIELD_NUMBER;
       hash = (53 * hash) + getActualStepText().hashCode();
       hash = (37 * hash) + PARSEDSTEPTEXT_FIELD_NUMBER;
@@ -10210,7 +10383,7 @@ public final class Messages {
        * / This contains the parameters as defined in the Spec.
        * </pre>
        *
-       * <code>optional string actualStepText = 1;</code>
+       * <code>string actualStepText = 1;</code>
        */
       public java.lang.String getActualStepText() {
         java.lang.Object ref = actualStepText_;
@@ -10230,7 +10403,7 @@ public final class Messages {
        * / This contains the parameters as defined in the Spec.
        * </pre>
        *
-       * <code>optional string actualStepText = 1;</code>
+       * <code>string actualStepText = 1;</code>
        */
       public com.google.protobuf.ByteString
           getActualStepTextBytes() {
@@ -10251,7 +10424,7 @@ public final class Messages {
        * / This contains the parameters as defined in the Spec.
        * </pre>
        *
-       * <code>optional string actualStepText = 1;</code>
+       * <code>string actualStepText = 1;</code>
        */
       public Builder setActualStepText(
           java.lang.String value) {
@@ -10269,7 +10442,7 @@ public final class Messages {
        * / This contains the parameters as defined in the Spec.
        * </pre>
        *
-       * <code>optional string actualStepText = 1;</code>
+       * <code>string actualStepText = 1;</code>
        */
       public Builder clearActualStepText() {
         
@@ -10283,7 +10456,7 @@ public final class Messages {
        * / This contains the parameters as defined in the Spec.
        * </pre>
        *
-       * <code>optional string actualStepText = 1;</code>
+       * <code>string actualStepText = 1;</code>
        */
       public Builder setActualStepTextBytes(
           com.google.protobuf.ByteString value) {
@@ -10304,7 +10477,7 @@ public final class Messages {
        * / The paramters are replaced with placeholders.
        * </pre>
        *
-       * <code>optional string parsedStepText = 2;</code>
+       * <code>string parsedStepText = 2;</code>
        */
       public java.lang.String getParsedStepText() {
         java.lang.Object ref = parsedStepText_;
@@ -10324,7 +10497,7 @@ public final class Messages {
        * / The paramters are replaced with placeholders.
        * </pre>
        *
-       * <code>optional string parsedStepText = 2;</code>
+       * <code>string parsedStepText = 2;</code>
        */
       public com.google.protobuf.ByteString
           getParsedStepTextBytes() {
@@ -10345,7 +10518,7 @@ public final class Messages {
        * / The paramters are replaced with placeholders.
        * </pre>
        *
-       * <code>optional string parsedStepText = 2;</code>
+       * <code>string parsedStepText = 2;</code>
        */
       public Builder setParsedStepText(
           java.lang.String value) {
@@ -10363,7 +10536,7 @@ public final class Messages {
        * / The paramters are replaced with placeholders.
        * </pre>
        *
-       * <code>optional string parsedStepText = 2;</code>
+       * <code>string parsedStepText = 2;</code>
        */
       public Builder clearParsedStepText() {
         
@@ -10377,7 +10550,7 @@ public final class Messages {
        * / The paramters are replaced with placeholders.
        * </pre>
        *
-       * <code>optional string parsedStepText = 2;</code>
+       * <code>string parsedStepText = 2;</code>
        */
       public Builder setParsedStepTextBytes(
           com.google.protobuf.ByteString value) {
@@ -10397,7 +10570,7 @@ public final class Messages {
        *&#47; Flag to indicate if the execution of the Scenario, containing the current Step, failed.
        * </pre>
        *
-       * <code>optional bool scenarioFailing = 3;</code>
+       * <code>bool scenarioFailing = 3;</code>
        */
       public boolean getScenarioFailing() {
         return scenarioFailing_;
@@ -10407,7 +10580,7 @@ public final class Messages {
        *&#47; Flag to indicate if the execution of the Scenario, containing the current Step, failed.
        * </pre>
        *
-       * <code>optional bool scenarioFailing = 3;</code>
+       * <code>bool scenarioFailing = 3;</code>
        */
       public Builder setScenarioFailing(boolean value) {
         
@@ -10420,7 +10593,7 @@ public final class Messages {
        *&#47; Flag to indicate if the execution of the Scenario, containing the current Step, failed.
        * </pre>
        *
-       * <code>optional bool scenarioFailing = 3;</code>
+       * <code>bool scenarioFailing = 3;</code>
        */
       public Builder clearScenarioFailing() {
         
@@ -10798,7 +10971,7 @@ public final class Messages {
      *&#47; The text is used to lookup Step implementation
      * </pre>
      *
-     * <code>optional string stepText = 1;</code>
+     * <code>string stepText = 1;</code>
      */
     java.lang.String getStepText();
     /**
@@ -10806,7 +10979,7 @@ public final class Messages {
      *&#47; The text is used to lookup Step implementation
      * </pre>
      *
-     * <code>optional string stepText = 1;</code>
+     * <code>string stepText = 1;</code>
      */
     com.google.protobuf.ByteString
         getStepTextBytes();
@@ -10816,7 +10989,7 @@ public final class Messages {
      *&#47; The number of paramters in the Step
      * </pre>
      *
-     * <code>optional int32 numberOfParameters = 2;</code>
+     * <code>int32 numberOfParameters = 2;</code>
      */
     int getNumberOfParameters();
   }
@@ -10907,7 +11080,7 @@ public final class Messages {
      *&#47; The text is used to lookup Step implementation
      * </pre>
      *
-     * <code>optional string stepText = 1;</code>
+     * <code>string stepText = 1;</code>
      */
     public java.lang.String getStepText() {
       java.lang.Object ref = stepText_;
@@ -10926,7 +11099,7 @@ public final class Messages {
      *&#47; The text is used to lookup Step implementation
      * </pre>
      *
-     * <code>optional string stepText = 1;</code>
+     * <code>string stepText = 1;</code>
      */
     public com.google.protobuf.ByteString
         getStepTextBytes() {
@@ -10949,7 +11122,7 @@ public final class Messages {
      *&#47; The number of paramters in the Step
      * </pre>
      *
-     * <code>optional int32 numberOfParameters = 2;</code>
+     * <code>int32 numberOfParameters = 2;</code>
      */
     public int getNumberOfParameters() {
       return numberOfParameters_;
@@ -11016,7 +11189,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + STEPTEXT_FIELD_NUMBER;
       hash = (53 * hash) + getStepText().hashCode();
       hash = (37 * hash) + NUMBEROFPARAMETERS_FIELD_NUMBER;
@@ -11252,7 +11425,7 @@ public final class Messages {
        *&#47; The text is used to lookup Step implementation
        * </pre>
        *
-       * <code>optional string stepText = 1;</code>
+       * <code>string stepText = 1;</code>
        */
       public java.lang.String getStepText() {
         java.lang.Object ref = stepText_;
@@ -11271,7 +11444,7 @@ public final class Messages {
        *&#47; The text is used to lookup Step implementation
        * </pre>
        *
-       * <code>optional string stepText = 1;</code>
+       * <code>string stepText = 1;</code>
        */
       public com.google.protobuf.ByteString
           getStepTextBytes() {
@@ -11291,7 +11464,7 @@ public final class Messages {
        *&#47; The text is used to lookup Step implementation
        * </pre>
        *
-       * <code>optional string stepText = 1;</code>
+       * <code>string stepText = 1;</code>
        */
       public Builder setStepText(
           java.lang.String value) {
@@ -11308,7 +11481,7 @@ public final class Messages {
        *&#47; The text is used to lookup Step implementation
        * </pre>
        *
-       * <code>optional string stepText = 1;</code>
+       * <code>string stepText = 1;</code>
        */
       public Builder clearStepText() {
         
@@ -11321,7 +11494,7 @@ public final class Messages {
        *&#47; The text is used to lookup Step implementation
        * </pre>
        *
-       * <code>optional string stepText = 1;</code>
+       * <code>string stepText = 1;</code>
        */
       public Builder setStepTextBytes(
           com.google.protobuf.ByteString value) {
@@ -11341,7 +11514,7 @@ public final class Messages {
        *&#47; The number of paramters in the Step
        * </pre>
        *
-       * <code>optional int32 numberOfParameters = 2;</code>
+       * <code>int32 numberOfParameters = 2;</code>
        */
       public int getNumberOfParameters() {
         return numberOfParameters_;
@@ -11351,7 +11524,7 @@ public final class Messages {
        *&#47; The number of paramters in the Step
        * </pre>
        *
-       * <code>optional int32 numberOfParameters = 2;</code>
+       * <code>int32 numberOfParameters = 2;</code>
        */
       public Builder setNumberOfParameters(int value) {
         
@@ -11364,7 +11537,7 @@ public final class Messages {
        *&#47; The number of paramters in the Step
        * </pre>
        *
-       * <code>optional int32 numberOfParameters = 2;</code>
+       * <code>int32 numberOfParameters = 2;</code>
        */
       public Builder clearNumberOfParameters() {
         
@@ -11426,26 +11599,26 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional bool isValid = 1;</code>
+     * <code>bool isValid = 1;</code>
      */
     boolean getIsValid();
 
     /**
-     * <code>optional string errorMessage = 2;</code>
+     * <code>string errorMessage = 2;</code>
      */
     java.lang.String getErrorMessage();
     /**
-     * <code>optional string errorMessage = 2;</code>
+     * <code>string errorMessage = 2;</code>
      */
     com.google.protobuf.ByteString
         getErrorMessageBytes();
 
     /**
-     * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+     * <code>.gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
      */
     int getErrorTypeValue();
     /**
-     * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+     * <code>.gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
      */
     gauge.messages.Messages.StepValidateResponse.ErrorType getErrorType();
   }
@@ -11639,7 +11812,7 @@ public final class Messages {
     public static final int ISVALID_FIELD_NUMBER = 1;
     private boolean isValid_;
     /**
-     * <code>optional bool isValid = 1;</code>
+     * <code>bool isValid = 1;</code>
      */
     public boolean getIsValid() {
       return isValid_;
@@ -11648,7 +11821,7 @@ public final class Messages {
     public static final int ERRORMESSAGE_FIELD_NUMBER = 2;
     private volatile java.lang.Object errorMessage_;
     /**
-     * <code>optional string errorMessage = 2;</code>
+     * <code>string errorMessage = 2;</code>
      */
     public java.lang.String getErrorMessage() {
       java.lang.Object ref = errorMessage_;
@@ -11663,7 +11836,7 @@ public final class Messages {
       }
     }
     /**
-     * <code>optional string errorMessage = 2;</code>
+     * <code>string errorMessage = 2;</code>
      */
     public com.google.protobuf.ByteString
         getErrorMessageBytes() {
@@ -11682,13 +11855,13 @@ public final class Messages {
     public static final int ERRORTYPE_FIELD_NUMBER = 3;
     private int errorType_;
     /**
-     * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+     * <code>.gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
      */
     public int getErrorTypeValue() {
       return errorType_;
     }
     /**
-     * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+     * <code>.gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
      */
     public gauge.messages.Messages.StepValidateResponse.ErrorType getErrorType() {
       gauge.messages.Messages.StepValidateResponse.ErrorType result = gauge.messages.Messages.StepValidateResponse.ErrorType.valueOf(errorType_);
@@ -11764,7 +11937,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ISVALID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsValid());
@@ -12007,13 +12180,13 @@ public final class Messages {
 
       private boolean isValid_ ;
       /**
-       * <code>optional bool isValid = 1;</code>
+       * <code>bool isValid = 1;</code>
        */
       public boolean getIsValid() {
         return isValid_;
       }
       /**
-       * <code>optional bool isValid = 1;</code>
+       * <code>bool isValid = 1;</code>
        */
       public Builder setIsValid(boolean value) {
         
@@ -12022,7 +12195,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional bool isValid = 1;</code>
+       * <code>bool isValid = 1;</code>
        */
       public Builder clearIsValid() {
         
@@ -12033,7 +12206,7 @@ public final class Messages {
 
       private java.lang.Object errorMessage_ = "";
       /**
-       * <code>optional string errorMessage = 2;</code>
+       * <code>string errorMessage = 2;</code>
        */
       public java.lang.String getErrorMessage() {
         java.lang.Object ref = errorMessage_;
@@ -12048,7 +12221,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional string errorMessage = 2;</code>
+       * <code>string errorMessage = 2;</code>
        */
       public com.google.protobuf.ByteString
           getErrorMessageBytes() {
@@ -12064,7 +12237,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional string errorMessage = 2;</code>
+       * <code>string errorMessage = 2;</code>
        */
       public Builder setErrorMessage(
           java.lang.String value) {
@@ -12077,7 +12250,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional string errorMessage = 2;</code>
+       * <code>string errorMessage = 2;</code>
        */
       public Builder clearErrorMessage() {
         
@@ -12086,7 +12259,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional string errorMessage = 2;</code>
+       * <code>string errorMessage = 2;</code>
        */
       public Builder setErrorMessageBytes(
           com.google.protobuf.ByteString value) {
@@ -12102,13 +12275,13 @@ public final class Messages {
 
       private int errorType_ = 0;
       /**
-       * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+       * <code>.gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
        */
       public int getErrorTypeValue() {
         return errorType_;
       }
       /**
-       * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+       * <code>.gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
        */
       public Builder setErrorTypeValue(int value) {
         errorType_ = value;
@@ -12116,14 +12289,14 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+       * <code>.gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
        */
       public gauge.messages.Messages.StepValidateResponse.ErrorType getErrorType() {
         gauge.messages.Messages.StepValidateResponse.ErrorType result = gauge.messages.Messages.StepValidateResponse.ErrorType.valueOf(errorType_);
         return result == null ? gauge.messages.Messages.StepValidateResponse.ErrorType.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+       * <code>.gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
        */
       public Builder setErrorType(gauge.messages.Messages.StepValidateResponse.ErrorType value) {
         if (value == null) {
@@ -12135,7 +12308,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
+       * <code>.gauge.messages.StepValidateResponse.ErrorType errorType = 3;</code>
        */
       public Builder clearErrorType() {
         
@@ -12197,15 +12370,15 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
      */
     boolean hasSuiteResult();
     /**
-     * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
      */
     gauge.messages.Spec.ProtoSuiteResult getSuiteResult();
     /**
-     * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
      */
     gauge.messages.Spec.ProtoSuiteResultOrBuilder getSuiteResultOrBuilder();
   }
@@ -12291,19 +12464,19 @@ public final class Messages {
     public static final int SUITERESULT_FIELD_NUMBER = 1;
     private gauge.messages.Spec.ProtoSuiteResult suiteResult_;
     /**
-     * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
      */
     public boolean hasSuiteResult() {
       return suiteResult_ != null;
     }
     /**
-     * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
      */
     public gauge.messages.Spec.ProtoSuiteResult getSuiteResult() {
       return suiteResult_ == null ? gauge.messages.Spec.ProtoSuiteResult.getDefaultInstance() : suiteResult_;
     }
     /**
-     * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
      */
     public gauge.messages.Spec.ProtoSuiteResultOrBuilder getSuiteResultOrBuilder() {
       return getSuiteResult();
@@ -12365,7 +12538,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasSuiteResult()) {
         hash = (37 * hash) + SUITERESULT_FIELD_NUMBER;
         hash = (53 * hash) + getSuiteResult().hashCode();
@@ -12599,13 +12772,13 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoSuiteResult, gauge.messages.Spec.ProtoSuiteResult.Builder, gauge.messages.Spec.ProtoSuiteResultOrBuilder> suiteResultBuilder_;
       /**
-       * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
        */
       public boolean hasSuiteResult() {
         return suiteResultBuilder_ != null || suiteResult_ != null;
       }
       /**
-       * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoSuiteResult getSuiteResult() {
         if (suiteResultBuilder_ == null) {
@@ -12615,7 +12788,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
        */
       public Builder setSuiteResult(gauge.messages.Spec.ProtoSuiteResult value) {
         if (suiteResultBuilder_ == null) {
@@ -12631,7 +12804,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
        */
       public Builder setSuiteResult(
           gauge.messages.Spec.ProtoSuiteResult.Builder builderForValue) {
@@ -12645,7 +12818,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
        */
       public Builder mergeSuiteResult(gauge.messages.Spec.ProtoSuiteResult value) {
         if (suiteResultBuilder_ == null) {
@@ -12663,7 +12836,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
        */
       public Builder clearSuiteResult() {
         if (suiteResultBuilder_ == null) {
@@ -12677,7 +12850,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoSuiteResult.Builder getSuiteResultBuilder() {
         
@@ -12685,7 +12858,7 @@ public final class Messages {
         return getSuiteResultFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoSuiteResultOrBuilder getSuiteResultOrBuilder() {
         if (suiteResultBuilder_ != null) {
@@ -12696,7 +12869,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional .gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoSuiteResult, gauge.messages.Spec.ProtoSuiteResult.Builder, gauge.messages.Spec.ProtoSuiteResultOrBuilder> 
@@ -12873,7 +13046,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -13353,7 +13526,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getStepsCount() > 0) {
         hash = (37 * hash) + STEPS_FIELD_NUMBER;
         hash = (53 * hash) + getStepsList().hashCode();
@@ -13880,7 +14053,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14255,7 +14428,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14630,7 +14803,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14896,12 +15069,12 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int32 oldPosition = 1;</code>
+     * <code>int32 oldPosition = 1;</code>
      */
     int getOldPosition();
 
     /**
-     * <code>optional int32 newPosition = 2;</code>
+     * <code>int32 newPosition = 2;</code>
      */
     int getNewPosition();
   }
@@ -14987,7 +15160,7 @@ public final class Messages {
     public static final int OLDPOSITION_FIELD_NUMBER = 1;
     private int oldPosition_;
     /**
-     * <code>optional int32 oldPosition = 1;</code>
+     * <code>int32 oldPosition = 1;</code>
      */
     public int getOldPosition() {
       return oldPosition_;
@@ -14996,7 +15169,7 @@ public final class Messages {
     public static final int NEWPOSITION_FIELD_NUMBER = 2;
     private int newPosition_;
     /**
-     * <code>optional int32 newPosition = 2;</code>
+     * <code>int32 newPosition = 2;</code>
      */
     public int getNewPosition() {
       return newPosition_;
@@ -15064,7 +15237,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + OLDPOSITION_FIELD_NUMBER;
       hash = (53 * hash) + getOldPosition();
       hash = (37 * hash) + NEWPOSITION_FIELD_NUMBER;
@@ -15295,13 +15468,13 @@ public final class Messages {
 
       private int oldPosition_ ;
       /**
-       * <code>optional int32 oldPosition = 1;</code>
+       * <code>int32 oldPosition = 1;</code>
        */
       public int getOldPosition() {
         return oldPosition_;
       }
       /**
-       * <code>optional int32 oldPosition = 1;</code>
+       * <code>int32 oldPosition = 1;</code>
        */
       public Builder setOldPosition(int value) {
         
@@ -15310,7 +15483,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional int32 oldPosition = 1;</code>
+       * <code>int32 oldPosition = 1;</code>
        */
       public Builder clearOldPosition() {
         
@@ -15321,13 +15494,13 @@ public final class Messages {
 
       private int newPosition_ ;
       /**
-       * <code>optional int32 newPosition = 2;</code>
+       * <code>int32 newPosition = 2;</code>
        */
       public int getNewPosition() {
         return newPosition_;
       }
       /**
-       * <code>optional int32 newPosition = 2;</code>
+       * <code>int32 newPosition = 2;</code>
        */
       public Builder setNewPosition(int value) {
         
@@ -15336,7 +15509,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional int32 newPosition = 2;</code>
+       * <code>int32 newPosition = 2;</code>
        */
       public Builder clearNewPosition() {
         
@@ -15402,7 +15575,7 @@ public final class Messages {
      *&#47; Old value, used to lookup Step to refactor
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+     * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
      */
     boolean hasOldStepValue();
     /**
@@ -15410,7 +15583,7 @@ public final class Messages {
      *&#47; Old value, used to lookup Step to refactor
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+     * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
      */
     gauge.messages.Spec.ProtoStepValue getOldStepValue();
     /**
@@ -15418,7 +15591,7 @@ public final class Messages {
      *&#47; Old value, used to lookup Step to refactor
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+     * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
      */
     gauge.messages.Spec.ProtoStepValueOrBuilder getOldStepValueOrBuilder();
 
@@ -15427,7 +15600,7 @@ public final class Messages {
      *&#47; New value, the to-be value of Step being refactored.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+     * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
      */
     boolean hasNewStepValue();
     /**
@@ -15435,7 +15608,7 @@ public final class Messages {
      *&#47; New value, the to-be value of Step being refactored.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+     * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
      */
     gauge.messages.Spec.ProtoStepValue getNewStepValue();
     /**
@@ -15443,7 +15616,7 @@ public final class Messages {
      *&#47; New value, the to-be value of Step being refactored.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+     * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
      */
     gauge.messages.Spec.ProtoStepValueOrBuilder getNewStepValueOrBuilder();
 
@@ -15604,7 +15777,7 @@ public final class Messages {
      *&#47; Old value, used to lookup Step to refactor
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+     * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
      */
     public boolean hasOldStepValue() {
       return oldStepValue_ != null;
@@ -15614,7 +15787,7 @@ public final class Messages {
      *&#47; Old value, used to lookup Step to refactor
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+     * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
      */
     public gauge.messages.Spec.ProtoStepValue getOldStepValue() {
       return oldStepValue_ == null ? gauge.messages.Spec.ProtoStepValue.getDefaultInstance() : oldStepValue_;
@@ -15624,7 +15797,7 @@ public final class Messages {
      *&#47; Old value, used to lookup Step to refactor
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+     * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
      */
     public gauge.messages.Spec.ProtoStepValueOrBuilder getOldStepValueOrBuilder() {
       return getOldStepValue();
@@ -15637,7 +15810,7 @@ public final class Messages {
      *&#47; New value, the to-be value of Step being refactored.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+     * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
      */
     public boolean hasNewStepValue() {
       return newStepValue_ != null;
@@ -15647,7 +15820,7 @@ public final class Messages {
      *&#47; New value, the to-be value of Step being refactored.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+     * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
      */
     public gauge.messages.Spec.ProtoStepValue getNewStepValue() {
       return newStepValue_ == null ? gauge.messages.Spec.ProtoStepValue.getDefaultInstance() : newStepValue_;
@@ -15657,7 +15830,7 @@ public final class Messages {
      *&#47; New value, the to-be value of Step being refactored.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+     * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
      */
     public gauge.messages.Spec.ProtoStepValueOrBuilder getNewStepValueOrBuilder() {
       return getNewStepValue();
@@ -15795,7 +15968,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasOldStepValue()) {
         hash = (37 * hash) + OLDSTEPVALUE_FIELD_NUMBER;
         hash = (53 * hash) + getOldStepValue().hashCode();
@@ -16101,7 +16274,7 @@ public final class Messages {
        *&#47; Old value, used to lookup Step to refactor
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+       * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
        */
       public boolean hasOldStepValue() {
         return oldStepValueBuilder_ != null || oldStepValue_ != null;
@@ -16111,7 +16284,7 @@ public final class Messages {
        *&#47; Old value, used to lookup Step to refactor
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+       * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
        */
       public gauge.messages.Spec.ProtoStepValue getOldStepValue() {
         if (oldStepValueBuilder_ == null) {
@@ -16125,7 +16298,7 @@ public final class Messages {
        *&#47; Old value, used to lookup Step to refactor
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+       * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
        */
       public Builder setOldStepValue(gauge.messages.Spec.ProtoStepValue value) {
         if (oldStepValueBuilder_ == null) {
@@ -16145,7 +16318,7 @@ public final class Messages {
        *&#47; Old value, used to lookup Step to refactor
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+       * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
        */
       public Builder setOldStepValue(
           gauge.messages.Spec.ProtoStepValue.Builder builderForValue) {
@@ -16163,7 +16336,7 @@ public final class Messages {
        *&#47; Old value, used to lookup Step to refactor
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+       * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
        */
       public Builder mergeOldStepValue(gauge.messages.Spec.ProtoStepValue value) {
         if (oldStepValueBuilder_ == null) {
@@ -16185,7 +16358,7 @@ public final class Messages {
        *&#47; Old value, used to lookup Step to refactor
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+       * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
        */
       public Builder clearOldStepValue() {
         if (oldStepValueBuilder_ == null) {
@@ -16203,7 +16376,7 @@ public final class Messages {
        *&#47; Old value, used to lookup Step to refactor
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+       * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
        */
       public gauge.messages.Spec.ProtoStepValue.Builder getOldStepValueBuilder() {
         
@@ -16215,7 +16388,7 @@ public final class Messages {
        *&#47; Old value, used to lookup Step to refactor
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+       * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
        */
       public gauge.messages.Spec.ProtoStepValueOrBuilder getOldStepValueOrBuilder() {
         if (oldStepValueBuilder_ != null) {
@@ -16230,7 +16403,7 @@ public final class Messages {
        *&#47; Old value, used to lookup Step to refactor
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue oldStepValue = 1;</code>
+       * <code>.gauge.messages.ProtoStepValue oldStepValue = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoStepValue, gauge.messages.Spec.ProtoStepValue.Builder, gauge.messages.Spec.ProtoStepValueOrBuilder> 
@@ -16254,7 +16427,7 @@ public final class Messages {
        *&#47; New value, the to-be value of Step being refactored.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+       * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
        */
       public boolean hasNewStepValue() {
         return newStepValueBuilder_ != null || newStepValue_ != null;
@@ -16264,7 +16437,7 @@ public final class Messages {
        *&#47; New value, the to-be value of Step being refactored.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+       * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
        */
       public gauge.messages.Spec.ProtoStepValue getNewStepValue() {
         if (newStepValueBuilder_ == null) {
@@ -16278,7 +16451,7 @@ public final class Messages {
        *&#47; New value, the to-be value of Step being refactored.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+       * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
        */
       public Builder setNewStepValue(gauge.messages.Spec.ProtoStepValue value) {
         if (newStepValueBuilder_ == null) {
@@ -16298,7 +16471,7 @@ public final class Messages {
        *&#47; New value, the to-be value of Step being refactored.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+       * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
        */
       public Builder setNewStepValue(
           gauge.messages.Spec.ProtoStepValue.Builder builderForValue) {
@@ -16316,7 +16489,7 @@ public final class Messages {
        *&#47; New value, the to-be value of Step being refactored.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+       * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
        */
       public Builder mergeNewStepValue(gauge.messages.Spec.ProtoStepValue value) {
         if (newStepValueBuilder_ == null) {
@@ -16338,7 +16511,7 @@ public final class Messages {
        *&#47; New value, the to-be value of Step being refactored.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+       * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
        */
       public Builder clearNewStepValue() {
         if (newStepValueBuilder_ == null) {
@@ -16356,7 +16529,7 @@ public final class Messages {
        *&#47; New value, the to-be value of Step being refactored.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+       * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
        */
       public gauge.messages.Spec.ProtoStepValue.Builder getNewStepValueBuilder() {
         
@@ -16368,7 +16541,7 @@ public final class Messages {
        *&#47; New value, the to-be value of Step being refactored.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+       * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
        */
       public gauge.messages.Spec.ProtoStepValueOrBuilder getNewStepValueOrBuilder() {
         if (newStepValueBuilder_ != null) {
@@ -16383,7 +16556,7 @@ public final class Messages {
        *&#47; New value, the to-be value of Step being refactored.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepValue newStepValue = 2;</code>
+       * <code>.gauge.messages.ProtoStepValue newStepValue = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoStepValue, gauge.messages.Spec.ProtoStepValue.Builder, gauge.messages.Spec.ProtoStepValueOrBuilder> 
@@ -16768,7 +16941,7 @@ public final class Messages {
      *&#47; Flag indicating the success of Refactor operation.
      * </pre>
      *
-     * <code>optional bool success = 1;</code>
+     * <code>bool success = 1;</code>
      */
     boolean getSuccess();
 
@@ -16777,7 +16950,7 @@ public final class Messages {
      *&#47; Error message, valid only if Refactor wasn't successful
      * </pre>
      *
-     * <code>optional string error = 2;</code>
+     * <code>string error = 2;</code>
      */
     java.lang.String getError();
     /**
@@ -16785,7 +16958,7 @@ public final class Messages {
      *&#47; Error message, valid only if Refactor wasn't successful
      * </pre>
      *
-     * <code>optional string error = 2;</code>
+     * <code>string error = 2;</code>
      */
     com.google.protobuf.ByteString
         getErrorBytes();
@@ -16925,7 +17098,7 @@ public final class Messages {
      *&#47; Flag indicating the success of Refactor operation.
      * </pre>
      *
-     * <code>optional bool success = 1;</code>
+     * <code>bool success = 1;</code>
      */
     public boolean getSuccess() {
       return success_;
@@ -16938,7 +17111,7 @@ public final class Messages {
      *&#47; Error message, valid only if Refactor wasn't successful
      * </pre>
      *
-     * <code>optional string error = 2;</code>
+     * <code>string error = 2;</code>
      */
     public java.lang.String getError() {
       java.lang.Object ref = error_;
@@ -16957,7 +17130,7 @@ public final class Messages {
      *&#47; Error message, valid only if Refactor wasn't successful
      * </pre>
      *
-     * <code>optional string error = 2;</code>
+     * <code>string error = 2;</code>
      */
     public com.google.protobuf.ByteString
         getErrorBytes() {
@@ -17092,7 +17265,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getSuccess());
@@ -17353,7 +17526,7 @@ public final class Messages {
        *&#47; Flag indicating the success of Refactor operation.
        * </pre>
        *
-       * <code>optional bool success = 1;</code>
+       * <code>bool success = 1;</code>
        */
       public boolean getSuccess() {
         return success_;
@@ -17363,7 +17536,7 @@ public final class Messages {
        *&#47; Flag indicating the success of Refactor operation.
        * </pre>
        *
-       * <code>optional bool success = 1;</code>
+       * <code>bool success = 1;</code>
        */
       public Builder setSuccess(boolean value) {
         
@@ -17376,7 +17549,7 @@ public final class Messages {
        *&#47; Flag indicating the success of Refactor operation.
        * </pre>
        *
-       * <code>optional bool success = 1;</code>
+       * <code>bool success = 1;</code>
        */
       public Builder clearSuccess() {
         
@@ -17391,7 +17564,7 @@ public final class Messages {
        *&#47; Error message, valid only if Refactor wasn't successful
        * </pre>
        *
-       * <code>optional string error = 2;</code>
+       * <code>string error = 2;</code>
        */
       public java.lang.String getError() {
         java.lang.Object ref = error_;
@@ -17410,7 +17583,7 @@ public final class Messages {
        *&#47; Error message, valid only if Refactor wasn't successful
        * </pre>
        *
-       * <code>optional string error = 2;</code>
+       * <code>string error = 2;</code>
        */
       public com.google.protobuf.ByteString
           getErrorBytes() {
@@ -17430,7 +17603,7 @@ public final class Messages {
        *&#47; Error message, valid only if Refactor wasn't successful
        * </pre>
        *
-       * <code>optional string error = 2;</code>
+       * <code>string error = 2;</code>
        */
       public Builder setError(
           java.lang.String value) {
@@ -17447,7 +17620,7 @@ public final class Messages {
        *&#47; Error message, valid only if Refactor wasn't successful
        * </pre>
        *
-       * <code>optional string error = 2;</code>
+       * <code>string error = 2;</code>
        */
       public Builder clearError() {
         
@@ -17460,7 +17633,7 @@ public final class Messages {
        *&#47; Error message, valid only if Refactor wasn't successful
        * </pre>
        *
-       * <code>optional string error = 2;</code>
+       * <code>string error = 2;</code>
        */
       public Builder setErrorBytes(
           com.google.protobuf.ByteString value) {
@@ -17662,7 +17835,7 @@ public final class Messages {
      * / This is the parsed step value, i.e. with placeholders for parameters.
      * </pre>
      *
-     * <code>optional string stepValue = 1;</code>
+     * <code>string stepValue = 1;</code>
      */
     java.lang.String getStepValue();
     /**
@@ -17671,7 +17844,7 @@ public final class Messages {
      * / This is the parsed step value, i.e. with placeholders for parameters.
      * </pre>
      *
-     * <code>optional string stepValue = 1;</code>
+     * <code>string stepValue = 1;</code>
      */
     com.google.protobuf.ByteString
         getStepValueBytes();
@@ -17757,7 +17930,7 @@ public final class Messages {
      * / This is the parsed step value, i.e. with placeholders for parameters.
      * </pre>
      *
-     * <code>optional string stepValue = 1;</code>
+     * <code>string stepValue = 1;</code>
      */
     public java.lang.String getStepValue() {
       java.lang.Object ref = stepValue_;
@@ -17777,7 +17950,7 @@ public final class Messages {
      * / This is the parsed step value, i.e. with placeholders for parameters.
      * </pre>
      *
-     * <code>optional string stepValue = 1;</code>
+     * <code>string stepValue = 1;</code>
      */
     public com.google.protobuf.ByteString
         getStepValueBytes() {
@@ -17845,7 +18018,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + STEPVALUE_FIELD_NUMBER;
       hash = (53 * hash) + getStepValue().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -18073,7 +18246,7 @@ public final class Messages {
        * / This is the parsed step value, i.e. with placeholders for parameters.
        * </pre>
        *
-       * <code>optional string stepValue = 1;</code>
+       * <code>string stepValue = 1;</code>
        */
       public java.lang.String getStepValue() {
         java.lang.Object ref = stepValue_;
@@ -18093,7 +18266,7 @@ public final class Messages {
        * / This is the parsed step value, i.e. with placeholders for parameters.
        * </pre>
        *
-       * <code>optional string stepValue = 1;</code>
+       * <code>string stepValue = 1;</code>
        */
       public com.google.protobuf.ByteString
           getStepValueBytes() {
@@ -18114,7 +18287,7 @@ public final class Messages {
        * / This is the parsed step value, i.e. with placeholders for parameters.
        * </pre>
        *
-       * <code>optional string stepValue = 1;</code>
+       * <code>string stepValue = 1;</code>
        */
       public Builder setStepValue(
           java.lang.String value) {
@@ -18132,7 +18305,7 @@ public final class Messages {
        * / This is the parsed step value, i.e. with placeholders for parameters.
        * </pre>
        *
-       * <code>optional string stepValue = 1;</code>
+       * <code>string stepValue = 1;</code>
        */
       public Builder clearStepValue() {
         
@@ -18146,7 +18319,7 @@ public final class Messages {
        * / This is the parsed step value, i.e. with placeholders for parameters.
        * </pre>
        *
-       * <code>optional string stepValue = 1;</code>
+       * <code>string stepValue = 1;</code>
        */
       public Builder setStepValueBytes(
           com.google.protobuf.ByteString value) {
@@ -18217,7 +18390,7 @@ public final class Messages {
      *&#47; Flag indicating if there is a match for the given Step Text.
      * </pre>
      *
-     * <code>optional bool isStepPresent = 1;</code>
+     * <code>bool isStepPresent = 1;</code>
      */
     boolean getIsStepPresent();
 
@@ -18261,7 +18434,7 @@ public final class Messages {
      *&#47; Flag indicating if the given Step is an alias.
      * </pre>
      *
-     * <code>optional bool hasAlias = 3;</code>
+     * <code>bool hasAlias = 3;</code>
      */
     boolean getHasAlias();
   }
@@ -18364,7 +18537,7 @@ public final class Messages {
      *&#47; Flag indicating if there is a match for the given Step Text.
      * </pre>
      *
-     * <code>optional bool isStepPresent = 1;</code>
+     * <code>bool isStepPresent = 1;</code>
      */
     public boolean getIsStepPresent() {
       return isStepPresent_;
@@ -18422,7 +18595,7 @@ public final class Messages {
      *&#47; Flag indicating if the given Step is an alias.
      * </pre>
      *
-     * <code>optional bool hasAlias = 3;</code>
+     * <code>bool hasAlias = 3;</code>
      */
     public boolean getHasAlias() {
       return hasAlias_;
@@ -18503,7 +18676,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ISSTEPPRESENT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsStepPresent());
@@ -18764,7 +18937,7 @@ public final class Messages {
        *&#47; Flag indicating if there is a match for the given Step Text.
        * </pre>
        *
-       * <code>optional bool isStepPresent = 1;</code>
+       * <code>bool isStepPresent = 1;</code>
        */
       public boolean getIsStepPresent() {
         return isStepPresent_;
@@ -18774,7 +18947,7 @@ public final class Messages {
        *&#47; Flag indicating if there is a match for the given Step Text.
        * </pre>
        *
-       * <code>optional bool isStepPresent = 1;</code>
+       * <code>bool isStepPresent = 1;</code>
        */
       public Builder setIsStepPresent(boolean value) {
         
@@ -18787,7 +18960,7 @@ public final class Messages {
        *&#47; Flag indicating if there is a match for the given Step Text.
        * </pre>
        *
-       * <code>optional bool isStepPresent = 1;</code>
+       * <code>bool isStepPresent = 1;</code>
        */
       public Builder clearIsStepPresent() {
         
@@ -18932,7 +19105,7 @@ public final class Messages {
        *&#47; Flag indicating if the given Step is an alias.
        * </pre>
        *
-       * <code>optional bool hasAlias = 3;</code>
+       * <code>bool hasAlias = 3;</code>
        */
       public boolean getHasAlias() {
         return hasAlias_;
@@ -18942,7 +19115,7 @@ public final class Messages {
        *&#47; Flag indicating if the given Step is an alias.
        * </pre>
        *
-       * <code>optional bool hasAlias = 3;</code>
+       * <code>bool hasAlias = 3;</code>
        */
       public Builder setHasAlias(boolean value) {
         
@@ -18955,7 +19128,7 @@ public final class Messages {
        *&#47; Flag indicating if the given Step is an alias.
        * </pre>
        *
-       * <code>optional bool hasAlias = 3;</code>
+       * <code>bool hasAlias = 3;</code>
        */
       public Builder clearHasAlias() {
         
@@ -19017,11 +19190,11 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string message = 1;</code>
+     * <code>string message = 1;</code>
      */
     java.lang.String getMessage();
     /**
-     * <code>optional string message = 1;</code>
+     * <code>string message = 1;</code>
      */
     com.google.protobuf.ByteString
         getMessageBytes();
@@ -19102,7 +19275,7 @@ public final class Messages {
     public static final int MESSAGE_FIELD_NUMBER = 1;
     private volatile java.lang.Object message_;
     /**
-     * <code>optional string message = 1;</code>
+     * <code>string message = 1;</code>
      */
     public java.lang.String getMessage() {
       java.lang.Object ref = message_;
@@ -19117,7 +19290,7 @@ public final class Messages {
       }
     }
     /**
-     * <code>optional string message = 1;</code>
+     * <code>string message = 1;</code>
      */
     public com.google.protobuf.ByteString
         getMessageBytes() {
@@ -19185,7 +19358,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -19408,7 +19581,7 @@ public final class Messages {
 
       private java.lang.Object message_ = "";
       /**
-       * <code>optional string message = 1;</code>
+       * <code>string message = 1;</code>
        */
       public java.lang.String getMessage() {
         java.lang.Object ref = message_;
@@ -19423,7 +19596,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional string message = 1;</code>
+       * <code>string message = 1;</code>
        */
       public com.google.protobuf.ByteString
           getMessageBytes() {
@@ -19439,7 +19612,7 @@ public final class Messages {
         }
       }
       /**
-       * <code>optional string message = 1;</code>
+       * <code>string message = 1;</code>
        */
       public Builder setMessage(
           java.lang.String value) {
@@ -19452,7 +19625,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional string message = 1;</code>
+       * <code>string message = 1;</code>
        */
       public Builder clearMessage() {
         
@@ -19461,7 +19634,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional string message = 1;</code>
+       * <code>string message = 1;</code>
        */
       public Builder setMessageBytes(
           com.google.protobuf.ByteString value) {
@@ -19528,11 +19701,11 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .gauge.messages.Message.MessageType messageType = 1;</code>
+     * <code>.gauge.messages.Message.MessageType messageType = 1;</code>
      */
     int getMessageTypeValue();
     /**
-     * <code>optional .gauge.messages.Message.MessageType messageType = 1;</code>
+     * <code>.gauge.messages.Message.MessageType messageType = 1;</code>
      */
     gauge.messages.Messages.Message.MessageType getMessageType();
 
@@ -19542,7 +19715,7 @@ public final class Messages {
      * / This is used to synchronize messages &amp; responses
      * </pre>
      *
-     * <code>optional int64 messageId = 2;</code>
+     * <code>int64 messageId = 2;</code>
      */
     long getMessageId();
 
@@ -19551,7 +19724,7 @@ public final class Messages {
      *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+     * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
      */
     boolean hasExecutionStartingRequest();
     /**
@@ -19559,7 +19732,7 @@ public final class Messages {
      *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+     * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
      */
     gauge.messages.Messages.ExecutionStartingRequest getExecutionStartingRequest();
     /**
@@ -19567,7 +19740,7 @@ public final class Messages {
      *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+     * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
      */
     gauge.messages.Messages.ExecutionStartingRequestOrBuilder getExecutionStartingRequestOrBuilder();
 
@@ -19576,7 +19749,7 @@ public final class Messages {
      *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+     * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
      */
     boolean hasSpecExecutionStartingRequest();
     /**
@@ -19584,7 +19757,7 @@ public final class Messages {
      *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+     * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
      */
     gauge.messages.Messages.SpecExecutionStartingRequest getSpecExecutionStartingRequest();
     /**
@@ -19592,7 +19765,7 @@ public final class Messages {
      *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+     * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
      */
     gauge.messages.Messages.SpecExecutionStartingRequestOrBuilder getSpecExecutionStartingRequestOrBuilder();
 
@@ -19601,7 +19774,7 @@ public final class Messages {
      *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+     * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
      */
     boolean hasSpecExecutionEndingRequest();
     /**
@@ -19609,7 +19782,7 @@ public final class Messages {
      *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+     * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
      */
     gauge.messages.Messages.SpecExecutionEndingRequest getSpecExecutionEndingRequest();
     /**
@@ -19617,7 +19790,7 @@ public final class Messages {
      *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+     * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
      */
     gauge.messages.Messages.SpecExecutionEndingRequestOrBuilder getSpecExecutionEndingRequestOrBuilder();
 
@@ -19626,7 +19799,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+     * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
      */
     boolean hasScenarioExecutionStartingRequest();
     /**
@@ -19634,7 +19807,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+     * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
      */
     gauge.messages.Messages.ScenarioExecutionStartingRequest getScenarioExecutionStartingRequest();
     /**
@@ -19642,7 +19815,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+     * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
      */
     gauge.messages.Messages.ScenarioExecutionStartingRequestOrBuilder getScenarioExecutionStartingRequestOrBuilder();
 
@@ -19651,7 +19824,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+     * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
      */
     boolean hasScenarioExecutionEndingRequest();
     /**
@@ -19659,7 +19832,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+     * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
      */
     gauge.messages.Messages.ScenarioExecutionEndingRequest getScenarioExecutionEndingRequest();
     /**
@@ -19667,7 +19840,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+     * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
      */
     gauge.messages.Messages.ScenarioExecutionEndingRequestOrBuilder getScenarioExecutionEndingRequestOrBuilder();
 
@@ -19676,7 +19849,7 @@ public final class Messages {
      *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+     * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
      */
     boolean hasStepExecutionStartingRequest();
     /**
@@ -19684,7 +19857,7 @@ public final class Messages {
      *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+     * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
      */
     gauge.messages.Messages.StepExecutionStartingRequest getStepExecutionStartingRequest();
     /**
@@ -19692,7 +19865,7 @@ public final class Messages {
      *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+     * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
      */
     gauge.messages.Messages.StepExecutionStartingRequestOrBuilder getStepExecutionStartingRequestOrBuilder();
 
@@ -19701,7 +19874,7 @@ public final class Messages {
      *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+     * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
      */
     boolean hasStepExecutionEndingRequest();
     /**
@@ -19709,7 +19882,7 @@ public final class Messages {
      *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+     * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
      */
     gauge.messages.Messages.StepExecutionEndingRequest getStepExecutionEndingRequest();
     /**
@@ -19717,7 +19890,7 @@ public final class Messages {
      *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+     * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
      */
     gauge.messages.Messages.StepExecutionEndingRequestOrBuilder getStepExecutionEndingRequestOrBuilder();
 
@@ -19726,7 +19899,7 @@ public final class Messages {
      *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+     * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
      */
     boolean hasExecuteStepRequest();
     /**
@@ -19734,7 +19907,7 @@ public final class Messages {
      *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+     * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
      */
     gauge.messages.Messages.ExecuteStepRequest getExecuteStepRequest();
     /**
@@ -19742,7 +19915,7 @@ public final class Messages {
      *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+     * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
      */
     gauge.messages.Messages.ExecuteStepRequestOrBuilder getExecuteStepRequestOrBuilder();
 
@@ -19751,7 +19924,7 @@ public final class Messages {
      *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+     * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
      */
     boolean hasExecutionEndingRequest();
     /**
@@ -19759,7 +19932,7 @@ public final class Messages {
      *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+     * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
      */
     gauge.messages.Messages.ExecutionEndingRequest getExecutionEndingRequest();
     /**
@@ -19767,7 +19940,7 @@ public final class Messages {
      *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+     * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
      */
     gauge.messages.Messages.ExecutionEndingRequestOrBuilder getExecutionEndingRequestOrBuilder();
 
@@ -19776,7 +19949,7 @@ public final class Messages {
      *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+     * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
      */
     boolean hasStepValidateRequest();
     /**
@@ -19784,7 +19957,7 @@ public final class Messages {
      *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+     * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
      */
     gauge.messages.Messages.StepValidateRequest getStepValidateRequest();
     /**
@@ -19792,7 +19965,7 @@ public final class Messages {
      *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+     * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
      */
     gauge.messages.Messages.StepValidateRequestOrBuilder getStepValidateRequestOrBuilder();
 
@@ -19801,7 +19974,7 @@ public final class Messages {
      *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+     * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
      */
     boolean hasStepValidateResponse();
     /**
@@ -19809,7 +19982,7 @@ public final class Messages {
      *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+     * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
      */
     gauge.messages.Messages.StepValidateResponse getStepValidateResponse();
     /**
@@ -19817,7 +19990,7 @@ public final class Messages {
      *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+     * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
      */
     gauge.messages.Messages.StepValidateResponseOrBuilder getStepValidateResponseOrBuilder();
 
@@ -19826,7 +19999,7 @@ public final class Messages {
      *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+     * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
      */
     boolean hasExecutionStatusResponse();
     /**
@@ -19834,7 +20007,7 @@ public final class Messages {
      *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+     * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
      */
     gauge.messages.Messages.ExecutionStatusResponse getExecutionStatusResponse();
     /**
@@ -19842,7 +20015,7 @@ public final class Messages {
      *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+     * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
      */
     gauge.messages.Messages.ExecutionStatusResponseOrBuilder getExecutionStatusResponseOrBuilder();
 
@@ -19851,7 +20024,7 @@ public final class Messages {
      *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+     * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
      */
     boolean hasStepNamesRequest();
     /**
@@ -19859,7 +20032,7 @@ public final class Messages {
      *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+     * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
      */
     gauge.messages.Messages.StepNamesRequest getStepNamesRequest();
     /**
@@ -19867,7 +20040,7 @@ public final class Messages {
      *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+     * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
      */
     gauge.messages.Messages.StepNamesRequestOrBuilder getStepNamesRequestOrBuilder();
 
@@ -19876,7 +20049,7 @@ public final class Messages {
      *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+     * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
      */
     boolean hasStepNamesResponse();
     /**
@@ -19884,7 +20057,7 @@ public final class Messages {
      *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+     * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
      */
     gauge.messages.Messages.StepNamesResponse getStepNamesResponse();
     /**
@@ -19892,7 +20065,7 @@ public final class Messages {
      *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+     * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
      */
     gauge.messages.Messages.StepNamesResponseOrBuilder getStepNamesResponseOrBuilder();
 
@@ -19901,7 +20074,7 @@ public final class Messages {
      *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+     * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
      */
     boolean hasSuiteExecutionResult();
     /**
@@ -19909,7 +20082,7 @@ public final class Messages {
      *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+     * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
      */
     gauge.messages.Messages.SuiteExecutionResult getSuiteExecutionResult();
     /**
@@ -19917,7 +20090,7 @@ public final class Messages {
      *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+     * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
      */
     gauge.messages.Messages.SuiteExecutionResultOrBuilder getSuiteExecutionResultOrBuilder();
 
@@ -19926,7 +20099,7 @@ public final class Messages {
      *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+     * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
      */
     boolean hasKillProcessRequest();
     /**
@@ -19934,7 +20107,7 @@ public final class Messages {
      *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+     * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
      */
     gauge.messages.Messages.KillProcessRequest getKillProcessRequest();
     /**
@@ -19942,7 +20115,7 @@ public final class Messages {
      *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+     * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
      */
     gauge.messages.Messages.KillProcessRequestOrBuilder getKillProcessRequestOrBuilder();
 
@@ -19951,7 +20124,7 @@ public final class Messages {
      *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
      */
     boolean hasScenarioDataStoreInitRequest();
     /**
@@ -19959,7 +20132,7 @@ public final class Messages {
      *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
      */
     gauge.messages.Messages.ScenarioDataStoreInitRequest getScenarioDataStoreInitRequest();
     /**
@@ -19967,7 +20140,7 @@ public final class Messages {
      *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
      */
     gauge.messages.Messages.ScenarioDataStoreInitRequestOrBuilder getScenarioDataStoreInitRequestOrBuilder();
 
@@ -19976,7 +20149,7 @@ public final class Messages {
      *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
      */
     boolean hasSpecDataStoreInitRequest();
     /**
@@ -19984,7 +20157,7 @@ public final class Messages {
      *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
      */
     gauge.messages.Messages.SpecDataStoreInitRequest getSpecDataStoreInitRequest();
     /**
@@ -19992,7 +20165,7 @@ public final class Messages {
      *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
      */
     gauge.messages.Messages.SpecDataStoreInitRequestOrBuilder getSpecDataStoreInitRequestOrBuilder();
 
@@ -20001,7 +20174,7 @@ public final class Messages {
      *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
      */
     boolean hasSuiteDataStoreInitRequest();
     /**
@@ -20009,7 +20182,7 @@ public final class Messages {
      *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
      */
     gauge.messages.Messages.SuiteDataStoreInitRequest getSuiteDataStoreInitRequest();
     /**
@@ -20017,7 +20190,7 @@ public final class Messages {
      *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
      */
     gauge.messages.Messages.SuiteDataStoreInitRequestOrBuilder getSuiteDataStoreInitRequestOrBuilder();
 
@@ -20026,7 +20199,7 @@ public final class Messages {
      *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+     * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
      */
     boolean hasStepNameRequest();
     /**
@@ -20034,7 +20207,7 @@ public final class Messages {
      *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+     * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
      */
     gauge.messages.Messages.StepNameRequest getStepNameRequest();
     /**
@@ -20042,7 +20215,7 @@ public final class Messages {
      *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+     * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
      */
     gauge.messages.Messages.StepNameRequestOrBuilder getStepNameRequestOrBuilder();
 
@@ -20051,7 +20224,7 @@ public final class Messages {
      *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+     * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
      */
     boolean hasStepNameResponse();
     /**
@@ -20059,7 +20232,7 @@ public final class Messages {
      *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+     * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
      */
     gauge.messages.Messages.StepNameResponse getStepNameResponse();
     /**
@@ -20067,7 +20240,7 @@ public final class Messages {
      *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+     * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
      */
     gauge.messages.Messages.StepNameResponseOrBuilder getStepNameResponseOrBuilder();
 
@@ -20076,7 +20249,7 @@ public final class Messages {
      *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+     * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
      */
     boolean hasRefactorRequest();
     /**
@@ -20084,7 +20257,7 @@ public final class Messages {
      *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+     * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
      */
     gauge.messages.Messages.RefactorRequest getRefactorRequest();
     /**
@@ -20092,7 +20265,7 @@ public final class Messages {
      *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+     * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
      */
     gauge.messages.Messages.RefactorRequestOrBuilder getRefactorRequestOrBuilder();
 
@@ -20101,7 +20274,7 @@ public final class Messages {
      *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+     * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
      */
     boolean hasRefactorResponse();
     /**
@@ -20109,7 +20282,7 @@ public final class Messages {
      *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+     * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
      */
     gauge.messages.Messages.RefactorResponse getRefactorResponse();
     /**
@@ -20117,7 +20290,7 @@ public final class Messages {
      *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+     * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
      */
     gauge.messages.Messages.RefactorResponseOrBuilder getRefactorResponseOrBuilder();
 
@@ -20126,7 +20299,7 @@ public final class Messages {
      *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
      */
     boolean hasUnsupportedMessageResponse();
     /**
@@ -20134,7 +20307,7 @@ public final class Messages {
      *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
      */
     gauge.messages.Messages.UnsupportedMessageResponse getUnsupportedMessageResponse();
     /**
@@ -20142,7 +20315,7 @@ public final class Messages {
      *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
      */
     gauge.messages.Messages.UnsupportedMessageResponseOrBuilder getUnsupportedMessageResponseOrBuilder();
   }
@@ -20838,13 +21011,13 @@ public final class Messages {
     public static final int MESSAGETYPE_FIELD_NUMBER = 1;
     private int messageType_;
     /**
-     * <code>optional .gauge.messages.Message.MessageType messageType = 1;</code>
+     * <code>.gauge.messages.Message.MessageType messageType = 1;</code>
      */
     public int getMessageTypeValue() {
       return messageType_;
     }
     /**
-     * <code>optional .gauge.messages.Message.MessageType messageType = 1;</code>
+     * <code>.gauge.messages.Message.MessageType messageType = 1;</code>
      */
     public gauge.messages.Messages.Message.MessageType getMessageType() {
       gauge.messages.Messages.Message.MessageType result = gauge.messages.Messages.Message.MessageType.valueOf(messageType_);
@@ -20859,7 +21032,7 @@ public final class Messages {
      * / This is used to synchronize messages &amp; responses
      * </pre>
      *
-     * <code>optional int64 messageId = 2;</code>
+     * <code>int64 messageId = 2;</code>
      */
     public long getMessageId() {
       return messageId_;
@@ -20872,7 +21045,7 @@ public final class Messages {
      *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+     * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
      */
     public boolean hasExecutionStartingRequest() {
       return executionStartingRequest_ != null;
@@ -20882,7 +21055,7 @@ public final class Messages {
      *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+     * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
      */
     public gauge.messages.Messages.ExecutionStartingRequest getExecutionStartingRequest() {
       return executionStartingRequest_ == null ? gauge.messages.Messages.ExecutionStartingRequest.getDefaultInstance() : executionStartingRequest_;
@@ -20892,7 +21065,7 @@ public final class Messages {
      *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+     * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
      */
     public gauge.messages.Messages.ExecutionStartingRequestOrBuilder getExecutionStartingRequestOrBuilder() {
       return getExecutionStartingRequest();
@@ -20905,7 +21078,7 @@ public final class Messages {
      *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+     * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
      */
     public boolean hasSpecExecutionStartingRequest() {
       return specExecutionStartingRequest_ != null;
@@ -20915,7 +21088,7 @@ public final class Messages {
      *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+     * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
      */
     public gauge.messages.Messages.SpecExecutionStartingRequest getSpecExecutionStartingRequest() {
       return specExecutionStartingRequest_ == null ? gauge.messages.Messages.SpecExecutionStartingRequest.getDefaultInstance() : specExecutionStartingRequest_;
@@ -20925,7 +21098,7 @@ public final class Messages {
      *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+     * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
      */
     public gauge.messages.Messages.SpecExecutionStartingRequestOrBuilder getSpecExecutionStartingRequestOrBuilder() {
       return getSpecExecutionStartingRequest();
@@ -20938,7 +21111,7 @@ public final class Messages {
      *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+     * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
      */
     public boolean hasSpecExecutionEndingRequest() {
       return specExecutionEndingRequest_ != null;
@@ -20948,7 +21121,7 @@ public final class Messages {
      *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+     * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
      */
     public gauge.messages.Messages.SpecExecutionEndingRequest getSpecExecutionEndingRequest() {
       return specExecutionEndingRequest_ == null ? gauge.messages.Messages.SpecExecutionEndingRequest.getDefaultInstance() : specExecutionEndingRequest_;
@@ -20958,7 +21131,7 @@ public final class Messages {
      *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+     * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
      */
     public gauge.messages.Messages.SpecExecutionEndingRequestOrBuilder getSpecExecutionEndingRequestOrBuilder() {
       return getSpecExecutionEndingRequest();
@@ -20971,7 +21144,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+     * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
      */
     public boolean hasScenarioExecutionStartingRequest() {
       return scenarioExecutionStartingRequest_ != null;
@@ -20981,7 +21154,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+     * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
      */
     public gauge.messages.Messages.ScenarioExecutionStartingRequest getScenarioExecutionStartingRequest() {
       return scenarioExecutionStartingRequest_ == null ? gauge.messages.Messages.ScenarioExecutionStartingRequest.getDefaultInstance() : scenarioExecutionStartingRequest_;
@@ -20991,7 +21164,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+     * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
      */
     public gauge.messages.Messages.ScenarioExecutionStartingRequestOrBuilder getScenarioExecutionStartingRequestOrBuilder() {
       return getScenarioExecutionStartingRequest();
@@ -21004,7 +21177,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+     * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
      */
     public boolean hasScenarioExecutionEndingRequest() {
       return scenarioExecutionEndingRequest_ != null;
@@ -21014,7 +21187,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+     * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
      */
     public gauge.messages.Messages.ScenarioExecutionEndingRequest getScenarioExecutionEndingRequest() {
       return scenarioExecutionEndingRequest_ == null ? gauge.messages.Messages.ScenarioExecutionEndingRequest.getDefaultInstance() : scenarioExecutionEndingRequest_;
@@ -21024,7 +21197,7 @@ public final class Messages {
      *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+     * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
      */
     public gauge.messages.Messages.ScenarioExecutionEndingRequestOrBuilder getScenarioExecutionEndingRequestOrBuilder() {
       return getScenarioExecutionEndingRequest();
@@ -21037,7 +21210,7 @@ public final class Messages {
      *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+     * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
      */
     public boolean hasStepExecutionStartingRequest() {
       return stepExecutionStartingRequest_ != null;
@@ -21047,7 +21220,7 @@ public final class Messages {
      *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+     * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
      */
     public gauge.messages.Messages.StepExecutionStartingRequest getStepExecutionStartingRequest() {
       return stepExecutionStartingRequest_ == null ? gauge.messages.Messages.StepExecutionStartingRequest.getDefaultInstance() : stepExecutionStartingRequest_;
@@ -21057,7 +21230,7 @@ public final class Messages {
      *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+     * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
      */
     public gauge.messages.Messages.StepExecutionStartingRequestOrBuilder getStepExecutionStartingRequestOrBuilder() {
       return getStepExecutionStartingRequest();
@@ -21070,7 +21243,7 @@ public final class Messages {
      *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+     * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
      */
     public boolean hasStepExecutionEndingRequest() {
       return stepExecutionEndingRequest_ != null;
@@ -21080,7 +21253,7 @@ public final class Messages {
      *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+     * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
      */
     public gauge.messages.Messages.StepExecutionEndingRequest getStepExecutionEndingRequest() {
       return stepExecutionEndingRequest_ == null ? gauge.messages.Messages.StepExecutionEndingRequest.getDefaultInstance() : stepExecutionEndingRequest_;
@@ -21090,7 +21263,7 @@ public final class Messages {
      *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+     * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
      */
     public gauge.messages.Messages.StepExecutionEndingRequestOrBuilder getStepExecutionEndingRequestOrBuilder() {
       return getStepExecutionEndingRequest();
@@ -21103,7 +21276,7 @@ public final class Messages {
      *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+     * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
      */
     public boolean hasExecuteStepRequest() {
       return executeStepRequest_ != null;
@@ -21113,7 +21286,7 @@ public final class Messages {
      *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+     * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
      */
     public gauge.messages.Messages.ExecuteStepRequest getExecuteStepRequest() {
       return executeStepRequest_ == null ? gauge.messages.Messages.ExecuteStepRequest.getDefaultInstance() : executeStepRequest_;
@@ -21123,7 +21296,7 @@ public final class Messages {
      *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+     * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
      */
     public gauge.messages.Messages.ExecuteStepRequestOrBuilder getExecuteStepRequestOrBuilder() {
       return getExecuteStepRequest();
@@ -21136,7 +21309,7 @@ public final class Messages {
      *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+     * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
      */
     public boolean hasExecutionEndingRequest() {
       return executionEndingRequest_ != null;
@@ -21146,7 +21319,7 @@ public final class Messages {
      *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+     * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
      */
     public gauge.messages.Messages.ExecutionEndingRequest getExecutionEndingRequest() {
       return executionEndingRequest_ == null ? gauge.messages.Messages.ExecutionEndingRequest.getDefaultInstance() : executionEndingRequest_;
@@ -21156,7 +21329,7 @@ public final class Messages {
      *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+     * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
      */
     public gauge.messages.Messages.ExecutionEndingRequestOrBuilder getExecutionEndingRequestOrBuilder() {
       return getExecutionEndingRequest();
@@ -21169,7 +21342,7 @@ public final class Messages {
      *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+     * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
      */
     public boolean hasStepValidateRequest() {
       return stepValidateRequest_ != null;
@@ -21179,7 +21352,7 @@ public final class Messages {
      *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+     * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
      */
     public gauge.messages.Messages.StepValidateRequest getStepValidateRequest() {
       return stepValidateRequest_ == null ? gauge.messages.Messages.StepValidateRequest.getDefaultInstance() : stepValidateRequest_;
@@ -21189,7 +21362,7 @@ public final class Messages {
      *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+     * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
      */
     public gauge.messages.Messages.StepValidateRequestOrBuilder getStepValidateRequestOrBuilder() {
       return getStepValidateRequest();
@@ -21202,7 +21375,7 @@ public final class Messages {
      *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+     * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
      */
     public boolean hasStepValidateResponse() {
       return stepValidateResponse_ != null;
@@ -21212,7 +21385,7 @@ public final class Messages {
      *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+     * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
      */
     public gauge.messages.Messages.StepValidateResponse getStepValidateResponse() {
       return stepValidateResponse_ == null ? gauge.messages.Messages.StepValidateResponse.getDefaultInstance() : stepValidateResponse_;
@@ -21222,7 +21395,7 @@ public final class Messages {
      *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+     * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
      */
     public gauge.messages.Messages.StepValidateResponseOrBuilder getStepValidateResponseOrBuilder() {
       return getStepValidateResponse();
@@ -21235,7 +21408,7 @@ public final class Messages {
      *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+     * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
      */
     public boolean hasExecutionStatusResponse() {
       return executionStatusResponse_ != null;
@@ -21245,7 +21418,7 @@ public final class Messages {
      *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+     * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
      */
     public gauge.messages.Messages.ExecutionStatusResponse getExecutionStatusResponse() {
       return executionStatusResponse_ == null ? gauge.messages.Messages.ExecutionStatusResponse.getDefaultInstance() : executionStatusResponse_;
@@ -21255,7 +21428,7 @@ public final class Messages {
      *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+     * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
      */
     public gauge.messages.Messages.ExecutionStatusResponseOrBuilder getExecutionStatusResponseOrBuilder() {
       return getExecutionStatusResponse();
@@ -21268,7 +21441,7 @@ public final class Messages {
      *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+     * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
      */
     public boolean hasStepNamesRequest() {
       return stepNamesRequest_ != null;
@@ -21278,7 +21451,7 @@ public final class Messages {
      *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+     * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
      */
     public gauge.messages.Messages.StepNamesRequest getStepNamesRequest() {
       return stepNamesRequest_ == null ? gauge.messages.Messages.StepNamesRequest.getDefaultInstance() : stepNamesRequest_;
@@ -21288,7 +21461,7 @@ public final class Messages {
      *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+     * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
      */
     public gauge.messages.Messages.StepNamesRequestOrBuilder getStepNamesRequestOrBuilder() {
       return getStepNamesRequest();
@@ -21301,7 +21474,7 @@ public final class Messages {
      *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+     * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
      */
     public boolean hasStepNamesResponse() {
       return stepNamesResponse_ != null;
@@ -21311,7 +21484,7 @@ public final class Messages {
      *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+     * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
      */
     public gauge.messages.Messages.StepNamesResponse getStepNamesResponse() {
       return stepNamesResponse_ == null ? gauge.messages.Messages.StepNamesResponse.getDefaultInstance() : stepNamesResponse_;
@@ -21321,7 +21494,7 @@ public final class Messages {
      *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+     * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
      */
     public gauge.messages.Messages.StepNamesResponseOrBuilder getStepNamesResponseOrBuilder() {
       return getStepNamesResponse();
@@ -21334,7 +21507,7 @@ public final class Messages {
      *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+     * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
      */
     public boolean hasSuiteExecutionResult() {
       return suiteExecutionResult_ != null;
@@ -21344,7 +21517,7 @@ public final class Messages {
      *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+     * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
      */
     public gauge.messages.Messages.SuiteExecutionResult getSuiteExecutionResult() {
       return suiteExecutionResult_ == null ? gauge.messages.Messages.SuiteExecutionResult.getDefaultInstance() : suiteExecutionResult_;
@@ -21354,7 +21527,7 @@ public final class Messages {
      *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+     * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
      */
     public gauge.messages.Messages.SuiteExecutionResultOrBuilder getSuiteExecutionResultOrBuilder() {
       return getSuiteExecutionResult();
@@ -21367,7 +21540,7 @@ public final class Messages {
      *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+     * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
      */
     public boolean hasKillProcessRequest() {
       return killProcessRequest_ != null;
@@ -21377,7 +21550,7 @@ public final class Messages {
      *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+     * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
      */
     public gauge.messages.Messages.KillProcessRequest getKillProcessRequest() {
       return killProcessRequest_ == null ? gauge.messages.Messages.KillProcessRequest.getDefaultInstance() : killProcessRequest_;
@@ -21387,7 +21560,7 @@ public final class Messages {
      *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+     * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
      */
     public gauge.messages.Messages.KillProcessRequestOrBuilder getKillProcessRequestOrBuilder() {
       return getKillProcessRequest();
@@ -21400,7 +21573,7 @@ public final class Messages {
      *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
      */
     public boolean hasScenarioDataStoreInitRequest() {
       return scenarioDataStoreInitRequest_ != null;
@@ -21410,7 +21583,7 @@ public final class Messages {
      *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
      */
     public gauge.messages.Messages.ScenarioDataStoreInitRequest getScenarioDataStoreInitRequest() {
       return scenarioDataStoreInitRequest_ == null ? gauge.messages.Messages.ScenarioDataStoreInitRequest.getDefaultInstance() : scenarioDataStoreInitRequest_;
@@ -21420,7 +21593,7 @@ public final class Messages {
      *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+     * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
      */
     public gauge.messages.Messages.ScenarioDataStoreInitRequestOrBuilder getScenarioDataStoreInitRequestOrBuilder() {
       return getScenarioDataStoreInitRequest();
@@ -21433,7 +21606,7 @@ public final class Messages {
      *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
      */
     public boolean hasSpecDataStoreInitRequest() {
       return specDataStoreInitRequest_ != null;
@@ -21443,7 +21616,7 @@ public final class Messages {
      *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
      */
     public gauge.messages.Messages.SpecDataStoreInitRequest getSpecDataStoreInitRequest() {
       return specDataStoreInitRequest_ == null ? gauge.messages.Messages.SpecDataStoreInitRequest.getDefaultInstance() : specDataStoreInitRequest_;
@@ -21453,7 +21626,7 @@ public final class Messages {
      *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+     * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
      */
     public gauge.messages.Messages.SpecDataStoreInitRequestOrBuilder getSpecDataStoreInitRequestOrBuilder() {
       return getSpecDataStoreInitRequest();
@@ -21466,7 +21639,7 @@ public final class Messages {
      *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
      */
     public boolean hasSuiteDataStoreInitRequest() {
       return suiteDataStoreInitRequest_ != null;
@@ -21476,7 +21649,7 @@ public final class Messages {
      *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
      */
     public gauge.messages.Messages.SuiteDataStoreInitRequest getSuiteDataStoreInitRequest() {
       return suiteDataStoreInitRequest_ == null ? gauge.messages.Messages.SuiteDataStoreInitRequest.getDefaultInstance() : suiteDataStoreInitRequest_;
@@ -21486,7 +21659,7 @@ public final class Messages {
      *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+     * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
      */
     public gauge.messages.Messages.SuiteDataStoreInitRequestOrBuilder getSuiteDataStoreInitRequestOrBuilder() {
       return getSuiteDataStoreInitRequest();
@@ -21499,7 +21672,7 @@ public final class Messages {
      *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+     * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
      */
     public boolean hasStepNameRequest() {
       return stepNameRequest_ != null;
@@ -21509,7 +21682,7 @@ public final class Messages {
      *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+     * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
      */
     public gauge.messages.Messages.StepNameRequest getStepNameRequest() {
       return stepNameRequest_ == null ? gauge.messages.Messages.StepNameRequest.getDefaultInstance() : stepNameRequest_;
@@ -21519,7 +21692,7 @@ public final class Messages {
      *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+     * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
      */
     public gauge.messages.Messages.StepNameRequestOrBuilder getStepNameRequestOrBuilder() {
       return getStepNameRequest();
@@ -21532,7 +21705,7 @@ public final class Messages {
      *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+     * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
      */
     public boolean hasStepNameResponse() {
       return stepNameResponse_ != null;
@@ -21542,7 +21715,7 @@ public final class Messages {
      *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+     * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
      */
     public gauge.messages.Messages.StepNameResponse getStepNameResponse() {
       return stepNameResponse_ == null ? gauge.messages.Messages.StepNameResponse.getDefaultInstance() : stepNameResponse_;
@@ -21552,7 +21725,7 @@ public final class Messages {
      *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+     * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
      */
     public gauge.messages.Messages.StepNameResponseOrBuilder getStepNameResponseOrBuilder() {
       return getStepNameResponse();
@@ -21565,7 +21738,7 @@ public final class Messages {
      *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+     * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
      */
     public boolean hasRefactorRequest() {
       return refactorRequest_ != null;
@@ -21575,7 +21748,7 @@ public final class Messages {
      *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+     * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
      */
     public gauge.messages.Messages.RefactorRequest getRefactorRequest() {
       return refactorRequest_ == null ? gauge.messages.Messages.RefactorRequest.getDefaultInstance() : refactorRequest_;
@@ -21585,7 +21758,7 @@ public final class Messages {
      *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+     * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
      */
     public gauge.messages.Messages.RefactorRequestOrBuilder getRefactorRequestOrBuilder() {
       return getRefactorRequest();
@@ -21598,7 +21771,7 @@ public final class Messages {
      *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+     * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
      */
     public boolean hasRefactorResponse() {
       return refactorResponse_ != null;
@@ -21608,7 +21781,7 @@ public final class Messages {
      *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+     * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
      */
     public gauge.messages.Messages.RefactorResponse getRefactorResponse() {
       return refactorResponse_ == null ? gauge.messages.Messages.RefactorResponse.getDefaultInstance() : refactorResponse_;
@@ -21618,7 +21791,7 @@ public final class Messages {
      *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+     * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
      */
     public gauge.messages.Messages.RefactorResponseOrBuilder getRefactorResponseOrBuilder() {
       return getRefactorResponse();
@@ -21631,7 +21804,7 @@ public final class Messages {
      *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
      */
     public boolean hasUnsupportedMessageResponse() {
       return unsupportedMessageResponse_ != null;
@@ -21641,7 +21814,7 @@ public final class Messages {
      *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
      */
     public gauge.messages.Messages.UnsupportedMessageResponse getUnsupportedMessageResponse() {
       return unsupportedMessageResponse_ == null ? gauge.messages.Messages.UnsupportedMessageResponse.getDefaultInstance() : unsupportedMessageResponse_;
@@ -21651,7 +21824,7 @@ public final class Messages {
      *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
      * </pre>
      *
-     * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+     * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
      */
     public gauge.messages.Messages.UnsupportedMessageResponseOrBuilder getUnsupportedMessageResponseOrBuilder() {
       return getUnsupportedMessageResponse();
@@ -22006,7 +22179,7 @@ public final class Messages {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + MESSAGETYPE_FIELD_NUMBER;
       hash = (53 * hash) + messageType_;
       hash = (37 * hash) + MESSAGEID_FIELD_NUMBER;
@@ -22671,13 +22844,13 @@ public final class Messages {
 
       private int messageType_ = 0;
       /**
-       * <code>optional .gauge.messages.Message.MessageType messageType = 1;</code>
+       * <code>.gauge.messages.Message.MessageType messageType = 1;</code>
        */
       public int getMessageTypeValue() {
         return messageType_;
       }
       /**
-       * <code>optional .gauge.messages.Message.MessageType messageType = 1;</code>
+       * <code>.gauge.messages.Message.MessageType messageType = 1;</code>
        */
       public Builder setMessageTypeValue(int value) {
         messageType_ = value;
@@ -22685,14 +22858,14 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.Message.MessageType messageType = 1;</code>
+       * <code>.gauge.messages.Message.MessageType messageType = 1;</code>
        */
       public gauge.messages.Messages.Message.MessageType getMessageType() {
         gauge.messages.Messages.Message.MessageType result = gauge.messages.Messages.Message.MessageType.valueOf(messageType_);
         return result == null ? gauge.messages.Messages.Message.MessageType.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .gauge.messages.Message.MessageType messageType = 1;</code>
+       * <code>.gauge.messages.Message.MessageType messageType = 1;</code>
        */
       public Builder setMessageType(gauge.messages.Messages.Message.MessageType value) {
         if (value == null) {
@@ -22704,7 +22877,7 @@ public final class Messages {
         return this;
       }
       /**
-       * <code>optional .gauge.messages.Message.MessageType messageType = 1;</code>
+       * <code>.gauge.messages.Message.MessageType messageType = 1;</code>
        */
       public Builder clearMessageType() {
         
@@ -22720,7 +22893,7 @@ public final class Messages {
        * / This is used to synchronize messages &amp; responses
        * </pre>
        *
-       * <code>optional int64 messageId = 2;</code>
+       * <code>int64 messageId = 2;</code>
        */
       public long getMessageId() {
         return messageId_;
@@ -22731,7 +22904,7 @@ public final class Messages {
        * / This is used to synchronize messages &amp; responses
        * </pre>
        *
-       * <code>optional int64 messageId = 2;</code>
+       * <code>int64 messageId = 2;</code>
        */
       public Builder setMessageId(long value) {
         
@@ -22745,7 +22918,7 @@ public final class Messages {
        * / This is used to synchronize messages &amp; responses
        * </pre>
        *
-       * <code>optional int64 messageId = 2;</code>
+       * <code>int64 messageId = 2;</code>
        */
       public Builder clearMessageId() {
         
@@ -22762,7 +22935,7 @@ public final class Messages {
        *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+       * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
        */
       public boolean hasExecutionStartingRequest() {
         return executionStartingRequestBuilder_ != null || executionStartingRequest_ != null;
@@ -22772,7 +22945,7 @@ public final class Messages {
        *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+       * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
        */
       public gauge.messages.Messages.ExecutionStartingRequest getExecutionStartingRequest() {
         if (executionStartingRequestBuilder_ == null) {
@@ -22786,7 +22959,7 @@ public final class Messages {
        *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+       * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
        */
       public Builder setExecutionStartingRequest(gauge.messages.Messages.ExecutionStartingRequest value) {
         if (executionStartingRequestBuilder_ == null) {
@@ -22806,7 +22979,7 @@ public final class Messages {
        *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+       * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
        */
       public Builder setExecutionStartingRequest(
           gauge.messages.Messages.ExecutionStartingRequest.Builder builderForValue) {
@@ -22824,7 +22997,7 @@ public final class Messages {
        *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+       * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
        */
       public Builder mergeExecutionStartingRequest(gauge.messages.Messages.ExecutionStartingRequest value) {
         if (executionStartingRequestBuilder_ == null) {
@@ -22846,7 +23019,7 @@ public final class Messages {
        *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+       * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
        */
       public Builder clearExecutionStartingRequest() {
         if (executionStartingRequestBuilder_ == null) {
@@ -22864,7 +23037,7 @@ public final class Messages {
        *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+       * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
        */
       public gauge.messages.Messages.ExecutionStartingRequest.Builder getExecutionStartingRequestBuilder() {
         
@@ -22876,7 +23049,7 @@ public final class Messages {
        *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+       * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
        */
       public gauge.messages.Messages.ExecutionStartingRequestOrBuilder getExecutionStartingRequestOrBuilder() {
         if (executionStartingRequestBuilder_ != null) {
@@ -22891,7 +23064,7 @@ public final class Messages {
        *&#47; [ExecutionStartingRequest](#gauge.messages.ExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
+       * <code>.gauge.messages.ExecutionStartingRequest executionStartingRequest = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionStartingRequest, gauge.messages.Messages.ExecutionStartingRequest.Builder, gauge.messages.Messages.ExecutionStartingRequestOrBuilder> 
@@ -22915,7 +23088,7 @@ public final class Messages {
        *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+       * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
        */
       public boolean hasSpecExecutionStartingRequest() {
         return specExecutionStartingRequestBuilder_ != null || specExecutionStartingRequest_ != null;
@@ -22925,7 +23098,7 @@ public final class Messages {
        *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+       * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
        */
       public gauge.messages.Messages.SpecExecutionStartingRequest getSpecExecutionStartingRequest() {
         if (specExecutionStartingRequestBuilder_ == null) {
@@ -22939,7 +23112,7 @@ public final class Messages {
        *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+       * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
        */
       public Builder setSpecExecutionStartingRequest(gauge.messages.Messages.SpecExecutionStartingRequest value) {
         if (specExecutionStartingRequestBuilder_ == null) {
@@ -22959,7 +23132,7 @@ public final class Messages {
        *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+       * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
        */
       public Builder setSpecExecutionStartingRequest(
           gauge.messages.Messages.SpecExecutionStartingRequest.Builder builderForValue) {
@@ -22977,7 +23150,7 @@ public final class Messages {
        *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+       * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
        */
       public Builder mergeSpecExecutionStartingRequest(gauge.messages.Messages.SpecExecutionStartingRequest value) {
         if (specExecutionStartingRequestBuilder_ == null) {
@@ -22999,7 +23172,7 @@ public final class Messages {
        *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+       * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
        */
       public Builder clearSpecExecutionStartingRequest() {
         if (specExecutionStartingRequestBuilder_ == null) {
@@ -23017,7 +23190,7 @@ public final class Messages {
        *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+       * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
        */
       public gauge.messages.Messages.SpecExecutionStartingRequest.Builder getSpecExecutionStartingRequestBuilder() {
         
@@ -23029,7 +23202,7 @@ public final class Messages {
        *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+       * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
        */
       public gauge.messages.Messages.SpecExecutionStartingRequestOrBuilder getSpecExecutionStartingRequestOrBuilder() {
         if (specExecutionStartingRequestBuilder_ != null) {
@@ -23044,7 +23217,7 @@ public final class Messages {
        *&#47; [SpecExecutionStartingRequest](#gauge.messages.SpecExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
+       * <code>.gauge.messages.SpecExecutionStartingRequest specExecutionStartingRequest = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.SpecExecutionStartingRequest, gauge.messages.Messages.SpecExecutionStartingRequest.Builder, gauge.messages.Messages.SpecExecutionStartingRequestOrBuilder> 
@@ -23068,7 +23241,7 @@ public final class Messages {
        *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+       * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
        */
       public boolean hasSpecExecutionEndingRequest() {
         return specExecutionEndingRequestBuilder_ != null || specExecutionEndingRequest_ != null;
@@ -23078,7 +23251,7 @@ public final class Messages {
        *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+       * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
        */
       public gauge.messages.Messages.SpecExecutionEndingRequest getSpecExecutionEndingRequest() {
         if (specExecutionEndingRequestBuilder_ == null) {
@@ -23092,7 +23265,7 @@ public final class Messages {
        *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+       * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
        */
       public Builder setSpecExecutionEndingRequest(gauge.messages.Messages.SpecExecutionEndingRequest value) {
         if (specExecutionEndingRequestBuilder_ == null) {
@@ -23112,7 +23285,7 @@ public final class Messages {
        *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+       * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
        */
       public Builder setSpecExecutionEndingRequest(
           gauge.messages.Messages.SpecExecutionEndingRequest.Builder builderForValue) {
@@ -23130,7 +23303,7 @@ public final class Messages {
        *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+       * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
        */
       public Builder mergeSpecExecutionEndingRequest(gauge.messages.Messages.SpecExecutionEndingRequest value) {
         if (specExecutionEndingRequestBuilder_ == null) {
@@ -23152,7 +23325,7 @@ public final class Messages {
        *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+       * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
        */
       public Builder clearSpecExecutionEndingRequest() {
         if (specExecutionEndingRequestBuilder_ == null) {
@@ -23170,7 +23343,7 @@ public final class Messages {
        *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+       * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
        */
       public gauge.messages.Messages.SpecExecutionEndingRequest.Builder getSpecExecutionEndingRequestBuilder() {
         
@@ -23182,7 +23355,7 @@ public final class Messages {
        *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+       * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
        */
       public gauge.messages.Messages.SpecExecutionEndingRequestOrBuilder getSpecExecutionEndingRequestOrBuilder() {
         if (specExecutionEndingRequestBuilder_ != null) {
@@ -23197,7 +23370,7 @@ public final class Messages {
        *&#47; [SpecExecutionEndingRequest](#gauge.messages.SpecExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
+       * <code>.gauge.messages.SpecExecutionEndingRequest specExecutionEndingRequest = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.SpecExecutionEndingRequest, gauge.messages.Messages.SpecExecutionEndingRequest.Builder, gauge.messages.Messages.SpecExecutionEndingRequestOrBuilder> 
@@ -23221,7 +23394,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+       * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
        */
       public boolean hasScenarioExecutionStartingRequest() {
         return scenarioExecutionStartingRequestBuilder_ != null || scenarioExecutionStartingRequest_ != null;
@@ -23231,7 +23404,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+       * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
        */
       public gauge.messages.Messages.ScenarioExecutionStartingRequest getScenarioExecutionStartingRequest() {
         if (scenarioExecutionStartingRequestBuilder_ == null) {
@@ -23245,7 +23418,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+       * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
        */
       public Builder setScenarioExecutionStartingRequest(gauge.messages.Messages.ScenarioExecutionStartingRequest value) {
         if (scenarioExecutionStartingRequestBuilder_ == null) {
@@ -23265,7 +23438,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+       * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
        */
       public Builder setScenarioExecutionStartingRequest(
           gauge.messages.Messages.ScenarioExecutionStartingRequest.Builder builderForValue) {
@@ -23283,7 +23456,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+       * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
        */
       public Builder mergeScenarioExecutionStartingRequest(gauge.messages.Messages.ScenarioExecutionStartingRequest value) {
         if (scenarioExecutionStartingRequestBuilder_ == null) {
@@ -23305,7 +23478,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+       * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
        */
       public Builder clearScenarioExecutionStartingRequest() {
         if (scenarioExecutionStartingRequestBuilder_ == null) {
@@ -23323,7 +23496,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+       * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
        */
       public gauge.messages.Messages.ScenarioExecutionStartingRequest.Builder getScenarioExecutionStartingRequestBuilder() {
         
@@ -23335,7 +23508,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+       * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
        */
       public gauge.messages.Messages.ScenarioExecutionStartingRequestOrBuilder getScenarioExecutionStartingRequestOrBuilder() {
         if (scenarioExecutionStartingRequestBuilder_ != null) {
@@ -23350,7 +23523,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionStartingRequest](#gauge.messages.ScenarioExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
+       * <code>.gauge.messages.ScenarioExecutionStartingRequest scenarioExecutionStartingRequest = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ScenarioExecutionStartingRequest, gauge.messages.Messages.ScenarioExecutionStartingRequest.Builder, gauge.messages.Messages.ScenarioExecutionStartingRequestOrBuilder> 
@@ -23374,7 +23547,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+       * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
        */
       public boolean hasScenarioExecutionEndingRequest() {
         return scenarioExecutionEndingRequestBuilder_ != null || scenarioExecutionEndingRequest_ != null;
@@ -23384,7 +23557,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+       * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
        */
       public gauge.messages.Messages.ScenarioExecutionEndingRequest getScenarioExecutionEndingRequest() {
         if (scenarioExecutionEndingRequestBuilder_ == null) {
@@ -23398,7 +23571,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+       * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
        */
       public Builder setScenarioExecutionEndingRequest(gauge.messages.Messages.ScenarioExecutionEndingRequest value) {
         if (scenarioExecutionEndingRequestBuilder_ == null) {
@@ -23418,7 +23591,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+       * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
        */
       public Builder setScenarioExecutionEndingRequest(
           gauge.messages.Messages.ScenarioExecutionEndingRequest.Builder builderForValue) {
@@ -23436,7 +23609,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+       * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
        */
       public Builder mergeScenarioExecutionEndingRequest(gauge.messages.Messages.ScenarioExecutionEndingRequest value) {
         if (scenarioExecutionEndingRequestBuilder_ == null) {
@@ -23458,7 +23631,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+       * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
        */
       public Builder clearScenarioExecutionEndingRequest() {
         if (scenarioExecutionEndingRequestBuilder_ == null) {
@@ -23476,7 +23649,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+       * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
        */
       public gauge.messages.Messages.ScenarioExecutionEndingRequest.Builder getScenarioExecutionEndingRequestBuilder() {
         
@@ -23488,7 +23661,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+       * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
        */
       public gauge.messages.Messages.ScenarioExecutionEndingRequestOrBuilder getScenarioExecutionEndingRequestOrBuilder() {
         if (scenarioExecutionEndingRequestBuilder_ != null) {
@@ -23503,7 +23676,7 @@ public final class Messages {
        *&#47; [ScenarioExecutionEndingRequest](#gauge.messages.ScenarioExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
+       * <code>.gauge.messages.ScenarioExecutionEndingRequest scenarioExecutionEndingRequest = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ScenarioExecutionEndingRequest, gauge.messages.Messages.ScenarioExecutionEndingRequest.Builder, gauge.messages.Messages.ScenarioExecutionEndingRequestOrBuilder> 
@@ -23527,7 +23700,7 @@ public final class Messages {
        *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+       * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
        */
       public boolean hasStepExecutionStartingRequest() {
         return stepExecutionStartingRequestBuilder_ != null || stepExecutionStartingRequest_ != null;
@@ -23537,7 +23710,7 @@ public final class Messages {
        *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+       * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
        */
       public gauge.messages.Messages.StepExecutionStartingRequest getStepExecutionStartingRequest() {
         if (stepExecutionStartingRequestBuilder_ == null) {
@@ -23551,7 +23724,7 @@ public final class Messages {
        *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+       * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
        */
       public Builder setStepExecutionStartingRequest(gauge.messages.Messages.StepExecutionStartingRequest value) {
         if (stepExecutionStartingRequestBuilder_ == null) {
@@ -23571,7 +23744,7 @@ public final class Messages {
        *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+       * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
        */
       public Builder setStepExecutionStartingRequest(
           gauge.messages.Messages.StepExecutionStartingRequest.Builder builderForValue) {
@@ -23589,7 +23762,7 @@ public final class Messages {
        *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+       * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
        */
       public Builder mergeStepExecutionStartingRequest(gauge.messages.Messages.StepExecutionStartingRequest value) {
         if (stepExecutionStartingRequestBuilder_ == null) {
@@ -23611,7 +23784,7 @@ public final class Messages {
        *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+       * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
        */
       public Builder clearStepExecutionStartingRequest() {
         if (stepExecutionStartingRequestBuilder_ == null) {
@@ -23629,7 +23802,7 @@ public final class Messages {
        *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+       * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
        */
       public gauge.messages.Messages.StepExecutionStartingRequest.Builder getStepExecutionStartingRequestBuilder() {
         
@@ -23641,7 +23814,7 @@ public final class Messages {
        *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+       * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
        */
       public gauge.messages.Messages.StepExecutionStartingRequestOrBuilder getStepExecutionStartingRequestOrBuilder() {
         if (stepExecutionStartingRequestBuilder_ != null) {
@@ -23656,7 +23829,7 @@ public final class Messages {
        *&#47; [StepExecutionStartingRequest](#gauge.messages.StepExecutionStartingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
+       * <code>.gauge.messages.StepExecutionStartingRequest stepExecutionStartingRequest = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.StepExecutionStartingRequest, gauge.messages.Messages.StepExecutionStartingRequest.Builder, gauge.messages.Messages.StepExecutionStartingRequestOrBuilder> 
@@ -23680,7 +23853,7 @@ public final class Messages {
        *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+       * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
        */
       public boolean hasStepExecutionEndingRequest() {
         return stepExecutionEndingRequestBuilder_ != null || stepExecutionEndingRequest_ != null;
@@ -23690,7 +23863,7 @@ public final class Messages {
        *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+       * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
        */
       public gauge.messages.Messages.StepExecutionEndingRequest getStepExecutionEndingRequest() {
         if (stepExecutionEndingRequestBuilder_ == null) {
@@ -23704,7 +23877,7 @@ public final class Messages {
        *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+       * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
        */
       public Builder setStepExecutionEndingRequest(gauge.messages.Messages.StepExecutionEndingRequest value) {
         if (stepExecutionEndingRequestBuilder_ == null) {
@@ -23724,7 +23897,7 @@ public final class Messages {
        *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+       * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
        */
       public Builder setStepExecutionEndingRequest(
           gauge.messages.Messages.StepExecutionEndingRequest.Builder builderForValue) {
@@ -23742,7 +23915,7 @@ public final class Messages {
        *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+       * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
        */
       public Builder mergeStepExecutionEndingRequest(gauge.messages.Messages.StepExecutionEndingRequest value) {
         if (stepExecutionEndingRequestBuilder_ == null) {
@@ -23764,7 +23937,7 @@ public final class Messages {
        *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+       * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
        */
       public Builder clearStepExecutionEndingRequest() {
         if (stepExecutionEndingRequestBuilder_ == null) {
@@ -23782,7 +23955,7 @@ public final class Messages {
        *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+       * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
        */
       public gauge.messages.Messages.StepExecutionEndingRequest.Builder getStepExecutionEndingRequestBuilder() {
         
@@ -23794,7 +23967,7 @@ public final class Messages {
        *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+       * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
        */
       public gauge.messages.Messages.StepExecutionEndingRequestOrBuilder getStepExecutionEndingRequestOrBuilder() {
         if (stepExecutionEndingRequestBuilder_ != null) {
@@ -23809,7 +23982,7 @@ public final class Messages {
        *&#47; [StepExecutionEndingRequest](#gauge.messages.StepExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
+       * <code>.gauge.messages.StepExecutionEndingRequest stepExecutionEndingRequest = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.StepExecutionEndingRequest, gauge.messages.Messages.StepExecutionEndingRequest.Builder, gauge.messages.Messages.StepExecutionEndingRequestOrBuilder> 
@@ -23833,7 +24006,7 @@ public final class Messages {
        *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+       * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
        */
       public boolean hasExecuteStepRequest() {
         return executeStepRequestBuilder_ != null || executeStepRequest_ != null;
@@ -23843,7 +24016,7 @@ public final class Messages {
        *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+       * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
        */
       public gauge.messages.Messages.ExecuteStepRequest getExecuteStepRequest() {
         if (executeStepRequestBuilder_ == null) {
@@ -23857,7 +24030,7 @@ public final class Messages {
        *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+       * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
        */
       public Builder setExecuteStepRequest(gauge.messages.Messages.ExecuteStepRequest value) {
         if (executeStepRequestBuilder_ == null) {
@@ -23877,7 +24050,7 @@ public final class Messages {
        *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+       * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
        */
       public Builder setExecuteStepRequest(
           gauge.messages.Messages.ExecuteStepRequest.Builder builderForValue) {
@@ -23895,7 +24068,7 @@ public final class Messages {
        *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+       * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
        */
       public Builder mergeExecuteStepRequest(gauge.messages.Messages.ExecuteStepRequest value) {
         if (executeStepRequestBuilder_ == null) {
@@ -23917,7 +24090,7 @@ public final class Messages {
        *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+       * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
        */
       public Builder clearExecuteStepRequest() {
         if (executeStepRequestBuilder_ == null) {
@@ -23935,7 +24108,7 @@ public final class Messages {
        *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+       * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
        */
       public gauge.messages.Messages.ExecuteStepRequest.Builder getExecuteStepRequestBuilder() {
         
@@ -23947,7 +24120,7 @@ public final class Messages {
        *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+       * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
        */
       public gauge.messages.Messages.ExecuteStepRequestOrBuilder getExecuteStepRequestOrBuilder() {
         if (executeStepRequestBuilder_ != null) {
@@ -23962,7 +24135,7 @@ public final class Messages {
        *&#47; [ExecuteStepRequest](#gauge.messages.ExecuteStepRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
+       * <code>.gauge.messages.ExecuteStepRequest executeStepRequest = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecuteStepRequest, gauge.messages.Messages.ExecuteStepRequest.Builder, gauge.messages.Messages.ExecuteStepRequestOrBuilder> 
@@ -23986,7 +24159,7 @@ public final class Messages {
        *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+       * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
        */
       public boolean hasExecutionEndingRequest() {
         return executionEndingRequestBuilder_ != null || executionEndingRequest_ != null;
@@ -23996,7 +24169,7 @@ public final class Messages {
        *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+       * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
        */
       public gauge.messages.Messages.ExecutionEndingRequest getExecutionEndingRequest() {
         if (executionEndingRequestBuilder_ == null) {
@@ -24010,7 +24183,7 @@ public final class Messages {
        *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+       * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
        */
       public Builder setExecutionEndingRequest(gauge.messages.Messages.ExecutionEndingRequest value) {
         if (executionEndingRequestBuilder_ == null) {
@@ -24030,7 +24203,7 @@ public final class Messages {
        *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+       * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
        */
       public Builder setExecutionEndingRequest(
           gauge.messages.Messages.ExecutionEndingRequest.Builder builderForValue) {
@@ -24048,7 +24221,7 @@ public final class Messages {
        *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+       * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
        */
       public Builder mergeExecutionEndingRequest(gauge.messages.Messages.ExecutionEndingRequest value) {
         if (executionEndingRequestBuilder_ == null) {
@@ -24070,7 +24243,7 @@ public final class Messages {
        *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+       * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
        */
       public Builder clearExecutionEndingRequest() {
         if (executionEndingRequestBuilder_ == null) {
@@ -24088,7 +24261,7 @@ public final class Messages {
        *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+       * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
        */
       public gauge.messages.Messages.ExecutionEndingRequest.Builder getExecutionEndingRequestBuilder() {
         
@@ -24100,7 +24273,7 @@ public final class Messages {
        *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+       * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
        */
       public gauge.messages.Messages.ExecutionEndingRequestOrBuilder getExecutionEndingRequestOrBuilder() {
         if (executionEndingRequestBuilder_ != null) {
@@ -24115,7 +24288,7 @@ public final class Messages {
        *&#47; [ExecutionEndingRequest](#gauge.messages.ExecutionEndingRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
+       * <code>.gauge.messages.ExecutionEndingRequest executionEndingRequest = 11;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionEndingRequest, gauge.messages.Messages.ExecutionEndingRequest.Builder, gauge.messages.Messages.ExecutionEndingRequestOrBuilder> 
@@ -24139,7 +24312,7 @@ public final class Messages {
        *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+       * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
        */
       public boolean hasStepValidateRequest() {
         return stepValidateRequestBuilder_ != null || stepValidateRequest_ != null;
@@ -24149,7 +24322,7 @@ public final class Messages {
        *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+       * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
        */
       public gauge.messages.Messages.StepValidateRequest getStepValidateRequest() {
         if (stepValidateRequestBuilder_ == null) {
@@ -24163,7 +24336,7 @@ public final class Messages {
        *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+       * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
        */
       public Builder setStepValidateRequest(gauge.messages.Messages.StepValidateRequest value) {
         if (stepValidateRequestBuilder_ == null) {
@@ -24183,7 +24356,7 @@ public final class Messages {
        *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+       * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
        */
       public Builder setStepValidateRequest(
           gauge.messages.Messages.StepValidateRequest.Builder builderForValue) {
@@ -24201,7 +24374,7 @@ public final class Messages {
        *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+       * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
        */
       public Builder mergeStepValidateRequest(gauge.messages.Messages.StepValidateRequest value) {
         if (stepValidateRequestBuilder_ == null) {
@@ -24223,7 +24396,7 @@ public final class Messages {
        *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+       * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
        */
       public Builder clearStepValidateRequest() {
         if (stepValidateRequestBuilder_ == null) {
@@ -24241,7 +24414,7 @@ public final class Messages {
        *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+       * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
        */
       public gauge.messages.Messages.StepValidateRequest.Builder getStepValidateRequestBuilder() {
         
@@ -24253,7 +24426,7 @@ public final class Messages {
        *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+       * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
        */
       public gauge.messages.Messages.StepValidateRequestOrBuilder getStepValidateRequestOrBuilder() {
         if (stepValidateRequestBuilder_ != null) {
@@ -24268,7 +24441,7 @@ public final class Messages {
        *&#47; [StepValidateRequest](#gauge.messages.StepValidateRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
+       * <code>.gauge.messages.StepValidateRequest stepValidateRequest = 12;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.StepValidateRequest, gauge.messages.Messages.StepValidateRequest.Builder, gauge.messages.Messages.StepValidateRequestOrBuilder> 
@@ -24292,7 +24465,7 @@ public final class Messages {
        *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+       * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
        */
       public boolean hasStepValidateResponse() {
         return stepValidateResponseBuilder_ != null || stepValidateResponse_ != null;
@@ -24302,7 +24475,7 @@ public final class Messages {
        *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+       * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
        */
       public gauge.messages.Messages.StepValidateResponse getStepValidateResponse() {
         if (stepValidateResponseBuilder_ == null) {
@@ -24316,7 +24489,7 @@ public final class Messages {
        *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+       * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
        */
       public Builder setStepValidateResponse(gauge.messages.Messages.StepValidateResponse value) {
         if (stepValidateResponseBuilder_ == null) {
@@ -24336,7 +24509,7 @@ public final class Messages {
        *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+       * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
        */
       public Builder setStepValidateResponse(
           gauge.messages.Messages.StepValidateResponse.Builder builderForValue) {
@@ -24354,7 +24527,7 @@ public final class Messages {
        *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+       * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
        */
       public Builder mergeStepValidateResponse(gauge.messages.Messages.StepValidateResponse value) {
         if (stepValidateResponseBuilder_ == null) {
@@ -24376,7 +24549,7 @@ public final class Messages {
        *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+       * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
        */
       public Builder clearStepValidateResponse() {
         if (stepValidateResponseBuilder_ == null) {
@@ -24394,7 +24567,7 @@ public final class Messages {
        *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+       * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
        */
       public gauge.messages.Messages.StepValidateResponse.Builder getStepValidateResponseBuilder() {
         
@@ -24406,7 +24579,7 @@ public final class Messages {
        *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+       * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
        */
       public gauge.messages.Messages.StepValidateResponseOrBuilder getStepValidateResponseOrBuilder() {
         if (stepValidateResponseBuilder_ != null) {
@@ -24421,7 +24594,7 @@ public final class Messages {
        *&#47; [StepValidateResponse](#gauge.messages.StepValidateResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
+       * <code>.gauge.messages.StepValidateResponse stepValidateResponse = 13;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.StepValidateResponse, gauge.messages.Messages.StepValidateResponse.Builder, gauge.messages.Messages.StepValidateResponseOrBuilder> 
@@ -24445,7 +24618,7 @@ public final class Messages {
        *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+       * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
        */
       public boolean hasExecutionStatusResponse() {
         return executionStatusResponseBuilder_ != null || executionStatusResponse_ != null;
@@ -24455,7 +24628,7 @@ public final class Messages {
        *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+       * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
        */
       public gauge.messages.Messages.ExecutionStatusResponse getExecutionStatusResponse() {
         if (executionStatusResponseBuilder_ == null) {
@@ -24469,7 +24642,7 @@ public final class Messages {
        *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+       * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
        */
       public Builder setExecutionStatusResponse(gauge.messages.Messages.ExecutionStatusResponse value) {
         if (executionStatusResponseBuilder_ == null) {
@@ -24489,7 +24662,7 @@ public final class Messages {
        *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+       * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
        */
       public Builder setExecutionStatusResponse(
           gauge.messages.Messages.ExecutionStatusResponse.Builder builderForValue) {
@@ -24507,7 +24680,7 @@ public final class Messages {
        *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+       * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
        */
       public Builder mergeExecutionStatusResponse(gauge.messages.Messages.ExecutionStatusResponse value) {
         if (executionStatusResponseBuilder_ == null) {
@@ -24529,7 +24702,7 @@ public final class Messages {
        *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+       * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
        */
       public Builder clearExecutionStatusResponse() {
         if (executionStatusResponseBuilder_ == null) {
@@ -24547,7 +24720,7 @@ public final class Messages {
        *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+       * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
        */
       public gauge.messages.Messages.ExecutionStatusResponse.Builder getExecutionStatusResponseBuilder() {
         
@@ -24559,7 +24732,7 @@ public final class Messages {
        *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+       * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
        */
       public gauge.messages.Messages.ExecutionStatusResponseOrBuilder getExecutionStatusResponseOrBuilder() {
         if (executionStatusResponseBuilder_ != null) {
@@ -24574,7 +24747,7 @@ public final class Messages {
        *&#47; [ExecutionStatusResponse](#gauge.messages.ExecutionStatusResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
+       * <code>.gauge.messages.ExecutionStatusResponse executionStatusResponse = 14;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionStatusResponse, gauge.messages.Messages.ExecutionStatusResponse.Builder, gauge.messages.Messages.ExecutionStatusResponseOrBuilder> 
@@ -24598,7 +24771,7 @@ public final class Messages {
        *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+       * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
        */
       public boolean hasStepNamesRequest() {
         return stepNamesRequestBuilder_ != null || stepNamesRequest_ != null;
@@ -24608,7 +24781,7 @@ public final class Messages {
        *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+       * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
        */
       public gauge.messages.Messages.StepNamesRequest getStepNamesRequest() {
         if (stepNamesRequestBuilder_ == null) {
@@ -24622,7 +24795,7 @@ public final class Messages {
        *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+       * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
        */
       public Builder setStepNamesRequest(gauge.messages.Messages.StepNamesRequest value) {
         if (stepNamesRequestBuilder_ == null) {
@@ -24642,7 +24815,7 @@ public final class Messages {
        *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+       * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
        */
       public Builder setStepNamesRequest(
           gauge.messages.Messages.StepNamesRequest.Builder builderForValue) {
@@ -24660,7 +24833,7 @@ public final class Messages {
        *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+       * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
        */
       public Builder mergeStepNamesRequest(gauge.messages.Messages.StepNamesRequest value) {
         if (stepNamesRequestBuilder_ == null) {
@@ -24682,7 +24855,7 @@ public final class Messages {
        *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+       * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
        */
       public Builder clearStepNamesRequest() {
         if (stepNamesRequestBuilder_ == null) {
@@ -24700,7 +24873,7 @@ public final class Messages {
        *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+       * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
        */
       public gauge.messages.Messages.StepNamesRequest.Builder getStepNamesRequestBuilder() {
         
@@ -24712,7 +24885,7 @@ public final class Messages {
        *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+       * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
        */
       public gauge.messages.Messages.StepNamesRequestOrBuilder getStepNamesRequestOrBuilder() {
         if (stepNamesRequestBuilder_ != null) {
@@ -24727,7 +24900,7 @@ public final class Messages {
        *&#47; [StepNamesRequest](#gauge.messages.StepNamesRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
+       * <code>.gauge.messages.StepNamesRequest stepNamesRequest = 15;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.StepNamesRequest, gauge.messages.Messages.StepNamesRequest.Builder, gauge.messages.Messages.StepNamesRequestOrBuilder> 
@@ -24751,7 +24924,7 @@ public final class Messages {
        *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+       * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
        */
       public boolean hasStepNamesResponse() {
         return stepNamesResponseBuilder_ != null || stepNamesResponse_ != null;
@@ -24761,7 +24934,7 @@ public final class Messages {
        *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+       * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
        */
       public gauge.messages.Messages.StepNamesResponse getStepNamesResponse() {
         if (stepNamesResponseBuilder_ == null) {
@@ -24775,7 +24948,7 @@ public final class Messages {
        *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+       * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
        */
       public Builder setStepNamesResponse(gauge.messages.Messages.StepNamesResponse value) {
         if (stepNamesResponseBuilder_ == null) {
@@ -24795,7 +24968,7 @@ public final class Messages {
        *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+       * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
        */
       public Builder setStepNamesResponse(
           gauge.messages.Messages.StepNamesResponse.Builder builderForValue) {
@@ -24813,7 +24986,7 @@ public final class Messages {
        *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+       * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
        */
       public Builder mergeStepNamesResponse(gauge.messages.Messages.StepNamesResponse value) {
         if (stepNamesResponseBuilder_ == null) {
@@ -24835,7 +25008,7 @@ public final class Messages {
        *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+       * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
        */
       public Builder clearStepNamesResponse() {
         if (stepNamesResponseBuilder_ == null) {
@@ -24853,7 +25026,7 @@ public final class Messages {
        *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+       * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
        */
       public gauge.messages.Messages.StepNamesResponse.Builder getStepNamesResponseBuilder() {
         
@@ -24865,7 +25038,7 @@ public final class Messages {
        *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+       * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
        */
       public gauge.messages.Messages.StepNamesResponseOrBuilder getStepNamesResponseOrBuilder() {
         if (stepNamesResponseBuilder_ != null) {
@@ -24880,7 +25053,7 @@ public final class Messages {
        *&#47; [StepNamesResponse](#gauge.messages.StepNamesResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
+       * <code>.gauge.messages.StepNamesResponse stepNamesResponse = 16;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.StepNamesResponse, gauge.messages.Messages.StepNamesResponse.Builder, gauge.messages.Messages.StepNamesResponseOrBuilder> 
@@ -24904,7 +25077,7 @@ public final class Messages {
        *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+       * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
        */
       public boolean hasSuiteExecutionResult() {
         return suiteExecutionResultBuilder_ != null || suiteExecutionResult_ != null;
@@ -24914,7 +25087,7 @@ public final class Messages {
        *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+       * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
        */
       public gauge.messages.Messages.SuiteExecutionResult getSuiteExecutionResult() {
         if (suiteExecutionResultBuilder_ == null) {
@@ -24928,7 +25101,7 @@ public final class Messages {
        *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+       * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
        */
       public Builder setSuiteExecutionResult(gauge.messages.Messages.SuiteExecutionResult value) {
         if (suiteExecutionResultBuilder_ == null) {
@@ -24948,7 +25121,7 @@ public final class Messages {
        *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+       * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
        */
       public Builder setSuiteExecutionResult(
           gauge.messages.Messages.SuiteExecutionResult.Builder builderForValue) {
@@ -24966,7 +25139,7 @@ public final class Messages {
        *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+       * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
        */
       public Builder mergeSuiteExecutionResult(gauge.messages.Messages.SuiteExecutionResult value) {
         if (suiteExecutionResultBuilder_ == null) {
@@ -24988,7 +25161,7 @@ public final class Messages {
        *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+       * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
        */
       public Builder clearSuiteExecutionResult() {
         if (suiteExecutionResultBuilder_ == null) {
@@ -25006,7 +25179,7 @@ public final class Messages {
        *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+       * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
        */
       public gauge.messages.Messages.SuiteExecutionResult.Builder getSuiteExecutionResultBuilder() {
         
@@ -25018,7 +25191,7 @@ public final class Messages {
        *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+       * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
        */
       public gauge.messages.Messages.SuiteExecutionResultOrBuilder getSuiteExecutionResultOrBuilder() {
         if (suiteExecutionResultBuilder_ != null) {
@@ -25033,7 +25206,7 @@ public final class Messages {
        *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
+       * <code>.gauge.messages.SuiteExecutionResult suiteExecutionResult = 17;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.SuiteExecutionResult, gauge.messages.Messages.SuiteExecutionResult.Builder, gauge.messages.Messages.SuiteExecutionResultOrBuilder> 
@@ -25057,7 +25230,7 @@ public final class Messages {
        *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+       * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
        */
       public boolean hasKillProcessRequest() {
         return killProcessRequestBuilder_ != null || killProcessRequest_ != null;
@@ -25067,7 +25240,7 @@ public final class Messages {
        *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+       * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
        */
       public gauge.messages.Messages.KillProcessRequest getKillProcessRequest() {
         if (killProcessRequestBuilder_ == null) {
@@ -25081,7 +25254,7 @@ public final class Messages {
        *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+       * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
        */
       public Builder setKillProcessRequest(gauge.messages.Messages.KillProcessRequest value) {
         if (killProcessRequestBuilder_ == null) {
@@ -25101,7 +25274,7 @@ public final class Messages {
        *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+       * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
        */
       public Builder setKillProcessRequest(
           gauge.messages.Messages.KillProcessRequest.Builder builderForValue) {
@@ -25119,7 +25292,7 @@ public final class Messages {
        *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+       * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
        */
       public Builder mergeKillProcessRequest(gauge.messages.Messages.KillProcessRequest value) {
         if (killProcessRequestBuilder_ == null) {
@@ -25141,7 +25314,7 @@ public final class Messages {
        *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+       * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
        */
       public Builder clearKillProcessRequest() {
         if (killProcessRequestBuilder_ == null) {
@@ -25159,7 +25332,7 @@ public final class Messages {
        *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+       * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
        */
       public gauge.messages.Messages.KillProcessRequest.Builder getKillProcessRequestBuilder() {
         
@@ -25171,7 +25344,7 @@ public final class Messages {
        *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+       * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
        */
       public gauge.messages.Messages.KillProcessRequestOrBuilder getKillProcessRequestOrBuilder() {
         if (killProcessRequestBuilder_ != null) {
@@ -25186,7 +25359,7 @@ public final class Messages {
        *&#47; [KillProcessRequest](#gauge.messages.KillProcessRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
+       * <code>.gauge.messages.KillProcessRequest killProcessRequest = 18;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.KillProcessRequest, gauge.messages.Messages.KillProcessRequest.Builder, gauge.messages.Messages.KillProcessRequestOrBuilder> 
@@ -25210,7 +25383,7 @@ public final class Messages {
        *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
        */
       public boolean hasScenarioDataStoreInitRequest() {
         return scenarioDataStoreInitRequestBuilder_ != null || scenarioDataStoreInitRequest_ != null;
@@ -25220,7 +25393,7 @@ public final class Messages {
        *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
        */
       public gauge.messages.Messages.ScenarioDataStoreInitRequest getScenarioDataStoreInitRequest() {
         if (scenarioDataStoreInitRequestBuilder_ == null) {
@@ -25234,7 +25407,7 @@ public final class Messages {
        *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
        */
       public Builder setScenarioDataStoreInitRequest(gauge.messages.Messages.ScenarioDataStoreInitRequest value) {
         if (scenarioDataStoreInitRequestBuilder_ == null) {
@@ -25254,7 +25427,7 @@ public final class Messages {
        *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
        */
       public Builder setScenarioDataStoreInitRequest(
           gauge.messages.Messages.ScenarioDataStoreInitRequest.Builder builderForValue) {
@@ -25272,7 +25445,7 @@ public final class Messages {
        *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
        */
       public Builder mergeScenarioDataStoreInitRequest(gauge.messages.Messages.ScenarioDataStoreInitRequest value) {
         if (scenarioDataStoreInitRequestBuilder_ == null) {
@@ -25294,7 +25467,7 @@ public final class Messages {
        *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
        */
       public Builder clearScenarioDataStoreInitRequest() {
         if (scenarioDataStoreInitRequestBuilder_ == null) {
@@ -25312,7 +25485,7 @@ public final class Messages {
        *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
        */
       public gauge.messages.Messages.ScenarioDataStoreInitRequest.Builder getScenarioDataStoreInitRequestBuilder() {
         
@@ -25324,7 +25497,7 @@ public final class Messages {
        *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
        */
       public gauge.messages.Messages.ScenarioDataStoreInitRequestOrBuilder getScenarioDataStoreInitRequestOrBuilder() {
         if (scenarioDataStoreInitRequestBuilder_ != null) {
@@ -25339,7 +25512,7 @@ public final class Messages {
        *&#47; [ScenarioDataStoreInitRequest](#gauge.messages.ScenarioDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
+       * <code>.gauge.messages.ScenarioDataStoreInitRequest scenarioDataStoreInitRequest = 19;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ScenarioDataStoreInitRequest, gauge.messages.Messages.ScenarioDataStoreInitRequest.Builder, gauge.messages.Messages.ScenarioDataStoreInitRequestOrBuilder> 
@@ -25363,7 +25536,7 @@ public final class Messages {
        *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
        */
       public boolean hasSpecDataStoreInitRequest() {
         return specDataStoreInitRequestBuilder_ != null || specDataStoreInitRequest_ != null;
@@ -25373,7 +25546,7 @@ public final class Messages {
        *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
        */
       public gauge.messages.Messages.SpecDataStoreInitRequest getSpecDataStoreInitRequest() {
         if (specDataStoreInitRequestBuilder_ == null) {
@@ -25387,7 +25560,7 @@ public final class Messages {
        *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
        */
       public Builder setSpecDataStoreInitRequest(gauge.messages.Messages.SpecDataStoreInitRequest value) {
         if (specDataStoreInitRequestBuilder_ == null) {
@@ -25407,7 +25580,7 @@ public final class Messages {
        *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
        */
       public Builder setSpecDataStoreInitRequest(
           gauge.messages.Messages.SpecDataStoreInitRequest.Builder builderForValue) {
@@ -25425,7 +25598,7 @@ public final class Messages {
        *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
        */
       public Builder mergeSpecDataStoreInitRequest(gauge.messages.Messages.SpecDataStoreInitRequest value) {
         if (specDataStoreInitRequestBuilder_ == null) {
@@ -25447,7 +25620,7 @@ public final class Messages {
        *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
        */
       public Builder clearSpecDataStoreInitRequest() {
         if (specDataStoreInitRequestBuilder_ == null) {
@@ -25465,7 +25638,7 @@ public final class Messages {
        *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
        */
       public gauge.messages.Messages.SpecDataStoreInitRequest.Builder getSpecDataStoreInitRequestBuilder() {
         
@@ -25477,7 +25650,7 @@ public final class Messages {
        *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
        */
       public gauge.messages.Messages.SpecDataStoreInitRequestOrBuilder getSpecDataStoreInitRequestOrBuilder() {
         if (specDataStoreInitRequestBuilder_ != null) {
@@ -25492,7 +25665,7 @@ public final class Messages {
        *&#47; [SpecDataStoreInitRequest](#gauge.messages.SpecDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
+       * <code>.gauge.messages.SpecDataStoreInitRequest specDataStoreInitRequest = 20;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.SpecDataStoreInitRequest, gauge.messages.Messages.SpecDataStoreInitRequest.Builder, gauge.messages.Messages.SpecDataStoreInitRequestOrBuilder> 
@@ -25516,7 +25689,7 @@ public final class Messages {
        *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
        */
       public boolean hasSuiteDataStoreInitRequest() {
         return suiteDataStoreInitRequestBuilder_ != null || suiteDataStoreInitRequest_ != null;
@@ -25526,7 +25699,7 @@ public final class Messages {
        *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
        */
       public gauge.messages.Messages.SuiteDataStoreInitRequest getSuiteDataStoreInitRequest() {
         if (suiteDataStoreInitRequestBuilder_ == null) {
@@ -25540,7 +25713,7 @@ public final class Messages {
        *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
        */
       public Builder setSuiteDataStoreInitRequest(gauge.messages.Messages.SuiteDataStoreInitRequest value) {
         if (suiteDataStoreInitRequestBuilder_ == null) {
@@ -25560,7 +25733,7 @@ public final class Messages {
        *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
        */
       public Builder setSuiteDataStoreInitRequest(
           gauge.messages.Messages.SuiteDataStoreInitRequest.Builder builderForValue) {
@@ -25578,7 +25751,7 @@ public final class Messages {
        *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
        */
       public Builder mergeSuiteDataStoreInitRequest(gauge.messages.Messages.SuiteDataStoreInitRequest value) {
         if (suiteDataStoreInitRequestBuilder_ == null) {
@@ -25600,7 +25773,7 @@ public final class Messages {
        *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
        */
       public Builder clearSuiteDataStoreInitRequest() {
         if (suiteDataStoreInitRequestBuilder_ == null) {
@@ -25618,7 +25791,7 @@ public final class Messages {
        *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
        */
       public gauge.messages.Messages.SuiteDataStoreInitRequest.Builder getSuiteDataStoreInitRequestBuilder() {
         
@@ -25630,7 +25803,7 @@ public final class Messages {
        *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
        */
       public gauge.messages.Messages.SuiteDataStoreInitRequestOrBuilder getSuiteDataStoreInitRequestOrBuilder() {
         if (suiteDataStoreInitRequestBuilder_ != null) {
@@ -25645,7 +25818,7 @@ public final class Messages {
        *&#47; [SuiteDataStoreInitRequest](#gauge.messages.SuiteDataStoreInitRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
+       * <code>.gauge.messages.SuiteDataStoreInitRequest suiteDataStoreInitRequest = 21;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.SuiteDataStoreInitRequest, gauge.messages.Messages.SuiteDataStoreInitRequest.Builder, gauge.messages.Messages.SuiteDataStoreInitRequestOrBuilder> 
@@ -25669,7 +25842,7 @@ public final class Messages {
        *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+       * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
        */
       public boolean hasStepNameRequest() {
         return stepNameRequestBuilder_ != null || stepNameRequest_ != null;
@@ -25679,7 +25852,7 @@ public final class Messages {
        *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+       * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
        */
       public gauge.messages.Messages.StepNameRequest getStepNameRequest() {
         if (stepNameRequestBuilder_ == null) {
@@ -25693,7 +25866,7 @@ public final class Messages {
        *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+       * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
        */
       public Builder setStepNameRequest(gauge.messages.Messages.StepNameRequest value) {
         if (stepNameRequestBuilder_ == null) {
@@ -25713,7 +25886,7 @@ public final class Messages {
        *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+       * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
        */
       public Builder setStepNameRequest(
           gauge.messages.Messages.StepNameRequest.Builder builderForValue) {
@@ -25731,7 +25904,7 @@ public final class Messages {
        *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+       * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
        */
       public Builder mergeStepNameRequest(gauge.messages.Messages.StepNameRequest value) {
         if (stepNameRequestBuilder_ == null) {
@@ -25753,7 +25926,7 @@ public final class Messages {
        *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+       * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
        */
       public Builder clearStepNameRequest() {
         if (stepNameRequestBuilder_ == null) {
@@ -25771,7 +25944,7 @@ public final class Messages {
        *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+       * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
        */
       public gauge.messages.Messages.StepNameRequest.Builder getStepNameRequestBuilder() {
         
@@ -25783,7 +25956,7 @@ public final class Messages {
        *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+       * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
        */
       public gauge.messages.Messages.StepNameRequestOrBuilder getStepNameRequestOrBuilder() {
         if (stepNameRequestBuilder_ != null) {
@@ -25798,7 +25971,7 @@ public final class Messages {
        *&#47; [StepNameRequest](#gauge.messages.StepNameRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameRequest stepNameRequest = 22;</code>
+       * <code>.gauge.messages.StepNameRequest stepNameRequest = 22;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.StepNameRequest, gauge.messages.Messages.StepNameRequest.Builder, gauge.messages.Messages.StepNameRequestOrBuilder> 
@@ -25822,7 +25995,7 @@ public final class Messages {
        *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+       * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
        */
       public boolean hasStepNameResponse() {
         return stepNameResponseBuilder_ != null || stepNameResponse_ != null;
@@ -25832,7 +26005,7 @@ public final class Messages {
        *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+       * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
        */
       public gauge.messages.Messages.StepNameResponse getStepNameResponse() {
         if (stepNameResponseBuilder_ == null) {
@@ -25846,7 +26019,7 @@ public final class Messages {
        *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+       * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
        */
       public Builder setStepNameResponse(gauge.messages.Messages.StepNameResponse value) {
         if (stepNameResponseBuilder_ == null) {
@@ -25866,7 +26039,7 @@ public final class Messages {
        *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+       * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
        */
       public Builder setStepNameResponse(
           gauge.messages.Messages.StepNameResponse.Builder builderForValue) {
@@ -25884,7 +26057,7 @@ public final class Messages {
        *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+       * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
        */
       public Builder mergeStepNameResponse(gauge.messages.Messages.StepNameResponse value) {
         if (stepNameResponseBuilder_ == null) {
@@ -25906,7 +26079,7 @@ public final class Messages {
        *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+       * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
        */
       public Builder clearStepNameResponse() {
         if (stepNameResponseBuilder_ == null) {
@@ -25924,7 +26097,7 @@ public final class Messages {
        *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+       * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
        */
       public gauge.messages.Messages.StepNameResponse.Builder getStepNameResponseBuilder() {
         
@@ -25936,7 +26109,7 @@ public final class Messages {
        *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+       * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
        */
       public gauge.messages.Messages.StepNameResponseOrBuilder getStepNameResponseOrBuilder() {
         if (stepNameResponseBuilder_ != null) {
@@ -25951,7 +26124,7 @@ public final class Messages {
        *&#47; [StepNameResponse](#gauge.messages.StepNameResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.StepNameResponse stepNameResponse = 23;</code>
+       * <code>.gauge.messages.StepNameResponse stepNameResponse = 23;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.StepNameResponse, gauge.messages.Messages.StepNameResponse.Builder, gauge.messages.Messages.StepNameResponseOrBuilder> 
@@ -25975,7 +26148,7 @@ public final class Messages {
        *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+       * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
        */
       public boolean hasRefactorRequest() {
         return refactorRequestBuilder_ != null || refactorRequest_ != null;
@@ -25985,7 +26158,7 @@ public final class Messages {
        *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+       * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
        */
       public gauge.messages.Messages.RefactorRequest getRefactorRequest() {
         if (refactorRequestBuilder_ == null) {
@@ -25999,7 +26172,7 @@ public final class Messages {
        *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+       * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
        */
       public Builder setRefactorRequest(gauge.messages.Messages.RefactorRequest value) {
         if (refactorRequestBuilder_ == null) {
@@ -26019,7 +26192,7 @@ public final class Messages {
        *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+       * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
        */
       public Builder setRefactorRequest(
           gauge.messages.Messages.RefactorRequest.Builder builderForValue) {
@@ -26037,7 +26210,7 @@ public final class Messages {
        *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+       * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
        */
       public Builder mergeRefactorRequest(gauge.messages.Messages.RefactorRequest value) {
         if (refactorRequestBuilder_ == null) {
@@ -26059,7 +26232,7 @@ public final class Messages {
        *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+       * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
        */
       public Builder clearRefactorRequest() {
         if (refactorRequestBuilder_ == null) {
@@ -26077,7 +26250,7 @@ public final class Messages {
        *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+       * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
        */
       public gauge.messages.Messages.RefactorRequest.Builder getRefactorRequestBuilder() {
         
@@ -26089,7 +26262,7 @@ public final class Messages {
        *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+       * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
        */
       public gauge.messages.Messages.RefactorRequestOrBuilder getRefactorRequestOrBuilder() {
         if (refactorRequestBuilder_ != null) {
@@ -26104,7 +26277,7 @@ public final class Messages {
        *&#47; [RefactorRequest](#gauge.messages.RefactorRequest)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorRequest refactorRequest = 24;</code>
+       * <code>.gauge.messages.RefactorRequest refactorRequest = 24;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.RefactorRequest, gauge.messages.Messages.RefactorRequest.Builder, gauge.messages.Messages.RefactorRequestOrBuilder> 
@@ -26128,7 +26301,7 @@ public final class Messages {
        *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+       * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
        */
       public boolean hasRefactorResponse() {
         return refactorResponseBuilder_ != null || refactorResponse_ != null;
@@ -26138,7 +26311,7 @@ public final class Messages {
        *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+       * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
        */
       public gauge.messages.Messages.RefactorResponse getRefactorResponse() {
         if (refactorResponseBuilder_ == null) {
@@ -26152,7 +26325,7 @@ public final class Messages {
        *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+       * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
        */
       public Builder setRefactorResponse(gauge.messages.Messages.RefactorResponse value) {
         if (refactorResponseBuilder_ == null) {
@@ -26172,7 +26345,7 @@ public final class Messages {
        *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+       * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
        */
       public Builder setRefactorResponse(
           gauge.messages.Messages.RefactorResponse.Builder builderForValue) {
@@ -26190,7 +26363,7 @@ public final class Messages {
        *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+       * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
        */
       public Builder mergeRefactorResponse(gauge.messages.Messages.RefactorResponse value) {
         if (refactorResponseBuilder_ == null) {
@@ -26212,7 +26385,7 @@ public final class Messages {
        *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+       * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
        */
       public Builder clearRefactorResponse() {
         if (refactorResponseBuilder_ == null) {
@@ -26230,7 +26403,7 @@ public final class Messages {
        *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+       * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
        */
       public gauge.messages.Messages.RefactorResponse.Builder getRefactorResponseBuilder() {
         
@@ -26242,7 +26415,7 @@ public final class Messages {
        *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+       * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
        */
       public gauge.messages.Messages.RefactorResponseOrBuilder getRefactorResponseOrBuilder() {
         if (refactorResponseBuilder_ != null) {
@@ -26257,7 +26430,7 @@ public final class Messages {
        *&#47; [RefactorResponse](#gauge.messages.RefactorResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.RefactorResponse refactorResponse = 25;</code>
+       * <code>.gauge.messages.RefactorResponse refactorResponse = 25;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.RefactorResponse, gauge.messages.Messages.RefactorResponse.Builder, gauge.messages.Messages.RefactorResponseOrBuilder> 
@@ -26281,7 +26454,7 @@ public final class Messages {
        *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
        */
       public boolean hasUnsupportedMessageResponse() {
         return unsupportedMessageResponseBuilder_ != null || unsupportedMessageResponse_ != null;
@@ -26291,7 +26464,7 @@ public final class Messages {
        *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
        */
       public gauge.messages.Messages.UnsupportedMessageResponse getUnsupportedMessageResponse() {
         if (unsupportedMessageResponseBuilder_ == null) {
@@ -26305,7 +26478,7 @@ public final class Messages {
        *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
        */
       public Builder setUnsupportedMessageResponse(gauge.messages.Messages.UnsupportedMessageResponse value) {
         if (unsupportedMessageResponseBuilder_ == null) {
@@ -26325,7 +26498,7 @@ public final class Messages {
        *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
        */
       public Builder setUnsupportedMessageResponse(
           gauge.messages.Messages.UnsupportedMessageResponse.Builder builderForValue) {
@@ -26343,7 +26516,7 @@ public final class Messages {
        *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
        */
       public Builder mergeUnsupportedMessageResponse(gauge.messages.Messages.UnsupportedMessageResponse value) {
         if (unsupportedMessageResponseBuilder_ == null) {
@@ -26365,7 +26538,7 @@ public final class Messages {
        *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
        */
       public Builder clearUnsupportedMessageResponse() {
         if (unsupportedMessageResponseBuilder_ == null) {
@@ -26383,7 +26556,7 @@ public final class Messages {
        *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
        */
       public gauge.messages.Messages.UnsupportedMessageResponse.Builder getUnsupportedMessageResponseBuilder() {
         
@@ -26395,7 +26568,7 @@ public final class Messages {
        *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
        */
       public gauge.messages.Messages.UnsupportedMessageResponseOrBuilder getUnsupportedMessageResponseOrBuilder() {
         if (unsupportedMessageResponseBuilder_ != null) {
@@ -26410,7 +26583,7 @@ public final class Messages {
        *&#47; [UnsupportedMessageResponse](#gauge.messages.UnsupportedMessageResponse)
        * </pre>
        *
-       * <code>optional .gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
+       * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.UnsupportedMessageResponse, gauge.messages.Messages.UnsupportedMessageResponse.Builder, gauge.messages.Messages.UnsupportedMessageResponseOrBuilder> 
@@ -26663,99 +26836,99 @@ public final class Messages {
       "J\n\010SpecInfo\022\014\n\004name\030\001 \001(\t\022\020\n\010fileName\030\002 " +
       "\001(\t\022\020\n\010isFailed\030\003 \001(\010\022\014\n\004tags\030\004 \003(\t\"<\n\014S" +
       "cenarioInfo\022\014\n\004name\030\001 \001(\t\022\020\n\010isFailed\030\002 ",
-      "\001(\010\022\014\n\004tags\030\003 \003(\t\"N\n\010StepInfo\0220\n\004step\030\001 " +
+      "\001(\010\022\014\n\004tags\030\003 \003(\t\"b\n\010StepInfo\0220\n\004step\030\001 " +
       "\001(\0132\".gauge.messages.ExecuteStepRequest\022" +
-      "\020\n\010isFailed\030\002 \001(\010\"\214\001\n\022ExecuteStepRequest" +
-      "\022\026\n\016actualStepText\030\001 \001(\t\022\026\n\016parsedStepTe" +
-      "xt\030\002 \001(\t\022\027\n\017scenarioFailing\030\003 \001(\010\022-\n\npar" +
-      "ameters\030\004 \003(\0132\031.gauge.messages.Parameter" +
-      "\"C\n\023StepValidateRequest\022\020\n\010stepText\030\001 \001(" +
-      "\t\022\032\n\022numberOfParameters\030\002 \001(\005\"\323\001\n\024StepVa" +
-      "lidateResponse\022\017\n\007isValid\030\001 \001(\010\022\024\n\014error" +
-      "Message\030\002 \001(\t\022A\n\terrorType\030\003 \001(\0162..gauge",
-      ".messages.StepValidateResponse.ErrorType" +
-      "\"Q\n\tErrorType\022!\n\035STEP_IMPLEMENTATION_NOT" +
-      "_FOUND\020\000\022!\n\035DUPLICATE_STEP_IMPLEMENTATIO" +
-      "N\020\001\"M\n\024SuiteExecutionResult\0225\n\013suiteResu" +
-      "lt\030\001 \001(\0132 .gauge.messages.ProtoSuiteResu" +
-      "lt\"\022\n\020StepNamesRequest\"\"\n\021StepNamesRespo" +
-      "nse\022\r\n\005steps\030\001 \003(\t\"\036\n\034ScenarioDataStoreI" +
-      "nitRequest\"\032\n\030SpecDataStoreInitRequest\"\033" +
-      "\n\031SuiteDataStoreInitRequest\"=\n\021Parameter" +
-      "Position\022\023\n\013oldPosition\030\001 \001(\005\022\023\n\013newPosi",
-      "tion\030\002 \001(\005\"\270\001\n\017RefactorRequest\0224\n\014oldSte" +
-      "pValue\030\001 \001(\0132\036.gauge.messages.ProtoStepV" +
-      "alue\0224\n\014newStepValue\030\002 \001(\0132\036.gauge.messa" +
-      "ges.ProtoStepValue\0229\n\016paramPositions\030\003 \003" +
-      "(\0132!.gauge.messages.ParameterPosition\"H\n" +
-      "\020RefactorResponse\022\017\n\007success\030\001 \001(\010\022\r\n\005er" +
-      "ror\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003(\t\"$\n\017StepN" +
-      "ameRequest\022\021\n\tstepValue\030\001 \001(\t\"M\n\020StepNam" +
-      "eResponse\022\025\n\risStepPresent\030\001 \001(\010\022\020\n\010step" +
-      "Name\030\002 \003(\t\022\020\n\010hasAlias\030\003 \001(\010\"-\n\032Unsuppor",
-      "tedMessageResponse\022\017\n\007message\030\001 \001(\t\"\376\022\n\007" +
-      "Message\0228\n\013messageType\030\001 \001(\0162#.gauge.mes" +
-      "sages.Message.MessageType\022\021\n\tmessageId\030\002" +
-      " \001(\003\022J\n\030executionStartingRequest\030\003 \001(\0132(" +
-      ".gauge.messages.ExecutionStartingRequest" +
-      "\022R\n\034specExecutionStartingRequest\030\004 \001(\0132," +
-      ".gauge.messages.SpecExecutionStartingReq" +
-      "uest\022N\n\032specExecutionEndingRequest\030\005 \001(\013" +
-      "2*.gauge.messages.SpecExecutionEndingReq" +
-      "uest\022Z\n scenarioExecutionStartingRequest",
-      "\030\006 \001(\01320.gauge.messages.ScenarioExecutio" +
-      "nStartingRequest\022V\n\036scenarioExecutionEnd" +
-      "ingRequest\030\007 \001(\0132..gauge.messages.Scenar" +
-      "ioExecutionEndingRequest\022R\n\034stepExecutio" +
-      "nStartingRequest\030\010 \001(\0132,.gauge.messages." +
-      "StepExecutionStartingRequest\022N\n\032stepExec" +
-      "utionEndingRequest\030\t \001(\0132*.gauge.message" +
-      "s.StepExecutionEndingRequest\022>\n\022executeS" +
-      "tepRequest\030\n \001(\0132\".gauge.messages.Execut" +
-      "eStepRequest\022F\n\026executionEndingRequest\030\013",
-      " \001(\0132&.gauge.messages.ExecutionEndingReq" +
-      "uest\022@\n\023stepValidateRequest\030\014 \001(\0132#.gaug" +
-      "e.messages.StepValidateRequest\022B\n\024stepVa" +
-      "lidateResponse\030\r \001(\0132$.gauge.messages.St" +
-      "epValidateResponse\022H\n\027executionStatusRes" +
-      "ponse\030\016 \001(\0132\'.gauge.messages.ExecutionSt" +
-      "atusResponse\022:\n\020stepNamesRequest\030\017 \001(\0132 " +
-      ".gauge.messages.StepNamesRequest\022<\n\021step" +
-      "NamesResponse\030\020 \001(\0132!.gauge.messages.Ste" +
-      "pNamesResponse\022B\n\024suiteExecutionResult\030\021",
-      " \001(\0132$.gauge.messages.SuiteExecutionResu" +
-      "lt\022>\n\022killProcessRequest\030\022 \001(\0132\".gauge.m" +
-      "essages.KillProcessRequest\022R\n\034scenarioDa" +
-      "taStoreInitRequest\030\023 \001(\0132,.gauge.message" +
-      "s.ScenarioDataStoreInitRequest\022J\n\030specDa" +
-      "taStoreInitRequest\030\024 \001(\0132(.gauge.message" +
-      "s.SpecDataStoreInitRequest\022L\n\031suiteDataS" +
-      "toreInitRequest\030\025 \001(\0132).gauge.messages.S" +
-      "uiteDataStoreInitRequest\0228\n\017stepNameRequ" +
-      "est\030\026 \001(\0132\037.gauge.messages.StepNameReque",
-      "st\022:\n\020stepNameResponse\030\027 \001(\0132 .gauge.mes" +
-      "sages.StepNameResponse\0228\n\017refactorReques" +
-      "t\030\030 \001(\0132\037.gauge.messages.RefactorRequest" +
-      "\022:\n\020refactorResponse\030\031 \001(\0132 .gauge.messa" +
-      "ges.RefactorResponse\022N\n\032unsupportedMessa" +
-      "geResponse\030\032 \001(\0132*.gauge.messages.Unsupp" +
-      "ortedMessageResponse\"\335\004\n\013MessageType\022\025\n\021" +
-      "ExecutionStarting\020\000\022\031\n\025SpecExecutionStar" +
-      "ting\020\001\022\027\n\023SpecExecutionEnding\020\002\022\035\n\031Scena" +
-      "rioExecutionStarting\020\003\022\033\n\027ScenarioExecut",
-      "ionEnding\020\004\022\031\n\025StepExecutionStarting\020\005\022\027" +
-      "\n\023StepExecutionEnding\020\006\022\017\n\013ExecuteStep\020\007" +
-      "\022\023\n\017ExecutionEnding\020\010\022\027\n\023StepValidateReq" +
-      "uest\020\t\022\030\n\024StepValidateResponse\020\n\022\033\n\027Exec" +
-      "utionStatusResponse\020\013\022\024\n\020StepNamesReques" +
-      "t\020\014\022\025\n\021StepNamesResponse\020\r\022\026\n\022KillProces" +
-      "sRequest\020\016\022\030\n\024SuiteExecutionResult\020\017\022\031\n\025" +
-      "ScenarioDataStoreInit\020\020\022\025\n\021SpecDataStore" +
-      "Init\020\021\022\026\n\022SuiteDataStoreInit\020\022\022\023\n\017StepNa" +
-      "meRequest\020\023\022\024\n\020StepNameResponse\020\024\022\023\n\017Ref",
-      "actorRequest\020\025\022\024\n\020RefactorResponse\020\026\022\036\n\032" +
-      "UnsupportedMessageResponse\020\027B\021\252\002\016Gauge.M" +
-      "essagesb\006proto3"
+      "\020\n\010isFailed\030\002 \001(\010\022\022\n\nstackTrace\030\003 \001(\t\"\214\001" +
+      "\n\022ExecuteStepRequest\022\026\n\016actualStepText\030\001" +
+      " \001(\t\022\026\n\016parsedStepText\030\002 \001(\t\022\027\n\017scenario" +
+      "Failing\030\003 \001(\010\022-\n\nparameters\030\004 \003(\0132\031.gaug" +
+      "e.messages.Parameter\"C\n\023StepValidateRequ" +
+      "est\022\020\n\010stepText\030\001 \001(\t\022\032\n\022numberOfParamet" +
+      "ers\030\002 \001(\005\"\323\001\n\024StepValidateResponse\022\017\n\007is" +
+      "Valid\030\001 \001(\010\022\024\n\014errorMessage\030\002 \001(\t\022A\n\terr",
+      "orType\030\003 \001(\0162..gauge.messages.StepValida" +
+      "teResponse.ErrorType\"Q\n\tErrorType\022!\n\035STE" +
+      "P_IMPLEMENTATION_NOT_FOUND\020\000\022!\n\035DUPLICAT" +
+      "E_STEP_IMPLEMENTATION\020\001\"M\n\024SuiteExecutio" +
+      "nResult\0225\n\013suiteResult\030\001 \001(\0132 .gauge.mes" +
+      "sages.ProtoSuiteResult\"\022\n\020StepNamesReque" +
+      "st\"\"\n\021StepNamesResponse\022\r\n\005steps\030\001 \003(\t\"\036" +
+      "\n\034ScenarioDataStoreInitRequest\"\032\n\030SpecDa" +
+      "taStoreInitRequest\"\033\n\031SuiteDataStoreInit" +
+      "Request\"=\n\021ParameterPosition\022\023\n\013oldPosit",
+      "ion\030\001 \001(\005\022\023\n\013newPosition\030\002 \001(\005\"\270\001\n\017Refac" +
+      "torRequest\0224\n\014oldStepValue\030\001 \001(\0132\036.gauge" +
+      ".messages.ProtoStepValue\0224\n\014newStepValue" +
+      "\030\002 \001(\0132\036.gauge.messages.ProtoStepValue\0229" +
+      "\n\016paramPositions\030\003 \003(\0132!.gauge.messages." +
+      "ParameterPosition\"H\n\020RefactorResponse\022\017\n" +
+      "\007success\030\001 \001(\010\022\r\n\005error\030\002 \001(\t\022\024\n\014filesCh" +
+      "anged\030\003 \003(\t\"$\n\017StepNameRequest\022\021\n\tstepVa" +
+      "lue\030\001 \001(\t\"M\n\020StepNameResponse\022\025\n\risStepP" +
+      "resent\030\001 \001(\010\022\020\n\010stepName\030\002 \003(\t\022\020\n\010hasAli",
+      "as\030\003 \001(\010\"-\n\032UnsupportedMessageResponse\022\017" +
+      "\n\007message\030\001 \001(\t\"\376\022\n\007Message\0228\n\013messageTy" +
+      "pe\030\001 \001(\0162#.gauge.messages.Message.Messag" +
+      "eType\022\021\n\tmessageId\030\002 \001(\003\022J\n\030executionSta" +
+      "rtingRequest\030\003 \001(\0132(.gauge.messages.Exec" +
+      "utionStartingRequest\022R\n\034specExecutionSta" +
+      "rtingRequest\030\004 \001(\0132,.gauge.messages.Spec" +
+      "ExecutionStartingRequest\022N\n\032specExecutio" +
+      "nEndingRequest\030\005 \001(\0132*.gauge.messages.Sp" +
+      "ecExecutionEndingRequest\022Z\n scenarioExec",
+      "utionStartingRequest\030\006 \001(\01320.gauge.messa" +
+      "ges.ScenarioExecutionStartingRequest\022V\n\036" +
+      "scenarioExecutionEndingRequest\030\007 \001(\0132..g" +
+      "auge.messages.ScenarioExecutionEndingReq" +
+      "uest\022R\n\034stepExecutionStartingRequest\030\010 \001" +
+      "(\0132,.gauge.messages.StepExecutionStartin" +
+      "gRequest\022N\n\032stepExecutionEndingRequest\030\t" +
+      " \001(\0132*.gauge.messages.StepExecutionEndin" +
+      "gRequest\022>\n\022executeStepRequest\030\n \001(\0132\".g" +
+      "auge.messages.ExecuteStepRequest\022F\n\026exec",
+      "utionEndingRequest\030\013 \001(\0132&.gauge.message" +
+      "s.ExecutionEndingRequest\022@\n\023stepValidate" +
+      "Request\030\014 \001(\0132#.gauge.messages.StepValid" +
+      "ateRequest\022B\n\024stepValidateResponse\030\r \001(\013" +
+      "2$.gauge.messages.StepValidateResponse\022H" +
+      "\n\027executionStatusResponse\030\016 \001(\0132\'.gauge." +
+      "messages.ExecutionStatusResponse\022:\n\020step" +
+      "NamesRequest\030\017 \001(\0132 .gauge.messages.Step" +
+      "NamesRequest\022<\n\021stepNamesResponse\030\020 \001(\0132" +
+      "!.gauge.messages.StepNamesResponse\022B\n\024su",
+      "iteExecutionResult\030\021 \001(\0132$.gauge.message" +
+      "s.SuiteExecutionResult\022>\n\022killProcessReq" +
+      "uest\030\022 \001(\0132\".gauge.messages.KillProcessR" +
+      "equest\022R\n\034scenarioDataStoreInitRequest\030\023" +
+      " \001(\0132,.gauge.messages.ScenarioDataStoreI" +
+      "nitRequest\022J\n\030specDataStoreInitRequest\030\024" +
+      " \001(\0132(.gauge.messages.SpecDataStoreInitR" +
+      "equest\022L\n\031suiteDataStoreInitRequest\030\025 \001(" +
+      "\0132).gauge.messages.SuiteDataStoreInitReq" +
+      "uest\0228\n\017stepNameRequest\030\026 \001(\0132\037.gauge.me",
+      "ssages.StepNameRequest\022:\n\020stepNameRespon" +
+      "se\030\027 \001(\0132 .gauge.messages.StepNameRespon" +
+      "se\0228\n\017refactorRequest\030\030 \001(\0132\037.gauge.mess" +
+      "ages.RefactorRequest\022:\n\020refactorResponse" +
+      "\030\031 \001(\0132 .gauge.messages.RefactorResponse" +
+      "\022N\n\032unsupportedMessageResponse\030\032 \001(\0132*.g" +
+      "auge.messages.UnsupportedMessageResponse" +
+      "\"\335\004\n\013MessageType\022\025\n\021ExecutionStarting\020\000\022" +
+      "\031\n\025SpecExecutionStarting\020\001\022\027\n\023SpecExecut" +
+      "ionEnding\020\002\022\035\n\031ScenarioExecutionStarting",
+      "\020\003\022\033\n\027ScenarioExecutionEnding\020\004\022\031\n\025StepE" +
+      "xecutionStarting\020\005\022\027\n\023StepExecutionEndin" +
+      "g\020\006\022\017\n\013ExecuteStep\020\007\022\023\n\017ExecutionEnding\020" +
+      "\010\022\027\n\023StepValidateRequest\020\t\022\030\n\024StepValida" +
+      "teResponse\020\n\022\033\n\027ExecutionStatusResponse\020" +
+      "\013\022\024\n\020StepNamesRequest\020\014\022\025\n\021StepNamesResp" +
+      "onse\020\r\022\026\n\022KillProcessRequest\020\016\022\030\n\024SuiteE" +
+      "xecutionResult\020\017\022\031\n\025ScenarioDataStoreIni" +
+      "t\020\020\022\025\n\021SpecDataStoreInit\020\021\022\026\n\022SuiteDataS" +
+      "toreInit\020\022\022\023\n\017StepNameRequest\020\023\022\024\n\020StepN",
+      "ameResponse\020\024\022\023\n\017RefactorRequest\020\025\022\024\n\020Re" +
+      "factorResponse\020\026\022\036\n\032UnsupportedMessageRe" +
+      "sponse\020\027B\021\252\002\016Gauge.Messagesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -26853,7 +27026,7 @@ public final class Messages {
     internal_static_gauge_messages_StepInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepInfo_descriptor,
-        new java.lang.String[] { "Step", "IsFailed", });
+        new java.lang.String[] { "Step", "IsFailed", "StackTrace", });
     internal_static_gauge_messages_ExecuteStepRequest_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_gauge_messages_ExecuteStepRequest_fieldAccessorTable = new
