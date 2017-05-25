@@ -27,7 +27,7 @@ public class ExecutionInfoMapper {
             return new ExecutionContext();
         }
         return new ExecutionContext(specificationFrom(currentExecutionInfo.getCurrentSpec()), scenarioFrom(currentExecutionInfo.getCurrentScenario()),
-                stepFrom(currentExecutionInfo.getCurrentStep(), currentExecutionInfo.getStacktrace()));
+                stepFrom(currentExecutionInfo.getCurrentStep()));
     }
 
     public Specification specificationFrom(Messages.SpecInfo currentSpec) {
@@ -44,9 +44,9 @@ public class ExecutionInfoMapper {
         return new Scenario();
     }
 
-    public StepDetails stepFrom(Messages.StepInfo currentStep, String stackTrace) {
+    public StepDetails stepFrom(Messages.StepInfo currentStep) {
         if (currentStep.isInitialized()) {
-            return new StepDetails(currentStep.getStep().getActualStepText(), currentStep.getIsFailed(), stackTrace);
+            return new StepDetails(currentStep.getStep().getActualStepText(), currentStep.getIsFailed(), currentStep.getStackTrace());
         }
         return new StepDetails();
 
