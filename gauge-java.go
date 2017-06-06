@@ -29,6 +29,7 @@ import (
 	"time"
 
 	"github.com/getgauge/common"
+	"path"
 )
 
 const (
@@ -70,7 +71,7 @@ func main() {
 
 func initializeProject() {
 	os.Chdir(projectRoot)
-	funcs := []initializerFunc{createSrcDirectory, createLibsDirectory, createStepImplementationClass, createJavaPropertiesFile}
+	funcs := []initializerFunc{createSrcDirectory, createLibsDirectory, createStepImplementationClass, createEnvDir, createJavaPropertiesFile, createOrAppendGitignore}
 	for _, f := range funcs {
 		f()
 	}
@@ -229,6 +230,10 @@ func createLibsDirectory() {
 	createDirectory("libs")
 }
 
+func createEnvDir() {
+	createDirectory(path.Join(projectRoot, "env", "default"))
+}
+
 func createDirectory(filePath string) {
 	showMessage("create", filePath)
 	if !common.DirExists(filePath) {
@@ -271,6 +276,43 @@ func createJavaPropertiesFile() {
 			showMessage("error", fmt.Sprintf("java.properties does not exist at %s. \n", srcFile))
 			return
 		}
+		err := common.CopyFile(srcFile, destFile)
+		if err != nil {
+			showMessage("error", fmt.Sprintf("Failed to copy %s. %s \n", srcFile, err.Error()))
+		}
+	}
+}
+
+func createOrAppendGitignore() {
+	destFile := filepath.Join(projectRoot, ".gitignore")
+	showMessage("copying to ", destFile)
+	srcFile := filepath.Join(pluginDir, skelDir, ".gitignore")
+	showMessage("copying from ", srcFile)
+	if !common.FileExists(srcFile) {
+		showMessage("error", fmt.Sprintf(".gitignore does not exist at %s. \n", srcFile))
+		return
+	}
+	if common.FileExists(destFile) {
+		showMessage("append", destFile)
+		f, err := os.OpenFile(destFile, os.O_APPEND|os.O_WRONLY, 0666)
+		if err != nil {
+			showMessage("error", fmt.Sprintf("Failed to open %s. %s \n", destFile, err.Error()))
+			return 
+		}
+
+		defer f.Close()
+
+		srcFileContent, err := common.ReadFileContents(srcFile)
+		if err != nil {
+			showMessage("error", fmt.Sprintf("Failed to read %s. %s \n", srcFile, err.Error()))
+			return 
+		}
+
+		if _, err = f.WriteString(srcFileContent); err != nil {
+			showMessage("error", fmt.Sprintf("Failed to append from %s. %s \n", srcFile, err.Error()))
+		}
+	} else {
+		showMessage("create", destFile)
 		err := common.CopyFile(srcFile, destFile)
 		if err != nil {
 			showMessage("error", fmt.Sprintf("Failed to copy %s. %s \n", srcFile, err.Error()))
