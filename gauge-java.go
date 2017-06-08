@@ -285,38 +285,10 @@ func createJavaPropertiesFile() {
 
 func createOrAppendGitignore() {
 	destFile := filepath.Join(projectRoot, ".gitignore")
-	showMessage("copying to ", destFile)
 	srcFile := filepath.Join(pluginDir, skelDir, ".gitignore")
-	showMessage("copying from ", srcFile)
-	if !common.FileExists(srcFile) {
-		showMessage("error", fmt.Sprintf(".gitignore does not exist at %s. \n", srcFile))
-		return
-	}
-	if common.FileExists(destFile) {
-		showMessage("append", destFile)
-		f, err := os.OpenFile(destFile, os.O_APPEND|os.O_WRONLY, 0666)
-		if err != nil {
-			showMessage("error", fmt.Sprintf("Failed to open %s. %s \n", destFile, err.Error()))
-			return 
-		}
-
-		defer f.Close()
-
-		srcFileContent, err := common.ReadFileContents(srcFile)
-		if err != nil {
-			showMessage("error", fmt.Sprintf("Failed to read %s. %s \n", srcFile, err.Error()))
-			return 
-		}
-
-		if _, err = f.WriteString(srcFileContent); err != nil {
-			showMessage("error", fmt.Sprintf("Failed to append from %s. %s \n", srcFile, err.Error()))
-		}
-	} else {
-		showMessage("create", destFile)
-		err := common.CopyFile(srcFile, destFile)
-		if err != nil {
-			showMessage("error", fmt.Sprintf("Failed to copy %s. %s \n", srcFile, err.Error()))
-		}
+	showMessage("create", destFile)
+	if err := common.AppendToFile(srcFile, destFile); err != nil {
+		showMessage("error", err.Error())
 	}
 }
 
