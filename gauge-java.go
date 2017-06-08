@@ -29,6 +29,7 @@ import (
 	"time"
 
 	"github.com/getgauge/common"
+	"path"
 )
 
 const (
@@ -70,7 +71,7 @@ func main() {
 
 func initializeProject() {
 	os.Chdir(projectRoot)
-	funcs := []initializerFunc{createSrcDirectory, createLibsDirectory, createStepImplementationClass, createJavaPropertiesFile}
+	funcs := []initializerFunc{createSrcDirectory, createLibsDirectory, createStepImplementationClass, createEnvDir, createJavaPropertiesFile, createOrAppendGitignore}
 	for _, f := range funcs {
 		f()
 	}
@@ -229,6 +230,10 @@ func createLibsDirectory() {
 	createDirectory("libs")
 }
 
+func createEnvDir() {
+	createDirectory(path.Join(projectRoot, "env", "default"))
+}
+
 func createDirectory(filePath string) {
 	showMessage("create", filePath)
 	if !common.DirExists(filePath) {
@@ -275,6 +280,15 @@ func createJavaPropertiesFile() {
 		if err != nil {
 			showMessage("error", fmt.Sprintf("Failed to copy %s. %s \n", srcFile, err.Error()))
 		}
+	}
+}
+
+func createOrAppendGitignore() {
+	destFile := filepath.Join(projectRoot, ".gitignore")
+	srcFile := filepath.Join(pluginDir, skelDir, ".gitignore")
+	showMessage("create", destFile)
+	if err := common.AppendToFile(srcFile, destFile); err != nil {
+		showMessage("error", err.Error())
 	}
 }
 

@@ -257,6 +257,7 @@ func copyGaugeJavaFiles(destDir string) {
 	files[filepath.Join("skel", "java.properties")] = filepath.Join("skel", "env")
 	files[filepath.Join("libs")] = filepath.Join("libs")
 	files[filepath.Join("notice.md")] = ""
+	files[filepath.Join("skel", ".gitignore")] = filepath.Join("skel")
 	files[filepath.Join(targetDir, gaugeJava+"-"+getGaugeJavaVersion()+jarExt)] = "libs"
 	copyFiles(files, destDir)
 }
