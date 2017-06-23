@@ -15,7 +15,6 @@
 
 package com.thoughtworks.gauge;
 
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -30,7 +29,8 @@ public class TableRow {
     /**
      * Get the value of cell corresponding to a column name.
      *
-     * @param columnName - The column name of TableRow.
+     * @param columnName
+     *            - The column name of TableRow.
      * @return The value of cell corresponding to a column name.
      */
     public String getCell(String columnName) {
@@ -43,8 +43,10 @@ public class TableRow {
     /**
      * Add a cell to the TableRow.
      *
-     * @param columnName The column name against which the cell is added.
-     * @param value      The value to be stored in the cell.
+     * @param columnName
+     *            The column name against which the cell is added.
+     * @param value
+     *            The value to be stored in the cell.
      */
     public void addCell(String columnName, String value) {
         cells.put(columnName, value);
@@ -61,9 +63,7 @@ public class TableRow {
 
     @Override
     public String toString() {
-        return "TableRow{"
-                + "cells=" + cells
-                + '}';
+        return "TableRow{" + "cells=" + cells + '}';
     }
 
     /**
@@ -72,7 +72,7 @@ public class TableRow {
      * @return a list of the values of each cell in the table row.
      */
     public List<String> getCellValues() {
-        //Since we have a LinkedHashMap, the order of values() is guaranteed.
+        // Since we have a LinkedHashMap, the order of values() is guaranteed.
         return new ArrayList<String>(cells.values());
     }
 
@@ -84,12 +84,42 @@ public class TableRow {
     public List<TableCell> getTableCells() {
         List<TableCell> listOfCells = new ArrayList<TableCell>();
 
-        //Since we have a LinkedHashMap, the order of entrySet() is guaranteed.
+        // Since we have a LinkedHashMap, the order of entrySet() is guaranteed.
         for (Map.Entry<String, String> mapEntry : cells.entrySet()) {
             TableCell cell = new TableCell(mapEntry.getKey(), mapEntry.getValue());
             listOfCells.add(cell);
         }
 
         return listOfCells;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((cells == null) ? 0 : cells.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        TableRow other = (TableRow) obj;
+        if (cells == null) {
+            if (other.cells != null) {
+                return false;
+            }
+        } else if (!cells.equals(other.cells)) {
+            return false;
+        }
+        return true;
     }
 }
