@@ -15,16 +15,17 @@
 
 package com.thoughtworks.gauge;
 
-import com.google.common.base.Function;
-import com.google.common.base.Joiner;
-import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
-import org.apache.commons.lang.StringUtils;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+
+import com.google.common.base.Function;
+import com.google.common.base.Joiner;
+import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 
 /**
  * Custom Table structure used as parameter in steps.
@@ -66,6 +67,7 @@ public class Table {
 
     /**
      * Gets a Column name by index.
+     *
      * @param columnIndex
      * @return a single column name by given column index.
      */
@@ -84,8 +86,8 @@ public class Table {
     }
 
     /**
-     * @return List of TableRows in the table. Each Row is represented by a List of String values
-     * according to the order of column names
+     * @return List of TableRows in the table. Each Row is represented by a List
+     *         of String values according to the order of column names
      * @deprecated Use getTableRows() method instead of this.
      */
     @Deprecated
@@ -96,7 +98,8 @@ public class Table {
     /**
      * Get all the values of a column in Table.
      *
-     * @param columnName - The column name of the Table
+     * @param columnName
+     *            - The column name of the Table
      * @return List of values against a column in Table.
      */
     public List<String> getColumnValues(String columnName) {
@@ -107,7 +110,8 @@ public class Table {
     /**
      * Get all the values of a column in a Table.
      *
-     * @param columnIndex - The column index of the table
+     * @param columnIndex
+     *            - The column index of the table
      * @return List of row values of a given column index in a Table.
      */
     public List<String> getColumnValues(int columnIndex) {
@@ -129,8 +133,7 @@ public class Table {
         return StringUtils.EMPTY;
     }
 
-    private String formatAsMarkdownTable(
-            int maxStringLength) {
+    private String formatAsMarkdownTable(int maxStringLength) {
 
         List<String> formattedHeaderAndRows = new ArrayList<String>();
         addHeader(maxStringLength, formattedHeaderAndRows);
@@ -139,9 +142,7 @@ public class Table {
         return Joiner.on(LINE_SEPARATOR).join(formattedHeaderAndRows);
     }
 
-    private void addDashes(
-            int maxStringLength,
-            List<String> formattedHeaderAndRows) {
+    private void addDashes(int maxStringLength, List<String> formattedHeaderAndRows) {
 
         String dashesString = Joiner.on(StringUtils.EMPTY).join(Collections.nCopies(maxStringLength, DASH));
         List<String> dashes = Collections.nCopies(headers.size(), dashesString);
@@ -149,17 +150,13 @@ public class Table {
         formattedHeaderAndRows.add(formattedDashes);
     }
 
-    private void addHeader(
-            int maxStringLength,
-            List<String> formattedHeaderAndRows) {
+    private void addHeader(int maxStringLength, List<String> formattedHeaderAndRows) {
 
         String formattedHeaders = formattedRow(headers, maxStringLength);
         formattedHeaderAndRows.add(formattedHeaders);
     }
 
-    private void addValues(
-            int maxStringLength,
-            List<String> formattedHeaderAndRows) {
+    private void addValues(int maxStringLength, List<String> formattedHeaderAndRows) {
 
         for (TableRow tableRow : tableRows) {
             formattedHeaderAndRows.add(formattedRow(tableRow.getCellValues(), maxStringLength));
@@ -171,16 +168,12 @@ public class Table {
         return PIPE + Joiner.on(PIPE).join(formattedStrings) + PIPE;
     }
 
-    private Function<String, String> format(
-            final int maxStringLength) {
-
+    private Function<String, String> format(final int maxStringLength) {
 
         return new Function<String, String>() {
 
             @Override
-            public String apply(
-                    String input) {
-
+            public String apply(String input) {
 
                 return Strings.padEnd(input, maxStringLength, SPACE_AS_CHAR);
             }
@@ -209,14 +202,37 @@ public class Table {
         return new Comparator<String>() {
 
             @Override
-            public int compare(
-                    String o1,
-                    String o2) {
+            public int compare(String o1, String o2) {
                 if (o1.length() < o2.length()) {
                     return -1;
                 }
                 return 1;
             }
         };
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((headers == null) ? 0 : headers.hashCode());
+        result = prime * result + ((rows == null) ? 0 : rows.hashCode());
+        result = prime * result + ((tableRows == null) ? 0 : tableRows.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Table other = (Table) obj;
+        return headers.equals(other.getColumnNames()) && tableRows.equals(other.getTableRows());
     }
 }

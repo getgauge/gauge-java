@@ -1,17 +1,19 @@
 package com.thoughtworks.gauge;
 
-import com.google.common.base.Joiner;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+import com.google.common.base.Joiner;
 
 public class TableTest {
 
@@ -115,5 +117,130 @@ public class TableTest {
     @Test
     public void testToStringWithEmptyHeaderAndRow() {
         assertEquals("", new Table(new ArrayList<String>()).toString());
+    }
+
+    @Test
+    public void testEqualsWithSameHeadersOrderAndValues() {
+        List<String> tableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        List<String> otherTableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        Table table = new Table(tableHeaders);
+        Table otherTable = new Table(otherTableHeaders);
+        assertTrue(table.equals(otherTable));
+    }
+
+    @Test
+    public void testEqualsWithDifferentHeadersOrderSameHeadersValues() {
+        List<String> tableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        List<String> otherTableHeaders = Arrays.asList(new String[] { "col2", "col1" });
+        Table table = new Table(tableHeaders);
+        Table otherTable = new Table(otherTableHeaders);
+        assertTrue(!table.equals(otherTable));
+    }
+
+    @Test
+    public void testEqualsWithDifferentHeadersValues() {
+        List<String> tableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        List<String> otherTableHeaders = Arrays.asList(new String[] { "col11", "col2" });
+        Table table = new Table(tableHeaders);
+        Table otherTable = new Table(otherTableHeaders);
+        assertFalse(table.equals(otherTable));
+    }
+
+    @Test
+    public void testEqualsWithDifferentHeadersSize() {
+        List<String> tableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        List<String> otherTableHeaders = Arrays.asList(new String[] { "col1", "col2", "col3" });
+        Table table = new Table(tableHeaders);
+        Table otherTable = new Table(otherTableHeaders);
+        assertFalse(table.equals(otherTable));
+    }
+
+    @Test
+    public void testEqualWithTableHavingSameHeadersAndValues() {
+        List<String> tableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        List<String> otherTableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        Table table = new Table(tableHeaders);
+        table.addRow(Arrays.asList(new String[] { "value11", "value12" }));
+        table.addRow(Arrays.asList(new String[] { "value21", "value22" }));
+
+        Table otherTable = new Table(otherTableHeaders);
+        otherTable.addRow(Arrays.asList(new String[] { "value11", "value12" }));
+        otherTable.addRow(Arrays.asList(new String[] { "value21", "value22" }));
+        assertTrue(table.equals(otherTable));
+    }
+
+    @Test
+    public void testEqualHavingMatchingHeadersMatchingValuesInDifferentOrder() {
+        List<String> tableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        List<String> otherTableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        Table table = new Table(tableHeaders);
+        table.addRow(Arrays.asList(new String[] { "value11", "value12" }));
+        table.addRow(Arrays.asList(new String[] { "value21", "value22" }));
+
+        Table otherTable = new Table(otherTableHeaders);
+        otherTable.addRow(Arrays.asList(new String[] { "value21", "value22" }));
+        otherTable.addRow(Arrays.asList(new String[] { "value11", "value12" }));
+
+        assertFalse(table.equals(otherTable));
+    }
+
+    @Test
+    public void testEqualWithPartialMatchingValues() {
+        List<String> tableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        List<String> otherTableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        Table table = new Table(tableHeaders);
+        table.addRow(Arrays.asList(new String[] { "value11", "value12" }));
+        table.addRow(Arrays.asList(new String[] { "value21", "value22" }));
+
+        Table otherTable = new Table(otherTableHeaders);
+        otherTable.addRow(Arrays.asList(new String[] { "value11", "value12" }));
+        otherTable.addRow(Arrays.asList(new String[] { "value21", "value22" }));
+        otherTable.addRow(Arrays.asList(new String[] { "value31", "value32" }));
+        assertFalse(table.equals(otherTable));
+    }
+
+    @Test
+    public void testEqualWithJavaRules() {
+        List<String> tableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        List<String> otherTableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        List<String> other1TableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+
+        Table table = new Table(tableHeaders);
+        table.addRow(Arrays.asList(new String[] { "value11", "value12" }));
+        table.addRow(Arrays.asList(new String[] { "value21", "value22" }));
+
+        Table otherTable = new Table(otherTableHeaders);
+        otherTable.addRow(Arrays.asList(new String[] { "value11", "value12" }));
+        otherTable.addRow(Arrays.asList(new String[] { "value21", "value22" }));
+
+        Table other1Table = new Table(other1TableHeaders);
+        other1Table.addRow(Arrays.asList(new String[] { "value11", "value12" }));
+        other1Table.addRow(Arrays.asList(new String[] { "value21", "value22" }));
+
+        // Reflexivity
+        assertTrue(table.equals(table));
+        // Symmetry
+        assertTrue(table.equals(otherTable));
+        assertTrue(otherTable.equals(table));
+        // Transitivity
+        assertTrue(otherTable.equals(other1Table));
+        assertTrue(table.equals(other1Table));
+        // Non-nullity
+        assertFalse(table.equals(null));
+    }
+
+    @Test
+    public void testEqualsTwoTablesSameValuesDifferentOrder() {
+        List<String> tableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        List<String> otherTableHeaders = Arrays.asList(new String[] { "col1", "col2" });
+        Table table = new Table(tableHeaders);
+        table.addRow(Arrays.asList(new String[] { "A", "B" }));
+        table.addRow(Arrays.asList(new String[] { "C", "D" }));
+
+        Table otherTable = new Table(otherTableHeaders);
+        otherTable.addRow(Arrays.asList(new String[] { "C", "D" }));
+        otherTable.addRow(Arrays.asList(new String[] { "A", "B" }));
+
+        assertFalse(table.equals(otherTable));
     }
 }
