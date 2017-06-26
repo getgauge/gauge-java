@@ -54,7 +54,7 @@ public class StepImpl {
     public void stepWithTab() {
     }
 
-    @Step({"A step defined like an alias"})
-    public void stepDefinedLikeAnAlias() {
+    @Step({"A step defined with alias syntax"})
+    public void stepDefinedWithAliasSyntax() {
     }
 }
