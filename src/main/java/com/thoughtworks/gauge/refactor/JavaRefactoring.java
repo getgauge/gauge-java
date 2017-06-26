@@ -83,7 +83,7 @@ public class JavaRefactoring {
         } catch (Exception e) {
             throw new RefactoringException("Failed creating java element: " + e.getMessage());
         }
-        throw new RefactoringException(String.format("Unable to find implementation for step text : %s", oldStepValue.getStepText()));
+        throw new RefactoringException("Unable to find implementation");
     }
 
     private List<JavaParseWorker> parseJavaFiles(File workingDir, String fileName) {

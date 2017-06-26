@@ -19,8 +19,6 @@ import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import junit.framework.TestCase;
-import org.junit.Rule;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -38,9 +36,6 @@ import static org.powermock.api.mockito.PowerMockito.when;
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(StepRegistry.class)
 public class JavaRefactoringTest extends TestCase {
-
-    @Rule
-    private final ExpectedException expectedException = ExpectedException.none();
 
     public void testRefactoringWithAlias() throws Exception {
         mockStatic(StepRegistry.class);
@@ -368,17 +363,5 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(element.getText().contains("A step defined like an alias" +
                 ""));
 
-    }
-
-    public void testJavaElementForRefactoringWithStepHavingMoreThanOneAliasFails() throws Exception {
-        StepValue oldStepValue = new StepValue("A step having alias", "A step having alias", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
-        String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
-
-        expectedException.expect(RefactoringException.class);
-        expectedException.expectMessage("Unable to find implementation for step text : A step having alias");
-
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
-        JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
     }
 }
