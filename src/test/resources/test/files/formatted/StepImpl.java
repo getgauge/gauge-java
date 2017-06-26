@@ -57,4 +57,12 @@ public class StepImpl {
     @Step("A step 123")
     public void stepWithTab() {
     }
+
+    @Step({"A step defined like an alias"})
+    public void stepDefinedLikeAnAlias() {
+    }
+
+    @Step({"A step having alias", "Same step with alias"})
+    public void stepDefinedWithAlias() {
+    }
 }
