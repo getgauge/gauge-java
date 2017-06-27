@@ -347,4 +347,21 @@ public class JavaRefactoringTest extends TestCase {
                 "    }"));
         assertFalse(element.getText().contains("A step with newLine"));
     }
+
+    public void testJavaElementForRefactoringWithStepHavingOneAlias() throws Exception {
+        StepValue oldStepValue = new StepValue("A step defined with alias syntax", "A step defined with alias syntax", new ArrayList<String>());
+        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
+        String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
+
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
+
+        assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
+        assertTrue(element.getText().contains("    @Step(\"step changed\")" + System.getProperty("line.separator") +
+                "    public void stepDefinedWithAliasSyntax() {" + System.getProperty("line.separator") +
+                "    }"));
+        assertFalse(element.getText().contains("A step defined with alias syntax" +
+                ""));
+
+    }
 }

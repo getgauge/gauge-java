@@ -3,10 +3,6 @@ package test.files.formatted;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.Table;
 
-import java.lang.Object;
-import java.lang.String;
-import java.util.List;
-
 public class StepImpl {
     @Step("Say <hello> to <world>")
     public String helloWorld(String greeting, int name) {
@@ -56,5 +52,9 @@ public class StepImpl {
 
     @Step("A step 123")
     public void stepWithTab() {
+    }
+
+    @Step({"A step defined with alias syntax"})
+    public void stepDefinedWithAliasSyntax() {
     }
 }
