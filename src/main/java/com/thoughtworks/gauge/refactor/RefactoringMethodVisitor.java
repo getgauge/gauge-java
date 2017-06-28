@@ -21,6 +21,7 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.body.VariableDeclaratorId;
 import com.github.javaparser.ast.expr.AnnotationExpr;
+import com.github.javaparser.ast.expr.ArrayInitializerExpr;
 import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
@@ -75,6 +76,13 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
                 if (annotation.getMemberValue() instanceof StringLiteralExpr) {
                     StringLiteralExpr memberValue = (StringLiteralExpr) annotation.getMemberValue();
                     refactor(methodDeclaration, memberValue, annotation);
+                }
+                if (annotation.getMemberValue() instanceof ArrayInitializerExpr) {
+                    ArrayInitializerExpr memberValue = (ArrayInitializerExpr) annotation.getMemberValue();
+                    if (memberValue.getValues().size() == 1) {
+                        StringLiteralExpr expression = (StringLiteralExpr) memberValue.getValues().get(0);
+                        refactor(methodDeclaration, expression, annotation);
+                    }
                 }
             }
         } catch (Exception ignored) {
