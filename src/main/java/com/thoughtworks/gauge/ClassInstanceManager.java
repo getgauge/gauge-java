@@ -25,14 +25,18 @@ public class ClassInstanceManager {
     private Map<Class<?>, Object> classInstanceMap = new HashMap<Class<?>, Object>();
     private static ThreadLocal<ClassInitializer> initializer = new InheritableThreadLocal<ClassInitializer>();
 
+    public ClassInstanceManager() {
+        initializer.set(new DefaultClassInitializer());
+    }
+
+    public ClassInstanceManager(ClassInitializer classInitializer) {
+        initializer.set(classInitializer);
+    }
+
     public Object get(Class<?> declaringClass) throws Exception {
         Object classInstance = classInstanceMap.get(declaringClass);
         if (classInstance == null) {
-            if (getInitializer() != null) {
-                classInstance = getInitializer().initialize(declaringClass);
-            } else {
-                classInstance = Class.forName(declaringClass.getName()).newInstance();
-            }
+            classInstance = getInitializer().initialize(declaringClass);
             classInstanceMap.put(declaringClass, classInstance);
         }
         return classInstance;
