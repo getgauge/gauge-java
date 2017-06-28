@@ -35,6 +35,8 @@ import com.thoughtworks.gauge.processor.StepNamesRequestProcessor;
 import com.thoughtworks.gauge.processor.SuiteExecutionEndingProcessor;
 import com.thoughtworks.gauge.processor.SuiteExecutionStartingProcessor;
 import com.thoughtworks.gauge.processor.ValidateStepProcessor;
+import com.thoughtworks.gauge.registry.ClassInitializerRegistry;
+
 import gauge.messages.Messages;
 
 import java.io.ByteArrayOutputStream;
@@ -52,7 +54,7 @@ public class MessageDispatcher {
     private final HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors;
 
     public MessageDispatcher() {
-        final ClassInstanceManager instanceManager = new ClassInstanceManager();
+        final ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
         messageProcessors = new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));

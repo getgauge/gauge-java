@@ -15,19 +15,20 @@
 
 package com.thoughtworks.gauge.scan;
 
+import java.io.File;
+import java.net.URL;
+import java.util.jar.JarFile;
+
 import org.reflections.Configuration;
 import org.reflections.Reflections;
 import org.reflections.scanners.MethodAnnotationsScanner;
 import org.reflections.scanners.SubTypesScanner;
+import org.reflections.scanners.TypeAnnotationsScanner;
 import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 import org.reflections.vfs.SystemDir;
 import org.reflections.vfs.Vfs;
 import org.reflections.vfs.ZipDir;
-
-import java.io.File;
-import java.net.URL;
-import java.util.jar.JarFile;
 
 /**
  * Scans the current Classpath and passes to all the scanners passed.
@@ -55,7 +56,7 @@ public class ClasspathScanner {
         });
 
         Configuration config = new ConfigurationBuilder()
-                .setScanners(new MethodAnnotationsScanner(), new SubTypesScanner())
+                .setScanners(new MethodAnnotationsScanner(), new SubTypesScanner(), new TypeAnnotationsScanner())
                 .addUrls(ClasspathHelper.forJavaClassPath());
         return new Reflections(config);
     }
