@@ -18,12 +18,18 @@ package com.thoughtworks.gauge;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.thoughtworks.gauge.registry.ClassInitializerRegistry;
+
 /**
  * Manages class instance creation, lifetime and caching.
  */
 public class ClassInstanceManager {
     private Map<Class<?>, Object> classInstanceMap = new HashMap<Class<?>, Object>();
     private static ThreadLocal<ClassInitializer> initializer = new InheritableThreadLocal<ClassInitializer>();
+
+    public ClassInstanceManager() {
+        initializer.set(ClassInitializerRegistry.classInitializer());
+    }
 
     public Object get(Class<?> declaringClass) throws Exception {
         Object classInstance = classInstanceMap.get(declaringClass);
