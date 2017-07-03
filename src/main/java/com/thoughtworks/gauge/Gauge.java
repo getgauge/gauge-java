@@ -20,31 +20,41 @@ import java.util.List;
 
 public class Gauge {
 
-    private static List<String> messages = new ArrayList<String>();
+    private static ThreadLocal<List<String>> messages = new InheritableThreadLocal<List<String>>() {
+        @Override
+        protected List<String> initialValue() {
+            return new ArrayList<String>();
+        }
+    };
 
     static List<String> getPendingMessages() {
-        List<String> pendingMessages = new ArrayList<String>(messages);
-        messages.clear();
+        List<String> pendingMessages = new ArrayList<String>(getMessages());
+        getMessages().clear();
         return pendingMessages;
     }
 
     static void clearMessages() {
-        messages.clear();
+        getMessages().clear();
     }
 
     /**
      * @param message - Custom message that can be added at runtime that will be visible in reports.
      */
     public static void writeMessage(String message) {
-        messages.add(message);
+        System.out.println("CheckHAH " + message);
+        getMessages().add(message);
     }
 
     /**
      * @param format - Custom messages that can be added at runtime that will be visible in reports.
-     *                  Format of the string message
+     *               Format of the string message
      * @param args   - Arguments for the format string as passed into String.format()
      */
     public static void writeMessage(String format, String... args) {
-        messages.add(String.format(format, args));
+        getMessages().add(String.format(format, args));
+    }
+
+    private static List<String> getMessages() {
+        return messages.get();
     }
 }
