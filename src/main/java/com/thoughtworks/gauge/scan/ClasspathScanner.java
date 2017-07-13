@@ -23,7 +23,6 @@ import org.reflections.Configuration;
 import org.reflections.Reflections;
 import org.reflections.scanners.MethodAnnotationsScanner;
 import org.reflections.scanners.SubTypesScanner;
-import org.reflections.scanners.TypeAnnotationsScanner;
 import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 import org.reflections.vfs.SystemDir;
@@ -55,9 +54,8 @@ public class ClasspathScanner {
             }
         });
 
-        Configuration config = new ConfigurationBuilder()
-                .setScanners(new MethodAnnotationsScanner(), new SubTypesScanner(), new TypeAnnotationsScanner())
-                .addUrls(ClasspathHelper.forJavaClassPath());
+        Configuration config = new ConfigurationBuilder().setScanners(new MethodAnnotationsScanner(), new SubTypesScanner()).addUrls(ClasspathHelper.forJavaClassPath());
+
         return new Reflections(config);
     }
 }
