@@ -1,12 +1,10 @@
 package com.thoughtworks.gauge.scan;
 
-import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.reflections.Reflections;
 
 import com.thoughtworks.gauge.ClassInitializer;
-import com.thoughtworks.gauge.CustomClassInitializer;
 import com.thoughtworks.gauge.DefaultClassInitializer;
 import com.thoughtworks.gauge.registry.ClassInitializerRegistry;
 
@@ -17,29 +15,22 @@ public class CustomClassInitializerScanner implements IScanner {
     }
 
     private void scanForInitializer(Reflections reflections) {
-        Set<Class<?>> initializers = reflections.getTypesAnnotatedWith(CustomClassInitializer.class);
-
-        if (initializers.isEmpty()) {
-            ClassInitializerRegistry.classInitializer(new DefaultClassInitializer());
-            return;
+        Set<Class<? extends ClassInitializer>> initializers = reflections.getSubTypesOf(ClassInitializer.class);
+        initializers.remove(DefaultClassInitializer.class);
+        if (initializers.size() == 1) {
+            Class<? extends ClassInitializer> initializer = initializers.iterator().next();
+            try {
+                ClassInitializerRegistry.classInitializer(initializer.newInstance());
+                System.out.println(String.format("Using %s as class initializer", initializer.getName()));
+            } catch (InstantiationException e) {
+                System.err.println(String.format("Could not instantiate %s, continuing using default class initializer", initializer.getName()));
+            } catch (IllegalAccessException e) {
+                System.err.println(String.format("Could not access %s constructor, continuing using default class initializer", initializer.getName()));
+            }
         }
 
         if (initializers.size() > 1) {
-            throw new ScanningException("Only 1 class can be annotated with @CustomClassInitializer");
-        }
-
-        try {
-            Class<?> initializer = initializers.iterator().next();
-            if (!ClassInitializer.class.isAssignableFrom(initializer)) {
-                throw new ScanningException("Custom class initializer should implement ClassInitializer interface");
-            }
-            ClassInitializerRegistry.classInitializer((ClassInitializer) initializer.newInstance());
-        } catch (InstantiationException e) {
-            throw new ScanningException(e.getMessage());
-        } catch (IllegalAccessException e) {
-            throw new ScanningException(e.getMessage());
-        } catch (NoSuchElementException e) {
-            // Class initializer is not defined, use default!
+            System.out.println("[Warning] Multiple class initializers found, switching to default.");
         }
     }
 }
