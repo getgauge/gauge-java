@@ -85,8 +85,8 @@ func startJava() {
 	}
 
 	javaPath := getExecPathFrom(java_home, alternate_java_home, execName(java))
-	args := createCommandArgs(cp)
-	cmd := runCommandAsync(javaPath, args)
+	args := createCommandArgs()
+	cmd := runJavaCommandAsync(javaPath, args, cp)
 	listenForKillSignal(cmd)
 	go killIfGaugeIsDead(cmd) // Kills gauge-java.go process if gauge process i.e. parent process is already dead.
 
@@ -142,14 +142,13 @@ func isProcessRunning(pid int) bool {
 	return true
 }
 
-func createCommandArgs(cp string) []string {
+func createCommandArgs() []string {
 	args := []string{}
 	javaDebugPort := os.Getenv(common.GaugeDebugOptsEnv)
 	if javaDebugPort != "" {
 		value := fmt.Sprintf(JavaDebugOptsTemplate, javaDebugPort)
 		args = append(args, value)
 	}
-	args = append(args, "-classpath", cp)
 	if os.Getenv(jvm_args_env_name) != "" {
 		jvmArgs := splitByComma(os.Getenv(jvm_args_env_name))
 		args = append(args, jvmArgs...)
@@ -297,8 +296,8 @@ func printUsage() {
 	os.Exit(2)
 }
 
-func runCommand(cmdName string, args []string) {
-	cmd := runCommandAsync(cmdName, args)
+func runJavaCommand(cmdName string, args []string, classpath string) {
+	cmd := runJavaCommandAsync(cmdName, args, classpath)
 	err := cmd.Wait()
 	if err != nil {
 		fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())
@@ -306,10 +305,13 @@ func runCommand(cmdName string, args []string) {
 	}
 }
 
-func runCommandAsync(cmdName string, args []string) *exec.Cmd {
+func runJavaCommandAsync(cmdName string, args []string, classpath string) *exec.Cmd {
 	cmd := exec.Command(cmdName, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
+	env := os.Environ()
+	env = append(env, fmt.Sprintf("CLASSPATH=%s", classpath))
+	cmd.Env = env
 	//TODO: move to logs
 	/*fmt.Println(cmd.Args)*/
 	var err error
@@ -374,7 +376,7 @@ func getExecPathFrom(path string, alternatePath string, execName string) string 
 func build(destination string, classpath string) {
 	os.RemoveAll(destination)
 	os.Mkdir(destination, 0755)
-	args := []string{"-encoding", "UTF-8", "-d", destination, "-cp", classpath}
+	args := []string{"-encoding", "UTF-8", "-d", destination}
 	javaFiles := make([]string, 0)
 	resourceFiles := make(map[string][]string, 0)
 
@@ -425,7 +427,7 @@ func build(destination string, classpath string) {
 
 	//TODO: should move to logs
 	//fmt.Println(fmt.Sprintf("Building files in %s directory to %s", "src", destination))
-	runCommand(javac, args)
+	runJavaCommand(javac, args, classpath)
 	copyResources(resourceFiles, destination)
 }
 
