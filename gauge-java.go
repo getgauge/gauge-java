@@ -309,9 +309,7 @@ func runJavaCommandAsync(cmdName string, args []string, classpath string) *exec.
 	cmd := exec.Command(cmdName, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	env := os.Environ()
-	env = append(env, fmt.Sprintf("CLASSPATH=%s", classpath))
-	cmd.Env = env
+	os.Setenv("CLASSPATH", classpath)
 	//TODO: move to logs
 	/*fmt.Println(cmd.Args)*/
 	var err error
