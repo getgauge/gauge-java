@@ -2,10 +2,9 @@ Gauge-java
 ==========
 
 This is the java [language plugin](http://getgauge.io/documentation/user/current/test_code/java/java.html) for [gauge](http://getgauge.io).
-
- [![Build Status](https://snap-ci.com/getgauge/gauge-java/branch/master/build_image)](https://snap-ci.com/getgauge/gauge-java/branch/master)
- [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java)
+[![Build status](https://ci.appveyor.com/api/projects/status/vhluq2mpktp87usw?svg=true)](https://ci.appveyor.com/project/sriv/gauge-java)
  [![Build Status](https://travis-ci.org/getgauge/gauge-java.svg?branch=master)](https://travis-ci.org/getgauge/gauge-java)
+ [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java)
 
 |Gauge-Java Nightly|Maven-Gauge-Java Nightly|
 |----------|----------------|
