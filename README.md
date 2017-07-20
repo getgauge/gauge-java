@@ -33,7 +33,7 @@ gauge --install java --file gauge-java-0.0.7-windows.x86_64.zip
 
 ###Requirements
 * [Golang](http://golang.org/)
-* [Java] (https://www.java.com/en/download/index.jsp)
+* [Java](https://www.java.com/en/download/index.jsp)
 * [Maven](https://maven.apache.org/)
 * [Gauge](http://getgauge.io)
 
@@ -49,7 +49,7 @@ For cross platform compilation (launcher)
 go run make.go --all-platforms
 ````
 
-###Installing
+### Installing
 
 After compilation
 ````
@@ -62,7 +62,7 @@ Installing to a CUSTOM_LOCATION
 go run make.go --install --plugin-prefix CUSTOM_LOCATION
 ````
 
-###Creating distributable
+### Creating distributable
 
 Note: Run after compiling
 
