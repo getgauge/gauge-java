@@ -1,0 +1,45 @@
+version: 1.0.{build}
+init:
+- ps: >-
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+
+    if (!(Test-Path -Path "C:\maven" )) {
+        (new-object System.Net.WebClient).DownloadFile('http://www.us.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip', 'C:\maven-bin.zip')
+        [System.IO.Compression.ZipFile]::ExtractToDirectory("C:\maven-bin.zip", "C:\maven")
+        }
+cache:
+- C:\maven\
+- C:\Users\appveyor\.m2
+build_script:
+- ps: >- 
+    $env:Path="$env:ProgramFiles\Gauge\bin;C:\maven\apache-maven-3.3.9\bin;" + [System.Environment]::GetEnvironmentVariable(\"Path\",\"Machine\") + ";" + [System.Environment]::GetEnvironmentVariable(\"Path\",\"User\")
+
+    Write-Host "PATH : $($env:PATH)"
+
+    $env:M2_HOME="C:\maven\apache-maven-3.3.9\"
+
+    mvn --version
+    
+    go run make.go 
+    
+    go run make.go --install
+    
+    git clone --depth=1 https://github.com/getgauge/gauge-tests
+    
+    cd gauge-tests
+    
+    .\install_latest_gauge_nightly.ps1
+    
+    gauge -v
+    
+    echo "gauge_repository_url = https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/" | Out-File "$env:Appdata\.gauge\config\gauge.properties" -Encoding utf8 -Append
+    
+    gauge install
+    
+    mvn -q clean install -Denv=ci-java -DinParallel=false
+notifications:
+- provider: Webhook
+  url: https://webhooks.gitter.im/e/68b514dcb2c08a6a5809
+  method: POST
+  on_build_failure: true
+  on_build_status_changed: true
