@@ -143,7 +143,7 @@ public final class Spec {
      *&#47; Heading describing the Specification
      * </pre>
      *
-     * <code>optional string specHeading = 1;</code>
+     * <code>string specHeading = 1;</code>
      */
     java.lang.String getSpecHeading();
     /**
@@ -151,7 +151,7 @@ public final class Spec {
      *&#47; Heading describing the Specification
      * </pre>
      *
-     * <code>optional string specHeading = 1;</code>
+     * <code>string specHeading = 1;</code>
      */
     com.google.protobuf.ByteString
         getSpecHeadingBytes();
@@ -205,7 +205,7 @@ public final class Spec {
      *&#47; Flag indicating if this is a Table Driven Specification. The table is defined in the context, this is different from using a table parameter.
      * </pre>
      *
-     * <code>optional bool isTableDriven = 3;</code>
+     * <code>bool isTableDriven = 3;</code>
      */
     boolean getIsTableDriven();
 
@@ -214,57 +214,95 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
      */
-    boolean hasPreHookFailure();
+    java.util.List<gauge.messages.Spec.ProtoHookFailure> 
+        getPreHookFailuresList();
     /**
      * <pre>
      *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
      */
-    gauge.messages.Spec.ProtoHookFailure getPreHookFailure();
+    gauge.messages.Spec.ProtoHookFailure getPreHookFailures(int index);
     /**
      * <pre>
      *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
      */
-    gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder();
+    int getPreHookFailuresCount();
+    /**
+     * <pre>
+     *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+     */
+    java.util.List<? extends gauge.messages.Spec.ProtoHookFailureOrBuilder> 
+        getPreHookFailuresOrBuilderList();
+    /**
+     * <pre>
+     *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+     */
+    gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailuresOrBuilder(
+        int index);
 
     /**
      * <pre>
      *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
      */
-    boolean hasPostHookFailure();
+    java.util.List<gauge.messages.Spec.ProtoHookFailure> 
+        getPostHookFailuresList();
     /**
      * <pre>
      *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
      */
-    gauge.messages.Spec.ProtoHookFailure getPostHookFailure();
+    gauge.messages.Spec.ProtoHookFailure getPostHookFailures(int index);
     /**
      * <pre>
      *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
      */
-    gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder();
+    int getPostHookFailuresCount();
+    /**
+     * <pre>
+     *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+     */
+    java.util.List<? extends gauge.messages.Spec.ProtoHookFailureOrBuilder> 
+        getPostHookFailuresOrBuilderList();
+    /**
+     * <pre>
+     *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+     */
+    gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailuresOrBuilder(
+        int index);
 
     /**
      * <pre>
      *&#47; Contains the filename for that holds this specification.
      * </pre>
      *
-     * <code>optional string fileName = 6;</code>
+     * <code>string fileName = 6;</code>
      */
     java.lang.String getFileName();
     /**
@@ -272,7 +310,7 @@ public final class Spec {
      *&#47; Contains the filename for that holds this specification.
      * </pre>
      *
-     * <code>optional string fileName = 6;</code>
+     * <code>string fileName = 6;</code>
      */
     com.google.protobuf.ByteString
         getFileNameBytes();
@@ -332,6 +370,8 @@ public final class Spec {
       specHeading_ = "";
       items_ = java.util.Collections.emptyList();
       isTableDriven_ = false;
+      preHookFailures_ = java.util.Collections.emptyList();
+      postHookFailures_ = java.util.Collections.emptyList();
       fileName_ = "";
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
@@ -382,29 +422,21 @@ public final class Spec {
               break;
             }
             case 34: {
-              gauge.messages.Spec.ProtoHookFailure.Builder subBuilder = null;
-              if (preHookFailure_ != null) {
-                subBuilder = preHookFailure_.toBuilder();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                preHookFailures_ = new java.util.ArrayList<gauge.messages.Spec.ProtoHookFailure>();
+                mutable_bitField0_ |= 0x00000008;
               }
-              preHookFailure_ = input.readMessage(gauge.messages.Spec.ProtoHookFailure.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(preHookFailure_);
-                preHookFailure_ = subBuilder.buildPartial();
-              }
-
+              preHookFailures_.add(
+                  input.readMessage(gauge.messages.Spec.ProtoHookFailure.parser(), extensionRegistry));
               break;
             }
             case 42: {
-              gauge.messages.Spec.ProtoHookFailure.Builder subBuilder = null;
-              if (postHookFailure_ != null) {
-                subBuilder = postHookFailure_.toBuilder();
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                postHookFailures_ = new java.util.ArrayList<gauge.messages.Spec.ProtoHookFailure>();
+                mutable_bitField0_ |= 0x00000010;
               }
-              postHookFailure_ = input.readMessage(gauge.messages.Spec.ProtoHookFailure.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(postHookFailure_);
-                postHookFailure_ = subBuilder.buildPartial();
-              }
-
+              postHookFailures_.add(
+                  input.readMessage(gauge.messages.Spec.ProtoHookFailure.parser(), extensionRegistry));
               break;
             }
             case 50: {
@@ -433,6 +465,12 @@ public final class Spec {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           items_ = java.util.Collections.unmodifiableList(items_);
         }
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          preHookFailures_ = java.util.Collections.unmodifiableList(preHookFailures_);
+        }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          postHookFailures_ = java.util.Collections.unmodifiableList(postHookFailures_);
+        }
         if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           tags_ = tags_.getUnmodifiableView();
         }
@@ -459,7 +497,7 @@ public final class Spec {
      *&#47; Heading describing the Specification
      * </pre>
      *
-     * <code>optional string specHeading = 1;</code>
+     * <code>string specHeading = 1;</code>
      */
     public java.lang.String getSpecHeading() {
       java.lang.Object ref = specHeading_;
@@ -478,7 +516,7 @@ public final class Spec {
      *&#47; Heading describing the Specification
      * </pre>
      *
-     * <code>optional string specHeading = 1;</code>
+     * <code>string specHeading = 1;</code>
      */
     public com.google.protobuf.ByteString
         getSpecHeadingBytes() {
@@ -556,76 +594,120 @@ public final class Spec {
      *&#47; Flag indicating if this is a Table Driven Specification. The table is defined in the context, this is different from using a table parameter.
      * </pre>
      *
-     * <code>optional bool isTableDriven = 3;</code>
+     * <code>bool isTableDriven = 3;</code>
      */
     public boolean getIsTableDriven() {
       return isTableDriven_;
     }
 
-    public static final int PREHOOKFAILURE_FIELD_NUMBER = 4;
-    private gauge.messages.Spec.ProtoHookFailure preHookFailure_;
+    public static final int PREHOOKFAILURES_FIELD_NUMBER = 4;
+    private java.util.List<gauge.messages.Spec.ProtoHookFailure> preHookFailures_;
     /**
      * <pre>
      *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
      */
-    public boolean hasPreHookFailure() {
-      return preHookFailure_ != null;
+    public java.util.List<gauge.messages.Spec.ProtoHookFailure> getPreHookFailuresList() {
+      return preHookFailures_;
     }
     /**
      * <pre>
      *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
      */
-    public gauge.messages.Spec.ProtoHookFailure getPreHookFailure() {
-      return preHookFailure_ == null ? gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : preHookFailure_;
+    public java.util.List<? extends gauge.messages.Spec.ProtoHookFailureOrBuilder> 
+        getPreHookFailuresOrBuilderList() {
+      return preHookFailures_;
     }
     /**
      * <pre>
      *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
      */
-    public gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder() {
-      return getPreHookFailure();
+    public int getPreHookFailuresCount() {
+      return preHookFailures_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+     */
+    public gauge.messages.Spec.ProtoHookFailure getPreHookFailures(int index) {
+      return preHookFailures_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+     */
+    public gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailuresOrBuilder(
+        int index) {
+      return preHookFailures_.get(index);
     }
 
-    public static final int POSTHOOKFAILURE_FIELD_NUMBER = 5;
-    private gauge.messages.Spec.ProtoHookFailure postHookFailure_;
+    public static final int POSTHOOKFAILURES_FIELD_NUMBER = 5;
+    private java.util.List<gauge.messages.Spec.ProtoHookFailure> postHookFailures_;
     /**
      * <pre>
      *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
      */
-    public boolean hasPostHookFailure() {
-      return postHookFailure_ != null;
+    public java.util.List<gauge.messages.Spec.ProtoHookFailure> getPostHookFailuresList() {
+      return postHookFailures_;
     }
     /**
      * <pre>
      *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
      */
-    public gauge.messages.Spec.ProtoHookFailure getPostHookFailure() {
-      return postHookFailure_ == null ? gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : postHookFailure_;
+    public java.util.List<? extends gauge.messages.Spec.ProtoHookFailureOrBuilder> 
+        getPostHookFailuresOrBuilderList() {
+      return postHookFailures_;
     }
     /**
      * <pre>
      *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
+     * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
      */
-    public gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder() {
-      return getPostHookFailure();
+    public int getPostHookFailuresCount() {
+      return postHookFailures_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+     */
+    public gauge.messages.Spec.ProtoHookFailure getPostHookFailures(int index) {
+      return postHookFailures_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+     */
+    public gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailuresOrBuilder(
+        int index) {
+      return postHookFailures_.get(index);
     }
 
     public static final int FILENAME_FIELD_NUMBER = 6;
@@ -635,7 +717,7 @@ public final class Spec {
      *&#47; Contains the filename for that holds this specification.
      * </pre>
      *
-     * <code>optional string fileName = 6;</code>
+     * <code>string fileName = 6;</code>
      */
     public java.lang.String getFileName() {
       java.lang.Object ref = fileName_;
@@ -654,7 +736,7 @@ public final class Spec {
      *&#47; Contains the filename for that holds this specification.
      * </pre>
      *
-     * <code>optional string fileName = 6;</code>
+     * <code>string fileName = 6;</code>
      */
     public com.google.protobuf.ByteString
         getFileNameBytes() {
@@ -736,11 +818,11 @@ public final class Spec {
       if (isTableDriven_ != false) {
         output.writeBool(3, isTableDriven_);
       }
-      if (preHookFailure_ != null) {
-        output.writeMessage(4, getPreHookFailure());
+      for (int i = 0; i < preHookFailures_.size(); i++) {
+        output.writeMessage(4, preHookFailures_.get(i));
       }
-      if (postHookFailure_ != null) {
-        output.writeMessage(5, getPostHookFailure());
+      for (int i = 0; i < postHookFailures_.size(); i++) {
+        output.writeMessage(5, postHookFailures_.get(i));
       }
       if (!getFileNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, fileName_);
@@ -766,13 +848,13 @@ public final class Spec {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, isTableDriven_);
       }
-      if (preHookFailure_ != null) {
+      for (int i = 0; i < preHookFailures_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getPreHookFailure());
+          .computeMessageSize(4, preHookFailures_.get(i));
       }
-      if (postHookFailure_ != null) {
+      for (int i = 0; i < postHookFailures_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getPostHookFailure());
+          .computeMessageSize(5, postHookFailures_.get(i));
       }
       if (!getFileNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, fileName_);
@@ -807,16 +889,10 @@ public final class Spec {
           .equals(other.getItemsList());
       result = result && (getIsTableDriven()
           == other.getIsTableDriven());
-      result = result && (hasPreHookFailure() == other.hasPreHookFailure());
-      if (hasPreHookFailure()) {
-        result = result && getPreHookFailure()
-            .equals(other.getPreHookFailure());
-      }
-      result = result && (hasPostHookFailure() == other.hasPostHookFailure());
-      if (hasPostHookFailure()) {
-        result = result && getPostHookFailure()
-            .equals(other.getPostHookFailure());
-      }
+      result = result && getPreHookFailuresList()
+          .equals(other.getPreHookFailuresList());
+      result = result && getPostHookFailuresList()
+          .equals(other.getPostHookFailuresList());
       result = result && getFileName()
           .equals(other.getFileName());
       result = result && getTagsList()
@@ -830,7 +906,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + SPECHEADING_FIELD_NUMBER;
       hash = (53 * hash) + getSpecHeading().hashCode();
       if (getItemsCount() > 0) {
@@ -840,13 +916,13 @@ public final class Spec {
       hash = (37 * hash) + ISTABLEDRIVEN_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsTableDriven());
-      if (hasPreHookFailure()) {
-        hash = (37 * hash) + PREHOOKFAILURE_FIELD_NUMBER;
-        hash = (53 * hash) + getPreHookFailure().hashCode();
+      if (getPreHookFailuresCount() > 0) {
+        hash = (37 * hash) + PREHOOKFAILURES_FIELD_NUMBER;
+        hash = (53 * hash) + getPreHookFailuresList().hashCode();
       }
-      if (hasPostHookFailure()) {
-        hash = (37 * hash) + POSTHOOKFAILURE_FIELD_NUMBER;
-        hash = (53 * hash) + getPostHookFailure().hashCode();
+      if (getPostHookFailuresCount() > 0) {
+        hash = (37 * hash) + POSTHOOKFAILURES_FIELD_NUMBER;
+        hash = (53 * hash) + getPostHookFailuresList().hashCode();
       }
       hash = (37 * hash) + FILENAME_FIELD_NUMBER;
       hash = (53 * hash) + getFileName().hashCode();
@@ -859,6 +935,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoSpec parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoSpec parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoSpec parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -974,6 +1061,8 @@ public final class Spec {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getItemsFieldBuilder();
+          getPreHookFailuresFieldBuilder();
+          getPostHookFailuresFieldBuilder();
         }
       }
       public Builder clear() {
@@ -988,17 +1077,17 @@ public final class Spec {
         }
         isTableDriven_ = false;
 
-        if (preHookFailureBuilder_ == null) {
-          preHookFailure_ = null;
+        if (preHookFailuresBuilder_ == null) {
+          preHookFailures_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
-          preHookFailure_ = null;
-          preHookFailureBuilder_ = null;
+          preHookFailuresBuilder_.clear();
         }
-        if (postHookFailureBuilder_ == null) {
-          postHookFailure_ = null;
+        if (postHookFailuresBuilder_ == null) {
+          postHookFailures_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
-          postHookFailure_ = null;
-          postHookFailureBuilder_ = null;
+          postHookFailuresBuilder_.clear();
         }
         fileName_ = "";
 
@@ -1039,15 +1128,23 @@ public final class Spec {
           result.items_ = itemsBuilder_.build();
         }
         result.isTableDriven_ = isTableDriven_;
-        if (preHookFailureBuilder_ == null) {
-          result.preHookFailure_ = preHookFailure_;
+        if (preHookFailuresBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            preHookFailures_ = java.util.Collections.unmodifiableList(preHookFailures_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.preHookFailures_ = preHookFailures_;
         } else {
-          result.preHookFailure_ = preHookFailureBuilder_.build();
+          result.preHookFailures_ = preHookFailuresBuilder_.build();
         }
-        if (postHookFailureBuilder_ == null) {
-          result.postHookFailure_ = postHookFailure_;
+        if (postHookFailuresBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            postHookFailures_ = java.util.Collections.unmodifiableList(postHookFailures_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.postHookFailures_ = postHookFailures_;
         } else {
-          result.postHookFailure_ = postHookFailureBuilder_.build();
+          result.postHookFailures_ = postHookFailuresBuilder_.build();
         }
         result.fileName_ = fileName_;
         if (((bitField0_ & 0x00000040) == 0x00000040)) {
@@ -1130,11 +1227,57 @@ public final class Spec {
         if (other.getIsTableDriven() != false) {
           setIsTableDriven(other.getIsTableDriven());
         }
-        if (other.hasPreHookFailure()) {
-          mergePreHookFailure(other.getPreHookFailure());
+        if (preHookFailuresBuilder_ == null) {
+          if (!other.preHookFailures_.isEmpty()) {
+            if (preHookFailures_.isEmpty()) {
+              preHookFailures_ = other.preHookFailures_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensurePreHookFailuresIsMutable();
+              preHookFailures_.addAll(other.preHookFailures_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.preHookFailures_.isEmpty()) {
+            if (preHookFailuresBuilder_.isEmpty()) {
+              preHookFailuresBuilder_.dispose();
+              preHookFailuresBuilder_ = null;
+              preHookFailures_ = other.preHookFailures_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              preHookFailuresBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPreHookFailuresFieldBuilder() : null;
+            } else {
+              preHookFailuresBuilder_.addAllMessages(other.preHookFailures_);
+            }
+          }
         }
-        if (other.hasPostHookFailure()) {
-          mergePostHookFailure(other.getPostHookFailure());
+        if (postHookFailuresBuilder_ == null) {
+          if (!other.postHookFailures_.isEmpty()) {
+            if (postHookFailures_.isEmpty()) {
+              postHookFailures_ = other.postHookFailures_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensurePostHookFailuresIsMutable();
+              postHookFailures_.addAll(other.postHookFailures_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.postHookFailures_.isEmpty()) {
+            if (postHookFailuresBuilder_.isEmpty()) {
+              postHookFailuresBuilder_.dispose();
+              postHookFailuresBuilder_ = null;
+              postHookFailures_ = other.postHookFailures_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              postHookFailuresBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPostHookFailuresFieldBuilder() : null;
+            } else {
+              postHookFailuresBuilder_.addAllMessages(other.postHookFailures_);
+            }
+          }
         }
         if (!other.getFileName().isEmpty()) {
           fileName_ = other.fileName_;
@@ -1183,7 +1326,7 @@ public final class Spec {
        *&#47; Heading describing the Specification
        * </pre>
        *
-       * <code>optional string specHeading = 1;</code>
+       * <code>string specHeading = 1;</code>
        */
       public java.lang.String getSpecHeading() {
         java.lang.Object ref = specHeading_;
@@ -1202,7 +1345,7 @@ public final class Spec {
        *&#47; Heading describing the Specification
        * </pre>
        *
-       * <code>optional string specHeading = 1;</code>
+       * <code>string specHeading = 1;</code>
        */
       public com.google.protobuf.ByteString
           getSpecHeadingBytes() {
@@ -1222,7 +1365,7 @@ public final class Spec {
        *&#47; Heading describing the Specification
        * </pre>
        *
-       * <code>optional string specHeading = 1;</code>
+       * <code>string specHeading = 1;</code>
        */
       public Builder setSpecHeading(
           java.lang.String value) {
@@ -1239,7 +1382,7 @@ public final class Spec {
        *&#47; Heading describing the Specification
        * </pre>
        *
-       * <code>optional string specHeading = 1;</code>
+       * <code>string specHeading = 1;</code>
        */
       public Builder clearSpecHeading() {
         
@@ -1252,7 +1395,7 @@ public final class Spec {
        *&#47; Heading describing the Specification
        * </pre>
        *
-       * <code>optional string specHeading = 1;</code>
+       * <code>string specHeading = 1;</code>
        */
       public Builder setSpecHeadingBytes(
           com.google.protobuf.ByteString value) {
@@ -1584,7 +1727,7 @@ public final class Spec {
        *&#47; Flag indicating if this is a Table Driven Specification. The table is defined in the context, this is different from using a table parameter.
        * </pre>
        *
-       * <code>optional bool isTableDriven = 3;</code>
+       * <code>bool isTableDriven = 3;</code>
        */
       public boolean getIsTableDriven() {
         return isTableDriven_;
@@ -1594,7 +1737,7 @@ public final class Spec {
        *&#47; Flag indicating if this is a Table Driven Specification. The table is defined in the context, this is different from using a table parameter.
        * </pre>
        *
-       * <code>optional bool isTableDriven = 3;</code>
+       * <code>bool isTableDriven = 3;</code>
        */
       public Builder setIsTableDriven(boolean value) {
         
@@ -1607,7 +1750,7 @@ public final class Spec {
        *&#47; Flag indicating if this is a Table Driven Specification. The table is defined in the context, this is different from using a table parameter.
        * </pre>
        *
-       * <code>optional bool isTableDriven = 3;</code>
+       * <code>bool isTableDriven = 3;</code>
        */
       public Builder clearIsTableDriven() {
         
@@ -1616,31 +1759,30 @@ public final class Spec {
         return this;
       }
 
-      private gauge.messages.Spec.ProtoHookFailure preHookFailure_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> preHookFailureBuilder_;
-      /**
-       * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
-       * </pre>
-       *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
-       */
-      public boolean hasPreHookFailure() {
-        return preHookFailureBuilder_ != null || preHookFailure_ != null;
+      private java.util.List<gauge.messages.Spec.ProtoHookFailure> preHookFailures_ =
+        java.util.Collections.emptyList();
+      private void ensurePreHookFailuresIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          preHookFailures_ = new java.util.ArrayList<gauge.messages.Spec.ProtoHookFailure>(preHookFailures_);
+          bitField0_ |= 0x00000008;
+         }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> preHookFailuresBuilder_;
+
       /**
        * <pre>
        *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
        */
-      public gauge.messages.Spec.ProtoHookFailure getPreHookFailure() {
-        if (preHookFailureBuilder_ == null) {
-          return preHookFailure_ == null ? gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : preHookFailure_;
+      public java.util.List<gauge.messages.Spec.ProtoHookFailure> getPreHookFailuresList() {
+        if (preHookFailuresBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(preHookFailures_);
         } else {
-          return preHookFailureBuilder_.getMessage();
+          return preHookFailuresBuilder_.getMessageList();
         }
       }
       /**
@@ -1648,19 +1790,48 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
        */
-      public Builder setPreHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
-        if (preHookFailureBuilder_ == null) {
+      public int getPreHookFailuresCount() {
+        if (preHookFailuresBuilder_ == null) {
+          return preHookFailures_.size();
+        } else {
+          return preHookFailuresBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+       */
+      public gauge.messages.Spec.ProtoHookFailure getPreHookFailures(int index) {
+        if (preHookFailuresBuilder_ == null) {
+          return preHookFailures_.get(index);
+        } else {
+          return preHookFailuresBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+       */
+      public Builder setPreHookFailures(
+          int index, gauge.messages.Spec.ProtoHookFailure value) {
+        if (preHookFailuresBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          preHookFailure_ = value;
+          ensurePreHookFailuresIsMutable();
+          preHookFailures_.set(index, value);
           onChanged();
         } else {
-          preHookFailureBuilder_.setMessage(value);
+          preHookFailuresBuilder_.setMessage(index, value);
         }
-
         return this;
       }
       /**
@@ -1668,17 +1839,17 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
        */
-      public Builder setPreHookFailure(
-          gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
-        if (preHookFailureBuilder_ == null) {
-          preHookFailure_ = builderForValue.build();
+      public Builder setPreHookFailures(
+          int index, gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
+        if (preHookFailuresBuilder_ == null) {
+          ensurePreHookFailuresIsMutable();
+          preHookFailures_.set(index, builderForValue.build());
           onChanged();
         } else {
-          preHookFailureBuilder_.setMessage(builderForValue.build());
+          preHookFailuresBuilder_.setMessage(index, builderForValue.build());
         }
-
         return this;
       }
       /**
@@ -1686,240 +1857,530 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
        */
-      public Builder mergePreHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
-        if (preHookFailureBuilder_ == null) {
-          if (preHookFailure_ != null) {
-            preHookFailure_ =
-              gauge.messages.Spec.ProtoHookFailure.newBuilder(preHookFailure_).mergeFrom(value).buildPartial();
-          } else {
-            preHookFailure_ = value;
-          }
-          onChanged();
-        } else {
-          preHookFailureBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
-       * </pre>
-       *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
-       */
-      public Builder clearPreHookFailure() {
-        if (preHookFailureBuilder_ == null) {
-          preHookFailure_ = null;
-          onChanged();
-        } else {
-          preHookFailure_ = null;
-          preHookFailureBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
-       * </pre>
-       *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
-       */
-      public gauge.messages.Spec.ProtoHookFailure.Builder getPreHookFailureBuilder() {
-        
-        onChanged();
-        return getPreHookFailureFieldBuilder().getBuilder();
-      }
-      /**
-       * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
-       * </pre>
-       *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
-       */
-      public gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder() {
-        if (preHookFailureBuilder_ != null) {
-          return preHookFailureBuilder_.getMessageOrBuilder();
-        } else {
-          return preHookFailure_ == null ?
-              gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : preHookFailure_;
-        }
-      }
-      /**
-       * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
-       * </pre>
-       *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 4;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> 
-          getPreHookFailureFieldBuilder() {
-        if (preHookFailureBuilder_ == null) {
-          preHookFailureBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder>(
-                  getPreHookFailure(),
-                  getParentForChildren(),
-                  isClean());
-          preHookFailure_ = null;
-        }
-        return preHookFailureBuilder_;
-      }
-
-      private gauge.messages.Spec.ProtoHookFailure postHookFailure_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> postHookFailureBuilder_;
-      /**
-       * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
-       * </pre>
-       *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
-       */
-      public boolean hasPostHookFailure() {
-        return postHookFailureBuilder_ != null || postHookFailure_ != null;
-      }
-      /**
-       * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
-       * </pre>
-       *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
-       */
-      public gauge.messages.Spec.ProtoHookFailure getPostHookFailure() {
-        if (postHookFailureBuilder_ == null) {
-          return postHookFailure_ == null ? gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : postHookFailure_;
-        } else {
-          return postHookFailureBuilder_.getMessage();
-        }
-      }
-      /**
-       * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
-       * </pre>
-       *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
-       */
-      public Builder setPostHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
-        if (postHookFailureBuilder_ == null) {
+      public Builder addPreHookFailures(gauge.messages.Spec.ProtoHookFailure value) {
+        if (preHookFailuresBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          postHookFailure_ = value;
+          ensurePreHookFailuresIsMutable();
+          preHookFailures_.add(value);
           onChanged();
         } else {
-          postHookFailureBuilder_.setMessage(value);
+          preHookFailuresBuilder_.addMessage(value);
         }
-
         return this;
       }
       /**
        * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
        */
-      public Builder setPostHookFailure(
-          gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
-        if (postHookFailureBuilder_ == null) {
-          postHookFailure_ = builderForValue.build();
-          onChanged();
-        } else {
-          postHookFailureBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
-       * </pre>
-       *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
-       */
-      public Builder mergePostHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
-        if (postHookFailureBuilder_ == null) {
-          if (postHookFailure_ != null) {
-            postHookFailure_ =
-              gauge.messages.Spec.ProtoHookFailure.newBuilder(postHookFailure_).mergeFrom(value).buildPartial();
-          } else {
-            postHookFailure_ = value;
+      public Builder addPreHookFailures(
+          int index, gauge.messages.Spec.ProtoHookFailure value) {
+        if (preHookFailuresBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
           }
+          ensurePreHookFailuresIsMutable();
+          preHookFailures_.add(index, value);
           onChanged();
         } else {
-          postHookFailureBuilder_.mergeFrom(value);
+          preHookFailuresBuilder_.addMessage(index, value);
         }
-
         return this;
       }
       /**
        * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
        */
-      public Builder clearPostHookFailure() {
-        if (postHookFailureBuilder_ == null) {
-          postHookFailure_ = null;
+      public Builder addPreHookFailures(
+          gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
+        if (preHookFailuresBuilder_ == null) {
+          ensurePreHookFailuresIsMutable();
+          preHookFailures_.add(builderForValue.build());
           onChanged();
         } else {
-          postHookFailure_ = null;
-          postHookFailureBuilder_ = null;
+          preHookFailuresBuilder_.addMessage(builderForValue.build());
         }
-
         return this;
       }
       /**
        * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
        */
-      public gauge.messages.Spec.ProtoHookFailure.Builder getPostHookFailureBuilder() {
-        
-        onChanged();
-        return getPostHookFailureFieldBuilder().getBuilder();
+      public Builder addPreHookFailures(
+          int index, gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
+        if (preHookFailuresBuilder_ == null) {
+          ensurePreHookFailuresIsMutable();
+          preHookFailures_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          preHookFailuresBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
       }
       /**
        * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
        */
-      public gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder() {
-        if (postHookFailureBuilder_ != null) {
-          return postHookFailureBuilder_.getMessageOrBuilder();
+      public Builder addAllPreHookFailures(
+          java.lang.Iterable<? extends gauge.messages.Spec.ProtoHookFailure> values) {
+        if (preHookFailuresBuilder_ == null) {
+          ensurePreHookFailuresIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, preHookFailures_);
+          onChanged();
         } else {
-          return postHookFailure_ == null ?
-              gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : postHookFailure_;
+          preHookFailuresBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+       */
+      public Builder clearPreHookFailures() {
+        if (preHookFailuresBuilder_ == null) {
+          preHookFailures_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          preHookFailuresBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+       */
+      public Builder removePreHookFailures(int index) {
+        if (preHookFailuresBuilder_ == null) {
+          ensurePreHookFailuresIsMutable();
+          preHookFailures_.remove(index);
+          onChanged();
+        } else {
+          preHookFailuresBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+       */
+      public gauge.messages.Spec.ProtoHookFailure.Builder getPreHookFailuresBuilder(
+          int index) {
+        return getPreHookFailuresFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+       */
+      public gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailuresOrBuilder(
+          int index) {
+        if (preHookFailuresBuilder_ == null) {
+          return preHookFailures_.get(index);  } else {
+          return preHookFailuresBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
        * <pre>
-       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 5;</code>
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
+      public java.util.List<? extends gauge.messages.Spec.ProtoHookFailureOrBuilder> 
+           getPreHookFailuresOrBuilderList() {
+        if (preHookFailuresBuilder_ != null) {
+          return preHookFailuresBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(preHookFailures_);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+       */
+      public gauge.messages.Spec.ProtoHookFailure.Builder addPreHookFailuresBuilder() {
+        return getPreHookFailuresFieldBuilder().addBuilder(
+            gauge.messages.Spec.ProtoHookFailure.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+       */
+      public gauge.messages.Spec.ProtoHookFailure.Builder addPreHookFailuresBuilder(
+          int index) {
+        return getPreHookFailuresFieldBuilder().addBuilder(
+            index, gauge.messages.Spec.ProtoHookFailure.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `before_spec` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure preHookFailures = 4;</code>
+       */
+      public java.util.List<gauge.messages.Spec.ProtoHookFailure.Builder> 
+           getPreHookFailuresBuilderList() {
+        return getPreHookFailuresFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> 
-          getPostHookFailureFieldBuilder() {
-        if (postHookFailureBuilder_ == null) {
-          postHookFailureBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          getPreHookFailuresFieldBuilder() {
+        if (preHookFailuresBuilder_ == null) {
+          preHookFailuresBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder>(
-                  getPostHookFailure(),
+                  preHookFailures_,
+                  ((bitField0_ & 0x00000008) == 0x00000008),
                   getParentForChildren(),
                   isClean());
-          postHookFailure_ = null;
+          preHookFailures_ = null;
         }
-        return postHookFailureBuilder_;
+        return preHookFailuresBuilder_;
+      }
+
+      private java.util.List<gauge.messages.Spec.ProtoHookFailure> postHookFailures_ =
+        java.util.Collections.emptyList();
+      private void ensurePostHookFailuresIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          postHookFailures_ = new java.util.ArrayList<gauge.messages.Spec.ProtoHookFailure>(postHookFailures_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> postHookFailuresBuilder_;
+
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public java.util.List<gauge.messages.Spec.ProtoHookFailure> getPostHookFailuresList() {
+        if (postHookFailuresBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(postHookFailures_);
+        } else {
+          return postHookFailuresBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public int getPostHookFailuresCount() {
+        if (postHookFailuresBuilder_ == null) {
+          return postHookFailures_.size();
+        } else {
+          return postHookFailuresBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public gauge.messages.Spec.ProtoHookFailure getPostHookFailures(int index) {
+        if (postHookFailuresBuilder_ == null) {
+          return postHookFailures_.get(index);
+        } else {
+          return postHookFailuresBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public Builder setPostHookFailures(
+          int index, gauge.messages.Spec.ProtoHookFailure value) {
+        if (postHookFailuresBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePostHookFailuresIsMutable();
+          postHookFailures_.set(index, value);
+          onChanged();
+        } else {
+          postHookFailuresBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public Builder setPostHookFailures(
+          int index, gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
+        if (postHookFailuresBuilder_ == null) {
+          ensurePostHookFailuresIsMutable();
+          postHookFailures_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          postHookFailuresBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public Builder addPostHookFailures(gauge.messages.Spec.ProtoHookFailure value) {
+        if (postHookFailuresBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePostHookFailuresIsMutable();
+          postHookFailures_.add(value);
+          onChanged();
+        } else {
+          postHookFailuresBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public Builder addPostHookFailures(
+          int index, gauge.messages.Spec.ProtoHookFailure value) {
+        if (postHookFailuresBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePostHookFailuresIsMutable();
+          postHookFailures_.add(index, value);
+          onChanged();
+        } else {
+          postHookFailuresBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public Builder addPostHookFailures(
+          gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
+        if (postHookFailuresBuilder_ == null) {
+          ensurePostHookFailuresIsMutable();
+          postHookFailures_.add(builderForValue.build());
+          onChanged();
+        } else {
+          postHookFailuresBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public Builder addPostHookFailures(
+          int index, gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
+        if (postHookFailuresBuilder_ == null) {
+          ensurePostHookFailuresIsMutable();
+          postHookFailures_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          postHookFailuresBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public Builder addAllPostHookFailures(
+          java.lang.Iterable<? extends gauge.messages.Spec.ProtoHookFailure> values) {
+        if (postHookFailuresBuilder_ == null) {
+          ensurePostHookFailuresIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, postHookFailures_);
+          onChanged();
+        } else {
+          postHookFailuresBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public Builder clearPostHookFailures() {
+        if (postHookFailuresBuilder_ == null) {
+          postHookFailures_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          postHookFailuresBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public Builder removePostHookFailures(int index) {
+        if (postHookFailuresBuilder_ == null) {
+          ensurePostHookFailuresIsMutable();
+          postHookFailures_.remove(index);
+          onChanged();
+        } else {
+          postHookFailuresBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public gauge.messages.Spec.ProtoHookFailure.Builder getPostHookFailuresBuilder(
+          int index) {
+        return getPostHookFailuresFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailuresOrBuilder(
+          int index) {
+        if (postHookFailuresBuilder_ == null) {
+          return postHookFailures_.get(index);  } else {
+          return postHookFailuresBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public java.util.List<? extends gauge.messages.Spec.ProtoHookFailureOrBuilder> 
+           getPostHookFailuresOrBuilderList() {
+        if (postHookFailuresBuilder_ != null) {
+          return postHookFailuresBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(postHookFailures_);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public gauge.messages.Spec.ProtoHookFailure.Builder addPostHookFailuresBuilder() {
+        return getPostHookFailuresFieldBuilder().addBuilder(
+            gauge.messages.Spec.ProtoHookFailure.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public gauge.messages.Spec.ProtoHookFailure.Builder addPostHookFailuresBuilder(
+          int index) {
+        return getPostHookFailuresFieldBuilder().addBuilder(
+            index, gauge.messages.Spec.ProtoHookFailure.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Contains a 'before' hook failure message. This happens when the `after_hook` hook has an error.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ProtoHookFailure postHookFailures = 5;</code>
+       */
+      public java.util.List<gauge.messages.Spec.ProtoHookFailure.Builder> 
+           getPostHookFailuresBuilderList() {
+        return getPostHookFailuresFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> 
+          getPostHookFailuresFieldBuilder() {
+        if (postHookFailuresBuilder_ == null) {
+          postHookFailuresBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder>(
+                  postHookFailures_,
+                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  getParentForChildren(),
+                  isClean());
+          postHookFailures_ = null;
+        }
+        return postHookFailuresBuilder_;
       }
 
       private java.lang.Object fileName_ = "";
@@ -1928,7 +2389,7 @@ public final class Spec {
        *&#47; Contains the filename for that holds this specification.
        * </pre>
        *
-       * <code>optional string fileName = 6;</code>
+       * <code>string fileName = 6;</code>
        */
       public java.lang.String getFileName() {
         java.lang.Object ref = fileName_;
@@ -1947,7 +2408,7 @@ public final class Spec {
        *&#47; Contains the filename for that holds this specification.
        * </pre>
        *
-       * <code>optional string fileName = 6;</code>
+       * <code>string fileName = 6;</code>
        */
       public com.google.protobuf.ByteString
           getFileNameBytes() {
@@ -1967,7 +2428,7 @@ public final class Spec {
        *&#47; Contains the filename for that holds this specification.
        * </pre>
        *
-       * <code>optional string fileName = 6;</code>
+       * <code>string fileName = 6;</code>
        */
       public Builder setFileName(
           java.lang.String value) {
@@ -1984,7 +2445,7 @@ public final class Spec {
        *&#47; Contains the filename for that holds this specification.
        * </pre>
        *
-       * <code>optional string fileName = 6;</code>
+       * <code>string fileName = 6;</code>
        */
       public Builder clearFileName() {
         
@@ -1997,7 +2458,7 @@ public final class Spec {
        *&#47; Contains the filename for that holds this specification.
        * </pre>
        *
-       * <code>optional string fileName = 6;</code>
+       * <code>string fileName = 6;</code>
        */
       public Builder setFileNameBytes(
           com.google.protobuf.ByteString value) {
@@ -2198,7 +2659,7 @@ public final class Spec {
      *&#47; Itemtype of the current ProtoItem
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoItem.ItemType itemType = 1;</code>
+     * <code>.gauge.messages.ProtoItem.ItemType itemType = 1;</code>
      */
     int getItemTypeValue();
     /**
@@ -2206,7 +2667,7 @@ public final class Spec {
      *&#47; Itemtype of the current ProtoItem
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoItem.ItemType itemType = 1;</code>
+     * <code>.gauge.messages.ProtoItem.ItemType itemType = 1;</code>
      */
     gauge.messages.Spec.ProtoItem.ItemType getItemType();
 
@@ -2215,7 +2676,7 @@ public final class Spec {
      *&#47; Holds the Step definition. Valid only if ItemType = Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+     * <code>.gauge.messages.ProtoStep step = 2;</code>
      */
     boolean hasStep();
     /**
@@ -2223,7 +2684,7 @@ public final class Spec {
      *&#47; Holds the Step definition. Valid only if ItemType = Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+     * <code>.gauge.messages.ProtoStep step = 2;</code>
      */
     gauge.messages.Spec.ProtoStep getStep();
     /**
@@ -2231,7 +2692,7 @@ public final class Spec {
      *&#47; Holds the Step definition. Valid only if ItemType = Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+     * <code>.gauge.messages.ProtoStep step = 2;</code>
      */
     gauge.messages.Spec.ProtoStepOrBuilder getStepOrBuilder();
 
@@ -2240,7 +2701,7 @@ public final class Spec {
      *&#47; Holds the Concept definition. Valid only if ItemType = Concept
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+     * <code>.gauge.messages.ProtoConcept concept = 3;</code>
      */
     boolean hasConcept();
     /**
@@ -2248,7 +2709,7 @@ public final class Spec {
      *&#47; Holds the Concept definition. Valid only if ItemType = Concept
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+     * <code>.gauge.messages.ProtoConcept concept = 3;</code>
      */
     gauge.messages.Spec.ProtoConcept getConcept();
     /**
@@ -2256,7 +2717,7 @@ public final class Spec {
      *&#47; Holds the Concept definition. Valid only if ItemType = Concept
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+     * <code>.gauge.messages.ProtoConcept concept = 3;</code>
      */
     gauge.messages.Spec.ProtoConceptOrBuilder getConceptOrBuilder();
 
@@ -2265,7 +2726,7 @@ public final class Spec {
      *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
      */
     boolean hasScenario();
     /**
@@ -2273,7 +2734,7 @@ public final class Spec {
      *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
      */
     gauge.messages.Spec.ProtoScenario getScenario();
     /**
@@ -2281,7 +2742,7 @@ public final class Spec {
      *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
      */
     gauge.messages.Spec.ProtoScenarioOrBuilder getScenarioOrBuilder();
 
@@ -2290,7 +2751,7 @@ public final class Spec {
      *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+     * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
      */
     boolean hasTableDrivenScenario();
     /**
@@ -2298,7 +2759,7 @@ public final class Spec {
      *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+     * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
      */
     gauge.messages.Spec.ProtoTableDrivenScenario getTableDrivenScenario();
     /**
@@ -2306,7 +2767,7 @@ public final class Spec {
      *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+     * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
      */
     gauge.messages.Spec.ProtoTableDrivenScenarioOrBuilder getTableDrivenScenarioOrBuilder();
 
@@ -2315,7 +2776,7 @@ public final class Spec {
      *&#47; Holds the Comment definition. Valid only if ItemType = Comment
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+     * <code>.gauge.messages.ProtoComment comment = 6;</code>
      */
     boolean hasComment();
     /**
@@ -2323,7 +2784,7 @@ public final class Spec {
      *&#47; Holds the Comment definition. Valid only if ItemType = Comment
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+     * <code>.gauge.messages.ProtoComment comment = 6;</code>
      */
     gauge.messages.Spec.ProtoComment getComment();
     /**
@@ -2331,7 +2792,7 @@ public final class Spec {
      *&#47; Holds the Comment definition. Valid only if ItemType = Comment
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+     * <code>.gauge.messages.ProtoComment comment = 6;</code>
      */
     gauge.messages.Spec.ProtoCommentOrBuilder getCommentOrBuilder();
 
@@ -2340,7 +2801,7 @@ public final class Spec {
      *&#47; Holds the Table definition. Valid only if ItemType = Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+     * <code>.gauge.messages.ProtoTable table = 7;</code>
      */
     boolean hasTable();
     /**
@@ -2348,7 +2809,7 @@ public final class Spec {
      *&#47; Holds the Table definition. Valid only if ItemType = Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+     * <code>.gauge.messages.ProtoTable table = 7;</code>
      */
     gauge.messages.Spec.ProtoTable getTable();
     /**
@@ -2356,7 +2817,7 @@ public final class Spec {
      *&#47; Holds the Table definition. Valid only if ItemType = Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+     * <code>.gauge.messages.ProtoTable table = 7;</code>
      */
     gauge.messages.Spec.ProtoTableOrBuilder getTableOrBuilder();
 
@@ -2365,7 +2826,7 @@ public final class Spec {
      *&#47; Holds the Tags definition. Valid only if ItemType = Tags
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     * <code>.gauge.messages.ProtoTags tags = 8;</code>
      */
     boolean hasTags();
     /**
@@ -2373,7 +2834,7 @@ public final class Spec {
      *&#47; Holds the Tags definition. Valid only if ItemType = Tags
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     * <code>.gauge.messages.ProtoTags tags = 8;</code>
      */
     gauge.messages.Spec.ProtoTags getTags();
     /**
@@ -2381,7 +2842,7 @@ public final class Spec {
      *&#47; Holds the Tags definition. Valid only if ItemType = Tags
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     * <code>.gauge.messages.ProtoTags tags = 8;</code>
      */
     gauge.messages.Spec.ProtoTagsOrBuilder getTagsOrBuilder();
   }
@@ -2759,7 +3220,7 @@ public final class Spec {
      *&#47; Itemtype of the current ProtoItem
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoItem.ItemType itemType = 1;</code>
+     * <code>.gauge.messages.ProtoItem.ItemType itemType = 1;</code>
      */
     public int getItemTypeValue() {
       return itemType_;
@@ -2769,7 +3230,7 @@ public final class Spec {
      *&#47; Itemtype of the current ProtoItem
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoItem.ItemType itemType = 1;</code>
+     * <code>.gauge.messages.ProtoItem.ItemType itemType = 1;</code>
      */
     public gauge.messages.Spec.ProtoItem.ItemType getItemType() {
       gauge.messages.Spec.ProtoItem.ItemType result = gauge.messages.Spec.ProtoItem.ItemType.valueOf(itemType_);
@@ -2783,7 +3244,7 @@ public final class Spec {
      *&#47; Holds the Step definition. Valid only if ItemType = Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+     * <code>.gauge.messages.ProtoStep step = 2;</code>
      */
     public boolean hasStep() {
       return step_ != null;
@@ -2793,7 +3254,7 @@ public final class Spec {
      *&#47; Holds the Step definition. Valid only if ItemType = Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+     * <code>.gauge.messages.ProtoStep step = 2;</code>
      */
     public gauge.messages.Spec.ProtoStep getStep() {
       return step_ == null ? gauge.messages.Spec.ProtoStep.getDefaultInstance() : step_;
@@ -2803,7 +3264,7 @@ public final class Spec {
      *&#47; Holds the Step definition. Valid only if ItemType = Step
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+     * <code>.gauge.messages.ProtoStep step = 2;</code>
      */
     public gauge.messages.Spec.ProtoStepOrBuilder getStepOrBuilder() {
       return getStep();
@@ -2816,7 +3277,7 @@ public final class Spec {
      *&#47; Holds the Concept definition. Valid only if ItemType = Concept
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+     * <code>.gauge.messages.ProtoConcept concept = 3;</code>
      */
     public boolean hasConcept() {
       return concept_ != null;
@@ -2826,7 +3287,7 @@ public final class Spec {
      *&#47; Holds the Concept definition. Valid only if ItemType = Concept
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+     * <code>.gauge.messages.ProtoConcept concept = 3;</code>
      */
     public gauge.messages.Spec.ProtoConcept getConcept() {
       return concept_ == null ? gauge.messages.Spec.ProtoConcept.getDefaultInstance() : concept_;
@@ -2836,7 +3297,7 @@ public final class Spec {
      *&#47; Holds the Concept definition. Valid only if ItemType = Concept
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+     * <code>.gauge.messages.ProtoConcept concept = 3;</code>
      */
     public gauge.messages.Spec.ProtoConceptOrBuilder getConceptOrBuilder() {
       return getConcept();
@@ -2849,7 +3310,7 @@ public final class Spec {
      *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
      */
     public boolean hasScenario() {
       return scenario_ != null;
@@ -2859,7 +3320,7 @@ public final class Spec {
      *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
      */
     public gauge.messages.Spec.ProtoScenario getScenario() {
       return scenario_ == null ? gauge.messages.Spec.ProtoScenario.getDefaultInstance() : scenario_;
@@ -2869,7 +3330,7 @@ public final class Spec {
      *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
      */
     public gauge.messages.Spec.ProtoScenarioOrBuilder getScenarioOrBuilder() {
       return getScenario();
@@ -2882,7 +3343,7 @@ public final class Spec {
      *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+     * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
      */
     public boolean hasTableDrivenScenario() {
       return tableDrivenScenario_ != null;
@@ -2892,7 +3353,7 @@ public final class Spec {
      *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+     * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
      */
     public gauge.messages.Spec.ProtoTableDrivenScenario getTableDrivenScenario() {
       return tableDrivenScenario_ == null ? gauge.messages.Spec.ProtoTableDrivenScenario.getDefaultInstance() : tableDrivenScenario_;
@@ -2902,7 +3363,7 @@ public final class Spec {
      *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+     * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
      */
     public gauge.messages.Spec.ProtoTableDrivenScenarioOrBuilder getTableDrivenScenarioOrBuilder() {
       return getTableDrivenScenario();
@@ -2915,7 +3376,7 @@ public final class Spec {
      *&#47; Holds the Comment definition. Valid only if ItemType = Comment
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+     * <code>.gauge.messages.ProtoComment comment = 6;</code>
      */
     public boolean hasComment() {
       return comment_ != null;
@@ -2925,7 +3386,7 @@ public final class Spec {
      *&#47; Holds the Comment definition. Valid only if ItemType = Comment
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+     * <code>.gauge.messages.ProtoComment comment = 6;</code>
      */
     public gauge.messages.Spec.ProtoComment getComment() {
       return comment_ == null ? gauge.messages.Spec.ProtoComment.getDefaultInstance() : comment_;
@@ -2935,7 +3396,7 @@ public final class Spec {
      *&#47; Holds the Comment definition. Valid only if ItemType = Comment
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+     * <code>.gauge.messages.ProtoComment comment = 6;</code>
      */
     public gauge.messages.Spec.ProtoCommentOrBuilder getCommentOrBuilder() {
       return getComment();
@@ -2948,7 +3409,7 @@ public final class Spec {
      *&#47; Holds the Table definition. Valid only if ItemType = Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+     * <code>.gauge.messages.ProtoTable table = 7;</code>
      */
     public boolean hasTable() {
       return table_ != null;
@@ -2958,7 +3419,7 @@ public final class Spec {
      *&#47; Holds the Table definition. Valid only if ItemType = Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+     * <code>.gauge.messages.ProtoTable table = 7;</code>
      */
     public gauge.messages.Spec.ProtoTable getTable() {
       return table_ == null ? gauge.messages.Spec.ProtoTable.getDefaultInstance() : table_;
@@ -2968,7 +3429,7 @@ public final class Spec {
      *&#47; Holds the Table definition. Valid only if ItemType = Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+     * <code>.gauge.messages.ProtoTable table = 7;</code>
      */
     public gauge.messages.Spec.ProtoTableOrBuilder getTableOrBuilder() {
       return getTable();
@@ -2981,7 +3442,7 @@ public final class Spec {
      *&#47; Holds the Tags definition. Valid only if ItemType = Tags
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     * <code>.gauge.messages.ProtoTags tags = 8;</code>
      */
     public boolean hasTags() {
       return tags_ != null;
@@ -2991,7 +3452,7 @@ public final class Spec {
      *&#47; Holds the Tags definition. Valid only if ItemType = Tags
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     * <code>.gauge.messages.ProtoTags tags = 8;</code>
      */
     public gauge.messages.Spec.ProtoTags getTags() {
       return tags_ == null ? gauge.messages.Spec.ProtoTags.getDefaultInstance() : tags_;
@@ -3001,7 +3462,7 @@ public final class Spec {
      *&#47; Holds the Tags definition. Valid only if ItemType = Tags
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+     * <code>.gauge.messages.ProtoTags tags = 8;</code>
      */
     public gauge.messages.Spec.ProtoTagsOrBuilder getTagsOrBuilder() {
       return getTags();
@@ -3143,7 +3604,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ITEMTYPE_FIELD_NUMBER;
       hash = (53 * hash) + itemType_;
       if (hasStep()) {
@@ -3179,6 +3640,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoItem parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoItem parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoItem parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3495,7 +3967,7 @@ public final class Spec {
        *&#47; Itemtype of the current ProtoItem
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoItem.ItemType itemType = 1;</code>
+       * <code>.gauge.messages.ProtoItem.ItemType itemType = 1;</code>
        */
       public int getItemTypeValue() {
         return itemType_;
@@ -3505,7 +3977,7 @@ public final class Spec {
        *&#47; Itemtype of the current ProtoItem
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoItem.ItemType itemType = 1;</code>
+       * <code>.gauge.messages.ProtoItem.ItemType itemType = 1;</code>
        */
       public Builder setItemTypeValue(int value) {
         itemType_ = value;
@@ -3517,7 +3989,7 @@ public final class Spec {
        *&#47; Itemtype of the current ProtoItem
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoItem.ItemType itemType = 1;</code>
+       * <code>.gauge.messages.ProtoItem.ItemType itemType = 1;</code>
        */
       public gauge.messages.Spec.ProtoItem.ItemType getItemType() {
         gauge.messages.Spec.ProtoItem.ItemType result = gauge.messages.Spec.ProtoItem.ItemType.valueOf(itemType_);
@@ -3528,7 +4000,7 @@ public final class Spec {
        *&#47; Itemtype of the current ProtoItem
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoItem.ItemType itemType = 1;</code>
+       * <code>.gauge.messages.ProtoItem.ItemType itemType = 1;</code>
        */
       public Builder setItemType(gauge.messages.Spec.ProtoItem.ItemType value) {
         if (value == null) {
@@ -3544,7 +4016,7 @@ public final class Spec {
        *&#47; Itemtype of the current ProtoItem
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoItem.ItemType itemType = 1;</code>
+       * <code>.gauge.messages.ProtoItem.ItemType itemType = 1;</code>
        */
       public Builder clearItemType() {
         
@@ -3561,7 +4033,7 @@ public final class Spec {
        *&#47; Holds the Step definition. Valid only if ItemType = Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+       * <code>.gauge.messages.ProtoStep step = 2;</code>
        */
       public boolean hasStep() {
         return stepBuilder_ != null || step_ != null;
@@ -3571,7 +4043,7 @@ public final class Spec {
        *&#47; Holds the Step definition. Valid only if ItemType = Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+       * <code>.gauge.messages.ProtoStep step = 2;</code>
        */
       public gauge.messages.Spec.ProtoStep getStep() {
         if (stepBuilder_ == null) {
@@ -3585,7 +4057,7 @@ public final class Spec {
        *&#47; Holds the Step definition. Valid only if ItemType = Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+       * <code>.gauge.messages.ProtoStep step = 2;</code>
        */
       public Builder setStep(gauge.messages.Spec.ProtoStep value) {
         if (stepBuilder_ == null) {
@@ -3605,7 +4077,7 @@ public final class Spec {
        *&#47; Holds the Step definition. Valid only if ItemType = Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+       * <code>.gauge.messages.ProtoStep step = 2;</code>
        */
       public Builder setStep(
           gauge.messages.Spec.ProtoStep.Builder builderForValue) {
@@ -3623,7 +4095,7 @@ public final class Spec {
        *&#47; Holds the Step definition. Valid only if ItemType = Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+       * <code>.gauge.messages.ProtoStep step = 2;</code>
        */
       public Builder mergeStep(gauge.messages.Spec.ProtoStep value) {
         if (stepBuilder_ == null) {
@@ -3645,7 +4117,7 @@ public final class Spec {
        *&#47; Holds the Step definition. Valid only if ItemType = Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+       * <code>.gauge.messages.ProtoStep step = 2;</code>
        */
       public Builder clearStep() {
         if (stepBuilder_ == null) {
@@ -3663,7 +4135,7 @@ public final class Spec {
        *&#47; Holds the Step definition. Valid only if ItemType = Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+       * <code>.gauge.messages.ProtoStep step = 2;</code>
        */
       public gauge.messages.Spec.ProtoStep.Builder getStepBuilder() {
         
@@ -3675,7 +4147,7 @@ public final class Spec {
        *&#47; Holds the Step definition. Valid only if ItemType = Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+       * <code>.gauge.messages.ProtoStep step = 2;</code>
        */
       public gauge.messages.Spec.ProtoStepOrBuilder getStepOrBuilder() {
         if (stepBuilder_ != null) {
@@ -3690,7 +4162,7 @@ public final class Spec {
        *&#47; Holds the Step definition. Valid only if ItemType = Step
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep step = 2;</code>
+       * <code>.gauge.messages.ProtoStep step = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoStep, gauge.messages.Spec.ProtoStep.Builder, gauge.messages.Spec.ProtoStepOrBuilder> 
@@ -3714,7 +4186,7 @@ public final class Spec {
        *&#47; Holds the Concept definition. Valid only if ItemType = Concept
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+       * <code>.gauge.messages.ProtoConcept concept = 3;</code>
        */
       public boolean hasConcept() {
         return conceptBuilder_ != null || concept_ != null;
@@ -3724,7 +4196,7 @@ public final class Spec {
        *&#47; Holds the Concept definition. Valid only if ItemType = Concept
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+       * <code>.gauge.messages.ProtoConcept concept = 3;</code>
        */
       public gauge.messages.Spec.ProtoConcept getConcept() {
         if (conceptBuilder_ == null) {
@@ -3738,7 +4210,7 @@ public final class Spec {
        *&#47; Holds the Concept definition. Valid only if ItemType = Concept
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+       * <code>.gauge.messages.ProtoConcept concept = 3;</code>
        */
       public Builder setConcept(gauge.messages.Spec.ProtoConcept value) {
         if (conceptBuilder_ == null) {
@@ -3758,7 +4230,7 @@ public final class Spec {
        *&#47; Holds the Concept definition. Valid only if ItemType = Concept
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+       * <code>.gauge.messages.ProtoConcept concept = 3;</code>
        */
       public Builder setConcept(
           gauge.messages.Spec.ProtoConcept.Builder builderForValue) {
@@ -3776,7 +4248,7 @@ public final class Spec {
        *&#47; Holds the Concept definition. Valid only if ItemType = Concept
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+       * <code>.gauge.messages.ProtoConcept concept = 3;</code>
        */
       public Builder mergeConcept(gauge.messages.Spec.ProtoConcept value) {
         if (conceptBuilder_ == null) {
@@ -3798,7 +4270,7 @@ public final class Spec {
        *&#47; Holds the Concept definition. Valid only if ItemType = Concept
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+       * <code>.gauge.messages.ProtoConcept concept = 3;</code>
        */
       public Builder clearConcept() {
         if (conceptBuilder_ == null) {
@@ -3816,7 +4288,7 @@ public final class Spec {
        *&#47; Holds the Concept definition. Valid only if ItemType = Concept
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+       * <code>.gauge.messages.ProtoConcept concept = 3;</code>
        */
       public gauge.messages.Spec.ProtoConcept.Builder getConceptBuilder() {
         
@@ -3828,7 +4300,7 @@ public final class Spec {
        *&#47; Holds the Concept definition. Valid only if ItemType = Concept
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+       * <code>.gauge.messages.ProtoConcept concept = 3;</code>
        */
       public gauge.messages.Spec.ProtoConceptOrBuilder getConceptOrBuilder() {
         if (conceptBuilder_ != null) {
@@ -3843,7 +4315,7 @@ public final class Spec {
        *&#47; Holds the Concept definition. Valid only if ItemType = Concept
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoConcept concept = 3;</code>
+       * <code>.gauge.messages.ProtoConcept concept = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoConcept, gauge.messages.Spec.ProtoConcept.Builder, gauge.messages.Spec.ProtoConceptOrBuilder> 
@@ -3867,7 +4339,7 @@ public final class Spec {
        *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
        */
       public boolean hasScenario() {
         return scenarioBuilder_ != null || scenario_ != null;
@@ -3877,7 +4349,7 @@ public final class Spec {
        *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
        */
       public gauge.messages.Spec.ProtoScenario getScenario() {
         if (scenarioBuilder_ == null) {
@@ -3891,7 +4363,7 @@ public final class Spec {
        *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
        */
       public Builder setScenario(gauge.messages.Spec.ProtoScenario value) {
         if (scenarioBuilder_ == null) {
@@ -3911,7 +4383,7 @@ public final class Spec {
        *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
        */
       public Builder setScenario(
           gauge.messages.Spec.ProtoScenario.Builder builderForValue) {
@@ -3929,7 +4401,7 @@ public final class Spec {
        *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
        */
       public Builder mergeScenario(gauge.messages.Spec.ProtoScenario value) {
         if (scenarioBuilder_ == null) {
@@ -3951,7 +4423,7 @@ public final class Spec {
        *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
        */
       public Builder clearScenario() {
         if (scenarioBuilder_ == null) {
@@ -3969,7 +4441,7 @@ public final class Spec {
        *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
        */
       public gauge.messages.Spec.ProtoScenario.Builder getScenarioBuilder() {
         
@@ -3981,7 +4453,7 @@ public final class Spec {
        *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
        */
       public gauge.messages.Spec.ProtoScenarioOrBuilder getScenarioOrBuilder() {
         if (scenarioBuilder_ != null) {
@@ -3996,7 +4468,7 @@ public final class Spec {
        *&#47; Holds the Scenario definition. Valid only if ItemType = Scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 4;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoScenario, gauge.messages.Spec.ProtoScenario.Builder, gauge.messages.Spec.ProtoScenarioOrBuilder> 
@@ -4020,7 +4492,7 @@ public final class Spec {
        *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+       * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
        */
       public boolean hasTableDrivenScenario() {
         return tableDrivenScenarioBuilder_ != null || tableDrivenScenario_ != null;
@@ -4030,7 +4502,7 @@ public final class Spec {
        *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+       * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
        */
       public gauge.messages.Spec.ProtoTableDrivenScenario getTableDrivenScenario() {
         if (tableDrivenScenarioBuilder_ == null) {
@@ -4044,7 +4516,7 @@ public final class Spec {
        *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+       * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
        */
       public Builder setTableDrivenScenario(gauge.messages.Spec.ProtoTableDrivenScenario value) {
         if (tableDrivenScenarioBuilder_ == null) {
@@ -4064,7 +4536,7 @@ public final class Spec {
        *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+       * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
        */
       public Builder setTableDrivenScenario(
           gauge.messages.Spec.ProtoTableDrivenScenario.Builder builderForValue) {
@@ -4082,7 +4554,7 @@ public final class Spec {
        *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+       * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
        */
       public Builder mergeTableDrivenScenario(gauge.messages.Spec.ProtoTableDrivenScenario value) {
         if (tableDrivenScenarioBuilder_ == null) {
@@ -4104,7 +4576,7 @@ public final class Spec {
        *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+       * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
        */
       public Builder clearTableDrivenScenario() {
         if (tableDrivenScenarioBuilder_ == null) {
@@ -4122,7 +4594,7 @@ public final class Spec {
        *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+       * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
        */
       public gauge.messages.Spec.ProtoTableDrivenScenario.Builder getTableDrivenScenarioBuilder() {
         
@@ -4134,7 +4606,7 @@ public final class Spec {
        *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+       * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
        */
       public gauge.messages.Spec.ProtoTableDrivenScenarioOrBuilder getTableDrivenScenarioOrBuilder() {
         if (tableDrivenScenarioBuilder_ != null) {
@@ -4149,7 +4621,7 @@ public final class Spec {
        *&#47; Holds the TableDrivenScenario definition. Valid only if ItemType = TableDrivenScenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
+       * <code>.gauge.messages.ProtoTableDrivenScenario tableDrivenScenario = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoTableDrivenScenario, gauge.messages.Spec.ProtoTableDrivenScenario.Builder, gauge.messages.Spec.ProtoTableDrivenScenarioOrBuilder> 
@@ -4173,7 +4645,7 @@ public final class Spec {
        *&#47; Holds the Comment definition. Valid only if ItemType = Comment
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+       * <code>.gauge.messages.ProtoComment comment = 6;</code>
        */
       public boolean hasComment() {
         return commentBuilder_ != null || comment_ != null;
@@ -4183,7 +4655,7 @@ public final class Spec {
        *&#47; Holds the Comment definition. Valid only if ItemType = Comment
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+       * <code>.gauge.messages.ProtoComment comment = 6;</code>
        */
       public gauge.messages.Spec.ProtoComment getComment() {
         if (commentBuilder_ == null) {
@@ -4197,7 +4669,7 @@ public final class Spec {
        *&#47; Holds the Comment definition. Valid only if ItemType = Comment
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+       * <code>.gauge.messages.ProtoComment comment = 6;</code>
        */
       public Builder setComment(gauge.messages.Spec.ProtoComment value) {
         if (commentBuilder_ == null) {
@@ -4217,7 +4689,7 @@ public final class Spec {
        *&#47; Holds the Comment definition. Valid only if ItemType = Comment
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+       * <code>.gauge.messages.ProtoComment comment = 6;</code>
        */
       public Builder setComment(
           gauge.messages.Spec.ProtoComment.Builder builderForValue) {
@@ -4235,7 +4707,7 @@ public final class Spec {
        *&#47; Holds the Comment definition. Valid only if ItemType = Comment
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+       * <code>.gauge.messages.ProtoComment comment = 6;</code>
        */
       public Builder mergeComment(gauge.messages.Spec.ProtoComment value) {
         if (commentBuilder_ == null) {
@@ -4257,7 +4729,7 @@ public final class Spec {
        *&#47; Holds the Comment definition. Valid only if ItemType = Comment
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+       * <code>.gauge.messages.ProtoComment comment = 6;</code>
        */
       public Builder clearComment() {
         if (commentBuilder_ == null) {
@@ -4275,7 +4747,7 @@ public final class Spec {
        *&#47; Holds the Comment definition. Valid only if ItemType = Comment
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+       * <code>.gauge.messages.ProtoComment comment = 6;</code>
        */
       public gauge.messages.Spec.ProtoComment.Builder getCommentBuilder() {
         
@@ -4287,7 +4759,7 @@ public final class Spec {
        *&#47; Holds the Comment definition. Valid only if ItemType = Comment
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+       * <code>.gauge.messages.ProtoComment comment = 6;</code>
        */
       public gauge.messages.Spec.ProtoCommentOrBuilder getCommentOrBuilder() {
         if (commentBuilder_ != null) {
@@ -4302,7 +4774,7 @@ public final class Spec {
        *&#47; Holds the Comment definition. Valid only if ItemType = Comment
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoComment comment = 6;</code>
+       * <code>.gauge.messages.ProtoComment comment = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoComment, gauge.messages.Spec.ProtoComment.Builder, gauge.messages.Spec.ProtoCommentOrBuilder> 
@@ -4326,7 +4798,7 @@ public final class Spec {
        *&#47; Holds the Table definition. Valid only if ItemType = Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+       * <code>.gauge.messages.ProtoTable table = 7;</code>
        */
       public boolean hasTable() {
         return tableBuilder_ != null || table_ != null;
@@ -4336,7 +4808,7 @@ public final class Spec {
        *&#47; Holds the Table definition. Valid only if ItemType = Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+       * <code>.gauge.messages.ProtoTable table = 7;</code>
        */
       public gauge.messages.Spec.ProtoTable getTable() {
         if (tableBuilder_ == null) {
@@ -4350,7 +4822,7 @@ public final class Spec {
        *&#47; Holds the Table definition. Valid only if ItemType = Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+       * <code>.gauge.messages.ProtoTable table = 7;</code>
        */
       public Builder setTable(gauge.messages.Spec.ProtoTable value) {
         if (tableBuilder_ == null) {
@@ -4370,7 +4842,7 @@ public final class Spec {
        *&#47; Holds the Table definition. Valid only if ItemType = Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+       * <code>.gauge.messages.ProtoTable table = 7;</code>
        */
       public Builder setTable(
           gauge.messages.Spec.ProtoTable.Builder builderForValue) {
@@ -4388,7 +4860,7 @@ public final class Spec {
        *&#47; Holds the Table definition. Valid only if ItemType = Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+       * <code>.gauge.messages.ProtoTable table = 7;</code>
        */
       public Builder mergeTable(gauge.messages.Spec.ProtoTable value) {
         if (tableBuilder_ == null) {
@@ -4410,7 +4882,7 @@ public final class Spec {
        *&#47; Holds the Table definition. Valid only if ItemType = Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+       * <code>.gauge.messages.ProtoTable table = 7;</code>
        */
       public Builder clearTable() {
         if (tableBuilder_ == null) {
@@ -4428,7 +4900,7 @@ public final class Spec {
        *&#47; Holds the Table definition. Valid only if ItemType = Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+       * <code>.gauge.messages.ProtoTable table = 7;</code>
        */
       public gauge.messages.Spec.ProtoTable.Builder getTableBuilder() {
         
@@ -4440,7 +4912,7 @@ public final class Spec {
        *&#47; Holds the Table definition. Valid only if ItemType = Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+       * <code>.gauge.messages.ProtoTable table = 7;</code>
        */
       public gauge.messages.Spec.ProtoTableOrBuilder getTableOrBuilder() {
         if (tableBuilder_ != null) {
@@ -4455,7 +4927,7 @@ public final class Spec {
        *&#47; Holds the Table definition. Valid only if ItemType = Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 7;</code>
+       * <code>.gauge.messages.ProtoTable table = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder> 
@@ -4479,7 +4951,7 @@ public final class Spec {
        *&#47; Holds the Tags definition. Valid only if ItemType = Tags
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       * <code>.gauge.messages.ProtoTags tags = 8;</code>
        */
       public boolean hasTags() {
         return tagsBuilder_ != null || tags_ != null;
@@ -4489,7 +4961,7 @@ public final class Spec {
        *&#47; Holds the Tags definition. Valid only if ItemType = Tags
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       * <code>.gauge.messages.ProtoTags tags = 8;</code>
        */
       public gauge.messages.Spec.ProtoTags getTags() {
         if (tagsBuilder_ == null) {
@@ -4503,7 +4975,7 @@ public final class Spec {
        *&#47; Holds the Tags definition. Valid only if ItemType = Tags
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       * <code>.gauge.messages.ProtoTags tags = 8;</code>
        */
       public Builder setTags(gauge.messages.Spec.ProtoTags value) {
         if (tagsBuilder_ == null) {
@@ -4523,7 +4995,7 @@ public final class Spec {
        *&#47; Holds the Tags definition. Valid only if ItemType = Tags
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       * <code>.gauge.messages.ProtoTags tags = 8;</code>
        */
       public Builder setTags(
           gauge.messages.Spec.ProtoTags.Builder builderForValue) {
@@ -4541,7 +5013,7 @@ public final class Spec {
        *&#47; Holds the Tags definition. Valid only if ItemType = Tags
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       * <code>.gauge.messages.ProtoTags tags = 8;</code>
        */
       public Builder mergeTags(gauge.messages.Spec.ProtoTags value) {
         if (tagsBuilder_ == null) {
@@ -4563,7 +5035,7 @@ public final class Spec {
        *&#47; Holds the Tags definition. Valid only if ItemType = Tags
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       * <code>.gauge.messages.ProtoTags tags = 8;</code>
        */
       public Builder clearTags() {
         if (tagsBuilder_ == null) {
@@ -4581,7 +5053,7 @@ public final class Spec {
        *&#47; Holds the Tags definition. Valid only if ItemType = Tags
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       * <code>.gauge.messages.ProtoTags tags = 8;</code>
        */
       public gauge.messages.Spec.ProtoTags.Builder getTagsBuilder() {
         
@@ -4593,7 +5065,7 @@ public final class Spec {
        *&#47; Holds the Tags definition. Valid only if ItemType = Tags
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       * <code>.gauge.messages.ProtoTags tags = 8;</code>
        */
       public gauge.messages.Spec.ProtoTagsOrBuilder getTagsOrBuilder() {
         if (tagsBuilder_ != null) {
@@ -4608,7 +5080,7 @@ public final class Spec {
        *&#47; Holds the Tags definition. Valid only if ItemType = Tags
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTags tags = 8;</code>
+       * <code>.gauge.messages.ProtoTags tags = 8;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoTags, gauge.messages.Spec.ProtoTags.Builder, gauge.messages.Spec.ProtoTagsOrBuilder> 
@@ -4681,7 +5153,7 @@ public final class Spec {
      *&#47; Heading of the given Scenario
      * </pre>
      *
-     * <code>optional string scenarioHeading = 1;</code>
+     * <code>string scenarioHeading = 1;</code>
      */
     java.lang.String getScenarioHeading();
     /**
@@ -4689,7 +5161,7 @@ public final class Spec {
      *&#47; Heading of the given Scenario
      * </pre>
      *
-     * <code>optional string scenarioHeading = 1;</code>
+     * <code>string scenarioHeading = 1;</code>
      */
     com.google.protobuf.ByteString
         getScenarioHeadingBytes();
@@ -4699,7 +5171,7 @@ public final class Spec {
      *&#47; Flag to indicate if the Scenario execution failed
      * </pre>
      *
-     * <code>optional bool failed = 2 [deprecated = true];</code>
+     * <code>bool failed = 2 [deprecated = true];</code>
      */
     @java.lang.Deprecated boolean getFailed();
 
@@ -4796,7 +5268,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
      */
     boolean hasPreHookFailure();
     /**
@@ -4804,7 +5276,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
      */
     gauge.messages.Spec.ProtoHookFailure getPreHookFailure();
     /**
@@ -4812,7 +5284,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder();
 
@@ -4821,7 +5293,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
      */
     boolean hasPostHookFailure();
     /**
@@ -4829,7 +5301,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
      */
     gauge.messages.Spec.ProtoHookFailure getPostHookFailure();
     /**
@@ -4837,7 +5309,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder();
 
@@ -4881,7 +5353,7 @@ public final class Spec {
      *&#47; Holds the time taken for executing this scenario.
      * </pre>
      *
-     * <code>optional int64 executionTime = 8;</code>
+     * <code>int64 executionTime = 8;</code>
      */
     long getExecutionTime();
 
@@ -4890,7 +5362,7 @@ public final class Spec {
      *&#47; Flag to indicate if the Scenario execution is skipped
      * </pre>
      *
-     * <code>optional bool skipped = 9 [deprecated = true];</code>
+     * <code>bool skipped = 9 [deprecated = true];</code>
      */
     @java.lang.Deprecated boolean getSkipped();
 
@@ -4934,7 +5406,7 @@ public final class Spec {
      *&#47; Holds the unique Identifier of a scenario.
      * </pre>
      *
-     * <code>optional string ID = 11;</code>
+     * <code>string ID = 11;</code>
      */
     java.lang.String getID();
     /**
@@ -4942,7 +5414,7 @@ public final class Spec {
      *&#47; Holds the unique Identifier of a scenario.
      * </pre>
      *
-     * <code>optional string ID = 11;</code>
+     * <code>string ID = 11;</code>
      */
     com.google.protobuf.ByteString
         getIDBytes();
@@ -4996,7 +5468,7 @@ public final class Spec {
      *&#47; Span(start, end) of scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.Span span = 13;</code>
+     * <code>.gauge.messages.Span span = 13;</code>
      */
     boolean hasSpan();
     /**
@@ -5004,7 +5476,7 @@ public final class Spec {
      *&#47; Span(start, end) of scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.Span span = 13;</code>
+     * <code>.gauge.messages.Span span = 13;</code>
      */
     gauge.messages.Spec.Span getSpan();
     /**
@@ -5012,7 +5484,7 @@ public final class Spec {
      *&#47; Span(start, end) of scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.Span span = 13;</code>
+     * <code>.gauge.messages.Span span = 13;</code>
      */
     gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder();
 
@@ -5021,7 +5493,7 @@ public final class Spec {
      *&#47; Execution status for the scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStatus executionStatus = 14;</code>
+     * <code>.gauge.messages.ExecutionStatus executionStatus = 14;</code>
      */
     int getExecutionStatusValue();
     /**
@@ -5029,7 +5501,7 @@ public final class Spec {
      *&#47; Execution status for the scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStatus executionStatus = 14;</code>
+     * <code>.gauge.messages.ExecutionStatus executionStatus = 14;</code>
      */
     gauge.messages.Spec.ExecutionStatus getExecutionStatus();
   }
@@ -5250,7 +5722,7 @@ public final class Spec {
      *&#47; Heading of the given Scenario
      * </pre>
      *
-     * <code>optional string scenarioHeading = 1;</code>
+     * <code>string scenarioHeading = 1;</code>
      */
     public java.lang.String getScenarioHeading() {
       java.lang.Object ref = scenarioHeading_;
@@ -5269,7 +5741,7 @@ public final class Spec {
      *&#47; Heading of the given Scenario
      * </pre>
      *
-     * <code>optional string scenarioHeading = 1;</code>
+     * <code>string scenarioHeading = 1;</code>
      */
     public com.google.protobuf.ByteString
         getScenarioHeadingBytes() {
@@ -5292,7 +5764,7 @@ public final class Spec {
      *&#47; Flag to indicate if the Scenario execution failed
      * </pre>
      *
-     * <code>optional bool failed = 2 [deprecated = true];</code>
+     * <code>bool failed = 2 [deprecated = true];</code>
      */
     @java.lang.Deprecated public boolean getFailed() {
       return failed_;
@@ -5415,7 +5887,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
      */
     public boolean hasPreHookFailure() {
       return preHookFailure_ != null;
@@ -5425,7 +5897,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
      */
     public gauge.messages.Spec.ProtoHookFailure getPreHookFailure() {
       return preHookFailure_ == null ? gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : preHookFailure_;
@@ -5435,7 +5907,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
      */
     public gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder() {
       return getPreHookFailure();
@@ -5448,7 +5920,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
      */
     public boolean hasPostHookFailure() {
       return postHookFailure_ != null;
@@ -5458,7 +5930,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
      */
     public gauge.messages.Spec.ProtoHookFailure getPostHookFailure() {
       return postHookFailure_ == null ? gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : postHookFailure_;
@@ -5468,7 +5940,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
      */
     public gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder() {
       return getPostHookFailure();
@@ -5526,7 +5998,7 @@ public final class Spec {
      *&#47; Holds the time taken for executing this scenario.
      * </pre>
      *
-     * <code>optional int64 executionTime = 8;</code>
+     * <code>int64 executionTime = 8;</code>
      */
     public long getExecutionTime() {
       return executionTime_;
@@ -5539,7 +6011,7 @@ public final class Spec {
      *&#47; Flag to indicate if the Scenario execution is skipped
      * </pre>
      *
-     * <code>optional bool skipped = 9 [deprecated = true];</code>
+     * <code>bool skipped = 9 [deprecated = true];</code>
      */
     @java.lang.Deprecated public boolean getSkipped() {
       return skipped_;
@@ -5597,7 +6069,7 @@ public final class Spec {
      *&#47; Holds the unique Identifier of a scenario.
      * </pre>
      *
-     * <code>optional string ID = 11;</code>
+     * <code>string ID = 11;</code>
      */
     public java.lang.String getID() {
       java.lang.Object ref = iD_;
@@ -5616,7 +6088,7 @@ public final class Spec {
      *&#47; Holds the unique Identifier of a scenario.
      * </pre>
      *
-     * <code>optional string ID = 11;</code>
+     * <code>string ID = 11;</code>
      */
     public com.google.protobuf.ByteString
         getIDBytes() {
@@ -5694,7 +6166,7 @@ public final class Spec {
      *&#47; Span(start, end) of scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.Span span = 13;</code>
+     * <code>.gauge.messages.Span span = 13;</code>
      */
     public boolean hasSpan() {
       return span_ != null;
@@ -5704,7 +6176,7 @@ public final class Spec {
      *&#47; Span(start, end) of scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.Span span = 13;</code>
+     * <code>.gauge.messages.Span span = 13;</code>
      */
     public gauge.messages.Spec.Span getSpan() {
       return span_ == null ? gauge.messages.Spec.Span.getDefaultInstance() : span_;
@@ -5714,7 +6186,7 @@ public final class Spec {
      *&#47; Span(start, end) of scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.Span span = 13;</code>
+     * <code>.gauge.messages.Span span = 13;</code>
      */
     public gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder() {
       return getSpan();
@@ -5727,7 +6199,7 @@ public final class Spec {
      *&#47; Execution status for the scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStatus executionStatus = 14;</code>
+     * <code>.gauge.messages.ExecutionStatus executionStatus = 14;</code>
      */
     public int getExecutionStatusValue() {
       return executionStatus_;
@@ -5737,7 +6209,7 @@ public final class Spec {
      *&#47; Execution status for the scenario
      * </pre>
      *
-     * <code>optional .gauge.messages.ExecutionStatus executionStatus = 14;</code>
+     * <code>.gauge.messages.ExecutionStatus executionStatus = 14;</code>
      */
     public gauge.messages.Spec.ExecutionStatus getExecutionStatus() {
       gauge.messages.Spec.ExecutionStatus result = gauge.messages.Spec.ExecutionStatus.valueOf(executionStatus_);
@@ -5928,7 +6400,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + SCENARIOHEADING_FIELD_NUMBER;
       hash = (53 * hash) + getScenarioHeading().hashCode();
       hash = (37 * hash) + FAILED_FIELD_NUMBER;
@@ -5981,6 +6453,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoScenario parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoScenario parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoScenario parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -6437,7 +6920,7 @@ public final class Spec {
        *&#47; Heading of the given Scenario
        * </pre>
        *
-       * <code>optional string scenarioHeading = 1;</code>
+       * <code>string scenarioHeading = 1;</code>
        */
       public java.lang.String getScenarioHeading() {
         java.lang.Object ref = scenarioHeading_;
@@ -6456,7 +6939,7 @@ public final class Spec {
        *&#47; Heading of the given Scenario
        * </pre>
        *
-       * <code>optional string scenarioHeading = 1;</code>
+       * <code>string scenarioHeading = 1;</code>
        */
       public com.google.protobuf.ByteString
           getScenarioHeadingBytes() {
@@ -6476,7 +6959,7 @@ public final class Spec {
        *&#47; Heading of the given Scenario
        * </pre>
        *
-       * <code>optional string scenarioHeading = 1;</code>
+       * <code>string scenarioHeading = 1;</code>
        */
       public Builder setScenarioHeading(
           java.lang.String value) {
@@ -6493,7 +6976,7 @@ public final class Spec {
        *&#47; Heading of the given Scenario
        * </pre>
        *
-       * <code>optional string scenarioHeading = 1;</code>
+       * <code>string scenarioHeading = 1;</code>
        */
       public Builder clearScenarioHeading() {
         
@@ -6506,7 +6989,7 @@ public final class Spec {
        *&#47; Heading of the given Scenario
        * </pre>
        *
-       * <code>optional string scenarioHeading = 1;</code>
+       * <code>string scenarioHeading = 1;</code>
        */
       public Builder setScenarioHeadingBytes(
           com.google.protobuf.ByteString value) {
@@ -6526,7 +7009,7 @@ public final class Spec {
        *&#47; Flag to indicate if the Scenario execution failed
        * </pre>
        *
-       * <code>optional bool failed = 2 [deprecated = true];</code>
+       * <code>bool failed = 2 [deprecated = true];</code>
        */
       @java.lang.Deprecated public boolean getFailed() {
         return failed_;
@@ -6536,7 +7019,7 @@ public final class Spec {
        *&#47; Flag to indicate if the Scenario execution failed
        * </pre>
        *
-       * <code>optional bool failed = 2 [deprecated = true];</code>
+       * <code>bool failed = 2 [deprecated = true];</code>
        */
       @java.lang.Deprecated public Builder setFailed(boolean value) {
         
@@ -6549,7 +7032,7 @@ public final class Spec {
        *&#47; Flag to indicate if the Scenario execution failed
        * </pre>
        *
-       * <code>optional bool failed = 2 [deprecated = true];</code>
+       * <code>bool failed = 2 [deprecated = true];</code>
        */
       @java.lang.Deprecated public Builder clearFailed() {
         
@@ -7190,7 +7673,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
        */
       public boolean hasPreHookFailure() {
         return preHookFailureBuilder_ != null || preHookFailure_ != null;
@@ -7200,7 +7683,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure getPreHookFailure() {
         if (preHookFailureBuilder_ == null) {
@@ -7214,7 +7697,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
        */
       public Builder setPreHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (preHookFailureBuilder_ == null) {
@@ -7234,7 +7717,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
        */
       public Builder setPreHookFailure(
           gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
@@ -7252,7 +7735,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
        */
       public Builder mergePreHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (preHookFailureBuilder_ == null) {
@@ -7274,7 +7757,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
        */
       public Builder clearPreHookFailure() {
         if (preHookFailureBuilder_ == null) {
@@ -7292,7 +7775,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure.Builder getPreHookFailureBuilder() {
         
@@ -7304,7 +7787,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
        */
       public gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder() {
         if (preHookFailureBuilder_ != null) {
@@ -7319,7 +7802,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> 
@@ -7343,7 +7826,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
        */
       public boolean hasPostHookFailure() {
         return postHookFailureBuilder_ != null || postHookFailure_ != null;
@@ -7353,7 +7836,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure getPostHookFailure() {
         if (postHookFailureBuilder_ == null) {
@@ -7367,7 +7850,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
        */
       public Builder setPostHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (postHookFailureBuilder_ == null) {
@@ -7387,7 +7870,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
        */
       public Builder setPostHookFailure(
           gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
@@ -7405,7 +7888,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
        */
       public Builder mergePostHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (postHookFailureBuilder_ == null) {
@@ -7427,7 +7910,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
        */
       public Builder clearPostHookFailure() {
         if (postHookFailureBuilder_ == null) {
@@ -7445,7 +7928,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure.Builder getPostHookFailureBuilder() {
         
@@ -7457,7 +7940,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
        */
       public gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder() {
         if (postHookFailureBuilder_ != null) {
@@ -7472,7 +7955,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_scenario` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> 
@@ -7624,7 +8107,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing this scenario.
        * </pre>
        *
-       * <code>optional int64 executionTime = 8;</code>
+       * <code>int64 executionTime = 8;</code>
        */
       public long getExecutionTime() {
         return executionTime_;
@@ -7634,7 +8117,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing this scenario.
        * </pre>
        *
-       * <code>optional int64 executionTime = 8;</code>
+       * <code>int64 executionTime = 8;</code>
        */
       public Builder setExecutionTime(long value) {
         
@@ -7647,7 +8130,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing this scenario.
        * </pre>
        *
-       * <code>optional int64 executionTime = 8;</code>
+       * <code>int64 executionTime = 8;</code>
        */
       public Builder clearExecutionTime() {
         
@@ -7662,7 +8145,7 @@ public final class Spec {
        *&#47; Flag to indicate if the Scenario execution is skipped
        * </pre>
        *
-       * <code>optional bool skipped = 9 [deprecated = true];</code>
+       * <code>bool skipped = 9 [deprecated = true];</code>
        */
       @java.lang.Deprecated public boolean getSkipped() {
         return skipped_;
@@ -7672,7 +8155,7 @@ public final class Spec {
        *&#47; Flag to indicate if the Scenario execution is skipped
        * </pre>
        *
-       * <code>optional bool skipped = 9 [deprecated = true];</code>
+       * <code>bool skipped = 9 [deprecated = true];</code>
        */
       @java.lang.Deprecated public Builder setSkipped(boolean value) {
         
@@ -7685,7 +8168,7 @@ public final class Spec {
        *&#47; Flag to indicate if the Scenario execution is skipped
        * </pre>
        *
-       * <code>optional bool skipped = 9 [deprecated = true];</code>
+       * <code>bool skipped = 9 [deprecated = true];</code>
        */
       @java.lang.Deprecated public Builder clearSkipped() {
         
@@ -7830,7 +8313,7 @@ public final class Spec {
        *&#47; Holds the unique Identifier of a scenario.
        * </pre>
        *
-       * <code>optional string ID = 11;</code>
+       * <code>string ID = 11;</code>
        */
       public java.lang.String getID() {
         java.lang.Object ref = iD_;
@@ -7849,7 +8332,7 @@ public final class Spec {
        *&#47; Holds the unique Identifier of a scenario.
        * </pre>
        *
-       * <code>optional string ID = 11;</code>
+       * <code>string ID = 11;</code>
        */
       public com.google.protobuf.ByteString
           getIDBytes() {
@@ -7869,7 +8352,7 @@ public final class Spec {
        *&#47; Holds the unique Identifier of a scenario.
        * </pre>
        *
-       * <code>optional string ID = 11;</code>
+       * <code>string ID = 11;</code>
        */
       public Builder setID(
           java.lang.String value) {
@@ -7886,7 +8369,7 @@ public final class Spec {
        *&#47; Holds the unique Identifier of a scenario.
        * </pre>
        *
-       * <code>optional string ID = 11;</code>
+       * <code>string ID = 11;</code>
        */
       public Builder clearID() {
         
@@ -7899,7 +8382,7 @@ public final class Spec {
        *&#47; Holds the unique Identifier of a scenario.
        * </pre>
        *
-       * <code>optional string ID = 11;</code>
+       * <code>string ID = 11;</code>
        */
       public Builder setIDBytes(
           com.google.protobuf.ByteString value) {
@@ -8233,7 +8716,7 @@ public final class Spec {
        *&#47; Span(start, end) of scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.Span span = 13;</code>
+       * <code>.gauge.messages.Span span = 13;</code>
        */
       public boolean hasSpan() {
         return spanBuilder_ != null || span_ != null;
@@ -8243,7 +8726,7 @@ public final class Spec {
        *&#47; Span(start, end) of scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.Span span = 13;</code>
+       * <code>.gauge.messages.Span span = 13;</code>
        */
       public gauge.messages.Spec.Span getSpan() {
         if (spanBuilder_ == null) {
@@ -8257,7 +8740,7 @@ public final class Spec {
        *&#47; Span(start, end) of scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.Span span = 13;</code>
+       * <code>.gauge.messages.Span span = 13;</code>
        */
       public Builder setSpan(gauge.messages.Spec.Span value) {
         if (spanBuilder_ == null) {
@@ -8277,7 +8760,7 @@ public final class Spec {
        *&#47; Span(start, end) of scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.Span span = 13;</code>
+       * <code>.gauge.messages.Span span = 13;</code>
        */
       public Builder setSpan(
           gauge.messages.Spec.Span.Builder builderForValue) {
@@ -8295,7 +8778,7 @@ public final class Spec {
        *&#47; Span(start, end) of scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.Span span = 13;</code>
+       * <code>.gauge.messages.Span span = 13;</code>
        */
       public Builder mergeSpan(gauge.messages.Spec.Span value) {
         if (spanBuilder_ == null) {
@@ -8317,7 +8800,7 @@ public final class Spec {
        *&#47; Span(start, end) of scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.Span span = 13;</code>
+       * <code>.gauge.messages.Span span = 13;</code>
        */
       public Builder clearSpan() {
         if (spanBuilder_ == null) {
@@ -8335,7 +8818,7 @@ public final class Spec {
        *&#47; Span(start, end) of scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.Span span = 13;</code>
+       * <code>.gauge.messages.Span span = 13;</code>
        */
       public gauge.messages.Spec.Span.Builder getSpanBuilder() {
         
@@ -8347,7 +8830,7 @@ public final class Spec {
        *&#47; Span(start, end) of scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.Span span = 13;</code>
+       * <code>.gauge.messages.Span span = 13;</code>
        */
       public gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder() {
         if (spanBuilder_ != null) {
@@ -8362,7 +8845,7 @@ public final class Spec {
        *&#47; Span(start, end) of scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.Span span = 13;</code>
+       * <code>.gauge.messages.Span span = 13;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.Span, gauge.messages.Spec.Span.Builder, gauge.messages.Spec.SpanOrBuilder> 
@@ -8384,7 +8867,7 @@ public final class Spec {
        *&#47; Execution status for the scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatus executionStatus = 14;</code>
+       * <code>.gauge.messages.ExecutionStatus executionStatus = 14;</code>
        */
       public int getExecutionStatusValue() {
         return executionStatus_;
@@ -8394,7 +8877,7 @@ public final class Spec {
        *&#47; Execution status for the scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatus executionStatus = 14;</code>
+       * <code>.gauge.messages.ExecutionStatus executionStatus = 14;</code>
        */
       public Builder setExecutionStatusValue(int value) {
         executionStatus_ = value;
@@ -8406,7 +8889,7 @@ public final class Spec {
        *&#47; Execution status for the scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatus executionStatus = 14;</code>
+       * <code>.gauge.messages.ExecutionStatus executionStatus = 14;</code>
        */
       public gauge.messages.Spec.ExecutionStatus getExecutionStatus() {
         gauge.messages.Spec.ExecutionStatus result = gauge.messages.Spec.ExecutionStatus.valueOf(executionStatus_);
@@ -8417,7 +8900,7 @@ public final class Spec {
        *&#47; Execution status for the scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatus executionStatus = 14;</code>
+       * <code>.gauge.messages.ExecutionStatus executionStatus = 14;</code>
        */
       public Builder setExecutionStatus(gauge.messages.Spec.ExecutionStatus value) {
         if (value == null) {
@@ -8433,7 +8916,7 @@ public final class Spec {
        *&#47; Execution status for the scenario
        * </pre>
        *
-       * <code>optional .gauge.messages.ExecutionStatus executionStatus = 14;</code>
+       * <code>.gauge.messages.ExecutionStatus executionStatus = 14;</code>
        */
       public Builder clearExecutionStatus() {
         
@@ -8495,12 +8978,12 @@ public final class Spec {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int64 start = 1;</code>
+     * <code>int64 start = 1;</code>
      */
     long getStart();
 
     /**
-     * <code>optional int64 end = 2;</code>
+     * <code>int64 end = 2;</code>
      */
     long getEnd();
   }
@@ -8585,7 +9068,7 @@ public final class Spec {
     public static final int START_FIELD_NUMBER = 1;
     private long start_;
     /**
-     * <code>optional int64 start = 1;</code>
+     * <code>int64 start = 1;</code>
      */
     public long getStart() {
       return start_;
@@ -8594,7 +9077,7 @@ public final class Spec {
     public static final int END_FIELD_NUMBER = 2;
     private long end_;
     /**
-     * <code>optional int64 end = 2;</code>
+     * <code>int64 end = 2;</code>
      */
     public long getEnd() {
       return end_;
@@ -8662,7 +9145,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + START_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getStart());
@@ -8674,6 +9157,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.Span parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.Span parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.Span parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -8894,13 +9388,13 @@ public final class Spec {
 
       private long start_ ;
       /**
-       * <code>optional int64 start = 1;</code>
+       * <code>int64 start = 1;</code>
        */
       public long getStart() {
         return start_;
       }
       /**
-       * <code>optional int64 start = 1;</code>
+       * <code>int64 start = 1;</code>
        */
       public Builder setStart(long value) {
         
@@ -8909,7 +9403,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>optional int64 start = 1;</code>
+       * <code>int64 start = 1;</code>
        */
       public Builder clearStart() {
         
@@ -8920,13 +9414,13 @@ public final class Spec {
 
       private long end_ ;
       /**
-       * <code>optional int64 end = 2;</code>
+       * <code>int64 end = 2;</code>
        */
       public long getEnd() {
         return end_;
       }
       /**
-       * <code>optional int64 end = 2;</code>
+       * <code>int64 end = 2;</code>
        */
       public Builder setEnd(long value) {
         
@@ -8935,7 +9429,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>optional int64 end = 2;</code>
+       * <code>int64 end = 2;</code>
        */
       public Builder clearEnd() {
         
@@ -9001,7 +9495,7 @@ public final class Spec {
      *&#47; Scenario under Table driven execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
      */
     boolean hasScenario();
     /**
@@ -9009,7 +9503,7 @@ public final class Spec {
      *&#47; Scenario under Table driven execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
      */
     gauge.messages.Spec.ProtoScenario getScenario();
     /**
@@ -9017,7 +9511,7 @@ public final class Spec {
      *&#47; Scenario under Table driven execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
      */
     gauge.messages.Spec.ProtoScenarioOrBuilder getScenarioOrBuilder();
 
@@ -9026,7 +9520,7 @@ public final class Spec {
      *&#47; Row Index of data table against which the current scenario is executed
      * </pre>
      *
-     * <code>optional int32 tableRowIndex = 2;</code>
+     * <code>int32 tableRowIndex = 2;</code>
      */
     int getTableRowIndex();
   }
@@ -9122,7 +9616,7 @@ public final class Spec {
      *&#47; Scenario under Table driven execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
      */
     public boolean hasScenario() {
       return scenario_ != null;
@@ -9132,7 +9626,7 @@ public final class Spec {
      *&#47; Scenario under Table driven execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
      */
     public gauge.messages.Spec.ProtoScenario getScenario() {
       return scenario_ == null ? gauge.messages.Spec.ProtoScenario.getDefaultInstance() : scenario_;
@@ -9142,7 +9636,7 @@ public final class Spec {
      *&#47; Scenario under Table driven execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+     * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
      */
     public gauge.messages.Spec.ProtoScenarioOrBuilder getScenarioOrBuilder() {
       return getScenario();
@@ -9155,7 +9649,7 @@ public final class Spec {
      *&#47; Row Index of data table against which the current scenario is executed
      * </pre>
      *
-     * <code>optional int32 tableRowIndex = 2;</code>
+     * <code>int32 tableRowIndex = 2;</code>
      */
     public int getTableRowIndex() {
       return tableRowIndex_;
@@ -9226,7 +9720,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasScenario()) {
         hash = (37 * hash) + SCENARIO_FIELD_NUMBER;
         hash = (53 * hash) + getScenario().hashCode();
@@ -9238,6 +9732,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoTableDrivenScenario parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoTableDrivenScenario parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoTableDrivenScenario parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9472,7 +9977,7 @@ public final class Spec {
        *&#47; Scenario under Table driven execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
        */
       public boolean hasScenario() {
         return scenarioBuilder_ != null || scenario_ != null;
@@ -9482,7 +9987,7 @@ public final class Spec {
        *&#47; Scenario under Table driven execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
        */
       public gauge.messages.Spec.ProtoScenario getScenario() {
         if (scenarioBuilder_ == null) {
@@ -9496,7 +10001,7 @@ public final class Spec {
        *&#47; Scenario under Table driven execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
        */
       public Builder setScenario(gauge.messages.Spec.ProtoScenario value) {
         if (scenarioBuilder_ == null) {
@@ -9516,7 +10021,7 @@ public final class Spec {
        *&#47; Scenario under Table driven execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
        */
       public Builder setScenario(
           gauge.messages.Spec.ProtoScenario.Builder builderForValue) {
@@ -9534,7 +10039,7 @@ public final class Spec {
        *&#47; Scenario under Table driven execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
        */
       public Builder mergeScenario(gauge.messages.Spec.ProtoScenario value) {
         if (scenarioBuilder_ == null) {
@@ -9556,7 +10061,7 @@ public final class Spec {
        *&#47; Scenario under Table driven execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
        */
       public Builder clearScenario() {
         if (scenarioBuilder_ == null) {
@@ -9574,7 +10079,7 @@ public final class Spec {
        *&#47; Scenario under Table driven execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
        */
       public gauge.messages.Spec.ProtoScenario.Builder getScenarioBuilder() {
         
@@ -9586,7 +10091,7 @@ public final class Spec {
        *&#47; Scenario under Table driven execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
        */
       public gauge.messages.Spec.ProtoScenarioOrBuilder getScenarioOrBuilder() {
         if (scenarioBuilder_ != null) {
@@ -9601,7 +10106,7 @@ public final class Spec {
        *&#47; Scenario under Table driven execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoScenario scenario = 1;</code>
+       * <code>.gauge.messages.ProtoScenario scenario = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoScenario, gauge.messages.Spec.ProtoScenario.Builder, gauge.messages.Spec.ProtoScenarioOrBuilder> 
@@ -9623,7 +10128,7 @@ public final class Spec {
        *&#47; Row Index of data table against which the current scenario is executed
        * </pre>
        *
-       * <code>optional int32 tableRowIndex = 2;</code>
+       * <code>int32 tableRowIndex = 2;</code>
        */
       public int getTableRowIndex() {
         return tableRowIndex_;
@@ -9633,7 +10138,7 @@ public final class Spec {
        *&#47; Row Index of data table against which the current scenario is executed
        * </pre>
        *
-       * <code>optional int32 tableRowIndex = 2;</code>
+       * <code>int32 tableRowIndex = 2;</code>
        */
       public Builder setTableRowIndex(int value) {
         
@@ -9646,7 +10151,7 @@ public final class Spec {
        *&#47; Row Index of data table against which the current scenario is executed
        * </pre>
        *
-       * <code>optional int32 tableRowIndex = 2;</code>
+       * <code>int32 tableRowIndex = 2;</code>
        */
       public Builder clearTableRowIndex() {
         
@@ -9712,7 +10217,7 @@ public final class Spec {
      *&#47; Holds the raw text of the Step as defined in the spec file. This contains the actual parameter values.
      * </pre>
      *
-     * <code>optional string actualText = 1;</code>
+     * <code>string actualText = 1;</code>
      */
     java.lang.String getActualText();
     /**
@@ -9720,7 +10225,7 @@ public final class Spec {
      *&#47; Holds the raw text of the Step as defined in the spec file. This contains the actual parameter values.
      * </pre>
      *
-     * <code>optional string actualText = 1;</code>
+     * <code>string actualText = 1;</code>
      */
     com.google.protobuf.ByteString
         getActualTextBytes();
@@ -9730,7 +10235,7 @@ public final class Spec {
      *&#47; Contains the parsed text of the Step. This will have placeholders for the parameters.
      * </pre>
      *
-     * <code>optional string parsedText = 2;</code>
+     * <code>string parsedText = 2;</code>
      */
     java.lang.String getParsedText();
     /**
@@ -9738,7 +10243,7 @@ public final class Spec {
      *&#47; Contains the parsed text of the Step. This will have placeholders for the parameters.
      * </pre>
      *
-     * <code>optional string parsedText = 2;</code>
+     * <code>string parsedText = 2;</code>
      */
     com.google.protobuf.ByteString
         getParsedTextBytes();
@@ -9792,7 +10297,7 @@ public final class Spec {
      *&#47; Holds the result from the execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
      */
     boolean hasStepExecutionResult();
     /**
@@ -9800,7 +10305,7 @@ public final class Spec {
      *&#47; Holds the result from the execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
      */
     gauge.messages.Spec.ProtoStepExecutionResult getStepExecutionResult();
     /**
@@ -9808,7 +10313,7 @@ public final class Spec {
      *&#47; Holds the result from the execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
      */
     gauge.messages.Spec.ProtoStepExecutionResultOrBuilder getStepExecutionResultOrBuilder();
   }
@@ -9926,7 +10431,7 @@ public final class Spec {
      *&#47; Holds the raw text of the Step as defined in the spec file. This contains the actual parameter values.
      * </pre>
      *
-     * <code>optional string actualText = 1;</code>
+     * <code>string actualText = 1;</code>
      */
     public java.lang.String getActualText() {
       java.lang.Object ref = actualText_;
@@ -9945,7 +10450,7 @@ public final class Spec {
      *&#47; Holds the raw text of the Step as defined in the spec file. This contains the actual parameter values.
      * </pre>
      *
-     * <code>optional string actualText = 1;</code>
+     * <code>string actualText = 1;</code>
      */
     public com.google.protobuf.ByteString
         getActualTextBytes() {
@@ -9968,7 +10473,7 @@ public final class Spec {
      *&#47; Contains the parsed text of the Step. This will have placeholders for the parameters.
      * </pre>
      *
-     * <code>optional string parsedText = 2;</code>
+     * <code>string parsedText = 2;</code>
      */
     public java.lang.String getParsedText() {
       java.lang.Object ref = parsedText_;
@@ -9987,7 +10492,7 @@ public final class Spec {
      *&#47; Contains the parsed text of the Step. This will have placeholders for the parameters.
      * </pre>
      *
-     * <code>optional string parsedText = 2;</code>
+     * <code>string parsedText = 2;</code>
      */
     public com.google.protobuf.ByteString
         getParsedTextBytes() {
@@ -10065,7 +10570,7 @@ public final class Spec {
      *&#47; Holds the result from the execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
      */
     public boolean hasStepExecutionResult() {
       return stepExecutionResult_ != null;
@@ -10075,7 +10580,7 @@ public final class Spec {
      *&#47; Holds the result from the execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
      */
     public gauge.messages.Spec.ProtoStepExecutionResult getStepExecutionResult() {
       return stepExecutionResult_ == null ? gauge.messages.Spec.ProtoStepExecutionResult.getDefaultInstance() : stepExecutionResult_;
@@ -10085,7 +10590,7 @@ public final class Spec {
      *&#47; Holds the result from the execution.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
      */
     public gauge.messages.Spec.ProtoStepExecutionResultOrBuilder getStepExecutionResultOrBuilder() {
       return getStepExecutionResult();
@@ -10172,7 +10677,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ACTUALTEXT_FIELD_NUMBER;
       hash = (53 * hash) + getActualText().hashCode();
       hash = (37 * hash) + PARSEDTEXT_FIELD_NUMBER;
@@ -10190,6 +10695,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoStep parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoStep parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoStep parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -10476,7 +10992,7 @@ public final class Spec {
        *&#47; Holds the raw text of the Step as defined in the spec file. This contains the actual parameter values.
        * </pre>
        *
-       * <code>optional string actualText = 1;</code>
+       * <code>string actualText = 1;</code>
        */
       public java.lang.String getActualText() {
         java.lang.Object ref = actualText_;
@@ -10495,7 +11011,7 @@ public final class Spec {
        *&#47; Holds the raw text of the Step as defined in the spec file. This contains the actual parameter values.
        * </pre>
        *
-       * <code>optional string actualText = 1;</code>
+       * <code>string actualText = 1;</code>
        */
       public com.google.protobuf.ByteString
           getActualTextBytes() {
@@ -10515,7 +11031,7 @@ public final class Spec {
        *&#47; Holds the raw text of the Step as defined in the spec file. This contains the actual parameter values.
        * </pre>
        *
-       * <code>optional string actualText = 1;</code>
+       * <code>string actualText = 1;</code>
        */
       public Builder setActualText(
           java.lang.String value) {
@@ -10532,7 +11048,7 @@ public final class Spec {
        *&#47; Holds the raw text of the Step as defined in the spec file. This contains the actual parameter values.
        * </pre>
        *
-       * <code>optional string actualText = 1;</code>
+       * <code>string actualText = 1;</code>
        */
       public Builder clearActualText() {
         
@@ -10545,7 +11061,7 @@ public final class Spec {
        *&#47; Holds the raw text of the Step as defined in the spec file. This contains the actual parameter values.
        * </pre>
        *
-       * <code>optional string actualText = 1;</code>
+       * <code>string actualText = 1;</code>
        */
       public Builder setActualTextBytes(
           com.google.protobuf.ByteString value) {
@@ -10565,7 +11081,7 @@ public final class Spec {
        *&#47; Contains the parsed text of the Step. This will have placeholders for the parameters.
        * </pre>
        *
-       * <code>optional string parsedText = 2;</code>
+       * <code>string parsedText = 2;</code>
        */
       public java.lang.String getParsedText() {
         java.lang.Object ref = parsedText_;
@@ -10584,7 +11100,7 @@ public final class Spec {
        *&#47; Contains the parsed text of the Step. This will have placeholders for the parameters.
        * </pre>
        *
-       * <code>optional string parsedText = 2;</code>
+       * <code>string parsedText = 2;</code>
        */
       public com.google.protobuf.ByteString
           getParsedTextBytes() {
@@ -10604,7 +11120,7 @@ public final class Spec {
        *&#47; Contains the parsed text of the Step. This will have placeholders for the parameters.
        * </pre>
        *
-       * <code>optional string parsedText = 2;</code>
+       * <code>string parsedText = 2;</code>
        */
       public Builder setParsedText(
           java.lang.String value) {
@@ -10621,7 +11137,7 @@ public final class Spec {
        *&#47; Contains the parsed text of the Step. This will have placeholders for the parameters.
        * </pre>
        *
-       * <code>optional string parsedText = 2;</code>
+       * <code>string parsedText = 2;</code>
        */
       public Builder clearParsedText() {
         
@@ -10634,7 +11150,7 @@ public final class Spec {
        *&#47; Contains the parsed text of the Step. This will have placeholders for the parameters.
        * </pre>
        *
-       * <code>optional string parsedText = 2;</code>
+       * <code>string parsedText = 2;</code>
        */
       public Builder setParsedTextBytes(
           com.google.protobuf.ByteString value) {
@@ -10968,7 +11484,7 @@ public final class Spec {
        *&#47; Holds the result from the execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
        */
       public boolean hasStepExecutionResult() {
         return stepExecutionResultBuilder_ != null || stepExecutionResult_ != null;
@@ -10978,7 +11494,7 @@ public final class Spec {
        *&#47; Holds the result from the execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
        */
       public gauge.messages.Spec.ProtoStepExecutionResult getStepExecutionResult() {
         if (stepExecutionResultBuilder_ == null) {
@@ -10992,7 +11508,7 @@ public final class Spec {
        *&#47; Holds the result from the execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
        */
       public Builder setStepExecutionResult(gauge.messages.Spec.ProtoStepExecutionResult value) {
         if (stepExecutionResultBuilder_ == null) {
@@ -11012,7 +11528,7 @@ public final class Spec {
        *&#47; Holds the result from the execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
        */
       public Builder setStepExecutionResult(
           gauge.messages.Spec.ProtoStepExecutionResult.Builder builderForValue) {
@@ -11030,7 +11546,7 @@ public final class Spec {
        *&#47; Holds the result from the execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
        */
       public Builder mergeStepExecutionResult(gauge.messages.Spec.ProtoStepExecutionResult value) {
         if (stepExecutionResultBuilder_ == null) {
@@ -11052,7 +11568,7 @@ public final class Spec {
        *&#47; Holds the result from the execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
        */
       public Builder clearStepExecutionResult() {
         if (stepExecutionResultBuilder_ == null) {
@@ -11070,7 +11586,7 @@ public final class Spec {
        *&#47; Holds the result from the execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
        */
       public gauge.messages.Spec.ProtoStepExecutionResult.Builder getStepExecutionResultBuilder() {
         
@@ -11082,7 +11598,7 @@ public final class Spec {
        *&#47; Holds the result from the execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
        */
       public gauge.messages.Spec.ProtoStepExecutionResultOrBuilder getStepExecutionResultOrBuilder() {
         if (stepExecutionResultBuilder_ != null) {
@@ -11097,7 +11613,7 @@ public final class Spec {
        *&#47; Holds the result from the execution.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoStepExecutionResult, gauge.messages.Spec.ProtoStepExecutionResult.Builder, gauge.messages.Spec.ProtoStepExecutionResultOrBuilder> 
@@ -11170,7 +11686,7 @@ public final class Spec {
      *&#47; Represents the Step value of a Concept.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+     * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
      */
     boolean hasConceptStep();
     /**
@@ -11178,7 +11694,7 @@ public final class Spec {
      *&#47; Represents the Step value of a Concept.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+     * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
      */
     gauge.messages.Spec.ProtoStep getConceptStep();
     /**
@@ -11186,7 +11702,7 @@ public final class Spec {
      *&#47; Represents the Step value of a Concept.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+     * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
      */
     gauge.messages.Spec.ProtoStepOrBuilder getConceptStepOrBuilder();
 
@@ -11239,7 +11755,7 @@ public final class Spec {
      *&#47; Holds the execution result.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
     boolean hasConceptExecutionResult();
     /**
@@ -11247,7 +11763,7 @@ public final class Spec {
      *&#47; Holds the execution result.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
     gauge.messages.Spec.ProtoStepExecutionResult getConceptExecutionResult();
     /**
@@ -11255,7 +11771,7 @@ public final class Spec {
      *&#47; Holds the execution result.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
     gauge.messages.Spec.ProtoStepExecutionResultOrBuilder getConceptExecutionResultOrBuilder();
   }
@@ -11374,7 +11890,7 @@ public final class Spec {
      *&#47; Represents the Step value of a Concept.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+     * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
      */
     public boolean hasConceptStep() {
       return conceptStep_ != null;
@@ -11384,7 +11900,7 @@ public final class Spec {
      *&#47; Represents the Step value of a Concept.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+     * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
      */
     public gauge.messages.Spec.ProtoStep getConceptStep() {
       return conceptStep_ == null ? gauge.messages.Spec.ProtoStep.getDefaultInstance() : conceptStep_;
@@ -11394,7 +11910,7 @@ public final class Spec {
      *&#47; Represents the Step value of a Concept.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+     * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
      */
     public gauge.messages.Spec.ProtoStepOrBuilder getConceptStepOrBuilder() {
       return getConceptStep();
@@ -11462,7 +11978,7 @@ public final class Spec {
      *&#47; Holds the execution result.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
     public boolean hasConceptExecutionResult() {
       return conceptExecutionResult_ != null;
@@ -11472,7 +11988,7 @@ public final class Spec {
      *&#47; Holds the execution result.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
     public gauge.messages.Spec.ProtoStepExecutionResult getConceptExecutionResult() {
       return conceptExecutionResult_ == null ? gauge.messages.Spec.ProtoStepExecutionResult.getDefaultInstance() : conceptExecutionResult_;
@@ -11482,7 +11998,7 @@ public final class Spec {
      *&#47; Holds the execution result.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+     * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
      */
     public gauge.messages.Spec.ProtoStepExecutionResultOrBuilder getConceptExecutionResultOrBuilder() {
       return getConceptExecutionResult();
@@ -11565,7 +12081,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasConceptStep()) {
         hash = (37 * hash) + CONCEPTSTEP_FIELD_NUMBER;
         hash = (53 * hash) + getConceptStep().hashCode();
@@ -11583,6 +12099,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoConcept parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoConcept parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoConcept parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11873,7 +12400,7 @@ public final class Spec {
        *&#47; Represents the Step value of a Concept.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+       * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
        */
       public boolean hasConceptStep() {
         return conceptStepBuilder_ != null || conceptStep_ != null;
@@ -11883,7 +12410,7 @@ public final class Spec {
        *&#47; Represents the Step value of a Concept.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+       * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
        */
       public gauge.messages.Spec.ProtoStep getConceptStep() {
         if (conceptStepBuilder_ == null) {
@@ -11897,7 +12424,7 @@ public final class Spec {
        *&#47; Represents the Step value of a Concept.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+       * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
        */
       public Builder setConceptStep(gauge.messages.Spec.ProtoStep value) {
         if (conceptStepBuilder_ == null) {
@@ -11917,7 +12444,7 @@ public final class Spec {
        *&#47; Represents the Step value of a Concept.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+       * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
        */
       public Builder setConceptStep(
           gauge.messages.Spec.ProtoStep.Builder builderForValue) {
@@ -11935,7 +12462,7 @@ public final class Spec {
        *&#47; Represents the Step value of a Concept.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+       * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
        */
       public Builder mergeConceptStep(gauge.messages.Spec.ProtoStep value) {
         if (conceptStepBuilder_ == null) {
@@ -11957,7 +12484,7 @@ public final class Spec {
        *&#47; Represents the Step value of a Concept.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+       * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
        */
       public Builder clearConceptStep() {
         if (conceptStepBuilder_ == null) {
@@ -11975,7 +12502,7 @@ public final class Spec {
        *&#47; Represents the Step value of a Concept.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+       * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
        */
       public gauge.messages.Spec.ProtoStep.Builder getConceptStepBuilder() {
         
@@ -11987,7 +12514,7 @@ public final class Spec {
        *&#47; Represents the Step value of a Concept.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+       * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
        */
       public gauge.messages.Spec.ProtoStepOrBuilder getConceptStepOrBuilder() {
         if (conceptStepBuilder_ != null) {
@@ -12002,7 +12529,7 @@ public final class Spec {
        *&#47; Represents the Step value of a Concept.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStep conceptStep = 1;</code>
+       * <code>.gauge.messages.ProtoStep conceptStep = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoStep, gauge.messages.Spec.ProtoStep.Builder, gauge.messages.Spec.ProtoStepOrBuilder> 
@@ -12338,7 +12865,7 @@ public final class Spec {
        *&#47; Holds the execution result.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public boolean hasConceptExecutionResult() {
         return conceptExecutionResultBuilder_ != null || conceptExecutionResult_ != null;
@@ -12348,7 +12875,7 @@ public final class Spec {
        *&#47; Holds the execution result.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public gauge.messages.Spec.ProtoStepExecutionResult getConceptExecutionResult() {
         if (conceptExecutionResultBuilder_ == null) {
@@ -12362,7 +12889,7 @@ public final class Spec {
        *&#47; Holds the execution result.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public Builder setConceptExecutionResult(gauge.messages.Spec.ProtoStepExecutionResult value) {
         if (conceptExecutionResultBuilder_ == null) {
@@ -12382,7 +12909,7 @@ public final class Spec {
        *&#47; Holds the execution result.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public Builder setConceptExecutionResult(
           gauge.messages.Spec.ProtoStepExecutionResult.Builder builderForValue) {
@@ -12400,7 +12927,7 @@ public final class Spec {
        *&#47; Holds the execution result.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public Builder mergeConceptExecutionResult(gauge.messages.Spec.ProtoStepExecutionResult value) {
         if (conceptExecutionResultBuilder_ == null) {
@@ -12422,7 +12949,7 @@ public final class Spec {
        *&#47; Holds the execution result.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public Builder clearConceptExecutionResult() {
         if (conceptExecutionResultBuilder_ == null) {
@@ -12440,7 +12967,7 @@ public final class Spec {
        *&#47; Holds the execution result.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public gauge.messages.Spec.ProtoStepExecutionResult.Builder getConceptExecutionResultBuilder() {
         
@@ -12452,7 +12979,7 @@ public final class Spec {
        *&#47; Holds the execution result.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       public gauge.messages.Spec.ProtoStepExecutionResultOrBuilder getConceptExecutionResultOrBuilder() {
         if (conceptExecutionResultBuilder_ != null) {
@@ -12467,7 +12994,7 @@ public final class Spec {
        *&#47; Holds the execution result.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
+       * <code>.gauge.messages.ProtoStepExecutionResult conceptExecutionResult = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoStepExecutionResult, gauge.messages.Spec.ProtoStepExecutionResult.Builder, gauge.messages.Spec.ProtoStepExecutionResultOrBuilder> 
@@ -12751,7 +13278,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getTagsCount() > 0) {
         hash = (37 * hash) + TAGS_FIELD_NUMBER;
         hash = (53 * hash) + getTagsList().hashCode();
@@ -12761,6 +13288,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoTags parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoTags parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoTags parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -13173,7 +13711,7 @@ public final class Spec {
      *&#47; Type of Fragment, valid values are Text, Parameter
      * </pre>
      *
-     * <code>optional .gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
+     * <code>.gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
      */
     int getFragmentTypeValue();
     /**
@@ -13181,7 +13719,7 @@ public final class Spec {
      *&#47; Type of Fragment, valid values are Text, Parameter
      * </pre>
      *
-     * <code>optional .gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
+     * <code>.gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
      */
     gauge.messages.Spec.Fragment.FragmentType getFragmentType();
 
@@ -13190,7 +13728,7 @@ public final class Spec {
      *&#47; Text part of the Fragment, valid only if FragmentType=Text
      * </pre>
      *
-     * <code>optional string text = 2;</code>
+     * <code>string text = 2;</code>
      */
     java.lang.String getText();
     /**
@@ -13198,7 +13736,7 @@ public final class Spec {
      *&#47; Text part of the Fragment, valid only if FragmentType=Text
      * </pre>
      *
-     * <code>optional string text = 2;</code>
+     * <code>string text = 2;</code>
      */
     com.google.protobuf.ByteString
         getTextBytes();
@@ -13208,7 +13746,7 @@ public final class Spec {
      *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
      * </pre>
      *
-     * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+     * <code>.gauge.messages.Parameter parameter = 3;</code>
      */
     boolean hasParameter();
     /**
@@ -13216,7 +13754,7 @@ public final class Spec {
      *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
      * </pre>
      *
-     * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+     * <code>.gauge.messages.Parameter parameter = 3;</code>
      */
     gauge.messages.Spec.Parameter getParameter();
     /**
@@ -13224,7 +13762,7 @@ public final class Spec {
      *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
      * </pre>
      *
-     * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+     * <code>.gauge.messages.Parameter parameter = 3;</code>
      */
     gauge.messages.Spec.ParameterOrBuilder getParameterOrBuilder();
   }
@@ -13447,7 +13985,7 @@ public final class Spec {
      *&#47; Type of Fragment, valid values are Text, Parameter
      * </pre>
      *
-     * <code>optional .gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
+     * <code>.gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
      */
     public int getFragmentTypeValue() {
       return fragmentType_;
@@ -13457,7 +13995,7 @@ public final class Spec {
      *&#47; Type of Fragment, valid values are Text, Parameter
      * </pre>
      *
-     * <code>optional .gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
+     * <code>.gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
      */
     public gauge.messages.Spec.Fragment.FragmentType getFragmentType() {
       gauge.messages.Spec.Fragment.FragmentType result = gauge.messages.Spec.Fragment.FragmentType.valueOf(fragmentType_);
@@ -13471,7 +14009,7 @@ public final class Spec {
      *&#47; Text part of the Fragment, valid only if FragmentType=Text
      * </pre>
      *
-     * <code>optional string text = 2;</code>
+     * <code>string text = 2;</code>
      */
     public java.lang.String getText() {
       java.lang.Object ref = text_;
@@ -13490,7 +14028,7 @@ public final class Spec {
      *&#47; Text part of the Fragment, valid only if FragmentType=Text
      * </pre>
      *
-     * <code>optional string text = 2;</code>
+     * <code>string text = 2;</code>
      */
     public com.google.protobuf.ByteString
         getTextBytes() {
@@ -13513,7 +14051,7 @@ public final class Spec {
      *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
      * </pre>
      *
-     * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+     * <code>.gauge.messages.Parameter parameter = 3;</code>
      */
     public boolean hasParameter() {
       return parameter_ != null;
@@ -13523,7 +14061,7 @@ public final class Spec {
      *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
      * </pre>
      *
-     * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+     * <code>.gauge.messages.Parameter parameter = 3;</code>
      */
     public gauge.messages.Spec.Parameter getParameter() {
       return parameter_ == null ? gauge.messages.Spec.Parameter.getDefaultInstance() : parameter_;
@@ -13533,7 +14071,7 @@ public final class Spec {
      *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
      * </pre>
      *
-     * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+     * <code>.gauge.messages.Parameter parameter = 3;</code>
      */
     public gauge.messages.Spec.ParameterOrBuilder getParameterOrBuilder() {
       return getParameter();
@@ -13611,7 +14149,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FRAGMENTTYPE_FIELD_NUMBER;
       hash = (53 * hash) + fragmentType_;
       hash = (37 * hash) + TEXT_FIELD_NUMBER;
@@ -13625,6 +14163,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.Fragment parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.Fragment parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.Fragment parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -13865,7 +14414,7 @@ public final class Spec {
        *&#47; Type of Fragment, valid values are Text, Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
+       * <code>.gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
        */
       public int getFragmentTypeValue() {
         return fragmentType_;
@@ -13875,7 +14424,7 @@ public final class Spec {
        *&#47; Type of Fragment, valid values are Text, Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
+       * <code>.gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
        */
       public Builder setFragmentTypeValue(int value) {
         fragmentType_ = value;
@@ -13887,7 +14436,7 @@ public final class Spec {
        *&#47; Type of Fragment, valid values are Text, Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
+       * <code>.gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
        */
       public gauge.messages.Spec.Fragment.FragmentType getFragmentType() {
         gauge.messages.Spec.Fragment.FragmentType result = gauge.messages.Spec.Fragment.FragmentType.valueOf(fragmentType_);
@@ -13898,7 +14447,7 @@ public final class Spec {
        *&#47; Type of Fragment, valid values are Text, Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
+       * <code>.gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
        */
       public Builder setFragmentType(gauge.messages.Spec.Fragment.FragmentType value) {
         if (value == null) {
@@ -13914,7 +14463,7 @@ public final class Spec {
        *&#47; Type of Fragment, valid values are Text, Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
+       * <code>.gauge.messages.Fragment.FragmentType fragmentType = 1;</code>
        */
       public Builder clearFragmentType() {
         
@@ -13929,7 +14478,7 @@ public final class Spec {
        *&#47; Text part of the Fragment, valid only if FragmentType=Text
        * </pre>
        *
-       * <code>optional string text = 2;</code>
+       * <code>string text = 2;</code>
        */
       public java.lang.String getText() {
         java.lang.Object ref = text_;
@@ -13948,7 +14497,7 @@ public final class Spec {
        *&#47; Text part of the Fragment, valid only if FragmentType=Text
        * </pre>
        *
-       * <code>optional string text = 2;</code>
+       * <code>string text = 2;</code>
        */
       public com.google.protobuf.ByteString
           getTextBytes() {
@@ -13968,7 +14517,7 @@ public final class Spec {
        *&#47; Text part of the Fragment, valid only if FragmentType=Text
        * </pre>
        *
-       * <code>optional string text = 2;</code>
+       * <code>string text = 2;</code>
        */
       public Builder setText(
           java.lang.String value) {
@@ -13985,7 +14534,7 @@ public final class Spec {
        *&#47; Text part of the Fragment, valid only if FragmentType=Text
        * </pre>
        *
-       * <code>optional string text = 2;</code>
+       * <code>string text = 2;</code>
        */
       public Builder clearText() {
         
@@ -13998,7 +14547,7 @@ public final class Spec {
        *&#47; Text part of the Fragment, valid only if FragmentType=Text
        * </pre>
        *
-       * <code>optional string text = 2;</code>
+       * <code>string text = 2;</code>
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
@@ -14020,7 +14569,7 @@ public final class Spec {
        *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+       * <code>.gauge.messages.Parameter parameter = 3;</code>
        */
       public boolean hasParameter() {
         return parameterBuilder_ != null || parameter_ != null;
@@ -14030,7 +14579,7 @@ public final class Spec {
        *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+       * <code>.gauge.messages.Parameter parameter = 3;</code>
        */
       public gauge.messages.Spec.Parameter getParameter() {
         if (parameterBuilder_ == null) {
@@ -14044,7 +14593,7 @@ public final class Spec {
        *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+       * <code>.gauge.messages.Parameter parameter = 3;</code>
        */
       public Builder setParameter(gauge.messages.Spec.Parameter value) {
         if (parameterBuilder_ == null) {
@@ -14064,7 +14613,7 @@ public final class Spec {
        *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+       * <code>.gauge.messages.Parameter parameter = 3;</code>
        */
       public Builder setParameter(
           gauge.messages.Spec.Parameter.Builder builderForValue) {
@@ -14082,7 +14631,7 @@ public final class Spec {
        *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+       * <code>.gauge.messages.Parameter parameter = 3;</code>
        */
       public Builder mergeParameter(gauge.messages.Spec.Parameter value) {
         if (parameterBuilder_ == null) {
@@ -14104,7 +14653,7 @@ public final class Spec {
        *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+       * <code>.gauge.messages.Parameter parameter = 3;</code>
        */
       public Builder clearParameter() {
         if (parameterBuilder_ == null) {
@@ -14122,7 +14671,7 @@ public final class Spec {
        *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+       * <code>.gauge.messages.Parameter parameter = 3;</code>
        */
       public gauge.messages.Spec.Parameter.Builder getParameterBuilder() {
         
@@ -14134,7 +14683,7 @@ public final class Spec {
        *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+       * <code>.gauge.messages.Parameter parameter = 3;</code>
        */
       public gauge.messages.Spec.ParameterOrBuilder getParameterOrBuilder() {
         if (parameterBuilder_ != null) {
@@ -14149,7 +14698,7 @@ public final class Spec {
        *&#47; Parameter part of the Fragment, valid only if FragmentType=Parameter
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter parameter = 3;</code>
+       * <code>.gauge.messages.Parameter parameter = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.Parameter, gauge.messages.Spec.Parameter.Builder, gauge.messages.Spec.ParameterOrBuilder> 
@@ -14222,7 +14771,7 @@ public final class Spec {
      *&#47; Type of the Parameter. Valid values: Static, Dynamic, Special_String, Special_Table, Table
      * </pre>
      *
-     * <code>optional .gauge.messages.Parameter.ParameterType parameterType = 1;</code>
+     * <code>.gauge.messages.Parameter.ParameterType parameterType = 1;</code>
      */
     int getParameterTypeValue();
     /**
@@ -14230,7 +14779,7 @@ public final class Spec {
      *&#47; Type of the Parameter. Valid values: Static, Dynamic, Special_String, Special_Table, Table
      * </pre>
      *
-     * <code>optional .gauge.messages.Parameter.ParameterType parameterType = 1;</code>
+     * <code>.gauge.messages.Parameter.ParameterType parameterType = 1;</code>
      */
     gauge.messages.Spec.Parameter.ParameterType getParameterType();
 
@@ -14239,7 +14788,7 @@ public final class Spec {
      *&#47; Holds the value of the parameter
      * </pre>
      *
-     * <code>optional string value = 2;</code>
+     * <code>string value = 2;</code>
      */
     java.lang.String getValue();
     /**
@@ -14247,7 +14796,7 @@ public final class Spec {
      *&#47; Holds the value of the parameter
      * </pre>
      *
-     * <code>optional string value = 2;</code>
+     * <code>string value = 2;</code>
      */
     com.google.protobuf.ByteString
         getValueBytes();
@@ -14257,7 +14806,7 @@ public final class Spec {
      *&#47; Holds the name of the parameter, used as Key to lookup the value.
      * </pre>
      *
-     * <code>optional string name = 3;</code>
+     * <code>string name = 3;</code>
      */
     java.lang.String getName();
     /**
@@ -14265,7 +14814,7 @@ public final class Spec {
      *&#47; Holds the name of the parameter, used as Key to lookup the value.
      * </pre>
      *
-     * <code>optional string name = 3;</code>
+     * <code>string name = 3;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -14275,7 +14824,7 @@ public final class Spec {
      *&#47; Holds the table value, if parameterType=Table or Special_Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+     * <code>.gauge.messages.ProtoTable table = 4;</code>
      */
     boolean hasTable();
     /**
@@ -14283,7 +14832,7 @@ public final class Spec {
      *&#47; Holds the table value, if parameterType=Table or Special_Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+     * <code>.gauge.messages.ProtoTable table = 4;</code>
      */
     gauge.messages.Spec.ProtoTable getTable();
     /**
@@ -14291,7 +14840,7 @@ public final class Spec {
      *&#47; Holds the table value, if parameterType=Table or Special_Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+     * <code>.gauge.messages.ProtoTable table = 4;</code>
      */
     gauge.messages.Spec.ProtoTableOrBuilder getTableOrBuilder();
   }
@@ -14571,7 +15120,7 @@ public final class Spec {
      *&#47; Type of the Parameter. Valid values: Static, Dynamic, Special_String, Special_Table, Table
      * </pre>
      *
-     * <code>optional .gauge.messages.Parameter.ParameterType parameterType = 1;</code>
+     * <code>.gauge.messages.Parameter.ParameterType parameterType = 1;</code>
      */
     public int getParameterTypeValue() {
       return parameterType_;
@@ -14581,7 +15130,7 @@ public final class Spec {
      *&#47; Type of the Parameter. Valid values: Static, Dynamic, Special_String, Special_Table, Table
      * </pre>
      *
-     * <code>optional .gauge.messages.Parameter.ParameterType parameterType = 1;</code>
+     * <code>.gauge.messages.Parameter.ParameterType parameterType = 1;</code>
      */
     public gauge.messages.Spec.Parameter.ParameterType getParameterType() {
       gauge.messages.Spec.Parameter.ParameterType result = gauge.messages.Spec.Parameter.ParameterType.valueOf(parameterType_);
@@ -14595,7 +15144,7 @@ public final class Spec {
      *&#47; Holds the value of the parameter
      * </pre>
      *
-     * <code>optional string value = 2;</code>
+     * <code>string value = 2;</code>
      */
     public java.lang.String getValue() {
       java.lang.Object ref = value_;
@@ -14614,7 +15163,7 @@ public final class Spec {
      *&#47; Holds the value of the parameter
      * </pre>
      *
-     * <code>optional string value = 2;</code>
+     * <code>string value = 2;</code>
      */
     public com.google.protobuf.ByteString
         getValueBytes() {
@@ -14637,7 +15186,7 @@ public final class Spec {
      *&#47; Holds the name of the parameter, used as Key to lookup the value.
      * </pre>
      *
-     * <code>optional string name = 3;</code>
+     * <code>string name = 3;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -14656,7 +15205,7 @@ public final class Spec {
      *&#47; Holds the name of the parameter, used as Key to lookup the value.
      * </pre>
      *
-     * <code>optional string name = 3;</code>
+     * <code>string name = 3;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -14679,7 +15228,7 @@ public final class Spec {
      *&#47; Holds the table value, if parameterType=Table or Special_Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+     * <code>.gauge.messages.ProtoTable table = 4;</code>
      */
     public boolean hasTable() {
       return table_ != null;
@@ -14689,7 +15238,7 @@ public final class Spec {
      *&#47; Holds the table value, if parameterType=Table or Special_Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+     * <code>.gauge.messages.ProtoTable table = 4;</code>
      */
     public gauge.messages.Spec.ProtoTable getTable() {
       return table_ == null ? gauge.messages.Spec.ProtoTable.getDefaultInstance() : table_;
@@ -14699,7 +15248,7 @@ public final class Spec {
      *&#47; Holds the table value, if parameterType=Table or Special_Table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+     * <code>.gauge.messages.ProtoTable table = 4;</code>
      */
     public gauge.messages.Spec.ProtoTableOrBuilder getTableOrBuilder() {
       return getTable();
@@ -14785,7 +15334,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + PARAMETERTYPE_FIELD_NUMBER;
       hash = (53 * hash) + parameterType_;
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
@@ -14801,6 +15350,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.Parameter parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.Parameter parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.Parameter parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -15047,7 +15607,7 @@ public final class Spec {
        *&#47; Type of the Parameter. Valid values: Static, Dynamic, Special_String, Special_Table, Table
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter.ParameterType parameterType = 1;</code>
+       * <code>.gauge.messages.Parameter.ParameterType parameterType = 1;</code>
        */
       public int getParameterTypeValue() {
         return parameterType_;
@@ -15057,7 +15617,7 @@ public final class Spec {
        *&#47; Type of the Parameter. Valid values: Static, Dynamic, Special_String, Special_Table, Table
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter.ParameterType parameterType = 1;</code>
+       * <code>.gauge.messages.Parameter.ParameterType parameterType = 1;</code>
        */
       public Builder setParameterTypeValue(int value) {
         parameterType_ = value;
@@ -15069,7 +15629,7 @@ public final class Spec {
        *&#47; Type of the Parameter. Valid values: Static, Dynamic, Special_String, Special_Table, Table
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter.ParameterType parameterType = 1;</code>
+       * <code>.gauge.messages.Parameter.ParameterType parameterType = 1;</code>
        */
       public gauge.messages.Spec.Parameter.ParameterType getParameterType() {
         gauge.messages.Spec.Parameter.ParameterType result = gauge.messages.Spec.Parameter.ParameterType.valueOf(parameterType_);
@@ -15080,7 +15640,7 @@ public final class Spec {
        *&#47; Type of the Parameter. Valid values: Static, Dynamic, Special_String, Special_Table, Table
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter.ParameterType parameterType = 1;</code>
+       * <code>.gauge.messages.Parameter.ParameterType parameterType = 1;</code>
        */
       public Builder setParameterType(gauge.messages.Spec.Parameter.ParameterType value) {
         if (value == null) {
@@ -15096,7 +15656,7 @@ public final class Spec {
        *&#47; Type of the Parameter. Valid values: Static, Dynamic, Special_String, Special_Table, Table
        * </pre>
        *
-       * <code>optional .gauge.messages.Parameter.ParameterType parameterType = 1;</code>
+       * <code>.gauge.messages.Parameter.ParameterType parameterType = 1;</code>
        */
       public Builder clearParameterType() {
         
@@ -15111,7 +15671,7 @@ public final class Spec {
        *&#47; Holds the value of the parameter
        * </pre>
        *
-       * <code>optional string value = 2;</code>
+       * <code>string value = 2;</code>
        */
       public java.lang.String getValue() {
         java.lang.Object ref = value_;
@@ -15130,7 +15690,7 @@ public final class Spec {
        *&#47; Holds the value of the parameter
        * </pre>
        *
-       * <code>optional string value = 2;</code>
+       * <code>string value = 2;</code>
        */
       public com.google.protobuf.ByteString
           getValueBytes() {
@@ -15150,7 +15710,7 @@ public final class Spec {
        *&#47; Holds the value of the parameter
        * </pre>
        *
-       * <code>optional string value = 2;</code>
+       * <code>string value = 2;</code>
        */
       public Builder setValue(
           java.lang.String value) {
@@ -15167,7 +15727,7 @@ public final class Spec {
        *&#47; Holds the value of the parameter
        * </pre>
        *
-       * <code>optional string value = 2;</code>
+       * <code>string value = 2;</code>
        */
       public Builder clearValue() {
         
@@ -15180,7 +15740,7 @@ public final class Spec {
        *&#47; Holds the value of the parameter
        * </pre>
        *
-       * <code>optional string value = 2;</code>
+       * <code>string value = 2;</code>
        */
       public Builder setValueBytes(
           com.google.protobuf.ByteString value) {
@@ -15200,7 +15760,7 @@ public final class Spec {
        *&#47; Holds the name of the parameter, used as Key to lookup the value.
        * </pre>
        *
-       * <code>optional string name = 3;</code>
+       * <code>string name = 3;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -15219,7 +15779,7 @@ public final class Spec {
        *&#47; Holds the name of the parameter, used as Key to lookup the value.
        * </pre>
        *
-       * <code>optional string name = 3;</code>
+       * <code>string name = 3;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -15239,7 +15799,7 @@ public final class Spec {
        *&#47; Holds the name of the parameter, used as Key to lookup the value.
        * </pre>
        *
-       * <code>optional string name = 3;</code>
+       * <code>string name = 3;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -15256,7 +15816,7 @@ public final class Spec {
        *&#47; Holds the name of the parameter, used as Key to lookup the value.
        * </pre>
        *
-       * <code>optional string name = 3;</code>
+       * <code>string name = 3;</code>
        */
       public Builder clearName() {
         
@@ -15269,7 +15829,7 @@ public final class Spec {
        *&#47; Holds the name of the parameter, used as Key to lookup the value.
        * </pre>
        *
-       * <code>optional string name = 3;</code>
+       * <code>string name = 3;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -15291,7 +15851,7 @@ public final class Spec {
        *&#47; Holds the table value, if parameterType=Table or Special_Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+       * <code>.gauge.messages.ProtoTable table = 4;</code>
        */
       public boolean hasTable() {
         return tableBuilder_ != null || table_ != null;
@@ -15301,7 +15861,7 @@ public final class Spec {
        *&#47; Holds the table value, if parameterType=Table or Special_Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+       * <code>.gauge.messages.ProtoTable table = 4;</code>
        */
       public gauge.messages.Spec.ProtoTable getTable() {
         if (tableBuilder_ == null) {
@@ -15315,7 +15875,7 @@ public final class Spec {
        *&#47; Holds the table value, if parameterType=Table or Special_Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+       * <code>.gauge.messages.ProtoTable table = 4;</code>
        */
       public Builder setTable(gauge.messages.Spec.ProtoTable value) {
         if (tableBuilder_ == null) {
@@ -15335,7 +15895,7 @@ public final class Spec {
        *&#47; Holds the table value, if parameterType=Table or Special_Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+       * <code>.gauge.messages.ProtoTable table = 4;</code>
        */
       public Builder setTable(
           gauge.messages.Spec.ProtoTable.Builder builderForValue) {
@@ -15353,7 +15913,7 @@ public final class Spec {
        *&#47; Holds the table value, if parameterType=Table or Special_Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+       * <code>.gauge.messages.ProtoTable table = 4;</code>
        */
       public Builder mergeTable(gauge.messages.Spec.ProtoTable value) {
         if (tableBuilder_ == null) {
@@ -15375,7 +15935,7 @@ public final class Spec {
        *&#47; Holds the table value, if parameterType=Table or Special_Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+       * <code>.gauge.messages.ProtoTable table = 4;</code>
        */
       public Builder clearTable() {
         if (tableBuilder_ == null) {
@@ -15393,7 +15953,7 @@ public final class Spec {
        *&#47; Holds the table value, if parameterType=Table or Special_Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+       * <code>.gauge.messages.ProtoTable table = 4;</code>
        */
       public gauge.messages.Spec.ProtoTable.Builder getTableBuilder() {
         
@@ -15405,7 +15965,7 @@ public final class Spec {
        *&#47; Holds the table value, if parameterType=Table or Special_Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+       * <code>.gauge.messages.ProtoTable table = 4;</code>
        */
       public gauge.messages.Spec.ProtoTableOrBuilder getTableOrBuilder() {
         if (tableBuilder_ != null) {
@@ -15420,7 +15980,7 @@ public final class Spec {
        *&#47; Holds the table value, if parameterType=Table or Special_Table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTable table = 4;</code>
+       * <code>.gauge.messages.ProtoTable table = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder> 
@@ -15493,7 +16053,7 @@ public final class Spec {
      *&#47; Text representing the Comment.
      * </pre>
      *
-     * <code>optional string text = 1;</code>
+     * <code>string text = 1;</code>
      */
     java.lang.String getText();
     /**
@@ -15501,7 +16061,7 @@ public final class Spec {
      *&#47; Text representing the Comment.
      * </pre>
      *
-     * <code>optional string text = 1;</code>
+     * <code>string text = 1;</code>
      */
     com.google.protobuf.ByteString
         getTextBytes();
@@ -15586,7 +16146,7 @@ public final class Spec {
      *&#47; Text representing the Comment.
      * </pre>
      *
-     * <code>optional string text = 1;</code>
+     * <code>string text = 1;</code>
      */
     public java.lang.String getText() {
       java.lang.Object ref = text_;
@@ -15605,7 +16165,7 @@ public final class Spec {
      *&#47; Text representing the Comment.
      * </pre>
      *
-     * <code>optional string text = 1;</code>
+     * <code>string text = 1;</code>
      */
     public com.google.protobuf.ByteString
         getTextBytes() {
@@ -15673,7 +16233,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TEXT_FIELD_NUMBER;
       hash = (53 * hash) + getText().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -15681,6 +16241,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoComment parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoComment parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoComment parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -15900,7 +16471,7 @@ public final class Spec {
        *&#47; Text representing the Comment.
        * </pre>
        *
-       * <code>optional string text = 1;</code>
+       * <code>string text = 1;</code>
        */
       public java.lang.String getText() {
         java.lang.Object ref = text_;
@@ -15919,7 +16490,7 @@ public final class Spec {
        *&#47; Text representing the Comment.
        * </pre>
        *
-       * <code>optional string text = 1;</code>
+       * <code>string text = 1;</code>
        */
       public com.google.protobuf.ByteString
           getTextBytes() {
@@ -15939,7 +16510,7 @@ public final class Spec {
        *&#47; Text representing the Comment.
        * </pre>
        *
-       * <code>optional string text = 1;</code>
+       * <code>string text = 1;</code>
        */
       public Builder setText(
           java.lang.String value) {
@@ -15956,7 +16527,7 @@ public final class Spec {
        *&#47; Text representing the Comment.
        * </pre>
        *
-       * <code>optional string text = 1;</code>
+       * <code>string text = 1;</code>
        */
       public Builder clearText() {
         
@@ -15969,7 +16540,7 @@ public final class Spec {
        *&#47; Text representing the Comment.
        * </pre>
        *
-       * <code>optional string text = 1;</code>
+       * <code>string text = 1;</code>
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
@@ -16040,7 +16611,7 @@ public final class Spec {
      *&#47; Contains the Headers for the table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+     * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
      */
     boolean hasHeaders();
     /**
@@ -16048,7 +16619,7 @@ public final class Spec {
      *&#47; Contains the Headers for the table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+     * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
      */
     gauge.messages.Spec.ProtoTableRow getHeaders();
     /**
@@ -16056,7 +16627,7 @@ public final class Spec {
      *&#47; Contains the Headers for the table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+     * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
      */
     gauge.messages.Spec.ProtoTableRowOrBuilder getHeadersOrBuilder();
 
@@ -16204,7 +16775,7 @@ public final class Spec {
      *&#47; Contains the Headers for the table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+     * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
      */
     public boolean hasHeaders() {
       return headers_ != null;
@@ -16214,7 +16785,7 @@ public final class Spec {
      *&#47; Contains the Headers for the table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+     * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
      */
     public gauge.messages.Spec.ProtoTableRow getHeaders() {
       return headers_ == null ? gauge.messages.Spec.ProtoTableRow.getDefaultInstance() : headers_;
@@ -16224,7 +16795,7 @@ public final class Spec {
      *&#47; Contains the Headers for the table
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+     * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
      */
     public gauge.messages.Spec.ProtoTableRowOrBuilder getHeadersOrBuilder() {
       return getHeaders();
@@ -16350,7 +16921,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasHeaders()) {
         hash = (37 * hash) + HEADERS_FIELD_NUMBER;
         hash = (53 * hash) + getHeaders().hashCode();
@@ -16364,6 +16935,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoTable parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoTable parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoTable parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -16638,7 +17220,7 @@ public final class Spec {
        *&#47; Contains the Headers for the table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+       * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
        */
       public boolean hasHeaders() {
         return headersBuilder_ != null || headers_ != null;
@@ -16648,7 +17230,7 @@ public final class Spec {
        *&#47; Contains the Headers for the table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+       * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
        */
       public gauge.messages.Spec.ProtoTableRow getHeaders() {
         if (headersBuilder_ == null) {
@@ -16662,7 +17244,7 @@ public final class Spec {
        *&#47; Contains the Headers for the table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+       * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
        */
       public Builder setHeaders(gauge.messages.Spec.ProtoTableRow value) {
         if (headersBuilder_ == null) {
@@ -16682,7 +17264,7 @@ public final class Spec {
        *&#47; Contains the Headers for the table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+       * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
        */
       public Builder setHeaders(
           gauge.messages.Spec.ProtoTableRow.Builder builderForValue) {
@@ -16700,7 +17282,7 @@ public final class Spec {
        *&#47; Contains the Headers for the table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+       * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
        */
       public Builder mergeHeaders(gauge.messages.Spec.ProtoTableRow value) {
         if (headersBuilder_ == null) {
@@ -16722,7 +17304,7 @@ public final class Spec {
        *&#47; Contains the Headers for the table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+       * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
        */
       public Builder clearHeaders() {
         if (headersBuilder_ == null) {
@@ -16740,7 +17322,7 @@ public final class Spec {
        *&#47; Contains the Headers for the table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+       * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
        */
       public gauge.messages.Spec.ProtoTableRow.Builder getHeadersBuilder() {
         
@@ -16752,7 +17334,7 @@ public final class Spec {
        *&#47; Contains the Headers for the table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+       * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
        */
       public gauge.messages.Spec.ProtoTableRowOrBuilder getHeadersOrBuilder() {
         if (headersBuilder_ != null) {
@@ -16767,7 +17349,7 @@ public final class Spec {
        *&#47; Contains the Headers for the table
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoTableRow headers = 1;</code>
+       * <code>.gauge.messages.ProtoTableRow headers = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoTableRow, gauge.messages.Spec.ProtoTableRow.Builder, gauge.messages.Spec.ProtoTableRowOrBuilder> 
@@ -17363,7 +17945,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getCellsCount() > 0) {
         hash = (37 * hash) + CELLS_FIELD_NUMBER;
         hash = (53 * hash) + getCellsList().hashCode();
@@ -17373,6 +17955,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoTableRow parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoTableRow parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoTableRow parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -17785,7 +18378,7 @@ public final class Spec {
      *&#47; The actual result of the execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     boolean hasExecutionResult();
     /**
@@ -17793,7 +18386,7 @@ public final class Spec {
      *&#47; The actual result of the execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     gauge.messages.Spec.ProtoExecutionResult getExecutionResult();
     /**
@@ -17801,7 +18394,7 @@ public final class Spec {
      *&#47; The actual result of the execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     gauge.messages.Spec.ProtoExecutionResultOrBuilder getExecutionResultOrBuilder();
 
@@ -17810,7 +18403,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     boolean hasPreHookFailure();
     /**
@@ -17818,7 +18411,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     gauge.messages.Spec.ProtoHookFailure getPreHookFailure();
     /**
@@ -17826,7 +18419,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder();
 
@@ -17835,7 +18428,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     boolean hasPostHookFailure();
     /**
@@ -17843,7 +18436,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     gauge.messages.Spec.ProtoHookFailure getPostHookFailure();
     /**
@@ -17851,21 +18444,21 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder();
 
     /**
-     * <code>optional bool skipped = 4;</code>
+     * <code>bool skipped = 4;</code>
      */
     boolean getSkipped();
 
     /**
-     * <code>optional string skippedReason = 5;</code>
+     * <code>string skippedReason = 5;</code>
      */
     java.lang.String getSkippedReason();
     /**
-     * <code>optional string skippedReason = 5;</code>
+     * <code>string skippedReason = 5;</code>
      */
     com.google.protobuf.ByteString
         getSkippedReasonBytes();
@@ -17995,7 +18588,7 @@ public final class Spec {
      *&#47; The actual result of the execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     public boolean hasExecutionResult() {
       return executionResult_ != null;
@@ -18005,7 +18598,7 @@ public final class Spec {
      *&#47; The actual result of the execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     public gauge.messages.Spec.ProtoExecutionResult getExecutionResult() {
       return executionResult_ == null ? gauge.messages.Spec.ProtoExecutionResult.getDefaultInstance() : executionResult_;
@@ -18015,7 +18608,7 @@ public final class Spec {
      *&#47; The actual result of the execution
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+     * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     public gauge.messages.Spec.ProtoExecutionResultOrBuilder getExecutionResultOrBuilder() {
       return getExecutionResult();
@@ -18028,7 +18621,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     public boolean hasPreHookFailure() {
       return preHookFailure_ != null;
@@ -18038,7 +18631,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     public gauge.messages.Spec.ProtoHookFailure getPreHookFailure() {
       return preHookFailure_ == null ? gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : preHookFailure_;
@@ -18048,7 +18641,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     public gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder() {
       return getPreHookFailure();
@@ -18061,7 +18654,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     public boolean hasPostHookFailure() {
       return postHookFailure_ != null;
@@ -18071,7 +18664,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     public gauge.messages.Spec.ProtoHookFailure getPostHookFailure() {
       return postHookFailure_ == null ? gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : postHookFailure_;
@@ -18081,7 +18674,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     public gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder() {
       return getPostHookFailure();
@@ -18090,7 +18683,7 @@ public final class Spec {
     public static final int SKIPPED_FIELD_NUMBER = 4;
     private boolean skipped_;
     /**
-     * <code>optional bool skipped = 4;</code>
+     * <code>bool skipped = 4;</code>
      */
     public boolean getSkipped() {
       return skipped_;
@@ -18099,7 +18692,7 @@ public final class Spec {
     public static final int SKIPPEDREASON_FIELD_NUMBER = 5;
     private volatile java.lang.Object skippedReason_;
     /**
-     * <code>optional string skippedReason = 5;</code>
+     * <code>string skippedReason = 5;</code>
      */
     public java.lang.String getSkippedReason() {
       java.lang.Object ref = skippedReason_;
@@ -18114,7 +18707,7 @@ public final class Spec {
       }
     }
     /**
-     * <code>optional string skippedReason = 5;</code>
+     * <code>string skippedReason = 5;</code>
      */
     public com.google.protobuf.ByteString
         getSkippedReasonBytes() {
@@ -18227,7 +18820,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasExecutionResult()) {
         hash = (37 * hash) + EXECUTIONRESULT_FIELD_NUMBER;
         hash = (53 * hash) + getExecutionResult().hashCode();
@@ -18250,6 +18843,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoStepExecutionResult parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoStepExecutionResult parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoStepExecutionResult parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -18519,7 +19123,7 @@ public final class Spec {
        *&#47; The actual result of the execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public boolean hasExecutionResult() {
         return executionResultBuilder_ != null || executionResult_ != null;
@@ -18529,7 +19133,7 @@ public final class Spec {
        *&#47; The actual result of the execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoExecutionResult getExecutionResult() {
         if (executionResultBuilder_ == null) {
@@ -18543,7 +19147,7 @@ public final class Spec {
        *&#47; The actual result of the execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder setExecutionResult(gauge.messages.Spec.ProtoExecutionResult value) {
         if (executionResultBuilder_ == null) {
@@ -18563,7 +19167,7 @@ public final class Spec {
        *&#47; The actual result of the execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder setExecutionResult(
           gauge.messages.Spec.ProtoExecutionResult.Builder builderForValue) {
@@ -18581,7 +19185,7 @@ public final class Spec {
        *&#47; The actual result of the execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder mergeExecutionResult(gauge.messages.Spec.ProtoExecutionResult value) {
         if (executionResultBuilder_ == null) {
@@ -18603,7 +19207,7 @@ public final class Spec {
        *&#47; The actual result of the execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder clearExecutionResult() {
         if (executionResultBuilder_ == null) {
@@ -18621,7 +19225,7 @@ public final class Spec {
        *&#47; The actual result of the execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoExecutionResult.Builder getExecutionResultBuilder() {
         
@@ -18633,7 +19237,7 @@ public final class Spec {
        *&#47; The actual result of the execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoExecutionResultOrBuilder getExecutionResultOrBuilder() {
         if (executionResultBuilder_ != null) {
@@ -18648,7 +19252,7 @@ public final class Spec {
        *&#47; The actual result of the execution
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult executionResult = 1;</code>
+       * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoExecutionResult, gauge.messages.Spec.ProtoExecutionResult.Builder, gauge.messages.Spec.ProtoExecutionResultOrBuilder> 
@@ -18672,7 +19276,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public boolean hasPreHookFailure() {
         return preHookFailureBuilder_ != null || preHookFailure_ != null;
@@ -18682,7 +19286,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure getPreHookFailure() {
         if (preHookFailureBuilder_ == null) {
@@ -18696,7 +19300,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public Builder setPreHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (preHookFailureBuilder_ == null) {
@@ -18716,7 +19320,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public Builder setPreHookFailure(
           gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
@@ -18734,7 +19338,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public Builder mergePreHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (preHookFailureBuilder_ == null) {
@@ -18756,7 +19360,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public Builder clearPreHookFailure() {
         if (preHookFailureBuilder_ == null) {
@@ -18774,7 +19378,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure.Builder getPreHookFailureBuilder() {
         
@@ -18786,7 +19390,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder() {
         if (preHookFailureBuilder_ != null) {
@@ -18801,7 +19405,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> 
@@ -18825,7 +19429,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public boolean hasPostHookFailure() {
         return postHookFailureBuilder_ != null || postHookFailure_ != null;
@@ -18835,7 +19439,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure getPostHookFailure() {
         if (postHookFailureBuilder_ == null) {
@@ -18849,7 +19453,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public Builder setPostHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (postHookFailureBuilder_ == null) {
@@ -18869,7 +19473,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public Builder setPostHookFailure(
           gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
@@ -18887,7 +19491,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public Builder mergePostHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (postHookFailureBuilder_ == null) {
@@ -18909,7 +19513,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public Builder clearPostHookFailure() {
         if (postHookFailureBuilder_ == null) {
@@ -18927,7 +19531,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure.Builder getPostHookFailureBuilder() {
         
@@ -18939,7 +19543,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder() {
         if (postHookFailureBuilder_ != null) {
@@ -18954,7 +19558,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_step` hook has an error.
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> 
@@ -18972,13 +19576,13 @@ public final class Spec {
 
       private boolean skipped_ ;
       /**
-       * <code>optional bool skipped = 4;</code>
+       * <code>bool skipped = 4;</code>
        */
       public boolean getSkipped() {
         return skipped_;
       }
       /**
-       * <code>optional bool skipped = 4;</code>
+       * <code>bool skipped = 4;</code>
        */
       public Builder setSkipped(boolean value) {
         
@@ -18987,7 +19591,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>optional bool skipped = 4;</code>
+       * <code>bool skipped = 4;</code>
        */
       public Builder clearSkipped() {
         
@@ -18998,7 +19602,7 @@ public final class Spec {
 
       private java.lang.Object skippedReason_ = "";
       /**
-       * <code>optional string skippedReason = 5;</code>
+       * <code>string skippedReason = 5;</code>
        */
       public java.lang.String getSkippedReason() {
         java.lang.Object ref = skippedReason_;
@@ -19013,7 +19617,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>optional string skippedReason = 5;</code>
+       * <code>string skippedReason = 5;</code>
        */
       public com.google.protobuf.ByteString
           getSkippedReasonBytes() {
@@ -19029,7 +19633,7 @@ public final class Spec {
         }
       }
       /**
-       * <code>optional string skippedReason = 5;</code>
+       * <code>string skippedReason = 5;</code>
        */
       public Builder setSkippedReason(
           java.lang.String value) {
@@ -19042,7 +19646,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>optional string skippedReason = 5;</code>
+       * <code>string skippedReason = 5;</code>
        */
       public Builder clearSkippedReason() {
         
@@ -19051,7 +19655,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>optional string skippedReason = 5;</code>
+       * <code>string skippedReason = 5;</code>
        */
       public Builder setSkippedReasonBytes(
           com.google.protobuf.ByteString value) {
@@ -19122,7 +19726,7 @@ public final class Spec {
      *&#47; Flag to indicate failure
      * </pre>
      *
-     * <code>optional bool failed = 1;</code>
+     * <code>bool failed = 1;</code>
      */
     boolean getFailed();
 
@@ -19131,7 +19735,7 @@ public final class Spec {
      *&#47; Flag to indicate if the error is recoverable from.
      * </pre>
      *
-     * <code>optional bool recoverableError = 2;</code>
+     * <code>bool recoverableError = 2;</code>
      */
     boolean getRecoverableError();
 
@@ -19140,7 +19744,7 @@ public final class Spec {
      *&#47; The actual error message.
      * </pre>
      *
-     * <code>optional string errorMessage = 3;</code>
+     * <code>string errorMessage = 3;</code>
      */
     java.lang.String getErrorMessage();
     /**
@@ -19148,7 +19752,7 @@ public final class Spec {
      *&#47; The actual error message.
      * </pre>
      *
-     * <code>optional string errorMessage = 3;</code>
+     * <code>string errorMessage = 3;</code>
      */
     com.google.protobuf.ByteString
         getErrorMessageBytes();
@@ -19158,7 +19762,7 @@ public final class Spec {
      *&#47; Stacktrace of the error
      * </pre>
      *
-     * <code>optional string stackTrace = 4;</code>
+     * <code>string stackTrace = 4;</code>
      */
     java.lang.String getStackTrace();
     /**
@@ -19166,7 +19770,7 @@ public final class Spec {
      *&#47; Stacktrace of the error
      * </pre>
      *
-     * <code>optional string stackTrace = 4;</code>
+     * <code>string stackTrace = 4;</code>
      */
     com.google.protobuf.ByteString
         getStackTraceBytes();
@@ -19176,7 +19780,7 @@ public final class Spec {
      *&#47; Byte array containing screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>optional bytes screenShot = 5;</code>
+     * <code>bytes screenShot = 5;</code>
      */
     com.google.protobuf.ByteString getScreenShot();
 
@@ -19185,7 +19789,7 @@ public final class Spec {
      *&#47; Holds the time taken for executing this scenario.
      * </pre>
      *
-     * <code>optional int64 executionTime = 6;</code>
+     * <code>int64 executionTime = 6;</code>
      */
     long getExecutionTime();
 
@@ -19229,7 +19833,7 @@ public final class Spec {
      *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+     * <code>.gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
      */
     int getErrorTypeValue();
     /**
@@ -19237,7 +19841,7 @@ public final class Spec {
      *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+     * <code>.gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
      */
     gauge.messages.Spec.ProtoExecutionResult.ErrorType getErrorType();
   }
@@ -19471,7 +20075,7 @@ public final class Spec {
      *&#47; Flag to indicate failure
      * </pre>
      *
-     * <code>optional bool failed = 1;</code>
+     * <code>bool failed = 1;</code>
      */
     public boolean getFailed() {
       return failed_;
@@ -19484,7 +20088,7 @@ public final class Spec {
      *&#47; Flag to indicate if the error is recoverable from.
      * </pre>
      *
-     * <code>optional bool recoverableError = 2;</code>
+     * <code>bool recoverableError = 2;</code>
      */
     public boolean getRecoverableError() {
       return recoverableError_;
@@ -19497,7 +20101,7 @@ public final class Spec {
      *&#47; The actual error message.
      * </pre>
      *
-     * <code>optional string errorMessage = 3;</code>
+     * <code>string errorMessage = 3;</code>
      */
     public java.lang.String getErrorMessage() {
       java.lang.Object ref = errorMessage_;
@@ -19516,7 +20120,7 @@ public final class Spec {
      *&#47; The actual error message.
      * </pre>
      *
-     * <code>optional string errorMessage = 3;</code>
+     * <code>string errorMessage = 3;</code>
      */
     public com.google.protobuf.ByteString
         getErrorMessageBytes() {
@@ -19539,7 +20143,7 @@ public final class Spec {
      *&#47; Stacktrace of the error
      * </pre>
      *
-     * <code>optional string stackTrace = 4;</code>
+     * <code>string stackTrace = 4;</code>
      */
     public java.lang.String getStackTrace() {
       java.lang.Object ref = stackTrace_;
@@ -19558,7 +20162,7 @@ public final class Spec {
      *&#47; Stacktrace of the error
      * </pre>
      *
-     * <code>optional string stackTrace = 4;</code>
+     * <code>string stackTrace = 4;</code>
      */
     public com.google.protobuf.ByteString
         getStackTraceBytes() {
@@ -19581,7 +20185,7 @@ public final class Spec {
      *&#47; Byte array containing screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>optional bytes screenShot = 5;</code>
+     * <code>bytes screenShot = 5;</code>
      */
     public com.google.protobuf.ByteString getScreenShot() {
       return screenShot_;
@@ -19594,7 +20198,7 @@ public final class Spec {
      *&#47; Holds the time taken for executing this scenario.
      * </pre>
      *
-     * <code>optional int64 executionTime = 6;</code>
+     * <code>int64 executionTime = 6;</code>
      */
     public long getExecutionTime() {
       return executionTime_;
@@ -19652,7 +20256,7 @@ public final class Spec {
      *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+     * <code>.gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
      */
     public int getErrorTypeValue() {
       return errorType_;
@@ -19662,7 +20266,7 @@ public final class Spec {
      *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+     * <code>.gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
      */
     public gauge.messages.Spec.ProtoExecutionResult.ErrorType getErrorType() {
       gauge.messages.Spec.ProtoExecutionResult.ErrorType result = gauge.messages.Spec.ProtoExecutionResult.ErrorType.valueOf(errorType_);
@@ -19786,7 +20390,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FAILED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getFailed());
@@ -19813,6 +20417,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoExecutionResult parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoExecutionResult parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoExecutionResult parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -20090,7 +20705,7 @@ public final class Spec {
        *&#47; Flag to indicate failure
        * </pre>
        *
-       * <code>optional bool failed = 1;</code>
+       * <code>bool failed = 1;</code>
        */
       public boolean getFailed() {
         return failed_;
@@ -20100,7 +20715,7 @@ public final class Spec {
        *&#47; Flag to indicate failure
        * </pre>
        *
-       * <code>optional bool failed = 1;</code>
+       * <code>bool failed = 1;</code>
        */
       public Builder setFailed(boolean value) {
         
@@ -20113,7 +20728,7 @@ public final class Spec {
        *&#47; Flag to indicate failure
        * </pre>
        *
-       * <code>optional bool failed = 1;</code>
+       * <code>bool failed = 1;</code>
        */
       public Builder clearFailed() {
         
@@ -20128,7 +20743,7 @@ public final class Spec {
        *&#47; Flag to indicate if the error is recoverable from.
        * </pre>
        *
-       * <code>optional bool recoverableError = 2;</code>
+       * <code>bool recoverableError = 2;</code>
        */
       public boolean getRecoverableError() {
         return recoverableError_;
@@ -20138,7 +20753,7 @@ public final class Spec {
        *&#47; Flag to indicate if the error is recoverable from.
        * </pre>
        *
-       * <code>optional bool recoverableError = 2;</code>
+       * <code>bool recoverableError = 2;</code>
        */
       public Builder setRecoverableError(boolean value) {
         
@@ -20151,7 +20766,7 @@ public final class Spec {
        *&#47; Flag to indicate if the error is recoverable from.
        * </pre>
        *
-       * <code>optional bool recoverableError = 2;</code>
+       * <code>bool recoverableError = 2;</code>
        */
       public Builder clearRecoverableError() {
         
@@ -20166,7 +20781,7 @@ public final class Spec {
        *&#47; The actual error message.
        * </pre>
        *
-       * <code>optional string errorMessage = 3;</code>
+       * <code>string errorMessage = 3;</code>
        */
       public java.lang.String getErrorMessage() {
         java.lang.Object ref = errorMessage_;
@@ -20185,7 +20800,7 @@ public final class Spec {
        *&#47; The actual error message.
        * </pre>
        *
-       * <code>optional string errorMessage = 3;</code>
+       * <code>string errorMessage = 3;</code>
        */
       public com.google.protobuf.ByteString
           getErrorMessageBytes() {
@@ -20205,7 +20820,7 @@ public final class Spec {
        *&#47; The actual error message.
        * </pre>
        *
-       * <code>optional string errorMessage = 3;</code>
+       * <code>string errorMessage = 3;</code>
        */
       public Builder setErrorMessage(
           java.lang.String value) {
@@ -20222,7 +20837,7 @@ public final class Spec {
        *&#47; The actual error message.
        * </pre>
        *
-       * <code>optional string errorMessage = 3;</code>
+       * <code>string errorMessage = 3;</code>
        */
       public Builder clearErrorMessage() {
         
@@ -20235,7 +20850,7 @@ public final class Spec {
        *&#47; The actual error message.
        * </pre>
        *
-       * <code>optional string errorMessage = 3;</code>
+       * <code>string errorMessage = 3;</code>
        */
       public Builder setErrorMessageBytes(
           com.google.protobuf.ByteString value) {
@@ -20255,7 +20870,7 @@ public final class Spec {
        *&#47; Stacktrace of the error
        * </pre>
        *
-       * <code>optional string stackTrace = 4;</code>
+       * <code>string stackTrace = 4;</code>
        */
       public java.lang.String getStackTrace() {
         java.lang.Object ref = stackTrace_;
@@ -20274,7 +20889,7 @@ public final class Spec {
        *&#47; Stacktrace of the error
        * </pre>
        *
-       * <code>optional string stackTrace = 4;</code>
+       * <code>string stackTrace = 4;</code>
        */
       public com.google.protobuf.ByteString
           getStackTraceBytes() {
@@ -20294,7 +20909,7 @@ public final class Spec {
        *&#47; Stacktrace of the error
        * </pre>
        *
-       * <code>optional string stackTrace = 4;</code>
+       * <code>string stackTrace = 4;</code>
        */
       public Builder setStackTrace(
           java.lang.String value) {
@@ -20311,7 +20926,7 @@ public final class Spec {
        *&#47; Stacktrace of the error
        * </pre>
        *
-       * <code>optional string stackTrace = 4;</code>
+       * <code>string stackTrace = 4;</code>
        */
       public Builder clearStackTrace() {
         
@@ -20324,7 +20939,7 @@ public final class Spec {
        *&#47; Stacktrace of the error
        * </pre>
        *
-       * <code>optional string stackTrace = 4;</code>
+       * <code>string stackTrace = 4;</code>
        */
       public Builder setStackTraceBytes(
           com.google.protobuf.ByteString value) {
@@ -20344,7 +20959,7 @@ public final class Spec {
        *&#47; Byte array containing screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>optional bytes screenShot = 5;</code>
+       * <code>bytes screenShot = 5;</code>
        */
       public com.google.protobuf.ByteString getScreenShot() {
         return screenShot_;
@@ -20354,7 +20969,7 @@ public final class Spec {
        *&#47; Byte array containing screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>optional bytes screenShot = 5;</code>
+       * <code>bytes screenShot = 5;</code>
        */
       public Builder setScreenShot(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -20370,7 +20985,7 @@ public final class Spec {
        *&#47; Byte array containing screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>optional bytes screenShot = 5;</code>
+       * <code>bytes screenShot = 5;</code>
        */
       public Builder clearScreenShot() {
         
@@ -20385,7 +21000,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing this scenario.
        * </pre>
        *
-       * <code>optional int64 executionTime = 6;</code>
+       * <code>int64 executionTime = 6;</code>
        */
       public long getExecutionTime() {
         return executionTime_;
@@ -20395,7 +21010,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing this scenario.
        * </pre>
        *
-       * <code>optional int64 executionTime = 6;</code>
+       * <code>int64 executionTime = 6;</code>
        */
       public Builder setExecutionTime(long value) {
         
@@ -20408,7 +21023,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing this scenario.
        * </pre>
        *
-       * <code>optional int64 executionTime = 6;</code>
+       * <code>int64 executionTime = 6;</code>
        */
       public Builder clearExecutionTime() {
         
@@ -20553,7 +21168,7 @@ public final class Spec {
        *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+       * <code>.gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
        */
       public int getErrorTypeValue() {
         return errorType_;
@@ -20563,7 +21178,7 @@ public final class Spec {
        *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+       * <code>.gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
        */
       public Builder setErrorTypeValue(int value) {
         errorType_ = value;
@@ -20575,7 +21190,7 @@ public final class Spec {
        *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+       * <code>.gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
        */
       public gauge.messages.Spec.ProtoExecutionResult.ErrorType getErrorType() {
         gauge.messages.Spec.ProtoExecutionResult.ErrorType result = gauge.messages.Spec.ProtoExecutionResult.ErrorType.valueOf(errorType_);
@@ -20586,7 +21201,7 @@ public final class Spec {
        *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+       * <code>.gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
        */
       public Builder setErrorType(gauge.messages.Spec.ProtoExecutionResult.ErrorType value) {
         if (value == null) {
@@ -20602,7 +21217,7 @@ public final class Spec {
        *&#47; Type of the Error. Valid values: ASSERTION, VERIFICATION. Default: ASSERTION
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
+       * <code>.gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
        */
       public Builder clearErrorType() {
         
@@ -20668,7 +21283,7 @@ public final class Spec {
      *&#47; Stacktrace from the failure
      * </pre>
      *
-     * <code>optional string stackTrace = 1;</code>
+     * <code>string stackTrace = 1;</code>
      */
     java.lang.String getStackTrace();
     /**
@@ -20676,7 +21291,7 @@ public final class Spec {
      *&#47; Stacktrace from the failure
      * </pre>
      *
-     * <code>optional string stackTrace = 1;</code>
+     * <code>string stackTrace = 1;</code>
      */
     com.google.protobuf.ByteString
         getStackTraceBytes();
@@ -20686,7 +21301,7 @@ public final class Spec {
      *&#47; Error message from the failure
      * </pre>
      *
-     * <code>optional string errorMessage = 2;</code>
+     * <code>string errorMessage = 2;</code>
      */
     java.lang.String getErrorMessage();
     /**
@@ -20694,7 +21309,7 @@ public final class Spec {
      *&#47; Error message from the failure
      * </pre>
      *
-     * <code>optional string errorMessage = 2;</code>
+     * <code>string errorMessage = 2;</code>
      */
     com.google.protobuf.ByteString
         getErrorMessageBytes();
@@ -20704,9 +21319,18 @@ public final class Spec {
      *&#47; Byte array holding the screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>optional bytes screenShot = 3;</code>
+     * <code>bytes screenShot = 3;</code>
      */
     com.google.protobuf.ByteString getScreenShot();
+
+    /**
+     * <pre>
+     * / Contains table row index corresponding to datatable rows
+     * </pre>
+     *
+     * <code>int32 tableRowIndex = 4;</code>
+     */
+    int getTableRowIndex();
   }
   /**
    * <pre>
@@ -20728,6 +21352,7 @@ public final class Spec {
       stackTrace_ = "";
       errorMessage_ = "";
       screenShot_ = com.google.protobuf.ByteString.EMPTY;
+      tableRowIndex_ = 0;
     }
 
     @java.lang.Override
@@ -20772,6 +21397,11 @@ public final class Spec {
               screenShot_ = input.readBytes();
               break;
             }
+            case 32: {
+
+              tableRowIndex_ = input.readInt32();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -20802,7 +21432,7 @@ public final class Spec {
      *&#47; Stacktrace from the failure
      * </pre>
      *
-     * <code>optional string stackTrace = 1;</code>
+     * <code>string stackTrace = 1;</code>
      */
     public java.lang.String getStackTrace() {
       java.lang.Object ref = stackTrace_;
@@ -20821,7 +21451,7 @@ public final class Spec {
      *&#47; Stacktrace from the failure
      * </pre>
      *
-     * <code>optional string stackTrace = 1;</code>
+     * <code>string stackTrace = 1;</code>
      */
     public com.google.protobuf.ByteString
         getStackTraceBytes() {
@@ -20844,7 +21474,7 @@ public final class Spec {
      *&#47; Error message from the failure
      * </pre>
      *
-     * <code>optional string errorMessage = 2;</code>
+     * <code>string errorMessage = 2;</code>
      */
     public java.lang.String getErrorMessage() {
       java.lang.Object ref = errorMessage_;
@@ -20863,7 +21493,7 @@ public final class Spec {
      *&#47; Error message from the failure
      * </pre>
      *
-     * <code>optional string errorMessage = 2;</code>
+     * <code>string errorMessage = 2;</code>
      */
     public com.google.protobuf.ByteString
         getErrorMessageBytes() {
@@ -20886,10 +21516,23 @@ public final class Spec {
      *&#47; Byte array holding the screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>optional bytes screenShot = 3;</code>
+     * <code>bytes screenShot = 3;</code>
      */
     public com.google.protobuf.ByteString getScreenShot() {
       return screenShot_;
+    }
+
+    public static final int TABLEROWINDEX_FIELD_NUMBER = 4;
+    private int tableRowIndex_;
+    /**
+     * <pre>
+     * / Contains table row index corresponding to datatable rows
+     * </pre>
+     *
+     * <code>int32 tableRowIndex = 4;</code>
+     */
+    public int getTableRowIndex() {
+      return tableRowIndex_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -20913,6 +21556,9 @@ public final class Spec {
       if (!screenShot_.isEmpty()) {
         output.writeBytes(3, screenShot_);
       }
+      if (tableRowIndex_ != 0) {
+        output.writeInt32(4, tableRowIndex_);
+      }
     }
 
     public int getSerializedSize() {
@@ -20929,6 +21575,10 @@ public final class Spec {
       if (!screenShot_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, screenShot_);
+      }
+      if (tableRowIndex_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, tableRowIndex_);
       }
       memoizedSize = size;
       return size;
@@ -20952,6 +21602,8 @@ public final class Spec {
           .equals(other.getErrorMessage());
       result = result && getScreenShot()
           .equals(other.getScreenShot());
+      result = result && (getTableRowIndex()
+          == other.getTableRowIndex());
       return result;
     }
 
@@ -20961,18 +21613,31 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + STACKTRACE_FIELD_NUMBER;
       hash = (53 * hash) + getStackTrace().hashCode();
       hash = (37 * hash) + ERRORMESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getErrorMessage().hashCode();
       hash = (37 * hash) + SCREENSHOT_FIELD_NUMBER;
       hash = (53 * hash) + getScreenShot().hashCode();
+      hash = (37 * hash) + TABLEROWINDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getTableRowIndex();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoHookFailure parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoHookFailure parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoHookFailure parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -21097,6 +21762,8 @@ public final class Spec {
 
         screenShot_ = com.google.protobuf.ByteString.EMPTY;
 
+        tableRowIndex_ = 0;
+
         return this;
       }
 
@@ -21122,6 +21789,7 @@ public final class Spec {
         result.stackTrace_ = stackTrace_;
         result.errorMessage_ = errorMessage_;
         result.screenShot_ = screenShot_;
+        result.tableRowIndex_ = tableRowIndex_;
         onBuilt();
         return result;
       }
@@ -21174,6 +21842,9 @@ public final class Spec {
         if (other.getScreenShot() != com.google.protobuf.ByteString.EMPTY) {
           setScreenShot(other.getScreenShot());
         }
+        if (other.getTableRowIndex() != 0) {
+          setTableRowIndex(other.getTableRowIndex());
+        }
         onChanged();
         return this;
       }
@@ -21206,7 +21877,7 @@ public final class Spec {
        *&#47; Stacktrace from the failure
        * </pre>
        *
-       * <code>optional string stackTrace = 1;</code>
+       * <code>string stackTrace = 1;</code>
        */
       public java.lang.String getStackTrace() {
         java.lang.Object ref = stackTrace_;
@@ -21225,7 +21896,7 @@ public final class Spec {
        *&#47; Stacktrace from the failure
        * </pre>
        *
-       * <code>optional string stackTrace = 1;</code>
+       * <code>string stackTrace = 1;</code>
        */
       public com.google.protobuf.ByteString
           getStackTraceBytes() {
@@ -21245,7 +21916,7 @@ public final class Spec {
        *&#47; Stacktrace from the failure
        * </pre>
        *
-       * <code>optional string stackTrace = 1;</code>
+       * <code>string stackTrace = 1;</code>
        */
       public Builder setStackTrace(
           java.lang.String value) {
@@ -21262,7 +21933,7 @@ public final class Spec {
        *&#47; Stacktrace from the failure
        * </pre>
        *
-       * <code>optional string stackTrace = 1;</code>
+       * <code>string stackTrace = 1;</code>
        */
       public Builder clearStackTrace() {
         
@@ -21275,7 +21946,7 @@ public final class Spec {
        *&#47; Stacktrace from the failure
        * </pre>
        *
-       * <code>optional string stackTrace = 1;</code>
+       * <code>string stackTrace = 1;</code>
        */
       public Builder setStackTraceBytes(
           com.google.protobuf.ByteString value) {
@@ -21295,7 +21966,7 @@ public final class Spec {
        *&#47; Error message from the failure
        * </pre>
        *
-       * <code>optional string errorMessage = 2;</code>
+       * <code>string errorMessage = 2;</code>
        */
       public java.lang.String getErrorMessage() {
         java.lang.Object ref = errorMessage_;
@@ -21314,7 +21985,7 @@ public final class Spec {
        *&#47; Error message from the failure
        * </pre>
        *
-       * <code>optional string errorMessage = 2;</code>
+       * <code>string errorMessage = 2;</code>
        */
       public com.google.protobuf.ByteString
           getErrorMessageBytes() {
@@ -21334,7 +22005,7 @@ public final class Spec {
        *&#47; Error message from the failure
        * </pre>
        *
-       * <code>optional string errorMessage = 2;</code>
+       * <code>string errorMessage = 2;</code>
        */
       public Builder setErrorMessage(
           java.lang.String value) {
@@ -21351,7 +22022,7 @@ public final class Spec {
        *&#47; Error message from the failure
        * </pre>
        *
-       * <code>optional string errorMessage = 2;</code>
+       * <code>string errorMessage = 2;</code>
        */
       public Builder clearErrorMessage() {
         
@@ -21364,7 +22035,7 @@ public final class Spec {
        *&#47; Error message from the failure
        * </pre>
        *
-       * <code>optional string errorMessage = 2;</code>
+       * <code>string errorMessage = 2;</code>
        */
       public Builder setErrorMessageBytes(
           com.google.protobuf.ByteString value) {
@@ -21384,7 +22055,7 @@ public final class Spec {
        *&#47; Byte array holding the screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>optional bytes screenShot = 3;</code>
+       * <code>bytes screenShot = 3;</code>
        */
       public com.google.protobuf.ByteString getScreenShot() {
         return screenShot_;
@@ -21394,7 +22065,7 @@ public final class Spec {
        *&#47; Byte array holding the screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>optional bytes screenShot = 3;</code>
+       * <code>bytes screenShot = 3;</code>
        */
       public Builder setScreenShot(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -21410,11 +22081,49 @@ public final class Spec {
        *&#47; Byte array holding the screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>optional bytes screenShot = 3;</code>
+       * <code>bytes screenShot = 3;</code>
        */
       public Builder clearScreenShot() {
         
         screenShot_ = getDefaultInstance().getScreenShot();
+        onChanged();
+        return this;
+      }
+
+      private int tableRowIndex_ ;
+      /**
+       * <pre>
+       * / Contains table row index corresponding to datatable rows
+       * </pre>
+       *
+       * <code>int32 tableRowIndex = 4;</code>
+       */
+      public int getTableRowIndex() {
+        return tableRowIndex_;
+      }
+      /**
+       * <pre>
+       * / Contains table row index corresponding to datatable rows
+       * </pre>
+       *
+       * <code>int32 tableRowIndex = 4;</code>
+       */
+      public Builder setTableRowIndex(int value) {
+        
+        tableRowIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * / Contains table row index corresponding to datatable rows
+       * </pre>
+       *
+       * <code>int32 tableRowIndex = 4;</code>
+       */
+      public Builder clearTableRowIndex() {
+        
+        tableRowIndex_ = 0;
         onChanged();
         return this;
       }
@@ -21520,7 +22229,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     boolean hasPreHookFailure();
     /**
@@ -21528,7 +22237,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     gauge.messages.Spec.ProtoHookFailure getPreHookFailure();
     /**
@@ -21536,7 +22245,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder();
 
@@ -21545,7 +22254,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     boolean hasPostHookFailure();
     /**
@@ -21553,7 +22262,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     gauge.messages.Spec.ProtoHookFailure getPostHookFailure();
     /**
@@ -21561,7 +22270,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder();
 
@@ -21570,7 +22279,7 @@ public final class Spec {
      *&#47; Flag to indicate failure
      * </pre>
      *
-     * <code>optional bool failed = 4;</code>
+     * <code>bool failed = 4;</code>
      */
     boolean getFailed();
 
@@ -21579,7 +22288,7 @@ public final class Spec {
      *&#47; Holds the count of number of Specifications that failed.
      * </pre>
      *
-     * <code>optional int32 specsFailedCount = 5;</code>
+     * <code>int32 specsFailedCount = 5;</code>
      */
     int getSpecsFailedCount();
 
@@ -21588,7 +22297,7 @@ public final class Spec {
      *&#47; Holds the time taken for executing the whole suite.
      * </pre>
      *
-     * <code>optional int64 executionTime = 6;</code>
+     * <code>int64 executionTime = 6;</code>
      */
     long getExecutionTime();
 
@@ -21597,7 +22306,7 @@ public final class Spec {
      *&#47; Holds a metric indicating the success rate of the execution.
      * </pre>
      *
-     * <code>optional float successRate = 7;</code>
+     * <code>float successRate = 7;</code>
      */
     float getSuccessRate();
 
@@ -21606,7 +22315,7 @@ public final class Spec {
      *&#47; The environment against which execution was done
      * </pre>
      *
-     * <code>optional string environment = 8;</code>
+     * <code>string environment = 8;</code>
      */
     java.lang.String getEnvironment();
     /**
@@ -21614,7 +22323,7 @@ public final class Spec {
      *&#47; The environment against which execution was done
      * </pre>
      *
-     * <code>optional string environment = 8;</code>
+     * <code>string environment = 8;</code>
      */
     com.google.protobuf.ByteString
         getEnvironmentBytes();
@@ -21624,7 +22333,7 @@ public final class Spec {
      *&#47; Tag expression used for filtering specification
      * </pre>
      *
-     * <code>optional string tags = 9;</code>
+     * <code>string tags = 9;</code>
      */
     java.lang.String getTags();
     /**
@@ -21632,7 +22341,7 @@ public final class Spec {
      *&#47; Tag expression used for filtering specification
      * </pre>
      *
-     * <code>optional string tags = 9;</code>
+     * <code>string tags = 9;</code>
      */
     com.google.protobuf.ByteString
         getTagsBytes();
@@ -21642,7 +22351,7 @@ public final class Spec {
      *&#47; Project name
      * </pre>
      *
-     * <code>optional string projectName = 10;</code>
+     * <code>string projectName = 10;</code>
      */
     java.lang.String getProjectName();
     /**
@@ -21650,7 +22359,7 @@ public final class Spec {
      *&#47; Project name
      * </pre>
      *
-     * <code>optional string projectName = 10;</code>
+     * <code>string projectName = 10;</code>
      */
     com.google.protobuf.ByteString
         getProjectNameBytes();
@@ -21660,7 +22369,7 @@ public final class Spec {
      *&#47; Timestamp of when execution started
      * </pre>
      *
-     * <code>optional string timestamp = 11;</code>
+     * <code>string timestamp = 11;</code>
      */
     java.lang.String getTimestamp();
     /**
@@ -21668,13 +22377,13 @@ public final class Spec {
      *&#47; Timestamp of when execution started
      * </pre>
      *
-     * <code>optional string timestamp = 11;</code>
+     * <code>string timestamp = 11;</code>
      */
     com.google.protobuf.ByteString
         getTimestampBytes();
 
     /**
-     * <code>optional int32 specsSkippedCount = 12;</code>
+     * <code>int32 specsSkippedCount = 12;</code>
      */
     int getSpecsSkippedCount();
   }
@@ -21904,7 +22613,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     public boolean hasPreHookFailure() {
       return preHookFailure_ != null;
@@ -21914,7 +22623,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     public gauge.messages.Spec.ProtoHookFailure getPreHookFailure() {
       return preHookFailure_ == null ? gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : preHookFailure_;
@@ -21924,7 +22633,7 @@ public final class Spec {
      *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+     * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
      */
     public gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder() {
       return getPreHookFailure();
@@ -21937,7 +22646,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     public boolean hasPostHookFailure() {
       return postHookFailure_ != null;
@@ -21947,7 +22656,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     public gauge.messages.Spec.ProtoHookFailure getPostHookFailure() {
       return postHookFailure_ == null ? gauge.messages.Spec.ProtoHookFailure.getDefaultInstance() : postHookFailure_;
@@ -21957,7 +22666,7 @@ public final class Spec {
      *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+     * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
      */
     public gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder() {
       return getPostHookFailure();
@@ -21970,7 +22679,7 @@ public final class Spec {
      *&#47; Flag to indicate failure
      * </pre>
      *
-     * <code>optional bool failed = 4;</code>
+     * <code>bool failed = 4;</code>
      */
     public boolean getFailed() {
       return failed_;
@@ -21983,7 +22692,7 @@ public final class Spec {
      *&#47; Holds the count of number of Specifications that failed.
      * </pre>
      *
-     * <code>optional int32 specsFailedCount = 5;</code>
+     * <code>int32 specsFailedCount = 5;</code>
      */
     public int getSpecsFailedCount() {
       return specsFailedCount_;
@@ -21996,7 +22705,7 @@ public final class Spec {
      *&#47; Holds the time taken for executing the whole suite.
      * </pre>
      *
-     * <code>optional int64 executionTime = 6;</code>
+     * <code>int64 executionTime = 6;</code>
      */
     public long getExecutionTime() {
       return executionTime_;
@@ -22009,7 +22718,7 @@ public final class Spec {
      *&#47; Holds a metric indicating the success rate of the execution.
      * </pre>
      *
-     * <code>optional float successRate = 7;</code>
+     * <code>float successRate = 7;</code>
      */
     public float getSuccessRate() {
       return successRate_;
@@ -22022,7 +22731,7 @@ public final class Spec {
      *&#47; The environment against which execution was done
      * </pre>
      *
-     * <code>optional string environment = 8;</code>
+     * <code>string environment = 8;</code>
      */
     public java.lang.String getEnvironment() {
       java.lang.Object ref = environment_;
@@ -22041,7 +22750,7 @@ public final class Spec {
      *&#47; The environment against which execution was done
      * </pre>
      *
-     * <code>optional string environment = 8;</code>
+     * <code>string environment = 8;</code>
      */
     public com.google.protobuf.ByteString
         getEnvironmentBytes() {
@@ -22064,7 +22773,7 @@ public final class Spec {
      *&#47; Tag expression used for filtering specification
      * </pre>
      *
-     * <code>optional string tags = 9;</code>
+     * <code>string tags = 9;</code>
      */
     public java.lang.String getTags() {
       java.lang.Object ref = tags_;
@@ -22083,7 +22792,7 @@ public final class Spec {
      *&#47; Tag expression used for filtering specification
      * </pre>
      *
-     * <code>optional string tags = 9;</code>
+     * <code>string tags = 9;</code>
      */
     public com.google.protobuf.ByteString
         getTagsBytes() {
@@ -22106,7 +22815,7 @@ public final class Spec {
      *&#47; Project name
      * </pre>
      *
-     * <code>optional string projectName = 10;</code>
+     * <code>string projectName = 10;</code>
      */
     public java.lang.String getProjectName() {
       java.lang.Object ref = projectName_;
@@ -22125,7 +22834,7 @@ public final class Spec {
      *&#47; Project name
      * </pre>
      *
-     * <code>optional string projectName = 10;</code>
+     * <code>string projectName = 10;</code>
      */
     public com.google.protobuf.ByteString
         getProjectNameBytes() {
@@ -22148,7 +22857,7 @@ public final class Spec {
      *&#47; Timestamp of when execution started
      * </pre>
      *
-     * <code>optional string timestamp = 11;</code>
+     * <code>string timestamp = 11;</code>
      */
     public java.lang.String getTimestamp() {
       java.lang.Object ref = timestamp_;
@@ -22167,7 +22876,7 @@ public final class Spec {
      *&#47; Timestamp of when execution started
      * </pre>
      *
-     * <code>optional string timestamp = 11;</code>
+     * <code>string timestamp = 11;</code>
      */
     public com.google.protobuf.ByteString
         getTimestampBytes() {
@@ -22186,7 +22895,7 @@ public final class Spec {
     public static final int SPECSSKIPPEDCOUNT_FIELD_NUMBER = 12;
     private int specsSkippedCount_;
     /**
-     * <code>optional int32 specsSkippedCount = 12;</code>
+     * <code>int32 specsSkippedCount = 12;</code>
      */
     public int getSpecsSkippedCount() {
       return specsSkippedCount_;
@@ -22348,7 +23057,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getSpecResultsCount() > 0) {
         hash = (37 * hash) + SPECRESULTS_FIELD_NUMBER;
         hash = (53 * hash) + getSpecResultsList().hashCode();
@@ -22387,6 +23096,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoSuiteResult parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoSuiteResult parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoSuiteResult parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -23045,7 +23765,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public boolean hasPreHookFailure() {
         return preHookFailureBuilder_ != null || preHookFailure_ != null;
@@ -23055,7 +23775,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure getPreHookFailure() {
         if (preHookFailureBuilder_ == null) {
@@ -23069,7 +23789,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public Builder setPreHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (preHookFailureBuilder_ == null) {
@@ -23089,7 +23809,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public Builder setPreHookFailure(
           gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
@@ -23107,7 +23827,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public Builder mergePreHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (preHookFailureBuilder_ == null) {
@@ -23129,7 +23849,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public Builder clearPreHookFailure() {
         if (preHookFailureBuilder_ == null) {
@@ -23147,7 +23867,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure.Builder getPreHookFailureBuilder() {
         
@@ -23159,7 +23879,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       public gauge.messages.Spec.ProtoHookFailureOrBuilder getPreHookFailureOrBuilder() {
         if (preHookFailureBuilder_ != null) {
@@ -23174,7 +23894,7 @@ public final class Spec {
        *&#47; Contains a 'before' hook failure message. This happens when the `before_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
+       * <code>.gauge.messages.ProtoHookFailure preHookFailure = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> 
@@ -23198,7 +23918,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public boolean hasPostHookFailure() {
         return postHookFailureBuilder_ != null || postHookFailure_ != null;
@@ -23208,7 +23928,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure getPostHookFailure() {
         if (postHookFailureBuilder_ == null) {
@@ -23222,7 +23942,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public Builder setPostHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (postHookFailureBuilder_ == null) {
@@ -23242,7 +23962,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public Builder setPostHookFailure(
           gauge.messages.Spec.ProtoHookFailure.Builder builderForValue) {
@@ -23260,7 +23980,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public Builder mergePostHookFailure(gauge.messages.Spec.ProtoHookFailure value) {
         if (postHookFailureBuilder_ == null) {
@@ -23282,7 +24002,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public Builder clearPostHookFailure() {
         if (postHookFailureBuilder_ == null) {
@@ -23300,7 +24020,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public gauge.messages.Spec.ProtoHookFailure.Builder getPostHookFailureBuilder() {
         
@@ -23312,7 +24032,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       public gauge.messages.Spec.ProtoHookFailureOrBuilder getPostHookFailureOrBuilder() {
         if (postHookFailureBuilder_ != null) {
@@ -23327,7 +24047,7 @@ public final class Spec {
        *&#47; Contains a 'after' hook failure message. This happens when the `after_suite` hook has an error
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
+       * <code>.gauge.messages.ProtoHookFailure postHookFailure = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoHookFailure, gauge.messages.Spec.ProtoHookFailure.Builder, gauge.messages.Spec.ProtoHookFailureOrBuilder> 
@@ -23349,7 +24069,7 @@ public final class Spec {
        *&#47; Flag to indicate failure
        * </pre>
        *
-       * <code>optional bool failed = 4;</code>
+       * <code>bool failed = 4;</code>
        */
       public boolean getFailed() {
         return failed_;
@@ -23359,7 +24079,7 @@ public final class Spec {
        *&#47; Flag to indicate failure
        * </pre>
        *
-       * <code>optional bool failed = 4;</code>
+       * <code>bool failed = 4;</code>
        */
       public Builder setFailed(boolean value) {
         
@@ -23372,7 +24092,7 @@ public final class Spec {
        *&#47; Flag to indicate failure
        * </pre>
        *
-       * <code>optional bool failed = 4;</code>
+       * <code>bool failed = 4;</code>
        */
       public Builder clearFailed() {
         
@@ -23387,7 +24107,7 @@ public final class Spec {
        *&#47; Holds the count of number of Specifications that failed.
        * </pre>
        *
-       * <code>optional int32 specsFailedCount = 5;</code>
+       * <code>int32 specsFailedCount = 5;</code>
        */
       public int getSpecsFailedCount() {
         return specsFailedCount_;
@@ -23397,7 +24117,7 @@ public final class Spec {
        *&#47; Holds the count of number of Specifications that failed.
        * </pre>
        *
-       * <code>optional int32 specsFailedCount = 5;</code>
+       * <code>int32 specsFailedCount = 5;</code>
        */
       public Builder setSpecsFailedCount(int value) {
         
@@ -23410,7 +24130,7 @@ public final class Spec {
        *&#47; Holds the count of number of Specifications that failed.
        * </pre>
        *
-       * <code>optional int32 specsFailedCount = 5;</code>
+       * <code>int32 specsFailedCount = 5;</code>
        */
       public Builder clearSpecsFailedCount() {
         
@@ -23425,7 +24145,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing the whole suite.
        * </pre>
        *
-       * <code>optional int64 executionTime = 6;</code>
+       * <code>int64 executionTime = 6;</code>
        */
       public long getExecutionTime() {
         return executionTime_;
@@ -23435,7 +24155,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing the whole suite.
        * </pre>
        *
-       * <code>optional int64 executionTime = 6;</code>
+       * <code>int64 executionTime = 6;</code>
        */
       public Builder setExecutionTime(long value) {
         
@@ -23448,7 +24168,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing the whole suite.
        * </pre>
        *
-       * <code>optional int64 executionTime = 6;</code>
+       * <code>int64 executionTime = 6;</code>
        */
       public Builder clearExecutionTime() {
         
@@ -23463,7 +24183,7 @@ public final class Spec {
        *&#47; Holds a metric indicating the success rate of the execution.
        * </pre>
        *
-       * <code>optional float successRate = 7;</code>
+       * <code>float successRate = 7;</code>
        */
       public float getSuccessRate() {
         return successRate_;
@@ -23473,7 +24193,7 @@ public final class Spec {
        *&#47; Holds a metric indicating the success rate of the execution.
        * </pre>
        *
-       * <code>optional float successRate = 7;</code>
+       * <code>float successRate = 7;</code>
        */
       public Builder setSuccessRate(float value) {
         
@@ -23486,7 +24206,7 @@ public final class Spec {
        *&#47; Holds a metric indicating the success rate of the execution.
        * </pre>
        *
-       * <code>optional float successRate = 7;</code>
+       * <code>float successRate = 7;</code>
        */
       public Builder clearSuccessRate() {
         
@@ -23501,7 +24221,7 @@ public final class Spec {
        *&#47; The environment against which execution was done
        * </pre>
        *
-       * <code>optional string environment = 8;</code>
+       * <code>string environment = 8;</code>
        */
       public java.lang.String getEnvironment() {
         java.lang.Object ref = environment_;
@@ -23520,7 +24240,7 @@ public final class Spec {
        *&#47; The environment against which execution was done
        * </pre>
        *
-       * <code>optional string environment = 8;</code>
+       * <code>string environment = 8;</code>
        */
       public com.google.protobuf.ByteString
           getEnvironmentBytes() {
@@ -23540,7 +24260,7 @@ public final class Spec {
        *&#47; The environment against which execution was done
        * </pre>
        *
-       * <code>optional string environment = 8;</code>
+       * <code>string environment = 8;</code>
        */
       public Builder setEnvironment(
           java.lang.String value) {
@@ -23557,7 +24277,7 @@ public final class Spec {
        *&#47; The environment against which execution was done
        * </pre>
        *
-       * <code>optional string environment = 8;</code>
+       * <code>string environment = 8;</code>
        */
       public Builder clearEnvironment() {
         
@@ -23570,7 +24290,7 @@ public final class Spec {
        *&#47; The environment against which execution was done
        * </pre>
        *
-       * <code>optional string environment = 8;</code>
+       * <code>string environment = 8;</code>
        */
       public Builder setEnvironmentBytes(
           com.google.protobuf.ByteString value) {
@@ -23590,7 +24310,7 @@ public final class Spec {
        *&#47; Tag expression used for filtering specification
        * </pre>
        *
-       * <code>optional string tags = 9;</code>
+       * <code>string tags = 9;</code>
        */
       public java.lang.String getTags() {
         java.lang.Object ref = tags_;
@@ -23609,7 +24329,7 @@ public final class Spec {
        *&#47; Tag expression used for filtering specification
        * </pre>
        *
-       * <code>optional string tags = 9;</code>
+       * <code>string tags = 9;</code>
        */
       public com.google.protobuf.ByteString
           getTagsBytes() {
@@ -23629,7 +24349,7 @@ public final class Spec {
        *&#47; Tag expression used for filtering specification
        * </pre>
        *
-       * <code>optional string tags = 9;</code>
+       * <code>string tags = 9;</code>
        */
       public Builder setTags(
           java.lang.String value) {
@@ -23646,7 +24366,7 @@ public final class Spec {
        *&#47; Tag expression used for filtering specification
        * </pre>
        *
-       * <code>optional string tags = 9;</code>
+       * <code>string tags = 9;</code>
        */
       public Builder clearTags() {
         
@@ -23659,7 +24379,7 @@ public final class Spec {
        *&#47; Tag expression used for filtering specification
        * </pre>
        *
-       * <code>optional string tags = 9;</code>
+       * <code>string tags = 9;</code>
        */
       public Builder setTagsBytes(
           com.google.protobuf.ByteString value) {
@@ -23679,7 +24399,7 @@ public final class Spec {
        *&#47; Project name
        * </pre>
        *
-       * <code>optional string projectName = 10;</code>
+       * <code>string projectName = 10;</code>
        */
       public java.lang.String getProjectName() {
         java.lang.Object ref = projectName_;
@@ -23698,7 +24418,7 @@ public final class Spec {
        *&#47; Project name
        * </pre>
        *
-       * <code>optional string projectName = 10;</code>
+       * <code>string projectName = 10;</code>
        */
       public com.google.protobuf.ByteString
           getProjectNameBytes() {
@@ -23718,7 +24438,7 @@ public final class Spec {
        *&#47; Project name
        * </pre>
        *
-       * <code>optional string projectName = 10;</code>
+       * <code>string projectName = 10;</code>
        */
       public Builder setProjectName(
           java.lang.String value) {
@@ -23735,7 +24455,7 @@ public final class Spec {
        *&#47; Project name
        * </pre>
        *
-       * <code>optional string projectName = 10;</code>
+       * <code>string projectName = 10;</code>
        */
       public Builder clearProjectName() {
         
@@ -23748,7 +24468,7 @@ public final class Spec {
        *&#47; Project name
        * </pre>
        *
-       * <code>optional string projectName = 10;</code>
+       * <code>string projectName = 10;</code>
        */
       public Builder setProjectNameBytes(
           com.google.protobuf.ByteString value) {
@@ -23768,7 +24488,7 @@ public final class Spec {
        *&#47; Timestamp of when execution started
        * </pre>
        *
-       * <code>optional string timestamp = 11;</code>
+       * <code>string timestamp = 11;</code>
        */
       public java.lang.String getTimestamp() {
         java.lang.Object ref = timestamp_;
@@ -23787,7 +24507,7 @@ public final class Spec {
        *&#47; Timestamp of when execution started
        * </pre>
        *
-       * <code>optional string timestamp = 11;</code>
+       * <code>string timestamp = 11;</code>
        */
       public com.google.protobuf.ByteString
           getTimestampBytes() {
@@ -23807,7 +24527,7 @@ public final class Spec {
        *&#47; Timestamp of when execution started
        * </pre>
        *
-       * <code>optional string timestamp = 11;</code>
+       * <code>string timestamp = 11;</code>
        */
       public Builder setTimestamp(
           java.lang.String value) {
@@ -23824,7 +24544,7 @@ public final class Spec {
        *&#47; Timestamp of when execution started
        * </pre>
        *
-       * <code>optional string timestamp = 11;</code>
+       * <code>string timestamp = 11;</code>
        */
       public Builder clearTimestamp() {
         
@@ -23837,7 +24557,7 @@ public final class Spec {
        *&#47; Timestamp of when execution started
        * </pre>
        *
-       * <code>optional string timestamp = 11;</code>
+       * <code>string timestamp = 11;</code>
        */
       public Builder setTimestampBytes(
           com.google.protobuf.ByteString value) {
@@ -23853,13 +24573,13 @@ public final class Spec {
 
       private int specsSkippedCount_ ;
       /**
-       * <code>optional int32 specsSkippedCount = 12;</code>
+       * <code>int32 specsSkippedCount = 12;</code>
        */
       public int getSpecsSkippedCount() {
         return specsSkippedCount_;
       }
       /**
-       * <code>optional int32 specsSkippedCount = 12;</code>
+       * <code>int32 specsSkippedCount = 12;</code>
        */
       public Builder setSpecsSkippedCount(int value) {
         
@@ -23868,7 +24588,7 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>optional int32 specsSkippedCount = 12;</code>
+       * <code>int32 specsSkippedCount = 12;</code>
        */
       public Builder clearSpecsSkippedCount() {
         
@@ -23934,7 +24654,7 @@ public final class Spec {
      *&#47; Represents the corresponding Specification
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+     * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
      */
     boolean hasProtoSpec();
     /**
@@ -23942,7 +24662,7 @@ public final class Spec {
      *&#47; Represents the corresponding Specification
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+     * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
      */
     gauge.messages.Spec.ProtoSpec getProtoSpec();
     /**
@@ -23950,7 +24670,7 @@ public final class Spec {
      *&#47; Represents the corresponding Specification
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+     * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
      */
     gauge.messages.Spec.ProtoSpecOrBuilder getProtoSpecOrBuilder();
 
@@ -23959,7 +24679,7 @@ public final class Spec {
      *&#47; Holds the number of Scenarios executed
      * </pre>
      *
-     * <code>optional int32 scenarioCount = 2;</code>
+     * <code>int32 scenarioCount = 2;</code>
      */
     int getScenarioCount();
 
@@ -23968,7 +24688,7 @@ public final class Spec {
      *&#47; Holds the number of Scenarios failed
      * </pre>
      *
-     * <code>optional int32 scenarioFailedCount = 3;</code>
+     * <code>int32 scenarioFailedCount = 3;</code>
      */
     int getScenarioFailedCount();
 
@@ -23977,7 +24697,7 @@ public final class Spec {
      *&#47; Flag to indicate failure
      * </pre>
      *
-     * <code>optional bool failed = 4;</code>
+     * <code>bool failed = 4;</code>
      */
     boolean getFailed();
 
@@ -24011,17 +24731,25 @@ public final class Spec {
      *&#47; Holds the time taken for executing the spec.
      * </pre>
      *
-     * <code>optional int64 executionTime = 6;</code>
+     * <code>int64 executionTime = 6;</code>
      */
     long getExecutionTime();
 
     /**
-     * <code>optional bool skipped = 7;</code>
+     * <pre>
+     *&#47; Flag to indicate if spec is skipped
+     * </pre>
+     *
+     * <code>bool skipped = 7;</code>
      */
     boolean getSkipped();
 
     /**
-     * <code>optional int32 scenarioSkippedCount = 9;</code>
+     * <pre>
+     *&#47; Holds the number of Scenarios skipped
+     * </pre>
+     *
+     * <code>int32 scenarioSkippedCount = 8;</code>
      */
     int getScenarioSkippedCount();
 
@@ -24030,7 +24758,7 @@ public final class Spec {
      *&#47; Holds the row numbers, for which the execution skipped.
      * </pre>
      *
-     * <code>repeated int32 skippedDataTableRows = 10;</code>
+     * <code>repeated int32 skippedDataTableRows = 9;</code>
      */
     java.util.List<java.lang.Integer> getSkippedDataTableRowsList();
     /**
@@ -24038,7 +24766,7 @@ public final class Spec {
      *&#47; Holds the row numbers, for which the execution skipped.
      * </pre>
      *
-     * <code>repeated int32 skippedDataTableRows = 10;</code>
+     * <code>repeated int32 skippedDataTableRows = 9;</code>
      */
     int getSkippedDataTableRowsCount();
     /**
@@ -24046,9 +24774,53 @@ public final class Spec {
      *&#47; Holds the row numbers, for which the execution skipped.
      * </pre>
      *
-     * <code>repeated int32 skippedDataTableRows = 10;</code>
+     * <code>repeated int32 skippedDataTableRows = 9;</code>
      */
     int getSkippedDataTableRows(int index);
+
+    /**
+     * <pre>
+     *&#47; Holds parse, validation and skipped errors.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.Error errors = 10;</code>
+     */
+    java.util.List<gauge.messages.Spec.Error> 
+        getErrorsList();
+    /**
+     * <pre>
+     *&#47; Holds parse, validation and skipped errors.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.Error errors = 10;</code>
+     */
+    gauge.messages.Spec.Error getErrors(int index);
+    /**
+     * <pre>
+     *&#47; Holds parse, validation and skipped errors.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.Error errors = 10;</code>
+     */
+    int getErrorsCount();
+    /**
+     * <pre>
+     *&#47; Holds parse, validation and skipped errors.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.Error errors = 10;</code>
+     */
+    java.util.List<? extends gauge.messages.Spec.ErrorOrBuilder> 
+        getErrorsOrBuilderList();
+    /**
+     * <pre>
+     *&#47; Holds parse, validation and skipped errors.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.Error errors = 10;</code>
+     */
+    gauge.messages.Spec.ErrorOrBuilder getErrorsOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -24074,6 +24846,7 @@ public final class Spec {
       skipped_ = false;
       scenarioSkippedCount_ = 0;
       skippedDataTableRows_ = java.util.Collections.emptyList();
+      errors_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -24160,12 +24933,12 @@ public final class Spec {
               skipped_ = input.readBool();
               break;
             }
-            case 72: {
+            case 64: {
 
               scenarioSkippedCount_ = input.readInt32();
               break;
             }
-            case 80: {
+            case 72: {
               if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
                 skippedDataTableRows_ = new java.util.ArrayList<java.lang.Integer>();
                 mutable_bitField0_ |= 0x00000100;
@@ -24173,7 +24946,7 @@ public final class Spec {
               skippedDataTableRows_.add(input.readInt32());
               break;
             }
-            case 82: {
+            case 74: {
               int length = input.readRawVarint32();
               int limit = input.pushLimit(length);
               if (!((mutable_bitField0_ & 0x00000100) == 0x00000100) && input.getBytesUntilLimit() > 0) {
@@ -24184,6 +24957,15 @@ public final class Spec {
                 skippedDataTableRows_.add(input.readInt32());
               }
               input.popLimit(limit);
+              break;
+            }
+            case 82: {
+              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+                errors_ = new java.util.ArrayList<gauge.messages.Spec.Error>();
+                mutable_bitField0_ |= 0x00000200;
+              }
+              errors_.add(
+                  input.readMessage(gauge.messages.Spec.Error.parser(), extensionRegistry));
               break;
             }
           }
@@ -24199,6 +24981,9 @@ public final class Spec {
         }
         if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
           skippedDataTableRows_ = java.util.Collections.unmodifiableList(skippedDataTableRows_);
+        }
+        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+          errors_ = java.util.Collections.unmodifiableList(errors_);
         }
         makeExtensionsImmutable();
       }
@@ -24223,7 +25008,7 @@ public final class Spec {
      *&#47; Represents the corresponding Specification
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+     * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
      */
     public boolean hasProtoSpec() {
       return protoSpec_ != null;
@@ -24233,7 +25018,7 @@ public final class Spec {
      *&#47; Represents the corresponding Specification
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+     * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
      */
     public gauge.messages.Spec.ProtoSpec getProtoSpec() {
       return protoSpec_ == null ? gauge.messages.Spec.ProtoSpec.getDefaultInstance() : protoSpec_;
@@ -24243,7 +25028,7 @@ public final class Spec {
      *&#47; Represents the corresponding Specification
      * </pre>
      *
-     * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+     * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
      */
     public gauge.messages.Spec.ProtoSpecOrBuilder getProtoSpecOrBuilder() {
       return getProtoSpec();
@@ -24256,7 +25041,7 @@ public final class Spec {
      *&#47; Holds the number of Scenarios executed
      * </pre>
      *
-     * <code>optional int32 scenarioCount = 2;</code>
+     * <code>int32 scenarioCount = 2;</code>
      */
     public int getScenarioCount() {
       return scenarioCount_;
@@ -24269,7 +25054,7 @@ public final class Spec {
      *&#47; Holds the number of Scenarios failed
      * </pre>
      *
-     * <code>optional int32 scenarioFailedCount = 3;</code>
+     * <code>int32 scenarioFailedCount = 3;</code>
      */
     public int getScenarioFailedCount() {
       return scenarioFailedCount_;
@@ -24282,7 +25067,7 @@ public final class Spec {
      *&#47; Flag to indicate failure
      * </pre>
      *
-     * <code>optional bool failed = 4;</code>
+     * <code>bool failed = 4;</code>
      */
     public boolean getFailed() {
       return failed_;
@@ -24330,7 +25115,7 @@ public final class Spec {
      *&#47; Holds the time taken for executing the spec.
      * </pre>
      *
-     * <code>optional int64 executionTime = 6;</code>
+     * <code>int64 executionTime = 6;</code>
      */
     public long getExecutionTime() {
       return executionTime_;
@@ -24339,29 +25124,37 @@ public final class Spec {
     public static final int SKIPPED_FIELD_NUMBER = 7;
     private boolean skipped_;
     /**
-     * <code>optional bool skipped = 7;</code>
+     * <pre>
+     *&#47; Flag to indicate if spec is skipped
+     * </pre>
+     *
+     * <code>bool skipped = 7;</code>
      */
     public boolean getSkipped() {
       return skipped_;
     }
 
-    public static final int SCENARIOSKIPPEDCOUNT_FIELD_NUMBER = 9;
+    public static final int SCENARIOSKIPPEDCOUNT_FIELD_NUMBER = 8;
     private int scenarioSkippedCount_;
     /**
-     * <code>optional int32 scenarioSkippedCount = 9;</code>
+     * <pre>
+     *&#47; Holds the number of Scenarios skipped
+     * </pre>
+     *
+     * <code>int32 scenarioSkippedCount = 8;</code>
      */
     public int getScenarioSkippedCount() {
       return scenarioSkippedCount_;
     }
 
-    public static final int SKIPPEDDATATABLEROWS_FIELD_NUMBER = 10;
+    public static final int SKIPPEDDATATABLEROWS_FIELD_NUMBER = 9;
     private java.util.List<java.lang.Integer> skippedDataTableRows_;
     /**
      * <pre>
      *&#47; Holds the row numbers, for which the execution skipped.
      * </pre>
      *
-     * <code>repeated int32 skippedDataTableRows = 10;</code>
+     * <code>repeated int32 skippedDataTableRows = 9;</code>
      */
     public java.util.List<java.lang.Integer>
         getSkippedDataTableRowsList() {
@@ -24372,7 +25165,7 @@ public final class Spec {
      *&#47; Holds the row numbers, for which the execution skipped.
      * </pre>
      *
-     * <code>repeated int32 skippedDataTableRows = 10;</code>
+     * <code>repeated int32 skippedDataTableRows = 9;</code>
      */
     public int getSkippedDataTableRowsCount() {
       return skippedDataTableRows_.size();
@@ -24382,12 +25175,67 @@ public final class Spec {
      *&#47; Holds the row numbers, for which the execution skipped.
      * </pre>
      *
-     * <code>repeated int32 skippedDataTableRows = 10;</code>
+     * <code>repeated int32 skippedDataTableRows = 9;</code>
      */
     public int getSkippedDataTableRows(int index) {
       return skippedDataTableRows_.get(index);
     }
     private int skippedDataTableRowsMemoizedSerializedSize = -1;
+
+    public static final int ERRORS_FIELD_NUMBER = 10;
+    private java.util.List<gauge.messages.Spec.Error> errors_;
+    /**
+     * <pre>
+     *&#47; Holds parse, validation and skipped errors.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.Error errors = 10;</code>
+     */
+    public java.util.List<gauge.messages.Spec.Error> getErrorsList() {
+      return errors_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds parse, validation and skipped errors.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.Error errors = 10;</code>
+     */
+    public java.util.List<? extends gauge.messages.Spec.ErrorOrBuilder> 
+        getErrorsOrBuilderList() {
+      return errors_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds parse, validation and skipped errors.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.Error errors = 10;</code>
+     */
+    public int getErrorsCount() {
+      return errors_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Holds parse, validation and skipped errors.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.Error errors = 10;</code>
+     */
+    public gauge.messages.Spec.Error getErrors(int index) {
+      return errors_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Holds parse, validation and skipped errors.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.Error errors = 10;</code>
+     */
+    public gauge.messages.Spec.ErrorOrBuilder getErrorsOrBuilder(
+        int index) {
+      return errors_.get(index);
+    }
 
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -24428,14 +25276,17 @@ public final class Spec {
         output.writeBool(7, skipped_);
       }
       if (scenarioSkippedCount_ != 0) {
-        output.writeInt32(9, scenarioSkippedCount_);
+        output.writeInt32(8, scenarioSkippedCount_);
       }
       if (getSkippedDataTableRowsList().size() > 0) {
-        output.writeUInt32NoTag(82);
+        output.writeUInt32NoTag(74);
         output.writeUInt32NoTag(skippedDataTableRowsMemoizedSerializedSize);
       }
       for (int i = 0; i < skippedDataTableRows_.size(); i++) {
         output.writeInt32NoTag(skippedDataTableRows_.get(i));
+      }
+      for (int i = 0; i < errors_.size(); i++) {
+        output.writeMessage(10, errors_.get(i));
       }
     }
 
@@ -24484,7 +25335,7 @@ public final class Spec {
       }
       if (scenarioSkippedCount_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, scenarioSkippedCount_);
+          .computeInt32Size(8, scenarioSkippedCount_);
       }
       {
         int dataSize = 0;
@@ -24499,6 +25350,10 @@ public final class Spec {
               .computeInt32SizeNoTag(dataSize);
         }
         skippedDataTableRowsMemoizedSerializedSize = dataSize;
+      }
+      for (int i = 0; i < errors_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(10, errors_.get(i));
       }
       memoizedSize = size;
       return size;
@@ -24537,6 +25392,8 @@ public final class Spec {
           == other.getScenarioSkippedCount());
       result = result && getSkippedDataTableRowsList()
           .equals(other.getSkippedDataTableRowsList());
+      result = result && getErrorsList()
+          .equals(other.getErrorsList());
       return result;
     }
 
@@ -24546,7 +25403,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasProtoSpec()) {
         hash = (37 * hash) + PROTOSPEC_FIELD_NUMBER;
         hash = (53 * hash) + getProtoSpec().hashCode();
@@ -24574,11 +25431,26 @@ public final class Spec {
         hash = (37 * hash) + SKIPPEDDATATABLEROWS_FIELD_NUMBER;
         hash = (53 * hash) + getSkippedDataTableRowsList().hashCode();
       }
+      if (getErrorsCount() > 0) {
+        hash = (37 * hash) + ERRORS_FIELD_NUMBER;
+        hash = (53 * hash) + getErrorsList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoSpecResult parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoSpecResult parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoSpecResult parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -24692,6 +25564,7 @@ public final class Spec {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getErrorsFieldBuilder();
         }
       }
       public Builder clear() {
@@ -24718,6 +25591,12 @@ public final class Spec {
 
         skippedDataTableRows_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000100);
+        if (errorsBuilder_ == null) {
+          errors_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000200);
+        } else {
+          errorsBuilder_.clear();
+        }
         return this;
       }
 
@@ -24763,6 +25642,15 @@ public final class Spec {
           bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.skippedDataTableRows_ = skippedDataTableRows_;
+        if (errorsBuilder_ == null) {
+          if (((bitField0_ & 0x00000200) == 0x00000200)) {
+            errors_ = java.util.Collections.unmodifiableList(errors_);
+            bitField0_ = (bitField0_ & ~0x00000200);
+          }
+          result.errors_ = errors_;
+        } else {
+          result.errors_ = errorsBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -24846,6 +25734,32 @@ public final class Spec {
           }
           onChanged();
         }
+        if (errorsBuilder_ == null) {
+          if (!other.errors_.isEmpty()) {
+            if (errors_.isEmpty()) {
+              errors_ = other.errors_;
+              bitField0_ = (bitField0_ & ~0x00000200);
+            } else {
+              ensureErrorsIsMutable();
+              errors_.addAll(other.errors_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.errors_.isEmpty()) {
+            if (errorsBuilder_.isEmpty()) {
+              errorsBuilder_.dispose();
+              errorsBuilder_ = null;
+              errors_ = other.errors_;
+              bitField0_ = (bitField0_ & ~0x00000200);
+              errorsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getErrorsFieldBuilder() : null;
+            } else {
+              errorsBuilder_.addAllMessages(other.errors_);
+            }
+          }
+        }
         onChanged();
         return this;
       }
@@ -24881,7 +25795,7 @@ public final class Spec {
        *&#47; Represents the corresponding Specification
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+       * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
        */
       public boolean hasProtoSpec() {
         return protoSpecBuilder_ != null || protoSpec_ != null;
@@ -24891,7 +25805,7 @@ public final class Spec {
        *&#47; Represents the corresponding Specification
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+       * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
        */
       public gauge.messages.Spec.ProtoSpec getProtoSpec() {
         if (protoSpecBuilder_ == null) {
@@ -24905,7 +25819,7 @@ public final class Spec {
        *&#47; Represents the corresponding Specification
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+       * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
        */
       public Builder setProtoSpec(gauge.messages.Spec.ProtoSpec value) {
         if (protoSpecBuilder_ == null) {
@@ -24925,7 +25839,7 @@ public final class Spec {
        *&#47; Represents the corresponding Specification
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+       * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
        */
       public Builder setProtoSpec(
           gauge.messages.Spec.ProtoSpec.Builder builderForValue) {
@@ -24943,7 +25857,7 @@ public final class Spec {
        *&#47; Represents the corresponding Specification
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+       * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
        */
       public Builder mergeProtoSpec(gauge.messages.Spec.ProtoSpec value) {
         if (protoSpecBuilder_ == null) {
@@ -24965,7 +25879,7 @@ public final class Spec {
        *&#47; Represents the corresponding Specification
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+       * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
        */
       public Builder clearProtoSpec() {
         if (protoSpecBuilder_ == null) {
@@ -24983,7 +25897,7 @@ public final class Spec {
        *&#47; Represents the corresponding Specification
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+       * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
        */
       public gauge.messages.Spec.ProtoSpec.Builder getProtoSpecBuilder() {
         
@@ -24995,7 +25909,7 @@ public final class Spec {
        *&#47; Represents the corresponding Specification
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+       * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
        */
       public gauge.messages.Spec.ProtoSpecOrBuilder getProtoSpecOrBuilder() {
         if (protoSpecBuilder_ != null) {
@@ -25010,7 +25924,7 @@ public final class Spec {
        *&#47; Represents the corresponding Specification
        * </pre>
        *
-       * <code>optional .gauge.messages.ProtoSpec protoSpec = 1;</code>
+       * <code>.gauge.messages.ProtoSpec protoSpec = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoSpec, gauge.messages.Spec.ProtoSpec.Builder, gauge.messages.Spec.ProtoSpecOrBuilder> 
@@ -25032,7 +25946,7 @@ public final class Spec {
        *&#47; Holds the number of Scenarios executed
        * </pre>
        *
-       * <code>optional int32 scenarioCount = 2;</code>
+       * <code>int32 scenarioCount = 2;</code>
        */
       public int getScenarioCount() {
         return scenarioCount_;
@@ -25042,7 +25956,7 @@ public final class Spec {
        *&#47; Holds the number of Scenarios executed
        * </pre>
        *
-       * <code>optional int32 scenarioCount = 2;</code>
+       * <code>int32 scenarioCount = 2;</code>
        */
       public Builder setScenarioCount(int value) {
         
@@ -25055,7 +25969,7 @@ public final class Spec {
        *&#47; Holds the number of Scenarios executed
        * </pre>
        *
-       * <code>optional int32 scenarioCount = 2;</code>
+       * <code>int32 scenarioCount = 2;</code>
        */
       public Builder clearScenarioCount() {
         
@@ -25070,7 +25984,7 @@ public final class Spec {
        *&#47; Holds the number of Scenarios failed
        * </pre>
        *
-       * <code>optional int32 scenarioFailedCount = 3;</code>
+       * <code>int32 scenarioFailedCount = 3;</code>
        */
       public int getScenarioFailedCount() {
         return scenarioFailedCount_;
@@ -25080,7 +25994,7 @@ public final class Spec {
        *&#47; Holds the number of Scenarios failed
        * </pre>
        *
-       * <code>optional int32 scenarioFailedCount = 3;</code>
+       * <code>int32 scenarioFailedCount = 3;</code>
        */
       public Builder setScenarioFailedCount(int value) {
         
@@ -25093,7 +26007,7 @@ public final class Spec {
        *&#47; Holds the number of Scenarios failed
        * </pre>
        *
-       * <code>optional int32 scenarioFailedCount = 3;</code>
+       * <code>int32 scenarioFailedCount = 3;</code>
        */
       public Builder clearScenarioFailedCount() {
         
@@ -25108,7 +26022,7 @@ public final class Spec {
        *&#47; Flag to indicate failure
        * </pre>
        *
-       * <code>optional bool failed = 4;</code>
+       * <code>bool failed = 4;</code>
        */
       public boolean getFailed() {
         return failed_;
@@ -25118,7 +26032,7 @@ public final class Spec {
        *&#47; Flag to indicate failure
        * </pre>
        *
-       * <code>optional bool failed = 4;</code>
+       * <code>bool failed = 4;</code>
        */
       public Builder setFailed(boolean value) {
         
@@ -25131,7 +26045,7 @@ public final class Spec {
        *&#47; Flag to indicate failure
        * </pre>
        *
-       * <code>optional bool failed = 4;</code>
+       * <code>bool failed = 4;</code>
        */
       public Builder clearFailed() {
         
@@ -25240,7 +26154,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing the spec.
        * </pre>
        *
-       * <code>optional int64 executionTime = 6;</code>
+       * <code>int64 executionTime = 6;</code>
        */
       public long getExecutionTime() {
         return executionTime_;
@@ -25250,7 +26164,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing the spec.
        * </pre>
        *
-       * <code>optional int64 executionTime = 6;</code>
+       * <code>int64 executionTime = 6;</code>
        */
       public Builder setExecutionTime(long value) {
         
@@ -25263,7 +26177,7 @@ public final class Spec {
        *&#47; Holds the time taken for executing the spec.
        * </pre>
        *
-       * <code>optional int64 executionTime = 6;</code>
+       * <code>int64 executionTime = 6;</code>
        */
       public Builder clearExecutionTime() {
         
@@ -25274,13 +26188,21 @@ public final class Spec {
 
       private boolean skipped_ ;
       /**
-       * <code>optional bool skipped = 7;</code>
+       * <pre>
+       *&#47; Flag to indicate if spec is skipped
+       * </pre>
+       *
+       * <code>bool skipped = 7;</code>
        */
       public boolean getSkipped() {
         return skipped_;
       }
       /**
-       * <code>optional bool skipped = 7;</code>
+       * <pre>
+       *&#47; Flag to indicate if spec is skipped
+       * </pre>
+       *
+       * <code>bool skipped = 7;</code>
        */
       public Builder setSkipped(boolean value) {
         
@@ -25289,7 +26211,11 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>optional bool skipped = 7;</code>
+       * <pre>
+       *&#47; Flag to indicate if spec is skipped
+       * </pre>
+       *
+       * <code>bool skipped = 7;</code>
        */
       public Builder clearSkipped() {
         
@@ -25300,13 +26226,21 @@ public final class Spec {
 
       private int scenarioSkippedCount_ ;
       /**
-       * <code>optional int32 scenarioSkippedCount = 9;</code>
+       * <pre>
+       *&#47; Holds the number of Scenarios skipped
+       * </pre>
+       *
+       * <code>int32 scenarioSkippedCount = 8;</code>
        */
       public int getScenarioSkippedCount() {
         return scenarioSkippedCount_;
       }
       /**
-       * <code>optional int32 scenarioSkippedCount = 9;</code>
+       * <pre>
+       *&#47; Holds the number of Scenarios skipped
+       * </pre>
+       *
+       * <code>int32 scenarioSkippedCount = 8;</code>
        */
       public Builder setScenarioSkippedCount(int value) {
         
@@ -25315,7 +26249,11 @@ public final class Spec {
         return this;
       }
       /**
-       * <code>optional int32 scenarioSkippedCount = 9;</code>
+       * <pre>
+       *&#47; Holds the number of Scenarios skipped
+       * </pre>
+       *
+       * <code>int32 scenarioSkippedCount = 8;</code>
        */
       public Builder clearScenarioSkippedCount() {
         
@@ -25336,7 +26274,7 @@ public final class Spec {
        *&#47; Holds the row numbers, for which the execution skipped.
        * </pre>
        *
-       * <code>repeated int32 skippedDataTableRows = 10;</code>
+       * <code>repeated int32 skippedDataTableRows = 9;</code>
        */
       public java.util.List<java.lang.Integer>
           getSkippedDataTableRowsList() {
@@ -25347,7 +26285,7 @@ public final class Spec {
        *&#47; Holds the row numbers, for which the execution skipped.
        * </pre>
        *
-       * <code>repeated int32 skippedDataTableRows = 10;</code>
+       * <code>repeated int32 skippedDataTableRows = 9;</code>
        */
       public int getSkippedDataTableRowsCount() {
         return skippedDataTableRows_.size();
@@ -25357,7 +26295,7 @@ public final class Spec {
        *&#47; Holds the row numbers, for which the execution skipped.
        * </pre>
        *
-       * <code>repeated int32 skippedDataTableRows = 10;</code>
+       * <code>repeated int32 skippedDataTableRows = 9;</code>
        */
       public int getSkippedDataTableRows(int index) {
         return skippedDataTableRows_.get(index);
@@ -25367,7 +26305,7 @@ public final class Spec {
        *&#47; Holds the row numbers, for which the execution skipped.
        * </pre>
        *
-       * <code>repeated int32 skippedDataTableRows = 10;</code>
+       * <code>repeated int32 skippedDataTableRows = 9;</code>
        */
       public Builder setSkippedDataTableRows(
           int index, int value) {
@@ -25381,7 +26319,7 @@ public final class Spec {
        *&#47; Holds the row numbers, for which the execution skipped.
        * </pre>
        *
-       * <code>repeated int32 skippedDataTableRows = 10;</code>
+       * <code>repeated int32 skippedDataTableRows = 9;</code>
        */
       public Builder addSkippedDataTableRows(int value) {
         ensureSkippedDataTableRowsIsMutable();
@@ -25394,7 +26332,7 @@ public final class Spec {
        *&#47; Holds the row numbers, for which the execution skipped.
        * </pre>
        *
-       * <code>repeated int32 skippedDataTableRows = 10;</code>
+       * <code>repeated int32 skippedDataTableRows = 9;</code>
        */
       public Builder addAllSkippedDataTableRows(
           java.lang.Iterable<? extends java.lang.Integer> values) {
@@ -25409,13 +26347,325 @@ public final class Spec {
        *&#47; Holds the row numbers, for which the execution skipped.
        * </pre>
        *
-       * <code>repeated int32 skippedDataTableRows = 10;</code>
+       * <code>repeated int32 skippedDataTableRows = 9;</code>
        */
       public Builder clearSkippedDataTableRows() {
         skippedDataTableRows_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
         return this;
+      }
+
+      private java.util.List<gauge.messages.Spec.Error> errors_ =
+        java.util.Collections.emptyList();
+      private void ensureErrorsIsMutable() {
+        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
+          errors_ = new java.util.ArrayList<gauge.messages.Spec.Error>(errors_);
+          bitField0_ |= 0x00000200;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Spec.Error, gauge.messages.Spec.Error.Builder, gauge.messages.Spec.ErrorOrBuilder> errorsBuilder_;
+
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public java.util.List<gauge.messages.Spec.Error> getErrorsList() {
+        if (errorsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(errors_);
+        } else {
+          return errorsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public int getErrorsCount() {
+        if (errorsBuilder_ == null) {
+          return errors_.size();
+        } else {
+          return errorsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public gauge.messages.Spec.Error getErrors(int index) {
+        if (errorsBuilder_ == null) {
+          return errors_.get(index);
+        } else {
+          return errorsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public Builder setErrors(
+          int index, gauge.messages.Spec.Error value) {
+        if (errorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureErrorsIsMutable();
+          errors_.set(index, value);
+          onChanged();
+        } else {
+          errorsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public Builder setErrors(
+          int index, gauge.messages.Spec.Error.Builder builderForValue) {
+        if (errorsBuilder_ == null) {
+          ensureErrorsIsMutable();
+          errors_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          errorsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public Builder addErrors(gauge.messages.Spec.Error value) {
+        if (errorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureErrorsIsMutable();
+          errors_.add(value);
+          onChanged();
+        } else {
+          errorsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public Builder addErrors(
+          int index, gauge.messages.Spec.Error value) {
+        if (errorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureErrorsIsMutable();
+          errors_.add(index, value);
+          onChanged();
+        } else {
+          errorsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public Builder addErrors(
+          gauge.messages.Spec.Error.Builder builderForValue) {
+        if (errorsBuilder_ == null) {
+          ensureErrorsIsMutable();
+          errors_.add(builderForValue.build());
+          onChanged();
+        } else {
+          errorsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public Builder addErrors(
+          int index, gauge.messages.Spec.Error.Builder builderForValue) {
+        if (errorsBuilder_ == null) {
+          ensureErrorsIsMutable();
+          errors_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          errorsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public Builder addAllErrors(
+          java.lang.Iterable<? extends gauge.messages.Spec.Error> values) {
+        if (errorsBuilder_ == null) {
+          ensureErrorsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, errors_);
+          onChanged();
+        } else {
+          errorsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public Builder clearErrors() {
+        if (errorsBuilder_ == null) {
+          errors_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000200);
+          onChanged();
+        } else {
+          errorsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public Builder removeErrors(int index) {
+        if (errorsBuilder_ == null) {
+          ensureErrorsIsMutable();
+          errors_.remove(index);
+          onChanged();
+        } else {
+          errorsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public gauge.messages.Spec.Error.Builder getErrorsBuilder(
+          int index) {
+        return getErrorsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public gauge.messages.Spec.ErrorOrBuilder getErrorsOrBuilder(
+          int index) {
+        if (errorsBuilder_ == null) {
+          return errors_.get(index);  } else {
+          return errorsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public java.util.List<? extends gauge.messages.Spec.ErrorOrBuilder> 
+           getErrorsOrBuilderList() {
+        if (errorsBuilder_ != null) {
+          return errorsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(errors_);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public gauge.messages.Spec.Error.Builder addErrorsBuilder() {
+        return getErrorsFieldBuilder().addBuilder(
+            gauge.messages.Spec.Error.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public gauge.messages.Spec.Error.Builder addErrorsBuilder(
+          int index) {
+        return getErrorsFieldBuilder().addBuilder(
+            index, gauge.messages.Spec.Error.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Holds parse, validation and skipped errors.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error errors = 10;</code>
+       */
+      public java.util.List<gauge.messages.Spec.Error.Builder> 
+           getErrorsBuilderList() {
+        return getErrorsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Spec.Error, gauge.messages.Spec.Error.Builder, gauge.messages.Spec.ErrorOrBuilder> 
+          getErrorsFieldBuilder() {
+        if (errorsBuilder_ == null) {
+          errorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              gauge.messages.Spec.Error, gauge.messages.Spec.Error.Builder, gauge.messages.Spec.ErrorOrBuilder>(
+                  errors_,
+                  ((bitField0_ & 0x00000200) == 0x00000200),
+                  getParentForChildren(),
+                  isClean());
+          errors_ = null;
+        }
+        return errorsBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -25466,6 +26716,1046 @@ public final class Spec {
 
   }
 
+  public interface ErrorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.Error)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *&#47; Holds the type of error
+     * </pre>
+     *
+     * <code>.gauge.messages.Error.ErrorType type = 1;</code>
+     */
+    int getTypeValue();
+    /**
+     * <pre>
+     *&#47; Holds the type of error
+     * </pre>
+     *
+     * <code>.gauge.messages.Error.ErrorType type = 1;</code>
+     */
+    gauge.messages.Spec.Error.ErrorType getType();
+
+    /**
+     * <pre>
+     *&#47; Holds the filename.
+     * </pre>
+     *
+     * <code>string filename = 2;</code>
+     */
+    java.lang.String getFilename();
+    /**
+     * <pre>
+     *&#47; Holds the filename.
+     * </pre>
+     *
+     * <code>string filename = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getFilenameBytes();
+
+    /**
+     * <pre>
+     *&#47; Holds the line number of the error in file.
+     * </pre>
+     *
+     * <code>int32 lineNumber = 3;</code>
+     */
+    int getLineNumber();
+
+    /**
+     * <pre>
+     *&#47; Holds the error message.
+     * </pre>
+     *
+     * <code>string message = 4;</code>
+     */
+    java.lang.String getMessage();
+    /**
+     * <pre>
+     *&#47; Holds the error message.
+     * </pre>
+     *
+     * <code>string message = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
+  }
+  /**
+   * <pre>
+   *&#47; A proto object representing an error in spec/Scenario.
+   * </pre>
+   *
+   * Protobuf type {@code gauge.messages.Error}
+   */
+  public  static final class Error extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.Error)
+      ErrorOrBuilder {
+    // Use Error.newBuilder() to construct.
+    private Error(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Error() {
+      type_ = 0;
+      filename_ = "";
+      lineNumber_ = 0;
+      message_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private Error(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+
+              type_ = rawValue;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              filename_ = s;
+              break;
+            }
+            case 24: {
+
+              lineNumber_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              message_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Spec.internal_static_gauge_messages_Error_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Spec.internal_static_gauge_messages_Error_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Spec.Error.class, gauge.messages.Spec.Error.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code gauge.messages.Error.ErrorType}
+     */
+    public enum ErrorType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>PARSE_ERROR = 0;</code>
+       */
+      PARSE_ERROR(0),
+      /**
+       * <code>VALIDATION_ERROR = 1;</code>
+       */
+      VALIDATION_ERROR(1),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>PARSE_ERROR = 0;</code>
+       */
+      public static final int PARSE_ERROR_VALUE = 0;
+      /**
+       * <code>VALIDATION_ERROR = 1;</code>
+       */
+      public static final int VALIDATION_ERROR_VALUE = 1;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ErrorType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ErrorType forNumber(int value) {
+        switch (value) {
+          case 0: return PARSE_ERROR;
+          case 1: return VALIDATION_ERROR;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<ErrorType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          ErrorType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<ErrorType>() {
+              public ErrorType findValueByNumber(int number) {
+                return ErrorType.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return gauge.messages.Spec.Error.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final ErrorType[] VALUES = values();
+
+      public static ErrorType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private ErrorType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:gauge.messages.Error.ErrorType)
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private int type_;
+    /**
+     * <pre>
+     *&#47; Holds the type of error
+     * </pre>
+     *
+     * <code>.gauge.messages.Error.ErrorType type = 1;</code>
+     */
+    public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the type of error
+     * </pre>
+     *
+     * <code>.gauge.messages.Error.ErrorType type = 1;</code>
+     */
+    public gauge.messages.Spec.Error.ErrorType getType() {
+      gauge.messages.Spec.Error.ErrorType result = gauge.messages.Spec.Error.ErrorType.valueOf(type_);
+      return result == null ? gauge.messages.Spec.Error.ErrorType.UNRECOGNIZED : result;
+    }
+
+    public static final int FILENAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object filename_;
+    /**
+     * <pre>
+     *&#47; Holds the filename.
+     * </pre>
+     *
+     * <code>string filename = 2;</code>
+     */
+    public java.lang.String getFilename() {
+      java.lang.Object ref = filename_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        filename_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Holds the filename.
+     * </pre>
+     *
+     * <code>string filename = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilenameBytes() {
+      java.lang.Object ref = filename_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filename_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LINENUMBER_FIELD_NUMBER = 3;
+    private int lineNumber_;
+    /**
+     * <pre>
+     *&#47; Holds the line number of the error in file.
+     * </pre>
+     *
+     * <code>int32 lineNumber = 3;</code>
+     */
+    public int getLineNumber() {
+      return lineNumber_;
+    }
+
+    public static final int MESSAGE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object message_;
+    /**
+     * <pre>
+     *&#47; Holds the error message.
+     * </pre>
+     *
+     * <code>string message = 4;</code>
+     */
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Holds the error message.
+     * </pre>
+     *
+     * <code>string message = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (type_ != gauge.messages.Spec.Error.ErrorType.PARSE_ERROR.getNumber()) {
+        output.writeEnum(1, type_);
+      }
+      if (!getFilenameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, filename_);
+      }
+      if (lineNumber_ != 0) {
+        output.writeInt32(3, lineNumber_);
+      }
+      if (!getMessageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, message_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (type_ != gauge.messages.Spec.Error.ErrorType.PARSE_ERROR.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, type_);
+      }
+      if (!getFilenameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, filename_);
+      }
+      if (lineNumber_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, lineNumber_);
+      }
+      if (!getMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, message_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Spec.Error)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Spec.Error other = (gauge.messages.Spec.Error) obj;
+
+      boolean result = true;
+      result = result && type_ == other.type_;
+      result = result && getFilename()
+          .equals(other.getFilename());
+      result = result && (getLineNumber()
+          == other.getLineNumber());
+      result = result && getMessage()
+          .equals(other.getMessage());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
+      hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFilename().hashCode();
+      hash = (37 * hash) + LINENUMBER_FIELD_NUMBER;
+      hash = (53 * hash) + getLineNumber();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Spec.Error parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.Error parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Spec.Error parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.Error parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Spec.Error parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.Error parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Spec.Error parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Spec.Error parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Spec.Error parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Spec.Error parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Spec.Error parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Spec.Error parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Spec.Error prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; A proto object representing an error in spec/Scenario.
+     * </pre>
+     *
+     * Protobuf type {@code gauge.messages.Error}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.Error)
+        gauge.messages.Spec.ErrorOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Spec.internal_static_gauge_messages_Error_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Spec.internal_static_gauge_messages_Error_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Spec.Error.class, gauge.messages.Spec.Error.Builder.class);
+      }
+
+      // Construct using gauge.messages.Spec.Error.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        type_ = 0;
+
+        filename_ = "";
+
+        lineNumber_ = 0;
+
+        message_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Spec.internal_static_gauge_messages_Error_descriptor;
+      }
+
+      public gauge.messages.Spec.Error getDefaultInstanceForType() {
+        return gauge.messages.Spec.Error.getDefaultInstance();
+      }
+
+      public gauge.messages.Spec.Error build() {
+        gauge.messages.Spec.Error result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Spec.Error buildPartial() {
+        gauge.messages.Spec.Error result = new gauge.messages.Spec.Error(this);
+        result.type_ = type_;
+        result.filename_ = filename_;
+        result.lineNumber_ = lineNumber_;
+        result.message_ = message_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Spec.Error) {
+          return mergeFrom((gauge.messages.Spec.Error)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Spec.Error other) {
+        if (other == gauge.messages.Spec.Error.getDefaultInstance()) return this;
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
+        }
+        if (!other.getFilename().isEmpty()) {
+          filename_ = other.filename_;
+          onChanged();
+        }
+        if (other.getLineNumber() != 0) {
+          setLineNumber(other.getLineNumber());
+        }
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Spec.Error parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Spec.Error) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <pre>
+       *&#47; Holds the type of error
+       * </pre>
+       *
+       * <code>.gauge.messages.Error.ErrorType type = 1;</code>
+       */
+      public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the type of error
+       * </pre>
+       *
+       * <code>.gauge.messages.Error.ErrorType type = 1;</code>
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the type of error
+       * </pre>
+       *
+       * <code>.gauge.messages.Error.ErrorType type = 1;</code>
+       */
+      public gauge.messages.Spec.Error.ErrorType getType() {
+        gauge.messages.Spec.Error.ErrorType result = gauge.messages.Spec.Error.ErrorType.valueOf(type_);
+        return result == null ? gauge.messages.Spec.Error.ErrorType.UNRECOGNIZED : result;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the type of error
+       * </pre>
+       *
+       * <code>.gauge.messages.Error.ErrorType type = 1;</code>
+       */
+      public Builder setType(gauge.messages.Spec.Error.ErrorType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the type of error
+       * </pre>
+       *
+       * <code>.gauge.messages.Error.ErrorType type = 1;</code>
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object filename_ = "";
+      /**
+       * <pre>
+       *&#47; Holds the filename.
+       * </pre>
+       *
+       * <code>string filename = 2;</code>
+       */
+      public java.lang.String getFilename() {
+        java.lang.Object ref = filename_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          filename_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the filename.
+       * </pre>
+       *
+       * <code>string filename = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilenameBytes() {
+        java.lang.Object ref = filename_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filename_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the filename.
+       * </pre>
+       *
+       * <code>string filename = 2;</code>
+       */
+      public Builder setFilename(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filename_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the filename.
+       * </pre>
+       *
+       * <code>string filename = 2;</code>
+       */
+      public Builder clearFilename() {
+        
+        filename_ = getDefaultInstance().getFilename();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the filename.
+       * </pre>
+       *
+       * <code>string filename = 2;</code>
+       */
+      public Builder setFilenameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        filename_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int lineNumber_ ;
+      /**
+       * <pre>
+       *&#47; Holds the line number of the error in file.
+       * </pre>
+       *
+       * <code>int32 lineNumber = 3;</code>
+       */
+      public int getLineNumber() {
+        return lineNumber_;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the line number of the error in file.
+       * </pre>
+       *
+       * <code>int32 lineNumber = 3;</code>
+       */
+      public Builder setLineNumber(int value) {
+        
+        lineNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the line number of the error in file.
+       * </pre>
+       *
+       * <code>int32 lineNumber = 3;</code>
+       */
+      public Builder clearLineNumber() {
+        
+        lineNumber_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object message_ = "";
+      /**
+       * <pre>
+       *&#47; Holds the error message.
+       * </pre>
+       *
+       * <code>string message = 4;</code>
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the error message.
+       * </pre>
+       *
+       * <code>string message = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the error message.
+       * </pre>
+       *
+       * <code>string message = 4;</code>
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the error message.
+       * </pre>
+       *
+       * <code>string message = 4;</code>
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the error message.
+       * </pre>
+       *
+       * <code>string message = 4;</code>
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.Error)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.Error)
+    private static final gauge.messages.Spec.Error DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Spec.Error();
+    }
+
+    public static gauge.messages.Spec.Error getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Error>
+        PARSER = new com.google.protobuf.AbstractParser<Error>() {
+      public Error parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Error(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Error> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Error> getParserForType() {
+      return PARSER;
+    }
+
+    public gauge.messages.Spec.Error getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ProtoStepValueOrBuilder extends
       // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoStepValue)
       com.google.protobuf.MessageOrBuilder {
@@ -25475,7 +27765,7 @@ public final class Spec {
      *&#47; The actual string value describing he Step
      * </pre>
      *
-     * <code>optional string stepValue = 1;</code>
+     * <code>string stepValue = 1;</code>
      */
     java.lang.String getStepValue();
     /**
@@ -25483,7 +27773,7 @@ public final class Spec {
      *&#47; The actual string value describing he Step
      * </pre>
      *
-     * <code>optional string stepValue = 1;</code>
+     * <code>string stepValue = 1;</code>
      */
     com.google.protobuf.ByteString
         getStepValueBytes();
@@ -25493,7 +27783,7 @@ public final class Spec {
      *&#47; The parameterized string value describing he Step. The parameters are replaced with placeholders.
      * </pre>
      *
-     * <code>optional string parameterizedStepValue = 2;</code>
+     * <code>string parameterizedStepValue = 2;</code>
      */
     java.lang.String getParameterizedStepValue();
     /**
@@ -25501,7 +27791,7 @@ public final class Spec {
      *&#47; The parameterized string value describing he Step. The parameters are replaced with placeholders.
      * </pre>
      *
-     * <code>optional string parameterizedStepValue = 2;</code>
+     * <code>string parameterizedStepValue = 2;</code>
      */
     com.google.protobuf.ByteString
         getParameterizedStepValueBytes();
@@ -25642,7 +27932,7 @@ public final class Spec {
      *&#47; The actual string value describing he Step
      * </pre>
      *
-     * <code>optional string stepValue = 1;</code>
+     * <code>string stepValue = 1;</code>
      */
     public java.lang.String getStepValue() {
       java.lang.Object ref = stepValue_;
@@ -25661,7 +27951,7 @@ public final class Spec {
      *&#47; The actual string value describing he Step
      * </pre>
      *
-     * <code>optional string stepValue = 1;</code>
+     * <code>string stepValue = 1;</code>
      */
     public com.google.protobuf.ByteString
         getStepValueBytes() {
@@ -25684,7 +27974,7 @@ public final class Spec {
      *&#47; The parameterized string value describing he Step. The parameters are replaced with placeholders.
      * </pre>
      *
-     * <code>optional string parameterizedStepValue = 2;</code>
+     * <code>string parameterizedStepValue = 2;</code>
      */
     public java.lang.String getParameterizedStepValue() {
       java.lang.Object ref = parameterizedStepValue_;
@@ -25703,7 +27993,7 @@ public final class Spec {
      *&#47; The parameterized string value describing he Step. The parameters are replaced with placeholders.
      * </pre>
      *
-     * <code>optional string parameterizedStepValue = 2;</code>
+     * <code>string parameterizedStepValue = 2;</code>
      */
     public com.google.protobuf.ByteString
         getParameterizedStepValueBytes() {
@@ -25837,7 +28127,7 @@ public final class Spec {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + STEPVALUE_FIELD_NUMBER;
       hash = (53 * hash) + getStepValue().hashCode();
       hash = (37 * hash) + PARAMETERIZEDSTEPVALUE_FIELD_NUMBER;
@@ -25851,6 +28141,17 @@ public final class Spec {
       return hash;
     }
 
+    public static gauge.messages.Spec.ProtoStepValue parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoStepValue parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static gauge.messages.Spec.ProtoStepValue parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -26098,7 +28399,7 @@ public final class Spec {
        *&#47; The actual string value describing he Step
        * </pre>
        *
-       * <code>optional string stepValue = 1;</code>
+       * <code>string stepValue = 1;</code>
        */
       public java.lang.String getStepValue() {
         java.lang.Object ref = stepValue_;
@@ -26117,7 +28418,7 @@ public final class Spec {
        *&#47; The actual string value describing he Step
        * </pre>
        *
-       * <code>optional string stepValue = 1;</code>
+       * <code>string stepValue = 1;</code>
        */
       public com.google.protobuf.ByteString
           getStepValueBytes() {
@@ -26137,7 +28438,7 @@ public final class Spec {
        *&#47; The actual string value describing he Step
        * </pre>
        *
-       * <code>optional string stepValue = 1;</code>
+       * <code>string stepValue = 1;</code>
        */
       public Builder setStepValue(
           java.lang.String value) {
@@ -26154,7 +28455,7 @@ public final class Spec {
        *&#47; The actual string value describing he Step
        * </pre>
        *
-       * <code>optional string stepValue = 1;</code>
+       * <code>string stepValue = 1;</code>
        */
       public Builder clearStepValue() {
         
@@ -26167,7 +28468,7 @@ public final class Spec {
        *&#47; The actual string value describing he Step
        * </pre>
        *
-       * <code>optional string stepValue = 1;</code>
+       * <code>string stepValue = 1;</code>
        */
       public Builder setStepValueBytes(
           com.google.protobuf.ByteString value) {
@@ -26187,7 +28488,7 @@ public final class Spec {
        *&#47; The parameterized string value describing he Step. The parameters are replaced with placeholders.
        * </pre>
        *
-       * <code>optional string parameterizedStepValue = 2;</code>
+       * <code>string parameterizedStepValue = 2;</code>
        */
       public java.lang.String getParameterizedStepValue() {
         java.lang.Object ref = parameterizedStepValue_;
@@ -26206,7 +28507,7 @@ public final class Spec {
        *&#47; The parameterized string value describing he Step. The parameters are replaced with placeholders.
        * </pre>
        *
-       * <code>optional string parameterizedStepValue = 2;</code>
+       * <code>string parameterizedStepValue = 2;</code>
        */
       public com.google.protobuf.ByteString
           getParameterizedStepValueBytes() {
@@ -26226,7 +28527,7 @@ public final class Spec {
        *&#47; The parameterized string value describing he Step. The parameters are replaced with placeholders.
        * </pre>
        *
-       * <code>optional string parameterizedStepValue = 2;</code>
+       * <code>string parameterizedStepValue = 2;</code>
        */
       public Builder setParameterizedStepValue(
           java.lang.String value) {
@@ -26243,7 +28544,7 @@ public final class Spec {
        *&#47; The parameterized string value describing he Step. The parameters are replaced with placeholders.
        * </pre>
        *
-       * <code>optional string parameterizedStepValue = 2;</code>
+       * <code>string parameterizedStepValue = 2;</code>
        */
       public Builder clearParameterizedStepValue() {
         
@@ -26256,7 +28557,7 @@ public final class Spec {
        *&#47; The parameterized string value describing he Step. The parameters are replaced with placeholders.
        * </pre>
        *
-       * <code>optional string parameterizedStepValue = 2;</code>
+       * <code>string parameterizedStepValue = 2;</code>
        */
       public Builder setParameterizedStepValueBytes(
           com.google.protobuf.ByteString value) {
@@ -26539,6 +28840,11 @@ public final class Spec {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_gauge_messages_ProtoSpecResult_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_Error_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_Error_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ProtoStepValue_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -26552,103 +28858,108 @@ public final class Spec {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nspec.proto\022\016gauge.messages\"\366\001\n\tProtoSp" +
+      "\n\nspec.proto\022\016gauge.messages\"\370\001\n\tProtoSp" +
       "ec\022\023\n\013specHeading\030\001 \001(\t\022(\n\005items\030\002 \003(\0132\031" +
       ".gauge.messages.ProtoItem\022\025\n\risTableDriv" +
-      "en\030\003 \001(\010\0228\n\016preHookFailure\030\004 \001(\0132 .gauge" +
-      ".messages.ProtoHookFailure\0229\n\017postHookFa" +
-      "ilure\030\005 \001(\0132 .gauge.messages.ProtoHookFa" +
-      "ilure\022\020\n\010fileName\030\006 \001(\t\022\014\n\004tags\030\007 \003(\t\"\200\004" +
-      "\n\tProtoItem\0224\n\010itemType\030\001 \001(\0162\".gauge.me" +
-      "ssages.ProtoItem.ItemType\022\'\n\004step\030\002 \001(\0132" +
-      "\031.gauge.messages.ProtoStep\022-\n\007concept\030\003 ",
-      "\001(\0132\034.gauge.messages.ProtoConcept\022/\n\010sce" +
-      "nario\030\004 \001(\0132\035.gauge.messages.ProtoScenar" +
-      "io\022E\n\023tableDrivenScenario\030\005 \001(\0132(.gauge." +
-      "messages.ProtoTableDrivenScenario\022-\n\007com" +
-      "ment\030\006 \001(\0132\034.gauge.messages.ProtoComment" +
-      "\022)\n\005table\030\007 \001(\0132\032.gauge.messages.ProtoTa" +
-      "ble\022\'\n\004tags\030\010 \001(\0132\031.gauge.messages.Proto" +
-      "Tags\"j\n\010ItemType\022\010\n\004Step\020\000\022\013\n\007Comment\020\001\022" +
-      "\013\n\007Concept\020\002\022\014\n\010Scenario\020\003\022\027\n\023TableDrive" +
-      "nScenario\020\004\022\t\n\005Table\020\005\022\010\n\004Tags\020\006\"\372\003\n\rPro",
-      "toScenario\022\027\n\017scenarioHeading\030\001 \001(\t\022\022\n\006f" +
-      "ailed\030\002 \001(\010B\002\030\001\022+\n\010contexts\030\003 \003(\0132\031.gaug" +
-      "e.messages.ProtoItem\0220\n\rscenarioItems\030\004 " +
-      "\003(\0132\031.gauge.messages.ProtoItem\0228\n\016preHoo" +
-      "kFailure\030\005 \001(\0132 .gauge.messages.ProtoHoo" +
-      "kFailure\0229\n\017postHookFailure\030\006 \001(\0132 .gaug" +
-      "e.messages.ProtoHookFailure\022\014\n\004tags\030\007 \003(" +
-      "\t\022\025\n\rexecutionTime\030\010 \001(\003\022\023\n\007skipped\030\t \001(" +
-      "\010B\002\030\001\022\022\n\nskipErrors\030\n \003(\t\022\n\n\002ID\030\013 \001(\t\0220\n" +
-      "\rtearDownSteps\030\014 \003(\0132\031.gauge.messages.Pr",
-      "otoItem\022\"\n\004span\030\r \001(\0132\024.gauge.messages.S" +
-      "pan\0228\n\017executionStatus\030\016 \001(\0162\037.gauge.mes" +
-      "sages.ExecutionStatus\"\"\n\004Span\022\r\n\005start\030\001" +
-      " \001(\003\022\013\n\003end\030\002 \001(\003\"b\n\030ProtoTableDrivenSce" +
-      "nario\022/\n\010scenario\030\001 \001(\0132\035.gauge.messages" +
-      ".ProtoScenario\022\025\n\rtableRowIndex\030\002 \001(\005\"\247\001" +
-      "\n\tProtoStep\022\022\n\nactualText\030\001 \001(\t\022\022\n\nparse" +
-      "dText\030\002 \001(\t\022+\n\tfragments\030\003 \003(\0132\030.gauge.m" +
-      "essages.Fragment\022E\n\023stepExecutionResult\030" +
-      "\004 \001(\0132(.gauge.messages.ProtoStepExecutio",
-      "nResult\"\262\001\n\014ProtoConcept\022.\n\013conceptStep\030" +
-      "\001 \001(\0132\031.gauge.messages.ProtoStep\022(\n\005step" +
-      "s\030\002 \003(\0132\031.gauge.messages.ProtoItem\022H\n\026co" +
-      "nceptExecutionResult\030\003 \001(\0132(.gauge.messa" +
-      "ges.ProtoStepExecutionResult\"\031\n\tProtoTag" +
-      "s\022\014\n\004tags\030\001 \003(\t\"\254\001\n\010Fragment\022;\n\014fragment" +
-      "Type\030\001 \001(\0162%.gauge.messages.Fragment.Fra" +
-      "gmentType\022\014\n\004text\030\002 \001(\t\022,\n\tparameter\030\003 \001" +
-      "(\0132\031.gauge.messages.Parameter\"\'\n\014Fragmen" +
-      "tType\022\010\n\004Text\020\000\022\r\n\tParameter\020\001\"\357\001\n\tParam",
-      "eter\022>\n\rparameterType\030\001 \001(\0162\'.gauge.mess" +
-      "ages.Parameter.ParameterType\022\r\n\005value\030\002 " +
-      "\001(\t\022\014\n\004name\030\003 \001(\t\022)\n\005table\030\004 \001(\0132\032.gauge" +
-      ".messages.ProtoTable\"Z\n\rParameterType\022\n\n" +
-      "\006Static\020\000\022\013\n\007Dynamic\020\001\022\022\n\016Special_String" +
-      "\020\002\022\021\n\rSpecial_Table\020\003\022\t\n\005Table\020\004\"\034\n\014Prot" +
-      "oComment\022\014\n\004text\030\001 \001(\t\"i\n\nProtoTable\022.\n\007" +
-      "headers\030\001 \001(\0132\035.gauge.messages.ProtoTabl" +
-      "eRow\022+\n\004rows\030\002 \003(\0132\035.gauge.messages.Prot" +
-      "oTableRow\"\036\n\rProtoTableRow\022\r\n\005cells\030\001 \003(",
-      "\t\"\366\001\n\030ProtoStepExecutionResult\022=\n\017execut" +
-      "ionResult\030\001 \001(\0132$.gauge.messages.ProtoEx" +
-      "ecutionResult\0228\n\016preHookFailure\030\002 \001(\0132 ." +
-      "gauge.messages.ProtoHookFailure\0229\n\017postH" +
-      "ookFailure\030\003 \001(\0132 .gauge.messages.ProtoH" +
-      "ookFailure\022\017\n\007skipped\030\004 \001(\010\022\025\n\rskippedRe" +
-      "ason\030\005 \001(\t\"\227\002\n\024ProtoExecutionResult\022\016\n\006f" +
-      "ailed\030\001 \001(\010\022\030\n\020recoverableError\030\002 \001(\010\022\024\n" +
-      "\014errorMessage\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(\t\022" +
-      "\022\n\nscreenShot\030\005 \001(\014\022\025\n\rexecutionTime\030\006 \001",
-      "(\003\022\017\n\007message\030\007 \003(\t\022A\n\terrorType\030\010 \001(\0162." +
-      ".gauge.messages.ProtoExecutionResult.Err" +
-      "orType\",\n\tErrorType\022\r\n\tASSERTION\020\000\022\020\n\014VE" +
-      "RIFICATION\020\001\"P\n\020ProtoHookFailure\022\022\n\nstac" +
-      "kTrace\030\001 \001(\t\022\024\n\014errorMessage\030\002 \001(\t\022\022\n\nsc" +
-      "reenShot\030\003 \001(\014\"\371\002\n\020ProtoSuiteResult\0224\n\013s" +
-      "pecResults\030\001 \003(\0132\037.gauge.messages.ProtoS" +
-      "pecResult\0228\n\016preHookFailure\030\002 \001(\0132 .gaug" +
-      "e.messages.ProtoHookFailure\0229\n\017postHookF" +
-      "ailure\030\003 \001(\0132 .gauge.messages.ProtoHookF",
-      "ailure\022\016\n\006failed\030\004 \001(\010\022\030\n\020specsFailedCou" +
-      "nt\030\005 \001(\005\022\025\n\rexecutionTime\030\006 \001(\003\022\023\n\013succe" +
-      "ssRate\030\007 \001(\002\022\023\n\013environment\030\010 \001(\t\022\014\n\004tag" +
-      "s\030\t \001(\t\022\023\n\013projectName\030\n \001(\t\022\021\n\ttimestam" +
-      "p\030\013 \001(\t\022\031\n\021specsSkippedCount\030\014 \001(\005\"\204\002\n\017P" +
-      "rotoSpecResult\022,\n\tprotoSpec\030\001 \001(\0132\031.gaug" +
-      "e.messages.ProtoSpec\022\025\n\rscenarioCount\030\002 " +
-      "\001(\005\022\033\n\023scenarioFailedCount\030\003 \001(\005\022\016\n\006fail" +
-      "ed\030\004 \001(\010\022\033\n\023failedDataTableRows\030\005 \003(\005\022\025\n" +
-      "\rexecutionTime\030\006 \001(\003\022\017\n\007skipped\030\007 \001(\010\022\034\n",
-      "\024scenarioSkippedCount\030\t \001(\005\022\034\n\024skippedDa" +
-      "taTableRows\030\n \003(\005\"W\n\016ProtoStepValue\022\021\n\ts" +
-      "tepValue\030\001 \001(\t\022\036\n\026parameterizedStepValue" +
-      "\030\002 \001(\t\022\022\n\nparameters\030\003 \003(\t*G\n\017ExecutionS" +
-      "tatus\022\017\n\013NOTEXECUTED\020\000\022\n\n\006PASSED\020\001\022\n\n\006FA" +
-      "ILED\020\002\022\013\n\007SKIPPED\020\003B\021\252\002\016Gauge.Messagesb\006" +
-      "proto3"
+      "en\030\003 \001(\010\0229\n\017preHookFailures\030\004 \003(\0132 .gaug" +
+      "e.messages.ProtoHookFailure\022:\n\020postHookF" +
+      "ailures\030\005 \003(\0132 .gauge.messages.ProtoHook" +
+      "Failure\022\020\n\010fileName\030\006 \001(\t\022\014\n\004tags\030\007 \003(\t\"" +
+      "\200\004\n\tProtoItem\0224\n\010itemType\030\001 \001(\0162\".gauge." +
+      "messages.ProtoItem.ItemType\022\'\n\004step\030\002 \001(" +
+      "\0132\031.gauge.messages.ProtoStep\022-\n\007concept\030",
+      "\003 \001(\0132\034.gauge.messages.ProtoConcept\022/\n\010s" +
+      "cenario\030\004 \001(\0132\035.gauge.messages.ProtoScen" +
+      "ario\022E\n\023tableDrivenScenario\030\005 \001(\0132(.gaug" +
+      "e.messages.ProtoTableDrivenScenario\022-\n\007c" +
+      "omment\030\006 \001(\0132\034.gauge.messages.ProtoComme" +
+      "nt\022)\n\005table\030\007 \001(\0132\032.gauge.messages.Proto" +
+      "Table\022\'\n\004tags\030\010 \001(\0132\031.gauge.messages.Pro" +
+      "toTags\"j\n\010ItemType\022\010\n\004Step\020\000\022\013\n\007Comment\020" +
+      "\001\022\013\n\007Concept\020\002\022\014\n\010Scenario\020\003\022\027\n\023TableDri" +
+      "venScenario\020\004\022\t\n\005Table\020\005\022\010\n\004Tags\020\006\"\372\003\n\rP",
+      "rotoScenario\022\027\n\017scenarioHeading\030\001 \001(\t\022\022\n" +
+      "\006failed\030\002 \001(\010B\002\030\001\022+\n\010contexts\030\003 \003(\0132\031.ga" +
+      "uge.messages.ProtoItem\0220\n\rscenarioItems\030" +
+      "\004 \003(\0132\031.gauge.messages.ProtoItem\0228\n\016preH" +
+      "ookFailure\030\005 \001(\0132 .gauge.messages.ProtoH" +
+      "ookFailure\0229\n\017postHookFailure\030\006 \001(\0132 .ga" +
+      "uge.messages.ProtoHookFailure\022\014\n\004tags\030\007 " +
+      "\003(\t\022\025\n\rexecutionTime\030\010 \001(\003\022\023\n\007skipped\030\t " +
+      "\001(\010B\002\030\001\022\022\n\nskipErrors\030\n \003(\t\022\n\n\002ID\030\013 \001(\t\022" +
+      "0\n\rtearDownSteps\030\014 \003(\0132\031.gauge.messages.",
+      "ProtoItem\022\"\n\004span\030\r \001(\0132\024.gauge.messages" +
+      ".Span\0228\n\017executionStatus\030\016 \001(\0162\037.gauge.m" +
+      "essages.ExecutionStatus\"\"\n\004Span\022\r\n\005start" +
+      "\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\"b\n\030ProtoTableDrivenS" +
+      "cenario\022/\n\010scenario\030\001 \001(\0132\035.gauge.messag" +
+      "es.ProtoScenario\022\025\n\rtableRowIndex\030\002 \001(\005\"" +
+      "\247\001\n\tProtoStep\022\022\n\nactualText\030\001 \001(\t\022\022\n\npar" +
+      "sedText\030\002 \001(\t\022+\n\tfragments\030\003 \003(\0132\030.gauge" +
+      ".messages.Fragment\022E\n\023stepExecutionResul" +
+      "t\030\004 \001(\0132(.gauge.messages.ProtoStepExecut",
+      "ionResult\"\262\001\n\014ProtoConcept\022.\n\013conceptSte" +
+      "p\030\001 \001(\0132\031.gauge.messages.ProtoStep\022(\n\005st" +
+      "eps\030\002 \003(\0132\031.gauge.messages.ProtoItem\022H\n\026" +
+      "conceptExecutionResult\030\003 \001(\0132(.gauge.mes" +
+      "sages.ProtoStepExecutionResult\"\031\n\tProtoT" +
+      "ags\022\014\n\004tags\030\001 \003(\t\"\254\001\n\010Fragment\022;\n\014fragme" +
+      "ntType\030\001 \001(\0162%.gauge.messages.Fragment.F" +
+      "ragmentType\022\014\n\004text\030\002 \001(\t\022,\n\tparameter\030\003" +
+      " \001(\0132\031.gauge.messages.Parameter\"\'\n\014Fragm" +
+      "entType\022\010\n\004Text\020\000\022\r\n\tParameter\020\001\"\357\001\n\tPar",
+      "ameter\022>\n\rparameterType\030\001 \001(\0162\'.gauge.me" +
+      "ssages.Parameter.ParameterType\022\r\n\005value\030" +
+      "\002 \001(\t\022\014\n\004name\030\003 \001(\t\022)\n\005table\030\004 \001(\0132\032.gau" +
+      "ge.messages.ProtoTable\"Z\n\rParameterType\022" +
+      "\n\n\006Static\020\000\022\013\n\007Dynamic\020\001\022\022\n\016Special_Stri" +
+      "ng\020\002\022\021\n\rSpecial_Table\020\003\022\t\n\005Table\020\004\"\034\n\014Pr" +
+      "otoComment\022\014\n\004text\030\001 \001(\t\"i\n\nProtoTable\022." +
+      "\n\007headers\030\001 \001(\0132\035.gauge.messages.ProtoTa" +
+      "bleRow\022+\n\004rows\030\002 \003(\0132\035.gauge.messages.Pr" +
+      "otoTableRow\"\036\n\rProtoTableRow\022\r\n\005cells\030\001 ",
+      "\003(\t\"\366\001\n\030ProtoStepExecutionResult\022=\n\017exec" +
+      "utionResult\030\001 \001(\0132$.gauge.messages.Proto" +
+      "ExecutionResult\0228\n\016preHookFailure\030\002 \001(\0132" +
+      " .gauge.messages.ProtoHookFailure\0229\n\017pos" +
+      "tHookFailure\030\003 \001(\0132 .gauge.messages.Prot" +
+      "oHookFailure\022\017\n\007skipped\030\004 \001(\010\022\025\n\rskipped" +
+      "Reason\030\005 \001(\t\"\227\002\n\024ProtoExecutionResult\022\016\n" +
+      "\006failed\030\001 \001(\010\022\030\n\020recoverableError\030\002 \001(\010\022" +
+      "\024\n\014errorMessage\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(" +
+      "\t\022\022\n\nscreenShot\030\005 \001(\014\022\025\n\rexecutionTime\030\006",
+      " \001(\003\022\017\n\007message\030\007 \003(\t\022A\n\terrorType\030\010 \001(\016" +
+      "2..gauge.messages.ProtoExecutionResult.E" +
+      "rrorType\",\n\tErrorType\022\r\n\tASSERTION\020\000\022\020\n\014" +
+      "VERIFICATION\020\001\"g\n\020ProtoHookFailure\022\022\n\nst" +
+      "ackTrace\030\001 \001(\t\022\024\n\014errorMessage\030\002 \001(\t\022\022\n\n" +
+      "screenShot\030\003 \001(\014\022\025\n\rtableRowIndex\030\004 \001(\005\"" +
+      "\371\002\n\020ProtoSuiteResult\0224\n\013specResults\030\001 \003(" +
+      "\0132\037.gauge.messages.ProtoSpecResult\0228\n\016pr" +
+      "eHookFailure\030\002 \001(\0132 .gauge.messages.Prot" +
+      "oHookFailure\0229\n\017postHookFailure\030\003 \001(\0132 .",
+      "gauge.messages.ProtoHookFailure\022\016\n\006faile" +
+      "d\030\004 \001(\010\022\030\n\020specsFailedCount\030\005 \001(\005\022\025\n\rexe" +
+      "cutionTime\030\006 \001(\003\022\023\n\013successRate\030\007 \001(\002\022\023\n" +
+      "\013environment\030\010 \001(\t\022\014\n\004tags\030\t \001(\t\022\023\n\013proj" +
+      "ectName\030\n \001(\t\022\021\n\ttimestamp\030\013 \001(\t\022\031\n\021spec" +
+      "sSkippedCount\030\014 \001(\005\"\253\002\n\017ProtoSpecResult\022" +
+      ",\n\tprotoSpec\030\001 \001(\0132\031.gauge.messages.Prot" +
+      "oSpec\022\025\n\rscenarioCount\030\002 \001(\005\022\033\n\023scenario" +
+      "FailedCount\030\003 \001(\005\022\016\n\006failed\030\004 \001(\010\022\033\n\023fai" +
+      "ledDataTableRows\030\005 \003(\005\022\025\n\rexecutionTime\030",
+      "\006 \001(\003\022\017\n\007skipped\030\007 \001(\010\022\034\n\024scenarioSkippe" +
+      "dCount\030\010 \001(\005\022\034\n\024skippedDataTableRows\030\t \003" +
+      "(\005\022%\n\006errors\030\n \003(\0132\025.gauge.messages.Erro" +
+      "r\"\241\001\n\005Error\022-\n\004type\030\001 \001(\0162\037.gauge.messag" +
+      "es.Error.ErrorType\022\020\n\010filename\030\002 \001(\t\022\022\n\n" +
+      "lineNumber\030\003 \001(\005\022\017\n\007message\030\004 \001(\t\"2\n\tErr" +
+      "orType\022\017\n\013PARSE_ERROR\020\000\022\024\n\020VALIDATION_ER" +
+      "ROR\020\001\"W\n\016ProtoStepValue\022\021\n\tstepValue\030\001 \001" +
+      "(\t\022\036\n\026parameterizedStepValue\030\002 \001(\t\022\022\n\npa" +
+      "rameters\030\003 \003(\t*G\n\017ExecutionStatus\022\017\n\013NOT",
+      "EXECUTED\020\000\022\n\n\006PASSED\020\001\022\n\n\006FAILED\020\002\022\013\n\007SK" +
+      "IPPED\020\003B\021\252\002\016Gauge.Messagesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -26667,7 +28978,7 @@ public final class Spec {
     internal_static_gauge_messages_ProtoSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoSpec_descriptor,
-        new java.lang.String[] { "SpecHeading", "Items", "IsTableDriven", "PreHookFailure", "PostHookFailure", "FileName", "Tags", });
+        new java.lang.String[] { "SpecHeading", "Items", "IsTableDriven", "PreHookFailures", "PostHookFailures", "FileName", "Tags", });
     internal_static_gauge_messages_ProtoItem_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_gauge_messages_ProtoItem_fieldAccessorTable = new
@@ -26757,7 +29068,7 @@ public final class Spec {
     internal_static_gauge_messages_ProtoHookFailure_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoHookFailure_descriptor,
-        new java.lang.String[] { "StackTrace", "ErrorMessage", "ScreenShot", });
+        new java.lang.String[] { "StackTrace", "ErrorMessage", "ScreenShot", "TableRowIndex", });
     internal_static_gauge_messages_ProtoSuiteResult_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_gauge_messages_ProtoSuiteResult_fieldAccessorTable = new
@@ -26769,9 +29080,15 @@ public final class Spec {
     internal_static_gauge_messages_ProtoSpecResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoSpecResult_descriptor,
-        new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", "ExecutionTime", "Skipped", "ScenarioSkippedCount", "SkippedDataTableRows", });
-    internal_static_gauge_messages_ProtoStepValue_descriptor =
+        new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", "ExecutionTime", "Skipped", "ScenarioSkippedCount", "SkippedDataTableRows", "Errors", });
+    internal_static_gauge_messages_Error_descriptor =
       getDescriptor().getMessageTypes().get(18);
+    internal_static_gauge_messages_Error_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_Error_descriptor,
+        new java.lang.String[] { "Type", "Filename", "LineNumber", "Message", });
+    internal_static_gauge_messages_ProtoStepValue_descriptor =
+      getDescriptor().getMessageTypes().get(19);
     internal_static_gauge_messages_ProtoStepValue_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoStepValue_descriptor,
