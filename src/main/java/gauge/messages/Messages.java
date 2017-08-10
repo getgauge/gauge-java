@@ -12053,14 +12053,14 @@ public final class Messages {
     gauge.messages.Messages.StepValidateResponse.ErrorType getErrorType();
 
     /**
-     * <code>string quickFix = 4;</code>
+     * <code>string suggestion = 4;</code>
      */
-    java.lang.String getQuickFix();
+    java.lang.String getSuggestion();
     /**
-     * <code>string quickFix = 4;</code>
+     * <code>string suggestion = 4;</code>
      */
     com.google.protobuf.ByteString
-        getQuickFixBytes();
+        getSuggestionBytes();
   }
   /**
    * <pre>
@@ -12084,7 +12084,7 @@ public final class Messages {
       isValid_ = false;
       errorMessage_ = "";
       errorType_ = 0;
-      quickFix_ = "";
+      suggestion_ = "";
     }
 
     @java.lang.Override
@@ -12132,7 +12132,7 @@ public final class Messages {
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              quickFix_ = s;
+              suggestion_ = s;
               break;
             }
           }
@@ -12315,34 +12315,34 @@ public final class Messages {
       return result == null ? gauge.messages.Messages.StepValidateResponse.ErrorType.UNRECOGNIZED : result;
     }
 
-    public static final int QUICKFIX_FIELD_NUMBER = 4;
-    private volatile java.lang.Object quickFix_;
+    public static final int SUGGESTION_FIELD_NUMBER = 4;
+    private volatile java.lang.Object suggestion_;
     /**
-     * <code>string quickFix = 4;</code>
+     * <code>string suggestion = 4;</code>
      */
-    public java.lang.String getQuickFix() {
-      java.lang.Object ref = quickFix_;
+    public java.lang.String getSuggestion() {
+      java.lang.Object ref = suggestion_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        quickFix_ = s;
+        suggestion_ = s;
         return s;
       }
     }
     /**
-     * <code>string quickFix = 4;</code>
+     * <code>string suggestion = 4;</code>
      */
     public com.google.protobuf.ByteString
-        getQuickFixBytes() {
-      java.lang.Object ref = quickFix_;
+        getSuggestionBytes() {
+      java.lang.Object ref = suggestion_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        quickFix_ = b;
+        suggestion_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -12370,8 +12370,8 @@ public final class Messages {
       if (errorType_ != gauge.messages.Messages.StepValidateResponse.ErrorType.STEP_IMPLEMENTATION_NOT_FOUND.getNumber()) {
         output.writeEnum(3, errorType_);
       }
-      if (!getQuickFixBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, quickFix_);
+      if (!getSuggestionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, suggestion_);
       }
     }
 
@@ -12391,8 +12391,8 @@ public final class Messages {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, errorType_);
       }
-      if (!getQuickFixBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, quickFix_);
+      if (!getSuggestionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, suggestion_);
       }
       memoizedSize = size;
       return size;
@@ -12415,8 +12415,8 @@ public final class Messages {
       result = result && getErrorMessage()
           .equals(other.getErrorMessage());
       result = result && errorType_ == other.errorType_;
-      result = result && getQuickFix()
-          .equals(other.getQuickFix());
+      result = result && getSuggestion()
+          .equals(other.getSuggestion());
       return result;
     }
 
@@ -12434,8 +12434,8 @@ public final class Messages {
       hash = (53 * hash) + getErrorMessage().hashCode();
       hash = (37 * hash) + ERRORTYPE_FIELD_NUMBER;
       hash = (53 * hash) + errorType_;
-      hash = (37 * hash) + QUICKFIX_FIELD_NUMBER;
-      hash = (53 * hash) + getQuickFix().hashCode();
+      hash = (37 * hash) + SUGGESTION_FIELD_NUMBER;
+      hash = (53 * hash) + getSuggestion().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -12578,7 +12578,7 @@ public final class Messages {
 
         errorType_ = 0;
 
-        quickFix_ = "";
+        suggestion_ = "";
 
         return this;
       }
@@ -12605,7 +12605,7 @@ public final class Messages {
         result.isValid_ = isValid_;
         result.errorMessage_ = errorMessage_;
         result.errorType_ = errorType_;
-        result.quickFix_ = quickFix_;
+        result.suggestion_ = suggestion_;
         onBuilt();
         return result;
       }
@@ -12657,8 +12657,8 @@ public final class Messages {
         if (other.errorType_ != 0) {
           setErrorTypeValue(other.getErrorTypeValue());
         }
-        if (!other.getQuickFix().isEmpty()) {
-          quickFix_ = other.quickFix_;
+        if (!other.getSuggestion().isEmpty()) {
+          suggestion_ = other.suggestion_;
           onChanged();
         }
         onChanged();
@@ -12826,71 +12826,71 @@ public final class Messages {
         return this;
       }
 
-      private java.lang.Object quickFix_ = "";
+      private java.lang.Object suggestion_ = "";
       /**
-       * <code>string quickFix = 4;</code>
+       * <code>string suggestion = 4;</code>
        */
-      public java.lang.String getQuickFix() {
-        java.lang.Object ref = quickFix_;
+      public java.lang.String getSuggestion() {
+        java.lang.Object ref = suggestion_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          quickFix_ = s;
+          suggestion_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string quickFix = 4;</code>
+       * <code>string suggestion = 4;</code>
        */
       public com.google.protobuf.ByteString
-          getQuickFixBytes() {
-        java.lang.Object ref = quickFix_;
+          getSuggestionBytes() {
+        java.lang.Object ref = suggestion_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          quickFix_ = b;
+          suggestion_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string quickFix = 4;</code>
+       * <code>string suggestion = 4;</code>
        */
-      public Builder setQuickFix(
+      public Builder setSuggestion(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        quickFix_ = value;
+        suggestion_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string quickFix = 4;</code>
+       * <code>string suggestion = 4;</code>
        */
-      public Builder clearQuickFix() {
+      public Builder clearSuggestion() {
         
-        quickFix_ = getDefaultInstance().getQuickFix();
+        suggestion_ = getDefaultInstance().getSuggestion();
         onChanged();
         return this;
       }
       /**
-       * <code>string quickFix = 4;</code>
+       * <code>string suggestion = 4;</code>
        */
-      public Builder setQuickFixBytes(
+      public Builder setSuggestionBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        quickFix_ = value;
+        suggestion_ = value;
         onChanged();
         return this;
       }
@@ -27566,92 +27566,92 @@ public final class Messages {
       "e.messages.Parameter\"v\n\023StepValidateRequ" +
       "est\022\020\n\010stepText\030\001 \001(\t\022\032\n\022numberOfParamet" +
       "ers\030\002 \001(\005\0221\n\tstepValue\030\003 \001(\0132\036.gauge.mes" +
-      "sages.ProtoStepValue\"\345\001\n\024StepValidateRes",
+      "sages.ProtoStepValue\"\347\001\n\024StepValidateRes",
       "ponse\022\017\n\007isValid\030\001 \001(\010\022\024\n\014errorMessage\030\002" +
       " \001(\t\022A\n\terrorType\030\003 \001(\0162..gauge.messages" +
-      ".StepValidateResponse.ErrorType\022\020\n\010quick" +
-      "Fix\030\004 \001(\t\"Q\n\tErrorType\022!\n\035STEP_IMPLEMENT" +
-      "ATION_NOT_FOUND\020\000\022!\n\035DUPLICATE_STEP_IMPL" +
-      "EMENTATION\020\001\"M\n\024SuiteExecutionResult\0225\n\013" +
-      "suiteResult\030\001 \001(\0132 .gauge.messages.Proto" +
-      "SuiteResult\"\022\n\020StepNamesRequest\"\"\n\021StepN" +
-      "amesResponse\022\r\n\005steps\030\001 \003(\t\"\036\n\034ScenarioD" +
-      "ataStoreInitRequest\"\032\n\030SpecDataStoreInit",
-      "Request\"\033\n\031SuiteDataStoreInitRequest\"=\n\021" +
-      "ParameterPosition\022\023\n\013oldPosition\030\001 \001(\005\022\023" +
-      "\n\013newPosition\030\002 \001(\005\"\270\001\n\017RefactorRequest\022" +
-      "4\n\014oldStepValue\030\001 \001(\0132\036.gauge.messages.P" +
-      "rotoStepValue\0224\n\014newStepValue\030\002 \001(\0132\036.ga" +
-      "uge.messages.ProtoStepValue\0229\n\016paramPosi" +
-      "tions\030\003 \003(\0132!.gauge.messages.ParameterPo" +
-      "sition\"H\n\020RefactorResponse\022\017\n\007success\030\001 " +
-      "\001(\010\022\r\n\005error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003(\t" +
-      "\"$\n\017StepNameRequest\022\021\n\tstepValue\030\001 \001(\t\"M",
-      "\n\020StepNameResponse\022\025\n\risStepPresent\030\001 \001(" +
-      "\010\022\020\n\010stepName\030\002 \003(\t\022\020\n\010hasAlias\030\003 \001(\010\"-\n" +
-      "\032UnsupportedMessageResponse\022\017\n\007message\030\001" +
-      " \001(\t\"\376\022\n\007Message\0228\n\013messageType\030\001 \001(\0162#." +
-      "gauge.messages.Message.MessageType\022\021\n\tme" +
-      "ssageId\030\002 \001(\003\022J\n\030executionStartingReques" +
-      "t\030\003 \001(\0132(.gauge.messages.ExecutionStarti" +
-      "ngRequest\022R\n\034specExecutionStartingReques" +
-      "t\030\004 \001(\0132,.gauge.messages.SpecExecutionSt" +
-      "artingRequest\022N\n\032specExecutionEndingRequ",
-      "est\030\005 \001(\0132*.gauge.messages.SpecExecution" +
-      "EndingRequest\022Z\n scenarioExecutionStarti" +
-      "ngRequest\030\006 \001(\01320.gauge.messages.Scenari" +
-      "oExecutionStartingRequest\022V\n\036scenarioExe" +
-      "cutionEndingRequest\030\007 \001(\0132..gauge.messag" +
-      "es.ScenarioExecutionEndingRequest\022R\n\034ste" +
-      "pExecutionStartingRequest\030\010 \001(\0132,.gauge." +
-      "messages.StepExecutionStartingRequest\022N\n" +
-      "\032stepExecutionEndingRequest\030\t \001(\0132*.gaug" +
-      "e.messages.StepExecutionEndingRequest\022>\n",
-      "\022executeStepRequest\030\n \001(\0132\".gauge.messag" +
-      "es.ExecuteStepRequest\022F\n\026executionEnding" +
-      "Request\030\013 \001(\0132&.gauge.messages.Execution" +
-      "EndingRequest\022@\n\023stepValidateRequest\030\014 \001" +
-      "(\0132#.gauge.messages.StepValidateRequest\022" +
-      "B\n\024stepValidateResponse\030\r \001(\0132$.gauge.me" +
-      "ssages.StepValidateResponse\022H\n\027execution" +
-      "StatusResponse\030\016 \001(\0132\'.gauge.messages.Ex" +
-      "ecutionStatusResponse\022:\n\020stepNamesReques" +
-      "t\030\017 \001(\0132 .gauge.messages.StepNamesReques",
-      "t\022<\n\021stepNamesResponse\030\020 \001(\0132!.gauge.mes" +
-      "sages.StepNamesResponse\022B\n\024suiteExecutio" +
-      "nResult\030\021 \001(\0132$.gauge.messages.SuiteExec" +
-      "utionResult\022>\n\022killProcessRequest\030\022 \001(\0132" +
-      "\".gauge.messages.KillProcessRequest\022R\n\034s" +
-      "cenarioDataStoreInitRequest\030\023 \001(\0132,.gaug" +
-      "e.messages.ScenarioDataStoreInitRequest\022" +
-      "J\n\030specDataStoreInitRequest\030\024 \001(\0132(.gaug" +
-      "e.messages.SpecDataStoreInitRequest\022L\n\031s" +
-      "uiteDataStoreInitRequest\030\025 \001(\0132).gauge.m",
-      "essages.SuiteDataStoreInitRequest\0228\n\017ste" +
-      "pNameRequest\030\026 \001(\0132\037.gauge.messages.Step" +
-      "NameRequest\022:\n\020stepNameResponse\030\027 \001(\0132 ." +
-      "gauge.messages.StepNameResponse\0228\n\017refac" +
-      "torRequest\030\030 \001(\0132\037.gauge.messages.Refact" +
-      "orRequest\022:\n\020refactorResponse\030\031 \001(\0132 .ga" +
-      "uge.messages.RefactorResponse\022N\n\032unsuppo" +
-      "rtedMessageResponse\030\032 \001(\0132*.gauge.messag" +
-      "es.UnsupportedMessageResponse\"\335\004\n\013Messag" +
-      "eType\022\025\n\021ExecutionStarting\020\000\022\031\n\025SpecExec",
-      "utionStarting\020\001\022\027\n\023SpecExecutionEnding\020\002" +
-      "\022\035\n\031ScenarioExecutionStarting\020\003\022\033\n\027Scena" +
-      "rioExecutionEnding\020\004\022\031\n\025StepExecutionSta" +
-      "rting\020\005\022\027\n\023StepExecutionEnding\020\006\022\017\n\013Exec" +
-      "uteStep\020\007\022\023\n\017ExecutionEnding\020\010\022\027\n\023StepVa" +
-      "lidateRequest\020\t\022\030\n\024StepValidateResponse\020" +
-      "\n\022\033\n\027ExecutionStatusResponse\020\013\022\024\n\020StepNa" +
-      "mesRequest\020\014\022\025\n\021StepNamesResponse\020\r\022\026\n\022K" +
-      "illProcessRequest\020\016\022\030\n\024SuiteExecutionRes" +
-      "ult\020\017\022\031\n\025ScenarioDataStoreInit\020\020\022\025\n\021Spec",
-      "DataStoreInit\020\021\022\026\n\022SuiteDataStoreInit\020\022\022" +
-      "\023\n\017StepNameRequest\020\023\022\024\n\020StepNameResponse" +
-      "\020\024\022\023\n\017RefactorRequest\020\025\022\024\n\020RefactorRespo" +
-      "nse\020\026\022\036\n\032UnsupportedMessageResponse\020\027B\021\252" +
-      "\002\016Gauge.Messagesb\006proto3"
+      ".StepValidateResponse.ErrorType\022\022\n\nsugge" +
+      "stion\030\004 \001(\t\"Q\n\tErrorType\022!\n\035STEP_IMPLEME" +
+      "NTATION_NOT_FOUND\020\000\022!\n\035DUPLICATE_STEP_IM" +
+      "PLEMENTATION\020\001\"M\n\024SuiteExecutionResult\0225" +
+      "\n\013suiteResult\030\001 \001(\0132 .gauge.messages.Pro" +
+      "toSuiteResult\"\022\n\020StepNamesRequest\"\"\n\021Ste" +
+      "pNamesResponse\022\r\n\005steps\030\001 \003(\t\"\036\n\034Scenari" +
+      "oDataStoreInitRequest\"\032\n\030SpecDataStoreIn",
+      "itRequest\"\033\n\031SuiteDataStoreInitRequest\"=" +
+      "\n\021ParameterPosition\022\023\n\013oldPosition\030\001 \001(\005" +
+      "\022\023\n\013newPosition\030\002 \001(\005\"\270\001\n\017RefactorReques" +
+      "t\0224\n\014oldStepValue\030\001 \001(\0132\036.gauge.messages" +
+      ".ProtoStepValue\0224\n\014newStepValue\030\002 \001(\0132\036." +
+      "gauge.messages.ProtoStepValue\0229\n\016paramPo" +
+      "sitions\030\003 \003(\0132!.gauge.messages.Parameter" +
+      "Position\"H\n\020RefactorResponse\022\017\n\007success\030" +
+      "\001 \001(\010\022\r\n\005error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003" +
+      "(\t\"$\n\017StepNameRequest\022\021\n\tstepValue\030\001 \001(\t",
+      "\"M\n\020StepNameResponse\022\025\n\risStepPresent\030\001 " +
+      "\001(\010\022\020\n\010stepName\030\002 \003(\t\022\020\n\010hasAlias\030\003 \001(\010\"" +
+      "-\n\032UnsupportedMessageResponse\022\017\n\007message" +
+      "\030\001 \001(\t\"\376\022\n\007Message\0228\n\013messageType\030\001 \001(\0162" +
+      "#.gauge.messages.Message.MessageType\022\021\n\t" +
+      "messageId\030\002 \001(\003\022J\n\030executionStartingRequ" +
+      "est\030\003 \001(\0132(.gauge.messages.ExecutionStar" +
+      "tingRequest\022R\n\034specExecutionStartingRequ" +
+      "est\030\004 \001(\0132,.gauge.messages.SpecExecution" +
+      "StartingRequest\022N\n\032specExecutionEndingRe",
+      "quest\030\005 \001(\0132*.gauge.messages.SpecExecuti" +
+      "onEndingRequest\022Z\n scenarioExecutionStar" +
+      "tingRequest\030\006 \001(\01320.gauge.messages.Scena" +
+      "rioExecutionStartingRequest\022V\n\036scenarioE" +
+      "xecutionEndingRequest\030\007 \001(\0132..gauge.mess" +
+      "ages.ScenarioExecutionEndingRequest\022R\n\034s" +
+      "tepExecutionStartingRequest\030\010 \001(\0132,.gaug" +
+      "e.messages.StepExecutionStartingRequest\022" +
+      "N\n\032stepExecutionEndingRequest\030\t \001(\0132*.ga" +
+      "uge.messages.StepExecutionEndingRequest\022",
+      ">\n\022executeStepRequest\030\n \001(\0132\".gauge.mess" +
+      "ages.ExecuteStepRequest\022F\n\026executionEndi" +
+      "ngRequest\030\013 \001(\0132&.gauge.messages.Executi" +
+      "onEndingRequest\022@\n\023stepValidateRequest\030\014" +
+      " \001(\0132#.gauge.messages.StepValidateReques" +
+      "t\022B\n\024stepValidateResponse\030\r \001(\0132$.gauge." +
+      "messages.StepValidateResponse\022H\n\027executi" +
+      "onStatusResponse\030\016 \001(\0132\'.gauge.messages." +
+      "ExecutionStatusResponse\022:\n\020stepNamesRequ" +
+      "est\030\017 \001(\0132 .gauge.messages.StepNamesRequ",
+      "est\022<\n\021stepNamesResponse\030\020 \001(\0132!.gauge.m" +
+      "essages.StepNamesResponse\022B\n\024suiteExecut" +
+      "ionResult\030\021 \001(\0132$.gauge.messages.SuiteEx" +
+      "ecutionResult\022>\n\022killProcessRequest\030\022 \001(" +
+      "\0132\".gauge.messages.KillProcessRequest\022R\n" +
+      "\034scenarioDataStoreInitRequest\030\023 \001(\0132,.ga" +
+      "uge.messages.ScenarioDataStoreInitReques" +
+      "t\022J\n\030specDataStoreInitRequest\030\024 \001(\0132(.ga" +
+      "uge.messages.SpecDataStoreInitRequest\022L\n" +
+      "\031suiteDataStoreInitRequest\030\025 \001(\0132).gauge",
+      ".messages.SuiteDataStoreInitRequest\0228\n\017s" +
+      "tepNameRequest\030\026 \001(\0132\037.gauge.messages.St" +
+      "epNameRequest\022:\n\020stepNameResponse\030\027 \001(\0132" +
+      " .gauge.messages.StepNameResponse\0228\n\017ref" +
+      "actorRequest\030\030 \001(\0132\037.gauge.messages.Refa" +
+      "ctorRequest\022:\n\020refactorResponse\030\031 \001(\0132 ." +
+      "gauge.messages.RefactorResponse\022N\n\032unsup" +
+      "portedMessageResponse\030\032 \001(\0132*.gauge.mess" +
+      "ages.UnsupportedMessageResponse\"\335\004\n\013Mess" +
+      "ageType\022\025\n\021ExecutionStarting\020\000\022\031\n\025SpecEx",
+      "ecutionStarting\020\001\022\027\n\023SpecExecutionEnding" +
+      "\020\002\022\035\n\031ScenarioExecutionStarting\020\003\022\033\n\027Sce" +
+      "narioExecutionEnding\020\004\022\031\n\025StepExecutionS" +
+      "tarting\020\005\022\027\n\023StepExecutionEnding\020\006\022\017\n\013Ex" +
+      "ecuteStep\020\007\022\023\n\017ExecutionEnding\020\010\022\027\n\023Step" +
+      "ValidateRequest\020\t\022\030\n\024StepValidateRespons" +
+      "e\020\n\022\033\n\027ExecutionStatusResponse\020\013\022\024\n\020Step" +
+      "NamesRequest\020\014\022\025\n\021StepNamesResponse\020\r\022\026\n" +
+      "\022KillProcessRequest\020\016\022\030\n\024SuiteExecutionR" +
+      "esult\020\017\022\031\n\025ScenarioDataStoreInit\020\020\022\025\n\021Sp",
+      "ecDataStoreInit\020\021\022\026\n\022SuiteDataStoreInit\020" +
+      "\022\022\023\n\017StepNameRequest\020\023\022\024\n\020StepNameRespon" +
+      "se\020\024\022\023\n\017RefactorRequest\020\025\022\024\n\020RefactorRes" +
+      "ponse\020\026\022\036\n\032UnsupportedMessageResponse\020\027B" +
+      "\021\252\002\016Gauge.Messagesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -27767,7 +27767,7 @@ public final class Messages {
     internal_static_gauge_messages_StepValidateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepValidateResponse_descriptor,
-        new java.lang.String[] { "IsValid", "ErrorMessage", "ErrorType", "QuickFix", });
+        new java.lang.String[] { "IsValid", "ErrorMessage", "ErrorType", "Suggestion", });
     internal_static_gauge_messages_SuiteExecutionResult_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_gauge_messages_SuiteExecutionResult_fieldAccessorTable = new

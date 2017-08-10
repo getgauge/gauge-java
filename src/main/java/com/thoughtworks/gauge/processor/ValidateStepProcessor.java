@@ -41,14 +41,14 @@ public class ValidateStepProcessor implements IMessageProcessor {
     private StepValidateResponse validateStep(Messages.StepValidateRequest stepValidateRequest) {
         Set<Method> methodImplementations = StepRegistry.getAll(stepValidateRequest.getStepText());
 
-        final StringBuilder quickFix = new StringBuilder(String.format("\n\nQuick Fix : \n@Step(\"%s\")\n", stepValidateRequest.getStepValue().getParameterizedStepValue()));
-        quickFix.append(String.format("public void implementation(%s){\n", getParamList(stepValidateRequest.getStepValue().getParametersList())));
-        quickFix.append("}\n");
+        final StringBuilder suggestion = new StringBuilder(String.format("\n\nSuggestion : \n@Step(\"%s\")\n", stepValidateRequest.getStepValue().getParameterizedStepValue()));
+        suggestion.append(String.format("public void implementation(%s){\n", getParamList(stepValidateRequest.getStepValue().getParametersList())));
+        suggestion.append("}\n");
 
         if (methodImplementations != null && methodImplementations.size() == 1) {
             return buildSuccessValidationResponse();
         } else if (methodImplementations.isEmpty()) {
-            return buildFailureValidationResponse("Step implementation not found", ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, quickFix.toString());
+            return buildFailureValidationResponse("Step implementation not found", ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, suggestion.toString());
         } else {
             return buildFailureValidationResponse("Duplicate step implementation found", ErrorType.DUPLICATE_STEP_IMPLEMENTATION, "");
         }
@@ -70,7 +70,7 @@ public class ValidateStepProcessor implements IMessageProcessor {
                 .setIsValid(false)
                 .setErrorType(errorType)
                 .setErrorMessage(errorMessage)
-                .setQuickFix(quickFix)
+                .setSuggestion(quickFix)
                 .build();
     }
 

@@ -53,27 +53,27 @@ public class ValidateStepProcessorTest {
     }
 
     @Test
-    public void shouldFailIfStepIsNotFoundAndShouldGiveQuickFix() {
+    public void shouldFailIfStepIsNotFoundAndShouldGiveSuggestion() {
         mockStepRegistry(new HashSet<Method>());
-        final StringBuilder quickFix = new StringBuilder("\n\nQuick Fix : \n@Step(\"stepText\")\n");
-        quickFix.append(String.format("public void implementation(){\n"));
-        quickFix.append("}\n");
+        final StringBuilder suggestion = new StringBuilder("\n\nSuggestion : \n@Step(\"stepText\")\n");
+        suggestion.append(String.format("public void implementation(){\n"));
+        suggestion.append("}\n");
 
         Message outputMessage = stepProcessor.process(message);
 
         assertEquals(ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, outputMessage.getStepValidateResponse().getErrorType());
-        assertEquals(quickFix.toString() , outputMessage.getStepValidateResponse().getQuickFix());
+        assertEquals(suggestion.toString() , outputMessage.getStepValidateResponse().getSuggestion());
         assertFalse(outputMessage.getStepValidateResponse().getIsValid());
     }
 
     @Test
-    public void shouldNotFailIfStepIsFoundAndShouldNotGiveQuickFix() {
+    public void shouldNotFailIfStepIsFoundAndShouldNotGiveSuggestion() {
         mockStepRegistry(Sets.newHashSet(anyMethod()));
 
         Message outputMessage = stepProcessor.process(message);
 
         assertTrue(outputMessage.getStepValidateResponse().getIsValid());
-        assertEquals("", outputMessage.getStepValidateResponse().getQuickFix());
+        assertEquals("", outputMessage.getStepValidateResponse().getSuggestion());
     }
 
     @Test
