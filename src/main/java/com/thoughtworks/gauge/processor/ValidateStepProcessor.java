@@ -41,13 +41,12 @@ public class ValidateStepProcessor implements IMessageProcessor {
     private StepValidateResponse validateStep(Messages.StepValidateRequest stepValidateRequest) {
         Set<Method> methodImplementations = StepRegistry.getAll(stepValidateRequest.getStepText());
 
-        final StringBuilder suggestion = new StringBuilder(String.format("\n\nSuggestion : \n@Step(\"%s\")\n", stepValidateRequest.getStepValue().getParameterizedStepValue()));
-        suggestion.append(String.format("public void implementation(%s){\n", getParamList(stepValidateRequest.getStepValue().getParametersList())));
-        suggestion.append("}\n");
-
         if (methodImplementations != null && methodImplementations.size() == 1) {
             return buildSuccessValidationResponse();
         } else if (methodImplementations.isEmpty()) {
+            final StringBuilder suggestion = new StringBuilder(String.format("\n\nSuggestion : \n@Step(\"%s\")\n", stepValidateRequest.getStepValue().getParameterizedStepValue()));
+            suggestion.append(String.format("public void implementation(%s){\n\t", getParamList(stepValidateRequest.getStepValue().getParametersList())));
+            suggestion.append("// your code here...\n}\n");
             return buildFailureValidationResponse("Step implementation not found", ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, suggestion.toString());
         } else {
             return buildFailureValidationResponse("Duplicate step implementation found", ErrorType.DUPLICATE_STEP_IMPLEMENTATION, "");
@@ -65,12 +64,12 @@ public class ValidateStepProcessor implements IMessageProcessor {
         return paramlistBuilder.toString();
     }
 
-    private StepValidateResponse buildFailureValidationResponse(String errorMessage, ErrorType errorType, String quickFix) {
+    private StepValidateResponse buildFailureValidationResponse(String errorMessage, ErrorType errorType, String suggestion) {
         return StepValidateResponse.newBuilder()
                 .setIsValid(false)
                 .setErrorType(errorType)
                 .setErrorMessage(errorMessage)
-                .setSuggestion(quickFix)
+                .setSuggestion(suggestion)
                 .build();
     }
 
