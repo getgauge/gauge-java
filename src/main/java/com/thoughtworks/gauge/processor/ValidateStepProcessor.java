@@ -22,6 +22,7 @@ import gauge.messages.Messages.StepValidateResponse;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
 
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Set;
 
 public class ValidateStepProcessor implements IMessageProcessor {
@@ -39,20 +40,36 @@ public class ValidateStepProcessor implements IMessageProcessor {
 
     private StepValidateResponse validateStep(Messages.StepValidateRequest stepValidateRequest) {
         Set<Method> methodImplementations = StepRegistry.getAll(stepValidateRequest.getStepText());
+
         if (methodImplementations != null && methodImplementations.size() == 1) {
             return buildSuccessValidationResponse();
         } else if (methodImplementations.isEmpty()) {
-            return buildFailureValidationResponse("Step implementation not found", ErrorType.STEP_IMPLEMENTATION_NOT_FOUND);
+            final StringBuilder suggestion = new StringBuilder(String.format("\n\nSuggestion : \n@Step(\"%s\")\n", stepValidateRequest.getStepValue().getParameterizedStepValue()));
+            suggestion.append(String.format("public void implementation(%s){\n\t", getParamList(stepValidateRequest.getStepValue().getParametersList())));
+            suggestion.append("// your code here...\n}\n");
+            return buildFailureValidationResponse("Step implementation not found", ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, suggestion.toString());
         } else {
-            return buildFailureValidationResponse("Duplicate step implementation found", ErrorType.DUPLICATE_STEP_IMPLEMENTATION);
+            return buildFailureValidationResponse("Duplicate step implementation found", ErrorType.DUPLICATE_STEP_IMPLEMENTATION, "");
         }
     }
 
-    private StepValidateResponse buildFailureValidationResponse(String errorMessage, ErrorType errorType) {
+    private String getParamList(List<String> params) {
+        StringBuilder paramlistBuilder = new StringBuilder();
+        for (int i = 0; i < params.size(); i++) {
+            paramlistBuilder.append("Object arg").append(i);
+            if (i != params.size() - 1) {
+                paramlistBuilder.append(", ");
+            }
+        }
+        return paramlistBuilder.toString();
+    }
+
+    private StepValidateResponse buildFailureValidationResponse(String errorMessage, ErrorType errorType, String suggestion) {
         return StepValidateResponse.newBuilder()
                 .setIsValid(false)
                 .setErrorType(errorType)
                 .setErrorMessage(errorMessage)
+                .setSuggestion(suggestion)
                 .build();
     }
 
