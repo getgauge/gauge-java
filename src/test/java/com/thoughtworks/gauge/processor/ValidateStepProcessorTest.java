@@ -55,9 +55,9 @@ public class ValidateStepProcessorTest {
     @Test
     public void shouldFailIfStepIsNotFoundAndShouldGiveSuggestion() {
         mockStepRegistry(new HashSet<Method>());
-        final StringBuilder suggestion = new StringBuilder("\n\nSuggestion : \n@Step(\"stepText\")\n");
-        suggestion.append(String.format("public void implementation(){\n\t"));
-        suggestion.append("// your code here...\n}\n");
+        final StringBuilder suggestion = new StringBuilder("\nSuggestion : \n\t@Step(\"stepText\")\n");
+        suggestion.append(String.format("\tpublic void implementation(){\n\t\t"));
+        suggestion.append("// your code here...\n\t}");
 
         Message outputMessage = stepProcessor.process(message);
 

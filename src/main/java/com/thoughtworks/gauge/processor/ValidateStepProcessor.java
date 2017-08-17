@@ -44,9 +44,9 @@ public class ValidateStepProcessor implements IMessageProcessor {
         if (methodImplementations != null && methodImplementations.size() == 1) {
             return buildSuccessValidationResponse();
         } else if (methodImplementations.isEmpty()) {
-            final StringBuilder suggestion = new StringBuilder(String.format("\n\nSuggestion : \n@Step(\"%s\")\n", stepValidateRequest.getStepValue().getParameterizedStepValue()));
-            suggestion.append(String.format("public void implementation(%s){\n\t", getParamList(stepValidateRequest.getStepValue().getParametersList())));
-            suggestion.append("// your code here...\n}\n");
+            final StringBuilder suggestion = new StringBuilder(String.format("\nSuggestion : \n\t@Step(\"%s\")\n", stepValidateRequest.getStepValue().getParameterizedStepValue()));
+            suggestion.append(String.format("\tpublic void implementation(%s){\n\t\t", getParamList(stepValidateRequest.getStepValue().getParametersList())));
+            suggestion.append("// your code here...\n\t}");
             return buildFailureValidationResponse("Step implementation not found", ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, suggestion.toString());
         } else {
             return buildFailureValidationResponse("Duplicate step implementation found", ErrorType.DUPLICATE_STEP_IMPLEMENTATION, "");
