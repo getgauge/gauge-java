@@ -26,6 +26,8 @@ import java.util.List;
 import java.util.Set;
 
 public class ValidateStepProcessor implements IMessageProcessor {
+    private static Integer num = 1;
+
     public ValidateStepProcessor(ClassInstanceManager instanceManager) {
     }
 
@@ -45,7 +47,7 @@ public class ValidateStepProcessor implements IMessageProcessor {
             return buildSuccessValidationResponse();
         } else if (methodImplementations.isEmpty()) {
             final StringBuilder suggestion = new StringBuilder(String.format("\nSuggestion : \n\t@Step(\"%s\")\n", stepValidateRequest.getStepValue().getParameterizedStepValue()));
-            suggestion.append(String.format("\tpublic void implementation(%s){\n\t\t", getParamList(stepValidateRequest.getStepValue().getParametersList())));
+            suggestion.append(String.format("\tpublic void implementation%s(%s){\n\t\t", (num++).toString(), getParamList(stepValidateRequest.getStepValue().getParametersList())));
             suggestion.append("// your code here...\n\t}");
             return buildFailureValidationResponse("Step implementation not found", ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, suggestion.toString());
         } else {
