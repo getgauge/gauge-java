@@ -21,6 +21,10 @@ public class StepImpl {
         System.out.println(greeting + ", " + name);
     }
 
+    @Step("Tell <greeting> <name>")
+    public void helloWorld(String greeting, String argName) {
+    }
+
     @Step("† ‡ µ ¢ step with <Û> and <į>")
     public void stepWith(String a, String b) {
     }
