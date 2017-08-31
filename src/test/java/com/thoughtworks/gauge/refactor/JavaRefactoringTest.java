@@ -92,7 +92,7 @@ public class JavaRefactoringTest extends TestCase {
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
         assertTrue(element.getText().contains("    @Step(\"step with <param 1>\")" + System.getProperty("line.separator") +
-                "    public void someStepStep(String argParam1) {" + System.getProperty("line.separator") +
+                "    public void someStepStep(Object argParam1) {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("A step with no params"));
     }
@@ -112,7 +112,7 @@ public class JavaRefactoringTest extends TestCase {
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
         assertTrue(element.getText().contains("    @Step(\"step with <n> <n>\")" + System.getProperty("line.separator") +
-                "    public void someStepStep(String argN, String argN1) {" + System.getProperty("line.separator") +
+                "    public void someStepStep(Object argN, Object argN1) {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("A step with no params"));
     }
@@ -134,7 +134,7 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
         assertTrue(element.getText().contains("    @Step(\"Tell <greeting> <name> <name>\")" + System.getProperty("line.separator") +
-                "    public void helloWorld(String greeting, String argName, String argName2) {" + System.getProperty("line.separator") +
+                "    public void helloWorld(String greeting, String argName, Object argName2) {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("\"Tell <greeting> <name>\""));
 
@@ -157,7 +157,7 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
         assertTrue(element.getText().contains("    @Step(\"Tell <greeting> to <name> <DD>\")" + System.getProperty("line.separator") +
-                "    public void helloWorld(String greeting, String name, String argDd) {" + System.getProperty("line.separator") +
+                "    public void helloWorld(String greeting, String name, Object argDd) {" + System.getProperty("line.separator") +
                 "        System.out.println(greeting + \", \" + name);" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("\"Tell <greeting> to <name>\""));
@@ -187,7 +187,7 @@ public class JavaRefactoringTest extends TestCase {
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
         assertTrue(element.getText().contains("    @Step(\"<table> changed <c> and added <a>\")" + System.getProperty("line.separator") +
-                "    public void stepWithTable(Table table, String argC, float a) {" + System.getProperty("line.separator") +
+                "    public void stepWithTable(Table table, Object argC, float a) {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("step <a> and a table <table>"));
     }
@@ -260,7 +260,7 @@ public class JavaRefactoringTest extends TestCase {
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
         assertTrue(element.getText().contains("    @Step(\"<b> changed <a> and added <c>\")" + System.getProperty("line.separator") +
-                "    public void stepWithTable(String argB, float a, String argC) {" + System.getProperty("line.separator") +
+                "    public void stepWithTable(Object argB, float a, Object argC) {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("step <a> and a table <table>"));
 
