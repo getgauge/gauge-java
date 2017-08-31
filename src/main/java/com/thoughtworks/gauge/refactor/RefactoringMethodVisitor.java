@@ -38,7 +38,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RefactoringMethodVisitor extends VoidVisitorAdapter {
-    static final int START_INDEX = 7;
     private StepValue oldStepValue;
     private StepValue newStepValue;
     private List<Messages.ParameterPosition> paramPositions;
@@ -109,7 +108,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
             for (int k = 0; k < newParameters.size(); k++) {
                 for (int l = 1; l < newParameters.size(); l++) {
                     if (newParameters.get(k).getName().equals(newParameters.get(l).getName()) && k != l) {
-                        newParameters.set(l, new Parameter(new ClassOrInterfaceType("String"), new VariableDeclaratorId(newParameters.get(l).toString().substring(START_INDEX, newParameters.get(l).toString().length()) + l)));
+                        newParameters.set(l, new Parameter(new ClassOrInterfaceType("String"), new VariableDeclaratorId(newParameters.get(l).getName() + l)));
                     }
                 }
             }
