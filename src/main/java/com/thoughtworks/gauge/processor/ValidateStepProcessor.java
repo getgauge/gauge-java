@@ -22,11 +22,14 @@ import gauge.messages.Messages.StepValidateResponse;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
 public class ValidateStepProcessor implements IMessageProcessor {
     private static Integer num = 1;
+    private static final Integer MAX_LENGTH = 3;
 
     public ValidateStepProcessor(ClassInstanceManager instanceManager) {
     }
@@ -47,12 +50,31 @@ public class ValidateStepProcessor implements IMessageProcessor {
             return buildSuccessValidationResponse();
         } else if (methodImplementations.isEmpty()) {
             final StringBuilder suggestion = new StringBuilder(String.format("\n\t@Step(\"%s\")\n", stepValidateRequest.getStepValue().getParameterizedStepValue()));
-            suggestion.append(String.format("\tpublic void implementation%s(%s){\n\t\t", (num++).toString(), getParamList(stepValidateRequest.getStepValue().getParametersList())));
+            final String methodName = getMethodName(stepValidateRequest.getStepText());
+            suggestion.append(String.format("\tpublic void %s(%s){\n\t\t", methodName, getParamList(stepValidateRequest.getStepValue().getParametersList())));
             suggestion.append("// your code here...\n\t}");
             return buildFailureValidationResponse("Step implementation not found", ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, suggestion.toString());
         } else {
             return buildFailureValidationResponse("Duplicate step implementation found", ErrorType.DUPLICATE_STEP_IMPLEMENTATION, "");
         }
+    }
+
+    private String getMethodName(String stepText) {
+        String[] methodNameArray = stepText.split(" ");
+        List<String> list = new ArrayList<String>(Arrays.asList(methodNameArray));
+        list.removeAll(Arrays.asList("{}"));
+        int length = (list.size() < MAX_LENGTH) ? list.size() : MAX_LENGTH;
+        final StringBuilder methodName = new StringBuilder();
+        if (length == 0) {
+            methodName.append(String.format("implementation%s", (num++).toString()));
+        } else {
+            for (int i = 0; i < length; i++) {
+                String firstLetter = (i == 0) ? list.get(i).substring(0, 1).toLowerCase() : list.get(i).substring(0, 1).toUpperCase();
+                methodName.append(firstLetter);
+                methodName.append(list.get(i).substring(1).toLowerCase());
+            }
+        }
+        return methodName.toString();
     }
 
     private String getParamList(List<String> params) {
