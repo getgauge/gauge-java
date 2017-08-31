@@ -20,6 +20,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -56,7 +57,26 @@ public class ValidateStepProcessorTest {
     public void shouldFailIfStepIsNotFoundAndShouldGiveSuggestion() {
         mockStepRegistry(new HashSet<Method>());
         final StringBuilder suggestion = new StringBuilder("\n\t@Step(\"stepText\")\n");
-        suggestion.append(String.format("\tpublic void implementation1(){\n\t\t"));
+        suggestion.append(String.format("\tpublic void steptext(){\n\t\t"));
+        suggestion.append("// your code here...\n\t}");
+
+        Message outputMessage = stepProcessor.process(message);
+
+        assertEquals(ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, outputMessage.getStepValidateResponse().getErrorType());
+        assertEquals(suggestion.toString() , outputMessage.getStepValidateResponse().getSuggestion());
+        assertFalse(outputMessage.getStepValidateResponse().getIsValid());
+    }
+
+    @Test
+    public void ShouldGiveSuggestionWithMethodNameimplementation1() {
+        Builder messageBuilder = Messages.Message.newBuilder().setMessageType(MessageType.StepValidateRequest).setMessageId(1l);
+        Spec.ProtoStepValue.Builder protoStep  = Spec.ProtoStepValue.newBuilder().setStepValue("<abc> <xyz>").setParameterizedStepValue("<abc> <xyz>").addAllParameters(Arrays.asList("abc","xyz"));
+        StepValidateRequest stepValidationRequest = StepValidateRequest.newBuilder().setStepText("{} {}").setNumberOfParameters(1).setStepValue(protoStep).build();
+        messageBuilder.setStepValidateRequest(stepValidationRequest);
+        this.message = messageBuilder.build();
+        mockStepRegistry(new HashSet<Method>());
+        final StringBuilder suggestion = new StringBuilder("\n\t@Step(\"<abc> <xyz>\")\n");
+        suggestion.append(String.format("\tpublic void implementation1(Object arg0, Object arg1){\n\t\t"));
         suggestion.append("// your code here...\n\t}");
 
         Message outputMessage = stepProcessor.process(message);
