@@ -100,7 +100,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
                     if (paramName.equals("arg")) {
                         paramName += i;
                     }
-                    newParameters.set(paramPositions.get(i).getNewPosition(), new Parameter(new ClassOrInterfaceType("String"), new VariableDeclaratorId(paramName)));
+                    newParameters.set(paramPositions.get(i).getNewPosition(), new Parameter(new ClassOrInterfaceType("Object"), new VariableDeclaratorId(paramName)));
                 } else {
                     newParameters.set(paramPositions.get(i).getNewPosition(), parameters.get(paramPositions.get(i).getOldPosition()));
                 }
@@ -108,7 +108,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
             for (int k = 0; k < newParameters.size(); k++) {
                 for (int l = 1; l < newParameters.size(); l++) {
                     if (newParameters.get(k).getName().equals(newParameters.get(l).getName()) && k != l) {
-                        newParameters.set(l, new Parameter(new ClassOrInterfaceType("String"), new VariableDeclaratorId(newParameters.get(l).getName() + l)));
+                        newParameters.set(l, new Parameter(new ClassOrInterfaceType("Object"), new VariableDeclaratorId(newParameters.get(l).getName() + l)));
                     }
                 }
             }
