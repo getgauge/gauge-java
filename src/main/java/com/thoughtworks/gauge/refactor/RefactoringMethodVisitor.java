@@ -106,8 +106,8 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
                 }
             }
             for (int k = 0; k < newParameters.size(); k++) {
-                for (int l = 1; l < newParameters.size(); l++) {
-                    if (newParameters.get(k).getName().equals(newParameters.get(l).getName()) && k != l) {
+                for (int l = k + 1; l < newParameters.size(); l++) {
+                    if (newParameters.get(k).getName().equals(newParameters.get(l).getName())) {
                         newParameters.set(l, new Parameter(new ClassOrInterfaceType("Object"), new VariableDeclaratorId(newParameters.get(l).getName() + l)));
                     }
                 }
