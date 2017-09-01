@@ -58,7 +58,7 @@ public class ValidateStepProcessorTest {
         mockStepRegistry(new HashSet<Method>());
         final StringBuilder suggestion = new StringBuilder("\n\t@Step(\"stepText\")\n");
         suggestion.append(String.format("\tpublic void steptext(){\n\t\t"));
-        suggestion.append("// your code here...\n\t}");
+        suggestion.append("throw new UnsupportedOperationException(\"Provide custom implementation\");\n\t}");
 
         Message outputMessage = stepProcessor.process(message);
 
@@ -77,7 +77,7 @@ public class ValidateStepProcessorTest {
         mockStepRegistry(new HashSet<Method>());
         final StringBuilder suggestion = new StringBuilder("\n\t@Step(\"<abc> <xyz>\")\n");
         suggestion.append(String.format("\tpublic void implementation1(Object arg0, Object arg1){\n\t\t"));
-        suggestion.append("// your code here...\n\t}");
+        suggestion.append("throw new UnsupportedOperationException(\"Provide custom implementation\");\n\t}");
 
         Message outputMessage = stepProcessor.process(message);
 

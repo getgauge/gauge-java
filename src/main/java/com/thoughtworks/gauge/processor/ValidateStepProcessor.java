@@ -52,7 +52,7 @@ public class ValidateStepProcessor implements IMessageProcessor {
             final StringBuilder suggestion = new StringBuilder(String.format("\n\t@Step(\"%s\")\n", stepValidateRequest.getStepValue().getParameterizedStepValue()));
             final String methodName = getMethodName(stepValidateRequest.getStepText());
             suggestion.append(String.format("\tpublic void %s(%s){\n\t\t", methodName, getParamList(stepValidateRequest.getStepValue().getParametersList())));
-            suggestion.append("// your code here...\n\t}");
+            suggestion.append("throw new UnsupportedOperationException(\"Provide custom implementation\");\n\t}");
             return buildFailureValidationResponse("Step implementation not found", ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, suggestion.toString());
         } else {
             return buildFailureValidationResponse("Duplicate step implementation found", ErrorType.DUPLICATE_STEP_IMPLEMENTATION, "");
@@ -63,7 +63,7 @@ public class ValidateStepProcessor implements IMessageProcessor {
         String[] methodNameArray = stepText.split(" ");
         List<String> list = new ArrayList<String>(Arrays.asList(methodNameArray));
         list.removeAll(Arrays.asList("{}"));
-        int length = (list.size() < MAX_LENGTH) ? list.size() : MAX_LENGTH;
+        int length = list.size();
         final StringBuilder methodName = new StringBuilder();
         if (length == 0) {
             methodName.append(String.format("implementation%s", (num++).toString()));
