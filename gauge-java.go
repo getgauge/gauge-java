@@ -297,10 +297,14 @@ func printUsage() {
 }
 
 func runJavaCommand(cmdName string, args []string, classpath string) {
+	arr := strings.Split(cmdName, "/")
+	len := len(arr)
 	cmd := runJavaCommandAsync(cmdName, args, classpath)
 	err := cmd.Wait()
 	if err != nil {
-		fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())
+		if arr[len-1] != "javac" {
+			fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())
+		}
 		os.Exit(1)
 	}
 }
