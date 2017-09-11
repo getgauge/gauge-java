@@ -296,13 +296,11 @@ func printUsage() {
 	os.Exit(2)
 }
 
-func runJavaCommand(cmdName string, args []string, classpath string) {
-	arr := strings.Split(cmdName, "/")
-	len := len(arr)
+func runJavaCommand(cmdName string, args []string, classpath string, printErrorsOnFailure bool) {
 	cmd := runJavaCommandAsync(cmdName, args, classpath)
 	err := cmd.Wait()
 	if err != nil {
-		if arr[len-1] != "javac" {
+		if printErrorsOnFailure {
 			fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())
 		}
 		os.Exit(1)
@@ -429,7 +427,7 @@ func build(destination string, classpath string) {
 
 	//TODO: should move to logs
 	//fmt.Println(fmt.Sprintf("Building files in %s directory to %s", "src", destination))
-	runJavaCommand(javac, args, classpath)
+	runJavaCommand(javac, args, classpath, false)
 	copyResources(resourceFiles, destination)
 }
 
