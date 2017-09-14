@@ -75,11 +75,12 @@ public class MethodExecutor {
         if (stackTrace == null) {
             return "";
         }
-
         StringBuilder output = new StringBuilder();
         for (StackTraceElement element : stackTrace) {
-            output.append(element.toString());
-            output.append("\n");
+            if (element.getClassName().equals("sun.reflect.NativeMethodAccessorImpl")) {
+                break;
+            }
+            output.append(element.toString()).append("\n");
         }
         return output.toString();
     }
