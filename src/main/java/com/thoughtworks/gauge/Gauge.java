@@ -41,7 +41,6 @@ public class Gauge {
      * @param message - Custom message that can be added at runtime that will be visible in reports.
      */
     public static void writeMessage(String message) {
-        System.out.println("CheckHAH " + message);
         getMessages().add(message);
     }
 
