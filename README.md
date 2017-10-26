@@ -16,18 +16,18 @@ It contains a launcher component (gauge-java.go) written in golang which is used
 Install through Gauge
 ---------------------
 ````
-gauge --install java
+gauge install java
 ````
 
 * Installing specific version
 ```
-gauge --install java --plugin-version 0.0.7
+gauge install java --version 0.6.5
 ```
 
 ### Offline installation
 * Download the plugin from [Releases](https://github.com/getgauge/gauge-java/releases)
 ```
-gauge --install java --file gauge-java-0.0.7-windows.x86_64.zip
+gauge install java --file gauge-java-0.6.5-windows.x86_64.zip
 ```
 
 # Build from source
