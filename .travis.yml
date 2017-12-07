@@ -21,7 +21,7 @@ script:
   - cd gauge-tests
   - GAUGE_PREFIX=/tmp ./install_latest_gauge_nightly.sh
   - gauge -v
-  - echo "gauge_repository_url = https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/" >> skel/gauge.properties
+  - echo "gauge_repository_url = https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/" >> ~/.gauge/config/gauge.properties
   - export PATH=/tmp/bin:$PATH
   - cd $TRAVIS_BUILD_DIR
   - go run make.go --install
