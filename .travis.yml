@@ -15,18 +15,18 @@ before_install:
 install:
   - go run make.go
 script: 
-  - echo $GOROOT
-  - echo $GOPATH
   - go version
-  - go run make.go --install
-  - go get -d -u -v github.com/getgauge/gauge
-  - cd $GOPATH/src/github.com/getgauge/gauge
-  - godep restore
-  - echo "gauge_repository_url = https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/" >> skel/gauge.properties
-  - go run build/make.go
-  - go run build/make.go --install --prefix=$GAUGE_ROOT
   - cd ..
   - git clone --depth=1 https://github.com/getgauge/gauge-tests
   - cd gauge-tests
-  - $GAUGE_ROOT/bin/gauge install
-  - TAGS="!unimplemented" ./starttests.sh java
+  - GAUGE_PREFIX=/tmp ./install_latest_gauge_nightly.sh
+  - gauge -v
+  - echo "gauge_repository_url = https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/" >> ~/.gauge/config/gauge.properties
+  - export PATH=/tmp/bin:$PATH
+  - cd $TRAVIS_BUILD_DIR
+  - go run make.go --install
+  - cd ..
+  - cd gauge-tests
+  - gauge install
+  - gauge -v
+  - ./starttests.sh java

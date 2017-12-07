@@ -25,10 +25,6 @@ public class MessageCollector {
         return addPendingMessages(result, messages);
     }
 
-    public void clearMessages() {
-        Gauge.clearMessages();
-    }
-
     public Spec.ProtoExecutionResult addPendingMessages(Spec.ProtoExecutionResult result, List<String> messages) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder(result);
         builder.addAllMessage(messages);

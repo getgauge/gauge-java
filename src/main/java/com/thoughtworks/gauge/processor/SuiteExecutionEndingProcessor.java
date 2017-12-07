@@ -17,9 +17,11 @@ package com.thoughtworks.gauge.processor;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ExecutionContext;
+import com.thoughtworks.gauge.MessageCollector;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import com.thoughtworks.gauge.registry.HooksRegistry;
 import gauge.messages.Messages;
+import gauge.messages.Spec;
 
 public class SuiteExecutionEndingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
 
@@ -31,6 +33,7 @@ public class SuiteExecutionEndingProcessor extends MethodExecutionMessageProcess
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getExecutionEndingRequest().getCurrentExecutionInfo());
         Messages.Message result = executeHooks(HooksRegistry.getAfterSuiteHooks(), message, info);
         ClearObjectCache.clear(ClearObjectCache.SPEC_LEVEL, getInstanceManager());
-        return result;
+        Spec.ProtoExecutionResult executionResult = result.getExecutionStatusResponse().getExecutionResult();
+        return createMessageWithExecutionStatusResponse(message, new MessageCollector().addPendingMessagesTo(executionResult));
     }
 }

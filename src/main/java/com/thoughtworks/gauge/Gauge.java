@@ -33,10 +33,6 @@ public class Gauge {
         return pendingMessages;
     }
 
-    static void clearMessages() {
-        getMessages().clear();
-    }
-
     /**
      * @param message - Custom message that can be added at runtime that will be visible in reports.
      */

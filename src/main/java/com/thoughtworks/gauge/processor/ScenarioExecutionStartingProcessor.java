@@ -17,9 +17,11 @@ package com.thoughtworks.gauge.processor;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ExecutionContext;
+import com.thoughtworks.gauge.MessageCollector;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import com.thoughtworks.gauge.registry.HooksRegistry;
 import gauge.messages.Messages;
+import gauge.messages.Spec;
 
 public class ScenarioExecutionStartingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
     public ScenarioExecutionStartingProcessor(ClassInstanceManager instanceManager) {
@@ -28,6 +30,8 @@ public class ScenarioExecutionStartingProcessor extends MethodExecutionMessagePr
 
     public Messages.Message process(Messages.Message message) {
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getScenarioExecutionStartingRequest().getCurrentExecutionInfo());
-        return executeHooks(HooksRegistry.getBeforeScenarioHooks(), message, info);
+        Messages.Message result = executeHooks(HooksRegistry.getBeforeScenarioHooks(), message, info);
+        Spec.ProtoExecutionResult executionResult = result.getExecutionStatusResponse().getExecutionResult();
+        return createMessageWithExecutionStatusResponse(message, new MessageCollector().addPendingMessagesTo(executionResult));
     }
 }
