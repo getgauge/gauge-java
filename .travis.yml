@@ -20,7 +20,8 @@ script:
   - git clone --depth=1 https://github.com/getgauge/gauge-tests
   - cd gauge-tests
   - GAUGE_PREFIX=/tmp ./install_latest_gauge_nightly.sh
-    - echo "gauge_repository_url = https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/" >> skel/gauge.properties
+  - gauge -v
+  - echo "gauge_repository_url = https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/" >> skel/gauge.properties
   - export PATH=/tmp/bin:$PATH
   - cd $TRAVIS_BUILD_DIR
   - go run make.go --install
