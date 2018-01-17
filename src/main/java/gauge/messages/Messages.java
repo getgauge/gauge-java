@@ -8969,6 +8969,25 @@ public final class Messages {
      */
     com.google.protobuf.ByteString
         getStackTraceBytes();
+
+  /**
+   * <pre>
+   *&#47; The current error message in case of failure
+   * </pre>
+   *
+   * <code>string errorMessage = 4;</code>
+   */
+    java.lang.String getErrorMessage();
+
+  /**
+   * <pre>
+   *&#47; The current error message in case of failure
+   * </pre>
+   *
+   * <code>string errorMessage = 4;</code>
+   */
+    com.google.protobuf.ByteString getErrorMessageBytes();
+
   }
   /**
    * <pre>
@@ -8988,6 +9007,7 @@ public final class Messages {
     private StepInfo() {
       isFailed_ = false;
       stackTrace_ = "";
+      errorMessage_ = "";
     }
 
     @java.lang.Override
@@ -9039,6 +9059,7 @@ public final class Messages {
               stackTrace_ = s;
               break;
             }
+            // todo: which tag should be used for errorMessage_?
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -9150,6 +9171,46 @@ public final class Messages {
       }
     }
 
+    public static final int ERRORMESSAGE_FIELD_NUMBER = 4;
+    private volatile java.lang.Object errorMessage_;
+
+  /**
+   * <pre>
+   *&#47; The current error message in case of failure
+   * </pre>
+   *
+   * <code>string errorMessage = 4;</code>
+   */
+    public String getErrorMessage() {
+        java.lang.Object ref = errorMessage_;
+        if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+        } else {
+            com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            errorMessage_ = s;
+            return s;
+        }
+    }
+
+    /**
+    * <pre>
+    *&#47; The current error message in case of failure
+    * </pre>
+    *
+    * <code>string errorMessage = 4;</code>
+    */
+    public com.google.protobuf.ByteString getErrorMessageBytes() {
+        java.lang.Object ref = errorMessage_;
+        if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+            errorMessage_ = b;
+            return b;
+        } else {
+            return (com.google.protobuf.ByteString) ref;
+        }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -9163,13 +9224,16 @@ public final class Messages {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (step_ != null) {
-        output.writeMessage(1, getStep());
+        output.writeMessage(STEP_FIELD_NUMBER, getStep());
       }
       if (isFailed_ != false) {
-        output.writeBool(2, isFailed_);
+        output.writeBool(ISFAILED_FIELD_NUMBER, isFailed_);
       }
       if (!getStackTraceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, stackTrace_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, STACKTRACE_FIELD_NUMBER, stackTrace_);
+      }
+      if (!getErrorMessageBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, ERRORMESSAGE_FIELD_NUMBER, errorMessage_);
       }
     }
 
@@ -9180,14 +9244,17 @@ public final class Messages {
       size = 0;
       if (step_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getStep());
+          .computeMessageSize(STEP_FIELD_NUMBER, getStep());
       }
       if (isFailed_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, isFailed_);
+          .computeBoolSize(ISFAILED_FIELD_NUMBER, isFailed_);
       }
       if (!getStackTraceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, stackTrace_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(STACKTRACE_FIELD_NUMBER, stackTrace_);
+      }
+      if (!getErrorMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(ERRORMESSAGE_FIELD_NUMBER, errorMessage_);
       }
       memoizedSize = size;
       return size;
@@ -9214,6 +9281,7 @@ public final class Messages {
           == other.getIsFailed());
       result = result && getStackTrace()
           .equals(other.getStackTrace());
+      result = result && getErrorMessage().equals(other.getErrorMessage());
       return result;
     }
 
@@ -9233,6 +9301,8 @@ public final class Messages {
           getIsFailed());
       hash = (37 * hash) + STACKTRACE_FIELD_NUMBER;
       hash = (53 * hash) + getStackTrace().hashCode();
+      hash = (37 * hash) + ERRORMESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getErrorMessage().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -9405,6 +9475,7 @@ public final class Messages {
         }
         result.isFailed_ = isFailed_;
         result.stackTrace_ = stackTrace_;
+        result.errorMessage_ = errorMessage_;
         onBuilt();
         return result;
       }
@@ -9454,6 +9525,10 @@ public final class Messages {
         }
         if (!other.getStackTrace().isEmpty()) {
           stackTrace_ = other.stackTrace_;
+          onChanged();
+        }
+        if (!other.getErrorMessage().isEmpty()) {
+          errorMessage_ = other.errorMessage_;
           onChanged();
         }
         onChanged();
@@ -9761,6 +9836,92 @@ public final class Messages {
         onChanged();
         return this;
       }
+
+        private java.lang.Object errorMessage_ = "";
+
+        /**
+         * <pre>
+         *&#47; The current error message in case of failure
+         * </pre>
+         *
+         * <code>string errorMessage = 4;</code>
+         */
+        public java.lang.String getErrorMessage() {
+            java.lang.Object ref = errorMessage_;
+            if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                errorMessage_ = s;
+                return s;
+            } else {
+                return (java.lang.String) ref;
+            }
+        }
+
+        /**
+         * <pre>
+         *&#47; The current error message in case of failure
+         * </pre>
+         *
+         * <code>string errorMessage = 4;</code>
+         */
+        public com.google.protobuf.ByteString getErrorMessageBytes() {
+            java.lang.Object ref = errorMessage_;
+            if (ref instanceof String) {
+                com.google.protobuf.ByteString b = com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
+                errorMessage_ = b;
+                return b;
+            } else {
+                return (com.google.protobuf.ByteString) ref;
+            }
+        }
+
+        /**
+         * <pre>
+         *&#47; The current error message in case of failure
+         * </pre>
+         *
+         * <code>string errorMessage = 4;</code>
+         */
+        public Builder setErrorMessage(java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            errorMessage_ = value;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <pre>
+         *&#47; The current error message in case of failure
+         * </pre>
+         *
+         * <code>string errorMessage = 4;</code>
+         */
+        public Builder clearErrorMessage() {
+            errorMessage_ = getDefaultInstance().getErrorMessage();
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <pre>
+         *&#47; The current error message in case of failure
+         * </pre>
+         *
+         * <code>string errorMessage = 4;</code>
+         */
+        public Builder setErrorMessageBytes(com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+            errorMessage_ = value;
+            onChanged();
+            return this;
+        }
+
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;

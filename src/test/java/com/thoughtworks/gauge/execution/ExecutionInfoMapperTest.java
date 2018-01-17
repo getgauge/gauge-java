@@ -24,60 +24,116 @@ import junit.framework.TestCase;
 
 import java.util.List;
 
+import static java.util.Arrays.asList;
+
 public class ExecutionInfoMapperTest extends TestCase {
 
+    private static final String ACTUAL_STEP_TEXT = "foo bar <a>";
+    private static final String PARSED_STEP_TEXT = "foo bar {}";
+    private static final String STACK_TRACE = "Stack trace";
+    private static final String ERROR_MESSAGE = "Error message";
+    private static final String SCENARIO_NAME = "Scenario name";
+    private static final String SPEC_NAME = "Specification name";
+    private static final String FILE_NAME = "hello.spec";
+    private static final String SCENARIO_TAG_1 = "ScenarioTag1";
+    private static final String SCENARIO_TAG_2 = "ScenarioTag2";
+    private static final String SPEC_TAG_1 = "SpecTag1";
+    private static final String SPEC_TAG_2 = "SpecTag2";
+
     public void testStepDetailsCreation() throws Exception {
-        Messages.ExecuteStepRequest step = Messages.ExecuteStepRequest.newBuilder().setActualStepText("hello world <a>").setParsedStepText("hello world {}").build();
-        String stackTrace = "StackTrace";
-        Messages.StepInfo stepInfo = Messages.StepInfo.newBuilder().setIsFailed(true).setStep(step).setStackTrace(stackTrace).build();
+        Messages.ExecuteStepRequest step = Messages.ExecuteStepRequest.newBuilder()
+                .setActualStepText(ACTUAL_STEP_TEXT)
+                .setParsedStepText(PARSED_STEP_TEXT)
+                .build();
+
+        Messages.StepInfo stepInfo = Messages.StepInfo.newBuilder()
+                .setIsFailed(true)
+                .setStep(step)
+                .setStackTrace(STACK_TRACE)
+                .setErrorMessage(ERROR_MESSAGE)
+                .build();
+
         StepDetails stepDetails = new ExecutionInfoMapper().stepFrom(stepInfo);
 
-        assertEquals("hello world <a>", stepDetails.getText());
-        assertEquals("StackTrace", stepDetails.getStackTrace());
+        assertEquals(ACTUAL_STEP_TEXT, stepDetails.getText());
+        assertEquals(STACK_TRACE, stepDetails.getStackTrace());
+        assertEquals(ERROR_MESSAGE, stepDetails.getErrorMessage());
         assertTrue(stepDetails.getIsFailing());
     }
 
     public void testScenarioDetailsCreation() throws Exception {
-        Messages.ScenarioInfo scenarioInfo = Messages.ScenarioInfo.newBuilder().setIsFailed(false).setName("My scenario").addTags("tag1").addTags("tag2").build();
+        Messages.ScenarioInfo scenarioInfo = Messages.ScenarioInfo.newBuilder()
+                .setIsFailed(false)
+                .setName(SCENARIO_NAME)
+                .addTags(SCENARIO_TAG_1)
+                .addTags(SCENARIO_TAG_2)
+                .build();
+
         Scenario scenario = new ExecutionInfoMapper().scenarioFrom(scenarioInfo);
 
-        assertEquals("My scenario", scenario.getName());
+        assertEquals(SCENARIO_NAME, scenario.getName());
         assertFalse(scenario.getIsFailing());
         List<String> tags = scenario.getTags();
         assertEquals(2, tags.size());
-        assertTrue(tags.contains("tag1"));
-        assertTrue(tags.contains("tag2"));
+        assertTrue(tags.containsAll(asList(SCENARIO_TAG_1, SCENARIO_TAG_2)));
     }
 
     public void testSpecificationDetailsCreation() throws Exception {
-        Messages.ScenarioInfo scenarioInfo = Messages.ScenarioInfo.newBuilder().setIsFailed(true).setName("a scenario").addTags("tag3").build();
-        Messages.SpecInfo specInfo = Messages.SpecInfo.newBuilder().setFileName("hello.spec").setIsFailed(true).addTags("specTag").addTags("specTag2").setName("My spec").build();
+        Messages.ScenarioInfo scenarioInfo = Messages.ScenarioInfo.newBuilder()
+                .setIsFailed(true)
+                .setName(SCENARIO_NAME)
+                .addTags(SCENARIO_TAG_1)
+                .build();
 
-        Messages.ExecuteStepRequest step = Messages.ExecuteStepRequest.newBuilder().setActualStepText("foo bar <a>").setParsedStepText("foo bar {}").build();
-        Messages.StepInfo stepInfo = Messages.StepInfo.newBuilder().setIsFailed(true).setStep(step).build();
+        Messages.SpecInfo specInfo = Messages.SpecInfo.newBuilder()
+                .setFileName(FILE_NAME)
+                .setIsFailed(true)
+                .addTags(SPEC_TAG_1)
+                .addTags(SPEC_TAG_2)
+                .setName(SPEC_NAME)
+                .build();
 
-        Messages.ExecutionInfo executionInfo = Messages.ExecutionInfo.newBuilder().setCurrentSpec(specInfo).setCurrentScenario(scenarioInfo).setCurrentStep(stepInfo).build();
+        Messages.ExecuteStepRequest step = Messages.ExecuteStepRequest.newBuilder()
+                .setActualStepText(ACTUAL_STEP_TEXT)
+                .setParsedStepText(PARSED_STEP_TEXT)
+                .build();
+
+        Messages.StepInfo stepInfo = Messages.StepInfo.newBuilder()
+                .setIsFailed(true)
+                .setStep(step)
+                .setStackTrace(STACK_TRACE)
+                .setErrorMessage(ERROR_MESSAGE)
+                .build();
+
+        Messages.ExecutionInfo executionInfo = Messages.ExecutionInfo.newBuilder()
+                .setCurrentSpec(specInfo)
+                .setCurrentScenario(scenarioInfo)
+                .setCurrentStep(stepInfo)
+                .build();
+
         ExecutionContext executionContext = new ExecutionInfoMapper().executionInfoFrom(executionInfo);
 
         Specification currentSpecification = executionContext.getCurrentSpecification();
-        assertEquals("My spec", currentSpecification.getName());
+        assertEquals(SPEC_NAME, currentSpecification.getName());
         assertTrue(currentSpecification.getIsFailing());
-        assertEquals("hello.spec", currentSpecification.getFileName());
+        assertEquals(FILE_NAME, currentSpecification.getFileName());
+
         List<String> specTags = currentSpecification.getTags();
         assertEquals(2, specTags.size());
-        assertTrue(specTags.contains("specTag"));
-        assertTrue(specTags.contains("specTag2"));
-
+        assertTrue(specTags.containsAll(asList(SPEC_TAG_1, SPEC_TAG_2)));
 
         Scenario currentScenario = executionContext.getCurrentScenario();
-        assertEquals("a scenario", currentScenario.getName());
+        assertEquals(SCENARIO_NAME, currentScenario.getName());
         assertTrue(currentScenario.getIsFailing());
+        
         List<String> scenarioTags = currentScenario.getTags();
         assertEquals(1, scenarioTags.size());
-        assertTrue(scenarioTags.contains("tag3"));
+        assertTrue(scenarioTags.contains(SCENARIO_TAG_1));
 
         StepDetails currentStep = executionContext.getCurrentStep();
         assertTrue(currentStep.getIsFailing());
-        assertEquals("foo bar <a>", currentStep.getText());
+        assertEquals(STACK_TRACE, currentStep.getStackTrace());
+        assertEquals(ERROR_MESSAGE, currentStep.getErrorMessage());
+        assertEquals(ACTUAL_STEP_TEXT, currentStep.getText());
     }
 }

@@ -46,9 +46,9 @@ public class ExecutionInfoMapper {
 
     public StepDetails stepFrom(Messages.StepInfo currentStep) {
         if (currentStep.isInitialized()) {
-            return new StepDetails(currentStep.getStep().getActualStepText(), currentStep.getIsFailed(), currentStep.getStackTrace());
+            return new StepDetails(currentStep.getStep().getActualStepText(), currentStep.getIsFailed(),
+                    currentStep.getStackTrace(), currentStep.getErrorMessage());
         }
         return new StepDetails();
-
     }
 }
