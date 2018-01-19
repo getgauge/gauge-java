@@ -349,6 +349,76 @@ public final class Spec {
      */
     com.google.protobuf.ByteString
         getTagsBytes(int index);
+
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 8;</code>
+     */
+    java.util.List<java.lang.String>
+        getPreHookMessagesList();
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 8;</code>
+     */
+    int getPreHookMessagesCount();
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 8;</code>
+     */
+    java.lang.String getPreHookMessages(int index);
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getPreHookMessagesBytes(int index);
+
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 9;</code>
+     */
+    java.util.List<java.lang.String>
+        getPostHookMessagesList();
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 9;</code>
+     */
+    int getPostHookMessagesCount();
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 9;</code>
+     */
+    java.lang.String getPostHookMessages(int index);
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getPostHookMessagesBytes(int index);
   }
   /**
    * <pre>
@@ -374,6 +444,8 @@ public final class Spec {
       postHookFailures_ = java.util.Collections.emptyList();
       fileName_ = "";
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -454,6 +526,24 @@ public final class Spec {
               tags_.add(s);
               break;
             }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                preHookMessages_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000080;
+              }
+              preHookMessages_.add(s);
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+                postHookMessages_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000100;
+              }
+              postHookMessages_.add(s);
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -473,6 +563,12 @@ public final class Spec {
         }
         if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           tags_ = tags_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+          preHookMessages_ = preHookMessages_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+          postHookMessages_ = postHookMessages_.getUnmodifiableView();
         }
         makeExtensionsImmutable();
       }
@@ -797,6 +893,96 @@ public final class Spec {
       return tags_.getByteString(index);
     }
 
+    public static final int PREHOOKMESSAGES_FIELD_NUMBER = 8;
+    private com.google.protobuf.LazyStringList preHookMessages_;
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 8;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPreHookMessagesList() {
+      return preHookMessages_;
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 8;</code>
+     */
+    public int getPreHookMessagesCount() {
+      return preHookMessages_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 8;</code>
+     */
+    public java.lang.String getPreHookMessages(int index) {
+      return preHookMessages_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPreHookMessagesBytes(int index) {
+      return preHookMessages_.getByteString(index);
+    }
+
+    public static final int POSTHOOKMESSAGES_FIELD_NUMBER = 9;
+    private com.google.protobuf.LazyStringList postHookMessages_;
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 9;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPostHookMessagesList() {
+      return postHookMessages_;
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 9;</code>
+     */
+    public int getPostHookMessagesCount() {
+      return postHookMessages_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 9;</code>
+     */
+    public java.lang.String getPostHookMessages(int index) {
+      return postHookMessages_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPostHookMessagesBytes(int index) {
+      return postHookMessages_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -829,6 +1015,12 @@ public final class Spec {
       }
       for (int i = 0; i < tags_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, tags_.getRaw(i));
+      }
+      for (int i = 0; i < preHookMessages_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, preHookMessages_.getRaw(i));
+      }
+      for (int i = 0; i < postHookMessages_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, postHookMessages_.getRaw(i));
       }
     }
 
@@ -867,6 +1059,22 @@ public final class Spec {
         size += dataSize;
         size += 1 * getTagsList().size();
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < preHookMessages_.size(); i++) {
+          dataSize += computeStringSizeNoTag(preHookMessages_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPreHookMessagesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < postHookMessages_.size(); i++) {
+          dataSize += computeStringSizeNoTag(postHookMessages_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPostHookMessagesList().size();
+      }
       memoizedSize = size;
       return size;
     }
@@ -897,6 +1105,10 @@ public final class Spec {
           .equals(other.getFileName());
       result = result && getTagsList()
           .equals(other.getTagsList());
+      result = result && getPreHookMessagesList()
+          .equals(other.getPreHookMessagesList());
+      result = result && getPostHookMessagesList()
+          .equals(other.getPostHookMessagesList());
       return result;
     }
 
@@ -929,6 +1141,14 @@ public final class Spec {
       if (getTagsCount() > 0) {
         hash = (37 * hash) + TAGS_FIELD_NUMBER;
         hash = (53 * hash) + getTagsList().hashCode();
+      }
+      if (getPreHookMessagesCount() > 0) {
+        hash = (37 * hash) + PREHOOKMESSAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getPreHookMessagesList().hashCode();
+      }
+      if (getPostHookMessagesCount() > 0) {
+        hash = (37 * hash) + POSTHOOKMESSAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getPostHookMessagesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1093,6 +1313,10 @@ public final class Spec {
 
         tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000040);
+        preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -1152,6 +1376,16 @@ public final class Spec {
           bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.tags_ = tags_;
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          preHookMessages_ = preHookMessages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000080);
+        }
+        result.preHookMessages_ = preHookMessages_;
+        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+          postHookMessages_ = postHookMessages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000100);
+        }
+        result.postHookMessages_ = postHookMessages_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1290,6 +1524,26 @@ public final class Spec {
           } else {
             ensureTagsIsMutable();
             tags_.addAll(other.tags_);
+          }
+          onChanged();
+        }
+        if (!other.preHookMessages_.isEmpty()) {
+          if (preHookMessages_.isEmpty()) {
+            preHookMessages_ = other.preHookMessages_;
+            bitField0_ = (bitField0_ & ~0x00000080);
+          } else {
+            ensurePreHookMessagesIsMutable();
+            preHookMessages_.addAll(other.preHookMessages_);
+          }
+          onChanged();
+        }
+        if (!other.postHookMessages_.isEmpty()) {
+          if (postHookMessages_.isEmpty()) {
+            postHookMessages_ = other.postHookMessages_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+          } else {
+            ensurePostHookMessagesIsMutable();
+            postHookMessages_.addAll(other.postHookMessages_);
           }
           onChanged();
         }
@@ -2598,6 +2852,266 @@ public final class Spec {
   checkByteStringIsUtf8(value);
         ensureTagsIsMutable();
         tags_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePreHookMessagesIsMutable() {
+        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+          preHookMessages_ = new com.google.protobuf.LazyStringArrayList(preHookMessages_);
+          bitField0_ |= 0x00000080;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 8;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPreHookMessagesList() {
+        return preHookMessages_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 8;</code>
+       */
+      public int getPreHookMessagesCount() {
+        return preHookMessages_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 8;</code>
+       */
+      public java.lang.String getPreHookMessages(int index) {
+        return preHookMessages_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPreHookMessagesBytes(int index) {
+        return preHookMessages_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 8;</code>
+       */
+      public Builder setPreHookMessages(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookMessagesIsMutable();
+        preHookMessages_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 8;</code>
+       */
+      public Builder addPreHookMessages(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookMessagesIsMutable();
+        preHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 8;</code>
+       */
+      public Builder addAllPreHookMessages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePreHookMessagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, preHookMessages_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 8;</code>
+       */
+      public Builder clearPreHookMessages() {
+        preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 8;</code>
+       */
+      public Builder addPreHookMessagesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePreHookMessagesIsMutable();
+        preHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePostHookMessagesIsMutable() {
+        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+          postHookMessages_ = new com.google.protobuf.LazyStringArrayList(postHookMessages_);
+          bitField0_ |= 0x00000100;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 9;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPostHookMessagesList() {
+        return postHookMessages_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 9;</code>
+       */
+      public int getPostHookMessagesCount() {
+        return postHookMessages_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 9;</code>
+       */
+      public java.lang.String getPostHookMessages(int index) {
+        return postHookMessages_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPostHookMessagesBytes(int index) {
+        return postHookMessages_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 9;</code>
+       */
+      public Builder setPostHookMessages(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookMessagesIsMutable();
+        postHookMessages_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 9;</code>
+       */
+      public Builder addPostHookMessages(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookMessagesIsMutable();
+        postHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 9;</code>
+       */
+      public Builder addAllPostHookMessages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePostHookMessagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, postHookMessages_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 9;</code>
+       */
+      public Builder clearPostHookMessages() {
+        postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 9;</code>
+       */
+      public Builder addPostHookMessagesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePostHookMessagesIsMutable();
+        postHookMessages_.add(value);
         onChanged();
         return this;
       }
@@ -5504,6 +6018,76 @@ public final class Spec {
      * <code>.gauge.messages.ExecutionStatus executionStatus = 14;</code>
      */
     gauge.messages.Spec.ExecutionStatus getExecutionStatus();
+
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 15;</code>
+     */
+    java.util.List<java.lang.String>
+        getPreHookMessagesList();
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 15;</code>
+     */
+    int getPreHookMessagesCount();
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 15;</code>
+     */
+    java.lang.String getPreHookMessages(int index);
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 15;</code>
+     */
+    com.google.protobuf.ByteString
+        getPreHookMessagesBytes(int index);
+
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 16;</code>
+     */
+    java.util.List<java.lang.String>
+        getPostHookMessagesList();
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 16;</code>
+     */
+    int getPostHookMessagesCount();
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 16;</code>
+     */
+    java.lang.String getPostHookMessages(int index);
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 16;</code>
+     */
+    com.google.protobuf.ByteString
+        getPostHookMessagesBytes(int index);
   }
   /**
    * <pre>
@@ -5532,6 +6116,8 @@ public final class Spec {
       iD_ = "";
       tearDownSteps_ = java.util.Collections.emptyList();
       executionStatus_ = 0;
+      preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -5676,6 +6262,24 @@ public final class Spec {
               executionStatus_ = rawValue;
               break;
             }
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
+                preHookMessages_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00004000;
+              }
+              preHookMessages_.add(s);
+              break;
+            }
+            case 130: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+                postHookMessages_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00008000;
+              }
+              postHookMessages_.add(s);
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -5698,6 +6302,12 @@ public final class Spec {
         }
         if (((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
           tearDownSteps_ = java.util.Collections.unmodifiableList(tearDownSteps_);
+        }
+        if (((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
+          preHookMessages_ = preHookMessages_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+          postHookMessages_ = postHookMessages_.getUnmodifiableView();
         }
         makeExtensionsImmutable();
       }
@@ -6216,6 +6826,96 @@ public final class Spec {
       return result == null ? gauge.messages.Spec.ExecutionStatus.UNRECOGNIZED : result;
     }
 
+    public static final int PREHOOKMESSAGES_FIELD_NUMBER = 15;
+    private com.google.protobuf.LazyStringList preHookMessages_;
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 15;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPreHookMessagesList() {
+      return preHookMessages_;
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 15;</code>
+     */
+    public int getPreHookMessagesCount() {
+      return preHookMessages_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 15;</code>
+     */
+    public java.lang.String getPreHookMessages(int index) {
+      return preHookMessages_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 15;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPreHookMessagesBytes(int index) {
+      return preHookMessages_.getByteString(index);
+    }
+
+    public static final int POSTHOOKMESSAGES_FIELD_NUMBER = 16;
+    private com.google.protobuf.LazyStringList postHookMessages_;
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 16;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPostHookMessagesList() {
+      return postHookMessages_;
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 16;</code>
+     */
+    public int getPostHookMessagesCount() {
+      return postHookMessages_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 16;</code>
+     */
+    public java.lang.String getPostHookMessages(int index) {
+      return postHookMessages_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 16;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPostHookMessagesBytes(int index) {
+      return postHookMessages_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -6269,6 +6969,12 @@ public final class Spec {
       }
       if (executionStatus_ != gauge.messages.Spec.ExecutionStatus.NOTEXECUTED.getNumber()) {
         output.writeEnum(14, executionStatus_);
+      }
+      for (int i = 0; i < preHookMessages_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, preHookMessages_.getRaw(i));
+      }
+      for (int i = 0; i < postHookMessages_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 16, postHookMessages_.getRaw(i));
       }
     }
 
@@ -6339,6 +7045,22 @@ public final class Spec {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(14, executionStatus_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < preHookMessages_.size(); i++) {
+          dataSize += computeStringSizeNoTag(preHookMessages_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPreHookMessagesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < postHookMessages_.size(); i++) {
+          dataSize += computeStringSizeNoTag(postHookMessages_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getPostHookMessagesList().size();
+      }
       memoizedSize = size;
       return size;
     }
@@ -6391,6 +7113,10 @@ public final class Spec {
             .equals(other.getSpan());
       }
       result = result && executionStatus_ == other.executionStatus_;
+      result = result && getPreHookMessagesList()
+          .equals(other.getPreHookMessagesList());
+      result = result && getPostHookMessagesList()
+          .equals(other.getPostHookMessagesList());
       return result;
     }
 
@@ -6448,6 +7174,14 @@ public final class Spec {
       }
       hash = (37 * hash) + EXECUTIONSTATUS_FIELD_NUMBER;
       hash = (53 * hash) + executionStatus_;
+      if (getPreHookMessagesCount() > 0) {
+        hash = (37 * hash) + PREHOOKMESSAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getPreHookMessagesList().hashCode();
+      }
+      if (getPostHookMessagesCount() > 0) {
+        hash = (37 * hash) + POSTHOOKMESSAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getPostHookMessagesList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6636,6 +7370,10 @@ public final class Spec {
         }
         executionStatus_ = 0;
 
+        preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00004000);
+        postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00008000);
         return this;
       }
 
@@ -6718,6 +7456,16 @@ public final class Spec {
           result.span_ = spanBuilder_.build();
         }
         result.executionStatus_ = executionStatus_;
+        if (((bitField0_ & 0x00004000) == 0x00004000)) {
+          preHookMessages_ = preHookMessages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00004000);
+        }
+        result.preHookMessages_ = preHookMessages_;
+        if (((bitField0_ & 0x00008000) == 0x00008000)) {
+          postHookMessages_ = postHookMessages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00008000);
+        }
+        result.postHookMessages_ = postHookMessages_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6886,6 +7634,26 @@ public final class Spec {
         }
         if (other.executionStatus_ != 0) {
           setExecutionStatusValue(other.getExecutionStatusValue());
+        }
+        if (!other.preHookMessages_.isEmpty()) {
+          if (preHookMessages_.isEmpty()) {
+            preHookMessages_ = other.preHookMessages_;
+            bitField0_ = (bitField0_ & ~0x00004000);
+          } else {
+            ensurePreHookMessagesIsMutable();
+            preHookMessages_.addAll(other.preHookMessages_);
+          }
+          onChanged();
+        }
+        if (!other.postHookMessages_.isEmpty()) {
+          if (postHookMessages_.isEmpty()) {
+            postHookMessages_ = other.postHookMessages_;
+            bitField0_ = (bitField0_ & ~0x00008000);
+          } else {
+            ensurePostHookMessagesIsMutable();
+            postHookMessages_.addAll(other.postHookMessages_);
+          }
+          onChanged();
         }
         onChanged();
         return this;
@@ -8924,6 +9692,266 @@ public final class Spec {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.LazyStringList preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePreHookMessagesIsMutable() {
+        if (!((bitField0_ & 0x00004000) == 0x00004000)) {
+          preHookMessages_ = new com.google.protobuf.LazyStringArrayList(preHookMessages_);
+          bitField0_ |= 0x00004000;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 15;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPreHookMessagesList() {
+        return preHookMessages_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 15;</code>
+       */
+      public int getPreHookMessagesCount() {
+        return preHookMessages_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 15;</code>
+       */
+      public java.lang.String getPreHookMessages(int index) {
+        return preHookMessages_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 15;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPreHookMessagesBytes(int index) {
+        return preHookMessages_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 15;</code>
+       */
+      public Builder setPreHookMessages(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookMessagesIsMutable();
+        preHookMessages_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 15;</code>
+       */
+      public Builder addPreHookMessages(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookMessagesIsMutable();
+        preHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 15;</code>
+       */
+      public Builder addAllPreHookMessages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePreHookMessagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, preHookMessages_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 15;</code>
+       */
+      public Builder clearPreHookMessages() {
+        preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00004000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 15;</code>
+       */
+      public Builder addPreHookMessagesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePreHookMessagesIsMutable();
+        preHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePostHookMessagesIsMutable() {
+        if (!((bitField0_ & 0x00008000) == 0x00008000)) {
+          postHookMessages_ = new com.google.protobuf.LazyStringArrayList(postHookMessages_);
+          bitField0_ |= 0x00008000;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 16;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPostHookMessagesList() {
+        return postHookMessages_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 16;</code>
+       */
+      public int getPostHookMessagesCount() {
+        return postHookMessages_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 16;</code>
+       */
+      public java.lang.String getPostHookMessages(int index) {
+        return postHookMessages_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 16;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPostHookMessagesBytes(int index) {
+        return postHookMessages_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 16;</code>
+       */
+      public Builder setPostHookMessages(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookMessagesIsMutable();
+        postHookMessages_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 16;</code>
+       */
+      public Builder addPostHookMessages(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookMessagesIsMutable();
+        postHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 16;</code>
+       */
+      public Builder addAllPostHookMessages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePostHookMessagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, postHookMessages_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 16;</code>
+       */
+      public Builder clearPostHookMessages() {
+        postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00008000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 16;</code>
+       */
+      public Builder addPostHookMessagesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePostHookMessagesIsMutable();
+        postHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -8986,6 +10014,16 @@ public final class Spec {
      * <code>int64 end = 2;</code>
      */
     long getEnd();
+
+    /**
+     * <code>int64 startChar = 3;</code>
+     */
+    long getStartChar();
+
+    /**
+     * <code>int64 endChar = 4;</code>
+     */
+    long getEndChar();
   }
   /**
    * <pre>
@@ -9005,6 +10043,8 @@ public final class Spec {
     private Span() {
       start_ = 0L;
       end_ = 0L;
+      startChar_ = 0L;
+      endChar_ = 0L;
     }
 
     @java.lang.Override
@@ -9040,6 +10080,16 @@ public final class Spec {
             case 16: {
 
               end_ = input.readInt64();
+              break;
+            }
+            case 24: {
+
+              startChar_ = input.readInt64();
+              break;
+            }
+            case 32: {
+
+              endChar_ = input.readInt64();
               break;
             }
           }
@@ -9083,6 +10133,24 @@ public final class Spec {
       return end_;
     }
 
+    public static final int STARTCHAR_FIELD_NUMBER = 3;
+    private long startChar_;
+    /**
+     * <code>int64 startChar = 3;</code>
+     */
+    public long getStartChar() {
+      return startChar_;
+    }
+
+    public static final int ENDCHAR_FIELD_NUMBER = 4;
+    private long endChar_;
+    /**
+     * <code>int64 endChar = 4;</code>
+     */
+    public long getEndChar() {
+      return endChar_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -9101,6 +10169,12 @@ public final class Spec {
       if (end_ != 0L) {
         output.writeInt64(2, end_);
       }
+      if (startChar_ != 0L) {
+        output.writeInt64(3, startChar_);
+      }
+      if (endChar_ != 0L) {
+        output.writeInt64(4, endChar_);
+      }
     }
 
     public int getSerializedSize() {
@@ -9115,6 +10189,14 @@ public final class Spec {
       if (end_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, end_);
+      }
+      if (startChar_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, startChar_);
+      }
+      if (endChar_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, endChar_);
       }
       memoizedSize = size;
       return size;
@@ -9136,6 +10218,10 @@ public final class Spec {
           == other.getStart());
       result = result && (getEnd()
           == other.getEnd());
+      result = result && (getStartChar()
+          == other.getStartChar());
+      result = result && (getEndChar()
+          == other.getEndChar());
       return result;
     }
 
@@ -9152,6 +10238,12 @@ public final class Spec {
       hash = (37 * hash) + END_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getEnd());
+      hash = (37 * hash) + STARTCHAR_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getStartChar());
+      hash = (37 * hash) + ENDCHAR_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getEndChar());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -9289,6 +10381,10 @@ public final class Spec {
 
         end_ = 0L;
 
+        startChar_ = 0L;
+
+        endChar_ = 0L;
+
         return this;
       }
 
@@ -9313,6 +10409,8 @@ public final class Spec {
         gauge.messages.Spec.Span result = new gauge.messages.Spec.Span(this);
         result.start_ = start_;
         result.end_ = end_;
+        result.startChar_ = startChar_;
+        result.endChar_ = endChar_;
         onBuilt();
         return result;
       }
@@ -9359,6 +10457,12 @@ public final class Spec {
         }
         if (other.getEnd() != 0L) {
           setEnd(other.getEnd());
+        }
+        if (other.getStartChar() != 0L) {
+          setStartChar(other.getStartChar());
+        }
+        if (other.getEndChar() != 0L) {
+          setEndChar(other.getEndChar());
         }
         onChanged();
         return this;
@@ -9434,6 +10538,58 @@ public final class Spec {
       public Builder clearEnd() {
         
         end_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long startChar_ ;
+      /**
+       * <code>int64 startChar = 3;</code>
+       */
+      public long getStartChar() {
+        return startChar_;
+      }
+      /**
+       * <code>int64 startChar = 3;</code>
+       */
+      public Builder setStartChar(long value) {
+        
+        startChar_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 startChar = 3;</code>
+       */
+      public Builder clearStartChar() {
+        
+        startChar_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long endChar_ ;
+      /**
+       * <code>int64 endChar = 4;</code>
+       */
+      public long getEndChar() {
+        return endChar_;
+      }
+      /**
+       * <code>int64 endChar = 4;</code>
+       */
+      public Builder setEndChar(long value) {
+        
+        endChar_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 endChar = 4;</code>
+       */
+      public Builder clearEndChar() {
+        
+        endChar_ = 0L;
         onChanged();
         return this;
       }
@@ -10316,6 +11472,76 @@ public final class Spec {
      * <code>.gauge.messages.ProtoStepExecutionResult stepExecutionResult = 4;</code>
      */
     gauge.messages.Spec.ProtoStepExecutionResultOrBuilder getStepExecutionResultOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 5;</code>
+     */
+    java.util.List<java.lang.String>
+        getPreHookMessagesList();
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 5;</code>
+     */
+    int getPreHookMessagesCount();
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 5;</code>
+     */
+    java.lang.String getPreHookMessages(int index);
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getPreHookMessagesBytes(int index);
+
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 6;</code>
+     */
+    java.util.List<java.lang.String>
+        getPostHookMessagesList();
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 6;</code>
+     */
+    int getPostHookMessagesCount();
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 6;</code>
+     */
+    java.lang.String getPostHookMessages(int index);
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getPostHookMessagesBytes(int index);
   }
   /**
    * <pre>
@@ -10336,6 +11562,8 @@ public final class Spec {
       actualText_ = "";
       parsedText_ = "";
       fragments_ = java.util.Collections.emptyList();
+      preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -10397,6 +11625,24 @@ public final class Spec {
 
               break;
             }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                preHookMessages_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              preHookMessages_.add(s);
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                postHookMessages_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              postHookMessages_.add(s);
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -10407,6 +11653,12 @@ public final class Spec {
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           fragments_ = java.util.Collections.unmodifiableList(fragments_);
+        }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          preHookMessages_ = preHookMessages_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          postHookMessages_ = postHookMessages_.getUnmodifiableView();
         }
         makeExtensionsImmutable();
       }
@@ -10596,6 +11848,96 @@ public final class Spec {
       return getStepExecutionResult();
     }
 
+    public static final int PREHOOKMESSAGES_FIELD_NUMBER = 5;
+    private com.google.protobuf.LazyStringList preHookMessages_;
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 5;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPreHookMessagesList() {
+      return preHookMessages_;
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 5;</code>
+     */
+    public int getPreHookMessagesCount() {
+      return preHookMessages_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 5;</code>
+     */
+    public java.lang.String getPreHookMessages(int index) {
+      return preHookMessages_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPreHookMessagesBytes(int index) {
+      return preHookMessages_.getByteString(index);
+    }
+
+    public static final int POSTHOOKMESSAGES_FIELD_NUMBER = 6;
+    private com.google.protobuf.LazyStringList postHookMessages_;
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 6;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPostHookMessagesList() {
+      return postHookMessages_;
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 6;</code>
+     */
+    public int getPostHookMessagesCount() {
+      return postHookMessages_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 6;</code>
+     */
+    public java.lang.String getPostHookMessages(int index) {
+      return postHookMessages_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPostHookMessagesBytes(int index) {
+      return postHookMessages_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -10620,6 +11962,12 @@ public final class Spec {
       if (stepExecutionResult_ != null) {
         output.writeMessage(4, getStepExecutionResult());
       }
+      for (int i = 0; i < preHookMessages_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, preHookMessages_.getRaw(i));
+      }
+      for (int i = 0; i < postHookMessages_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, postHookMessages_.getRaw(i));
+      }
     }
 
     public int getSerializedSize() {
@@ -10640,6 +11988,22 @@ public final class Spec {
       if (stepExecutionResult_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getStepExecutionResult());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < preHookMessages_.size(); i++) {
+          dataSize += computeStringSizeNoTag(preHookMessages_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPreHookMessagesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < postHookMessages_.size(); i++) {
+          dataSize += computeStringSizeNoTag(postHookMessages_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPostHookMessagesList().size();
       }
       memoizedSize = size;
       return size;
@@ -10668,6 +12032,10 @@ public final class Spec {
         result = result && getStepExecutionResult()
             .equals(other.getStepExecutionResult());
       }
+      result = result && getPreHookMessagesList()
+          .equals(other.getPreHookMessagesList());
+      result = result && getPostHookMessagesList()
+          .equals(other.getPostHookMessagesList());
       return result;
     }
 
@@ -10689,6 +12057,14 @@ public final class Spec {
       if (hasStepExecutionResult()) {
         hash = (37 * hash) + STEPEXECUTIONRESULT_FIELD_NUMBER;
         hash = (53 * hash) + getStepExecutionResult().hashCode();
+      }
+      if (getPreHookMessagesCount() > 0) {
+        hash = (37 * hash) + PREHOOKMESSAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getPreHookMessagesList().hashCode();
+      }
+      if (getPostHookMessagesCount() > 0) {
+        hash = (37 * hash) + POSTHOOKMESSAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getPostHookMessagesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -10840,6 +12216,10 @@ public final class Spec {
           stepExecutionResult_ = null;
           stepExecutionResultBuilder_ = null;
         }
+        preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -10880,6 +12260,16 @@ public final class Spec {
         } else {
           result.stepExecutionResult_ = stepExecutionResultBuilder_.build();
         }
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          preHookMessages_ = preHookMessages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.preHookMessages_ = preHookMessages_;
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          postHookMessages_ = postHookMessages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.postHookMessages_ = postHookMessages_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10958,6 +12348,26 @@ public final class Spec {
         }
         if (other.hasStepExecutionResult()) {
           mergeStepExecutionResult(other.getStepExecutionResult());
+        }
+        if (!other.preHookMessages_.isEmpty()) {
+          if (preHookMessages_.isEmpty()) {
+            preHookMessages_ = other.preHookMessages_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensurePreHookMessagesIsMutable();
+            preHookMessages_.addAll(other.preHookMessages_);
+          }
+          onChanged();
+        }
+        if (!other.postHookMessages_.isEmpty()) {
+          if (postHookMessages_.isEmpty()) {
+            postHookMessages_ = other.postHookMessages_;
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            ensurePostHookMessagesIsMutable();
+            postHookMessages_.addAll(other.postHookMessages_);
+          }
+          onChanged();
         }
         onChanged();
         return this;
@@ -11627,6 +13037,266 @@ public final class Spec {
           stepExecutionResult_ = null;
         }
         return stepExecutionResultBuilder_;
+      }
+
+      private com.google.protobuf.LazyStringList preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePreHookMessagesIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          preHookMessages_ = new com.google.protobuf.LazyStringArrayList(preHookMessages_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 5;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPreHookMessagesList() {
+        return preHookMessages_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 5;</code>
+       */
+      public int getPreHookMessagesCount() {
+        return preHookMessages_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 5;</code>
+       */
+      public java.lang.String getPreHookMessages(int index) {
+        return preHookMessages_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPreHookMessagesBytes(int index) {
+        return preHookMessages_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 5;</code>
+       */
+      public Builder setPreHookMessages(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookMessagesIsMutable();
+        preHookMessages_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 5;</code>
+       */
+      public Builder addPreHookMessages(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookMessagesIsMutable();
+        preHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 5;</code>
+       */
+      public Builder addAllPreHookMessages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePreHookMessagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, preHookMessages_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 5;</code>
+       */
+      public Builder clearPreHookMessages() {
+        preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 5;</code>
+       */
+      public Builder addPreHookMessagesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePreHookMessagesIsMutable();
+        preHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePostHookMessagesIsMutable() {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+          postHookMessages_ = new com.google.protobuf.LazyStringArrayList(postHookMessages_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 6;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPostHookMessagesList() {
+        return postHookMessages_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 6;</code>
+       */
+      public int getPostHookMessagesCount() {
+        return postHookMessages_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 6;</code>
+       */
+      public java.lang.String getPostHookMessages(int index) {
+        return postHookMessages_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPostHookMessagesBytes(int index) {
+        return postHookMessages_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 6;</code>
+       */
+      public Builder setPostHookMessages(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookMessagesIsMutable();
+        postHookMessages_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 6;</code>
+       */
+      public Builder addPostHookMessages(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookMessagesIsMutable();
+        postHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 6;</code>
+       */
+      public Builder addAllPostHookMessages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePostHookMessagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, postHookMessages_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 6;</code>
+       */
+      public Builder clearPostHookMessages() {
+        postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 6;</code>
+       */
+      public Builder addPostHookMessagesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePostHookMessagesIsMutable();
+        postHookMessages_.add(value);
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -22386,6 +24056,76 @@ public final class Spec {
      * <code>int32 specsSkippedCount = 12;</code>
      */
     int getSpecsSkippedCount();
+
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 13;</code>
+     */
+    java.util.List<java.lang.String>
+        getPreHookMessagesList();
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 13;</code>
+     */
+    int getPreHookMessagesCount();
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 13;</code>
+     */
+    java.lang.String getPreHookMessages(int index);
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 13;</code>
+     */
+    com.google.protobuf.ByteString
+        getPreHookMessagesBytes(int index);
+
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 14;</code>
+     */
+    java.util.List<java.lang.String>
+        getPostHookMessagesList();
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 14;</code>
+     */
+    int getPostHookMessagesCount();
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 14;</code>
+     */
+    java.lang.String getPostHookMessages(int index);
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 14;</code>
+     */
+    com.google.protobuf.ByteString
+        getPostHookMessagesBytes(int index);
   }
   /**
    * <pre>
@@ -22413,6 +24153,8 @@ public final class Spec {
       projectName_ = "";
       timestamp_ = "";
       specsSkippedCount_ = 0;
+      preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -22524,6 +24266,24 @@ public final class Spec {
               specsSkippedCount_ = input.readInt32();
               break;
             }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
+                preHookMessages_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00001000;
+              }
+              preHookMessages_.add(s);
+              break;
+            }
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00002000) == 0x00002000)) {
+                postHookMessages_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00002000;
+              }
+              postHookMessages_.add(s);
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -22534,6 +24294,12 @@ public final class Spec {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           specResults_ = java.util.Collections.unmodifiableList(specResults_);
+        }
+        if (((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
+          preHookMessages_ = preHookMessages_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00002000) == 0x00002000)) {
+          postHookMessages_ = postHookMessages_.getUnmodifiableView();
         }
         makeExtensionsImmutable();
       }
@@ -22901,6 +24667,96 @@ public final class Spec {
       return specsSkippedCount_;
     }
 
+    public static final int PREHOOKMESSAGES_FIELD_NUMBER = 13;
+    private com.google.protobuf.LazyStringList preHookMessages_;
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 13;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPreHookMessagesList() {
+      return preHookMessages_;
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 13;</code>
+     */
+    public int getPreHookMessagesCount() {
+      return preHookMessages_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 13;</code>
+     */
+    public java.lang.String getPreHookMessages(int index) {
+      return preHookMessages_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookMessages = 13;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPreHookMessagesBytes(int index) {
+      return preHookMessages_.getByteString(index);
+    }
+
+    public static final int POSTHOOKMESSAGES_FIELD_NUMBER = 14;
+    private com.google.protobuf.LazyStringList postHookMessages_;
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 14;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPostHookMessagesList() {
+      return postHookMessages_;
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 14;</code>
+     */
+    public int getPostHookMessagesCount() {
+      return postHookMessages_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 14;</code>
+     */
+    public java.lang.String getPostHookMessages(int index) {
+      return postHookMessages_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Additional information at post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookMessages = 14;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPostHookMessagesBytes(int index) {
+      return postHookMessages_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -22948,6 +24804,12 @@ public final class Spec {
       }
       if (specsSkippedCount_ != 0) {
         output.writeInt32(12, specsSkippedCount_);
+      }
+      for (int i = 0; i < preHookMessages_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, preHookMessages_.getRaw(i));
+      }
+      for (int i = 0; i < postHookMessages_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, postHookMessages_.getRaw(i));
       }
     }
 
@@ -23000,6 +24862,22 @@ public final class Spec {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(12, specsSkippedCount_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < preHookMessages_.size(); i++) {
+          dataSize += computeStringSizeNoTag(preHookMessages_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPreHookMessagesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < postHookMessages_.size(); i++) {
+          dataSize += computeStringSizeNoTag(postHookMessages_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPostHookMessagesList().size();
+      }
       memoizedSize = size;
       return size;
     }
@@ -23048,6 +24926,10 @@ public final class Spec {
           .equals(other.getTimestamp());
       result = result && (getSpecsSkippedCount()
           == other.getSpecsSkippedCount());
+      result = result && getPreHookMessagesList()
+          .equals(other.getPreHookMessagesList());
+      result = result && getPostHookMessagesList()
+          .equals(other.getPostHookMessagesList());
       return result;
     }
 
@@ -23091,6 +24973,14 @@ public final class Spec {
       hash = (53 * hash) + getTimestamp().hashCode();
       hash = (37 * hash) + SPECSSKIPPEDCOUNT_FIELD_NUMBER;
       hash = (53 * hash) + getSpecsSkippedCount();
+      if (getPreHookMessagesCount() > 0) {
+        hash = (37 * hash) + PREHOOKMESSAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getPreHookMessagesList().hashCode();
+      }
+      if (getPostHookMessagesCount() > 0) {
+        hash = (37 * hash) + POSTHOOKMESSAGES_FIELD_NUMBER;
+        hash = (53 * hash) + getPostHookMessagesList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -23261,6 +25151,10 @@ public final class Spec {
 
         specsSkippedCount_ = 0;
 
+        preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00001000);
+        postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00002000);
         return this;
       }
 
@@ -23313,6 +25207,16 @@ public final class Spec {
         result.projectName_ = projectName_;
         result.timestamp_ = timestamp_;
         result.specsSkippedCount_ = specsSkippedCount_;
+        if (((bitField0_ & 0x00001000) == 0x00001000)) {
+          preHookMessages_ = preHookMessages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00001000);
+        }
+        result.preHookMessages_ = preHookMessages_;
+        if (((bitField0_ & 0x00002000) == 0x00002000)) {
+          postHookMessages_ = postHookMessages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00002000);
+        }
+        result.postHookMessages_ = postHookMessages_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -23417,6 +25321,26 @@ public final class Spec {
         }
         if (other.getSpecsSkippedCount() != 0) {
           setSpecsSkippedCount(other.getSpecsSkippedCount());
+        }
+        if (!other.preHookMessages_.isEmpty()) {
+          if (preHookMessages_.isEmpty()) {
+            preHookMessages_ = other.preHookMessages_;
+            bitField0_ = (bitField0_ & ~0x00001000);
+          } else {
+            ensurePreHookMessagesIsMutable();
+            preHookMessages_.addAll(other.preHookMessages_);
+          }
+          onChanged();
+        }
+        if (!other.postHookMessages_.isEmpty()) {
+          if (postHookMessages_.isEmpty()) {
+            postHookMessages_ = other.postHookMessages_;
+            bitField0_ = (bitField0_ & ~0x00002000);
+          } else {
+            ensurePostHookMessagesIsMutable();
+            postHookMessages_.addAll(other.postHookMessages_);
+          }
+          onChanged();
         }
         onChanged();
         return this;
@@ -24593,6 +26517,266 @@ public final class Spec {
       public Builder clearSpecsSkippedCount() {
         
         specsSkippedCount_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePreHookMessagesIsMutable() {
+        if (!((bitField0_ & 0x00001000) == 0x00001000)) {
+          preHookMessages_ = new com.google.protobuf.LazyStringArrayList(preHookMessages_);
+          bitField0_ |= 0x00001000;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 13;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPreHookMessagesList() {
+        return preHookMessages_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 13;</code>
+       */
+      public int getPreHookMessagesCount() {
+        return preHookMessages_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 13;</code>
+       */
+      public java.lang.String getPreHookMessages(int index) {
+        return preHookMessages_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 13;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPreHookMessagesBytes(int index) {
+        return preHookMessages_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 13;</code>
+       */
+      public Builder setPreHookMessages(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookMessagesIsMutable();
+        preHookMessages_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 13;</code>
+       */
+      public Builder addPreHookMessages(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookMessagesIsMutable();
+        preHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 13;</code>
+       */
+      public Builder addAllPreHookMessages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePreHookMessagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, preHookMessages_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 13;</code>
+       */
+      public Builder clearPreHookMessages() {
+        preHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00001000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookMessages = 13;</code>
+       */
+      public Builder addPreHookMessagesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePreHookMessagesIsMutable();
+        preHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePostHookMessagesIsMutable() {
+        if (!((bitField0_ & 0x00002000) == 0x00002000)) {
+          postHookMessages_ = new com.google.protobuf.LazyStringArrayList(postHookMessages_);
+          bitField0_ |= 0x00002000;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 14;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPostHookMessagesList() {
+        return postHookMessages_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 14;</code>
+       */
+      public int getPostHookMessagesCount() {
+        return postHookMessages_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 14;</code>
+       */
+      public java.lang.String getPostHookMessages(int index) {
+        return postHookMessages_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 14;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPostHookMessagesBytes(int index) {
+        return postHookMessages_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 14;</code>
+       */
+      public Builder setPostHookMessages(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookMessagesIsMutable();
+        postHookMessages_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 14;</code>
+       */
+      public Builder addPostHookMessages(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookMessagesIsMutable();
+        postHookMessages_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 14;</code>
+       */
+      public Builder addAllPostHookMessages(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePostHookMessagesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, postHookMessages_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 14;</code>
+       */
+      public Builder clearPostHookMessages() {
+        postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00002000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Additional information at post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookMessages = 14;</code>
+       */
+      public Builder addPostHookMessagesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePostHookMessagesIsMutable();
+        postHookMessages_.add(value);
         onChanged();
         return this;
       }
@@ -28858,106 +31042,112 @@ public final class Spec {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nspec.proto\022\016gauge.messages\"\370\001\n\tProtoSp" +
+      "\n\nspec.proto\022\016gauge.messages\"\253\002\n\tProtoSp" +
       "ec\022\023\n\013specHeading\030\001 \001(\t\022(\n\005items\030\002 \003(\0132\031" +
       ".gauge.messages.ProtoItem\022\025\n\risTableDriv" +
       "en\030\003 \001(\010\0229\n\017preHookFailures\030\004 \003(\0132 .gaug" +
       "e.messages.ProtoHookFailure\022:\n\020postHookF" +
       "ailures\030\005 \003(\0132 .gauge.messages.ProtoHook" +
-      "Failure\022\020\n\010fileName\030\006 \001(\t\022\014\n\004tags\030\007 \003(\t\"" +
-      "\200\004\n\tProtoItem\0224\n\010itemType\030\001 \001(\0162\".gauge." +
-      "messages.ProtoItem.ItemType\022\'\n\004step\030\002 \001(" +
-      "\0132\031.gauge.messages.ProtoStep\022-\n\007concept\030",
-      "\003 \001(\0132\034.gauge.messages.ProtoConcept\022/\n\010s" +
-      "cenario\030\004 \001(\0132\035.gauge.messages.ProtoScen" +
-      "ario\022E\n\023tableDrivenScenario\030\005 \001(\0132(.gaug" +
-      "e.messages.ProtoTableDrivenScenario\022-\n\007c" +
-      "omment\030\006 \001(\0132\034.gauge.messages.ProtoComme" +
-      "nt\022)\n\005table\030\007 \001(\0132\032.gauge.messages.Proto" +
-      "Table\022\'\n\004tags\030\010 \001(\0132\031.gauge.messages.Pro" +
-      "toTags\"j\n\010ItemType\022\010\n\004Step\020\000\022\013\n\007Comment\020" +
-      "\001\022\013\n\007Concept\020\002\022\014\n\010Scenario\020\003\022\027\n\023TableDri" +
-      "venScenario\020\004\022\t\n\005Table\020\005\022\010\n\004Tags\020\006\"\372\003\n\rP",
-      "rotoScenario\022\027\n\017scenarioHeading\030\001 \001(\t\022\022\n" +
-      "\006failed\030\002 \001(\010B\002\030\001\022+\n\010contexts\030\003 \003(\0132\031.ga" +
-      "uge.messages.ProtoItem\0220\n\rscenarioItems\030" +
-      "\004 \003(\0132\031.gauge.messages.ProtoItem\0228\n\016preH" +
-      "ookFailure\030\005 \001(\0132 .gauge.messages.ProtoH" +
-      "ookFailure\0229\n\017postHookFailure\030\006 \001(\0132 .ga" +
-      "uge.messages.ProtoHookFailure\022\014\n\004tags\030\007 " +
-      "\003(\t\022\025\n\rexecutionTime\030\010 \001(\003\022\023\n\007skipped\030\t " +
-      "\001(\010B\002\030\001\022\022\n\nskipErrors\030\n \003(\t\022\n\n\002ID\030\013 \001(\t\022" +
-      "0\n\rtearDownSteps\030\014 \003(\0132\031.gauge.messages.",
-      "ProtoItem\022\"\n\004span\030\r \001(\0132\024.gauge.messages" +
-      ".Span\0228\n\017executionStatus\030\016 \001(\0162\037.gauge.m" +
-      "essages.ExecutionStatus\"\"\n\004Span\022\r\n\005start" +
-      "\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\"b\n\030ProtoTableDrivenS" +
-      "cenario\022/\n\010scenario\030\001 \001(\0132\035.gauge.messag" +
-      "es.ProtoScenario\022\025\n\rtableRowIndex\030\002 \001(\005\"" +
-      "\247\001\n\tProtoStep\022\022\n\nactualText\030\001 \001(\t\022\022\n\npar" +
-      "sedText\030\002 \001(\t\022+\n\tfragments\030\003 \003(\0132\030.gauge" +
-      ".messages.Fragment\022E\n\023stepExecutionResul" +
-      "t\030\004 \001(\0132(.gauge.messages.ProtoStepExecut",
-      "ionResult\"\262\001\n\014ProtoConcept\022.\n\013conceptSte" +
-      "p\030\001 \001(\0132\031.gauge.messages.ProtoStep\022(\n\005st" +
-      "eps\030\002 \003(\0132\031.gauge.messages.ProtoItem\022H\n\026" +
-      "conceptExecutionResult\030\003 \001(\0132(.gauge.mes" +
-      "sages.ProtoStepExecutionResult\"\031\n\tProtoT" +
-      "ags\022\014\n\004tags\030\001 \003(\t\"\254\001\n\010Fragment\022;\n\014fragme" +
-      "ntType\030\001 \001(\0162%.gauge.messages.Fragment.F" +
-      "ragmentType\022\014\n\004text\030\002 \001(\t\022,\n\tparameter\030\003" +
-      " \001(\0132\031.gauge.messages.Parameter\"\'\n\014Fragm" +
-      "entType\022\010\n\004Text\020\000\022\r\n\tParameter\020\001\"\357\001\n\tPar",
-      "ameter\022>\n\rparameterType\030\001 \001(\0162\'.gauge.me" +
-      "ssages.Parameter.ParameterType\022\r\n\005value\030" +
-      "\002 \001(\t\022\014\n\004name\030\003 \001(\t\022)\n\005table\030\004 \001(\0132\032.gau" +
-      "ge.messages.ProtoTable\"Z\n\rParameterType\022" +
-      "\n\n\006Static\020\000\022\013\n\007Dynamic\020\001\022\022\n\016Special_Stri" +
-      "ng\020\002\022\021\n\rSpecial_Table\020\003\022\t\n\005Table\020\004\"\034\n\014Pr" +
-      "otoComment\022\014\n\004text\030\001 \001(\t\"i\n\nProtoTable\022." +
-      "\n\007headers\030\001 \001(\0132\035.gauge.messages.ProtoTa" +
-      "bleRow\022+\n\004rows\030\002 \003(\0132\035.gauge.messages.Pr" +
-      "otoTableRow\"\036\n\rProtoTableRow\022\r\n\005cells\030\001 ",
-      "\003(\t\"\366\001\n\030ProtoStepExecutionResult\022=\n\017exec" +
-      "utionResult\030\001 \001(\0132$.gauge.messages.Proto" +
-      "ExecutionResult\0228\n\016preHookFailure\030\002 \001(\0132" +
-      " .gauge.messages.ProtoHookFailure\0229\n\017pos" +
-      "tHookFailure\030\003 \001(\0132 .gauge.messages.Prot" +
-      "oHookFailure\022\017\n\007skipped\030\004 \001(\010\022\025\n\rskipped" +
-      "Reason\030\005 \001(\t\"\227\002\n\024ProtoExecutionResult\022\016\n" +
-      "\006failed\030\001 \001(\010\022\030\n\020recoverableError\030\002 \001(\010\022" +
-      "\024\n\014errorMessage\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(" +
-      "\t\022\022\n\nscreenShot\030\005 \001(\014\022\025\n\rexecutionTime\030\006",
-      " \001(\003\022\017\n\007message\030\007 \003(\t\022A\n\terrorType\030\010 \001(\016" +
-      "2..gauge.messages.ProtoExecutionResult.E" +
-      "rrorType\",\n\tErrorType\022\r\n\tASSERTION\020\000\022\020\n\014" +
-      "VERIFICATION\020\001\"g\n\020ProtoHookFailure\022\022\n\nst" +
-      "ackTrace\030\001 \001(\t\022\024\n\014errorMessage\030\002 \001(\t\022\022\n\n" +
-      "screenShot\030\003 \001(\014\022\025\n\rtableRowIndex\030\004 \001(\005\"" +
-      "\371\002\n\020ProtoSuiteResult\0224\n\013specResults\030\001 \003(" +
-      "\0132\037.gauge.messages.ProtoSpecResult\0228\n\016pr" +
-      "eHookFailure\030\002 \001(\0132 .gauge.messages.Prot" +
-      "oHookFailure\0229\n\017postHookFailure\030\003 \001(\0132 .",
-      "gauge.messages.ProtoHookFailure\022\016\n\006faile" +
-      "d\030\004 \001(\010\022\030\n\020specsFailedCount\030\005 \001(\005\022\025\n\rexe" +
-      "cutionTime\030\006 \001(\003\022\023\n\013successRate\030\007 \001(\002\022\023\n" +
-      "\013environment\030\010 \001(\t\022\014\n\004tags\030\t \001(\t\022\023\n\013proj" +
-      "ectName\030\n \001(\t\022\021\n\ttimestamp\030\013 \001(\t\022\031\n\021spec" +
-      "sSkippedCount\030\014 \001(\005\"\253\002\n\017ProtoSpecResult\022" +
+      "Failure\022\020\n\010fileName\030\006 \001(\t\022\014\n\004tags\030\007 \003(\t\022" +
+      "\027\n\017preHookMessages\030\010 \003(\t\022\030\n\020postHookMess" +
+      "ages\030\t \003(\t\"\200\004\n\tProtoItem\0224\n\010itemType\030\001 \001" +
+      "(\0162\".gauge.messages.ProtoItem.ItemType\022\'",
+      "\n\004step\030\002 \001(\0132\031.gauge.messages.ProtoStep\022" +
+      "-\n\007concept\030\003 \001(\0132\034.gauge.messages.ProtoC" +
+      "oncept\022/\n\010scenario\030\004 \001(\0132\035.gauge.message" +
+      "s.ProtoScenario\022E\n\023tableDrivenScenario\030\005" +
+      " \001(\0132(.gauge.messages.ProtoTableDrivenSc" +
+      "enario\022-\n\007comment\030\006 \001(\0132\034.gauge.messages" +
+      ".ProtoComment\022)\n\005table\030\007 \001(\0132\032.gauge.mes" +
+      "sages.ProtoTable\022\'\n\004tags\030\010 \001(\0132\031.gauge.m" +
+      "essages.ProtoTags\"j\n\010ItemType\022\010\n\004Step\020\000\022" +
+      "\013\n\007Comment\020\001\022\013\n\007Concept\020\002\022\014\n\010Scenario\020\003\022",
+      "\027\n\023TableDrivenScenario\020\004\022\t\n\005Table\020\005\022\010\n\004T" +
+      "ags\020\006\"\255\004\n\rProtoScenario\022\027\n\017scenarioHeadi" +
+      "ng\030\001 \001(\t\022\022\n\006failed\030\002 \001(\010B\002\030\001\022+\n\010contexts" +
+      "\030\003 \003(\0132\031.gauge.messages.ProtoItem\0220\n\rsce" +
+      "narioItems\030\004 \003(\0132\031.gauge.messages.ProtoI" +
+      "tem\0228\n\016preHookFailure\030\005 \001(\0132 .gauge.mess" +
+      "ages.ProtoHookFailure\0229\n\017postHookFailure" +
+      "\030\006 \001(\0132 .gauge.messages.ProtoHookFailure" +
+      "\022\014\n\004tags\030\007 \003(\t\022\025\n\rexecutionTime\030\010 \001(\003\022\023\n" +
+      "\007skipped\030\t \001(\010B\002\030\001\022\022\n\nskipErrors\030\n \003(\t\022\n",
+      "\n\002ID\030\013 \001(\t\0220\n\rtearDownSteps\030\014 \003(\0132\031.gaug" +
+      "e.messages.ProtoItem\022\"\n\004span\030\r \001(\0132\024.gau" +
+      "ge.messages.Span\0228\n\017executionStatus\030\016 \001(" +
+      "\0162\037.gauge.messages.ExecutionStatus\022\027\n\017pr" +
+      "eHookMessages\030\017 \003(\t\022\030\n\020postHookMessages\030" +
+      "\020 \003(\t\"F\n\004Span\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(" +
+      "\003\022\021\n\tstartChar\030\003 \001(\003\022\017\n\007endChar\030\004 \001(\003\"b\n" +
+      "\030ProtoTableDrivenScenario\022/\n\010scenario\030\001 " +
+      "\001(\0132\035.gauge.messages.ProtoScenario\022\025\n\rta" +
+      "bleRowIndex\030\002 \001(\005\"\332\001\n\tProtoStep\022\022\n\nactua",
+      "lText\030\001 \001(\t\022\022\n\nparsedText\030\002 \001(\t\022+\n\tfragm" +
+      "ents\030\003 \003(\0132\030.gauge.messages.Fragment\022E\n\023" +
+      "stepExecutionResult\030\004 \001(\0132(.gauge.messag" +
+      "es.ProtoStepExecutionResult\022\027\n\017preHookMe" +
+      "ssages\030\005 \003(\t\022\030\n\020postHookMessages\030\006 \003(\t\"\262" +
+      "\001\n\014ProtoConcept\022.\n\013conceptStep\030\001 \001(\0132\031.g" +
+      "auge.messages.ProtoStep\022(\n\005steps\030\002 \003(\0132\031" +
+      ".gauge.messages.ProtoItem\022H\n\026conceptExec" +
+      "utionResult\030\003 \001(\0132(.gauge.messages.Proto" +
+      "StepExecutionResult\"\031\n\tProtoTags\022\014\n\004tags",
+      "\030\001 \003(\t\"\254\001\n\010Fragment\022;\n\014fragmentType\030\001 \001(" +
+      "\0162%.gauge.messages.Fragment.FragmentType" +
+      "\022\014\n\004text\030\002 \001(\t\022,\n\tparameter\030\003 \001(\0132\031.gaug" +
+      "e.messages.Parameter\"\'\n\014FragmentType\022\010\n\004" +
+      "Text\020\000\022\r\n\tParameter\020\001\"\357\001\n\tParameter\022>\n\rp" +
+      "arameterType\030\001 \001(\0162\'.gauge.messages.Para" +
+      "meter.ParameterType\022\r\n\005value\030\002 \001(\t\022\014\n\004na" +
+      "me\030\003 \001(\t\022)\n\005table\030\004 \001(\0132\032.gauge.messages" +
+      ".ProtoTable\"Z\n\rParameterType\022\n\n\006Static\020\000" +
+      "\022\013\n\007Dynamic\020\001\022\022\n\016Special_String\020\002\022\021\n\rSpe",
+      "cial_Table\020\003\022\t\n\005Table\020\004\"\034\n\014ProtoComment\022" +
+      "\014\n\004text\030\001 \001(\t\"i\n\nProtoTable\022.\n\007headers\030\001" +
+      " \001(\0132\035.gauge.messages.ProtoTableRow\022+\n\004r" +
+      "ows\030\002 \003(\0132\035.gauge.messages.ProtoTableRow" +
+      "\"\036\n\rProtoTableRow\022\r\n\005cells\030\001 \003(\t\"\366\001\n\030Pro" +
+      "toStepExecutionResult\022=\n\017executionResult" +
+      "\030\001 \001(\0132$.gauge.messages.ProtoExecutionRe" +
+      "sult\0228\n\016preHookFailure\030\002 \001(\0132 .gauge.mes" +
+      "sages.ProtoHookFailure\0229\n\017postHookFailur" +
+      "e\030\003 \001(\0132 .gauge.messages.ProtoHookFailur",
+      "e\022\017\n\007skipped\030\004 \001(\010\022\025\n\rskippedReason\030\005 \001(" +
+      "\t\"\227\002\n\024ProtoExecutionResult\022\016\n\006failed\030\001 \001" +
+      "(\010\022\030\n\020recoverableError\030\002 \001(\010\022\024\n\014errorMes" +
+      "sage\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(\t\022\022\n\nscreen" +
+      "Shot\030\005 \001(\014\022\025\n\rexecutionTime\030\006 \001(\003\022\017\n\007mes" +
+      "sage\030\007 \003(\t\022A\n\terrorType\030\010 \001(\0162..gauge.me" +
+      "ssages.ProtoExecutionResult.ErrorType\",\n" +
+      "\tErrorType\022\r\n\tASSERTION\020\000\022\020\n\014VERIFICATIO" +
+      "N\020\001\"g\n\020ProtoHookFailure\022\022\n\nstackTrace\030\001 " +
+      "\001(\t\022\024\n\014errorMessage\030\002 \001(\t\022\022\n\nscreenShot\030",
+      "\003 \001(\014\022\025\n\rtableRowIndex\030\004 \001(\005\"\254\003\n\020ProtoSu" +
+      "iteResult\0224\n\013specResults\030\001 \003(\0132\037.gauge.m" +
+      "essages.ProtoSpecResult\0228\n\016preHookFailur" +
+      "e\030\002 \001(\0132 .gauge.messages.ProtoHookFailur" +
+      "e\0229\n\017postHookFailure\030\003 \001(\0132 .gauge.messa" +
+      "ges.ProtoHookFailure\022\016\n\006failed\030\004 \001(\010\022\030\n\020" +
+      "specsFailedCount\030\005 \001(\005\022\025\n\rexecutionTime\030" +
+      "\006 \001(\003\022\023\n\013successRate\030\007 \001(\002\022\023\n\013environmen" +
+      "t\030\010 \001(\t\022\014\n\004tags\030\t \001(\t\022\023\n\013projectName\030\n \001" +
+      "(\t\022\021\n\ttimestamp\030\013 \001(\t\022\031\n\021specsSkippedCou",
+      "nt\030\014 \001(\005\022\027\n\017preHookMessages\030\r \003(\t\022\030\n\020pos" +
+      "tHookMessages\030\016 \003(\t\"\253\002\n\017ProtoSpecResult\022" +
       ",\n\tprotoSpec\030\001 \001(\0132\031.gauge.messages.Prot" +
       "oSpec\022\025\n\rscenarioCount\030\002 \001(\005\022\033\n\023scenario" +
       "FailedCount\030\003 \001(\005\022\016\n\006failed\030\004 \001(\010\022\033\n\023fai" +
-      "ledDataTableRows\030\005 \003(\005\022\025\n\rexecutionTime\030",
+      "ledDataTableRows\030\005 \003(\005\022\025\n\rexecutionTime\030" +
       "\006 \001(\003\022\017\n\007skipped\030\007 \001(\010\022\034\n\024scenarioSkippe" +
       "dCount\030\010 \001(\005\022\034\n\024skippedDataTableRows\030\t \003" +
       "(\005\022%\n\006errors\030\n \003(\0132\025.gauge.messages.Erro" +
-      "r\"\241\001\n\005Error\022-\n\004type\030\001 \001(\0162\037.gauge.messag" +
+      "r\"\241\001\n\005Error\022-\n\004type\030\001 \001(\0162\037.gauge.messag",
       "es.Error.ErrorType\022\020\n\010filename\030\002 \001(\t\022\022\n\n" +
       "lineNumber\030\003 \001(\005\022\017\n\007message\030\004 \001(\t\"2\n\tErr" +
       "orType\022\017\n\013PARSE_ERROR\020\000\022\024\n\020VALIDATION_ER" +
       "ROR\020\001\"W\n\016ProtoStepValue\022\021\n\tstepValue\030\001 \001" +
       "(\t\022\036\n\026parameterizedStepValue\030\002 \001(\t\022\022\n\npa" +
-      "rameters\030\003 \003(\t*G\n\017ExecutionStatus\022\017\n\013NOT",
+      "rameters\030\003 \003(\t*G\n\017ExecutionStatus\022\017\n\013NOT" +
       "EXECUTED\020\000\022\n\n\006PASSED\020\001\022\n\n\006FAILED\020\002\022\013\n\007SK" +
       "IPPED\020\003B\021\252\002\016Gauge.Messagesb\006proto3"
     };
@@ -28978,7 +31168,7 @@ public final class Spec {
     internal_static_gauge_messages_ProtoSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoSpec_descriptor,
-        new java.lang.String[] { "SpecHeading", "Items", "IsTableDriven", "PreHookFailures", "PostHookFailures", "FileName", "Tags", });
+        new java.lang.String[] { "SpecHeading", "Items", "IsTableDriven", "PreHookFailures", "PostHookFailures", "FileName", "Tags", "PreHookMessages", "PostHookMessages", });
     internal_static_gauge_messages_ProtoItem_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_gauge_messages_ProtoItem_fieldAccessorTable = new
@@ -28990,13 +31180,13 @@ public final class Spec {
     internal_static_gauge_messages_ProtoScenario_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoScenario_descriptor,
-        new java.lang.String[] { "ScenarioHeading", "Failed", "Contexts", "ScenarioItems", "PreHookFailure", "PostHookFailure", "Tags", "ExecutionTime", "Skipped", "SkipErrors", "ID", "TearDownSteps", "Span", "ExecutionStatus", });
+        new java.lang.String[] { "ScenarioHeading", "Failed", "Contexts", "ScenarioItems", "PreHookFailure", "PostHookFailure", "Tags", "ExecutionTime", "Skipped", "SkipErrors", "ID", "TearDownSteps", "Span", "ExecutionStatus", "PreHookMessages", "PostHookMessages", });
     internal_static_gauge_messages_Span_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_gauge_messages_Span_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_Span_descriptor,
-        new java.lang.String[] { "Start", "End", });
+        new java.lang.String[] { "Start", "End", "StartChar", "EndChar", });
     internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_gauge_messages_ProtoTableDrivenScenario_fieldAccessorTable = new
@@ -29008,7 +31198,7 @@ public final class Spec {
     internal_static_gauge_messages_ProtoStep_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoStep_descriptor,
-        new java.lang.String[] { "ActualText", "ParsedText", "Fragments", "StepExecutionResult", });
+        new java.lang.String[] { "ActualText", "ParsedText", "Fragments", "StepExecutionResult", "PreHookMessages", "PostHookMessages", });
     internal_static_gauge_messages_ProtoConcept_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_gauge_messages_ProtoConcept_fieldAccessorTable = new
@@ -29074,7 +31264,7 @@ public final class Spec {
     internal_static_gauge_messages_ProtoSuiteResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoSuiteResult_descriptor,
-        new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", "ExecutionTime", "SuccessRate", "Environment", "Tags", "ProjectName", "Timestamp", "SpecsSkippedCount", });
+        new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", "ExecutionTime", "SuccessRate", "Environment", "Tags", "ProjectName", "Timestamp", "SpecsSkippedCount", "PreHookMessages", "PostHookMessages", });
     internal_static_gauge_messages_ProtoSpecResult_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_gauge_messages_ProtoSpecResult_fieldAccessorTable = new
