@@ -8970,24 +8970,23 @@ public final class Messages {
     com.google.protobuf.ByteString
         getStackTraceBytes();
 
-  /**
-   * <pre>
-   *&#47; The current error message in case of failure
-   * </pre>
-   *
-   * <code>string errorMessage = 4;</code>
-   */
+    /**
+     * <pre>
+     *&#47; The error message in case of failure
+     * </pre>
+     *
+     * <code>string errorMessage = 4;</code>
+     */
     java.lang.String getErrorMessage();
-
-  /**
-   * <pre>
-   *&#47; The current error message in case of failure
-   * </pre>
-   *
-   * <code>string errorMessage = 4;</code>
-   */
-    com.google.protobuf.ByteString getErrorMessageBytes();
-
+    /**
+     * <pre>
+     *&#47; The error message in case of failure
+     * </pre>
+     *
+     * <code>string errorMessage = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorMessageBytes();
   }
   /**
    * <pre>
@@ -9059,7 +9058,12 @@ public final class Messages {
               stackTrace_ = s;
               break;
             }
-            // todo: which tag should be used for errorMessage_?
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              errorMessage_ = s;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -9173,42 +9177,44 @@ public final class Messages {
 
     public static final int ERRORMESSAGE_FIELD_NUMBER = 4;
     private volatile java.lang.Object errorMessage_;
-
-  /**
-   * <pre>
-   *&#47; The current error message in case of failure
-   * </pre>
-   *
-   * <code>string errorMessage = 4;</code>
-   */
-    public String getErrorMessage() {
-        java.lang.Object ref = errorMessage_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            errorMessage_ = s;
-            return s;
-        }
-    }
-
     /**
-    * <pre>
-    *&#47; The current error message in case of failure
-    * </pre>
-    *
-    * <code>string errorMessage = 4;</code>
-    */
-    public com.google.protobuf.ByteString getErrorMessageBytes() {
-        java.lang.Object ref = errorMessage_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b = com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-            errorMessage_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+     * <pre>
+     *&#47; The error message in case of failure
+     * </pre>
+     *
+     * <code>string errorMessage = 4;</code>
+     */
+    public java.lang.String getErrorMessage() {
+      java.lang.Object ref = errorMessage_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        errorMessage_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; The error message in case of failure
+     * </pre>
+     *
+     * <code>string errorMessage = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorMessageBytes() {
+      java.lang.Object ref = errorMessage_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        errorMessage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9224,16 +9230,16 @@ public final class Messages {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (step_ != null) {
-        output.writeMessage(STEP_FIELD_NUMBER, getStep());
+        output.writeMessage(1, getStep());
       }
       if (isFailed_ != false) {
-        output.writeBool(ISFAILED_FIELD_NUMBER, isFailed_);
+        output.writeBool(2, isFailed_);
       }
       if (!getStackTraceBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, STACKTRACE_FIELD_NUMBER, stackTrace_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, stackTrace_);
       }
       if (!getErrorMessageBytes().isEmpty()) {
-          com.google.protobuf.GeneratedMessageV3.writeString(output, ERRORMESSAGE_FIELD_NUMBER, errorMessage_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, errorMessage_);
       }
     }
 
@@ -9244,17 +9250,17 @@ public final class Messages {
       size = 0;
       if (step_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(STEP_FIELD_NUMBER, getStep());
+          .computeMessageSize(1, getStep());
       }
       if (isFailed_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(ISFAILED_FIELD_NUMBER, isFailed_);
+          .computeBoolSize(2, isFailed_);
       }
       if (!getStackTraceBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(STACKTRACE_FIELD_NUMBER, stackTrace_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, stackTrace_);
       }
       if (!getErrorMessageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(ERRORMESSAGE_FIELD_NUMBER, errorMessage_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, errorMessage_);
       }
       memoizedSize = size;
       return size;
@@ -9281,7 +9287,8 @@ public final class Messages {
           == other.getIsFailed());
       result = result && getStackTrace()
           .equals(other.getStackTrace());
-      result = result && getErrorMessage().equals(other.getErrorMessage());
+      result = result && getErrorMessage()
+          .equals(other.getErrorMessage());
       return result;
     }
 
@@ -9445,6 +9452,8 @@ public final class Messages {
         isFailed_ = false;
 
         stackTrace_ = "";
+
+        errorMessage_ = "";
 
         return this;
       }
@@ -9837,91 +9846,94 @@ public final class Messages {
         return this;
       }
 
-        private java.lang.Object errorMessage_ = "";
-
-        /**
-         * <pre>
-         *&#47; The current error message in case of failure
-         * </pre>
-         *
-         * <code>string errorMessage = 4;</code>
-         */
-        public java.lang.String getErrorMessage() {
-            java.lang.Object ref = errorMessage_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                errorMessage_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
+      private java.lang.Object errorMessage_ = "";
+      /**
+       * <pre>
+       *&#47; The error message in case of failure
+       * </pre>
+       *
+       * <code>string errorMessage = 4;</code>
+       */
+      public java.lang.String getErrorMessage() {
+        java.lang.Object ref = errorMessage_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          errorMessage_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
         }
-
-        /**
-         * <pre>
-         *&#47; The current error message in case of failure
-         * </pre>
-         *
-         * <code>string errorMessage = 4;</code>
-         */
-        public com.google.protobuf.ByteString getErrorMessageBytes() {
-            java.lang.Object ref = errorMessage_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b = com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-                errorMessage_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      }
+      /**
+       * <pre>
+       *&#47; The error message in case of failure
+       * </pre>
+       *
+       * <code>string errorMessage = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getErrorMessageBytes() {
+        java.lang.Object ref = errorMessage_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          errorMessage_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
         }
-
-        /**
-         * <pre>
-         *&#47; The current error message in case of failure
-         * </pre>
-         *
-         * <code>string errorMessage = 4;</code>
-         */
-        public Builder setErrorMessage(java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            errorMessage_ = value;
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <pre>
-         *&#47; The current error message in case of failure
-         * </pre>
-         *
-         * <code>string errorMessage = 4;</code>
-         */
-        public Builder clearErrorMessage() {
-            errorMessage_ = getDefaultInstance().getErrorMessage();
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <pre>
-         *&#47; The current error message in case of failure
-         * </pre>
-         *
-         * <code>string errorMessage = 4;</code>
-         */
-        public Builder setErrorMessageBytes(com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-            errorMessage_ = value;
-            onChanged();
-            return this;
-        }
-
+      }
+      /**
+       * <pre>
+       *&#47; The error message in case of failure
+       * </pre>
+       *
+       * <code>string errorMessage = 4;</code>
+       */
+      public Builder setErrorMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        errorMessage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; The error message in case of failure
+       * </pre>
+       *
+       * <code>string errorMessage = 4;</code>
+       */
+      public Builder clearErrorMessage() {
+        
+        errorMessage_ = getDefaultInstance().getErrorMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; The error message in case of failure
+       * </pre>
+       *
+       * <code>string errorMessage = 4;</code>
+       */
+      public Builder setErrorMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        errorMessage_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -16479,6 +16491,15 @@ public final class Messages {
      */
     gauge.messages.Messages.ParameterPositionOrBuilder getParamPositionsOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     *&#47; If set to true, the refactored files should be saved to the file system before returning the response.
+     * </pre>
+     *
+     * <code>bool saveChanges = 4;</code>
+     */
+    boolean getSaveChanges();
   }
   /**
    * <pre>
@@ -16497,6 +16518,7 @@ public final class Messages {
     }
     private RefactorRequest() {
       paramPositions_ = java.util.Collections.emptyList();
+      saveChanges_ = false;
     }
 
     @java.lang.Override
@@ -16557,6 +16579,11 @@ public final class Messages {
               }
               paramPositions_.add(
                   input.readMessage(gauge.messages.Messages.ParameterPosition.parser(), extensionRegistry));
+              break;
+            }
+            case 32: {
+
+              saveChanges_ = input.readBool();
               break;
             }
           }
@@ -16707,6 +16734,19 @@ public final class Messages {
       return paramPositions_.get(index);
     }
 
+    public static final int SAVECHANGES_FIELD_NUMBER = 4;
+    private boolean saveChanges_;
+    /**
+     * <pre>
+     *&#47; If set to true, the refactored files should be saved to the file system before returning the response.
+     * </pre>
+     *
+     * <code>bool saveChanges = 4;</code>
+     */
+    public boolean getSaveChanges() {
+      return saveChanges_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -16728,6 +16768,9 @@ public final class Messages {
       for (int i = 0; i < paramPositions_.size(); i++) {
         output.writeMessage(3, paramPositions_.get(i));
       }
+      if (saveChanges_ != false) {
+        output.writeBool(4, saveChanges_);
+      }
     }
 
     public int getSerializedSize() {
@@ -16746,6 +16789,10 @@ public final class Messages {
       for (int i = 0; i < paramPositions_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, paramPositions_.get(i));
+      }
+      if (saveChanges_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, saveChanges_);
       }
       memoizedSize = size;
       return size;
@@ -16775,6 +16822,8 @@ public final class Messages {
       }
       result = result && getParamPositionsList()
           .equals(other.getParamPositionsList());
+      result = result && (getSaveChanges()
+          == other.getSaveChanges());
       return result;
     }
 
@@ -16797,6 +16846,9 @@ public final class Messages {
         hash = (37 * hash) + PARAMPOSITIONS_FIELD_NUMBER;
         hash = (53 * hash) + getParamPositionsList().hashCode();
       }
+      hash = (37 * hash) + SAVECHANGES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSaveChanges());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -16949,6 +17001,8 @@ public final class Messages {
         } else {
           paramPositionsBuilder_.clear();
         }
+        saveChanges_ = false;
+
         return this;
       }
 
@@ -16992,6 +17046,7 @@ public final class Messages {
         } else {
           result.paramPositions_ = paramPositionsBuilder_.build();
         }
+        result.saveChanges_ = saveChanges_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -17065,6 +17120,9 @@ public final class Messages {
               paramPositionsBuilder_.addAllMessages(other.paramPositions_);
             }
           }
+        }
+        if (other.getSaveChanges() != false) {
+          setSaveChanges(other.getSaveChanges());
         }
         onChanged();
         return this;
@@ -17710,6 +17768,44 @@ public final class Messages {
         }
         return paramPositionsBuilder_;
       }
+
+      private boolean saveChanges_ ;
+      /**
+       * <pre>
+       *&#47; If set to true, the refactored files should be saved to the file system before returning the response.
+       * </pre>
+       *
+       * <code>bool saveChanges = 4;</code>
+       */
+      public boolean getSaveChanges() {
+        return saveChanges_;
+      }
+      /**
+       * <pre>
+       *&#47; If set to true, the refactored files should be saved to the file system before returning the response.
+       * </pre>
+       *
+       * <code>bool saveChanges = 4;</code>
+       */
+      public Builder setSaveChanges(boolean value) {
+        
+        saveChanges_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; If set to true, the refactored files should be saved to the file system before returning the response.
+       * </pre>
+       *
+       * <code>bool saveChanges = 4;</code>
+       */
+      public Builder clearSaveChanges() {
+        
+        saveChanges_ = false;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -17754,6 +17850,665 @@ public final class Messages {
     }
 
     public gauge.messages.Messages.RefactorRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FileChangesOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.FileChanges)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string fileName = 1;</code>
+     */
+    java.lang.String getFileName();
+    /**
+     * <code>string fileName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getFileNameBytes();
+
+    /**
+     * <code>string fileContent = 2;</code>
+     */
+    java.lang.String getFileContent();
+    /**
+     * <code>string fileContent = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getFileContentBytes();
+  }
+  /**
+   * <pre>
+   *&#47; Give all file changes to be made to file system
+   * </pre>
+   *
+   * Protobuf type {@code gauge.messages.FileChanges}
+   */
+  public  static final class FileChanges extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.FileChanges)
+      FileChangesOrBuilder {
+    // Use FileChanges.newBuilder() to construct.
+    private FileChanges(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private FileChanges() {
+      fileName_ = "";
+      fileContent_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private FileChanges(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              fileName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              fileContent_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Messages.internal_static_gauge_messages_FileChanges_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Messages.internal_static_gauge_messages_FileChanges_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Messages.FileChanges.class, gauge.messages.Messages.FileChanges.Builder.class);
+    }
+
+    public static final int FILENAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object fileName_;
+    /**
+     * <code>string fileName = 1;</code>
+     */
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string fileName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FILECONTENT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object fileContent_;
+    /**
+     * <code>string fileContent = 2;</code>
+     */
+    public java.lang.String getFileContent() {
+      java.lang.Object ref = fileContent_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileContent_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string fileContent = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFileContentBytes() {
+      java.lang.Object ref = fileContent_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileContent_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFileNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fileName_);
+      }
+      if (!getFileContentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, fileContent_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFileNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fileName_);
+      }
+      if (!getFileContentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, fileContent_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Messages.FileChanges)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Messages.FileChanges other = (gauge.messages.Messages.FileChanges) obj;
+
+      boolean result = true;
+      result = result && getFileName()
+          .equals(other.getFileName());
+      result = result && getFileContent()
+          .equals(other.getFileContent());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFileName().hashCode();
+      hash = (37 * hash) + FILECONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getFileContent().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Messages.FileChanges parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.FileChanges parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.FileChanges parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.FileChanges parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.FileChanges parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.FileChanges parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.FileChanges parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.FileChanges parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.FileChanges parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.FileChanges parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.FileChanges parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.FileChanges parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Messages.FileChanges prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; Give all file changes to be made to file system
+     * </pre>
+     *
+     * Protobuf type {@code gauge.messages.FileChanges}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.FileChanges)
+        gauge.messages.Messages.FileChangesOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_FileChanges_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_FileChanges_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.FileChanges.class, gauge.messages.Messages.FileChanges.Builder.class);
+      }
+
+      // Construct using gauge.messages.Messages.FileChanges.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        fileName_ = "";
+
+        fileContent_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Messages.internal_static_gauge_messages_FileChanges_descriptor;
+      }
+
+      public gauge.messages.Messages.FileChanges getDefaultInstanceForType() {
+        return gauge.messages.Messages.FileChanges.getDefaultInstance();
+      }
+
+      public gauge.messages.Messages.FileChanges build() {
+        gauge.messages.Messages.FileChanges result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Messages.FileChanges buildPartial() {
+        gauge.messages.Messages.FileChanges result = new gauge.messages.Messages.FileChanges(this);
+        result.fileName_ = fileName_;
+        result.fileContent_ = fileContent_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Messages.FileChanges) {
+          return mergeFrom((gauge.messages.Messages.FileChanges)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Messages.FileChanges other) {
+        if (other == gauge.messages.Messages.FileChanges.getDefaultInstance()) return this;
+        if (!other.getFileName().isEmpty()) {
+          fileName_ = other.fileName_;
+          onChanged();
+        }
+        if (!other.getFileContent().isEmpty()) {
+          fileContent_ = other.fileContent_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Messages.FileChanges parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Messages.FileChanges) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object fileName_ = "";
+      /**
+       * <code>string fileName = 1;</code>
+       */
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fileName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string fileName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string fileName = 1;</code>
+       */
+      public Builder setFileName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string fileName = 1;</code>
+       */
+      public Builder clearFileName() {
+        
+        fileName_ = getDefaultInstance().getFileName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string fileName = 1;</code>
+       */
+      public Builder setFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object fileContent_ = "";
+      /**
+       * <code>string fileContent = 2;</code>
+       */
+      public java.lang.String getFileContent() {
+        java.lang.Object ref = fileContent_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fileContent_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string fileContent = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFileContentBytes() {
+        java.lang.Object ref = fileContent_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileContent_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string fileContent = 2;</code>
+       */
+      public Builder setFileContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        fileContent_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string fileContent = 2;</code>
+       */
+      public Builder clearFileContent() {
+        
+        fileContent_ = getDefaultInstance().getFileContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string fileContent = 2;</code>
+       */
+      public Builder setFileContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        fileContent_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.FileChanges)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.FileChanges)
+    private static final gauge.messages.Messages.FileChanges DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Messages.FileChanges();
+    }
+
+    public static gauge.messages.Messages.FileChanges getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FileChanges>
+        PARSER = new com.google.protobuf.AbstractParser<FileChanges>() {
+      public FileChanges parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new FileChanges(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FileChanges> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FileChanges> getParserForType() {
+      return PARSER;
+    }
+
+    public gauge.messages.Messages.FileChanges getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17824,6 +18579,50 @@ public final class Messages {
      */
     com.google.protobuf.ByteString
         getFilesChangedBytes(int index);
+
+    /**
+     * <pre>
+     *&#47; List of file changes to be made to successfully achieve refactoring.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+     */
+    java.util.List<gauge.messages.Messages.FileChanges> 
+        getFileChangesList();
+    /**
+     * <pre>
+     *&#47; List of file changes to be made to successfully achieve refactoring.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+     */
+    gauge.messages.Messages.FileChanges getFileChanges(int index);
+    /**
+     * <pre>
+     *&#47; List of file changes to be made to successfully achieve refactoring.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+     */
+    int getFileChangesCount();
+    /**
+     * <pre>
+     *&#47; List of file changes to be made to successfully achieve refactoring.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+     */
+    java.util.List<? extends gauge.messages.Messages.FileChangesOrBuilder> 
+        getFileChangesOrBuilderList();
+    /**
+     * <pre>
+     *&#47; List of file changes to be made to successfully achieve refactoring.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+     */
+    gauge.messages.Messages.FileChangesOrBuilder getFileChangesOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -17844,6 +18643,7 @@ public final class Messages {
       success_ = false;
       error_ = "";
       filesChanged_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      fileChanges_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -17891,6 +18691,15 @@ public final class Messages {
               filesChanged_.add(s);
               break;
             }
+            case 34: {
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                fileChanges_ = new java.util.ArrayList<gauge.messages.Messages.FileChanges>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              fileChanges_.add(
+                  input.readMessage(gauge.messages.Messages.FileChanges.parser(), extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -17901,6 +18710,9 @@ public final class Messages {
       } finally {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           filesChanged_ = filesChanged_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          fileChanges_ = java.util.Collections.unmodifiableList(fileChanges_);
         }
         makeExtensionsImmutable();
       }
@@ -18018,6 +18830,61 @@ public final class Messages {
       return filesChanged_.getByteString(index);
     }
 
+    public static final int FILECHANGES_FIELD_NUMBER = 4;
+    private java.util.List<gauge.messages.Messages.FileChanges> fileChanges_;
+    /**
+     * <pre>
+     *&#47; List of file changes to be made to successfully achieve refactoring.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+     */
+    public java.util.List<gauge.messages.Messages.FileChanges> getFileChangesList() {
+      return fileChanges_;
+    }
+    /**
+     * <pre>
+     *&#47; List of file changes to be made to successfully achieve refactoring.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+     */
+    public java.util.List<? extends gauge.messages.Messages.FileChangesOrBuilder> 
+        getFileChangesOrBuilderList() {
+      return fileChanges_;
+    }
+    /**
+     * <pre>
+     *&#47; List of file changes to be made to successfully achieve refactoring.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+     */
+    public int getFileChangesCount() {
+      return fileChanges_.size();
+    }
+    /**
+     * <pre>
+     *&#47; List of file changes to be made to successfully achieve refactoring.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+     */
+    public gauge.messages.Messages.FileChanges getFileChanges(int index) {
+      return fileChanges_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; List of file changes to be made to successfully achieve refactoring.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+     */
+    public gauge.messages.Messages.FileChangesOrBuilder getFileChangesOrBuilder(
+        int index) {
+      return fileChanges_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -18038,6 +18905,9 @@ public final class Messages {
       }
       for (int i = 0; i < filesChanged_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, filesChanged_.getRaw(i));
+      }
+      for (int i = 0; i < fileChanges_.size(); i++) {
+        output.writeMessage(4, fileChanges_.get(i));
       }
     }
 
@@ -18061,6 +18931,10 @@ public final class Messages {
         size += dataSize;
         size += 1 * getFilesChangedList().size();
       }
+      for (int i = 0; i < fileChanges_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, fileChanges_.get(i));
+      }
       memoizedSize = size;
       return size;
     }
@@ -18083,6 +18957,8 @@ public final class Messages {
           .equals(other.getError());
       result = result && getFilesChangedList()
           .equals(other.getFilesChangedList());
+      result = result && getFileChangesList()
+          .equals(other.getFileChangesList());
       return result;
     }
 
@@ -18101,6 +18977,10 @@ public final class Messages {
       if (getFilesChangedCount() > 0) {
         hash = (37 * hash) + FILESCHANGED_FIELD_NUMBER;
         hash = (53 * hash) + getFilesChangedList().hashCode();
+      }
+      if (getFileChangesCount() > 0) {
+        hash = (37 * hash) + FILECHANGES_FIELD_NUMBER;
+        hash = (53 * hash) + getFileChangesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -18231,6 +19111,7 @@ public final class Messages {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getFileChangesFieldBuilder();
         }
       }
       public Builder clear() {
@@ -18241,6 +19122,12 @@ public final class Messages {
 
         filesChanged_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
+        if (fileChangesBuilder_ == null) {
+          fileChanges_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          fileChangesBuilder_.clear();
+        }
         return this;
       }
 
@@ -18272,6 +19159,15 @@ public final class Messages {
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.filesChanged_ = filesChanged_;
+        if (fileChangesBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            fileChanges_ = java.util.Collections.unmodifiableList(fileChanges_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.fileChanges_ = fileChanges_;
+        } else {
+          result.fileChanges_ = fileChangesBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -18330,6 +19226,32 @@ public final class Messages {
             filesChanged_.addAll(other.filesChanged_);
           }
           onChanged();
+        }
+        if (fileChangesBuilder_ == null) {
+          if (!other.fileChanges_.isEmpty()) {
+            if (fileChanges_.isEmpty()) {
+              fileChanges_ = other.fileChanges_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureFileChangesIsMutable();
+              fileChanges_.addAll(other.fileChanges_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.fileChanges_.isEmpty()) {
+            if (fileChangesBuilder_.isEmpty()) {
+              fileChangesBuilder_.dispose();
+              fileChangesBuilder_ = null;
+              fileChanges_ = other.fileChanges_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              fileChangesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getFileChangesFieldBuilder() : null;
+            } else {
+              fileChangesBuilder_.addAllMessages(other.fileChanges_);
+            }
+          }
         }
         onChanged();
         return this;
@@ -18613,6 +19535,318 @@ public final class Messages {
         filesChanged_.add(value);
         onChanged();
         return this;
+      }
+
+      private java.util.List<gauge.messages.Messages.FileChanges> fileChanges_ =
+        java.util.Collections.emptyList();
+      private void ensureFileChangesIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          fileChanges_ = new java.util.ArrayList<gauge.messages.Messages.FileChanges>(fileChanges_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Messages.FileChanges, gauge.messages.Messages.FileChanges.Builder, gauge.messages.Messages.FileChangesOrBuilder> fileChangesBuilder_;
+
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public java.util.List<gauge.messages.Messages.FileChanges> getFileChangesList() {
+        if (fileChangesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(fileChanges_);
+        } else {
+          return fileChangesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public int getFileChangesCount() {
+        if (fileChangesBuilder_ == null) {
+          return fileChanges_.size();
+        } else {
+          return fileChangesBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public gauge.messages.Messages.FileChanges getFileChanges(int index) {
+        if (fileChangesBuilder_ == null) {
+          return fileChanges_.get(index);
+        } else {
+          return fileChangesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public Builder setFileChanges(
+          int index, gauge.messages.Messages.FileChanges value) {
+        if (fileChangesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFileChangesIsMutable();
+          fileChanges_.set(index, value);
+          onChanged();
+        } else {
+          fileChangesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public Builder setFileChanges(
+          int index, gauge.messages.Messages.FileChanges.Builder builderForValue) {
+        if (fileChangesBuilder_ == null) {
+          ensureFileChangesIsMutable();
+          fileChanges_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          fileChangesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public Builder addFileChanges(gauge.messages.Messages.FileChanges value) {
+        if (fileChangesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFileChangesIsMutable();
+          fileChanges_.add(value);
+          onChanged();
+        } else {
+          fileChangesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public Builder addFileChanges(
+          int index, gauge.messages.Messages.FileChanges value) {
+        if (fileChangesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFileChangesIsMutable();
+          fileChanges_.add(index, value);
+          onChanged();
+        } else {
+          fileChangesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public Builder addFileChanges(
+          gauge.messages.Messages.FileChanges.Builder builderForValue) {
+        if (fileChangesBuilder_ == null) {
+          ensureFileChangesIsMutable();
+          fileChanges_.add(builderForValue.build());
+          onChanged();
+        } else {
+          fileChangesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public Builder addFileChanges(
+          int index, gauge.messages.Messages.FileChanges.Builder builderForValue) {
+        if (fileChangesBuilder_ == null) {
+          ensureFileChangesIsMutable();
+          fileChanges_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          fileChangesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public Builder addAllFileChanges(
+          java.lang.Iterable<? extends gauge.messages.Messages.FileChanges> values) {
+        if (fileChangesBuilder_ == null) {
+          ensureFileChangesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, fileChanges_);
+          onChanged();
+        } else {
+          fileChangesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public Builder clearFileChanges() {
+        if (fileChangesBuilder_ == null) {
+          fileChanges_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          fileChangesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public Builder removeFileChanges(int index) {
+        if (fileChangesBuilder_ == null) {
+          ensureFileChangesIsMutable();
+          fileChanges_.remove(index);
+          onChanged();
+        } else {
+          fileChangesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public gauge.messages.Messages.FileChanges.Builder getFileChangesBuilder(
+          int index) {
+        return getFileChangesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public gauge.messages.Messages.FileChangesOrBuilder getFileChangesOrBuilder(
+          int index) {
+        if (fileChangesBuilder_ == null) {
+          return fileChanges_.get(index);  } else {
+          return fileChangesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public java.util.List<? extends gauge.messages.Messages.FileChangesOrBuilder> 
+           getFileChangesOrBuilderList() {
+        if (fileChangesBuilder_ != null) {
+          return fileChangesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(fileChanges_);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public gauge.messages.Messages.FileChanges.Builder addFileChangesBuilder() {
+        return getFileChangesFieldBuilder().addBuilder(
+            gauge.messages.Messages.FileChanges.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public gauge.messages.Messages.FileChanges.Builder addFileChangesBuilder(
+          int index) {
+        return getFileChangesFieldBuilder().addBuilder(
+            index, gauge.messages.Messages.FileChanges.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; List of file changes to be made to successfully achieve refactoring.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.FileChanges fileChanges = 4;</code>
+       */
+      public java.util.List<gauge.messages.Messages.FileChanges.Builder> 
+           getFileChangesBuilderList() {
+        return getFileChangesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Messages.FileChanges, gauge.messages.Messages.FileChanges.Builder, gauge.messages.Messages.FileChangesOrBuilder> 
+          getFileChangesFieldBuilder() {
+        if (fileChangesBuilder_ == null) {
+          fileChangesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              gauge.messages.Messages.FileChanges, gauge.messages.Messages.FileChanges.Builder, gauge.messages.Messages.FileChangesOrBuilder>(
+                  fileChanges_,
+                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  getParentForChildren(),
+                  isClean());
+          fileChanges_ = null;
+        }
+        return fileChangesBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -19286,6 +20520,49 @@ public final class Messages {
      * <code>bool hasAlias = 3;</code>
      */
     boolean getHasAlias();
+
+    /**
+     * <pre>
+     *&#47; File name in which the step implementation exists
+     * </pre>
+     *
+     * <code>string fileName = 4;</code>
+     */
+    java.lang.String getFileName();
+    /**
+     * <pre>
+     *&#47; File name in which the step implementation exists
+     * </pre>
+     *
+     * <code>string fileName = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getFileNameBytes();
+
+    /**
+     * <pre>
+     *&#47; Range of step
+     * </pre>
+     *
+     * <code>.gauge.messages.Span span = 5;</code>
+     */
+    boolean hasSpan();
+    /**
+     * <pre>
+     *&#47; Range of step
+     * </pre>
+     *
+     * <code>.gauge.messages.Span span = 5;</code>
+     */
+    gauge.messages.Spec.Span getSpan();
+    /**
+     * <pre>
+     *&#47; Range of step
+     * </pre>
+     *
+     * <code>.gauge.messages.Span span = 5;</code>
+     */
+    gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder();
   }
   /**
    * <pre>
@@ -19306,6 +20583,7 @@ public final class Messages {
       isStepPresent_ = false;
       stepName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       hasAlias_ = false;
+      fileName_ = "";
     }
 
     @java.lang.Override
@@ -19350,6 +20628,25 @@ public final class Messages {
             case 24: {
 
               hasAlias_ = input.readBool();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              fileName_ = s;
+              break;
+            }
+            case 42: {
+              gauge.messages.Spec.Span.Builder subBuilder = null;
+              if (span_ != null) {
+                subBuilder = span_.toBuilder();
+              }
+              span_ = input.readMessage(gauge.messages.Spec.Span.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(span_);
+                span_ = subBuilder.buildPartial();
+              }
+
               break;
             }
           }
@@ -19450,6 +20747,81 @@ public final class Messages {
       return hasAlias_;
     }
 
+    public static final int FILENAME_FIELD_NUMBER = 4;
+    private volatile java.lang.Object fileName_;
+    /**
+     * <pre>
+     *&#47; File name in which the step implementation exists
+     * </pre>
+     *
+     * <code>string fileName = 4;</code>
+     */
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; File name in which the step implementation exists
+     * </pre>
+     *
+     * <code>string fileName = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SPAN_FIELD_NUMBER = 5;
+    private gauge.messages.Spec.Span span_;
+    /**
+     * <pre>
+     *&#47; Range of step
+     * </pre>
+     *
+     * <code>.gauge.messages.Span span = 5;</code>
+     */
+    public boolean hasSpan() {
+      return span_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Range of step
+     * </pre>
+     *
+     * <code>.gauge.messages.Span span = 5;</code>
+     */
+    public gauge.messages.Spec.Span getSpan() {
+      return span_ == null ? gauge.messages.Spec.Span.getDefaultInstance() : span_;
+    }
+    /**
+     * <pre>
+     *&#47; Range of step
+     * </pre>
+     *
+     * <code>.gauge.messages.Span span = 5;</code>
+     */
+    public gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder() {
+      return getSpan();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -19470,6 +20842,12 @@ public final class Messages {
       }
       if (hasAlias_ != false) {
         output.writeBool(3, hasAlias_);
+      }
+      if (!getFileNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fileName_);
+      }
+      if (span_ != null) {
+        output.writeMessage(5, getSpan());
       }
     }
 
@@ -19494,6 +20872,13 @@ public final class Messages {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, hasAlias_);
       }
+      if (!getFileNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, fileName_);
+      }
+      if (span_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, getSpan());
+      }
       memoizedSize = size;
       return size;
     }
@@ -19516,6 +20901,13 @@ public final class Messages {
           .equals(other.getStepNameList());
       result = result && (getHasAlias()
           == other.getHasAlias());
+      result = result && getFileName()
+          .equals(other.getFileName());
+      result = result && (hasSpan() == other.hasSpan());
+      if (hasSpan()) {
+        result = result && getSpan()
+            .equals(other.getSpan());
+      }
       return result;
     }
 
@@ -19536,6 +20928,12 @@ public final class Messages {
       hash = (37 * hash) + HASALIAS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getHasAlias());
+      hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFileName().hashCode();
+      if (hasSpan()) {
+        hash = (37 * hash) + SPAN_FIELD_NUMBER;
+        hash = (53 * hash) + getSpan().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -19675,6 +21073,14 @@ public final class Messages {
         bitField0_ = (bitField0_ & ~0x00000002);
         hasAlias_ = false;
 
+        fileName_ = "";
+
+        if (spanBuilder_ == null) {
+          span_ = null;
+        } else {
+          span_ = null;
+          spanBuilder_ = null;
+        }
         return this;
       }
 
@@ -19706,6 +21112,12 @@ public final class Messages {
         }
         result.stepName_ = stepName_;
         result.hasAlias_ = hasAlias_;
+        result.fileName_ = fileName_;
+        if (spanBuilder_ == null) {
+          result.span_ = span_;
+        } else {
+          result.span_ = spanBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -19763,6 +21175,13 @@ public final class Messages {
         }
         if (other.getHasAlias() != false) {
           setHasAlias(other.getHasAlias());
+        }
+        if (!other.getFileName().isEmpty()) {
+          fileName_ = other.fileName_;
+          onChanged();
+        }
+        if (other.hasSpan()) {
+          mergeSpan(other.getSpan());
         }
         onChanged();
         return this;
@@ -19995,6 +21414,248 @@ public final class Messages {
         hasAlias_ = false;
         onChanged();
         return this;
+      }
+
+      private java.lang.Object fileName_ = "";
+      /**
+       * <pre>
+       *&#47; File name in which the step implementation exists
+       * </pre>
+       *
+       * <code>string fileName = 4;</code>
+       */
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fileName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; File name in which the step implementation exists
+       * </pre>
+       *
+       * <code>string fileName = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; File name in which the step implementation exists
+       * </pre>
+       *
+       * <code>string fileName = 4;</code>
+       */
+      public Builder setFileName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; File name in which the step implementation exists
+       * </pre>
+       *
+       * <code>string fileName = 4;</code>
+       */
+      public Builder clearFileName() {
+        
+        fileName_ = getDefaultInstance().getFileName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; File name in which the step implementation exists
+       * </pre>
+       *
+       * <code>string fileName = 4;</code>
+       */
+      public Builder setFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private gauge.messages.Spec.Span span_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.Span, gauge.messages.Spec.Span.Builder, gauge.messages.Spec.SpanOrBuilder> spanBuilder_;
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 5;</code>
+       */
+      public boolean hasSpan() {
+        return spanBuilder_ != null || span_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 5;</code>
+       */
+      public gauge.messages.Spec.Span getSpan() {
+        if (spanBuilder_ == null) {
+          return span_ == null ? gauge.messages.Spec.Span.getDefaultInstance() : span_;
+        } else {
+          return spanBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 5;</code>
+       */
+      public Builder setSpan(gauge.messages.Spec.Span value) {
+        if (spanBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          span_ = value;
+          onChanged();
+        } else {
+          spanBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 5;</code>
+       */
+      public Builder setSpan(
+          gauge.messages.Spec.Span.Builder builderForValue) {
+        if (spanBuilder_ == null) {
+          span_ = builderForValue.build();
+          onChanged();
+        } else {
+          spanBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 5;</code>
+       */
+      public Builder mergeSpan(gauge.messages.Spec.Span value) {
+        if (spanBuilder_ == null) {
+          if (span_ != null) {
+            span_ =
+              gauge.messages.Spec.Span.newBuilder(span_).mergeFrom(value).buildPartial();
+          } else {
+            span_ = value;
+          }
+          onChanged();
+        } else {
+          spanBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 5;</code>
+       */
+      public Builder clearSpan() {
+        if (spanBuilder_ == null) {
+          span_ = null;
+          onChanged();
+        } else {
+          span_ = null;
+          spanBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 5;</code>
+       */
+      public gauge.messages.Spec.Span.Builder getSpanBuilder() {
+        
+        onChanged();
+        return getSpanFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 5;</code>
+       */
+      public gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder() {
+        if (spanBuilder_ != null) {
+          return spanBuilder_.getMessageOrBuilder();
+        } else {
+          return span_ == null ?
+              gauge.messages.Spec.Span.getDefaultInstance() : span_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.Span, gauge.messages.Spec.Span.Builder, gauge.messages.Spec.SpanOrBuilder> 
+          getSpanFieldBuilder() {
+        if (spanBuilder_ == null) {
+          spanBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.Span, gauge.messages.Spec.Span.Builder, gauge.messages.Spec.SpanOrBuilder>(
+                  getSpan(),
+                  getParentForChildren(),
+                  isClean());
+          span_ = null;
+        }
+        return spanBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -20562,6 +22223,3233 @@ public final class Messages {
     }
 
     public gauge.messages.Messages.UnsupportedMessageResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CacheFileRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.CacheFileRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *&#47; File content of the file to be cached
+     * </pre>
+     *
+     * <code>string content = 1;</code>
+     */
+    java.lang.String getContent();
+    /**
+     * <pre>
+     *&#47; File content of the file to be cached
+     * </pre>
+     *
+     * <code>string content = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+
+    /**
+     * <pre>
+     *&#47; File path of the file to be cached
+     * </pre>
+     *
+     * <code>string filePath = 2;</code>
+     */
+    java.lang.String getFilePath();
+    /**
+     * <pre>
+     *&#47; File path of the file to be cached
+     * </pre>
+     *
+     * <code>string filePath = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getFilePathBytes();
+
+    /**
+     * <pre>
+     *&#47; Specifies if the file is closed
+     * </pre>
+     *
+     * <code>bool isClosed = 3;</code>
+     */
+    boolean getIsClosed();
+  }
+  /**
+   * <pre>
+   *&#47; Request for caching a file
+   * </pre>
+   *
+   * Protobuf type {@code gauge.messages.CacheFileRequest}
+   */
+  public  static final class CacheFileRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.CacheFileRequest)
+      CacheFileRequestOrBuilder {
+    // Use CacheFileRequest.newBuilder() to construct.
+    private CacheFileRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CacheFileRequest() {
+      content_ = "";
+      filePath_ = "";
+      isClosed_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private CacheFileRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              filePath_ = s;
+              break;
+            }
+            case 24: {
+
+              isClosed_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Messages.internal_static_gauge_messages_CacheFileRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Messages.internal_static_gauge_messages_CacheFileRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Messages.CacheFileRequest.class, gauge.messages.Messages.CacheFileRequest.Builder.class);
+    }
+
+    public static final int CONTENT_FIELD_NUMBER = 1;
+    private volatile java.lang.Object content_;
+    /**
+     * <pre>
+     *&#47; File content of the file to be cached
+     * </pre>
+     *
+     * <code>string content = 1;</code>
+     */
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; File content of the file to be cached
+     * </pre>
+     *
+     * <code>string content = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FILEPATH_FIELD_NUMBER = 2;
+    private volatile java.lang.Object filePath_;
+    /**
+     * <pre>
+     *&#47; File path of the file to be cached
+     * </pre>
+     *
+     * <code>string filePath = 2;</code>
+     */
+    public java.lang.String getFilePath() {
+      java.lang.Object ref = filePath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        filePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; File path of the file to be cached
+     * </pre>
+     *
+     * <code>string filePath = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilePathBytes() {
+      java.lang.Object ref = filePath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ISCLOSED_FIELD_NUMBER = 3;
+    private boolean isClosed_;
+    /**
+     * <pre>
+     *&#47; Specifies if the file is closed
+     * </pre>
+     *
+     * <code>bool isClosed = 3;</code>
+     */
+    public boolean getIsClosed() {
+      return isClosed_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getContentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, content_);
+      }
+      if (!getFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, filePath_);
+      }
+      if (isClosed_ != false) {
+        output.writeBool(3, isClosed_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getContentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, content_);
+      }
+      if (!getFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, filePath_);
+      }
+      if (isClosed_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, isClosed_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Messages.CacheFileRequest)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Messages.CacheFileRequest other = (gauge.messages.Messages.CacheFileRequest) obj;
+
+      boolean result = true;
+      result = result && getContent()
+          .equals(other.getContent());
+      result = result && getFilePath()
+          .equals(other.getFilePath());
+      result = result && (getIsClosed()
+          == other.getIsClosed());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getFilePath().hashCode();
+      hash = (37 * hash) + ISCLOSED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsClosed());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Messages.CacheFileRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.CacheFileRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.CacheFileRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.CacheFileRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.CacheFileRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.CacheFileRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.CacheFileRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.CacheFileRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.CacheFileRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.CacheFileRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.CacheFileRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.CacheFileRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Messages.CacheFileRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; Request for caching a file
+     * </pre>
+     *
+     * Protobuf type {@code gauge.messages.CacheFileRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.CacheFileRequest)
+        gauge.messages.Messages.CacheFileRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_CacheFileRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_CacheFileRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.CacheFileRequest.class, gauge.messages.Messages.CacheFileRequest.Builder.class);
+      }
+
+      // Construct using gauge.messages.Messages.CacheFileRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        content_ = "";
+
+        filePath_ = "";
+
+        isClosed_ = false;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Messages.internal_static_gauge_messages_CacheFileRequest_descriptor;
+      }
+
+      public gauge.messages.Messages.CacheFileRequest getDefaultInstanceForType() {
+        return gauge.messages.Messages.CacheFileRequest.getDefaultInstance();
+      }
+
+      public gauge.messages.Messages.CacheFileRequest build() {
+        gauge.messages.Messages.CacheFileRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Messages.CacheFileRequest buildPartial() {
+        gauge.messages.Messages.CacheFileRequest result = new gauge.messages.Messages.CacheFileRequest(this);
+        result.content_ = content_;
+        result.filePath_ = filePath_;
+        result.isClosed_ = isClosed_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Messages.CacheFileRequest) {
+          return mergeFrom((gauge.messages.Messages.CacheFileRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Messages.CacheFileRequest other) {
+        if (other == gauge.messages.Messages.CacheFileRequest.getDefaultInstance()) return this;
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
+        }
+        if (!other.getFilePath().isEmpty()) {
+          filePath_ = other.filePath_;
+          onChanged();
+        }
+        if (other.getIsClosed() != false) {
+          setIsClosed(other.getIsClosed());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Messages.CacheFileRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Messages.CacheFileRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object content_ = "";
+      /**
+       * <pre>
+       *&#47; File content of the file to be cached
+       * </pre>
+       *
+       * <code>string content = 1;</code>
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; File content of the file to be cached
+       * </pre>
+       *
+       * <code>string content = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; File content of the file to be cached
+       * </pre>
+       *
+       * <code>string content = 1;</code>
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; File content of the file to be cached
+       * </pre>
+       *
+       * <code>string content = 1;</code>
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; File content of the file to be cached
+       * </pre>
+       *
+       * <code>string content = 1;</code>
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object filePath_ = "";
+      /**
+       * <pre>
+       *&#47; File path of the file to be cached
+       * </pre>
+       *
+       * <code>string filePath = 2;</code>
+       */
+      public java.lang.String getFilePath() {
+        java.lang.Object ref = filePath_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          filePath_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; File path of the file to be cached
+       * </pre>
+       *
+       * <code>string filePath = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        java.lang.Object ref = filePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; File path of the file to be cached
+       * </pre>
+       *
+       * <code>string filePath = 2;</code>
+       */
+      public Builder setFilePath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; File path of the file to be cached
+       * </pre>
+       *
+       * <code>string filePath = 2;</code>
+       */
+      public Builder clearFilePath() {
+        
+        filePath_ = getDefaultInstance().getFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; File path of the file to be cached
+       * </pre>
+       *
+       * <code>string filePath = 2;</code>
+       */
+      public Builder setFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean isClosed_ ;
+      /**
+       * <pre>
+       *&#47; Specifies if the file is closed
+       * </pre>
+       *
+       * <code>bool isClosed = 3;</code>
+       */
+      public boolean getIsClosed() {
+        return isClosed_;
+      }
+      /**
+       * <pre>
+       *&#47; Specifies if the file is closed
+       * </pre>
+       *
+       * <code>bool isClosed = 3;</code>
+       */
+      public Builder setIsClosed(boolean value) {
+        
+        isClosed_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Specifies if the file is closed
+       * </pre>
+       *
+       * <code>bool isClosed = 3;</code>
+       */
+      public Builder clearIsClosed() {
+        
+        isClosed_ = false;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.CacheFileRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.CacheFileRequest)
+    private static final gauge.messages.Messages.CacheFileRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Messages.CacheFileRequest();
+    }
+
+    public static gauge.messages.Messages.CacheFileRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CacheFileRequest>
+        PARSER = new com.google.protobuf.AbstractParser<CacheFileRequest>() {
+      public CacheFileRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new CacheFileRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CacheFileRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CacheFileRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public gauge.messages.Messages.CacheFileRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface StepPositionsRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.StepPositionsRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *&#47; Get step positions for file path
+     * </pre>
+     *
+     * <code>string filePath = 1;</code>
+     */
+    java.lang.String getFilePath();
+    /**
+     * <pre>
+     *&#47; Get step positions for file path
+     * </pre>
+     *
+     * <code>string filePath = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getFilePathBytes();
+  }
+  /**
+   * <pre>
+   *&#47; Request for find step positions
+   * </pre>
+   *
+   * Protobuf type {@code gauge.messages.StepPositionsRequest}
+   */
+  public  static final class StepPositionsRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.StepPositionsRequest)
+      StepPositionsRequestOrBuilder {
+    // Use StepPositionsRequest.newBuilder() to construct.
+    private StepPositionsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StepPositionsRequest() {
+      filePath_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private StepPositionsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              filePath_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsRequest_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Messages.StepPositionsRequest.class, gauge.messages.Messages.StepPositionsRequest.Builder.class);
+    }
+
+    public static final int FILEPATH_FIELD_NUMBER = 1;
+    private volatile java.lang.Object filePath_;
+    /**
+     * <pre>
+     *&#47; Get step positions for file path
+     * </pre>
+     *
+     * <code>string filePath = 1;</code>
+     */
+    public java.lang.String getFilePath() {
+      java.lang.Object ref = filePath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        filePath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Get step positions for file path
+     * </pre>
+     *
+     * <code>string filePath = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFilePathBytes() {
+      java.lang.Object ref = filePath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        filePath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFilePathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, filePath_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFilePathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, filePath_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Messages.StepPositionsRequest)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Messages.StepPositionsRequest other = (gauge.messages.Messages.StepPositionsRequest) obj;
+
+      boolean result = true;
+      result = result && getFilePath()
+          .equals(other.getFilePath());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILEPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getFilePath().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Messages.StepPositionsRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.StepPositionsRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.StepPositionsRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.StepPositionsRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.StepPositionsRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.StepPositionsRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.StepPositionsRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.StepPositionsRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.StepPositionsRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.StepPositionsRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.StepPositionsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.StepPositionsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Messages.StepPositionsRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; Request for find step positions
+     * </pre>
+     *
+     * Protobuf type {@code gauge.messages.StepPositionsRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.StepPositionsRequest)
+        gauge.messages.Messages.StepPositionsRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsRequest_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.StepPositionsRequest.class, gauge.messages.Messages.StepPositionsRequest.Builder.class);
+      }
+
+      // Construct using gauge.messages.Messages.StepPositionsRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        filePath_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsRequest_descriptor;
+      }
+
+      public gauge.messages.Messages.StepPositionsRequest getDefaultInstanceForType() {
+        return gauge.messages.Messages.StepPositionsRequest.getDefaultInstance();
+      }
+
+      public gauge.messages.Messages.StepPositionsRequest build() {
+        gauge.messages.Messages.StepPositionsRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Messages.StepPositionsRequest buildPartial() {
+        gauge.messages.Messages.StepPositionsRequest result = new gauge.messages.Messages.StepPositionsRequest(this);
+        result.filePath_ = filePath_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Messages.StepPositionsRequest) {
+          return mergeFrom((gauge.messages.Messages.StepPositionsRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Messages.StepPositionsRequest other) {
+        if (other == gauge.messages.Messages.StepPositionsRequest.getDefaultInstance()) return this;
+        if (!other.getFilePath().isEmpty()) {
+          filePath_ = other.filePath_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Messages.StepPositionsRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Messages.StepPositionsRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object filePath_ = "";
+      /**
+       * <pre>
+       *&#47; Get step positions for file path
+       * </pre>
+       *
+       * <code>string filePath = 1;</code>
+       */
+      public java.lang.String getFilePath() {
+        java.lang.Object ref = filePath_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          filePath_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Get step positions for file path
+       * </pre>
+       *
+       * <code>string filePath = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilePathBytes() {
+        java.lang.Object ref = filePath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filePath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Get step positions for file path
+       * </pre>
+       *
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Get step positions for file path
+       * </pre>
+       *
+       * <code>string filePath = 1;</code>
+       */
+      public Builder clearFilePath() {
+        
+        filePath_ = getDefaultInstance().getFilePath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Get step positions for file path
+       * </pre>
+       *
+       * <code>string filePath = 1;</code>
+       */
+      public Builder setFilePathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        filePath_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.StepPositionsRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.StepPositionsRequest)
+    private static final gauge.messages.Messages.StepPositionsRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Messages.StepPositionsRequest();
+    }
+
+    public static gauge.messages.Messages.StepPositionsRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StepPositionsRequest>
+        PARSER = new com.google.protobuf.AbstractParser<StepPositionsRequest>() {
+      public StepPositionsRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new StepPositionsRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StepPositionsRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StepPositionsRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public gauge.messages.Messages.StepPositionsRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface StepPositionsResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.StepPositionsResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *&#47; Step Position
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+     */
+    java.util.List<gauge.messages.Messages.StepPositionsResponse.StepPosition> 
+        getStepPositionsList();
+    /**
+     * <pre>
+     *&#47; Step Position
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+     */
+    gauge.messages.Messages.StepPositionsResponse.StepPosition getStepPositions(int index);
+    /**
+     * <pre>
+     *&#47; Step Position
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+     */
+    int getStepPositionsCount();
+    /**
+     * <pre>
+     *&#47; Step Position
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+     */
+    java.util.List<? extends gauge.messages.Messages.StepPositionsResponse.StepPositionOrBuilder> 
+        getStepPositionsOrBuilderList();
+    /**
+     * <pre>
+     *&#47; Step Position
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+     */
+    gauge.messages.Messages.StepPositionsResponse.StepPositionOrBuilder getStepPositionsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     *&#47; Error message
+     * </pre>
+     *
+     * <code>string error = 2;</code>
+     */
+    java.lang.String getError();
+    /**
+     * <pre>
+     *&#47; Error message
+     * </pre>
+     *
+     * <code>string error = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorBytes();
+  }
+  /**
+   * <pre>
+   *&#47; Response for find step positions
+   * </pre>
+   *
+   * Protobuf type {@code gauge.messages.StepPositionsResponse}
+   */
+  public  static final class StepPositionsResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.StepPositionsResponse)
+      StepPositionsResponseOrBuilder {
+    // Use StepPositionsResponse.newBuilder() to construct.
+    private StepPositionsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private StepPositionsResponse() {
+      stepPositions_ = java.util.Collections.emptyList();
+      error_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private StepPositionsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                stepPositions_ = new java.util.ArrayList<gauge.messages.Messages.StepPositionsResponse.StepPosition>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              stepPositions_.add(
+                  input.readMessage(gauge.messages.Messages.StepPositionsResponse.StepPosition.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              error_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          stepPositions_ = java.util.Collections.unmodifiableList(stepPositions_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsResponse_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Messages.StepPositionsResponse.class, gauge.messages.Messages.StepPositionsResponse.Builder.class);
+    }
+
+    public interface StepPositionOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:gauge.messages.StepPositionsResponse.StepPosition)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <pre>
+       *&#47; Step Value
+       * </pre>
+       *
+       * <code>string stepValue = 1;</code>
+       */
+      java.lang.String getStepValue();
+      /**
+       * <pre>
+       *&#47; Step Value
+       * </pre>
+       *
+       * <code>string stepValue = 1;</code>
+       */
+      com.google.protobuf.ByteString
+          getStepValueBytes();
+
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 2;</code>
+       */
+      boolean hasSpan();
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 2;</code>
+       */
+      gauge.messages.Spec.Span getSpan();
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 2;</code>
+       */
+      gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder();
+    }
+    /**
+     * <pre>
+     *&#47; Step position for each step implementation
+     * </pre>
+     *
+     * Protobuf type {@code gauge.messages.StepPositionsResponse.StepPosition}
+     */
+    public  static final class StepPosition extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:gauge.messages.StepPositionsResponse.StepPosition)
+        StepPositionOrBuilder {
+      // Use StepPosition.newBuilder() to construct.
+      private StepPosition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private StepPosition() {
+        stepValue_ = "";
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      }
+      private StepPosition(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        int mutable_bitField0_ = 0;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                stepValue_ = s;
+                break;
+              }
+              case 18: {
+                gauge.messages.Spec.Span.Builder subBuilder = null;
+                if (span_ != null) {
+                  subBuilder = span_.toBuilder();
+                }
+                span_ = input.readMessage(gauge.messages.Spec.Span.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(span_);
+                  span_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsResponse_StepPosition_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsResponse_StepPosition_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.StepPositionsResponse.StepPosition.class, gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder.class);
+      }
+
+      public static final int STEPVALUE_FIELD_NUMBER = 1;
+      private volatile java.lang.Object stepValue_;
+      /**
+       * <pre>
+       *&#47; Step Value
+       * </pre>
+       *
+       * <code>string stepValue = 1;</code>
+       */
+      public java.lang.String getStepValue() {
+        java.lang.Object ref = stepValue_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          stepValue_ = s;
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Step Value
+       * </pre>
+       *
+       * <code>string stepValue = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getStepValueBytes() {
+        java.lang.Object ref = stepValue_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          stepValue_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int SPAN_FIELD_NUMBER = 2;
+      private gauge.messages.Spec.Span span_;
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 2;</code>
+       */
+      public boolean hasSpan() {
+        return span_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 2;</code>
+       */
+      public gauge.messages.Spec.Span getSpan() {
+        return span_ == null ? gauge.messages.Spec.Span.getDefaultInstance() : span_;
+      }
+      /**
+       * <pre>
+       *&#47; Range of step
+       * </pre>
+       *
+       * <code>.gauge.messages.Span span = 2;</code>
+       */
+      public gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder() {
+        return getSpan();
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (!getStepValueBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, stepValue_);
+        }
+        if (span_ != null) {
+          output.writeMessage(2, getSpan());
+        }
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!getStepValueBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, stepValue_);
+        }
+        if (span_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, getSpan());
+        }
+        memoizedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof gauge.messages.Messages.StepPositionsResponse.StepPosition)) {
+          return super.equals(obj);
+        }
+        gauge.messages.Messages.StepPositionsResponse.StepPosition other = (gauge.messages.Messages.StepPositionsResponse.StepPosition) obj;
+
+        boolean result = true;
+        result = result && getStepValue()
+            .equals(other.getStepValue());
+        result = result && (hasSpan() == other.hasSpan());
+        if (hasSpan()) {
+          result = result && getSpan()
+              .equals(other.getSpan());
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + STEPVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getStepValue().hashCode();
+        if (hasSpan()) {
+          hash = (37 * hash) + SPAN_FIELD_NUMBER;
+          hash = (53 * hash) + getSpan().hashCode();
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(gauge.messages.Messages.StepPositionsResponse.StepPosition prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * <pre>
+       *&#47; Step position for each step implementation
+       * </pre>
+       *
+       * Protobuf type {@code gauge.messages.StepPositionsResponse.StepPosition}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:gauge.messages.StepPositionsResponse.StepPosition)
+          gauge.messages.Messages.StepPositionsResponse.StepPositionOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsResponse_StepPosition_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsResponse_StepPosition_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  gauge.messages.Messages.StepPositionsResponse.StepPosition.class, gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder.class);
+        }
+
+        // Construct using gauge.messages.Messages.StepPositionsResponse.StepPosition.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          stepValue_ = "";
+
+          if (spanBuilder_ == null) {
+            span_ = null;
+          } else {
+            span_ = null;
+            spanBuilder_ = null;
+          }
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsResponse_StepPosition_descriptor;
+        }
+
+        public gauge.messages.Messages.StepPositionsResponse.StepPosition getDefaultInstanceForType() {
+          return gauge.messages.Messages.StepPositionsResponse.StepPosition.getDefaultInstance();
+        }
+
+        public gauge.messages.Messages.StepPositionsResponse.StepPosition build() {
+          gauge.messages.Messages.StepPositionsResponse.StepPosition result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public gauge.messages.Messages.StepPositionsResponse.StepPosition buildPartial() {
+          gauge.messages.Messages.StepPositionsResponse.StepPosition result = new gauge.messages.Messages.StepPositionsResponse.StepPosition(this);
+          result.stepValue_ = stepValue_;
+          if (spanBuilder_ == null) {
+            result.span_ = span_;
+          } else {
+            result.span_ = spanBuilder_.build();
+          }
+          onBuilt();
+          return result;
+        }
+
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof gauge.messages.Messages.StepPositionsResponse.StepPosition) {
+            return mergeFrom((gauge.messages.Messages.StepPositionsResponse.StepPosition)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(gauge.messages.Messages.StepPositionsResponse.StepPosition other) {
+          if (other == gauge.messages.Messages.StepPositionsResponse.StepPosition.getDefaultInstance()) return this;
+          if (!other.getStepValue().isEmpty()) {
+            stepValue_ = other.stepValue_;
+            onChanged();
+          }
+          if (other.hasSpan()) {
+            mergeSpan(other.getSpan());
+          }
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          gauge.messages.Messages.StepPositionsResponse.StepPosition parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (gauge.messages.Messages.StepPositionsResponse.StepPosition) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private java.lang.Object stepValue_ = "";
+        /**
+         * <pre>
+         *&#47; Step Value
+         * </pre>
+         *
+         * <code>string stepValue = 1;</code>
+         */
+        public java.lang.String getStepValue() {
+          java.lang.Object ref = stepValue_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            stepValue_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         *&#47; Step Value
+         * </pre>
+         *
+         * <code>string stepValue = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+            getStepValueBytes() {
+          java.lang.Object ref = stepValue_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            stepValue_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         *&#47; Step Value
+         * </pre>
+         *
+         * <code>string stepValue = 1;</code>
+         */
+        public Builder setStepValue(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          stepValue_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Step Value
+         * </pre>
+         *
+         * <code>string stepValue = 1;</code>
+         */
+        public Builder clearStepValue() {
+          
+          stepValue_ = getDefaultInstance().getStepValue();
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Step Value
+         * </pre>
+         *
+         * <code>string stepValue = 1;</code>
+         */
+        public Builder setStepValueBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          stepValue_ = value;
+          onChanged();
+          return this;
+        }
+
+        private gauge.messages.Spec.Span span_ = null;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            gauge.messages.Spec.Span, gauge.messages.Spec.Span.Builder, gauge.messages.Spec.SpanOrBuilder> spanBuilder_;
+        /**
+         * <pre>
+         *&#47; Range of step
+         * </pre>
+         *
+         * <code>.gauge.messages.Span span = 2;</code>
+         */
+        public boolean hasSpan() {
+          return spanBuilder_ != null || span_ != null;
+        }
+        /**
+         * <pre>
+         *&#47; Range of step
+         * </pre>
+         *
+         * <code>.gauge.messages.Span span = 2;</code>
+         */
+        public gauge.messages.Spec.Span getSpan() {
+          if (spanBuilder_ == null) {
+            return span_ == null ? gauge.messages.Spec.Span.getDefaultInstance() : span_;
+          } else {
+            return spanBuilder_.getMessage();
+          }
+        }
+        /**
+         * <pre>
+         *&#47; Range of step
+         * </pre>
+         *
+         * <code>.gauge.messages.Span span = 2;</code>
+         */
+        public Builder setSpan(gauge.messages.Spec.Span value) {
+          if (spanBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            span_ = value;
+            onChanged();
+          } else {
+            spanBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Range of step
+         * </pre>
+         *
+         * <code>.gauge.messages.Span span = 2;</code>
+         */
+        public Builder setSpan(
+            gauge.messages.Spec.Span.Builder builderForValue) {
+          if (spanBuilder_ == null) {
+            span_ = builderForValue.build();
+            onChanged();
+          } else {
+            spanBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Range of step
+         * </pre>
+         *
+         * <code>.gauge.messages.Span span = 2;</code>
+         */
+        public Builder mergeSpan(gauge.messages.Spec.Span value) {
+          if (spanBuilder_ == null) {
+            if (span_ != null) {
+              span_ =
+                gauge.messages.Spec.Span.newBuilder(span_).mergeFrom(value).buildPartial();
+            } else {
+              span_ = value;
+            }
+            onChanged();
+          } else {
+            spanBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Range of step
+         * </pre>
+         *
+         * <code>.gauge.messages.Span span = 2;</code>
+         */
+        public Builder clearSpan() {
+          if (spanBuilder_ == null) {
+            span_ = null;
+            onChanged();
+          } else {
+            span_ = null;
+            spanBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Range of step
+         * </pre>
+         *
+         * <code>.gauge.messages.Span span = 2;</code>
+         */
+        public gauge.messages.Spec.Span.Builder getSpanBuilder() {
+          
+          onChanged();
+          return getSpanFieldBuilder().getBuilder();
+        }
+        /**
+         * <pre>
+         *&#47; Range of step
+         * </pre>
+         *
+         * <code>.gauge.messages.Span span = 2;</code>
+         */
+        public gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder() {
+          if (spanBuilder_ != null) {
+            return spanBuilder_.getMessageOrBuilder();
+          } else {
+            return span_ == null ?
+                gauge.messages.Spec.Span.getDefaultInstance() : span_;
+          }
+        }
+        /**
+         * <pre>
+         *&#47; Range of step
+         * </pre>
+         *
+         * <code>.gauge.messages.Span span = 2;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            gauge.messages.Spec.Span, gauge.messages.Spec.Span.Builder, gauge.messages.Spec.SpanOrBuilder> 
+            getSpanFieldBuilder() {
+          if (spanBuilder_ == null) {
+            spanBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                gauge.messages.Spec.Span, gauge.messages.Spec.Span.Builder, gauge.messages.Spec.SpanOrBuilder>(
+                    getSpan(),
+                    getParentForChildren(),
+                    isClean());
+            span_ = null;
+          }
+          return spanBuilder_;
+        }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:gauge.messages.StepPositionsResponse.StepPosition)
+      }
+
+      // @@protoc_insertion_point(class_scope:gauge.messages.StepPositionsResponse.StepPosition)
+      private static final gauge.messages.Messages.StepPositionsResponse.StepPosition DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new gauge.messages.Messages.StepPositionsResponse.StepPosition();
+      }
+
+      public static gauge.messages.Messages.StepPositionsResponse.StepPosition getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<StepPosition>
+          PARSER = new com.google.protobuf.AbstractParser<StepPosition>() {
+        public StepPosition parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new StepPosition(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<StepPosition> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<StepPosition> getParserForType() {
+        return PARSER;
+      }
+
+      public gauge.messages.Messages.StepPositionsResponse.StepPosition getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    private int bitField0_;
+    public static final int STEPPOSITIONS_FIELD_NUMBER = 1;
+    private java.util.List<gauge.messages.Messages.StepPositionsResponse.StepPosition> stepPositions_;
+    /**
+     * <pre>
+     *&#47; Step Position
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+     */
+    public java.util.List<gauge.messages.Messages.StepPositionsResponse.StepPosition> getStepPositionsList() {
+      return stepPositions_;
+    }
+    /**
+     * <pre>
+     *&#47; Step Position
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+     */
+    public java.util.List<? extends gauge.messages.Messages.StepPositionsResponse.StepPositionOrBuilder> 
+        getStepPositionsOrBuilderList() {
+      return stepPositions_;
+    }
+    /**
+     * <pre>
+     *&#47; Step Position
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+     */
+    public int getStepPositionsCount() {
+      return stepPositions_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Step Position
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+     */
+    public gauge.messages.Messages.StepPositionsResponse.StepPosition getStepPositions(int index) {
+      return stepPositions_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Step Position
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+     */
+    public gauge.messages.Messages.StepPositionsResponse.StepPositionOrBuilder getStepPositionsOrBuilder(
+        int index) {
+      return stepPositions_.get(index);
+    }
+
+    public static final int ERROR_FIELD_NUMBER = 2;
+    private volatile java.lang.Object error_;
+    /**
+     * <pre>
+     *&#47; Error message
+     * </pre>
+     *
+     * <code>string error = 2;</code>
+     */
+    public java.lang.String getError() {
+      java.lang.Object ref = error_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        error_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Error message
+     * </pre>
+     *
+     * <code>string error = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorBytes() {
+      java.lang.Object ref = error_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        error_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < stepPositions_.size(); i++) {
+        output.writeMessage(1, stepPositions_.get(i));
+      }
+      if (!getErrorBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, error_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < stepPositions_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, stepPositions_.get(i));
+      }
+      if (!getErrorBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, error_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Messages.StepPositionsResponse)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Messages.StepPositionsResponse other = (gauge.messages.Messages.StepPositionsResponse) obj;
+
+      boolean result = true;
+      result = result && getStepPositionsList()
+          .equals(other.getStepPositionsList());
+      result = result && getError()
+          .equals(other.getError());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getStepPositionsCount() > 0) {
+        hash = (37 * hash) + STEPPOSITIONS_FIELD_NUMBER;
+        hash = (53 * hash) + getStepPositionsList().hashCode();
+      }
+      hash = (37 * hash) + ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + getError().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Messages.StepPositionsResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.StepPositionsResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.StepPositionsResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.StepPositionsResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.StepPositionsResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.StepPositionsResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.StepPositionsResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.StepPositionsResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.StepPositionsResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.StepPositionsResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.StepPositionsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.StepPositionsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Messages.StepPositionsResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; Response for find step positions
+     * </pre>
+     *
+     * Protobuf type {@code gauge.messages.StepPositionsResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.StepPositionsResponse)
+        gauge.messages.Messages.StepPositionsResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsResponse_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.StepPositionsResponse.class, gauge.messages.Messages.StepPositionsResponse.Builder.class);
+      }
+
+      // Construct using gauge.messages.Messages.StepPositionsResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getStepPositionsFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (stepPositionsBuilder_ == null) {
+          stepPositions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          stepPositionsBuilder_.clear();
+        }
+        error_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Messages.internal_static_gauge_messages_StepPositionsResponse_descriptor;
+      }
+
+      public gauge.messages.Messages.StepPositionsResponse getDefaultInstanceForType() {
+        return gauge.messages.Messages.StepPositionsResponse.getDefaultInstance();
+      }
+
+      public gauge.messages.Messages.StepPositionsResponse build() {
+        gauge.messages.Messages.StepPositionsResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public gauge.messages.Messages.StepPositionsResponse buildPartial() {
+        gauge.messages.Messages.StepPositionsResponse result = new gauge.messages.Messages.StepPositionsResponse(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (stepPositionsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            stepPositions_ = java.util.Collections.unmodifiableList(stepPositions_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.stepPositions_ = stepPositions_;
+        } else {
+          result.stepPositions_ = stepPositionsBuilder_.build();
+        }
+        result.error_ = error_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Messages.StepPositionsResponse) {
+          return mergeFrom((gauge.messages.Messages.StepPositionsResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Messages.StepPositionsResponse other) {
+        if (other == gauge.messages.Messages.StepPositionsResponse.getDefaultInstance()) return this;
+        if (stepPositionsBuilder_ == null) {
+          if (!other.stepPositions_.isEmpty()) {
+            if (stepPositions_.isEmpty()) {
+              stepPositions_ = other.stepPositions_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureStepPositionsIsMutable();
+              stepPositions_.addAll(other.stepPositions_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.stepPositions_.isEmpty()) {
+            if (stepPositionsBuilder_.isEmpty()) {
+              stepPositionsBuilder_.dispose();
+              stepPositionsBuilder_ = null;
+              stepPositions_ = other.stepPositions_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              stepPositionsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getStepPositionsFieldBuilder() : null;
+            } else {
+              stepPositionsBuilder_.addAllMessages(other.stepPositions_);
+            }
+          }
+        }
+        if (!other.getError().isEmpty()) {
+          error_ = other.error_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Messages.StepPositionsResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Messages.StepPositionsResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<gauge.messages.Messages.StepPositionsResponse.StepPosition> stepPositions_ =
+        java.util.Collections.emptyList();
+      private void ensureStepPositionsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          stepPositions_ = new java.util.ArrayList<gauge.messages.Messages.StepPositionsResponse.StepPosition>(stepPositions_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Messages.StepPositionsResponse.StepPosition, gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder, gauge.messages.Messages.StepPositionsResponse.StepPositionOrBuilder> stepPositionsBuilder_;
+
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public java.util.List<gauge.messages.Messages.StepPositionsResponse.StepPosition> getStepPositionsList() {
+        if (stepPositionsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(stepPositions_);
+        } else {
+          return stepPositionsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public int getStepPositionsCount() {
+        if (stepPositionsBuilder_ == null) {
+          return stepPositions_.size();
+        } else {
+          return stepPositionsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public gauge.messages.Messages.StepPositionsResponse.StepPosition getStepPositions(int index) {
+        if (stepPositionsBuilder_ == null) {
+          return stepPositions_.get(index);
+        } else {
+          return stepPositionsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public Builder setStepPositions(
+          int index, gauge.messages.Messages.StepPositionsResponse.StepPosition value) {
+        if (stepPositionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStepPositionsIsMutable();
+          stepPositions_.set(index, value);
+          onChanged();
+        } else {
+          stepPositionsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public Builder setStepPositions(
+          int index, gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder builderForValue) {
+        if (stepPositionsBuilder_ == null) {
+          ensureStepPositionsIsMutable();
+          stepPositions_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          stepPositionsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public Builder addStepPositions(gauge.messages.Messages.StepPositionsResponse.StepPosition value) {
+        if (stepPositionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStepPositionsIsMutable();
+          stepPositions_.add(value);
+          onChanged();
+        } else {
+          stepPositionsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public Builder addStepPositions(
+          int index, gauge.messages.Messages.StepPositionsResponse.StepPosition value) {
+        if (stepPositionsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureStepPositionsIsMutable();
+          stepPositions_.add(index, value);
+          onChanged();
+        } else {
+          stepPositionsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public Builder addStepPositions(
+          gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder builderForValue) {
+        if (stepPositionsBuilder_ == null) {
+          ensureStepPositionsIsMutable();
+          stepPositions_.add(builderForValue.build());
+          onChanged();
+        } else {
+          stepPositionsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public Builder addStepPositions(
+          int index, gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder builderForValue) {
+        if (stepPositionsBuilder_ == null) {
+          ensureStepPositionsIsMutable();
+          stepPositions_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          stepPositionsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public Builder addAllStepPositions(
+          java.lang.Iterable<? extends gauge.messages.Messages.StepPositionsResponse.StepPosition> values) {
+        if (stepPositionsBuilder_ == null) {
+          ensureStepPositionsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, stepPositions_);
+          onChanged();
+        } else {
+          stepPositionsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public Builder clearStepPositions() {
+        if (stepPositionsBuilder_ == null) {
+          stepPositions_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          stepPositionsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public Builder removeStepPositions(int index) {
+        if (stepPositionsBuilder_ == null) {
+          ensureStepPositionsIsMutable();
+          stepPositions_.remove(index);
+          onChanged();
+        } else {
+          stepPositionsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder getStepPositionsBuilder(
+          int index) {
+        return getStepPositionsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public gauge.messages.Messages.StepPositionsResponse.StepPositionOrBuilder getStepPositionsOrBuilder(
+          int index) {
+        if (stepPositionsBuilder_ == null) {
+          return stepPositions_.get(index);  } else {
+          return stepPositionsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public java.util.List<? extends gauge.messages.Messages.StepPositionsResponse.StepPositionOrBuilder> 
+           getStepPositionsOrBuilderList() {
+        if (stepPositionsBuilder_ != null) {
+          return stepPositionsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(stepPositions_);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder addStepPositionsBuilder() {
+        return getStepPositionsFieldBuilder().addBuilder(
+            gauge.messages.Messages.StepPositionsResponse.StepPosition.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder addStepPositionsBuilder(
+          int index) {
+        return getStepPositionsFieldBuilder().addBuilder(
+            index, gauge.messages.Messages.StepPositionsResponse.StepPosition.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Step Position
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.StepPositionsResponse.StepPosition stepPositions = 1;</code>
+       */
+      public java.util.List<gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder> 
+           getStepPositionsBuilderList() {
+        return getStepPositionsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Messages.StepPositionsResponse.StepPosition, gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder, gauge.messages.Messages.StepPositionsResponse.StepPositionOrBuilder> 
+          getStepPositionsFieldBuilder() {
+        if (stepPositionsBuilder_ == null) {
+          stepPositionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              gauge.messages.Messages.StepPositionsResponse.StepPosition, gauge.messages.Messages.StepPositionsResponse.StepPosition.Builder, gauge.messages.Messages.StepPositionsResponse.StepPositionOrBuilder>(
+                  stepPositions_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          stepPositions_ = null;
+        }
+        return stepPositionsBuilder_;
+      }
+
+      private java.lang.Object error_ = "";
+      /**
+       * <pre>
+       *&#47; Error message
+       * </pre>
+       *
+       * <code>string error = 2;</code>
+       */
+      public java.lang.String getError() {
+        java.lang.Object ref = error_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          error_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Error message
+       * </pre>
+       *
+       * <code>string error = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getErrorBytes() {
+        java.lang.Object ref = error_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          error_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Error message
+       * </pre>
+       *
+       * <code>string error = 2;</code>
+       */
+      public Builder setError(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        error_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Error message
+       * </pre>
+       *
+       * <code>string error = 2;</code>
+       */
+      public Builder clearError() {
+        
+        error_ = getDefaultInstance().getError();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Error message
+       * </pre>
+       *
+       * <code>string error = 2;</code>
+       */
+      public Builder setErrorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        error_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.StepPositionsResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.StepPositionsResponse)
+    private static final gauge.messages.Messages.StepPositionsResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Messages.StepPositionsResponse();
+    }
+
+    public static gauge.messages.Messages.StepPositionsResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<StepPositionsResponse>
+        PARSER = new com.google.protobuf.AbstractParser<StepPositionsResponse>() {
+      public StepPositionsResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new StepPositionsResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<StepPositionsResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<StepPositionsResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public gauge.messages.Messages.StepPositionsResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -21189,6 +26077,81 @@ public final class Messages {
      * <code>.gauge.messages.UnsupportedMessageResponse unsupportedMessageResponse = 26;</code>
      */
     gauge.messages.Messages.UnsupportedMessageResponseOrBuilder getUnsupportedMessageResponseOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+     */
+    boolean hasCacheFileRequest();
+    /**
+     * <pre>
+     *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+     */
+    gauge.messages.Messages.CacheFileRequest getCacheFileRequest();
+    /**
+     * <pre>
+     *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+     */
+    gauge.messages.Messages.CacheFileRequestOrBuilder getCacheFileRequestOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+     */
+    boolean hasStepPositionsRequest();
+    /**
+     * <pre>
+     *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+     */
+    gauge.messages.Messages.StepPositionsRequest getStepPositionsRequest();
+    /**
+     * <pre>
+     *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+     */
+    gauge.messages.Messages.StepPositionsRequestOrBuilder getStepPositionsRequestOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+     */
+    boolean hasStepPositionsResponse();
+    /**
+     * <pre>
+     *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+     */
+    gauge.messages.Messages.StepPositionsResponse getStepPositionsResponse();
+    /**
+     * <pre>
+     *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+     */
+    gauge.messages.Messages.StepPositionsResponseOrBuilder getStepPositionsResponseOrBuilder();
   }
   /**
    * <pre>
@@ -21560,6 +26523,45 @@ public final class Messages {
 
               break;
             }
+            case 218: {
+              gauge.messages.Messages.CacheFileRequest.Builder subBuilder = null;
+              if (cacheFileRequest_ != null) {
+                subBuilder = cacheFileRequest_.toBuilder();
+              }
+              cacheFileRequest_ = input.readMessage(gauge.messages.Messages.CacheFileRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(cacheFileRequest_);
+                cacheFileRequest_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 226: {
+              gauge.messages.Messages.StepPositionsRequest.Builder subBuilder = null;
+              if (stepPositionsRequest_ != null) {
+                subBuilder = stepPositionsRequest_.toBuilder();
+              }
+              stepPositionsRequest_ = input.readMessage(gauge.messages.Messages.StepPositionsRequest.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(stepPositionsRequest_);
+                stepPositionsRequest_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 234: {
+              gauge.messages.Messages.StepPositionsResponse.Builder subBuilder = null;
+              if (stepPositionsResponse_ != null) {
+                subBuilder = stepPositionsResponse_.toBuilder();
+              }
+              stepPositionsResponse_ = input.readMessage(gauge.messages.Messages.StepPositionsResponse.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(stepPositionsResponse_);
+                stepPositionsResponse_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -21684,6 +26686,18 @@ public final class Messages {
        * <code>UnsupportedMessageResponse = 23;</code>
        */
       UnsupportedMessageResponse(23),
+      /**
+       * <code>CacheFileRequest = 24;</code>
+       */
+      CacheFileRequest(24),
+      /**
+       * <code>StepPositionsRequest = 25;</code>
+       */
+      StepPositionsRequest(25),
+      /**
+       * <code>StepPositionsResponse = 26;</code>
+       */
+      StepPositionsResponse(26),
       UNRECOGNIZED(-1),
       ;
 
@@ -21783,6 +26797,18 @@ public final class Messages {
        * <code>UnsupportedMessageResponse = 23;</code>
        */
       public static final int UnsupportedMessageResponse_VALUE = 23;
+      /**
+       * <code>CacheFileRequest = 24;</code>
+       */
+      public static final int CacheFileRequest_VALUE = 24;
+      /**
+       * <code>StepPositionsRequest = 25;</code>
+       */
+      public static final int StepPositionsRequest_VALUE = 25;
+      /**
+       * <code>StepPositionsResponse = 26;</code>
+       */
+      public static final int StepPositionsResponse_VALUE = 26;
 
 
       public final int getNumber() {
@@ -21827,6 +26853,9 @@ public final class Messages {
           case 21: return RefactorRequest;
           case 22: return RefactorResponse;
           case 23: return UnsupportedMessageResponse;
+          case 24: return CacheFileRequest;
+          case 25: return StepPositionsRequest;
+          case 26: return StepPositionsResponse;
           default: return null;
         }
       }
@@ -22701,6 +27730,105 @@ public final class Messages {
       return getUnsupportedMessageResponse();
     }
 
+    public static final int CACHEFILEREQUEST_FIELD_NUMBER = 27;
+    private gauge.messages.Messages.CacheFileRequest cacheFileRequest_;
+    /**
+     * <pre>
+     *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+     */
+    public boolean hasCacheFileRequest() {
+      return cacheFileRequest_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+     */
+    public gauge.messages.Messages.CacheFileRequest getCacheFileRequest() {
+      return cacheFileRequest_ == null ? gauge.messages.Messages.CacheFileRequest.getDefaultInstance() : cacheFileRequest_;
+    }
+    /**
+     * <pre>
+     *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+     */
+    public gauge.messages.Messages.CacheFileRequestOrBuilder getCacheFileRequestOrBuilder() {
+      return getCacheFileRequest();
+    }
+
+    public static final int STEPPOSITIONSREQUEST_FIELD_NUMBER = 28;
+    private gauge.messages.Messages.StepPositionsRequest stepPositionsRequest_;
+    /**
+     * <pre>
+     *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+     */
+    public boolean hasStepPositionsRequest() {
+      return stepPositionsRequest_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+     */
+    public gauge.messages.Messages.StepPositionsRequest getStepPositionsRequest() {
+      return stepPositionsRequest_ == null ? gauge.messages.Messages.StepPositionsRequest.getDefaultInstance() : stepPositionsRequest_;
+    }
+    /**
+     * <pre>
+     *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+     */
+    public gauge.messages.Messages.StepPositionsRequestOrBuilder getStepPositionsRequestOrBuilder() {
+      return getStepPositionsRequest();
+    }
+
+    public static final int STEPPOSITIONSRESPONSE_FIELD_NUMBER = 29;
+    private gauge.messages.Messages.StepPositionsResponse stepPositionsResponse_;
+    /**
+     * <pre>
+     *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+     */
+    public boolean hasStepPositionsResponse() {
+      return stepPositionsResponse_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+     */
+    public gauge.messages.Messages.StepPositionsResponse getStepPositionsResponse() {
+      return stepPositionsResponse_ == null ? gauge.messages.Messages.StepPositionsResponse.getDefaultInstance() : stepPositionsResponse_;
+    }
+    /**
+     * <pre>
+     *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+     * </pre>
+     *
+     * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+     */
+    public gauge.messages.Messages.StepPositionsResponseOrBuilder getStepPositionsResponseOrBuilder() {
+      return getStepPositionsResponse();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -22790,6 +27918,15 @@ public final class Messages {
       }
       if (unsupportedMessageResponse_ != null) {
         output.writeMessage(26, getUnsupportedMessageResponse());
+      }
+      if (cacheFileRequest_ != null) {
+        output.writeMessage(27, getCacheFileRequest());
+      }
+      if (stepPositionsRequest_ != null) {
+        output.writeMessage(28, getStepPositionsRequest());
+      }
+      if (stepPositionsResponse_ != null) {
+        output.writeMessage(29, getStepPositionsResponse());
       }
     }
 
@@ -22901,6 +28038,18 @@ public final class Messages {
       if (unsupportedMessageResponse_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(26, getUnsupportedMessageResponse());
+      }
+      if (cacheFileRequest_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(27, getCacheFileRequest());
+      }
+      if (stepPositionsRequest_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(28, getStepPositionsRequest());
+      }
+      if (stepPositionsResponse_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(29, getStepPositionsResponse());
       }
       memoizedSize = size;
       return size;
@@ -23041,6 +28190,21 @@ public final class Messages {
         result = result && getUnsupportedMessageResponse()
             .equals(other.getUnsupportedMessageResponse());
       }
+      result = result && (hasCacheFileRequest() == other.hasCacheFileRequest());
+      if (hasCacheFileRequest()) {
+        result = result && getCacheFileRequest()
+            .equals(other.getCacheFileRequest());
+      }
+      result = result && (hasStepPositionsRequest() == other.hasStepPositionsRequest());
+      if (hasStepPositionsRequest()) {
+        result = result && getStepPositionsRequest()
+            .equals(other.getStepPositionsRequest());
+      }
+      result = result && (hasStepPositionsResponse() == other.hasStepPositionsResponse());
+      if (hasStepPositionsResponse()) {
+        result = result && getStepPositionsResponse()
+            .equals(other.getStepPositionsResponse());
+      }
       return result;
     }
 
@@ -23151,6 +28315,18 @@ public final class Messages {
       if (hasUnsupportedMessageResponse()) {
         hash = (37 * hash) + UNSUPPORTEDMESSAGERESPONSE_FIELD_NUMBER;
         hash = (53 * hash) + getUnsupportedMessageResponse().hashCode();
+      }
+      if (hasCacheFileRequest()) {
+        hash = (37 * hash) + CACHEFILEREQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getCacheFileRequest().hashCode();
+      }
+      if (hasStepPositionsRequest()) {
+        hash = (37 * hash) + STEPPOSITIONSREQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getStepPositionsRequest().hashCode();
+      }
+      if (hasStepPositionsResponse()) {
+        hash = (37 * hash) + STEPPOSITIONSRESPONSE_FIELD_NUMBER;
+        hash = (53 * hash) + getStepPositionsResponse().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -23435,6 +28611,24 @@ public final class Messages {
           unsupportedMessageResponse_ = null;
           unsupportedMessageResponseBuilder_ = null;
         }
+        if (cacheFileRequestBuilder_ == null) {
+          cacheFileRequest_ = null;
+        } else {
+          cacheFileRequest_ = null;
+          cacheFileRequestBuilder_ = null;
+        }
+        if (stepPositionsRequestBuilder_ == null) {
+          stepPositionsRequest_ = null;
+        } else {
+          stepPositionsRequest_ = null;
+          stepPositionsRequestBuilder_ = null;
+        }
+        if (stepPositionsResponseBuilder_ == null) {
+          stepPositionsResponse_ = null;
+        } else {
+          stepPositionsResponse_ = null;
+          stepPositionsResponseBuilder_ = null;
+        }
         return this;
       }
 
@@ -23579,6 +28773,21 @@ public final class Messages {
         } else {
           result.unsupportedMessageResponse_ = unsupportedMessageResponseBuilder_.build();
         }
+        if (cacheFileRequestBuilder_ == null) {
+          result.cacheFileRequest_ = cacheFileRequest_;
+        } else {
+          result.cacheFileRequest_ = cacheFileRequestBuilder_.build();
+        }
+        if (stepPositionsRequestBuilder_ == null) {
+          result.stepPositionsRequest_ = stepPositionsRequest_;
+        } else {
+          result.stepPositionsRequest_ = stepPositionsRequestBuilder_.build();
+        }
+        if (stepPositionsResponseBuilder_ == null) {
+          result.stepPositionsResponse_ = stepPositionsResponse_;
+        } else {
+          result.stepPositionsResponse_ = stepPositionsResponseBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -23697,6 +28906,15 @@ public final class Messages {
         }
         if (other.hasUnsupportedMessageResponse()) {
           mergeUnsupportedMessageResponse(other.getUnsupportedMessageResponse());
+        }
+        if (other.hasCacheFileRequest()) {
+          mergeCacheFileRequest(other.getCacheFileRequest());
+        }
+        if (other.hasStepPositionsRequest()) {
+          mergeStepPositionsRequest(other.getStepPositionsRequest());
+        }
+        if (other.hasStepPositionsResponse()) {
+          mergeStepPositionsResponse(other.getStepPositionsResponse());
         }
         onChanged();
         return this;
@@ -27480,6 +32698,465 @@ public final class Messages {
         }
         return unsupportedMessageResponseBuilder_;
       }
+
+      private gauge.messages.Messages.CacheFileRequest cacheFileRequest_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Messages.CacheFileRequest, gauge.messages.Messages.CacheFileRequest.Builder, gauge.messages.Messages.CacheFileRequestOrBuilder> cacheFileRequestBuilder_;
+      /**
+       * <pre>
+       *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+       */
+      public boolean hasCacheFileRequest() {
+        return cacheFileRequestBuilder_ != null || cacheFileRequest_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+       */
+      public gauge.messages.Messages.CacheFileRequest getCacheFileRequest() {
+        if (cacheFileRequestBuilder_ == null) {
+          return cacheFileRequest_ == null ? gauge.messages.Messages.CacheFileRequest.getDefaultInstance() : cacheFileRequest_;
+        } else {
+          return cacheFileRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+       */
+      public Builder setCacheFileRequest(gauge.messages.Messages.CacheFileRequest value) {
+        if (cacheFileRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cacheFileRequest_ = value;
+          onChanged();
+        } else {
+          cacheFileRequestBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+       */
+      public Builder setCacheFileRequest(
+          gauge.messages.Messages.CacheFileRequest.Builder builderForValue) {
+        if (cacheFileRequestBuilder_ == null) {
+          cacheFileRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          cacheFileRequestBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+       */
+      public Builder mergeCacheFileRequest(gauge.messages.Messages.CacheFileRequest value) {
+        if (cacheFileRequestBuilder_ == null) {
+          if (cacheFileRequest_ != null) {
+            cacheFileRequest_ =
+              gauge.messages.Messages.CacheFileRequest.newBuilder(cacheFileRequest_).mergeFrom(value).buildPartial();
+          } else {
+            cacheFileRequest_ = value;
+          }
+          onChanged();
+        } else {
+          cacheFileRequestBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+       */
+      public Builder clearCacheFileRequest() {
+        if (cacheFileRequestBuilder_ == null) {
+          cacheFileRequest_ = null;
+          onChanged();
+        } else {
+          cacheFileRequest_ = null;
+          cacheFileRequestBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+       */
+      public gauge.messages.Messages.CacheFileRequest.Builder getCacheFileRequestBuilder() {
+        
+        onChanged();
+        return getCacheFileRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+       */
+      public gauge.messages.Messages.CacheFileRequestOrBuilder getCacheFileRequestOrBuilder() {
+        if (cacheFileRequestBuilder_ != null) {
+          return cacheFileRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return cacheFileRequest_ == null ?
+              gauge.messages.Messages.CacheFileRequest.getDefaultInstance() : cacheFileRequest_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; [CacheFileRequest](#gauge.messages.CacheFileRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.CacheFileRequest cacheFileRequest = 27;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Messages.CacheFileRequest, gauge.messages.Messages.CacheFileRequest.Builder, gauge.messages.Messages.CacheFileRequestOrBuilder> 
+          getCacheFileRequestFieldBuilder() {
+        if (cacheFileRequestBuilder_ == null) {
+          cacheFileRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Messages.CacheFileRequest, gauge.messages.Messages.CacheFileRequest.Builder, gauge.messages.Messages.CacheFileRequestOrBuilder>(
+                  getCacheFileRequest(),
+                  getParentForChildren(),
+                  isClean());
+          cacheFileRequest_ = null;
+        }
+        return cacheFileRequestBuilder_;
+      }
+
+      private gauge.messages.Messages.StepPositionsRequest stepPositionsRequest_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Messages.StepPositionsRequest, gauge.messages.Messages.StepPositionsRequest.Builder, gauge.messages.Messages.StepPositionsRequestOrBuilder> stepPositionsRequestBuilder_;
+      /**
+       * <pre>
+       *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+       */
+      public boolean hasStepPositionsRequest() {
+        return stepPositionsRequestBuilder_ != null || stepPositionsRequest_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+       */
+      public gauge.messages.Messages.StepPositionsRequest getStepPositionsRequest() {
+        if (stepPositionsRequestBuilder_ == null) {
+          return stepPositionsRequest_ == null ? gauge.messages.Messages.StepPositionsRequest.getDefaultInstance() : stepPositionsRequest_;
+        } else {
+          return stepPositionsRequestBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+       */
+      public Builder setStepPositionsRequest(gauge.messages.Messages.StepPositionsRequest value) {
+        if (stepPositionsRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          stepPositionsRequest_ = value;
+          onChanged();
+        } else {
+          stepPositionsRequestBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+       */
+      public Builder setStepPositionsRequest(
+          gauge.messages.Messages.StepPositionsRequest.Builder builderForValue) {
+        if (stepPositionsRequestBuilder_ == null) {
+          stepPositionsRequest_ = builderForValue.build();
+          onChanged();
+        } else {
+          stepPositionsRequestBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+       */
+      public Builder mergeStepPositionsRequest(gauge.messages.Messages.StepPositionsRequest value) {
+        if (stepPositionsRequestBuilder_ == null) {
+          if (stepPositionsRequest_ != null) {
+            stepPositionsRequest_ =
+              gauge.messages.Messages.StepPositionsRequest.newBuilder(stepPositionsRequest_).mergeFrom(value).buildPartial();
+          } else {
+            stepPositionsRequest_ = value;
+          }
+          onChanged();
+        } else {
+          stepPositionsRequestBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+       */
+      public Builder clearStepPositionsRequest() {
+        if (stepPositionsRequestBuilder_ == null) {
+          stepPositionsRequest_ = null;
+          onChanged();
+        } else {
+          stepPositionsRequest_ = null;
+          stepPositionsRequestBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+       */
+      public gauge.messages.Messages.StepPositionsRequest.Builder getStepPositionsRequestBuilder() {
+        
+        onChanged();
+        return getStepPositionsRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+       */
+      public gauge.messages.Messages.StepPositionsRequestOrBuilder getStepPositionsRequestOrBuilder() {
+        if (stepPositionsRequestBuilder_ != null) {
+          return stepPositionsRequestBuilder_.getMessageOrBuilder();
+        } else {
+          return stepPositionsRequest_ == null ?
+              gauge.messages.Messages.StepPositionsRequest.getDefaultInstance() : stepPositionsRequest_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsRequest](#gauge.messages.StepPositionsRequest)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsRequest stepPositionsRequest = 28;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Messages.StepPositionsRequest, gauge.messages.Messages.StepPositionsRequest.Builder, gauge.messages.Messages.StepPositionsRequestOrBuilder> 
+          getStepPositionsRequestFieldBuilder() {
+        if (stepPositionsRequestBuilder_ == null) {
+          stepPositionsRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Messages.StepPositionsRequest, gauge.messages.Messages.StepPositionsRequest.Builder, gauge.messages.Messages.StepPositionsRequestOrBuilder>(
+                  getStepPositionsRequest(),
+                  getParentForChildren(),
+                  isClean());
+          stepPositionsRequest_ = null;
+        }
+        return stepPositionsRequestBuilder_;
+      }
+
+      private gauge.messages.Messages.StepPositionsResponse stepPositionsResponse_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Messages.StepPositionsResponse, gauge.messages.Messages.StepPositionsResponse.Builder, gauge.messages.Messages.StepPositionsResponseOrBuilder> stepPositionsResponseBuilder_;
+      /**
+       * <pre>
+       *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+       */
+      public boolean hasStepPositionsResponse() {
+        return stepPositionsResponseBuilder_ != null || stepPositionsResponse_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+       */
+      public gauge.messages.Messages.StepPositionsResponse getStepPositionsResponse() {
+        if (stepPositionsResponseBuilder_ == null) {
+          return stepPositionsResponse_ == null ? gauge.messages.Messages.StepPositionsResponse.getDefaultInstance() : stepPositionsResponse_;
+        } else {
+          return stepPositionsResponseBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+       */
+      public Builder setStepPositionsResponse(gauge.messages.Messages.StepPositionsResponse value) {
+        if (stepPositionsResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          stepPositionsResponse_ = value;
+          onChanged();
+        } else {
+          stepPositionsResponseBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+       */
+      public Builder setStepPositionsResponse(
+          gauge.messages.Messages.StepPositionsResponse.Builder builderForValue) {
+        if (stepPositionsResponseBuilder_ == null) {
+          stepPositionsResponse_ = builderForValue.build();
+          onChanged();
+        } else {
+          stepPositionsResponseBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+       */
+      public Builder mergeStepPositionsResponse(gauge.messages.Messages.StepPositionsResponse value) {
+        if (stepPositionsResponseBuilder_ == null) {
+          if (stepPositionsResponse_ != null) {
+            stepPositionsResponse_ =
+              gauge.messages.Messages.StepPositionsResponse.newBuilder(stepPositionsResponse_).mergeFrom(value).buildPartial();
+          } else {
+            stepPositionsResponse_ = value;
+          }
+          onChanged();
+        } else {
+          stepPositionsResponseBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+       */
+      public Builder clearStepPositionsResponse() {
+        if (stepPositionsResponseBuilder_ == null) {
+          stepPositionsResponse_ = null;
+          onChanged();
+        } else {
+          stepPositionsResponse_ = null;
+          stepPositionsResponseBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+       */
+      public gauge.messages.Messages.StepPositionsResponse.Builder getStepPositionsResponseBuilder() {
+        
+        onChanged();
+        return getStepPositionsResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+       */
+      public gauge.messages.Messages.StepPositionsResponseOrBuilder getStepPositionsResponseOrBuilder() {
+        if (stepPositionsResponseBuilder_ != null) {
+          return stepPositionsResponseBuilder_.getMessageOrBuilder();
+        } else {
+          return stepPositionsResponse_ == null ?
+              gauge.messages.Messages.StepPositionsResponse.getDefaultInstance() : stepPositionsResponse_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; [StepPositionsResponse](#gauge.messages.StepPositionsResponse)
+       * </pre>
+       *
+       * <code>.gauge.messages.StepPositionsResponse stepPositionsResponse = 29;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Messages.StepPositionsResponse, gauge.messages.Messages.StepPositionsResponse.Builder, gauge.messages.Messages.StepPositionsResponseOrBuilder> 
+          getStepPositionsResponseFieldBuilder() {
+        if (stepPositionsResponseBuilder_ == null) {
+          stepPositionsResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Messages.StepPositionsResponse, gauge.messages.Messages.StepPositionsResponse.Builder, gauge.messages.Messages.StepPositionsResponseOrBuilder>(
+                  getStepPositionsResponse(),
+                  getParentForChildren(),
+                  isClean());
+          stepPositionsResponse_ = null;
+        }
+        return stepPositionsResponseBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -27655,6 +33332,11 @@ public final class Messages {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_gauge_messages_RefactorRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_FileChanges_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_FileChanges_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_RefactorResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -27674,6 +33356,26 @@ public final class Messages {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_gauge_messages_UnsupportedMessageResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_CacheFileRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_CacheFileRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_StepPositionsRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_StepPositionsRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_StepPositionsResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_StepPositionsResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_StepPositionsResponse_StepPosition_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_StepPositionsResponse_StepPosition_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_Message_descriptor;
   private static final 
@@ -27718,101 +33420,121 @@ public final class Messages {
       "J\n\010SpecInfo\022\014\n\004name\030\001 \001(\t\022\020\n\010fileName\030\002 " +
       "\001(\t\022\020\n\010isFailed\030\003 \001(\010\022\014\n\004tags\030\004 \003(\t\"<\n\014S" +
       "cenarioInfo\022\014\n\004name\030\001 \001(\t\022\020\n\010isFailed\030\002 ",
-      "\001(\010\022\014\n\004tags\030\003 \003(\t\"b\n\010StepInfo\0220\n\004step\030\001 " +
+      "\001(\010\022\014\n\004tags\030\003 \003(\t\"x\n\010StepInfo\0220\n\004step\030\001 " +
       "\001(\0132\".gauge.messages.ExecuteStepRequest\022" +
-      "\020\n\010isFailed\030\002 \001(\010\022\022\n\nstackTrace\030\003 \001(\t\"\214\001" +
-      "\n\022ExecuteStepRequest\022\026\n\016actualStepText\030\001" +
-      " \001(\t\022\026\n\016parsedStepText\030\002 \001(\t\022\027\n\017scenario" +
-      "Failing\030\003 \001(\010\022-\n\nparameters\030\004 \003(\0132\031.gaug" +
-      "e.messages.Parameter\"v\n\023StepValidateRequ" +
-      "est\022\020\n\010stepText\030\001 \001(\t\022\032\n\022numberOfParamet" +
-      "ers\030\002 \001(\005\0221\n\tstepValue\030\003 \001(\0132\036.gauge.mes" +
-      "sages.ProtoStepValue\"\347\001\n\024StepValidateRes",
-      "ponse\022\017\n\007isValid\030\001 \001(\010\022\024\n\014errorMessage\030\002" +
-      " \001(\t\022A\n\terrorType\030\003 \001(\0162..gauge.messages" +
-      ".StepValidateResponse.ErrorType\022\022\n\nsugge" +
-      "stion\030\004 \001(\t\"Q\n\tErrorType\022!\n\035STEP_IMPLEME" +
-      "NTATION_NOT_FOUND\020\000\022!\n\035DUPLICATE_STEP_IM" +
-      "PLEMENTATION\020\001\"M\n\024SuiteExecutionResult\0225" +
-      "\n\013suiteResult\030\001 \001(\0132 .gauge.messages.Pro" +
-      "toSuiteResult\"\022\n\020StepNamesRequest\"\"\n\021Ste" +
-      "pNamesResponse\022\r\n\005steps\030\001 \003(\t\"\036\n\034Scenari" +
-      "oDataStoreInitRequest\"\032\n\030SpecDataStoreIn",
-      "itRequest\"\033\n\031SuiteDataStoreInitRequest\"=" +
-      "\n\021ParameterPosition\022\023\n\013oldPosition\030\001 \001(\005" +
-      "\022\023\n\013newPosition\030\002 \001(\005\"\270\001\n\017RefactorReques" +
-      "t\0224\n\014oldStepValue\030\001 \001(\0132\036.gauge.messages" +
-      ".ProtoStepValue\0224\n\014newStepValue\030\002 \001(\0132\036." +
-      "gauge.messages.ProtoStepValue\0229\n\016paramPo" +
-      "sitions\030\003 \003(\0132!.gauge.messages.Parameter" +
-      "Position\"H\n\020RefactorResponse\022\017\n\007success\030" +
-      "\001 \001(\010\022\r\n\005error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003" +
-      "(\t\"$\n\017StepNameRequest\022\021\n\tstepValue\030\001 \001(\t",
-      "\"M\n\020StepNameResponse\022\025\n\risStepPresent\030\001 " +
-      "\001(\010\022\020\n\010stepName\030\002 \003(\t\022\020\n\010hasAlias\030\003 \001(\010\"" +
-      "-\n\032UnsupportedMessageResponse\022\017\n\007message" +
-      "\030\001 \001(\t\"\376\022\n\007Message\0228\n\013messageType\030\001 \001(\0162" +
-      "#.gauge.messages.Message.MessageType\022\021\n\t" +
-      "messageId\030\002 \001(\003\022J\n\030executionStartingRequ" +
-      "est\030\003 \001(\0132(.gauge.messages.ExecutionStar" +
-      "tingRequest\022R\n\034specExecutionStartingRequ" +
-      "est\030\004 \001(\0132,.gauge.messages.SpecExecution" +
-      "StartingRequest\022N\n\032specExecutionEndingRe",
-      "quest\030\005 \001(\0132*.gauge.messages.SpecExecuti" +
-      "onEndingRequest\022Z\n scenarioExecutionStar" +
-      "tingRequest\030\006 \001(\01320.gauge.messages.Scena" +
-      "rioExecutionStartingRequest\022V\n\036scenarioE" +
-      "xecutionEndingRequest\030\007 \001(\0132..gauge.mess" +
-      "ages.ScenarioExecutionEndingRequest\022R\n\034s" +
-      "tepExecutionStartingRequest\030\010 \001(\0132,.gaug" +
-      "e.messages.StepExecutionStartingRequest\022" +
-      "N\n\032stepExecutionEndingRequest\030\t \001(\0132*.ga" +
-      "uge.messages.StepExecutionEndingRequest\022",
-      ">\n\022executeStepRequest\030\n \001(\0132\".gauge.mess" +
-      "ages.ExecuteStepRequest\022F\n\026executionEndi" +
-      "ngRequest\030\013 \001(\0132&.gauge.messages.Executi" +
-      "onEndingRequest\022@\n\023stepValidateRequest\030\014" +
-      " \001(\0132#.gauge.messages.StepValidateReques" +
-      "t\022B\n\024stepValidateResponse\030\r \001(\0132$.gauge." +
-      "messages.StepValidateResponse\022H\n\027executi" +
-      "onStatusResponse\030\016 \001(\0132\'.gauge.messages." +
-      "ExecutionStatusResponse\022:\n\020stepNamesRequ" +
-      "est\030\017 \001(\0132 .gauge.messages.StepNamesRequ",
-      "est\022<\n\021stepNamesResponse\030\020 \001(\0132!.gauge.m" +
-      "essages.StepNamesResponse\022B\n\024suiteExecut" +
-      "ionResult\030\021 \001(\0132$.gauge.messages.SuiteEx" +
-      "ecutionResult\022>\n\022killProcessRequest\030\022 \001(" +
-      "\0132\".gauge.messages.KillProcessRequest\022R\n" +
-      "\034scenarioDataStoreInitRequest\030\023 \001(\0132,.ga" +
-      "uge.messages.ScenarioDataStoreInitReques" +
-      "t\022J\n\030specDataStoreInitRequest\030\024 \001(\0132(.ga" +
-      "uge.messages.SpecDataStoreInitRequest\022L\n" +
-      "\031suiteDataStoreInitRequest\030\025 \001(\0132).gauge",
-      ".messages.SuiteDataStoreInitRequest\0228\n\017s" +
-      "tepNameRequest\030\026 \001(\0132\037.gauge.messages.St" +
-      "epNameRequest\022:\n\020stepNameResponse\030\027 \001(\0132" +
-      " .gauge.messages.StepNameResponse\0228\n\017ref" +
-      "actorRequest\030\030 \001(\0132\037.gauge.messages.Refa" +
-      "ctorRequest\022:\n\020refactorResponse\030\031 \001(\0132 ." +
-      "gauge.messages.RefactorResponse\022N\n\032unsup" +
-      "portedMessageResponse\030\032 \001(\0132*.gauge.mess" +
-      "ages.UnsupportedMessageResponse\"\335\004\n\013Mess" +
-      "ageType\022\025\n\021ExecutionStarting\020\000\022\031\n\025SpecEx",
-      "ecutionStarting\020\001\022\027\n\023SpecExecutionEnding" +
-      "\020\002\022\035\n\031ScenarioExecutionStarting\020\003\022\033\n\027Sce" +
-      "narioExecutionEnding\020\004\022\031\n\025StepExecutionS" +
-      "tarting\020\005\022\027\n\023StepExecutionEnding\020\006\022\017\n\013Ex" +
-      "ecuteStep\020\007\022\023\n\017ExecutionEnding\020\010\022\027\n\023Step" +
-      "ValidateRequest\020\t\022\030\n\024StepValidateRespons" +
-      "e\020\n\022\033\n\027ExecutionStatusResponse\020\013\022\024\n\020Step" +
-      "NamesRequest\020\014\022\025\n\021StepNamesResponse\020\r\022\026\n" +
-      "\022KillProcessRequest\020\016\022\030\n\024SuiteExecutionR" +
-      "esult\020\017\022\031\n\025ScenarioDataStoreInit\020\020\022\025\n\021Sp",
-      "ecDataStoreInit\020\021\022\026\n\022SuiteDataStoreInit\020" +
-      "\022\022\023\n\017StepNameRequest\020\023\022\024\n\020StepNameRespon" +
-      "se\020\024\022\023\n\017RefactorRequest\020\025\022\024\n\020RefactorRes" +
-      "ponse\020\026\022\036\n\032UnsupportedMessageResponse\020\027B" +
-      "\021\252\002\016Gauge.Messagesb\006proto3"
+      "\020\n\010isFailed\030\002 \001(\010\022\022\n\nstackTrace\030\003 \001(\t\022\024\n" +
+      "\014errorMessage\030\004 \001(\t\"\214\001\n\022ExecuteStepReque" +
+      "st\022\026\n\016actualStepText\030\001 \001(\t\022\026\n\016parsedStep" +
+      "Text\030\002 \001(\t\022\027\n\017scenarioFailing\030\003 \001(\010\022-\n\np" +
+      "arameters\030\004 \003(\0132\031.gauge.messages.Paramet" +
+      "er\"v\n\023StepValidateRequest\022\020\n\010stepText\030\001 " +
+      "\001(\t\022\032\n\022numberOfParameters\030\002 \001(\005\0221\n\tstepV" +
+      "alue\030\003 \001(\0132\036.gauge.messages.ProtoStepVal",
+      "ue\"\347\001\n\024StepValidateResponse\022\017\n\007isValid\030\001" +
+      " \001(\010\022\024\n\014errorMessage\030\002 \001(\t\022A\n\terrorType\030" +
+      "\003 \001(\0162..gauge.messages.StepValidateRespo" +
+      "nse.ErrorType\022\022\n\nsuggestion\030\004 \001(\t\"Q\n\tErr" +
+      "orType\022!\n\035STEP_IMPLEMENTATION_NOT_FOUND\020" +
+      "\000\022!\n\035DUPLICATE_STEP_IMPLEMENTATION\020\001\"M\n\024" +
+      "SuiteExecutionResult\0225\n\013suiteResult\030\001 \001(" +
+      "\0132 .gauge.messages.ProtoSuiteResult\"\022\n\020S" +
+      "tepNamesRequest\"\"\n\021StepNamesResponse\022\r\n\005" +
+      "steps\030\001 \003(\t\"\036\n\034ScenarioDataStoreInitRequ",
+      "est\"\032\n\030SpecDataStoreInitRequest\"\033\n\031Suite" +
+      "DataStoreInitRequest\"=\n\021ParameterPositio" +
+      "n\022\023\n\013oldPosition\030\001 \001(\005\022\023\n\013newPosition\030\002 " +
+      "\001(\005\"\315\001\n\017RefactorRequest\0224\n\014oldStepValue\030" +
+      "\001 \001(\0132\036.gauge.messages.ProtoStepValue\0224\n" +
+      "\014newStepValue\030\002 \001(\0132\036.gauge.messages.Pro" +
+      "toStepValue\0229\n\016paramPositions\030\003 \003(\0132!.ga" +
+      "uge.messages.ParameterPosition\022\023\n\013saveCh" +
+      "anges\030\004 \001(\010\"4\n\013FileChanges\022\020\n\010fileName\030\001" +
+      " \001(\t\022\023\n\013fileContent\030\002 \001(\t\"z\n\020RefactorRes",
+      "ponse\022\017\n\007success\030\001 \001(\010\022\r\n\005error\030\002 \001(\t\022\024\n" +
+      "\014filesChanged\030\003 \003(\t\0220\n\013fileChanges\030\004 \003(\013" +
+      "2\033.gauge.messages.FileChanges\"$\n\017StepNam" +
+      "eRequest\022\021\n\tstepValue\030\001 \001(\t\"\203\001\n\020StepName" +
+      "Response\022\025\n\risStepPresent\030\001 \001(\010\022\020\n\010stepN" +
+      "ame\030\002 \003(\t\022\020\n\010hasAlias\030\003 \001(\010\022\020\n\010fileName\030" +
+      "\004 \001(\t\022\"\n\004span\030\005 \001(\0132\024.gauge.messages.Spa" +
+      "n\"-\n\032UnsupportedMessageResponse\022\017\n\007messa" +
+      "ge\030\001 \001(\t\"G\n\020CacheFileRequest\022\017\n\007content\030" +
+      "\001 \001(\t\022\020\n\010filePath\030\002 \001(\t\022\020\n\010isClosed\030\003 \001(",
+      "\010\"(\n\024StepPositionsRequest\022\020\n\010filePath\030\001 " +
+      "\001(\t\"\270\001\n\025StepPositionsResponse\022I\n\rstepPos" +
+      "itions\030\001 \003(\01322.gauge.messages.StepPositi" +
+      "onsResponse.StepPosition\022\r\n\005error\030\002 \001(\t\032" +
+      "E\n\014StepPosition\022\021\n\tstepValue\030\001 \001(\t\022\"\n\004sp" +
+      "an\030\002 \001(\0132\024.gauge.messages.Span\"\217\025\n\007Messa" +
+      "ge\0228\n\013messageType\030\001 \001(\0162#.gauge.messages" +
+      ".Message.MessageType\022\021\n\tmessageId\030\002 \001(\003\022" +
+      "J\n\030executionStartingRequest\030\003 \001(\0132(.gaug" +
+      "e.messages.ExecutionStartingRequest\022R\n\034s",
+      "pecExecutionStartingRequest\030\004 \001(\0132,.gaug" +
+      "e.messages.SpecExecutionStartingRequest\022" +
+      "N\n\032specExecutionEndingRequest\030\005 \001(\0132*.ga" +
+      "uge.messages.SpecExecutionEndingRequest\022" +
+      "Z\n scenarioExecutionStartingRequest\030\006 \001(" +
+      "\01320.gauge.messages.ScenarioExecutionStar" +
+      "tingRequest\022V\n\036scenarioExecutionEndingRe" +
+      "quest\030\007 \001(\0132..gauge.messages.ScenarioExe" +
+      "cutionEndingRequest\022R\n\034stepExecutionStar" +
+      "tingRequest\030\010 \001(\0132,.gauge.messages.StepE",
+      "xecutionStartingRequest\022N\n\032stepExecution" +
+      "EndingRequest\030\t \001(\0132*.gauge.messages.Ste" +
+      "pExecutionEndingRequest\022>\n\022executeStepRe" +
+      "quest\030\n \001(\0132\".gauge.messages.ExecuteStep" +
+      "Request\022F\n\026executionEndingRequest\030\013 \001(\0132" +
+      "&.gauge.messages.ExecutionEndingRequest\022" +
+      "@\n\023stepValidateRequest\030\014 \001(\0132#.gauge.mes" +
+      "sages.StepValidateRequest\022B\n\024stepValidat" +
+      "eResponse\030\r \001(\0132$.gauge.messages.StepVal" +
+      "idateResponse\022H\n\027executionStatusResponse",
+      "\030\016 \001(\0132\'.gauge.messages.ExecutionStatusR" +
+      "esponse\022:\n\020stepNamesRequest\030\017 \001(\0132 .gaug" +
+      "e.messages.StepNamesRequest\022<\n\021stepNames" +
+      "Response\030\020 \001(\0132!.gauge.messages.StepName" +
+      "sResponse\022B\n\024suiteExecutionResult\030\021 \001(\0132" +
+      "$.gauge.messages.SuiteExecutionResult\022>\n" +
+      "\022killProcessRequest\030\022 \001(\0132\".gauge.messag" +
+      "es.KillProcessRequest\022R\n\034scenarioDataSto" +
+      "reInitRequest\030\023 \001(\0132,.gauge.messages.Sce" +
+      "narioDataStoreInitRequest\022J\n\030specDataSto",
+      "reInitRequest\030\024 \001(\0132(.gauge.messages.Spe" +
+      "cDataStoreInitRequest\022L\n\031suiteDataStoreI" +
+      "nitRequest\030\025 \001(\0132).gauge.messages.SuiteD" +
+      "ataStoreInitRequest\0228\n\017stepNameRequest\030\026" +
+      " \001(\0132\037.gauge.messages.StepNameRequest\022:\n" +
+      "\020stepNameResponse\030\027 \001(\0132 .gauge.messages" +
+      ".StepNameResponse\0228\n\017refactorRequest\030\030 \001" +
+      "(\0132\037.gauge.messages.RefactorRequest\022:\n\020r" +
+      "efactorResponse\030\031 \001(\0132 .gauge.messages.R" +
+      "efactorResponse\022N\n\032unsupportedMessageRes",
+      "ponse\030\032 \001(\0132*.gauge.messages.Unsupported" +
+      "MessageResponse\022:\n\020cacheFileRequest\030\033 \001(" +
+      "\0132 .gauge.messages.CacheFileRequest\022B\n\024s" +
+      "tepPositionsRequest\030\034 \001(\0132$.gauge.messag" +
+      "es.StepPositionsRequest\022D\n\025stepPositions" +
+      "Response\030\035 \001(\0132%.gauge.messages.StepPosi" +
+      "tionsResponse\"\250\005\n\013MessageType\022\025\n\021Executi" +
+      "onStarting\020\000\022\031\n\025SpecExecutionStarting\020\001\022" +
+      "\027\n\023SpecExecutionEnding\020\002\022\035\n\031ScenarioExec" +
+      "utionStarting\020\003\022\033\n\027ScenarioExecutionEndi",
+      "ng\020\004\022\031\n\025StepExecutionStarting\020\005\022\027\n\023StepE" +
+      "xecutionEnding\020\006\022\017\n\013ExecuteStep\020\007\022\023\n\017Exe" +
+      "cutionEnding\020\010\022\027\n\023StepValidateRequest\020\t\022" +
+      "\030\n\024StepValidateResponse\020\n\022\033\n\027ExecutionSt" +
+      "atusResponse\020\013\022\024\n\020StepNamesRequest\020\014\022\025\n\021" +
+      "StepNamesResponse\020\r\022\026\n\022KillProcessReques" +
+      "t\020\016\022\030\n\024SuiteExecutionResult\020\017\022\031\n\025Scenari" +
+      "oDataStoreInit\020\020\022\025\n\021SpecDataStoreInit\020\021\022" +
+      "\026\n\022SuiteDataStoreInit\020\022\022\023\n\017StepNameReque" +
+      "st\020\023\022\024\n\020StepNameResponse\020\024\022\023\n\017RefactorRe",
+      "quest\020\025\022\024\n\020RefactorResponse\020\026\022\036\n\032Unsuppo" +
+      "rtedMessageResponse\020\027\022\024\n\020CacheFileReques" +
+      "t\020\030\022\030\n\024StepPositionsRequest\020\031\022\031\n\025StepPos" +
+      "itionsResponse\020\032B\021\252\002\016Gauge.Messagesb\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -27910,7 +33632,7 @@ public final class Messages {
     internal_static_gauge_messages_StepInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepInfo_descriptor,
-        new java.lang.String[] { "Step", "IsFailed", "StackTrace", });
+        new java.lang.String[] { "Step", "IsFailed", "StackTrace", "ErrorMessage", });
     internal_static_gauge_messages_ExecuteStepRequest_descriptor =
       getDescriptor().getMessageTypes().get(14);
     internal_static_gauge_messages_ExecuteStepRequest_fieldAccessorTable = new
@@ -27976,37 +33698,67 @@ public final class Messages {
     internal_static_gauge_messages_RefactorRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_RefactorRequest_descriptor,
-        new java.lang.String[] { "OldStepValue", "NewStepValue", "ParamPositions", });
-    internal_static_gauge_messages_RefactorResponse_descriptor =
+        new java.lang.String[] { "OldStepValue", "NewStepValue", "ParamPositions", "SaveChanges", });
+    internal_static_gauge_messages_FileChanges_descriptor =
       getDescriptor().getMessageTypes().get(25);
+    internal_static_gauge_messages_FileChanges_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_FileChanges_descriptor,
+        new java.lang.String[] { "FileName", "FileContent", });
+    internal_static_gauge_messages_RefactorResponse_descriptor =
+      getDescriptor().getMessageTypes().get(26);
     internal_static_gauge_messages_RefactorResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_RefactorResponse_descriptor,
-        new java.lang.String[] { "Success", "Error", "FilesChanged", });
+        new java.lang.String[] { "Success", "Error", "FilesChanged", "FileChanges", });
     internal_static_gauge_messages_StepNameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_gauge_messages_StepNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepNameRequest_descriptor,
         new java.lang.String[] { "StepValue", });
     internal_static_gauge_messages_StepNameResponse_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_gauge_messages_StepNameResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepNameResponse_descriptor,
-        new java.lang.String[] { "IsStepPresent", "StepName", "HasAlias", });
+        new java.lang.String[] { "IsStepPresent", "StepName", "HasAlias", "FileName", "Span", });
     internal_static_gauge_messages_UnsupportedMessageResponse_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_gauge_messages_UnsupportedMessageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_UnsupportedMessageResponse_descriptor,
         new java.lang.String[] { "Message", });
+    internal_static_gauge_messages_CacheFileRequest_descriptor =
+      getDescriptor().getMessageTypes().get(30);
+    internal_static_gauge_messages_CacheFileRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_CacheFileRequest_descriptor,
+        new java.lang.String[] { "Content", "FilePath", "IsClosed", });
+    internal_static_gauge_messages_StepPositionsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(31);
+    internal_static_gauge_messages_StepPositionsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_StepPositionsRequest_descriptor,
+        new java.lang.String[] { "FilePath", });
+    internal_static_gauge_messages_StepPositionsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(32);
+    internal_static_gauge_messages_StepPositionsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_StepPositionsResponse_descriptor,
+        new java.lang.String[] { "StepPositions", "Error", });
+    internal_static_gauge_messages_StepPositionsResponse_StepPosition_descriptor =
+      internal_static_gauge_messages_StepPositionsResponse_descriptor.getNestedTypes().get(0);
+    internal_static_gauge_messages_StepPositionsResponse_StepPosition_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_StepPositionsResponse_StepPosition_descriptor,
+        new java.lang.String[] { "StepValue", "Span", });
     internal_static_gauge_messages_Message_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_gauge_messages_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_Message_descriptor,
-        new java.lang.String[] { "MessageType", "MessageId", "ExecutionStartingRequest", "SpecExecutionStartingRequest", "SpecExecutionEndingRequest", "ScenarioExecutionStartingRequest", "ScenarioExecutionEndingRequest", "StepExecutionStartingRequest", "StepExecutionEndingRequest", "ExecuteStepRequest", "ExecutionEndingRequest", "StepValidateRequest", "StepValidateResponse", "ExecutionStatusResponse", "StepNamesRequest", "StepNamesResponse", "SuiteExecutionResult", "KillProcessRequest", "ScenarioDataStoreInitRequest", "SpecDataStoreInitRequest", "SuiteDataStoreInitRequest", "StepNameRequest", "StepNameResponse", "RefactorRequest", "RefactorResponse", "UnsupportedMessageResponse", });
+        new java.lang.String[] { "MessageType", "MessageId", "ExecutionStartingRequest", "SpecExecutionStartingRequest", "SpecExecutionEndingRequest", "ScenarioExecutionStartingRequest", "ScenarioExecutionEndingRequest", "StepExecutionStartingRequest", "StepExecutionEndingRequest", "ExecuteStepRequest", "ExecutionEndingRequest", "StepValidateRequest", "StepValidateResponse", "ExecutionStatusResponse", "StepNamesRequest", "StepNamesResponse", "SuiteExecutionResult", "KillProcessRequest", "ScenarioDataStoreInitRequest", "SpecDataStoreInitRequest", "SuiteDataStoreInitRequest", "StepNameRequest", "StepNameResponse", "RefactorRequest", "RefactorResponse", "UnsupportedMessageResponse", "CacheFileRequest", "StepPositionsRequest", "StepPositionsResponse", });
     gauge.messages.Spec.getDescriptor();
   }
 
