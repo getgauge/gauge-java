@@ -21,12 +21,14 @@ package com.thoughtworks.gauge;
 public class StepDetails {
     private String text = "";
     private String stackTrace = "";
+    private String errorMessage = "";
     private Boolean isFailing = false;
 
-    public StepDetails(String text, boolean isFailing, String stackTrace) {
+    public StepDetails(String text, boolean isFailing, String stackTrace, String errorMessage) {
         this.text = text;
         this.isFailing = isFailing;
         this.stackTrace = stackTrace;
+        this.errorMessage = errorMessage;
     }
 
     public StepDetails() {
@@ -50,4 +52,7 @@ public class StepDetails {
         return stackTrace;
     }
 
+    public String getErrorMessage() {
+        return errorMessage;
+    }
 }
