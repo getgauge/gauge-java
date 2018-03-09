@@ -30,6 +30,14 @@ gauge install java --version 0.6.5
 gauge install java --file gauge-java-0.6.5-windows.x86_64.zip
 ```
 
+### Nightly
+
+To install csharp nightly, download the latest nightly from [here](https://bintray.com/gauge/gauge-csharp/Nightly).
+
+Once you have the downloaded nightly gauge-csharp-version.nightly-yyyy-mm-dd.zip, install using:
+
+    gauge install csharp -f gauge-csharp-version.nightly-yyyy-mm-dd.zip
+
 # Build from source
 
 ###Requirements
