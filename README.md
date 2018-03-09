@@ -44,7 +44,7 @@ gauge run specs
 gauge install java --version 0.6.5
 ```
 
-### Offline installation
+#### Offline installation
 * Download the plugin from [Releases](https://github.com/getgauge/gauge-java/releases)
 ```
 gauge install java --file gauge-java-0.6.5-windows.x86_64.zip
