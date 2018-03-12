@@ -10,13 +10,12 @@
 
 This project adds java [language plugin](https://docs.gauge.org/plugins.html#language-reporting-plugins) for [gauge](http://getgauge.io).
 
-The plugin is authored in [Java](https://en.wikipedia.org/wiki/Java_(programming_language)). It contains a launcher component (gauge-java.go) written in golang which is used to start the plugin from [gauge](https://github.com/getgauge/gauge).
-
 ## Getting started
 
 ### Pre-requisite
 
 - [Install Gauge](https://docs.gauge.org/installing.html#installation)
+- [Java](https://www.java.com/en/download/index.jsp)
 
 ### Installation
 
@@ -60,11 +59,14 @@ Once you have the downloaded nightly gauge-java-version.nightly-yyyy-mm-dd.zip, 
 
 #### Build from source
 
-##### Requirements
+The plugin is authored in [Java](https://en.wikipedia.org/wiki/Java_(programming_language)).
+Gauge is authored in golang. These are independent processes talking to each other over TCP on port GAUGE_INTERNAL_PORT (env variable) using [Protobuf](https://github.com/getgauge/gauge-proto). This project contains a launcher component (gauge-java.go) written in golang which is used to start the plugin from [gauge](https://github.com/getgauge/gauge).
+
+##### Additional Requirements
+Apart from [Gauge](https://gauge.org/index.html) and [Java](https://www.java.com/en/download/index.jsp) you will need
+
 * [Golang](http://golang.org/)
-* [Java](https://www.java.com/en/download/index.jsp)
 * [Maven](https://maven.apache.org/)
-* [Gauge](http://getgauge.io)
 
 ##### Compiling
 
