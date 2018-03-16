@@ -12,6 +12,7 @@ cache:
 - C:\Users\appveyor\.m2
 environment:
   GAUGE_TELEMETRY_ENABLED: false
+  GAUGE_PREFIX: C:\Program Files\Gauge\bin
 build_script:
 - ps: >- 
     $env:Path="$env:ProgramFiles\Gauge\bin;C:\maven\apache-maven-3.3.9\bin;" + [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
