@@ -76,7 +76,7 @@ public class GaugeConnection {
             throw new RuntimeException("Gauge API not started");
         }
         try {
-            gaugeSocket = new Socket("localhost", port);
+            gaugeSocket = new Socket("127.0.0.1", port);
         } catch (IOException e) {
             try {
                 //waits for the process to start accepting connection

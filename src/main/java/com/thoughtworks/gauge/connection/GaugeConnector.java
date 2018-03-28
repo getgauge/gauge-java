@@ -26,7 +26,7 @@ import java.net.Socket;
  */
 public class GaugeConnector {
 
-    public static final String LOCALHOST = "localhost";
+    public static final String LOCALHOST = "127.0.0.1";
     private Socket gaugeSocket;
     private GaugeConnection gaugeApiConnection;
 
