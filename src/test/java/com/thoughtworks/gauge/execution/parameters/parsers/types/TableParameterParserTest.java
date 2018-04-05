@@ -48,11 +48,4 @@ public class TableParameterParserTest {
 
         assertThat(tableParameterParser.parse(ANY_TYPE, aTableParameter()), theInstance(SPECIFIC_VALUE));
     }
-
-    @Test
-    public void whenNotTableParameterParsedThenTheParameterIsPassed() throws Exception {
-        tableParameterParser.parse(ANY_TYPE, nonTableParameter());
-
-        verify(parameterParserMock).parse(ANY_TYPE, nonTableParameter());
-    }
 }
