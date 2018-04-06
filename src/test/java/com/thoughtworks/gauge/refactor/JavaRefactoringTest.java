@@ -304,14 +304,14 @@ public class JavaRefactoringTest extends TestCase {
                 "    public void someStepWithComments() {" + System.getProperty("line.separator") +
                 "        //comment1" + System.getProperty("line.separator") +
                 "        //comment2" + System.getProperty("line.separator") +
-                "        /*\n" +
-                "                    comment3\n" +
-                "                    comment4\n" +
+                "        /*" + System.getProperty("line.separator") +
+                "                    comment3" + System.getProperty("line.separator") +
+                "                    comment4" + System.getProperty("line.separator") +
                 "         */" + System.getProperty("line.separator") +
-                "        /*\n" +
-                "                comment6\n" +
-                "                    comment7\n" +
-                "                        comment8\n" +
+                "        /*" + System.getProperty("line.separator") +
+                "                comment6" + System.getProperty("line.separator") +
+                "                    comment7" + System.getProperty("line.separator") +
+                "                        comment8" + System.getProperty("line.separator") +
                 "         */" + System.getProperty("line.separator") +
                 "        System.out.println(\"\");" + System.getProperty("line.separator") +
                 "    }"));
@@ -330,26 +330,26 @@ public class JavaRefactoringTest extends TestCase {
                 "    public void someStepWithComments() {" + System.getProperty("line.separator") +
                 "        //comment1" + System.getProperty("line.separator") +
                 "        //comment2" + System.getProperty("line.separator") +
-                "        /*\n" +
-                "                    comment3\n" +
-                "                    comment4\n" +
+                "        /*" + System.getProperty("line.separator") +
+                "                    comment3" + System.getProperty("line.separator") +
+                "                    comment4" + System.getProperty("line.separator") +
                 "         */" + System.getProperty("line.separator") +
-                "        /*\n" +
-                "                comment6\n" +
-                "                    comment7\n" +
-                "                        comment8\n" +
+                "        /*" + System.getProperty("line.separator") +
+                "                comment6" + System.getProperty("line.separator") +
+                "                    comment7" + System.getProperty("line.separator") +
+                "                        comment8" + System.getProperty("line.separator") +
                 "         */" + System.getProperty("line.separator") +
                 "        System.out.println(\"\");" + System.getProperty("line.separator") +
                 "    //comment9" + System.getProperty("line.separator") +
                 "    //comment10" + System.getProperty("line.separator") +
-                "    /*\n" +
-                "                    comment11\n" +
-                "                    comment12\n" +
+                "    /*" + System.getProperty("line.separator") +
+                "                    comment11" + System.getProperty("line.separator") +
+                "                    comment12" + System.getProperty("line.separator") +
                 "         */" + System.getProperty("line.separator") +
-                "    /*\n" +
-                "                comment13\n" +
-                "                    comment14\n" +
-                "                        comment15\n" +
+                "    /*" + System.getProperty("line.separator") +
+                "                comment13" + System.getProperty("line.separator") +
+                "                    comment14" + System.getProperty("line.separator") +
+                "                        comment15" + System.getProperty("line.separator") +
                 "         */" + System.getProperty("line.separator") +
                 "    }";
         String actualValue = element.getText();

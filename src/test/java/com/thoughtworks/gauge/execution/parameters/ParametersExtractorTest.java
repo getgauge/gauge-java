@@ -7,23 +7,25 @@ import static com.thoughtworks.gauge.test.TestHelpers.array;
 import static com.thoughtworks.gauge.test.TestValues.ANY_TYPE;
 import static com.thoughtworks.gauge.test.TestValues.SPECIFIC_VALUE;
 import static java.util.Arrays.asList;
+import static java.util.Arrays.stream;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.same;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.Arrays;
 import java.util.List;
 
+import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParser;
 
 import gauge.messages.Spec.Parameter;
 
@@ -62,8 +64,8 @@ public class ParametersExtractorTest {
     public void whenExtractAParameterThenTheParsedParameterIsReturned() throws Exception {
         when(parameterParser.parse(ANY_TYPE, aParameter())).thenReturn(SPECIFIC_VALUE);
 
-        assertThat(parametersExtractor.extract(singletonList(aParameter()), array(ANY_TYPE)),
-                asList(containsOnly(sameInstance(SPECIFIC_VALUE))));
+        Object[] extract = parametersExtractor.extract(singletonList(aParameter()), array(ANY_TYPE));
+        assertThat(stream(extract).filter(v -> v == SPECIFIC_VALUE).count(), is(Long.valueOf(extract.length)));
     }
 
     @Test
@@ -71,7 +73,7 @@ public class ParametersExtractorTest {
     public void whenExtractMultipleParametersThenTheParsedParametersAreReturned() throws Exception {
         when(parameterParser.parse(ANY_TYPE, aParameter())).thenReturn(SPECIFIC_VALUE, ANOTHER_SPECIFIC_VALUE);
 
-        assertThat(parametersExtractor.extract(asList(aParameter(), aParameter()), array(ANY_TYPE, ANY_TYPE)),
-                asList(containsOnly(sameInstance(SPECIFIC_VALUE), sameInstance(ANOTHER_SPECIFIC_VALUE))));
+        Object[] extract = parametersExtractor.extract(asList(aParameter(), aParameter()), array(ANY_TYPE, ANY_TYPE));
+        assertThat(stream(extract).filter(v -> v == SPECIFIC_VALUE || v == ANOTHER_SPECIFIC_VALUE).count(), is(Long.valueOf(extract.length)));
     }
 }

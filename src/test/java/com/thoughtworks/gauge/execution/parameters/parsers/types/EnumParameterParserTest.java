@@ -8,19 +8,18 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 
+import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParser;
+import com.thoughtworks.gauge.test.TestValues;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParser;
 import com.thoughtworks.gauge.test.AnEnum;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EnumParameterParserTest {
-    @Mock
-    private ParameterParser parameterParserMock;
     @InjectMocks
     private EnumParameterParser enumParameterParser;
 
@@ -28,12 +27,5 @@ public class EnumParameterParserTest {
     public void givenAnEnumParameterTypeAndAValidParameterForThatEnumThenTheEnumInstanceIsReturned() throws Exception {
         assertThat(enumParameterParser.parse(AnEnum.class, parameter(AnEnum.VALUE.name())),
                 equalTo(asObject(AnEnum.VALUE)));
-    }
-
-    @Test
-    public void whenParseANonEnumTypeThenTheParameterIsPassedAlong() throws Exception {
-        enumParameterParser.parse(A_NON_ENUM_TYPE, parameter(A_VALUE));
-
-        verify(parameterParserMock).parse(A_NON_ENUM_TYPE, parameter(A_VALUE));
     }
 }

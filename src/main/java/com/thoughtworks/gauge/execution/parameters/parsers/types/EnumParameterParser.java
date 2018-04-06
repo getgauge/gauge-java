@@ -2,26 +2,20 @@ package com.thoughtworks.gauge.execution.parameters.parsers.types;
 
 import com.google.common.base.Throwables;
 import com.thoughtworks.gauge.execution.parameters.ParsingException;
-import com.thoughtworks.gauge.execution.parameters.parsers.base.BaseParameterParser;
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParser;
-
 import gauge.messages.Spec;
 import gauge.messages.Spec.Parameter;
 
-public class EnumParameterParser extends BaseParameterParser {
+public class EnumParameterParser implements ParameterParser {
     public static final String ENUM_VALUE_NOT_FOUND_MESSAGE = "%s is not an enum value of %s.";
 
-    public EnumParameterParser(ParameterParser next) {
-        super(next);
-    }
-
     @Override
-    protected boolean condition(Class<?> parameterType, Parameter parameter) {
+    public boolean canParse(Class<?> parameterType, Parameter parameter) {
         return parameterType.isEnum();
     }
 
     @Override
-    protected Object parseParameter(Class<?> parameterType, Parameter parameter) throws ParsingException {
+    public Object parse(Class<?> parameterType, Parameter parameter) throws ParsingException {
         @SuppressWarnings("unchecked")
         Class<? extends Enum<?>> enumClass = (Class<? extends Enum<?>>) parameterType;
         String enumValue = parameter.getValue();

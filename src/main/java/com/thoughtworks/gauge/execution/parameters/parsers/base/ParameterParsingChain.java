@@ -3,24 +3,57 @@ package com.thoughtworks.gauge.execution.parameters.parsers.base;
 import com.thoughtworks.gauge.execution.parameters.ParsingException;
 import com.thoughtworks.gauge.execution.parameters.parsers.converters.TableConverter;
 import com.thoughtworks.gauge.execution.parameters.parsers.types.EnumParameterParser;
-import com.thoughtworks.gauge.execution.parameters.parsers.types.FallbackParameterParser;
 import com.thoughtworks.gauge.execution.parameters.parsers.types.PrimitiveParameterParser;
 import com.thoughtworks.gauge.execution.parameters.parsers.types.PrimitivesConverter;
 import com.thoughtworks.gauge.execution.parameters.parsers.types.TableParameterParser;
-
 import gauge.messages.Spec.Parameter;
+import org.reflections.Reflections;
+
+import javax.annotation.Nullable;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
 
 public class ParameterParsingChain implements ParameterParser {
-    private ParameterParser parameterParsingChain;
+    private List<ParameterParser> chain = new LinkedList<>();
 
     public ParameterParsingChain() {
-        parameterParsingChain = new TableParameterParser(
-                new EnumParameterParser(
-                        new PrimitiveParameterParser(new FallbackParameterParser(), new PrimitivesConverter())),
-                new TableConverter());
+        new Reflections().getSubTypesOf(CustomParameterParser.class).stream()
+                .filter(this::isNotGaugeParser)
+                .map(this::asCustomParameterParser)
+                .filter(Objects::nonNull)
+                .forEach(chain::add);
+        chain.add(new TableParameterParser(new TableConverter()));
+        chain.add(new EnumParameterParser());
+        chain.add(new PrimitiveParameterParser(new PrimitivesConverter()));
+    }
+
+    private boolean isNotGaugeParser(Class<? extends ParameterParser> clazz) {
+        return !clazz.getPackage().getName().equals("com.thoughtworks.gauge.execution.parameters.parsers.types");
+    }
+
+    private @Nullable
+    ParameterParser asCustomParameterParser(Class<? extends ParameterParser> clazz) {
+        try {
+            return clazz.newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+            // currently there seems to be no logging system used, so we cannot warn the user about an error
+            return null;
+        }
+    }
+
+
+    @Override
+    public boolean canParse(Class<?> parameterType, Parameter parameter) {
+        return true;
     }
 
     public Object parse(Class<?> parameterType, Parameter parameter) throws ParsingException {
-        return parameterParsingChain.parse(parameterType, parameter);
+        for (ParameterParser parser : chain) {
+            if (parser.canParse(parameterType, parameter)) {
+                return parser.parse(parameterType, parameter);
+            }
+        }
+        return parameter.getValue();
     }
 }
