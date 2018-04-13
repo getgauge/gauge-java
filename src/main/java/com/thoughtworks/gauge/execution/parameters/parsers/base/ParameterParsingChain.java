@@ -19,17 +19,13 @@ public class ParameterParsingChain implements ParameterParser {
 
     public ParameterParsingChain() {
         new Reflections().getSubTypesOf(CustomParameterParser.class).stream()
-                .filter(this::isNotGaugeParser)
                 .map(this::asCustomParameterParser)
                 .filter(Objects::nonNull)
                 .forEach(chain::add);
+        System.out.println("LOADING " + chain);
         chain.add(new TableParameterParser(new TableConverter()));
         chain.add(new EnumParameterParser());
         chain.add(new PrimitiveParameterParser(new PrimitivesConverter()));
-    }
-
-    private boolean isNotGaugeParser(Class<? extends ParameterParser> clazz) {
-        return !clazz.getPackage().getName().equals("com.thoughtworks.gauge.execution.parameters.parsers.types");
     }
 
     private @Nullable
@@ -37,6 +33,7 @@ public class ParameterParsingChain implements ParameterParser {
         try {
             return clazz.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
             // currently there seems to be no logging system used, so we cannot warn the user about an error
             return null;
         }
