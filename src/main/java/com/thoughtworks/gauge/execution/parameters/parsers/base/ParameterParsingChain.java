@@ -22,7 +22,6 @@ public class ParameterParsingChain implements ParameterParser {
                 .map(this::asCustomParameterParser)
                 .filter(Objects::nonNull)
                 .forEach(chain::add);
-        System.out.println("LOADING " + chain);
         chain.add(new TableParameterParser(new TableConverter()));
         chain.add(new EnumParameterParser());
         chain.add(new PrimitiveParameterParser(new PrimitivesConverter()));
@@ -33,7 +32,6 @@ public class ParameterParsingChain implements ParameterParser {
         try {
             return clazz.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
             // currently there seems to be no logging system used, so we cannot warn the user about an error
             return null;
         }
