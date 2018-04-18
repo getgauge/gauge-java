@@ -23,12 +23,12 @@ public class Gauge {
     private static ThreadLocal<List<String>> messages = new InheritableThreadLocal<List<String>>() {
         @Override
         protected List<String> initialValue() {
-            return new ArrayList<String>();
+            return new ArrayList<>();
         }
     };
 
     static List<String> getPendingMessages() {
-        List<String> pendingMessages = new ArrayList<String>(getMessages());
+        List<String> pendingMessages = new ArrayList<>(getMessages());
         getMessages().clear();
         return pendingMessages;
     }

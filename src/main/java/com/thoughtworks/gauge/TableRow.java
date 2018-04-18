@@ -73,7 +73,7 @@ public class TableRow {
      */
     public List<String> getCellValues() {
         // Since we have a LinkedHashMap, the order of values() is guaranteed.
-        return new ArrayList<String>(cells.values());
+        return new ArrayList<>(cells.values());
     }
 
     /**

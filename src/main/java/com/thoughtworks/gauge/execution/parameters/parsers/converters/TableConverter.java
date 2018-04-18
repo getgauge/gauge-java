@@ -31,7 +31,7 @@ public class TableConverter implements StringToPrimitiveConverter {
     }
 
     private List<String> getTableRowFor(Spec.ProtoTableRow tableRow) {
-        List<String> row = new ArrayList<String>();
+        List<String> row = new ArrayList<>();
         for (int i = 0; i < tableRow.getCellsCount(); i++) {
             row.add(tableRow.getCells(i));
         }

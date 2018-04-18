@@ -67,8 +67,8 @@ public class ExecutionContext {
      * @return - All the valid tags (including scenario and spec tags) at the execution level.
      */
     public List<String> getAllTags() {
-        HashSet<String> specTags = new HashSet<String>(currentSpecification.getTags());
+        HashSet<String> specTags = new HashSet<>(currentSpecification.getTags());
         specTags.addAll(currentScenario.getTags());
-        return new ArrayList<String>(specTags);
+        return new ArrayList<>(specTags);
     }
 }

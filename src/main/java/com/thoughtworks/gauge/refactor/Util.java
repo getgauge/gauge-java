@@ -27,16 +27,11 @@ public class Util {
         String text = words[0].toLowerCase();
         for (int i = 1, wordsLength = words.length; i < wordsLength; i++) {
             String word = words[i].trim();
-            if (word.isEmpty()) {
-                continue;
+            if (!word.isEmpty()) {
+                text += words[i].substring(0, 1).toUpperCase() + words[i].substring(1).toLowerCase();
             }
-            text += words[i].substring(0, 1).toUpperCase() + words[i].substring(1).toLowerCase();
         }
         return text;
-    }
-
-    public static String lineSeparator() {
-        return System.getProperty("line.separator");
     }
 
     public static String getValidJavaIdentifier(String s) {

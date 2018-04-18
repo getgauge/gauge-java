@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JavaRefactoring {
+public class  JavaRefactoring {
     private final StepValue oldStepValue;
     private final StepValue newStepValue;
     private final List<Messages.ParameterPosition> paramPositions;

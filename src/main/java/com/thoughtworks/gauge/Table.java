@@ -15,17 +15,17 @@
 
 package com.thoughtworks.gauge;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
-import org.apache.commons.lang.StringUtils;
-
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import org.apache.commons.lang.StringUtils;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Custom Table structure used as parameter in steps.
@@ -42,8 +42,8 @@ public class Table {
 
     public Table(List<String> headers) {
         this.headers = headers;
-        rows = new ArrayList<List<String>>();
-        tableRows = new ArrayList<TableRow>();
+        rows = new ArrayList<>();
+        tableRows = new ArrayList<>();
     }
 
     public void addRow(List<String> row) {
@@ -115,13 +115,10 @@ public class Table {
      * @return List of row values of a given column index in a Table.
      */
     public List<String> getColumnValues(int columnIndex) {
-        List<String> columnValues = new ArrayList<String>();
         if (columnIndex >= 0) {
-            for (List<String> row : rows) {
-                columnValues.add(row.get(columnIndex));
-            }
+            return rows.stream().map(row -> row.get(columnIndex)).collect(Collectors.toList());
         }
-        return columnValues;
+        return new ArrayList<>();
     }
 
     @Override
@@ -134,8 +131,7 @@ public class Table {
     }
 
     private String formatAsMarkdownTable(int maxStringLength) {
-
-        List<String> formattedHeaderAndRows = new ArrayList<String>();
+        List<String> formattedHeaderAndRows = new ArrayList<>();
         addHeader(maxStringLength, formattedHeaderAndRows);
         addDashes(maxStringLength, formattedHeaderAndRows);
         addValues(maxStringLength, formattedHeaderAndRows);
@@ -143,7 +139,6 @@ public class Table {
     }
 
     private void addDashes(int maxStringLength, List<String> formattedHeaderAndRows) {
-
         String dashesString = Joiner.on(StringUtils.EMPTY).join(Collections.nCopies(maxStringLength, DASH));
         List<String> dashes = Collections.nCopies(headers.size(), dashesString);
         String formattedDashes = formattedRow(dashes, maxStringLength);
@@ -151,16 +146,12 @@ public class Table {
     }
 
     private void addHeader(int maxStringLength, List<String> formattedHeaderAndRows) {
-
         String formattedHeaders = formattedRow(headers, maxStringLength);
         formattedHeaderAndRows.add(formattedHeaders);
     }
 
     private void addValues(int maxStringLength, List<String> formattedHeaderAndRows) {
-
-        for (TableRow tableRow : tableRows) {
-            formattedHeaderAndRows.add(formattedRow(tableRow.getCellValues(), maxStringLength));
-        }
+        tableRows.stream().map(tableRow -> formattedRow(tableRow.getCellValues(), maxStringLength)).forEach(formattedHeaderAndRows::add);
     }
 
     private String formattedRow(List<String> strings, int maxStringLength) {
@@ -169,20 +160,11 @@ public class Table {
     }
 
     private Function<String, String> format(final int maxStringLength) {
-
-        return new Function<String, String>() {
-
-            @Override
-            public String apply(String input) {
-
-                return Strings.padEnd(input, maxStringLength, SPACE_AS_CHAR);
-            }
-        };
+        return input -> Strings.padEnd(input, maxStringLength, SPACE_AS_CHAR);
     }
 
     private Integer getMaxStringLength() {
-
-        List<Integer> maxs = new ArrayList<Integer>();
+        List<Integer> maxs = new ArrayList<>();
         maxs.add(getMaxStringSize(headers));
         for (TableRow tableRow : tableRows) {
             maxs.add(getMaxStringSize(tableRow.getCellValues()));
@@ -198,16 +180,11 @@ public class Table {
     }
 
     private Comparator<String> maxStringLength() {
-
-        return new Comparator<String>() {
-
-            @Override
-            public int compare(String o1, String o2) {
-                if (o1.length() < o2.length()) {
-                    return -1;
-                }
-                return 1;
+        return (o1, o2) -> {
+            if (o1.length() < o2.length()) {
+                return -1;
             }
+            return 1;
         };
     }
 
