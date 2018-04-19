@@ -30,19 +30,21 @@ import com.thoughtworks.gauge.hook.Hook;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 public class HooksRegistry {
     // Names of methods defined in each Hook annotation. Do not rename these methods in any Hook Class.
     public static final String TAGS_METHOD = "tags";
     public static final String TAG_AGGREGATION_METHOD = "tagAggregation";
 
-    private static HashMap<Class, HashSet<Hook>> registryMap = new HashMap<Class, HashSet<Hook>>();
+    private static HashMap<Class, HashSet<Hook>> registryMap = new HashMap<>();
 
     public static List<Hook> getBeforeSpecHooks() {
         return sort(registryMap.get(BeforeSpec.class));
@@ -65,15 +67,11 @@ public class HooksRegistry {
     }
 
     private static List<Hook> sort(Set<Hook> hooks) {
-        List<Hook> hooksList = new ArrayList<Hook>(hooks);
-        Collections.sort(hooksList);
-        return hooksList;
+        return hooks.stream().sorted().collect(toList());
     }
 
     private static List<Hook> sortReverse(Set<Hook> hooks) {
-        List<Hook> hooksList = sort(hooks);
-        Collections.reverse(hooksList);
-        return hooksList;
+        return hooks.stream().sorted(Comparator.reverseOrder()).collect(toList());
     }
 
     public static void addBeforeScenarioHooks(Set<Method> methods) {
@@ -137,28 +135,16 @@ public class HooksRegistry {
     }
 
     private static Set<Hook> findClassHooksForClass(List<Hook> allClassHooks, Class<?> aClass) {
-        HashSet<Hook> matchingClassHooks = new HashSet<Hook>();
-        for (Hook classStepsHook : allClassHooks) {
-            if (classStepsHook.getMethod().getDeclaringClass().equals(aClass)) {
-                matchingClassHooks.add(classStepsHook);
-            }
-        }
-        return matchingClassHooks;
+        return allClassHooks.stream().filter(hook -> hook.getMethod().getDeclaringClass().equals(aClass)).collect(Collectors.toSet());
     }
 
     private static void addHooks(Set<Method> methods, Class hookClass) {
-        if (!registryMap.containsKey(hookClass)) {
-            registryMap.put(hookClass, new HashSet<Hook>());
-        }
-        for (Method method : methods) {
-            registryMap.get(hookClass).add(new Hook(method));
-        }
+        registryMap.putIfAbsent(hookClass, new HashSet<>());
+        registryMap.get(hookClass).addAll(methods.stream().map(Hook::new).collect(toList()));
     }
 
     private static void addHooksWithTags(Set<Method> methods, Class hookClass) {
-        if (!registryMap.containsKey(hookClass)) {
-            registryMap.put(hookClass, new HashSet<Hook>());
-        }
+        registryMap.putIfAbsent(hookClass, new HashSet<>());
         for (Method method : methods) {
             Annotation annotation = method.getAnnotation(hookClass);
             try {

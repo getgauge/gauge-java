@@ -98,7 +98,7 @@ public class GaugeConnection {
         Api.APIMessage message = getStepRequest();
         Api.APIMessage response = getAPIResponse(message);
         Api.GetAllStepsResponse allStepsResponse = response.getAllStepsResponse();
-        List<StepValue> steps = new ArrayList<StepValue>();
+        List<StepValue> steps = new ArrayList<>();
         for (Spec.ProtoStepValue stepValueResponse : allStepsResponse.getAllStepsList()) {
             StepValue stepValue = new StepValue(stepValueResponse.getStepValue(), stepValueResponse.getParameterizedStepValue(), stepValueResponse.getParametersList());
             steps.add(stepValue);
@@ -116,7 +116,7 @@ public class GaugeConnection {
         Api.APIMessage message = getConceptRequest();
         Api.APIMessage response = getAPIResponse(message);
         Api.GetAllConceptsResponse allConceptsResponse = response.getAllConceptsResponse();
-        List<ConceptInfo> conceptsInfo = new ArrayList<ConceptInfo>();
+        List<ConceptInfo> conceptsInfo = new ArrayList<>();
         for (Api.ConceptInfo conceptInfoResponse : allConceptsResponse.getConceptsList()) {
             Spec.ProtoStepValue protoStepValue = conceptInfoResponse.getStepValue();
             StepValue stepValue = new StepValue(protoStepValue.getStepValue(), protoStepValue.getParameterizedStepValue(), protoStepValue.getParametersList());

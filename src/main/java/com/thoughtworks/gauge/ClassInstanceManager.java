@@ -23,7 +23,7 @@ import java.util.Map;
  */
 public class ClassInstanceManager {
     private Map<Class<?>, Object> classInstanceMap = new HashMap<Class<?>, Object>();
-    private static ThreadLocal<ClassInitializer> initializer = new InheritableThreadLocal<ClassInitializer>();
+    private static ThreadLocal<ClassInitializer> initializer = new InheritableThreadLocal<>();
 
     public ClassInstanceManager() {
         initializer.set(new DefaultClassInitializer());

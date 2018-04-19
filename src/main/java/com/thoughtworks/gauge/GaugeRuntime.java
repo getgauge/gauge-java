@@ -68,24 +68,14 @@ public class GaugeRuntime {
     }
 
     private static void connectInParallel(final int gaugeInternalPort, final int gaugeApiPort) {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                dispatchMessages(makeConnection(gaugeInternalPort, gaugeApiPort));
-            }
-        });
+        Thread thread = new Thread(() -> dispatchMessages(makeConnection(gaugeInternalPort, gaugeApiPort)));
         startThread(thread);
     }
 
     private static void connectSynchronously(final int gaugeInternalPort, final int gaugeApiPort) {
         final GaugeConnector connector = makeConnection(gaugeInternalPort, gaugeApiPort);
         new ClasspathScanner().scan(new StepsScanner(connector), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                dispatchMessages(connector);
-            }
-        });
+        Thread thread = new Thread(() -> dispatchMessages(connector));
         startThread(thread);
     }
 

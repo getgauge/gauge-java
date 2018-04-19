@@ -25,7 +25,7 @@ public class Specification {
     private String name = "";
     private String fileName = "";
     private Boolean isFailing = false;
-    private List<String> tags = new ArrayList<String>();
+    private List<String> tags = new ArrayList<>();
 
     public Specification(String name, String fileName, boolean isFailing, List<String> tags) {
         this.name = name;
