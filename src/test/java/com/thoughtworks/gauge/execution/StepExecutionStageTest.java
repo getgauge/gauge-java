@@ -15,24 +15,24 @@
 
 package com.thoughtworks.gauge.execution;
 
+import com.thoughtworks.gauge.ClassInstanceManager;
+import com.thoughtworks.gauge.ContinueOnFailure;
+import com.thoughtworks.gauge.Table;
+import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
+import com.thoughtworks.gauge.execution.parameters.parsers.types.EnumParameterParser;
+import com.thoughtworks.gauge.test.AnEnum;
+import gauge.messages.Messages;
+import gauge.messages.Spec;
+import gauge.messages.Spec.ProtoExecutionResult;
+import junit.framework.TestCase;
+
+import java.lang.reflect.Method;
+
 import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
-
-import java.lang.reflect.Method;
-
-import com.thoughtworks.gauge.ClassInstanceManager;
-import com.thoughtworks.gauge.ContinueOnFailure;
-import com.thoughtworks.gauge.Table;
-import com.thoughtworks.gauge.execution.parameters.parsers.types.EnumParameterParser;
-import com.thoughtworks.gauge.test.AnEnum;
-
-import gauge.messages.Messages;
-import gauge.messages.Spec;
-import gauge.messages.Spec.ProtoExecutionResult;
-import junit.framework.TestCase;
 
 public class StepExecutionStageTest extends TestCase {
     private static final boolean STEP_FAILED = true;
@@ -40,7 +40,7 @@ public class StepExecutionStageTest extends TestCase {
 
     public void testStepMethodExecutionIsCalledWithoutParameters() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("foo bar").setActualStepText("foo bar").build();
-        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain());
         MethodExecutor methodExecutor = mock(MethodExecutor.class);
         Method fooBarMethod = this.getClass().getMethod("fooBar");
         executionStage.executeStepMethod(methodExecutor, fooBarMethod);
@@ -53,7 +53,7 @@ public class StepExecutionStageTest extends TestCase {
         Spec.Parameter param1 = Spec.Parameter.newBuilder().setValue("1").setName("number").setParameterType(Spec.Parameter.ParameterType.Static).build();
         Spec.Parameter param2 = Spec.Parameter.newBuilder().setValue("foo").setName("string").setParameterType(Spec.Parameter.ParameterType.Special_String).build();
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello {} world {}").setActualStepText("hello <a> world <b>").addParameters(param1).addParameters(param2).build();
-        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain());
         MethodExecutor methodExecutor = mock(MethodExecutor.class);
         Method fooBarMethod = this.getClass().getMethod("fooBar", int.class, String.class);
         executionStage.executeStepMethod(methodExecutor, fooBarMethod);
@@ -65,7 +65,7 @@ public class StepExecutionStageTest extends TestCase {
     public void testStepMethodExecutionCanBeCalledAsObjectForSpecialTable() throws Exception {
         Spec.Parameter tableParameter = Spec.Parameter.newBuilder().setValue("table { headers {cells: \"Id\"}rows {cells: \"1\"}}").setName("table").setParameterType(Spec.Parameter.ParameterType.Special_Table).build();
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello {}").setActualStepText("hello <table>").addParameters(tableParameter).build();
-        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain());
         MethodExecutor methodExecutor = mock(MethodExecutor.class);
         Method tableMethod = this.getClass().getMethod("table", Object.class);
         executionStage.executeStepMethod(methodExecutor, tableMethod);
@@ -78,7 +78,7 @@ public class StepExecutionStageTest extends TestCase {
         Spec.Parameter param1 = Spec.Parameter.newBuilder().setValue("a").setName("number").setParameterType(Spec.Parameter.ParameterType.Static).build();
         Spec.Parameter param2 = Spec.Parameter.newBuilder().setValue("foo").setName("string").setParameterType(Spec.Parameter.ParameterType.Static).build();
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello {} world {}").setActualStepText("hello <a> world <b>").addParameters(param1).addParameters(param2).build();
-        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain());
         MethodExecutor methodExecutor = mock(MethodExecutor.class);
         Method fooBarMethod = this.getClass().getMethod("fooBar", int.class, String.class);
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooBarMethod);
@@ -89,7 +89,7 @@ public class StepExecutionStageTest extends TestCase {
 
     public void testStepMethodExecutionWithCOFOnRuntimeException() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
-        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain());
         MethodExecutor methodExecutor = new MethodExecutor(new ClassInstanceManager());
         Method fooMethod = this.getClass().getMethod("foo");
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
@@ -101,7 +101,7 @@ public class StepExecutionStageTest extends TestCase {
 
     public void testStepMethodExecutionWithCOFOnAssertionFailure() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
-        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain());
         MethodExecutor methodExecutor = new MethodExecutor(new ClassInstanceManager());
         Method fooMethod = this.getClass().getMethod("bar");
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
@@ -113,7 +113,7 @@ public class StepExecutionStageTest extends TestCase {
 
     public void testStepMethodExecutionWithCOFOnErrorNotWhitelisted() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
-        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain());
         MethodExecutor methodExecutor = new MethodExecutor(new ClassInstanceManager());
         Method fooMethod = this.getClass().getMethod("barfoo");
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
@@ -131,7 +131,7 @@ public class StepExecutionStageTest extends TestCase {
                 .setParsedStepText("Test an enum parameter: {}")
                 .setActualStepText("Test an enum parameter: <anEnumValue>")
                 .addParameters(anEnumParam).build();
-        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain());
         MethodExecutor methodExecutor = mock(MethodExecutor.class);
         Method fooBarWithEnumMethod = this.getClass().getMethod("fooBarWithEnumParameter",
                 AnEnum.class);
@@ -146,7 +146,7 @@ public class StepExecutionStageTest extends TestCase {
     public void testStepMethodExecutionWithEnumParamIsExecutingTheStep() throws Exception {
         Spec.Parameter anEnumParam = Spec.Parameter.newBuilder().setValue(AnEnum.FIRST.name()).setName("enum").setParameterType(Spec.Parameter.ParameterType.Static).build();
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("Test an enum parameter: {}").setActualStepText("Test an enum parameter: <anEnumValue>").addParameters(anEnumParam).build();
-        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain());
         MethodExecutor methodExecutor = mock(MethodExecutor.class);
         Method fooBarWithEnumMethod = this.getClass().getMethod("fooBarWithEnumParameter", AnEnum.class);
         executionStage.executeStepMethod(methodExecutor, fooBarWithEnumMethod);
@@ -156,7 +156,7 @@ public class StepExecutionStageTest extends TestCase {
 
     public void testStepMethodExecutionWithCOFOnErrorWhitelisted() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
-        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain());
         MethodExecutor methodExecutor = new MethodExecutor(new ClassInstanceManager());
         Method fooMethod = this.getClass().getMethod("ding");
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
@@ -168,7 +168,7 @@ public class StepExecutionStageTest extends TestCase {
 
     public void testFailingStepMethodExecutionWithNoCOF() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
-        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager());
+        StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain());
         MethodExecutor methodExecutor = new MethodExecutor(new ClassInstanceManager());
         Method fooMethod = this.getClass().getMethod("noCOF");
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);

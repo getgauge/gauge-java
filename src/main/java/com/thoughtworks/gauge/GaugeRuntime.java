@@ -22,6 +22,7 @@ import java.util.List;
 
 import com.thoughtworks.gauge.connection.GaugeConnector;
 import com.thoughtworks.gauge.connection.MessageDispatcher;
+import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.scan.ClasspathScanner;
 import com.thoughtworks.gauge.scan.CustomClassInitializerScanner;
 import com.thoughtworks.gauge.scan.HooksScanner;
@@ -92,7 +93,7 @@ public class GaugeRuntime {
 
     private static void dispatchMessages(GaugeConnector connector) {
         try {
-            new MessageDispatcher().dispatchMessages(connector);
+            new MessageDispatcher(new ParameterParsingChain()).dispatchMessages(connector);
         } catch (IOException e) {
             Thread t = Thread.currentThread();
             t.getUncaughtExceptionHandler().uncaughtException(t, e);

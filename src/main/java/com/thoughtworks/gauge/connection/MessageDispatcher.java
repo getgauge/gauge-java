@@ -20,6 +20,7 @@ import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
+import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.processor.ExecuteStepProcessor;
 import com.thoughtworks.gauge.processor.IMessageProcessor;
 import com.thoughtworks.gauge.processor.KillProcessProcessor;
@@ -53,7 +54,7 @@ public class MessageDispatcher {
 
     private final HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors;
 
-    public MessageDispatcher() {
+    public MessageDispatcher(ParameterParsingChain chain) {
         final ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
         messageProcessors = new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
@@ -64,7 +65,7 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.ScenarioExecutionEnding, new ScenarioExecutionEndingProcessor(instanceManager));
             put(Messages.Message.MessageType.StepExecutionStarting, new StepExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.StepExecutionEnding, new StepExecutionEndingProcessor(instanceManager));
-            put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager));
+            put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager, chain));
             put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor(instanceManager));
             put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor(instanceManager));
             put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer(instanceManager));

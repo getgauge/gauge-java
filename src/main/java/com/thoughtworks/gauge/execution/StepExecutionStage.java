@@ -15,27 +15,27 @@
 
 package com.thoughtworks.gauge.execution;
 
-import java.lang.reflect.Method;
-import java.util.List;
-
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.execution.parameters.ParametersExtractor;
 import com.thoughtworks.gauge.execution.parameters.ParsingException;
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.registry.StepRegistry;
-
 import gauge.messages.Messages;
 import gauge.messages.Spec;
+
+import java.lang.reflect.Method;
+import java.util.List;
 
 public class StepExecutionStage extends AbstractExecutionStage {
     private ExecutionStage next;
     private Messages.ExecuteStepRequest executeStepRequest;
     private ClassInstanceManager manager;
-    private ParametersExtractor parametersExtractor = new ParametersExtractor(new ParameterParsingChain());
+    private ParametersExtractor parametersExtractor;
 
-    public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest, ClassInstanceManager manager) {
+    public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest, ClassInstanceManager manager, ParameterParsingChain chain) {
         this.manager = manager;
         this.executeStepRequest = executeStepRequest;
+        this.parametersExtractor = new ParametersExtractor(chain);
     }
 
     public void setNextStage(ExecutionStage stage) {

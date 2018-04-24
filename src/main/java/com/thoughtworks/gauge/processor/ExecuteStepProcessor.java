@@ -20,6 +20,7 @@ import com.thoughtworks.gauge.MessageCollector;
 import com.thoughtworks.gauge.execution.ExecutionPipeline;
 import com.thoughtworks.gauge.execution.HookExecutionStage;
 import com.thoughtworks.gauge.execution.StepExecutionStage;
+import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.registry.HooksRegistry;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
@@ -29,14 +30,17 @@ import java.lang.reflect.Method;
 
 public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
 
-    public ExecuteStepProcessor(ClassInstanceManager instanceManager) {
+    private final ParameterParsingChain chain;
+
+    public ExecuteStepProcessor(ClassInstanceManager instanceManager, ParameterParsingChain chain) {
         super(instanceManager);
+        this.chain = chain;
     }
 
     public Messages.Message process(Messages.Message message) {
         Method method = StepRegistry.get(message.getExecuteStepRequest().getParsedStepText());
         ExecutionPipeline pipeline = new ExecutionPipeline(new HookExecutionStage(HooksRegistry.getBeforeClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));
-        pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest(), getInstanceManager()),
+        pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest(), getInstanceManager(), this.chain),
                 new HookExecutionStage(HooksRegistry.getAfterClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));
         Spec.ProtoExecutionResult executionResult = pipeline.start();
         return createMessageWithExecutionStatusResponse(message, new MessageCollector().addPendingMessagesTo(executionResult));

@@ -7,9 +7,16 @@ import com.thoughtworks.gauge.execution.parameters.parsers.types.PrimitiveParame
 import com.thoughtworks.gauge.execution.parameters.parsers.types.PrimitivesConverter;
 import com.thoughtworks.gauge.execution.parameters.parsers.types.TableParameterParser;
 import gauge.messages.Spec.Parameter;
+import org.reflections.Configuration;
 import org.reflections.Reflections;
+import org.reflections.scanners.SubTypesScanner;
+import org.reflections.util.ClasspathHelper;
+import org.reflections.util.ConfigurationBuilder;
+import org.reflections.util.FilterBuilder;
 
 import javax.annotation.Nullable;
+import java.net.URL;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -18,13 +25,21 @@ public class ParameterParsingChain implements ParameterParser {
     private List<ParameterParser> chain = new LinkedList<>();
 
     public ParameterParsingChain() {
-        new Reflections().getSubTypesOf(CustomParameterParser.class).stream()
+        createReflections().getSubTypesOf(CustomParameterParser.class).stream()
                 .map(this::asCustomParameterParser)
                 .filter(Objects::nonNull)
                 .forEach(chain::add);
         chain.add(new TableParameterParser(new TableConverter()));
         chain.add(new EnumParameterParser());
         chain.add(new PrimitiveParameterParser(new PrimitivesConverter()));
+    }
+
+    private Reflections createReflections() {
+        Configuration config = new ConfigurationBuilder()
+                .setScanners(new SubTypesScanner())
+                .addUrls(getUrls())
+                .filterInputsBy(new FilterBuilder().include(".+\\.class"));
+        return new Reflections(config);
     }
 
     private @Nullable
@@ -50,5 +65,13 @@ public class ParameterParsingChain implements ParameterParser {
             }
         }
         return parameter.getValue();
+    }
+
+    private Collection<URL> getUrls() {
+        String packageToScan = System.getenv("package_to_scan");
+        if (packageToScan != null) {
+            return ClasspathHelper.forPackage(packageToScan);
+        }
+        return ClasspathHelper.forJavaClassPath();
     }
 }
