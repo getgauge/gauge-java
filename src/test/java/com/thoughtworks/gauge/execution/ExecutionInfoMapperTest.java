@@ -55,7 +55,7 @@ public class ExecutionInfoMapperTest extends TestCase {
 
         StepDetails stepDetails = new ExecutionInfoMapper().stepFrom(stepInfo);
 
-        assertEquals(ACTUAL_STEP_TEXT, stepDetails.getText());
+        assertEquals(PARSED_STEP_TEXT, stepDetails.getText());
         assertEquals(STACK_TRACE, stepDetails.getStackTrace());
         assertEquals(ERROR_MESSAGE, stepDetails.getErrorMessage());
         assertTrue(stepDetails.getIsFailing());
@@ -134,6 +134,6 @@ public class ExecutionInfoMapperTest extends TestCase {
         assertTrue(currentStep.getIsFailing());
         assertEquals(STACK_TRACE, currentStep.getStackTrace());
         assertEquals(ERROR_MESSAGE, currentStep.getErrorMessage());
-        assertEquals(ACTUAL_STEP_TEXT, currentStep.getText());
+        assertEquals(PARSED_STEP_TEXT, currentStep.getText());
     }
 }
