@@ -1,5 +1,6 @@
 package com.thoughtworks.gauge.execution.parameters.parsers.base;
 
+import com.thoughtworks.gauge.GaugeConstant;
 import com.thoughtworks.gauge.execution.parameters.ParsingException;
 import com.thoughtworks.gauge.execution.parameters.parsers.converters.TableConverter;
 import com.thoughtworks.gauge.execution.parameters.parsers.types.EnumParameterParser;
@@ -16,12 +17,15 @@ import org.reflections.util.FilterBuilder;
 
 import javax.annotation.Nullable;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
 public class ParameterParsingChain implements ParameterParser {
+
     private List<ParameterParser> chain = new LinkedList<>();
 
     public ParameterParsingChain() {
@@ -68,10 +72,16 @@ public class ParameterParsingChain implements ParameterParser {
     }
 
     private Collection<URL> getUrls() {
-        String packageToScan = System.getenv("package_to_scan");
-        if (packageToScan != null) {
-            return ClasspathHelper.forPackage(packageToScan);
+        final String packagesToScan = System.getenv(GaugeConstant.PACKAGE_TO_SCAN);
+        if (packagesToScan != null) {
+            Collection<URL> urls = new ArrayList<>();
+            final List<String> packages = Arrays.asList(packagesToScan.split(","));
+            for (String packageToScan : packages) {
+                urls.addAll(ClasspathHelper.forPackage(packageToScan));
+            }
+            return urls;
         }
         return ClasspathHelper.forJavaClassPath();
     }
+
 }

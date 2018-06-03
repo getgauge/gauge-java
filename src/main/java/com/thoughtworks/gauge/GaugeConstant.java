@@ -21,4 +21,5 @@ public class GaugeConstant {
     public static final String SCREENSHOT_ENABLED = "screenshot_on_failure";
     public static final String STEP_ANNOTATION_QUALIFIER = "com.thoughtworks.gauge.Step";
     public static final String GAUGE_DEBUG_OPTS_ENV = "GAUGE_DEBUG_OPTS";
+    public static final String PACKAGE_TO_SCAN = "package_to_scan";
 }
