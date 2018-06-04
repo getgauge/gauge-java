@@ -4,7 +4,7 @@ import com.thoughtworks.gauge.TableRow;
 
 import java.util.HashSet;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class StepImplementation {
 
@@ -21,7 +21,7 @@ public class StepImplementation {
     @Step("The word <word> has <expectedCount> vowels.")
     public void verifyVowelsCountInWord(String word, int expectedCount) {
         int actualCount = countVowels(word);
-        assertEquals(expectedCount, actualCount);
+        assertThat(expectedCount).isEqualTo(actualCount);
     }
 
     @Step("Almost all words have vowels <wordsTable>")
@@ -31,7 +31,7 @@ public class StepImplementation {
             int expectedCount = Integer.parseInt(row.getCell("Vowel Count"));
             int actualCount = countVowels(word);
 
-            assertEquals(expectedCount, actualCount);
+            assertThat(expectedCount).isEqualTo(actualCount);
         }
     }
 
