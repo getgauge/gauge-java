@@ -15,13 +15,11 @@ environment:
   GAUGE_PREFIX: C:\Program Files\Gauge\bin
 build_script:
 - ps: >-
-    $newPath="$env:ProgramFiles\Gauge\bin;C:\maven\apache-maven-3.3.9\bin;" + [System.Environment]::GetEnvironmentVariable("Path","User")
+    $env:Path="$env:ProgramFiles\Gauge\bin;C:\maven\apache-maven-3.3.9\bin;" + [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
-    [System.Environment]::SetEnvironmentVariable("Path", $newPath ,"User")
+    Write-Host "PATH : $($env:PATH)"
 
-    Write-Host "PATH : $([System.Environment]::GetEnvironmentVariable("Path","User"))"
-
-    [System.Environment]::SetEnvironmentVariable("M2_HOME", "C:\maven\apache-maven-3.3.9\" ,"User")
+    $env:M2_HOME="C:\maven\apache-maven-3.3.9\"
 
     mvn --version
 
