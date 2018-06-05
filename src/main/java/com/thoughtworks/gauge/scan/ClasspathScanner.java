@@ -17,18 +17,13 @@ package com.thoughtworks.gauge.scan;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 import java.util.jar.JarFile;
 
-import com.thoughtworks.gauge.GaugeConstant;
+import com.thoughtworks.gauge.ClasspathHelper;
 import org.reflections.Configuration;
 import org.reflections.Reflections;
 import org.reflections.scanners.MethodAnnotationsScanner;
 import org.reflections.scanners.SubTypesScanner;
-import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 import org.reflections.util.FilterBuilder;
 import org.reflections.vfs.SystemDir;
@@ -63,23 +58,10 @@ public class ClasspathScanner {
 
         Configuration config = new ConfigurationBuilder()
                 .setScanners(new MethodAnnotationsScanner(), new SubTypesScanner())
-                .addUrls(getUrls())
+                .addUrls(ClasspathHelper.getUrls())
                 .filterInputsBy(new FilterBuilder().include(".+\\.class"));
 
         return new Reflections(config);
-    }
-
-    private Collection<URL> getUrls() {
-        final String packagesToScan = System.getenv(GaugeConstant.PACKAGE_TO_SCAN);
-        if (packagesToScan != null) {
-            Collection<URL> urls = new ArrayList<>();
-            final List<String> packages = Arrays.asList(packagesToScan.split(","));
-            for (String packageToScan : packages) {
-                urls.addAll(ClasspathHelper.forPackage(packageToScan));
-            }
-            return urls;
-        }
-        return ClasspathHelper.forJavaClassPath();
     }
 
 }
