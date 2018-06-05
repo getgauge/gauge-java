@@ -14,33 +14,37 @@ environment:
   GAUGE_TELEMETRY_ENABLED: false
   GAUGE_PREFIX: C:\Program Files\Gauge\bin
 build_script:
-- ps: >- 
-    $env:Path="$env:ProgramFiles\Gauge\bin;C:\maven\apache-maven-3.3.9\bin;" + [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+- ps: >-
+    $newPath="$env:ProgramFiles\Gauge\bin;C:\maven\apache-maven-3.3.9\bin;" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
-    Write-Host "PATH : $($env:PATH)"
+    [System.Environment]::SetEnvironmentVariable("Path", $newPath ,"User")
 
-    $env:M2_HOME="C:\maven\apache-maven-3.3.9\"
+    Write-Host "PATH : $([System.Environment]::GetEnvironmentVariable("Path","User"))"
+
+    [System.Environment]::SetEnvironmentVariable("M2_HOME", "C:\maven\apache-maven-3.3.9\" ,"User")
 
     mvn --version
-    
-    go run make.go 
-    
+
+    go run make.go
+
+    if ($LastExitCode -ne 0) { throw "Build failed"  }
+
     go run make.go --install
-    
+
     git clone --depth=1 https://github.com/getgauge/gauge-tests
-    
+
     cd gauge-tests
-        
+
     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/getgauge/infrastructure/master/nightly_scripts/install_latest_gauge_nightly.ps1" -OutFile install_latest_gauge_nightly.ps1
-    
+
     .\install_latest_gauge_nightly.ps1
-    
-    gauge -v
-    
-    echo "gauge_repository_url = https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/" | Out-File "$env:Appdata\.gauge\config\gauge.properties" -Encoding utf8 -Append
-    
+
+    gauge config gauge_repository_url https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/
+
     gauge install
-    
+
+    gauge -v
+
     mvn -q clean install -Denv=ci-java -DinParallel=false
 notifications:
 - provider: Webhook
