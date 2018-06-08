@@ -20,13 +20,16 @@ import com.thoughtworks.gauge.Scenario;
 import com.thoughtworks.gauge.Specification;
 import com.thoughtworks.gauge.StepDetails;
 import gauge.messages.Messages;
-import junit.framework.TestCase;
+import org.junit.Test;
 
 import java.util.List;
 
 import static java.util.Arrays.asList;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-public class ExecutionInfoMapperTest extends TestCase {
+public class ExecutionInfoMapperTest {
 
     private static final String ACTUAL_STEP_TEXT = "foo bar <a>";
     private static final String PARSED_STEP_TEXT = "foo bar {}";
@@ -40,7 +43,8 @@ public class ExecutionInfoMapperTest extends TestCase {
     private static final String SPEC_TAG_1 = "SpecTag1";
     private static final String SPEC_TAG_2 = "SpecTag2";
 
-    public void testStepDetailsCreation() throws Exception {
+    @Test
+    public void testStepDetailsCreation() {
         Messages.ExecuteStepRequest step = Messages.ExecuteStepRequest.newBuilder()
                 .setActualStepText(ACTUAL_STEP_TEXT)
                 .setParsedStepText(PARSED_STEP_TEXT)
@@ -55,13 +59,14 @@ public class ExecutionInfoMapperTest extends TestCase {
 
         StepDetails stepDetails = new ExecutionInfoMapper().stepFrom(stepInfo);
 
-        assertEquals(PARSED_STEP_TEXT, stepDetails.getText());
+        assertEquals(ACTUAL_STEP_TEXT, stepDetails.getText());
         assertEquals(STACK_TRACE, stepDetails.getStackTrace());
         assertEquals(ERROR_MESSAGE, stepDetails.getErrorMessage());
         assertTrue(stepDetails.getIsFailing());
     }
 
-    public void testScenarioDetailsCreation() throws Exception {
+    @Test
+    public void testScenarioDetailsCreation() {
         Messages.ScenarioInfo scenarioInfo = Messages.ScenarioInfo.newBuilder()
                 .setIsFailed(false)
                 .setName(SCENARIO_NAME)
@@ -78,7 +83,8 @@ public class ExecutionInfoMapperTest extends TestCase {
         assertTrue(tags.containsAll(asList(SCENARIO_TAG_1, SCENARIO_TAG_2)));
     }
 
-    public void testSpecificationDetailsCreation() throws Exception {
+    @Test
+    public void testSpecificationDetailsCreation() {
         Messages.ScenarioInfo scenarioInfo = Messages.ScenarioInfo.newBuilder()
                 .setIsFailed(true)
                 .setName(SCENARIO_NAME)
@@ -134,6 +140,6 @@ public class ExecutionInfoMapperTest extends TestCase {
         assertTrue(currentStep.getIsFailing());
         assertEquals(STACK_TRACE, currentStep.getStackTrace());
         assertEquals(ERROR_MESSAGE, currentStep.getErrorMessage());
-        assertEquals(PARSED_STEP_TEXT, currentStep.getText());
+        assertEquals(ACTUAL_STEP_TEXT, currentStep.getText());
     }
 }

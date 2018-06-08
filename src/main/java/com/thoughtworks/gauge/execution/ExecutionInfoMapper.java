@@ -19,7 +19,11 @@ import com.thoughtworks.gauge.Scenario;
 import com.thoughtworks.gauge.Specification;
 import com.thoughtworks.gauge.ExecutionContext;
 import com.thoughtworks.gauge.StepDetails;
+import com.thoughtworks.gauge.execution.parameters.DynamicParametersReplacer;
 import gauge.messages.Messages;
+import gauge.messages.Spec;
+
+import java.util.List;
 
 public class ExecutionInfoMapper {
     public ExecutionContext executionInfoFrom(Messages.ExecutionInfo currentExecutionInfo) {
@@ -46,8 +50,15 @@ public class ExecutionInfoMapper {
 
     public StepDetails stepFrom(Messages.StepInfo currentStep) {
         if (currentStep.isInitialized()) {
-            return new StepDetails(currentStep.getStep().getParsedStepText(), currentStep.getIsFailed(),
-                    currentStep.getStackTrace(), currentStep.getErrorMessage());
+            List<Spec.Parameter> parameters = currentStep.getStep().getParametersList();
+            String actualStepText = currentStep.getStep().getActualStepText();
+
+            if (parameters.isEmpty()) {
+                return new StepDetails(actualStepText, currentStep.getIsFailed(), currentStep.getStackTrace(), currentStep.getErrorMessage());
+            } else {
+                String dynamicStepText = DynamicParametersReplacer.replacePlaceholders(actualStepText, parameters);
+                return new StepDetails(actualStepText, dynamicStepText, currentStep.getIsFailed(), currentStep.getStackTrace(), currentStep.getErrorMessage());
+            }
         }
         return new StepDetails();
     }
