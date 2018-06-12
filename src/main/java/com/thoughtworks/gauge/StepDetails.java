@@ -20,12 +20,18 @@ package com.thoughtworks.gauge;
  */
 public class StepDetails {
     private String text = "";
+    private String dynamicText = "";
     private String stackTrace = "";
     private String errorMessage = "";
     private Boolean isFailing = false;
 
     public StepDetails(String text, boolean isFailing, String stackTrace, String errorMessage) {
+        this(text, text, isFailing, stackTrace, errorMessage);
+    }
+
+    public StepDetails(String text, String dynamicText, boolean isFailing, String stackTrace, String errorMessage) {
         this.text = text;
+        this.dynamicText = dynamicText;
         this.isFailing = isFailing;
         this.stackTrace = stackTrace;
         this.errorMessage = errorMessage;
@@ -46,6 +52,14 @@ public class StepDetails {
      */
     public String getText() {
         return text;
+    }
+
+    /**
+     * @return The step text with values of dynamic parameters instead of placeholders.
+     * Return the same value as {@link #text} in case of static parameters.
+     */
+    public String getDynamicText() {
+        return dynamicText;
     }
 
     public String getStackTrace() {
