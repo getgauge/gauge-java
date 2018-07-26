@@ -14,7 +14,7 @@ public class ClasspathHelper {
             Collection<URL> urls = new ArrayList<>();
             final List<String> packages = Arrays.asList(packagesToScan.split(","));
             for (String packageToScan : packages) {
-                urls.addAll(org.reflections.util.ClasspathHelper.forPackage(packageToScan));
+                urls.addAll(org.reflections.util.ClasspathHelper.forPackage(packageToScan.trim()));
             }
             return urls;
         }
