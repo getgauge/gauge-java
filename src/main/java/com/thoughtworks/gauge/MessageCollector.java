@@ -17,17 +17,30 @@ package com.thoughtworks.gauge;
 
 import gauge.messages.Spec;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import static com.thoughtworks.gauge.Gauge.getMessages;
 
 public class MessageCollector {
     public Spec.ProtoExecutionResult addPendingMessagesTo(Spec.ProtoExecutionResult result) {
-        List<String> messages = Gauge.getPendingMessages();
+        List<String> messages = getPendingMessages();
         return addPendingMessages(result, messages);
     }
 
-    public Spec.ProtoExecutionResult addPendingMessages(Spec.ProtoExecutionResult result, List<String> messages) {
+    Spec.ProtoExecutionResult addPendingMessages(Spec.ProtoExecutionResult result, List<String> messages) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder(result);
         builder.addAllMessage(messages);
         return builder.build();
+    }
+
+    private static List<String> getPendingMessages() {
+        List<String> pendingMessages = new ArrayList<>(getMessages());
+        clear();
+        return pendingMessages;
+    }
+
+    private static void clear() {
+        getMessages().clear();
     }
 }

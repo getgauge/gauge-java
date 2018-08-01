@@ -29,6 +29,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetProjectRootRequest)
       GetProjectRootRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetProjectRootRequest.newBuilder() to construct.
     private GetProjectRootRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -39,13 +40,18 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetProjectRootRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -55,7 +61,8 @@ public final class Api {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -68,6 +75,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -76,6 +84,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetProjectRootRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetProjectRootRequest_fieldAccessorTable
@@ -84,6 +93,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -93,20 +103,23 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -118,6 +131,7 @@ public final class Api {
       gauge.messages.Api.GetProjectRootRequest other = (gauge.messages.Api.GetProjectRootRequest) obj;
 
       boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -203,6 +217,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -210,6 +225,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetProjectRootRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -237,6 +253,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetProjectRootRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetProjectRootRequest_fieldAccessorTable
@@ -259,20 +276,24 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetProjectRootRequest_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetProjectRootRequest getDefaultInstanceForType() {
         return gauge.messages.Api.GetProjectRootRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetProjectRootRequest build() {
         gauge.messages.Api.GetProjectRootRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -281,38 +302,46 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetProjectRootRequest buildPartial() {
         gauge.messages.Api.GetProjectRootRequest result = new gauge.messages.Api.GetProjectRootRequest(this);
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetProjectRootRequest) {
           return mergeFrom((gauge.messages.Api.GetProjectRootRequest)other);
@@ -324,14 +353,17 @@ public final class Api {
 
       public Builder mergeFrom(gauge.messages.Api.GetProjectRootRequest other) {
         if (other == gauge.messages.Api.GetProjectRootRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -349,14 +381,16 @@ public final class Api {
         }
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -375,11 +409,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetProjectRootRequest>
         PARSER = new com.google.protobuf.AbstractParser<GetProjectRootRequest>() {
+      @java.lang.Override
       public GetProjectRootRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetProjectRootRequest(input, extensionRegistry);
+        return new GetProjectRootRequest(input, extensionRegistry);
       }
     };
 
@@ -392,6 +427,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetProjectRootRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -431,6 +467,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetProjectRootResponse)
       GetProjectRootResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetProjectRootResponse.newBuilder() to construct.
     private GetProjectRootResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -442,14 +479,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetProjectRootResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -458,16 +500,17 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
               projectRoot_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -478,6 +521,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -486,6 +530,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetProjectRootResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetProjectRootResponse_fieldAccessorTable
@@ -536,6 +581,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -545,13 +591,16 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getProjectRootBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, projectRoot_);
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -560,11 +609,11 @@ public final class Api {
       if (!getProjectRootBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, projectRoot_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -578,6 +627,7 @@ public final class Api {
       boolean result = true;
       result = result && getProjectRoot()
           .equals(other.getProjectRoot());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -665,6 +715,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -672,6 +723,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetProjectRootResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -699,6 +751,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetProjectRootResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetProjectRootResponse_fieldAccessorTable
@@ -721,6 +774,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         projectRoot_ = "";
@@ -728,15 +782,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetProjectRootResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetProjectRootResponse getDefaultInstanceForType() {
         return gauge.messages.Api.GetProjectRootResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetProjectRootResponse build() {
         gauge.messages.Api.GetProjectRootResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -745,6 +802,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetProjectRootResponse buildPartial() {
         gauge.messages.Api.GetProjectRootResponse result = new gauge.messages.Api.GetProjectRootResponse(this);
         result.projectRoot_ = projectRoot_;
@@ -752,32 +810,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetProjectRootResponse) {
           return mergeFrom((gauge.messages.Api.GetProjectRootResponse)other);
@@ -793,14 +858,17 @@ public final class Api {
           projectRoot_ = other.projectRoot_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -907,14 +975,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -933,11 +1003,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetProjectRootResponse>
         PARSER = new com.google.protobuf.AbstractParser<GetProjectRootResponse>() {
+      @java.lang.Override
       public GetProjectRootResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetProjectRootResponse(input, extensionRegistry);
+        return new GetProjectRootResponse(input, extensionRegistry);
       }
     };
 
@@ -950,6 +1021,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetProjectRootResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -971,6 +1043,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetInstallationRootRequest)
       GetInstallationRootRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetInstallationRootRequest.newBuilder() to construct.
     private GetInstallationRootRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -981,13 +1054,18 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetInstallationRootRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -997,7 +1075,8 @@ public final class Api {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -1010,6 +1089,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -1018,6 +1098,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetInstallationRootRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetInstallationRootRequest_fieldAccessorTable
@@ -1026,6 +1107,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1035,20 +1117,23 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1060,6 +1145,7 @@ public final class Api {
       gauge.messages.Api.GetInstallationRootRequest other = (gauge.messages.Api.GetInstallationRootRequest) obj;
 
       boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -1145,6 +1231,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1152,6 +1239,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetInstallationRootRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1179,6 +1267,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetInstallationRootRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetInstallationRootRequest_fieldAccessorTable
@@ -1201,20 +1290,24 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetInstallationRootRequest_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetInstallationRootRequest getDefaultInstanceForType() {
         return gauge.messages.Api.GetInstallationRootRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetInstallationRootRequest build() {
         gauge.messages.Api.GetInstallationRootRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -1223,38 +1316,46 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetInstallationRootRequest buildPartial() {
         gauge.messages.Api.GetInstallationRootRequest result = new gauge.messages.Api.GetInstallationRootRequest(this);
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetInstallationRootRequest) {
           return mergeFrom((gauge.messages.Api.GetInstallationRootRequest)other);
@@ -1266,14 +1367,17 @@ public final class Api {
 
       public Builder mergeFrom(gauge.messages.Api.GetInstallationRootRequest other) {
         if (other == gauge.messages.Api.GetInstallationRootRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1291,14 +1395,16 @@ public final class Api {
         }
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -1317,11 +1423,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetInstallationRootRequest>
         PARSER = new com.google.protobuf.AbstractParser<GetInstallationRootRequest>() {
+      @java.lang.Override
       public GetInstallationRootRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetInstallationRootRequest(input, extensionRegistry);
+        return new GetInstallationRootRequest(input, extensionRegistry);
       }
     };
 
@@ -1334,6 +1441,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetInstallationRootRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1373,6 +1481,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetInstallationRootResponse)
       GetInstallationRootResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetInstallationRootResponse.newBuilder() to construct.
     private GetInstallationRootResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -1384,14 +1493,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetInstallationRootResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1400,16 +1514,17 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
               installationRoot_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -1420,6 +1535,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -1428,6 +1544,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetInstallationRootResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetInstallationRootResponse_fieldAccessorTable
@@ -1478,6 +1595,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1487,13 +1605,16 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getInstallationRootBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, installationRoot_);
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1502,11 +1623,11 @@ public final class Api {
       if (!getInstallationRootBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, installationRoot_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1520,6 +1641,7 @@ public final class Api {
       boolean result = true;
       result = result && getInstallationRoot()
           .equals(other.getInstallationRoot());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -1607,6 +1729,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1614,6 +1737,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetInstallationRootResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1641,6 +1765,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetInstallationRootResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetInstallationRootResponse_fieldAccessorTable
@@ -1663,6 +1788,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         installationRoot_ = "";
@@ -1670,15 +1796,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetInstallationRootResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetInstallationRootResponse getDefaultInstanceForType() {
         return gauge.messages.Api.GetInstallationRootResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetInstallationRootResponse build() {
         gauge.messages.Api.GetInstallationRootResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -1687,6 +1816,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetInstallationRootResponse buildPartial() {
         gauge.messages.Api.GetInstallationRootResponse result = new gauge.messages.Api.GetInstallationRootResponse(this);
         result.installationRoot_ = installationRoot_;
@@ -1694,32 +1824,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetInstallationRootResponse) {
           return mergeFrom((gauge.messages.Api.GetInstallationRootResponse)other);
@@ -1735,14 +1872,17 @@ public final class Api {
           installationRoot_ = other.installationRoot_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1849,14 +1989,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -1875,11 +2017,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetInstallationRootResponse>
         PARSER = new com.google.protobuf.AbstractParser<GetInstallationRootResponse>() {
+      @java.lang.Override
       public GetInstallationRootResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetInstallationRootResponse(input, extensionRegistry);
+        return new GetInstallationRootResponse(input, extensionRegistry);
       }
     };
 
@@ -1892,6 +2035,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetInstallationRootResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1913,6 +2057,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetAllStepsRequest)
       GetAllStepsRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetAllStepsRequest.newBuilder() to construct.
     private GetAllStepsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -1923,13 +2068,18 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetAllStepsRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1939,7 +2089,8 @@ public final class Api {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -1952,6 +2103,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -1960,6 +2112,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetAllStepsRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetAllStepsRequest_fieldAccessorTable
@@ -1968,6 +2121,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1977,20 +2131,23 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2002,6 +2159,7 @@ public final class Api {
       gauge.messages.Api.GetAllStepsRequest other = (gauge.messages.Api.GetAllStepsRequest) obj;
 
       boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -2087,6 +2245,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2094,6 +2253,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetAllStepsRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2121,6 +2281,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllStepsRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllStepsRequest_fieldAccessorTable
@@ -2143,20 +2304,24 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllStepsRequest_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllStepsRequest getDefaultInstanceForType() {
         return gauge.messages.Api.GetAllStepsRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllStepsRequest build() {
         gauge.messages.Api.GetAllStepsRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -2165,38 +2330,46 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllStepsRequest buildPartial() {
         gauge.messages.Api.GetAllStepsRequest result = new gauge.messages.Api.GetAllStepsRequest(this);
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetAllStepsRequest) {
           return mergeFrom((gauge.messages.Api.GetAllStepsRequest)other);
@@ -2208,14 +2381,17 @@ public final class Api {
 
       public Builder mergeFrom(gauge.messages.Api.GetAllStepsRequest other) {
         if (other == gauge.messages.Api.GetAllStepsRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2233,14 +2409,16 @@ public final class Api {
         }
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -2259,11 +2437,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetAllStepsRequest>
         PARSER = new com.google.protobuf.AbstractParser<GetAllStepsRequest>() {
+      @java.lang.Override
       public GetAllStepsRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetAllStepsRequest(input, extensionRegistry);
+        return new GetAllStepsRequest(input, extensionRegistry);
       }
     };
 
@@ -2276,6 +2455,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetAllStepsRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2341,6 +2521,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetAllStepsResponse)
       GetAllStepsResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetAllStepsResponse.newBuilder() to construct.
     private GetAllStepsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -2352,14 +2533,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetAllStepsResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -2368,12 +2554,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 allSteps_ = new java.util.ArrayList<gauge.messages.Spec.ProtoStepValue>();
@@ -2381,6 +2561,13 @@ public final class Api {
               }
               allSteps_.add(
                   input.readMessage(gauge.messages.Spec.ProtoStepValue.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -2394,6 +2581,7 @@ public final class Api {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           allSteps_ = java.util.Collections.unmodifiableList(allSteps_);
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -2402,6 +2590,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetAllStepsResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetAllStepsResponse_fieldAccessorTable
@@ -2465,6 +2654,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2474,13 +2664,16 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < allSteps_.size(); i++) {
         output.writeMessage(1, allSteps_.get(i));
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2490,11 +2683,11 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, allSteps_.get(i));
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2508,6 +2701,7 @@ public final class Api {
       boolean result = true;
       result = result && getAllStepsList()
           .equals(other.getAllStepsList());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -2597,6 +2791,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2604,6 +2799,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetAllStepsResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2631,6 +2827,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllStepsResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllStepsResponse_fieldAccessorTable
@@ -2654,6 +2851,7 @@ public final class Api {
           getAllStepsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (allStepsBuilder_ == null) {
@@ -2665,15 +2863,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllStepsResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllStepsResponse getDefaultInstanceForType() {
         return gauge.messages.Api.GetAllStepsResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllStepsResponse build() {
         gauge.messages.Api.GetAllStepsResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -2682,6 +2883,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllStepsResponse buildPartial() {
         gauge.messages.Api.GetAllStepsResponse result = new gauge.messages.Api.GetAllStepsResponse(this);
         int from_bitField0_ = bitField0_;
@@ -2698,32 +2900,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetAllStepsResponse) {
           return mergeFrom((gauge.messages.Api.GetAllStepsResponse)other);
@@ -2761,14 +2970,17 @@ public final class Api {
             }
           }
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3099,14 +3311,16 @@ public final class Api {
         }
         return allStepsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -3125,11 +3339,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetAllStepsResponse>
         PARSER = new com.google.protobuf.AbstractParser<GetAllStepsResponse>() {
+      @java.lang.Override
       public GetAllStepsResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetAllStepsResponse(input, extensionRegistry);
+        return new GetAllStepsResponse(input, extensionRegistry);
       }
     };
 
@@ -3142,6 +3357,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetAllStepsResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3182,6 +3398,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.SpecsRequest)
       SpecsRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use SpecsRequest.newBuilder() to construct.
     private SpecsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -3193,14 +3410,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private SpecsRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -3209,12 +3431,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3222,6 +3438,13 @@ public final class Api {
                 mutable_bitField0_ |= 0x00000001;
               }
               specs_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -3235,6 +3458,7 @@ public final class Api {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           specs_ = specs_.getUnmodifiableView();
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -3243,6 +3467,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_SpecsRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_SpecsRequest_fieldAccessorTable
@@ -3280,6 +3505,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3289,13 +3515,16 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < specs_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, specs_.getRaw(i));
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3309,11 +3538,11 @@ public final class Api {
         size += dataSize;
         size += 1 * getSpecsList().size();
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -3327,6 +3556,7 @@ public final class Api {
       boolean result = true;
       result = result && getSpecsList()
           .equals(other.getSpecsList());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -3416,6 +3646,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3423,6 +3654,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.SpecsRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3450,6 +3682,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_SpecsRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_SpecsRequest_fieldAccessorTable
@@ -3472,6 +3705,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         specs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -3479,15 +3713,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_SpecsRequest_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.SpecsRequest getDefaultInstanceForType() {
         return gauge.messages.Api.SpecsRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.SpecsRequest build() {
         gauge.messages.Api.SpecsRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -3496,6 +3733,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.SpecsRequest buildPartial() {
         gauge.messages.Api.SpecsRequest result = new gauge.messages.Api.SpecsRequest(this);
         int from_bitField0_ = bitField0_;
@@ -3508,32 +3746,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.SpecsRequest) {
           return mergeFrom((gauge.messages.Api.SpecsRequest)other);
@@ -3555,14 +3800,17 @@ public final class Api {
           }
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3675,14 +3923,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -3701,11 +3951,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<SpecsRequest>
         PARSER = new com.google.protobuf.AbstractParser<SpecsRequest>() {
+      @java.lang.Override
       public SpecsRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SpecsRequest(input, extensionRegistry);
+        return new SpecsRequest(input, extensionRegistry);
       }
     };
 
@@ -3718,6 +3969,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.SpecsRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3783,6 +4035,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.SpecsResponse)
       SpecsResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use SpecsResponse.newBuilder() to construct.
     private SpecsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -3794,14 +4047,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private SpecsResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -3810,12 +4068,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 details_ = new java.util.ArrayList<gauge.messages.Api.SpecsResponse.SpecDetail>();
@@ -3823,6 +4075,13 @@ public final class Api {
               }
               details_.add(
                   input.readMessage(gauge.messages.Api.SpecsResponse.SpecDetail.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -3836,6 +4095,7 @@ public final class Api {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           details_ = java.util.Collections.unmodifiableList(details_);
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -3844,6 +4104,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_SpecsResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_SpecsResponse_fieldAccessorTable
@@ -3931,6 +4192,7 @@ public final class Api {
         com.google.protobuf.GeneratedMessageV3 implements
         // @@protoc_insertion_point(message_implements:gauge.messages.SpecsResponse.SpecDetail)
         SpecDetailOrBuilder {
+    private static final long serialVersionUID = 0L;
       // Use SpecDetail.newBuilder() to construct.
       private SpecDetail(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
@@ -3942,14 +4204,19 @@ public final class Api {
       @java.lang.Override
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
-        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        return this.unknownFields;
       }
       private SpecDetail(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
         this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
         try {
           boolean done = false;
           while (!done) {
@@ -3958,12 +4225,6 @@ public final class Api {
               case 0:
                 done = true;
                 break;
-              default: {
-                if (!input.skipField(tag)) {
-                  done = true;
-                }
-                break;
-              }
               case 10: {
                 gauge.messages.Spec.ProtoSpec.Builder subBuilder = null;
                 if (spec_ != null) {
@@ -3986,6 +4247,13 @@ public final class Api {
                     input.readMessage(gauge.messages.Spec.Error.parser(), extensionRegistry));
                 break;
               }
+              default: {
+                if (!parseUnknownFieldProto3(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
             }
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -3997,6 +4265,7 @@ public final class Api {
           if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
             parseErrors_ = java.util.Collections.unmodifiableList(parseErrors_);
           }
+          this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
         }
       }
@@ -4005,6 +4274,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_SpecsResponse_SpecDetail_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_SpecsResponse_SpecDetail_fieldAccessorTable
@@ -4102,6 +4372,7 @@ public final class Api {
       }
 
       private byte memoizedIsInitialized = -1;
+      @java.lang.Override
       public final boolean isInitialized() {
         byte isInitialized = memoizedIsInitialized;
         if (isInitialized == 1) return true;
@@ -4111,6 +4382,7 @@ public final class Api {
         return true;
       }
 
+      @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
         if (spec_ != null) {
@@ -4119,8 +4391,10 @@ public final class Api {
         for (int i = 0; i < parseErrors_.size(); i++) {
           output.writeMessage(2, parseErrors_.get(i));
         }
+        unknownFields.writeTo(output);
       }
 
+      @java.lang.Override
       public int getSerializedSize() {
         int size = memoizedSize;
         if (size != -1) return size;
@@ -4134,11 +4408,11 @@ public final class Api {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, parseErrors_.get(i));
         }
+        size += unknownFields.getSerializedSize();
         memoizedSize = size;
         return size;
       }
 
-      private static final long serialVersionUID = 0L;
       @java.lang.Override
       public boolean equals(final java.lang.Object obj) {
         if (obj == this) {
@@ -4157,6 +4431,7 @@ public final class Api {
         }
         result = result && getParseErrorsList()
             .equals(other.getParseErrorsList());
+        result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
 
@@ -4250,6 +4525,7 @@ public final class Api {
             .parseWithIOException(PARSER, input, extensionRegistry);
       }
 
+      @java.lang.Override
       public Builder newBuilderForType() { return newBuilder(); }
       public static Builder newBuilder() {
         return DEFAULT_INSTANCE.toBuilder();
@@ -4257,6 +4533,7 @@ public final class Api {
       public static Builder newBuilder(gauge.messages.Api.SpecsResponse.SpecDetail prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
       }
+      @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
             ? new Builder() : new Builder().mergeFrom(this);
@@ -4280,6 +4557,7 @@ public final class Api {
           return gauge.messages.Api.internal_static_gauge_messages_SpecsResponse_SpecDetail_descriptor;
         }
 
+        @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internalGetFieldAccessorTable() {
           return gauge.messages.Api.internal_static_gauge_messages_SpecsResponse_SpecDetail_fieldAccessorTable
@@ -4303,6 +4581,7 @@ public final class Api {
             getParseErrorsFieldBuilder();
           }
         }
+        @java.lang.Override
         public Builder clear() {
           super.clear();
           if (specBuilder_ == null) {
@@ -4320,15 +4599,18 @@ public final class Api {
           return this;
         }
 
+        @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
           return gauge.messages.Api.internal_static_gauge_messages_SpecsResponse_SpecDetail_descriptor;
         }
 
+        @java.lang.Override
         public gauge.messages.Api.SpecsResponse.SpecDetail getDefaultInstanceForType() {
           return gauge.messages.Api.SpecsResponse.SpecDetail.getDefaultInstance();
         }
 
+        @java.lang.Override
         public gauge.messages.Api.SpecsResponse.SpecDetail build() {
           gauge.messages.Api.SpecsResponse.SpecDetail result = buildPartial();
           if (!result.isInitialized()) {
@@ -4337,6 +4619,7 @@ public final class Api {
           return result;
         }
 
+        @java.lang.Override
         public gauge.messages.Api.SpecsResponse.SpecDetail buildPartial() {
           gauge.messages.Api.SpecsResponse.SpecDetail result = new gauge.messages.Api.SpecsResponse.SpecDetail(this);
           int from_bitField0_ = bitField0_;
@@ -4360,32 +4643,39 @@ public final class Api {
           return result;
         }
 
+        @java.lang.Override
         public Builder clone() {
           return (Builder) super.clone();
         }
+        @java.lang.Override
         public Builder setField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            Object value) {
+            java.lang.Object value) {
           return (Builder) super.setField(field, value);
         }
+        @java.lang.Override
         public Builder clearField(
             com.google.protobuf.Descriptors.FieldDescriptor field) {
           return (Builder) super.clearField(field);
         }
+        @java.lang.Override
         public Builder clearOneof(
             com.google.protobuf.Descriptors.OneofDescriptor oneof) {
           return (Builder) super.clearOneof(oneof);
         }
+        @java.lang.Override
         public Builder setRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, Object value) {
+            int index, java.lang.Object value) {
           return (Builder) super.setRepeatedField(field, index, value);
         }
+        @java.lang.Override
         public Builder addRepeatedField(
             com.google.protobuf.Descriptors.FieldDescriptor field,
-            Object value) {
+            java.lang.Object value) {
           return (Builder) super.addRepeatedField(field, value);
         }
+        @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
           if (other instanceof gauge.messages.Api.SpecsResponse.SpecDetail) {
             return mergeFrom((gauge.messages.Api.SpecsResponse.SpecDetail)other);
@@ -4426,14 +4716,17 @@ public final class Api {
               }
             }
           }
+          this.mergeUnknownFields(other.unknownFields);
           onChanged();
           return this;
         }
 
+        @java.lang.Override
         public final boolean isInitialized() {
           return true;
         }
 
+        @java.lang.Override
         public Builder mergeFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4917,14 +5210,16 @@ public final class Api {
           }
           return parseErrorsBuilder_;
         }
+        @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return this;
+          return super.setUnknownFieldsProto3(unknownFields);
         }
 
+        @java.lang.Override
         public final Builder mergeUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return this;
+          return super.mergeUnknownFields(unknownFields);
         }
 
 
@@ -4943,11 +5238,12 @@ public final class Api {
 
       private static final com.google.protobuf.Parser<SpecDetail>
           PARSER = new com.google.protobuf.AbstractParser<SpecDetail>() {
+        @java.lang.Override
         public SpecDetail parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-            return new SpecDetail(input, extensionRegistry);
+          return new SpecDetail(input, extensionRegistry);
         }
       };
 
@@ -4960,6 +5256,7 @@ public final class Api {
         return PARSER;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.SpecsResponse.SpecDetail getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
       }
@@ -5022,6 +5319,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5031,13 +5329,16 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < details_.size(); i++) {
         output.writeMessage(1, details_.get(i));
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -5047,11 +5348,11 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, details_.get(i));
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -5065,6 +5366,7 @@ public final class Api {
       boolean result = true;
       result = result && getDetailsList()
           .equals(other.getDetailsList());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -5154,6 +5456,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -5161,6 +5464,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.SpecsResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -5188,6 +5492,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_SpecsResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_SpecsResponse_fieldAccessorTable
@@ -5211,6 +5516,7 @@ public final class Api {
           getDetailsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (detailsBuilder_ == null) {
@@ -5222,15 +5528,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_SpecsResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.SpecsResponse getDefaultInstanceForType() {
         return gauge.messages.Api.SpecsResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.SpecsResponse build() {
         gauge.messages.Api.SpecsResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -5239,6 +5548,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.SpecsResponse buildPartial() {
         gauge.messages.Api.SpecsResponse result = new gauge.messages.Api.SpecsResponse(this);
         int from_bitField0_ = bitField0_;
@@ -5255,32 +5565,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.SpecsResponse) {
           return mergeFrom((gauge.messages.Api.SpecsResponse)other);
@@ -5318,14 +5635,17 @@ public final class Api {
             }
           }
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5656,14 +5976,16 @@ public final class Api {
         }
         return detailsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -5682,11 +6004,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<SpecsResponse>
         PARSER = new com.google.protobuf.AbstractParser<SpecsResponse>() {
+      @java.lang.Override
       public SpecsResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SpecsResponse(input, extensionRegistry);
+        return new SpecsResponse(input, extensionRegistry);
       }
     };
 
@@ -5699,6 +6022,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.SpecsResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5720,6 +6044,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetAllConceptsRequest)
       GetAllConceptsRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetAllConceptsRequest.newBuilder() to construct.
     private GetAllConceptsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -5730,13 +6055,18 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetAllConceptsRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -5746,7 +6076,8 @@ public final class Api {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -5759,6 +6090,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -5767,6 +6099,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetAllConceptsRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetAllConceptsRequest_fieldAccessorTable
@@ -5775,6 +6108,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -5784,20 +6118,23 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -5809,6 +6146,7 @@ public final class Api {
       gauge.messages.Api.GetAllConceptsRequest other = (gauge.messages.Api.GetAllConceptsRequest) obj;
 
       boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -5894,6 +6232,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -5901,6 +6240,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetAllConceptsRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -5928,6 +6268,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllConceptsRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllConceptsRequest_fieldAccessorTable
@@ -5950,20 +6291,24 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllConceptsRequest_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllConceptsRequest getDefaultInstanceForType() {
         return gauge.messages.Api.GetAllConceptsRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllConceptsRequest build() {
         gauge.messages.Api.GetAllConceptsRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -5972,38 +6317,46 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllConceptsRequest buildPartial() {
         gauge.messages.Api.GetAllConceptsRequest result = new gauge.messages.Api.GetAllConceptsRequest(this);
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetAllConceptsRequest) {
           return mergeFrom((gauge.messages.Api.GetAllConceptsRequest)other);
@@ -6015,14 +6368,17 @@ public final class Api {
 
       public Builder mergeFrom(gauge.messages.Api.GetAllConceptsRequest other) {
         if (other == gauge.messages.Api.GetAllConceptsRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6040,14 +6396,16 @@ public final class Api {
         }
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -6066,11 +6424,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetAllConceptsRequest>
         PARSER = new com.google.protobuf.AbstractParser<GetAllConceptsRequest>() {
+      @java.lang.Override
       public GetAllConceptsRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetAllConceptsRequest(input, extensionRegistry);
+        return new GetAllConceptsRequest(input, extensionRegistry);
       }
     };
 
@@ -6083,6 +6442,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetAllConceptsRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -6148,6 +6508,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetAllConceptsResponse)
       GetAllConceptsResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetAllConceptsResponse.newBuilder() to construct.
     private GetAllConceptsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -6159,14 +6520,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetAllConceptsResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -6175,12 +6541,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 concepts_ = new java.util.ArrayList<gauge.messages.Api.ConceptInfo>();
@@ -6188,6 +6548,13 @@ public final class Api {
               }
               concepts_.add(
                   input.readMessage(gauge.messages.Api.ConceptInfo.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -6201,6 +6568,7 @@ public final class Api {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           concepts_ = java.util.Collections.unmodifiableList(concepts_);
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -6209,6 +6577,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetAllConceptsResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetAllConceptsResponse_fieldAccessorTable
@@ -6272,6 +6641,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -6281,13 +6651,16 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < concepts_.size(); i++) {
         output.writeMessage(1, concepts_.get(i));
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -6297,11 +6670,11 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, concepts_.get(i));
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -6315,6 +6688,7 @@ public final class Api {
       boolean result = true;
       result = result && getConceptsList()
           .equals(other.getConceptsList());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -6404,6 +6778,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -6411,6 +6786,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetAllConceptsResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -6438,6 +6814,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllConceptsResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllConceptsResponse_fieldAccessorTable
@@ -6461,6 +6838,7 @@ public final class Api {
           getConceptsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (conceptsBuilder_ == null) {
@@ -6472,15 +6850,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetAllConceptsResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllConceptsResponse getDefaultInstanceForType() {
         return gauge.messages.Api.GetAllConceptsResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllConceptsResponse build() {
         gauge.messages.Api.GetAllConceptsResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -6489,6 +6870,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetAllConceptsResponse buildPartial() {
         gauge.messages.Api.GetAllConceptsResponse result = new gauge.messages.Api.GetAllConceptsResponse(this);
         int from_bitField0_ = bitField0_;
@@ -6505,32 +6887,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetAllConceptsResponse) {
           return mergeFrom((gauge.messages.Api.GetAllConceptsResponse)other);
@@ -6568,14 +6957,17 @@ public final class Api {
             }
           }
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6906,14 +7298,16 @@ public final class Api {
         }
         return conceptsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -6932,11 +7326,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetAllConceptsResponse>
         PARSER = new com.google.protobuf.AbstractParser<GetAllConceptsResponse>() {
+      @java.lang.Override
       public GetAllConceptsResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetAllConceptsResponse(input, extensionRegistry);
+        return new GetAllConceptsResponse(input, extensionRegistry);
       }
     };
 
@@ -6949,6 +7344,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetAllConceptsResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -7022,6 +7418,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.ConceptInfo)
       ConceptInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ConceptInfo.newBuilder() to construct.
     private ConceptInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -7034,14 +7431,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ConceptInfo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -7050,12 +7452,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               gauge.messages.Spec.ProtoStepValue.Builder subBuilder = null;
               if (stepValue_ != null) {
@@ -7080,6 +7476,13 @@ public final class Api {
               lineNumber_ = input.readInt32();
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -7088,6 +7491,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -7096,6 +7500,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_ConceptInfo_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_ConceptInfo_fieldAccessorTable
@@ -7192,6 +7597,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -7201,6 +7607,7 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (stepValue_ != null) {
@@ -7212,8 +7619,10 @@ public final class Api {
       if (lineNumber_ != 0) {
         output.writeInt32(3, lineNumber_);
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -7230,11 +7639,11 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, lineNumber_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -7255,6 +7664,7 @@ public final class Api {
           .equals(other.getFilepath());
       result = result && (getLineNumber()
           == other.getLineNumber());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -7348,6 +7758,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -7355,6 +7766,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.ConceptInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -7382,6 +7794,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_ConceptInfo_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_ConceptInfo_fieldAccessorTable
@@ -7404,6 +7817,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (stepValueBuilder_ == null) {
@@ -7419,15 +7833,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_ConceptInfo_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ConceptInfo getDefaultInstanceForType() {
         return gauge.messages.Api.ConceptInfo.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ConceptInfo build() {
         gauge.messages.Api.ConceptInfo result = buildPartial();
         if (!result.isInitialized()) {
@@ -7436,6 +7853,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ConceptInfo buildPartial() {
         gauge.messages.Api.ConceptInfo result = new gauge.messages.Api.ConceptInfo(this);
         if (stepValueBuilder_ == null) {
@@ -7449,32 +7867,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.ConceptInfo) {
           return mergeFrom((gauge.messages.Api.ConceptInfo)other);
@@ -7496,14 +7921,17 @@ public final class Api {
         if (other.getLineNumber() != 0) {
           setLineNumber(other.getLineNumber());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -7801,14 +8229,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -7827,11 +8257,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<ConceptInfo>
         PARSER = new com.google.protobuf.AbstractParser<ConceptInfo>() {
+      @java.lang.Override
       public ConceptInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ConceptInfo(input, extensionRegistry);
+        return new ConceptInfo(input, extensionRegistry);
       }
     };
 
@@ -7844,6 +8275,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.ConceptInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -7892,6 +8324,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetStepValueRequest)
       GetStepValueRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetStepValueRequest.newBuilder() to construct.
     private GetStepValueRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -7904,14 +8337,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetStepValueRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -7920,12 +8358,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -7937,6 +8369,13 @@ public final class Api {
               hasInlineTable_ = input.readBool();
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -7945,6 +8384,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -7953,6 +8393,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetStepValueRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetStepValueRequest_fieldAccessorTable
@@ -8016,6 +8457,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -8025,6 +8467,7 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getStepTextBytes().isEmpty()) {
@@ -8033,8 +8476,10 @@ public final class Api {
       if (hasInlineTable_ != false) {
         output.writeBool(2, hasInlineTable_);
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -8047,11 +8492,11 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, hasInlineTable_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -8067,6 +8512,7 @@ public final class Api {
           .equals(other.getStepText());
       result = result && (getHasInlineTable()
           == other.getHasInlineTable());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -8157,6 +8603,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -8164,6 +8611,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetStepValueRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -8191,6 +8639,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetStepValueRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetStepValueRequest_fieldAccessorTable
@@ -8213,6 +8662,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         stepText_ = "";
@@ -8222,15 +8672,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetStepValueRequest_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetStepValueRequest getDefaultInstanceForType() {
         return gauge.messages.Api.GetStepValueRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetStepValueRequest build() {
         gauge.messages.Api.GetStepValueRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -8239,6 +8692,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetStepValueRequest buildPartial() {
         gauge.messages.Api.GetStepValueRequest result = new gauge.messages.Api.GetStepValueRequest(this);
         result.stepText_ = stepText_;
@@ -8247,32 +8701,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetStepValueRequest) {
           return mergeFrom((gauge.messages.Api.GetStepValueRequest)other);
@@ -8291,14 +8752,17 @@ public final class Api {
         if (other.getHasInlineTable() != false) {
           setHasInlineTable(other.getHasInlineTable());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -8443,14 +8907,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -8469,11 +8935,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetStepValueRequest>
         PARSER = new com.google.protobuf.AbstractParser<GetStepValueRequest>() {
+      @java.lang.Override
       public GetStepValueRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetStepValueRequest(input, extensionRegistry);
+        return new GetStepValueRequest(input, extensionRegistry);
       }
     };
 
@@ -8486,6 +8953,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetStepValueRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -8532,6 +9000,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetStepValueResponse)
       GetStepValueResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetStepValueResponse.newBuilder() to construct.
     private GetStepValueResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -8542,14 +9011,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetStepValueResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -8558,12 +9032,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               gauge.messages.Spec.ProtoStepValue.Builder subBuilder = null;
               if (stepValue_ != null) {
@@ -8577,6 +9045,13 @@ public final class Api {
 
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -8585,6 +9060,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -8593,6 +9069,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetStepValueResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetStepValueResponse_fieldAccessorTable
@@ -8634,6 +9111,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -8643,13 +9121,16 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (stepValue_ != null) {
         output.writeMessage(1, getStepValue());
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -8659,11 +9140,11 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getStepValue());
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -8680,6 +9161,7 @@ public final class Api {
         result = result && getStepValue()
             .equals(other.getStepValue());
       }
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -8769,6 +9251,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -8776,6 +9259,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetStepValueResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -8803,6 +9287,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetStepValueResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetStepValueResponse_fieldAccessorTable
@@ -8825,6 +9310,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (stepValueBuilder_ == null) {
@@ -8836,15 +9322,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetStepValueResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetStepValueResponse getDefaultInstanceForType() {
         return gauge.messages.Api.GetStepValueResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetStepValueResponse build() {
         gauge.messages.Api.GetStepValueResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -8853,6 +9342,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetStepValueResponse buildPartial() {
         gauge.messages.Api.GetStepValueResponse result = new gauge.messages.Api.GetStepValueResponse(this);
         if (stepValueBuilder_ == null) {
@@ -8864,32 +9354,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetStepValueResponse) {
           return mergeFrom((gauge.messages.Api.GetStepValueResponse)other);
@@ -8904,14 +9401,17 @@ public final class Api {
         if (other.hasStepValue()) {
           mergeStepValue(other.getStepValue());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9082,14 +9582,16 @@ public final class Api {
         }
         return stepValueBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -9108,11 +9610,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetStepValueResponse>
         PARSER = new com.google.protobuf.AbstractParser<GetStepValueResponse>() {
+      @java.lang.Override
       public GetStepValueResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetStepValueResponse(input, extensionRegistry);
+        return new GetStepValueResponse(input, extensionRegistry);
       }
     };
 
@@ -9125,6 +9628,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetStepValueResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -9164,6 +9668,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetLanguagePluginLibPathRequest)
       GetLanguagePluginLibPathRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetLanguagePluginLibPathRequest.newBuilder() to construct.
     private GetLanguagePluginLibPathRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -9175,14 +9680,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetLanguagePluginLibPathRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -9191,16 +9701,17 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
               language_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -9211,6 +9722,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -9219,6 +9731,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetLanguagePluginLibPathRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetLanguagePluginLibPathRequest_fieldAccessorTable
@@ -9269,6 +9782,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -9278,13 +9792,16 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getLanguageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, language_);
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -9293,11 +9810,11 @@ public final class Api {
       if (!getLanguageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, language_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -9311,6 +9828,7 @@ public final class Api {
       boolean result = true;
       result = result && getLanguage()
           .equals(other.getLanguage());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -9398,6 +9916,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -9405,6 +9924,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetLanguagePluginLibPathRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -9432,6 +9952,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetLanguagePluginLibPathRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetLanguagePluginLibPathRequest_fieldAccessorTable
@@ -9454,6 +9975,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         language_ = "";
@@ -9461,15 +9983,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetLanguagePluginLibPathRequest_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetLanguagePluginLibPathRequest getDefaultInstanceForType() {
         return gauge.messages.Api.GetLanguagePluginLibPathRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetLanguagePluginLibPathRequest build() {
         gauge.messages.Api.GetLanguagePluginLibPathRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -9478,6 +10003,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetLanguagePluginLibPathRequest buildPartial() {
         gauge.messages.Api.GetLanguagePluginLibPathRequest result = new gauge.messages.Api.GetLanguagePluginLibPathRequest(this);
         result.language_ = language_;
@@ -9485,32 +10011,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetLanguagePluginLibPathRequest) {
           return mergeFrom((gauge.messages.Api.GetLanguagePluginLibPathRequest)other);
@@ -9526,14 +10059,17 @@ public final class Api {
           language_ = other.language_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -9640,14 +10176,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -9666,11 +10204,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetLanguagePluginLibPathRequest>
         PARSER = new com.google.protobuf.AbstractParser<GetLanguagePluginLibPathRequest>() {
+      @java.lang.Override
       public GetLanguagePluginLibPathRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetLanguagePluginLibPathRequest(input, extensionRegistry);
+        return new GetLanguagePluginLibPathRequest(input, extensionRegistry);
       }
     };
 
@@ -9683,6 +10222,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetLanguagePluginLibPathRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -9722,6 +10262,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.GetLanguagePluginLibPathResponse)
       GetLanguagePluginLibPathResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetLanguagePluginLibPathResponse.newBuilder() to construct.
     private GetLanguagePluginLibPathResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -9733,14 +10274,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private GetLanguagePluginLibPathResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -9749,16 +10295,17 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
               path_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -9769,6 +10316,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -9777,6 +10325,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_GetLanguagePluginLibPathResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_GetLanguagePluginLibPathResponse_fieldAccessorTable
@@ -9827,6 +10376,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -9836,13 +10386,16 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getPathBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, path_);
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -9851,11 +10404,11 @@ public final class Api {
       if (!getPathBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, path_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -9869,6 +10422,7 @@ public final class Api {
       boolean result = true;
       result = result && getPath()
           .equals(other.getPath());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -9956,6 +10510,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -9963,6 +10518,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.GetLanguagePluginLibPathResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -9990,6 +10546,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_GetLanguagePluginLibPathResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_GetLanguagePluginLibPathResponse_fieldAccessorTable
@@ -10012,6 +10569,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         path_ = "";
@@ -10019,15 +10577,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_GetLanguagePluginLibPathResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetLanguagePluginLibPathResponse getDefaultInstanceForType() {
         return gauge.messages.Api.GetLanguagePluginLibPathResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetLanguagePluginLibPathResponse build() {
         gauge.messages.Api.GetLanguagePluginLibPathResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -10036,6 +10597,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.GetLanguagePluginLibPathResponse buildPartial() {
         gauge.messages.Api.GetLanguagePluginLibPathResponse result = new gauge.messages.Api.GetLanguagePluginLibPathResponse(this);
         result.path_ = path_;
@@ -10043,32 +10605,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.GetLanguagePluginLibPathResponse) {
           return mergeFrom((gauge.messages.Api.GetLanguagePluginLibPathResponse)other);
@@ -10084,14 +10653,17 @@ public final class Api {
           path_ = other.path_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -10198,14 +10770,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -10224,11 +10798,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<GetLanguagePluginLibPathResponse>
         PARSER = new com.google.protobuf.AbstractParser<GetLanguagePluginLibPathResponse>() {
+      @java.lang.Override
       public GetLanguagePluginLibPathResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetLanguagePluginLibPathResponse(input, extensionRegistry);
+        return new GetLanguagePluginLibPathResponse(input, extensionRegistry);
       }
     };
 
@@ -10241,6 +10816,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.GetLanguagePluginLibPathResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -10280,6 +10856,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.ErrorResponse)
       ErrorResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ErrorResponse.newBuilder() to construct.
     private ErrorResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -10291,14 +10868,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ErrorResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -10307,16 +10889,17 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
               error_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -10327,6 +10910,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -10335,6 +10919,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_ErrorResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_ErrorResponse_fieldAccessorTable
@@ -10385,6 +10970,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -10394,13 +10980,16 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getErrorBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, error_);
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -10409,11 +10998,11 @@ public final class Api {
       if (!getErrorBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, error_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -10427,6 +11016,7 @@ public final class Api {
       boolean result = true;
       result = result && getError()
           .equals(other.getError());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -10514,6 +11104,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -10521,6 +11112,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.ErrorResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -10548,6 +11140,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_ErrorResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_ErrorResponse_fieldAccessorTable
@@ -10570,6 +11163,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         error_ = "";
@@ -10577,15 +11171,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_ErrorResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ErrorResponse getDefaultInstanceForType() {
         return gauge.messages.Api.ErrorResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ErrorResponse build() {
         gauge.messages.Api.ErrorResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -10594,6 +11191,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ErrorResponse buildPartial() {
         gauge.messages.Api.ErrorResponse result = new gauge.messages.Api.ErrorResponse(this);
         result.error_ = error_;
@@ -10601,32 +11199,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.ErrorResponse) {
           return mergeFrom((gauge.messages.Api.ErrorResponse)other);
@@ -10642,14 +11247,17 @@ public final class Api {
           error_ = other.error_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -10756,14 +11364,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -10782,11 +11392,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<ErrorResponse>
         PARSER = new com.google.protobuf.AbstractParser<ErrorResponse>() {
+      @java.lang.Override
       public ErrorResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ErrorResponse(input, extensionRegistry);
+        return new ErrorResponse(input, extensionRegistry);
       }
     };
 
@@ -10799,6 +11410,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.ErrorResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -10856,6 +11468,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.PerformRefactoringRequest)
       PerformRefactoringRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use PerformRefactoringRequest.newBuilder() to construct.
     private PerformRefactoringRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -10868,14 +11481,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private PerformRefactoringRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -10884,12 +11502,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -10902,6 +11514,13 @@ public final class Api {
               newStep_ = s;
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -10910,6 +11529,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -10918,6 +11538,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_PerformRefactoringRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_PerformRefactoringRequest_fieldAccessorTable
@@ -11010,6 +11631,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -11019,6 +11641,7 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getOldStepBytes().isEmpty()) {
@@ -11027,8 +11650,10 @@ public final class Api {
       if (!getNewStepBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, newStep_);
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -11040,11 +11665,11 @@ public final class Api {
       if (!getNewStepBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, newStep_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -11060,6 +11685,7 @@ public final class Api {
           .equals(other.getOldStep());
       result = result && getNewStep()
           .equals(other.getNewStep());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -11149,6 +11775,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -11156,6 +11783,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.PerformRefactoringRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -11183,6 +11811,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_PerformRefactoringRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_PerformRefactoringRequest_fieldAccessorTable
@@ -11205,6 +11834,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         oldStep_ = "";
@@ -11214,15 +11844,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_PerformRefactoringRequest_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.PerformRefactoringRequest getDefaultInstanceForType() {
         return gauge.messages.Api.PerformRefactoringRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.PerformRefactoringRequest build() {
         gauge.messages.Api.PerformRefactoringRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -11231,6 +11864,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.PerformRefactoringRequest buildPartial() {
         gauge.messages.Api.PerformRefactoringRequest result = new gauge.messages.Api.PerformRefactoringRequest(this);
         result.oldStep_ = oldStep_;
@@ -11239,32 +11873,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.PerformRefactoringRequest) {
           return mergeFrom((gauge.messages.Api.PerformRefactoringRequest)other);
@@ -11284,14 +11925,17 @@ public final class Api {
           newStep_ = other.newStep_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -11487,14 +12131,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -11513,11 +12159,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<PerformRefactoringRequest>
         PARSER = new com.google.protobuf.AbstractParser<PerformRefactoringRequest>() {
+      @java.lang.Override
       public PerformRefactoringRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PerformRefactoringRequest(input, extensionRegistry);
+        return new PerformRefactoringRequest(input, extensionRegistry);
       }
     };
 
@@ -11530,6 +12177,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.PerformRefactoringRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -11630,6 +12278,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.PerformRefactoringResponse)
       PerformRefactoringResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use PerformRefactoringResponse.newBuilder() to construct.
     private PerformRefactoringResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -11643,14 +12292,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private PerformRefactoringResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -11659,12 +12313,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
 
               success_ = input.readBool();
@@ -11688,6 +12336,13 @@ public final class Api {
               filesChanged_.add(s);
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -11702,6 +12357,7 @@ public final class Api {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           filesChanged_ = filesChanged_.getUnmodifiableView();
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -11710,6 +12366,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_PerformRefactoringResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_PerformRefactoringResponse_fieldAccessorTable
@@ -11822,6 +12479,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -11831,6 +12489,7 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (success_ != false) {
@@ -11842,8 +12501,10 @@ public final class Api {
       for (int i = 0; i < filesChanged_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, filesChanged_.getRaw(i));
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -11869,11 +12530,11 @@ public final class Api {
         size += dataSize;
         size += 1 * getFilesChangedList().size();
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -11891,6 +12552,7 @@ public final class Api {
           .equals(other.getErrorsList());
       result = result && getFilesChangedList()
           .equals(other.getFilesChangedList());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -11987,6 +12649,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -11994,6 +12657,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.PerformRefactoringResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -12021,6 +12685,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_PerformRefactoringResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_PerformRefactoringResponse_fieldAccessorTable
@@ -12043,6 +12708,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         success_ = false;
@@ -12054,15 +12720,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_PerformRefactoringResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.PerformRefactoringResponse getDefaultInstanceForType() {
         return gauge.messages.Api.PerformRefactoringResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.PerformRefactoringResponse build() {
         gauge.messages.Api.PerformRefactoringResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -12071,6 +12740,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.PerformRefactoringResponse buildPartial() {
         gauge.messages.Api.PerformRefactoringResponse result = new gauge.messages.Api.PerformRefactoringResponse(this);
         int from_bitField0_ = bitField0_;
@@ -12091,32 +12761,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.PerformRefactoringResponse) {
           return mergeFrom((gauge.messages.Api.PerformRefactoringResponse)other);
@@ -12151,14 +12828,17 @@ public final class Api {
           }
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -12475,14 +13155,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -12501,11 +13183,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<PerformRefactoringResponse>
         PARSER = new com.google.protobuf.AbstractParser<PerformRefactoringResponse>() {
+      @java.lang.Override
       public PerformRefactoringResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PerformRefactoringResponse(input, extensionRegistry);
+        return new PerformRefactoringResponse(input, extensionRegistry);
       }
     };
 
@@ -12518,6 +13201,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.PerformRefactoringResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -12660,6 +13344,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.ExtractConceptRequest)
       ExtractConceptRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ExtractConceptRequest.newBuilder() to construct.
     private ExtractConceptRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -12673,14 +13358,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ExtractConceptRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -12689,12 +13379,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               gauge.messages.Api.step.Builder subBuilder = null;
               if (conceptName_ != null) {
@@ -12741,6 +13425,13 @@ public final class Api {
 
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -12752,6 +13443,7 @@ public final class Api {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           steps_ = java.util.Collections.unmodifiableList(steps_);
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -12760,6 +13452,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptRequest_fieldAccessorTable
@@ -12945,6 +13638,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -12954,6 +13648,7 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (conceptName_ != null) {
@@ -12971,8 +13666,10 @@ public final class Api {
       if (selectedTextInfo_ != null) {
         output.writeMessage(5, getSelectedTextInfo());
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -12997,11 +13694,11 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getSelectedTextInfo());
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -13029,6 +13726,7 @@ public final class Api {
         result = result && getSelectedTextInfo()
             .equals(other.getSelectedTextInfo());
       }
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -13131,6 +13829,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -13138,6 +13837,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.ExtractConceptRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -13165,6 +13865,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptRequest_fieldAccessorTable
@@ -13188,6 +13889,7 @@ public final class Api {
           getStepsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (conceptNameBuilder_ == null) {
@@ -13215,15 +13917,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptRequest_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ExtractConceptRequest getDefaultInstanceForType() {
         return gauge.messages.Api.ExtractConceptRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ExtractConceptRequest build() {
         gauge.messages.Api.ExtractConceptRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -13232,6 +13937,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ExtractConceptRequest buildPartial() {
         gauge.messages.Api.ExtractConceptRequest result = new gauge.messages.Api.ExtractConceptRequest(this);
         int from_bitField0_ = bitField0_;
@@ -13262,32 +13968,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.ExtractConceptRequest) {
           return mergeFrom((gauge.messages.Api.ExtractConceptRequest)other);
@@ -13338,14 +14051,17 @@ public final class Api {
         if (other.hasSelectedTextInfo()) {
           mergeSelectedTextInfo(other.getSelectedTextInfo());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -14109,14 +14825,16 @@ public final class Api {
         }
         return selectedTextInfoBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -14135,11 +14853,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<ExtractConceptRequest>
         PARSER = new com.google.protobuf.AbstractParser<ExtractConceptRequest>() {
+      @java.lang.Override
       public ExtractConceptRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ExtractConceptRequest(input, extensionRegistry);
+        return new ExtractConceptRequest(input, extensionRegistry);
       }
     };
 
@@ -14152,6 +14871,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.ExtractConceptRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -14201,6 +14921,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.textInfo)
       textInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use textInfo.newBuilder() to construct.
     private textInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -14214,14 +14935,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private textInfo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -14230,12 +14956,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -14252,6 +14972,13 @@ public final class Api {
               endLineNo_ = input.readInt32();
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -14260,6 +14987,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -14268,6 +14996,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_textInfo_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_textInfo_fieldAccessorTable
@@ -14340,6 +15069,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -14349,6 +15079,7 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getFileNameBytes().isEmpty()) {
@@ -14360,8 +15091,10 @@ public final class Api {
       if (endLineNo_ != 0) {
         output.writeInt32(3, endLineNo_);
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -14378,11 +15111,11 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, endLineNo_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -14400,6 +15133,7 @@ public final class Api {
           == other.getStartingLineNo());
       result = result && (getEndLineNo()
           == other.getEndLineNo());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -14491,6 +15225,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -14498,6 +15233,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.textInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -14521,6 +15257,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_textInfo_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_textInfo_fieldAccessorTable
@@ -14543,6 +15280,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         fileName_ = "";
@@ -14554,15 +15292,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_textInfo_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.textInfo getDefaultInstanceForType() {
         return gauge.messages.Api.textInfo.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.textInfo build() {
         gauge.messages.Api.textInfo result = buildPartial();
         if (!result.isInitialized()) {
@@ -14571,6 +15312,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.textInfo buildPartial() {
         gauge.messages.Api.textInfo result = new gauge.messages.Api.textInfo(this);
         result.fileName_ = fileName_;
@@ -14580,32 +15322,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.textInfo) {
           return mergeFrom((gauge.messages.Api.textInfo)other);
@@ -14627,14 +15376,17 @@ public final class Api {
         if (other.getEndLineNo() != 0) {
           setEndLineNo(other.getEndLineNo());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -14805,14 +15557,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -14831,11 +15585,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<textInfo>
         PARSER = new com.google.protobuf.AbstractParser<textInfo>() {
+      @java.lang.Override
       public textInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new textInfo(input, extensionRegistry);
+        return new textInfo(input, extensionRegistry);
       }
     };
 
@@ -14848,6 +15603,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.textInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -14919,6 +15675,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.step)
       stepOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use step.newBuilder() to construct.
     private step(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -14932,14 +15689,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private step(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -14948,12 +15710,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -14972,6 +15728,13 @@ public final class Api {
               paramTableName_ = s;
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -14980,6 +15743,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -14988,6 +15752,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_step_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_step_fieldAccessorTable
@@ -15122,6 +15887,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -15131,6 +15897,7 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!getNameBytes().isEmpty()) {
@@ -15142,8 +15909,10 @@ public final class Api {
       if (!getParamTableNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, paramTableName_);
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -15158,11 +15927,11 @@ public final class Api {
       if (!getParamTableNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, paramTableName_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -15180,6 +15949,7 @@ public final class Api {
           .equals(other.getTable());
       result = result && getParamTableName()
           .equals(other.getParamTableName());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -15271,6 +16041,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -15278,6 +16049,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.step prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -15301,6 +16073,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_step_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_step_fieldAccessorTable
@@ -15323,6 +16096,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         name_ = "";
@@ -15334,15 +16108,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_step_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.step getDefaultInstanceForType() {
         return gauge.messages.Api.step.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.step build() {
         gauge.messages.Api.step result = buildPartial();
         if (!result.isInitialized()) {
@@ -15351,6 +16128,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.step buildPartial() {
         gauge.messages.Api.step result = new gauge.messages.Api.step(this);
         result.name_ = name_;
@@ -15360,32 +16138,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.step) {
           return mergeFrom((gauge.messages.Api.step)other);
@@ -15409,14 +16194,17 @@ public final class Api {
           paramTableName_ = other.paramTableName_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -15701,14 +16489,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -15727,11 +16517,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<step>
         PARSER = new com.google.protobuf.AbstractParser<step>() {
+      @java.lang.Override
       public step parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new step(input, extensionRegistry);
+        return new step(input, extensionRegistry);
       }
     };
 
@@ -15744,6 +16535,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.step getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -15827,6 +16619,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.ExtractConceptResponse)
       ExtractConceptResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ExtractConceptResponse.newBuilder() to construct.
     private ExtractConceptResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -15840,14 +16633,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ExtractConceptResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -15856,12 +16654,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
 
               isSuccess_ = input.readBool();
@@ -15882,6 +16674,13 @@ public final class Api {
               filesChanged_.add(s);
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -15893,6 +16692,7 @@ public final class Api {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           filesChanged_ = filesChanged_.getUnmodifiableView();
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -15901,6 +16701,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptResponse_fieldAccessorTable
@@ -16010,6 +16811,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -16019,6 +16821,7 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (isSuccess_ != false) {
@@ -16030,8 +16833,10 @@ public final class Api {
       for (int i = 0; i < filesChanged_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, filesChanged_.getRaw(i));
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -16052,11 +16857,11 @@ public final class Api {
         size += dataSize;
         size += 1 * getFilesChangedList().size();
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -16074,6 +16879,7 @@ public final class Api {
           .equals(other.getError());
       result = result && getFilesChangedList()
           .equals(other.getFilesChangedList());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -16168,6 +16974,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -16175,6 +16982,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.ExtractConceptResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -16202,6 +17010,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptResponse_fieldAccessorTable
@@ -16224,6 +17033,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         isSuccess_ = false;
@@ -16235,15 +17045,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_ExtractConceptResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ExtractConceptResponse getDefaultInstanceForType() {
         return gauge.messages.Api.ExtractConceptResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ExtractConceptResponse build() {
         gauge.messages.Api.ExtractConceptResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -16252,6 +17065,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.ExtractConceptResponse buildPartial() {
         gauge.messages.Api.ExtractConceptResponse result = new gauge.messages.Api.ExtractConceptResponse(this);
         int from_bitField0_ = bitField0_;
@@ -16268,32 +17082,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.ExtractConceptResponse) {
           return mergeFrom((gauge.messages.Api.ExtractConceptResponse)other);
@@ -16322,14 +17143,17 @@ public final class Api {
           }
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -16605,14 +17429,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -16631,11 +17457,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<ExtractConceptResponse>
         PARSER = new com.google.protobuf.AbstractParser<ExtractConceptResponse>() {
+      @java.lang.Override
       public ExtractConceptResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ExtractConceptResponse(input, extensionRegistry);
+        return new ExtractConceptResponse(input, extensionRegistry);
       }
     };
 
@@ -16648,6 +17475,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.ExtractConceptResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -16704,6 +17532,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.FormatSpecsRequest)
       FormatSpecsRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use FormatSpecsRequest.newBuilder() to construct.
     private FormatSpecsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -16715,14 +17544,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private FormatSpecsRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -16731,12 +17565,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -16744,6 +17572,13 @@ public final class Api {
                 mutable_bitField0_ |= 0x00000001;
               }
               specs_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -16757,6 +17592,7 @@ public final class Api {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           specs_ = specs_.getUnmodifiableView();
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -16765,6 +17601,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsRequest_fieldAccessorTable
@@ -16818,6 +17655,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -16827,13 +17665,16 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < specs_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, specs_.getRaw(i));
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -16847,11 +17688,11 @@ public final class Api {
         size += dataSize;
         size += 1 * getSpecsList().size();
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -16865,6 +17706,7 @@ public final class Api {
       boolean result = true;
       result = result && getSpecsList()
           .equals(other.getSpecsList());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -16954,6 +17796,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -16961,6 +17804,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.FormatSpecsRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -16988,6 +17832,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsRequest_fieldAccessorTable
@@ -17010,6 +17855,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         specs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -17017,15 +17863,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsRequest_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.FormatSpecsRequest getDefaultInstanceForType() {
         return gauge.messages.Api.FormatSpecsRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.FormatSpecsRequest build() {
         gauge.messages.Api.FormatSpecsRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -17034,6 +17883,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.FormatSpecsRequest buildPartial() {
         gauge.messages.Api.FormatSpecsRequest result = new gauge.messages.Api.FormatSpecsRequest(this);
         int from_bitField0_ = bitField0_;
@@ -17046,32 +17896,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.FormatSpecsRequest) {
           return mergeFrom((gauge.messages.Api.FormatSpecsRequest)other);
@@ -17093,14 +17950,17 @@ public final class Api {
           }
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -17249,14 +18109,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -17275,11 +18137,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<FormatSpecsRequest>
         PARSER = new com.google.protobuf.AbstractParser<FormatSpecsRequest>() {
+      @java.lang.Override
       public FormatSpecsRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new FormatSpecsRequest(input, extensionRegistry);
+        return new FormatSpecsRequest(input, extensionRegistry);
       }
     };
 
@@ -17292,6 +18155,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.FormatSpecsRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -17383,6 +18247,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.FormatSpecsResponse)
       FormatSpecsResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use FormatSpecsResponse.newBuilder() to construct.
     private FormatSpecsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -17395,14 +18260,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private FormatSpecsResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -17411,12 +18281,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -17435,6 +18299,13 @@ public final class Api {
               warnings_.add(s);
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -17449,6 +18320,7 @@ public final class Api {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
           warnings_ = warnings_.getUnmodifiableView();
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -17457,6 +18329,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsResponse_fieldAccessorTable
@@ -17555,6 +18428,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -17564,6 +18438,7 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < errors_.size(); i++) {
@@ -17572,8 +18447,10 @@ public final class Api {
       for (int i = 0; i < warnings_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, warnings_.getRaw(i));
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -17595,11 +18472,11 @@ public final class Api {
         size += dataSize;
         size += 1 * getWarningsList().size();
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -17615,6 +18492,7 @@ public final class Api {
           .equals(other.getErrorsList());
       result = result && getWarningsList()
           .equals(other.getWarningsList());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -17708,6 +18586,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -17715,6 +18594,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.FormatSpecsResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -17742,6 +18622,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsResponse_fieldAccessorTable
@@ -17764,6 +18645,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         errors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -17773,15 +18655,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_FormatSpecsResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.FormatSpecsResponse getDefaultInstanceForType() {
         return gauge.messages.Api.FormatSpecsResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.FormatSpecsResponse build() {
         gauge.messages.Api.FormatSpecsResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -17790,6 +18675,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.FormatSpecsResponse buildPartial() {
         gauge.messages.Api.FormatSpecsResponse result = new gauge.messages.Api.FormatSpecsResponse(this);
         int from_bitField0_ = bitField0_;
@@ -17807,32 +18693,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.FormatSpecsResponse) {
           return mergeFrom((gauge.messages.Api.FormatSpecsResponse)other);
@@ -17864,14 +18757,17 @@ public final class Api {
           }
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -18150,14 +19046,16 @@ public final class Api {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -18176,11 +19074,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<FormatSpecsResponse>
         PARSER = new com.google.protobuf.AbstractParser<FormatSpecsResponse>() {
+      @java.lang.Override
       public FormatSpecsResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new FormatSpecsResponse(input, extensionRegistry);
+        return new FormatSpecsResponse(input, extensionRegistry);
       }
     };
 
@@ -18193,6 +19092,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.FormatSpecsResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -18214,6 +19114,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.UnsupportedApiMessageResponse)
       UnsupportedApiMessageResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use UnsupportedApiMessageResponse.newBuilder() to construct.
     private UnsupportedApiMessageResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -18224,13 +19125,18 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private UnsupportedApiMessageResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -18240,7 +19146,8 @@ public final class Api {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -18253,6 +19160,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -18261,6 +19169,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_UnsupportedApiMessageResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_UnsupportedApiMessageResponse_fieldAccessorTable
@@ -18269,6 +19178,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -18278,20 +19188,23 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -18303,6 +19216,7 @@ public final class Api {
       gauge.messages.Api.UnsupportedApiMessageResponse other = (gauge.messages.Api.UnsupportedApiMessageResponse) obj;
 
       boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -18388,6 +19302,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -18395,6 +19310,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.UnsupportedApiMessageResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -18422,6 +19338,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_UnsupportedApiMessageResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_UnsupportedApiMessageResponse_fieldAccessorTable
@@ -18444,20 +19361,24 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_UnsupportedApiMessageResponse_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.UnsupportedApiMessageResponse getDefaultInstanceForType() {
         return gauge.messages.Api.UnsupportedApiMessageResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.UnsupportedApiMessageResponse build() {
         gauge.messages.Api.UnsupportedApiMessageResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -18466,38 +19387,46 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.UnsupportedApiMessageResponse buildPartial() {
         gauge.messages.Api.UnsupportedApiMessageResponse result = new gauge.messages.Api.UnsupportedApiMessageResponse(this);
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.UnsupportedApiMessageResponse) {
           return mergeFrom((gauge.messages.Api.UnsupportedApiMessageResponse)other);
@@ -18509,14 +19438,17 @@ public final class Api {
 
       public Builder mergeFrom(gauge.messages.Api.UnsupportedApiMessageResponse other) {
         if (other == gauge.messages.Api.UnsupportedApiMessageResponse.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -18534,14 +19466,16 @@ public final class Api {
         }
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -18560,11 +19494,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<UnsupportedApiMessageResponse>
         PARSER = new com.google.protobuf.AbstractParser<UnsupportedApiMessageResponse>() {
+      @java.lang.Override
       public UnsupportedApiMessageResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new UnsupportedApiMessageResponse(input, extensionRegistry);
+        return new UnsupportedApiMessageResponse(input, extensionRegistry);
       }
     };
 
@@ -18577,6 +19512,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.UnsupportedApiMessageResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -19176,6 +20112,7 @@ public final class Api {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.APIMessage)
       APIMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use APIMessage.newBuilder() to construct.
     private APIMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -19188,14 +20125,19 @@ public final class Api {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private APIMessage(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -19204,12 +20146,6 @@ public final class Api {
             case 0:
               done = true;
               break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               int rawValue = input.readEnum();
 
@@ -19507,6 +20443,13 @@ public final class Api {
 
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -19515,6 +20458,7 @@ public final class Api {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -19523,6 +20467,7 @@ public final class Api {
       return gauge.messages.Api.internal_static_gauge_messages_APIMessage_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return gauge.messages.Api.internal_static_gauge_messages_APIMessage_fieldAccessorTable
@@ -19828,6 +20773,7 @@ public final class Api {
      * <code>.gauge.messages.APIMessage.APIMessageType messageType = 1;</code>
      */
     public gauge.messages.Api.APIMessage.APIMessageType getMessageType() {
+      @SuppressWarnings("deprecation")
       gauge.messages.Api.APIMessage.APIMessageType result = gauge.messages.Api.APIMessage.APIMessageType.valueOf(messageType_);
       return result == null ? gauge.messages.Api.APIMessage.APIMessageType.UNRECOGNIZED : result;
     }
@@ -20573,6 +21519,7 @@ public final class Api {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -20582,6 +21529,7 @@ public final class Api {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (messageType_ != gauge.messages.Api.APIMessage.APIMessageType.GetProjectRootRequest.getNumber()) {
@@ -20656,8 +21604,10 @@ public final class Api {
       if (unsupportedApiMessageResponse_ != null) {
         output.writeMessage(24, getUnsupportedApiMessageResponse());
       }
+      unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -20759,11 +21709,11 @@ public final class Api {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(24, getUnsupportedApiMessageResponse());
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -20888,6 +21838,7 @@ public final class Api {
         result = result && getUnsupportedApiMessageResponse()
             .equals(other.getUnsupportedApiMessageResponse());
       }
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -21066,6 +22017,7 @@ public final class Api {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -21073,6 +22025,7 @@ public final class Api {
     public static Builder newBuilder(gauge.messages.Api.APIMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -21101,6 +22054,7 @@ public final class Api {
         return gauge.messages.Api.internal_static_gauge_messages_APIMessage_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return gauge.messages.Api.internal_static_gauge_messages_APIMessage_fieldAccessorTable
@@ -21123,6 +22077,7 @@ public final class Api {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         messageType_ = 0;
@@ -21264,15 +22219,18 @@ public final class Api {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return gauge.messages.Api.internal_static_gauge_messages_APIMessage_descriptor;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.APIMessage getDefaultInstanceForType() {
         return gauge.messages.Api.APIMessage.getDefaultInstance();
       }
 
+      @java.lang.Override
       public gauge.messages.Api.APIMessage build() {
         gauge.messages.Api.APIMessage result = buildPartial();
         if (!result.isInitialized()) {
@@ -21281,6 +22239,7 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public gauge.messages.Api.APIMessage buildPartial() {
         gauge.messages.Api.APIMessage result = new gauge.messages.Api.APIMessage(this);
         result.messageType_ = messageType_;
@@ -21399,32 +22358,39 @@ public final class Api {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof gauge.messages.Api.APIMessage) {
           return mergeFrom((gauge.messages.Api.APIMessage)other);
@@ -21508,14 +22474,17 @@ public final class Api {
         if (other.hasUnsupportedApiMessageResponse()) {
           mergeUnsupportedApiMessageResponse(other.getUnsupportedApiMessageResponse());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -21565,6 +22534,7 @@ public final class Api {
        * <code>.gauge.messages.APIMessage.APIMessageType messageType = 1;</code>
        */
       public gauge.messages.Api.APIMessage.APIMessageType getMessageType() {
+        @SuppressWarnings("deprecation")
         gauge.messages.Api.APIMessage.APIMessageType result = gauge.messages.Api.APIMessage.APIMessageType.valueOf(messageType_);
         return result == null ? gauge.messages.Api.APIMessage.APIMessageType.UNRECOGNIZED : result;
       }
@@ -25004,14 +25974,16 @@ public final class Api {
         }
         return unsupportedApiMessageResponseBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -25030,11 +26002,12 @@ public final class Api {
 
     private static final com.google.protobuf.Parser<APIMessage>
         PARSER = new com.google.protobuf.AbstractParser<APIMessage>() {
+      @java.lang.Override
       public APIMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new APIMessage(input, extensionRegistry);
+        return new APIMessage(input, extensionRegistry);
       }
     };
 
@@ -25047,6 +26020,7 @@ public final class Api {
       return PARSER;
     }
 
+    @java.lang.Override
     public gauge.messages.Api.APIMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -25206,7 +26180,7 @@ public final class Api {
       "nse\0220\n\010allSteps\030\001 \003(\0132\036.gauge.messages.P" +
       "rotoStepValue\"\035\n\014SpecsRequest\022\r\n\005specs\030\001" +
       " \003(\t\"\255\001\n\rSpecsResponse\0229\n\007details\030\001 \003(\0132" +
-      "(.gauge.messages.SpecsResponse.SpecDetai",
+      "(.gauge.messages.SpecsResponse.SpecDetai" +
       "l\032a\n\nSpecDetail\022\'\n\004spec\030\001 \001(\0132\031.gauge.me" +
       "ssages.ProtoSpec\022*\n\013parseErrors\030\002 \003(\0132\025." +
       "gauge.messages.Error\"\027\n\025GetAllConceptsRe" +
@@ -25216,7 +26190,7 @@ public final class Api {
       ".messages.ProtoStepValue\022\020\n\010filepath\030\002 \001" +
       "(\t\022\022\n\nlineNumber\030\003 \001(\005\"?\n\023GetStepValueRe" +
       "quest\022\020\n\010stepText\030\001 \001(\t\022\026\n\016hasInlineTabl" +
-      "e\030\002 \001(\010\"I\n\024GetStepValueResponse\0221\n\tstepV",
+      "e\030\002 \001(\010\"I\n\024GetStepValueResponse\0221\n\tstepV" +
       "alue\030\001 \001(\0132\036.gauge.messages.ProtoStepVal" +
       "ue\"3\n\037GetLanguagePluginLibPathRequest\022\020\n" +
       "\010language\030\001 \001(\t\"0\n GetLanguagePluginLibP" +
@@ -25226,7 +26200,7 @@ public final class Api {
       "\"S\n\032PerformRefactoringResponse\022\017\n\007succes" +
       "s\030\001 \001(\010\022\016\n\006errors\030\002 \003(\t\022\024\n\014filesChanged\030" +
       "\003 \003(\t\"\321\001\n\025ExtractConceptRequest\022)\n\013conce" +
-      "ptName\030\001 \001(\0132\024.gauge.messages.step\022#\n\005st",
+      "ptName\030\001 \001(\0132\024.gauge.messages.step\022#\n\005st" +
       "eps\030\002 \003(\0132\024.gauge.messages.step\022\033\n\023chang" +
       "eAcrossProject\030\003 \001(\010\022\027\n\017conceptFileName\030" +
       "\004 \001(\t\0222\n\020selectedTextInfo\030\005 \001(\0132\030.gauge." +
@@ -25236,7 +26210,7 @@ public final class Api {
       "e\030\002 \001(\t\022\026\n\016paramTableName\030\003 \001(\t\"P\n\026Extra" +
       "ctConceptResponse\022\021\n\tisSuccess\030\001 \001(\010\022\r\n\005" +
       "error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003(\t\"#\n\022For" +
-      "matSpecsRequest\022\r\n\005specs\030\001 \003(\t\"7\n\023Format",
+      "matSpecsRequest\022\r\n\005specs\030\001 \003(\t\"7\n\023Format" +
       "SpecsResponse\022\016\n\006errors\030\001 \003(\t\022\020\n\010warning" +
       "s\030\002 \003(\t\"\037\n\035UnsupportedApiMessageResponse" +
       "\"\251\021\n\nAPIMessage\022>\n\013messageType\030\001 \001(\0162).g" +
@@ -25246,7 +26220,7 @@ public final class Api {
       "quest\022C\n\023projectRootResponse\030\004 \001(\0132&.gau" +
       "ge.messages.GetProjectRootResponse\022K\n\027in" +
       "stallationRootRequest\030\005 \001(\0132*.gauge.mess" +
-      "ages.GetInstallationRootRequest\022M\n\030insta",
+      "ages.GetInstallationRootRequest\022M\n\030insta" +
       "llationRootResponse\030\006 \001(\0132+.gauge.messag" +
       "es.GetInstallationRootResponse\022;\n\017allSte" +
       "psRequest\030\007 \001(\0132\".gauge.messages.GetAllS" +
@@ -25256,7 +26230,7 @@ public final class Api {
       "equest\0224\n\rspecsResponse\030\n \001(\0132\035.gauge.me" +
       "ssages.SpecsResponse\022=\n\020stepValueRequest" +
       "\030\013 \001(\0132#.gauge.messages.GetStepValueRequ" +
-      "est\022?\n\021stepValueResponse\030\014 \001(\0132$.gauge.m",
+      "est\022?\n\021stepValueResponse\030\014 \001(\0132$.gauge.m" +
       "essages.GetStepValueResponse\022G\n\016libPathR" +
       "equest\030\r \001(\0132/.gauge.messages.GetLanguag" +
       "ePluginLibPathRequest\022I\n\017libPathResponse" +
@@ -25266,7 +26240,7 @@ public final class Api {
       "uest\030\020 \001(\0132%.gauge.messages.GetAllConcep" +
       "tsRequest\022C\n\023allConceptsResponse\030\021 \001(\0132&" +
       ".gauge.messages.GetAllConceptsResponse\022L" +
-      "\n\031performRefactoringRequest\030\022 \001(\0132).gaug",
+      "\n\031performRefactoringRequest\030\022 \001(\0132).gaug" +
       "e.messages.PerformRefactoringRequest\022N\n\032" +
       "performRefactoringResponse\030\023 \001(\0132*.gauge" +
       ".messages.PerformRefactoringResponse\022D\n\025" +
@@ -25276,7 +26250,7 @@ public final class Api {
       "actConceptResponse\022>\n\022formatSpecsRequest" +
       "\030\026 \001(\0132\".gauge.messages.FormatSpecsReque" +
       "st\022@\n\023formatSpecsResponse\030\027 \001(\0132#.gauge." +
-      "messages.FormatSpecsResponse\022T\n\035unsuppor",
+      "messages.FormatSpecsResponse\022T\n\035unsuppor" +
       "tedApiMessageResponse\030\030 \001(\0132-.gauge.mess" +
       "ages.UnsupportedApiMessageResponse\"\357\004\n\016A" +
       "PIMessageType\022\031\n\025GetProjectRootRequest\020\000" +
@@ -25286,7 +26260,7 @@ public final class Api {
       "\022GetAllStepResponse\020\005\022\020\n\014SpecsRequest\020\006\022" +
       "\021\n\rSpecsResponse\020\007\022\027\n\023GetStepValueReques" +
       "t\020\010\022\030\n\024GetStepValueResponse\020\t\022#\n\037GetLang" +
-      "uagePluginLibPathRequest\020\n\022$\n GetLanguag",
+      "uagePluginLibPathRequest\020\n\022$\n GetLanguag" +
       "ePluginLibPathResponse\020\013\022\021\n\rErrorRespons" +
       "e\020\014\022\031\n\025GetAllConceptsRequest\020\r\022\032\n\026GetAll" +
       "ConceptsResponse\020\016\022\035\n\031PerformRefactoring" +
