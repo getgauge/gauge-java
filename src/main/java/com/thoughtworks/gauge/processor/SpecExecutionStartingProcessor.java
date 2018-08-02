@@ -17,6 +17,7 @@ package com.thoughtworks.gauge.processor;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.MessageCollector;
+import com.thoughtworks.gauge.ScreenshotCollector;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import com.thoughtworks.gauge.registry.HooksRegistry;
 import com.thoughtworks.gauge.ExecutionContext;
@@ -33,6 +34,8 @@ public class SpecExecutionStartingProcessor extends MethodExecutionMessageProces
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getSpecExecutionStartingRequest().getCurrentExecutionInfo());
         Messages.Message result = executeHooks(HooksRegistry.getBeforeSpecHooks(), message, info);
         Spec.ProtoExecutionResult executionResult = result.getExecutionStatusResponse().getExecutionResult();
-        return createMessageWithExecutionStatusResponse(message, new MessageCollector().addPendingMessagesTo(executionResult));
+        Spec.ProtoExecutionResult protoExecutionResult = new MessageCollector().addPendingMessagesTo(executionResult);
+        protoExecutionResult = new ScreenshotCollector().addPendingScreenshotTo(protoExecutionResult);
+        return createMessageWithExecutionStatusResponse(message, protoExecutionResult);
     }
 }

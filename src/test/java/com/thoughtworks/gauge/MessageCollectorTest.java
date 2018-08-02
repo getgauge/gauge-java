@@ -23,13 +23,13 @@ import java.util.Arrays;
 
 public class MessageCollectorTest extends TestCase {
 
-    public void testAddingMessagesToProtoResult() throws Exception {
+    public void testAddingMessagesToProtoResult() {
         Spec.ProtoExecutionResult executionResult = emptyExecResult();
         String[] messages = {"first message", "second message"};
-        new MessageCollector().addPendingMessages(executionResult, Arrays.asList(messages));
-        ProtocolStringList actualMessageList = executionResult.getMessageList();
+        Spec.ProtoExecutionResult protoExecutionResult = new MessageCollector().addPendingMessages(executionResult, Arrays.asList(messages));
+        ProtocolStringList actualMessageList = protoExecutionResult.getMessageList();
         for (String message : messages) {
-            actualMessageList.contains(message);
+            assertTrue(actualMessageList.contains(message));
         }
     }
 

@@ -15,6 +15,8 @@
 
 package com.thoughtworks.gauge;
 
+import com.thoughtworks.gauge.screenshot.ScreenshotFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,12 +28,13 @@ public class Gauge {
             return new ArrayList<>();
         }
     };
-
-    static List<String> getPendingMessages() {
-        List<String> pendingMessages = new ArrayList<>(getMessages());
-        getMessages().clear();
-        return pendingMessages;
-    }
+    private static ClassInstanceManager instanceManager;
+    private static ThreadLocal<List<byte[]>> screenshots = new InheritableThreadLocal<List<byte[]>>() {
+        @Override
+        protected List<byte[]> initialValue() {
+            return new ArrayList<>();
+        }
+    };
 
     /**
      * @param message - Custom message that can be added at runtime that will be visible in reports.
@@ -49,7 +52,16 @@ public class Gauge {
         getMessages().add(String.format(format, args));
     }
 
-    private static List<String> getMessages() {
+    static List<String> getMessages() {
         return messages.get();
+    }
+
+    public static void captureScreenshot() {
+        byte[] screenshotBytes = new ScreenshotFactory(instanceManager).getScreenshotBytes();
+        getScreenshots().add(screenshotBytes);
+    }
+
+    static List<byte[]> getScreenshots() {
+        return screenshots.get();
     }
 }
