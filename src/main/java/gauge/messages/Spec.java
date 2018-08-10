@@ -24223,28 +24223,12 @@ public final class Spec {
 
     /**
      * <pre>
-     *&#47; Byte array containing screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failedScreenshot] Bytes containing screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>repeated bytes screenShot = 5;</code>
+     * <code>bytes screenShot = 5 [deprecated = true];</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getScreenShotList();
-    /**
-     * <pre>
-     *&#47; Byte array containing screenshot taken at the time of failure.
-     * </pre>
-     *
-     * <code>repeated bytes screenShot = 5;</code>
-     */
-    int getScreenShotCount();
-    /**
-     * <pre>
-     *&#47; Byte array containing screenshot taken at the time of failure.
-     * </pre>
-     *
-     * <code>repeated bytes screenShot = 5;</code>
-     */
-    com.google.protobuf.ByteString getScreenShot(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getScreenShot();
 
     /**
      * <pre>
@@ -24306,6 +24290,40 @@ public final class Spec {
      * <code>.gauge.messages.ProtoExecutionResult.ErrorType errorType = 8;</code>
      */
     gauge.messages.Spec.ProtoExecutionResult.ErrorType getErrorType();
+
+    /**
+     * <pre>
+     *&#47; Bytes containing screenshot taken at the time of failure.
+     * </pre>
+     *
+     * <code>bytes failedScreenshot = 9;</code>
+     */
+    com.google.protobuf.ByteString getFailedScreenshot();
+
+    /**
+     * <pre>
+     *&#47; Bytes array containing screenshots at the time of it invoked
+     * </pre>
+     *
+     * <code>repeated bytes screenshots = 10;</code>
+     */
+    java.util.List<com.google.protobuf.ByteString> getScreenshotsList();
+    /**
+     * <pre>
+     *&#47; Bytes array containing screenshots at the time of it invoked
+     * </pre>
+     *
+     * <code>repeated bytes screenshots = 10;</code>
+     */
+    int getScreenshotsCount();
+    /**
+     * <pre>
+     *&#47; Bytes array containing screenshots at the time of it invoked
+     * </pre>
+     *
+     * <code>repeated bytes screenshots = 10;</code>
+     */
+    com.google.protobuf.ByteString getScreenshots(int index);
   }
   /**
    * <pre>
@@ -24328,10 +24346,12 @@ public final class Spec {
       recoverableError_ = false;
       errorMessage_ = "";
       stackTrace_ = "";
-      screenShot_ = java.util.Collections.emptyList();
+      screenShot_ = com.google.protobuf.ByteString.EMPTY;
       executionTime_ = 0L;
       message_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       errorType_ = 0;
+      failedScreenshot_ = com.google.protobuf.ByteString.EMPTY;
+      screenshots_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -24381,11 +24401,8 @@ public final class Spec {
               break;
             }
             case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                screenShot_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              screenShot_.add(input.readBytes());
+
+              screenShot_ = input.readBytes();
               break;
             }
             case 48: {
@@ -24408,6 +24425,19 @@ public final class Spec {
               errorType_ = rawValue;
               break;
             }
+            case 74: {
+
+              failedScreenshot_ = input.readBytes();
+              break;
+            }
+            case 82: {
+              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+                screenshots_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
+                mutable_bitField0_ |= 0x00000200;
+              }
+              screenshots_.add(input.readBytes());
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -24423,11 +24453,11 @@ public final class Spec {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-          screenShot_ = java.util.Collections.unmodifiableList(screenShot_);
-        }
         if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           message_ = message_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+          screenshots_ = java.util.Collections.unmodifiableList(screenshots_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -24656,37 +24686,16 @@ public final class Spec {
     }
 
     public static final int SCREENSHOT_FIELD_NUMBER = 5;
-    private java.util.List<com.google.protobuf.ByteString> screenShot_;
+    private com.google.protobuf.ByteString screenShot_;
     /**
      * <pre>
-     *&#47; Byte array containing screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failedScreenshot] Bytes containing screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>repeated bytes screenShot = 5;</code>
+     * <code>bytes screenShot = 5 [deprecated = true];</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
-        getScreenShotList() {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getScreenShot() {
       return screenShot_;
-    }
-    /**
-     * <pre>
-     *&#47; Byte array containing screenshot taken at the time of failure.
-     * </pre>
-     *
-     * <code>repeated bytes screenShot = 5;</code>
-     */
-    public int getScreenShotCount() {
-      return screenShot_.size();
-    }
-    /**
-     * <pre>
-     *&#47; Byte array containing screenshot taken at the time of failure.
-     * </pre>
-     *
-     * <code>repeated bytes screenShot = 5;</code>
-     */
-    public com.google.protobuf.ByteString getScreenShot(int index) {
-      return screenShot_.get(index);
     }
 
     public static final int EXECUTIONTIME_FIELD_NUMBER = 6;
@@ -24772,6 +24781,53 @@ public final class Spec {
       return result == null ? gauge.messages.Spec.ProtoExecutionResult.ErrorType.UNRECOGNIZED : result;
     }
 
+    public static final int FAILEDSCREENSHOT_FIELD_NUMBER = 9;
+    private com.google.protobuf.ByteString failedScreenshot_;
+    /**
+     * <pre>
+     *&#47; Bytes containing screenshot taken at the time of failure.
+     * </pre>
+     *
+     * <code>bytes failedScreenshot = 9;</code>
+     */
+    public com.google.protobuf.ByteString getFailedScreenshot() {
+      return failedScreenshot_;
+    }
+
+    public static final int SCREENSHOTS_FIELD_NUMBER = 10;
+    private java.util.List<com.google.protobuf.ByteString> screenshots_;
+    /**
+     * <pre>
+     *&#47; Bytes array containing screenshots at the time of it invoked
+     * </pre>
+     *
+     * <code>repeated bytes screenshots = 10;</code>
+     */
+    public java.util.List<com.google.protobuf.ByteString>
+        getScreenshotsList() {
+      return screenshots_;
+    }
+    /**
+     * <pre>
+     *&#47; Bytes array containing screenshots at the time of it invoked
+     * </pre>
+     *
+     * <code>repeated bytes screenshots = 10;</code>
+     */
+    public int getScreenshotsCount() {
+      return screenshots_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Bytes array containing screenshots at the time of it invoked
+     * </pre>
+     *
+     * <code>repeated bytes screenshots = 10;</code>
+     */
+    public com.google.protobuf.ByteString getScreenshots(int index) {
+      return screenshots_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -24798,8 +24854,8 @@ public final class Spec {
       if (!getStackTraceBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, stackTrace_);
       }
-      for (int i = 0; i < screenShot_.size(); i++) {
-        output.writeBytes(5, screenShot_.get(i));
+      if (!screenShot_.isEmpty()) {
+        output.writeBytes(5, screenShot_);
       }
       if (executionTime_ != 0L) {
         output.writeInt64(6, executionTime_);
@@ -24809,6 +24865,12 @@ public final class Spec {
       }
       if (errorType_ != gauge.messages.Spec.ProtoExecutionResult.ErrorType.ASSERTION.getNumber()) {
         output.writeEnum(8, errorType_);
+      }
+      if (!failedScreenshot_.isEmpty()) {
+        output.writeBytes(9, failedScreenshot_);
+      }
+      for (int i = 0; i < screenshots_.size(); i++) {
+        output.writeBytes(10, screenshots_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -24833,14 +24895,9 @@ public final class Spec {
       if (!getStackTraceBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, stackTrace_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < screenShot_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(screenShot_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getScreenShotList().size();
+      if (!screenShot_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, screenShot_);
       }
       if (executionTime_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -24857,6 +24914,19 @@ public final class Spec {
       if (errorType_ != gauge.messages.Spec.ProtoExecutionResult.ErrorType.ASSERTION.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(8, errorType_);
+      }
+      if (!failedScreenshot_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(9, failedScreenshot_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < screenshots_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(screenshots_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getScreenshotsList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -24882,13 +24952,17 @@ public final class Spec {
           .equals(other.getErrorMessage());
       result = result && getStackTrace()
           .equals(other.getStackTrace());
-      result = result && getScreenShotList()
-          .equals(other.getScreenShotList());
+      result = result && getScreenShot()
+          .equals(other.getScreenShot());
       result = result && (getExecutionTime()
           == other.getExecutionTime());
       result = result && getMessageList()
           .equals(other.getMessageList());
       result = result && errorType_ == other.errorType_;
+      result = result && getFailedScreenshot()
+          .equals(other.getFailedScreenshot());
+      result = result && getScreenshotsList()
+          .equals(other.getScreenshotsList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -24910,10 +24984,8 @@ public final class Spec {
       hash = (53 * hash) + getErrorMessage().hashCode();
       hash = (37 * hash) + STACKTRACE_FIELD_NUMBER;
       hash = (53 * hash) + getStackTrace().hashCode();
-      if (getScreenShotCount() > 0) {
-        hash = (37 * hash) + SCREENSHOT_FIELD_NUMBER;
-        hash = (53 * hash) + getScreenShotList().hashCode();
-      }
+      hash = (37 * hash) + SCREENSHOT_FIELD_NUMBER;
+      hash = (53 * hash) + getScreenShot().hashCode();
       hash = (37 * hash) + EXECUTIONTIME_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getExecutionTime());
@@ -24923,6 +24995,12 @@ public final class Spec {
       }
       hash = (37 * hash) + ERRORTYPE_FIELD_NUMBER;
       hash = (53 * hash) + errorType_;
+      hash = (37 * hash) + FAILEDSCREENSHOT_FIELD_NUMBER;
+      hash = (53 * hash) + getFailedScreenshot().hashCode();
+      if (getScreenshotsCount() > 0) {
+        hash = (37 * hash) + SCREENSHOTS_FIELD_NUMBER;
+        hash = (53 * hash) + getScreenshotsList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -25068,14 +25146,18 @@ public final class Spec {
 
         stackTrace_ = "";
 
-        screenShot_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        screenShot_ = com.google.protobuf.ByteString.EMPTY;
+
         executionTime_ = 0L;
 
         message_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000040);
         errorType_ = 0;
 
+        failedScreenshot_ = com.google.protobuf.ByteString.EMPTY;
+
+        screenshots_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
 
@@ -25108,10 +25190,6 @@ public final class Spec {
         result.recoverableError_ = recoverableError_;
         result.errorMessage_ = errorMessage_;
         result.stackTrace_ = stackTrace_;
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          screenShot_ = java.util.Collections.unmodifiableList(screenShot_);
-          bitField0_ = (bitField0_ & ~0x00000010);
-        }
         result.screenShot_ = screenShot_;
         result.executionTime_ = executionTime_;
         if (((bitField0_ & 0x00000040) == 0x00000040)) {
@@ -25120,6 +25198,12 @@ public final class Spec {
         }
         result.message_ = message_;
         result.errorType_ = errorType_;
+        result.failedScreenshot_ = failedScreenshot_;
+        if (((bitField0_ & 0x00000200) == 0x00000200)) {
+          screenshots_ = java.util.Collections.unmodifiableList(screenshots_);
+          bitField0_ = (bitField0_ & ~0x00000200);
+        }
+        result.screenshots_ = screenshots_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -25183,15 +25267,8 @@ public final class Spec {
           stackTrace_ = other.stackTrace_;
           onChanged();
         }
-        if (!other.screenShot_.isEmpty()) {
-          if (screenShot_.isEmpty()) {
-            screenShot_ = other.screenShot_;
-            bitField0_ = (bitField0_ & ~0x00000010);
-          } else {
-            ensureScreenShotIsMutable();
-            screenShot_.addAll(other.screenShot_);
-          }
-          onChanged();
+        if (other.getScreenShot() != com.google.protobuf.ByteString.EMPTY) {
+          setScreenShot(other.getScreenShot());
         }
         if (other.getExecutionTime() != 0L) {
           setExecutionTime(other.getExecutionTime());
@@ -25208,6 +25285,19 @@ public final class Spec {
         }
         if (other.errorType_ != 0) {
           setErrorTypeValue(other.getErrorTypeValue());
+        }
+        if (other.getFailedScreenshot() != com.google.protobuf.ByteString.EMPTY) {
+          setFailedScreenshot(other.getFailedScreenshot());
+        }
+        if (!other.screenshots_.isEmpty()) {
+          if (screenshots_.isEmpty()) {
+            screenshots_ = other.screenshots_;
+            bitField0_ = (bitField0_ & ~0x00000200);
+          } else {
+            ensureScreenshotsIsMutable();
+            screenshots_.addAll(other.screenshots_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -25493,102 +25583,43 @@ public final class Spec {
         return this;
       }
 
-      private java.util.List<com.google.protobuf.ByteString> screenShot_ = java.util.Collections.emptyList();
-      private void ensureScreenShotIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
-          screenShot_ = new java.util.ArrayList<com.google.protobuf.ByteString>(screenShot_);
-          bitField0_ |= 0x00000010;
-         }
+      private com.google.protobuf.ByteString screenShot_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       *&#47; [DEPRECATED, use failedScreenshot] Bytes containing screenshot taken at the time of failure.
+       * </pre>
+       *
+       * <code>bytes screenShot = 5 [deprecated = true];</code>
+       */
+      @java.lang.Deprecated public com.google.protobuf.ByteString getScreenShot() {
+        return screenShot_;
       }
       /**
        * <pre>
-       *&#47; Byte array containing screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failedScreenshot] Bytes containing screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>repeated bytes screenShot = 5;</code>
+       * <code>bytes screenShot = 5 [deprecated = true];</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
-          getScreenShotList() {
-        return java.util.Collections.unmodifiableList(screenShot_);
-      }
-      /**
-       * <pre>
-       *&#47; Byte array containing screenshot taken at the time of failure.
-       * </pre>
-       *
-       * <code>repeated bytes screenShot = 5;</code>
-       */
-      public int getScreenShotCount() {
-        return screenShot_.size();
-      }
-      /**
-       * <pre>
-       *&#47; Byte array containing screenshot taken at the time of failure.
-       * </pre>
-       *
-       * <code>repeated bytes screenShot = 5;</code>
-       */
-      public com.google.protobuf.ByteString getScreenShot(int index) {
-        return screenShot_.get(index);
-      }
-      /**
-       * <pre>
-       *&#47; Byte array containing screenshot taken at the time of failure.
-       * </pre>
-       *
-       * <code>repeated bytes screenShot = 5;</code>
-       */
-      public Builder setScreenShot(
-          int index, com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder setScreenShot(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureScreenShotIsMutable();
-        screenShot_.set(index, value);
+  
+        screenShot_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       *&#47; Byte array containing screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failedScreenshot] Bytes containing screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>repeated bytes screenShot = 5;</code>
+       * <code>bytes screenShot = 5 [deprecated = true];</code>
        */
-      public Builder addScreenShot(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureScreenShotIsMutable();
-        screenShot_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *&#47; Byte array containing screenshot taken at the time of failure.
-       * </pre>
-       *
-       * <code>repeated bytes screenShot = 5;</code>
-       */
-      public Builder addAllScreenShot(
-          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
-        ensureScreenShotIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, screenShot_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *&#47; Byte array containing screenshot taken at the time of failure.
-       * </pre>
-       *
-       * <code>repeated bytes screenShot = 5;</code>
-       */
-      public Builder clearScreenShot() {
-        screenShot_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+      @java.lang.Deprecated public Builder clearScreenShot() {
+        
+        screenShot_ = getDefaultInstance().getScreenShot();
         onChanged();
         return this;
       }
@@ -25825,6 +25856,147 @@ public final class Spec {
         onChanged();
         return this;
       }
+
+      private com.google.protobuf.ByteString failedScreenshot_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       *&#47; Bytes containing screenshot taken at the time of failure.
+       * </pre>
+       *
+       * <code>bytes failedScreenshot = 9;</code>
+       */
+      public com.google.protobuf.ByteString getFailedScreenshot() {
+        return failedScreenshot_;
+      }
+      /**
+       * <pre>
+       *&#47; Bytes containing screenshot taken at the time of failure.
+       * </pre>
+       *
+       * <code>bytes failedScreenshot = 9;</code>
+       */
+      public Builder setFailedScreenshot(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        failedScreenshot_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Bytes containing screenshot taken at the time of failure.
+       * </pre>
+       *
+       * <code>bytes failedScreenshot = 9;</code>
+       */
+      public Builder clearFailedScreenshot() {
+        
+        failedScreenshot_ = getDefaultInstance().getFailedScreenshot();
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.google.protobuf.ByteString> screenshots_ = java.util.Collections.emptyList();
+      private void ensureScreenshotsIsMutable() {
+        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
+          screenshots_ = new java.util.ArrayList<com.google.protobuf.ByteString>(screenshots_);
+          bitField0_ |= 0x00000200;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Bytes array containing screenshots at the time of it invoked
+       * </pre>
+       *
+       * <code>repeated bytes screenshots = 10;</code>
+       */
+      public java.util.List<com.google.protobuf.ByteString>
+          getScreenshotsList() {
+        return java.util.Collections.unmodifiableList(screenshots_);
+      }
+      /**
+       * <pre>
+       *&#47; Bytes array containing screenshots at the time of it invoked
+       * </pre>
+       *
+       * <code>repeated bytes screenshots = 10;</code>
+       */
+      public int getScreenshotsCount() {
+        return screenshots_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Bytes array containing screenshots at the time of it invoked
+       * </pre>
+       *
+       * <code>repeated bytes screenshots = 10;</code>
+       */
+      public com.google.protobuf.ByteString getScreenshots(int index) {
+        return screenshots_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Bytes array containing screenshots at the time of it invoked
+       * </pre>
+       *
+       * <code>repeated bytes screenshots = 10;</code>
+       */
+      public Builder setScreenshots(
+          int index, com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureScreenshotsIsMutable();
+        screenshots_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Bytes array containing screenshots at the time of it invoked
+       * </pre>
+       *
+       * <code>repeated bytes screenshots = 10;</code>
+       */
+      public Builder addScreenshots(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureScreenshotsIsMutable();
+        screenshots_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Bytes array containing screenshots at the time of it invoked
+       * </pre>
+       *
+       * <code>repeated bytes screenshots = 10;</code>
+       */
+      public Builder addAllScreenshots(
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+        ensureScreenshotsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, screenshots_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Bytes array containing screenshots at the time of it invoked
+       * </pre>
+       *
+       * <code>repeated bytes screenshots = 10;</code>
+       */
+      public Builder clearScreenshots() {
+        screenshots_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000200);
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -25920,28 +26092,12 @@ public final class Spec {
 
     /**
      * <pre>
-     *&#47; Byte array holding the screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failedScreenshot] Bytes holding the screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>repeated bytes screenShot = 3;</code>
+     * <code>bytes screenShot = 3 [deprecated = true];</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getScreenShotList();
-    /**
-     * <pre>
-     *&#47; Byte array holding the screenshot taken at the time of failure.
-     * </pre>
-     *
-     * <code>repeated bytes screenShot = 3;</code>
-     */
-    int getScreenShotCount();
-    /**
-     * <pre>
-     *&#47; Byte array holding the screenshot taken at the time of failure.
-     * </pre>
-     *
-     * <code>repeated bytes screenShot = 3;</code>
-     */
-    com.google.protobuf.ByteString getScreenShot(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getScreenShot();
 
     /**
      * <pre>
@@ -25951,6 +26107,15 @@ public final class Spec {
      * <code>int32 tableRowIndex = 4;</code>
      */
     int getTableRowIndex();
+
+    /**
+     * <pre>
+     *&#47;Bytes holding the screenshot taken at the time of failure.
+     * </pre>
+     *
+     * <code>bytes failedScreenshot = 5;</code>
+     */
+    com.google.protobuf.ByteString getFailedScreenshot();
   }
   /**
    * <pre>
@@ -25972,8 +26137,9 @@ public final class Spec {
     private ProtoHookFailure() {
       stackTrace_ = "";
       errorMessage_ = "";
-      screenShot_ = java.util.Collections.emptyList();
+      screenShot_ = com.google.protobuf.ByteString.EMPTY;
       tableRowIndex_ = 0;
+      failedScreenshot_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -26013,16 +26179,18 @@ public final class Spec {
               break;
             }
             case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                screenShot_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              screenShot_.add(input.readBytes());
+
+              screenShot_ = input.readBytes();
               break;
             }
             case 32: {
 
               tableRowIndex_ = input.readInt32();
+              break;
+            }
+            case 42: {
+
+              failedScreenshot_ = input.readBytes();
               break;
             }
             default: {
@@ -26040,9 +26208,6 @@ public final class Spec {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          screenShot_ = java.util.Collections.unmodifiableList(screenShot_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -26060,7 +26225,6 @@ public final class Spec {
               gauge.messages.Spec.ProtoHookFailure.class, gauge.messages.Spec.ProtoHookFailure.Builder.class);
     }
 
-    private int bitField0_;
     public static final int STACKTRACE_FIELD_NUMBER = 1;
     private volatile java.lang.Object stackTrace_;
     /**
@@ -26146,37 +26310,16 @@ public final class Spec {
     }
 
     public static final int SCREENSHOT_FIELD_NUMBER = 3;
-    private java.util.List<com.google.protobuf.ByteString> screenShot_;
+    private com.google.protobuf.ByteString screenShot_;
     /**
      * <pre>
-     *&#47; Byte array holding the screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failedScreenshot] Bytes holding the screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>repeated bytes screenShot = 3;</code>
+     * <code>bytes screenShot = 3 [deprecated = true];</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
-        getScreenShotList() {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getScreenShot() {
       return screenShot_;
-    }
-    /**
-     * <pre>
-     *&#47; Byte array holding the screenshot taken at the time of failure.
-     * </pre>
-     *
-     * <code>repeated bytes screenShot = 3;</code>
-     */
-    public int getScreenShotCount() {
-      return screenShot_.size();
-    }
-    /**
-     * <pre>
-     *&#47; Byte array holding the screenshot taken at the time of failure.
-     * </pre>
-     *
-     * <code>repeated bytes screenShot = 3;</code>
-     */
-    public com.google.protobuf.ByteString getScreenShot(int index) {
-      return screenShot_.get(index);
     }
 
     public static final int TABLEROWINDEX_FIELD_NUMBER = 4;
@@ -26190,6 +26333,19 @@ public final class Spec {
      */
     public int getTableRowIndex() {
       return tableRowIndex_;
+    }
+
+    public static final int FAILEDSCREENSHOT_FIELD_NUMBER = 5;
+    private com.google.protobuf.ByteString failedScreenshot_;
+    /**
+     * <pre>
+     *&#47;Bytes holding the screenshot taken at the time of failure.
+     * </pre>
+     *
+     * <code>bytes failedScreenshot = 5;</code>
+     */
+    public com.google.protobuf.ByteString getFailedScreenshot() {
+      return failedScreenshot_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -26212,11 +26368,14 @@ public final class Spec {
       if (!getErrorMessageBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, errorMessage_);
       }
-      for (int i = 0; i < screenShot_.size(); i++) {
-        output.writeBytes(3, screenShot_.get(i));
+      if (!screenShot_.isEmpty()) {
+        output.writeBytes(3, screenShot_);
       }
       if (tableRowIndex_ != 0) {
         output.writeInt32(4, tableRowIndex_);
+      }
+      if (!failedScreenshot_.isEmpty()) {
+        output.writeBytes(5, failedScreenshot_);
       }
       unknownFields.writeTo(output);
     }
@@ -26233,18 +26392,17 @@ public final class Spec {
       if (!getErrorMessageBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, errorMessage_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < screenShot_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeBytesSizeNoTag(screenShot_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getScreenShotList().size();
+      if (!screenShot_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, screenShot_);
       }
       if (tableRowIndex_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, tableRowIndex_);
+      }
+      if (!failedScreenshot_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(5, failedScreenshot_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -26266,10 +26424,12 @@ public final class Spec {
           .equals(other.getStackTrace());
       result = result && getErrorMessage()
           .equals(other.getErrorMessage());
-      result = result && getScreenShotList()
-          .equals(other.getScreenShotList());
+      result = result && getScreenShot()
+          .equals(other.getScreenShot());
       result = result && (getTableRowIndex()
           == other.getTableRowIndex());
+      result = result && getFailedScreenshot()
+          .equals(other.getFailedScreenshot());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -26285,12 +26445,12 @@ public final class Spec {
       hash = (53 * hash) + getStackTrace().hashCode();
       hash = (37 * hash) + ERRORMESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getErrorMessage().hashCode();
-      if (getScreenShotCount() > 0) {
-        hash = (37 * hash) + SCREENSHOT_FIELD_NUMBER;
-        hash = (53 * hash) + getScreenShotList().hashCode();
-      }
+      hash = (37 * hash) + SCREENSHOT_FIELD_NUMBER;
+      hash = (53 * hash) + getScreenShot().hashCode();
       hash = (37 * hash) + TABLEROWINDEX_FIELD_NUMBER;
       hash = (53 * hash) + getTableRowIndex();
+      hash = (37 * hash) + FAILEDSCREENSHOT_FIELD_NUMBER;
+      hash = (53 * hash) + getFailedScreenshot().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -26433,9 +26593,11 @@ public final class Spec {
 
         errorMessage_ = "";
 
-        screenShot_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        screenShot_ = com.google.protobuf.ByteString.EMPTY;
+
         tableRowIndex_ = 0;
+
+        failedScreenshot_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
       }
@@ -26463,17 +26625,11 @@ public final class Spec {
       @java.lang.Override
       public gauge.messages.Spec.ProtoHookFailure buildPartial() {
         gauge.messages.Spec.ProtoHookFailure result = new gauge.messages.Spec.ProtoHookFailure(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
         result.stackTrace_ = stackTrace_;
         result.errorMessage_ = errorMessage_;
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          screenShot_ = java.util.Collections.unmodifiableList(screenShot_);
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
         result.screenShot_ = screenShot_;
         result.tableRowIndex_ = tableRowIndex_;
-        result.bitField0_ = to_bitField0_;
+        result.failedScreenshot_ = failedScreenshot_;
         onBuilt();
         return result;
       }
@@ -26530,18 +26686,14 @@ public final class Spec {
           errorMessage_ = other.errorMessage_;
           onChanged();
         }
-        if (!other.screenShot_.isEmpty()) {
-          if (screenShot_.isEmpty()) {
-            screenShot_ = other.screenShot_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            ensureScreenShotIsMutable();
-            screenShot_.addAll(other.screenShot_);
-          }
-          onChanged();
+        if (other.getScreenShot() != com.google.protobuf.ByteString.EMPTY) {
+          setScreenShot(other.getScreenShot());
         }
         if (other.getTableRowIndex() != 0) {
           setTableRowIndex(other.getTableRowIndex());
+        }
+        if (other.getFailedScreenshot() != com.google.protobuf.ByteString.EMPTY) {
+          setFailedScreenshot(other.getFailedScreenshot());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -26571,7 +26723,6 @@ public final class Spec {
         }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object stackTrace_ = "";
       /**
@@ -26751,102 +26902,43 @@ public final class Spec {
         return this;
       }
 
-      private java.util.List<com.google.protobuf.ByteString> screenShot_ = java.util.Collections.emptyList();
-      private void ensureScreenShotIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          screenShot_ = new java.util.ArrayList<com.google.protobuf.ByteString>(screenShot_);
-          bitField0_ |= 0x00000004;
-         }
+      private com.google.protobuf.ByteString screenShot_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       *&#47; [DEPRECATED, use failedScreenshot] Bytes holding the screenshot taken at the time of failure.
+       * </pre>
+       *
+       * <code>bytes screenShot = 3 [deprecated = true];</code>
+       */
+      @java.lang.Deprecated public com.google.protobuf.ByteString getScreenShot() {
+        return screenShot_;
       }
       /**
        * <pre>
-       *&#47; Byte array holding the screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failedScreenshot] Bytes holding the screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>repeated bytes screenShot = 3;</code>
+       * <code>bytes screenShot = 3 [deprecated = true];</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
-          getScreenShotList() {
-        return java.util.Collections.unmodifiableList(screenShot_);
-      }
-      /**
-       * <pre>
-       *&#47; Byte array holding the screenshot taken at the time of failure.
-       * </pre>
-       *
-       * <code>repeated bytes screenShot = 3;</code>
-       */
-      public int getScreenShotCount() {
-        return screenShot_.size();
-      }
-      /**
-       * <pre>
-       *&#47; Byte array holding the screenshot taken at the time of failure.
-       * </pre>
-       *
-       * <code>repeated bytes screenShot = 3;</code>
-       */
-      public com.google.protobuf.ByteString getScreenShot(int index) {
-        return screenShot_.get(index);
-      }
-      /**
-       * <pre>
-       *&#47; Byte array holding the screenshot taken at the time of failure.
-       * </pre>
-       *
-       * <code>repeated bytes screenShot = 3;</code>
-       */
-      public Builder setScreenShot(
-          int index, com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder setScreenShot(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureScreenShotIsMutable();
-        screenShot_.set(index, value);
+  
+        screenShot_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       *&#47; Byte array holding the screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failedScreenshot] Bytes holding the screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>repeated bytes screenShot = 3;</code>
+       * <code>bytes screenShot = 3 [deprecated = true];</code>
        */
-      public Builder addScreenShot(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureScreenShotIsMutable();
-        screenShot_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *&#47; Byte array holding the screenshot taken at the time of failure.
-       * </pre>
-       *
-       * <code>repeated bytes screenShot = 3;</code>
-       */
-      public Builder addAllScreenShot(
-          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
-        ensureScreenShotIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, screenShot_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *&#47; Byte array holding the screenshot taken at the time of failure.
-       * </pre>
-       *
-       * <code>repeated bytes screenShot = 3;</code>
-       */
-      public Builder clearScreenShot() {
-        screenShot_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+      @java.lang.Deprecated public Builder clearScreenShot() {
+        
+        screenShot_ = getDefaultInstance().getScreenShot();
         onChanged();
         return this;
       }
@@ -26885,6 +26977,47 @@ public final class Spec {
       public Builder clearTableRowIndex() {
         
         tableRowIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString failedScreenshot_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       *&#47;Bytes holding the screenshot taken at the time of failure.
+       * </pre>
+       *
+       * <code>bytes failedScreenshot = 5;</code>
+       */
+      public com.google.protobuf.ByteString getFailedScreenshot() {
+        return failedScreenshot_;
+      }
+      /**
+       * <pre>
+       *&#47;Bytes holding the screenshot taken at the time of failure.
+       * </pre>
+       *
+       * <code>bytes failedScreenshot = 5;</code>
+       */
+      public Builder setFailedScreenshot(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        failedScreenshot_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47;Bytes holding the screenshot taken at the time of failure.
+       * </pre>
+       *
+       * <code>bytes failedScreenshot = 5;</code>
+       */
+      public Builder clearFailedScreenshot() {
+        
+        failedScreenshot_ = getDefaultInstance().getFailedScreenshot();
         onChanged();
         return this;
       }
@@ -35287,46 +35420,48 @@ public final class Spec {
       "e.messages.ProtoHookFailure\0229\n\017postHookF" +
       "ailure\030\003 \001(\0132 .gauge.messages.ProtoHookF" +
       "ailure\022\017\n\007skipped\030\004 \001(\010\022\025\n\rskippedReason" +
-      "\030\005 \001(\t\"\227\002\n\024ProtoExecutionResult\022\016\n\006faile" +
+      "\030\005 \001(\t\"\312\002\n\024ProtoExecutionResult\022\016\n\006faile" +
       "d\030\001 \001(\010\022\030\n\020recoverableError\030\002 \001(\010\022\024\n\014err" +
-      "orMessage\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(\t\022\022\n\ns" +
-      "creenShot\030\005 \003(\014\022\025\n\rexecutionTime\030\006 \001(\003\022\017" +
-      "\n\007message\030\007 \003(\t\022A\n\terrorType\030\010 \001(\0162..gau" +
-      "ge.messages.ProtoExecutionResult.ErrorTy" +
-      "pe\",\n\tErrorType\022\r\n\tASSERTION\020\000\022\020\n\014VERIFI" +
-      "CATION\020\001\"g\n\020ProtoHookFailure\022\022\n\nstackTra" +
-      "ce\030\001 \001(\t\022\024\n\014errorMessage\030\002 \001(\t\022\022\n\nscreen" +
-      "Shot\030\003 \003(\014\022\025\n\rtableRowIndex\030\004 \001(\005\"\236\004\n\020Pr" +
-      "otoSuiteResult\0224\n\013specResults\030\001 \003(\0132\037.ga" +
-      "uge.messages.ProtoSpecResult\0228\n\016preHookF" +
-      "ailure\030\002 \001(\0132 .gauge.messages.ProtoHookF" +
-      "ailure\0229\n\017postHookFailure\030\003 \001(\0132 .gauge." +
-      "messages.ProtoHookFailure\022\016\n\006failed\030\004 \001(" +
-      "\010\022\030\n\020specsFailedCount\030\005 \001(\005\022\025\n\rexecution" +
-      "Time\030\006 \001(\003\022\023\n\013successRate\030\007 \001(\002\022\023\n\013envir" +
-      "onment\030\010 \001(\t\022\014\n\004tags\030\t \001(\t\022\023\n\013projectNam" +
-      "e\030\n \001(\t\022\021\n\ttimestamp\030\013 \001(\t\022\031\n\021specsSkipp" +
-      "edCount\030\014 \001(\005\022\027\n\017preHookMessages\030\r \003(\t\022\030" +
-      "\n\020postHookMessages\030\016 \003(\t\022\032\n\016preHookMessa" +
-      "ge\030\017 \003(\tB\002\030\001\022\033\n\017postHookMessage\030\020 \003(\tB\002\030" +
-      "\001\022\032\n\022preHookScreenshots\030\021 \003(\014\022\033\n\023postHoo" +
-      "kScreenshots\030\022 \003(\014\"\253\002\n\017ProtoSpecResult\022," +
-      "\n\tprotoSpec\030\001 \001(\0132\031.gauge.messages.Proto" +
-      "Spec\022\025\n\rscenarioCount\030\002 \001(\005\022\033\n\023scenarioF" +
-      "ailedCount\030\003 \001(\005\022\016\n\006failed\030\004 \001(\010\022\033\n\023fail" +
-      "edDataTableRows\030\005 \003(\005\022\025\n\rexecutionTime\030\006" +
-      " \001(\003\022\017\n\007skipped\030\007 \001(\010\022\034\n\024scenarioSkipped" +
-      "Count\030\010 \001(\005\022\034\n\024skippedDataTableRows\030\t \003(" +
-      "\005\022%\n\006errors\030\n \003(\0132\025.gauge.messages.Error" +
-      "\"\241\001\n\005Error\022-\n\004type\030\001 \001(\0162\037.gauge.message" +
-      "s.Error.ErrorType\022\020\n\010filename\030\002 \001(\t\022\022\n\nl" +
-      "ineNumber\030\003 \001(\005\022\017\n\007message\030\004 \001(\t\"2\n\tErro" +
-      "rType\022\017\n\013PARSE_ERROR\020\000\022\024\n\020VALIDATION_ERR" +
-      "OR\020\001\"W\n\016ProtoStepValue\022\021\n\tstepValue\030\001 \001(" +
-      "\t\022\036\n\026parameterizedStepValue\030\002 \001(\t\022\022\n\npar" +
-      "ameters\030\003 \003(\t*G\n\017ExecutionStatus\022\017\n\013NOTE" +
-      "XECUTED\020\000\022\n\n\006PASSED\020\001\022\n\n\006FAILED\020\002\022\013\n\007SKI" +
-      "PPED\020\003B\021\252\002\016Gauge.Messagesb\006proto3"
+      "orMessage\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(\t\022\026\n\ns" +
+      "creenShot\030\005 \001(\014B\002\030\001\022\025\n\rexecutionTime\030\006 \001" +
+      "(\003\022\017\n\007message\030\007 \003(\t\022A\n\terrorType\030\010 \001(\0162." +
+      ".gauge.messages.ProtoExecutionResult.Err" +
+      "orType\022\030\n\020failedScreenshot\030\t \001(\014\022\023\n\013scre" +
+      "enshots\030\n \003(\014\",\n\tErrorType\022\r\n\tASSERTION\020" +
+      "\000\022\020\n\014VERIFICATION\020\001\"\205\001\n\020ProtoHookFailure" +
+      "\022\022\n\nstackTrace\030\001 \001(\t\022\024\n\014errorMessage\030\002 \001" +
+      "(\t\022\026\n\nscreenShot\030\003 \001(\014B\002\030\001\022\025\n\rtableRowIn" +
+      "dex\030\004 \001(\005\022\030\n\020failedScreenshot\030\005 \001(\014\"\236\004\n\020" +
+      "ProtoSuiteResult\0224\n\013specResults\030\001 \003(\0132\037." +
+      "gauge.messages.ProtoSpecResult\0228\n\016preHoo" +
+      "kFailure\030\002 \001(\0132 .gauge.messages.ProtoHoo" +
+      "kFailure\0229\n\017postHookFailure\030\003 \001(\0132 .gaug" +
+      "e.messages.ProtoHookFailure\022\016\n\006failed\030\004 " +
+      "\001(\010\022\030\n\020specsFailedCount\030\005 \001(\005\022\025\n\rexecuti" +
+      "onTime\030\006 \001(\003\022\023\n\013successRate\030\007 \001(\002\022\023\n\013env" +
+      "ironment\030\010 \001(\t\022\014\n\004tags\030\t \001(\t\022\023\n\013projectN" +
+      "ame\030\n \001(\t\022\021\n\ttimestamp\030\013 \001(\t\022\031\n\021specsSki" +
+      "ppedCount\030\014 \001(\005\022\027\n\017preHookMessages\030\r \003(\t" +
+      "\022\030\n\020postHookMessages\030\016 \003(\t\022\032\n\016preHookMes" +
+      "sage\030\017 \003(\tB\002\030\001\022\033\n\017postHookMessage\030\020 \003(\tB" +
+      "\002\030\001\022\032\n\022preHookScreenshots\030\021 \003(\014\022\033\n\023postH" +
+      "ookScreenshots\030\022 \003(\014\"\253\002\n\017ProtoSpecResult" +
+      "\022,\n\tprotoSpec\030\001 \001(\0132\031.gauge.messages.Pro" +
+      "toSpec\022\025\n\rscenarioCount\030\002 \001(\005\022\033\n\023scenari" +
+      "oFailedCount\030\003 \001(\005\022\016\n\006failed\030\004 \001(\010\022\033\n\023fa" +
+      "iledDataTableRows\030\005 \003(\005\022\025\n\rexecutionTime" +
+      "\030\006 \001(\003\022\017\n\007skipped\030\007 \001(\010\022\034\n\024scenarioSkipp" +
+      "edCount\030\010 \001(\005\022\034\n\024skippedDataTableRows\030\t " +
+      "\003(\005\022%\n\006errors\030\n \003(\0132\025.gauge.messages.Err" +
+      "or\"\241\001\n\005Error\022-\n\004type\030\001 \001(\0162\037.gauge.messa" +
+      "ges.Error.ErrorType\022\020\n\010filename\030\002 \001(\t\022\022\n" +
+      "\nlineNumber\030\003 \001(\005\022\017\n\007message\030\004 \001(\t\"2\n\tEr" +
+      "rorType\022\017\n\013PARSE_ERROR\020\000\022\024\n\020VALIDATION_E" +
+      "RROR\020\001\"W\n\016ProtoStepValue\022\021\n\tstepValue\030\001 " +
+      "\001(\t\022\036\n\026parameterizedStepValue\030\002 \001(\t\022\022\n\np" +
+      "arameters\030\003 \003(\t*G\n\017ExecutionStatus\022\017\n\013NO" +
+      "TEXECUTED\020\000\022\n\n\006PASSED\020\001\022\n\n\006FAILED\020\002\022\013\n\007S" +
+      "KIPPED\020\003B\021\252\002\016Gauge.Messagesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -35429,13 +35564,13 @@ public final class Spec {
     internal_static_gauge_messages_ProtoExecutionResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoExecutionResult_descriptor,
-        new java.lang.String[] { "Failed", "RecoverableError", "ErrorMessage", "StackTrace", "ScreenShot", "ExecutionTime", "Message", "ErrorType", });
+        new java.lang.String[] { "Failed", "RecoverableError", "ErrorMessage", "StackTrace", "ScreenShot", "ExecutionTime", "Message", "ErrorType", "FailedScreenshot", "Screenshots", });
     internal_static_gauge_messages_ProtoHookFailure_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_gauge_messages_ProtoHookFailure_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoHookFailure_descriptor,
-        new java.lang.String[] { "StackTrace", "ErrorMessage", "ScreenShot", "TableRowIndex", });
+        new java.lang.String[] { "StackTrace", "ErrorMessage", "ScreenShot", "TableRowIndex", "FailedScreenshot", });
     internal_static_gauge_messages_ProtoSuiteResult_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_gauge_messages_ProtoSuiteResult_fieldAccessorTable = new

@@ -31,7 +31,7 @@ public class ScreenshotCollectorTest extends TestCase {
         List<byte[]> screenshots = new ArrayList<>();
         screenshots.add(bytes);
         Spec.ProtoExecutionResult protoExecutionResult = new ScreenshotCollector().addPendingScreenshot(executionResult, screenshots);
-        List<ByteString> actualScreenshotList = protoExecutionResult.getScreenShotList();
+        List<ByteString> actualScreenshotList = protoExecutionResult.getScreenshotsList();
         for (byte[] screenshot : screenshots) {
             assertTrue(actualScreenshotList.contains(ByteString.copyFrom(screenshot)));
         }

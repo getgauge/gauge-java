@@ -51,7 +51,9 @@ public class MethodExecutor {
 
     private Spec.ProtoExecutionResult createFailureExecResult(long execTime, Throwable e, boolean recoverable, Class[] continuableExceptions) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
-        builder.addScreenShot(ByteString.copyFrom(new ScreenshotFactory(instanceManager).getScreenshotBytes()));
+        ByteString screenshotBytes = ByteString.copyFrom(new ScreenshotFactory(instanceManager).getScreenshotBytes());
+        builder.setScreenShot(screenshotBytes);
+        builder.setFailedScreenshot(screenshotBytes);
         if (e.getCause() != null) {
             builder.setRecoverableError(false);
             for (Class c : continuableExceptions) {
