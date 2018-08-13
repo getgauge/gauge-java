@@ -32,7 +32,7 @@ public class ScreenshotCollector {
     Spec.ProtoExecutionResult addPendingScreenshot(Spec.ProtoExecutionResult result, List<byte[]> screenshots) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder(result);
         for (byte[] screenshot : screenshots) {
-            builder.addScreenShot(ByteString.copyFrom(screenshot));
+            builder.addScreenshots(ByteString.copyFrom(screenshot));
         }
         return builder.build();
     }

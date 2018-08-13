@@ -37,13 +37,15 @@ public abstract class AbstractExecutionStage implements ExecutionStage {
         if (previousStageResult.getFailed()) {
             builder.setErrorMessage(previousStageResult.getErrorMessage());
             builder.setErrorType(previousStageResult.getErrorType());
-            builder.addAllScreenShot(previousStageResult.getScreenShotList());
+            builder.setScreenShot(previousStageResult.getScreenShot());
+            builder.setFailureScreenshot(previousStageResult.getFailureScreenshot());
             builder.setStackTrace(previousStageResult.getStackTrace());
             builder.setRecoverableError(previousStageResult.getRecoverableError());
         } else if (execResult.getFailed()) {
             builder.setErrorType(execResult.getErrorType());
             builder.setErrorMessage(execResult.getErrorMessage());
-            builder.addAllScreenShot(execResult.getScreenShotList());
+            builder.setScreenShot(execResult.getScreenShot());
+            builder.setFailureScreenshot(execResult.getFailureScreenshot());
             builder.setStackTrace(execResult.getStackTrace());
             builder.setRecoverableError(execResult.getRecoverableError());
         }
