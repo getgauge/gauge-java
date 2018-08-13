@@ -53,7 +53,7 @@ public class MethodExecutor {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
         ByteString screenshotBytes = ByteString.copyFrom(new ScreenshotFactory(instanceManager).getScreenshotBytes());
         builder.setScreenShot(screenshotBytes);
-        builder.setFailedScreenshot(screenshotBytes);
+        builder.setFailureScreenshot(screenshotBytes);
         if (e.getCause() != null) {
             builder.setRecoverableError(false);
             for (Class c : continuableExceptions) {

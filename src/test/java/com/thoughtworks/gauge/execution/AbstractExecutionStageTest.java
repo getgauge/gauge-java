@@ -40,7 +40,7 @@ public class AbstractExecutionStageTest extends TestCase {
                 setRecoverableError(false).
                 setErrorMessage("Previous failed").
                 setStackTrace("Previous stacktrace").
-                setFailedScreenshot(screenShot).build();
+                setFailureScreenshot(screenShot).build();
         Spec.ProtoExecutionResult current = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(1100).build();
         Spec.ProtoExecutionResult result = new TestExecutionStage().mergeExecResults(previous, current);
 
@@ -49,7 +49,7 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals("Previous failed", result.getErrorMessage());
         assertEquals("Previous stacktrace", result.getStackTrace());
         assertFalse(result.getRecoverableError());
-        assertEquals(screenShot, result.getFailedScreenshot());
+        assertEquals(screenShot, result.getFailureScreenshot());
     }
 
     public void testMergingResultsCurrentFailing() throws Exception {
@@ -63,7 +63,7 @@ public class AbstractExecutionStageTest extends TestCase {
                 setRecoverableError(false).
                 setErrorMessage("current failed").
                 setStackTrace("current stacktrace").
-                setFailedScreenshot(screenShot).build();
+                setFailureScreenshot(screenShot).build();
         Spec.ProtoExecutionResult result = new TestExecutionStage().mergeExecResults(previous, current);
 
         assertTrue(result.getFailed());
@@ -71,7 +71,7 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals("current failed", result.getErrorMessage());
         assertEquals("current stacktrace", result.getStackTrace());
         assertFalse(result.getRecoverableError());
-        assertEquals(screenShot, result.getFailedScreenshot());
+        assertEquals(screenShot, result.getFailureScreenshot());
     }
 
     public void testMergingResultsBothFailing() throws Exception {
@@ -85,13 +85,13 @@ public class AbstractExecutionStageTest extends TestCase {
                 setRecoverableError(true).
                 setErrorMessage("previous failed").
                 setStackTrace("previous stacktrace").
-                setFailedScreenshot(screenShotPrevious).build();
+                setFailureScreenshot(screenShotPrevious).build();
         Spec.ProtoExecutionResult current = Spec.ProtoExecutionResult.newBuilder().setFailed(true).
                 setExecutionTime(1002).
                 setRecoverableError(false).
                 setErrorMessage("current failed").
                 setStackTrace("current stacktrace").
-                setFailedScreenshot(screenShotCurrent).build();
+                setFailureScreenshot(screenShotCurrent).build();
         Spec.ProtoExecutionResult result = new TestExecutionStage().mergeExecResults(previous, current);
 
         assertTrue(result.getFailed());
@@ -99,7 +99,7 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals("previous failed", result.getErrorMessage());
         assertEquals("previous stacktrace", result.getStackTrace());
         assertFalse(result.getRecoverableError());
-        assertEquals(screenShotPrevious, result.getFailedScreenshot());
+        assertEquals(screenShotPrevious, result.getFailureScreenshot());
     }
 
     public void testMergingResultsCurrentFailingAndIsRecoverable() throws Exception {
@@ -111,7 +111,7 @@ public class AbstractExecutionStageTest extends TestCase {
                 setRecoverableError(true).
                 setErrorMessage("current failed").
                 setStackTrace("current stacktrace").
-                setFailedScreenshot(screenShotCurrent).build();
+                setFailureScreenshot(screenShotCurrent).build();
         Spec.ProtoExecutionResult result = new TestExecutionStage().mergeExecResults(previous, current);
 
         assertTrue(result.getFailed());
@@ -119,7 +119,7 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals("current failed", result.getErrorMessage());
         assertEquals("current stacktrace", result.getStackTrace());
         assertTrue(result.getRecoverableError());
-        assertEquals(screenShotCurrent, result.getFailedScreenshot());
+        assertEquals(screenShotCurrent, result.getFailureScreenshot());
     }
 
     private class TestExecutionStage extends AbstractExecutionStage {
