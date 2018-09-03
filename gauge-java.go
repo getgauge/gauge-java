@@ -28,8 +28,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/getgauge/common"
 	"path"
+
+	"github.com/getgauge/common"
 )
 
 const (
@@ -311,6 +312,7 @@ func runJavaCommandAsync(cmdName string, args []string, classpath string) *exec.
 	cmd := exec.Command(cmdName, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
 	os.Setenv("CLASSPATH", classpath)
 	//TODO: move to logs
 	/*fmt.Println(cmd.Args)*/
