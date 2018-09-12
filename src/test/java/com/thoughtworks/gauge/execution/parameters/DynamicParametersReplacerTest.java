@@ -48,6 +48,12 @@ public class DynamicParametersReplacerTest {
     }
 
     @Test
+    public void shouldReplacePlaceholdersForDynamicParametersWith$() {
+        assertThat(replacePlaceholders("User <username> makes login from <clientType>", asList(dynamicParameter("Elon"), dynamicParameter("!@#%^&*()__-++~`$\"':;?/<>.,\\\\\\"))))
+                .isEqualTo("User \"Elon\" makes login from \"!@#%^&*()__-++~`$\"':;?/<>.,\\\\\\\"");
+    }
+
+    @Test
     public void shouldReplacePlaceholdersOnlyForDynamicParameters() {
         assertThat(replacePlaceholders("User <username> makes login from \"Web\"", asList(dynamicParameter("Elon"), staticParameter("Facebook Web"))))
                 .isEqualTo("User \"Elon\" makes login from \"Web\"");

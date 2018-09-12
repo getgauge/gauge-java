@@ -32,7 +32,7 @@ public final class DynamicParametersReplacer {
     private static String findAndReplacePlaceholder(String stepText, String parameterValue) {
         Matcher matcher = REPLACER_PATTERN.matcher(stepText);
         if (matcher.find()) {
-            return matcher.replaceFirst("\"" + parameterValue + "\"");
+            return matcher.replaceFirst(Matcher.quoteReplacement("\"" + parameterValue + "\""));
         }
         return stepText;
     }
