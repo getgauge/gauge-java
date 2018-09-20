@@ -20,18 +20,24 @@ import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.refactor.JavaRefactoring;
 import com.thoughtworks.gauge.refactor.RefactoringResult;
+import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 
+import java.util.List;
+
 public class RefactorRequestProcessor implements IMessageProcessor {
-    public RefactorRequestProcessor(ClassInstanceManager instanceManager) {
+    private final StepRegistry registry;
+
+    public RefactorRequestProcessor(ClassInstanceManager instanceManager, StepRegistry registry) {
+        this.registry = registry;
     }
 
     public Messages.Message process(Messages.Message message) {
         Messages.RefactorRequest refactorRequest = message.getRefactorRequest();
-        RefactoringResult result = new JavaRefactoring(StepValue.from(refactorRequest.getOldStepValue()),
-                StepValue.from(refactorRequest.getNewStepValue()),
-                refactorRequest.getParamPositionsList()).performRefactoring();
-
+        StepValue oldStepValue = StepValue.from(refactorRequest.getOldStepValue());
+        StepValue newStepValue = StepValue.from(refactorRequest.getNewStepValue());
+        List<Messages.ParameterPosition> paramPositions = refactorRequest.getParamPositionsList();
+        RefactoringResult result = new JavaRefactoring(oldStepValue, newStepValue, paramPositions, registry).performRefactoring();
         return createRefactorResponse(message, result);
     }
 

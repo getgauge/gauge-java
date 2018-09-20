@@ -31,11 +31,13 @@ public class StepExecutionStage extends AbstractExecutionStage {
     private Messages.ExecuteStepRequest executeStepRequest;
     private ClassInstanceManager manager;
     private ParametersExtractor parametersExtractor;
+    private StepRegistry registry;
 
-    public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest, ClassInstanceManager manager, ParameterParsingChain chain) {
+    public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest, ClassInstanceManager manager, ParameterParsingChain chain, StepRegistry registry) {
         this.manager = manager;
         this.executeStepRequest = executeStepRequest;
         this.parametersExtractor = new ParametersExtractor(chain);
+        this.registry = registry;
     }
 
     public void setNextStage(ExecutionStage stage) {
@@ -51,7 +53,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
     }
 
     private Spec.ProtoExecutionResult executeStep() {
-        Method method = StepRegistry.get(executeStepRequest.getParsedStepText());
+        Method method = registry.get(executeStepRequest.getParsedStepText());
 
         int implementationParamCount = method.getParameterTypes().length;
         int numberOfParameters = this.executeStepRequest.getParametersCount();
@@ -68,7 +70,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
 
     }
 
-    public Spec.ProtoExecutionResult executeStepMethod(MethodExecutor methodExecutor, Method method) {
+    Spec.ProtoExecutionResult executeStepMethod(MethodExecutor methodExecutor, Method method) {
         try {
             List<Spec.Parameter> arguments = executeStepRequest.getParametersList();
             return methodExecutor.execute(method, parametersExtractor.extract(arguments, method.getParameterTypes()));

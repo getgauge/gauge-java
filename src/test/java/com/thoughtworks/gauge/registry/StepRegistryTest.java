@@ -24,47 +24,52 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Set;
 
+
 public class StepRegistryTest extends TestCase {
 
-    StepValue stepValue1 = new StepValue("hello world", "hello world");
-    StepValue stepValue2 = new StepValue("hello world {}", "hello world <param0>");
-    StepValue stepValue3 = new StepValue("a step with {} and {}", "a step with <param0> and <param1>");
-    StepValue aliasStep1 = new StepValue("first step name with name <a>", "first step name with name {}");
-    StepValue aliasStep2 = new StepValue("second step name with <b>", "second step name with {}");
+    private StepValue stepValue1 = new StepValue("hello world", "hello world");
+    private StepValue stepValue2 = new StepValue("hello world {}", "hello world <param0>");
+    private StepValue stepValue3 = new StepValue("a step with {} and {}", "a step with <param0> and <param1>");
+    private StepValue aliasStep1 = new StepValue("first step name with name <a>", "first step name with name {}");
+    private StepValue aliasStep2 = new StepValue("second step name with <b>", "second step name with {}");
 
-    Method method1 = TestStepImplClass.class.getMethods()[0];
-    Method method2 = TestStepImplClass.class.getMethods()[1];
-    Method method3 = TestStepImplClass.class.getMethods()[2];
-    Method aliasMethod = TestStepImplClass.class.getMethods()[3];
+    private Method method1 = TestStepImplClass.class.getMethods()[0];
+    private Method method2 = TestStepImplClass.class.getMethods()[1];
+    private Method method3 = TestStepImplClass.class.getMethods()[2];
+    private Method aliasMethod = TestStepImplClass.class.getMethods()[3];
+
+    private StepRegistry stepRegistry;
 
     protected void setUp() throws Exception {
-        StepRegistry.addStepImplementation(stepValue1, method1);
-        StepRegistry.addStepImplementation(stepValue2, method2);
-        StepRegistry.addStepImplementation(stepValue3, method3);
-        StepRegistry.addStepImplementation(aliasStep1, aliasMethod);
-        StepRegistry.addStepImplementation(aliasStep2, aliasMethod);
+        this.stepRegistry = new StepRegistry();
+        this.stepRegistry.addStepImplementation(stepValue1, method1);
+        this.stepRegistry.addStepImplementation(stepValue2, method2);
+        this.stepRegistry.addStepImplementation(stepValue3, method3);
+        this.stepRegistry.addStepImplementation(aliasStep1, aliasMethod);
+        this.stepRegistry.addStepImplementation(aliasStep2, aliasMethod);
     }
 
     public void testAddingStepImplementationToRegistry() throws Exception {
-        assertTrue(StepRegistry.contains(stepValue1.getStepText()));
-        assertTrue(StepRegistry.contains(stepValue2.getStepText()));
-        assertTrue(StepRegistry.contains(stepValue3.getStepText()));
-        assertTrue(StepRegistry.contains(aliasStep1.getStepText()));
-        assertTrue(StepRegistry.contains(aliasStep2.getStepText()));
+        assertTrue(stepRegistry.contains(stepValue1.getStepText()));
+        assertTrue(stepRegistry.contains(stepValue2.getStepText()));
+        assertTrue(stepRegistry.contains(stepValue3.getStepText()));
+        assertTrue(stepRegistry.contains(aliasStep1.getStepText()));
+        assertTrue(stepRegistry.contains(aliasStep2.getStepText()));
 
-        assertEquals(method1, StepRegistry.get(stepValue1.getStepText()));
-        assertEquals(method2, StepRegistry.get(stepValue2.getStepText()));
-        assertEquals(method3, StepRegistry.get(stepValue3.getStepText()));
-        assertEquals(null, StepRegistry.get("unknown"));
+        assertEquals(method1, stepRegistry.get(stepValue1.getStepText()));
+        assertEquals(method2, stepRegistry.get(stepValue2.getStepText()));
+        assertEquals(method3, stepRegistry.get(stepValue3.getStepText()));
+        assertNull(stepRegistry.get("unknown"));
     }
 
     public void testGetFileNameFromStepRegistry() throws Exception {
-        assertEquals(String.format("com%sthoughtworks%sgauge%sTestStepImplClass.java", File.separator, File.separator, File.separator), StepRegistry.getFileName(stepValue1.getStepText()));
-        assertEquals("", StepRegistry.getFileName("unknown"));
+        String expected = String.format("com%sthoughtworks%sgauge%sTestStepImplClass.java", File.separator, File.separator, File.separator);
+        assertEquals(expected, stepRegistry.getFileName(stepValue1.getStepText()));
+        assertEquals("", stepRegistry.getFileName("unknown"));
     }
 
     public void testGetAllStepTexts() throws Exception {
-        List<String> stepTexts = StepRegistry.getAllStepAnnotationTexts();
+        List<String> stepTexts = stepRegistry.getAllStepAnnotationTexts();
         assertEquals(5, stepTexts.size());
         assertTrue(stepTexts.contains(stepValue1.getStepText()));
         assertTrue(stepTexts.contains(stepValue2.getStepAnnotationText()));
@@ -74,61 +79,61 @@ public class StepRegistryTest extends TestCase {
     }
 
     public void testGetStepAnnotationFor() throws Exception {
-        assertEquals(stepValue1.getStepAnnotationText(), StepRegistry.getStepAnnotationFor(stepValue1.getStepText()));
-        assertEquals(stepValue2.getStepAnnotationText(), StepRegistry.getStepAnnotationFor(stepValue2.getStepText()));
-        assertEquals(stepValue3.getStepAnnotationText(), StepRegistry.getStepAnnotationFor(stepValue3.getStepText()));
-        assertEquals(aliasStep1.getStepAnnotationText(), StepRegistry.getStepAnnotationFor(aliasStep1.getStepText()));
-        assertEquals(aliasStep2.getStepAnnotationText(), StepRegistry.getStepAnnotationFor(aliasStep2.getStepText()));
-        assertEquals("", StepRegistry.getStepAnnotationFor("unknown"));
+        assertEquals(stepValue1.getStepAnnotationText(), stepRegistry.getStepAnnotationFor(stepValue1.getStepText()));
+        assertEquals(stepValue2.getStepAnnotationText(), stepRegistry.getStepAnnotationFor(stepValue2.getStepText()));
+        assertEquals(stepValue3.getStepAnnotationText(), stepRegistry.getStepAnnotationFor(stepValue3.getStepText()));
+        assertEquals(aliasStep1.getStepAnnotationText(), stepRegistry.getStepAnnotationFor(aliasStep1.getStepText()));
+        assertEquals(aliasStep2.getStepAnnotationText(), stepRegistry.getStepAnnotationFor(aliasStep2.getStepText()));
+        assertEquals("", stepRegistry.getStepAnnotationFor("unknown"));
     }
 
     public void testGetAliasStepTexts() throws Exception {
-        assertEquals(1, StepRegistry.getAllAliasAnnotationTextsFor(stepValue1.getStepText()).size());
-        assertEquals(1, StepRegistry.getAllAliasAnnotationTextsFor(stepValue2.getStepText()).size());
-        assertEquals(1, StepRegistry.getAllAliasAnnotationTextsFor(stepValue3.getStepText()).size());
+        assertEquals(1, stepRegistry.getAllAliasAnnotationTextsFor(stepValue1.getStepText()).size());
+        assertEquals(1, stepRegistry.getAllAliasAnnotationTextsFor(stepValue2.getStepText()).size());
+        assertEquals(1, stepRegistry.getAllAliasAnnotationTextsFor(stepValue3.getStepText()).size());
 
-        Set<String> aliasStepTexts = StepRegistry.getAllAliasAnnotationTextsFor(aliasStep1.getStepText());
+        Set<String> aliasStepTexts = stepRegistry.getAllAliasAnnotationTextsFor(aliasStep1.getStepText());
         assertEquals(2, aliasStepTexts.size());
         assertTrue(aliasStepTexts.contains(aliasStep1.getStepAnnotationText()));
         assertTrue(aliasStepTexts.contains(aliasStep2.getStepAnnotationText()));
 
-        Set<String> aliasStepTexts1 = StepRegistry.getAllAliasAnnotationTextsFor(aliasStep2.getStepText());
+        Set<String> aliasStepTexts1 = stepRegistry.getAllAliasAnnotationTextsFor(aliasStep2.getStepText());
         assertEquals(2, aliasStepTexts1.size());
         assertTrue(aliasStepTexts1.contains(aliasStep1.getStepAnnotationText()));
         assertTrue(aliasStepTexts1.contains(aliasStep2.getStepAnnotationText()));
     }
 
     public void testHasAlias() throws Exception {
-        assertEquals(false, StepRegistry.hasAlias(stepValue1.getStepText()));
-        assertEquals(false, StepRegistry.hasAlias(stepValue2.getStepText()));
-        assertEquals(false, StepRegistry.hasAlias(stepValue3.getStepText()));
-        assertEquals(true, StepRegistry.hasAlias(aliasStep1.getStepText()));
-        assertEquals(true, StepRegistry.hasAlias(aliasStep2.getStepText()));
+        assertFalse(stepRegistry.hasAlias(stepValue1.getStepText()));
+        assertFalse(stepRegistry.hasAlias(stepValue2.getStepText()));
+        assertFalse(stepRegistry.hasAlias(stepValue3.getStepText()));
+        assertTrue(stepRegistry.hasAlias(aliasStep1.getStepText()));
+        assertTrue(stepRegistry.hasAlias(aliasStep2.getStepText()));
     }
 
     public void testRemoveEntry() throws Exception {
-        StepRegistry.remove(stepValue1.getStepText());
-        assertFalse(StepRegistry.contains(stepValue1.getStepText()));
-        assertNull(StepRegistry.get(stepValue1.getStepText()));
-        assertTrue(StepRegistry.getAll(stepValue1.getStepText()).isEmpty());
-        assertEquals("", StepRegistry.getStepAnnotationFor(stepValue1.getStepText()));
-        assertEquals(false, StepRegistry.hasAlias(stepValue1.getStepText()));
+        stepRegistry.remove(stepValue1.getStepText());
+        assertFalse(stepRegistry.contains(stepValue1.getStepText()));
+        assertNull(stepRegistry.get(stepValue1.getStepText()));
+        assertTrue(stepRegistry.getAll(stepValue1.getStepText()).isEmpty());
+        assertEquals("", stepRegistry.getStepAnnotationFor(stepValue1.getStepText()));
+        assertFalse(stepRegistry.hasAlias(stepValue1.getStepText()));
     }
 
     public void testAddedToRawRegistry() {
-        StepRegistry.addStepImplementation(stepValue1, method2);
+        stepRegistry.addStepImplementation(stepValue1, method2);
 
-        Set<Method> methods = StepRegistry.getAll(stepValue1.getStepText());
+        Set<Method> methods = stepRegistry.getAll(stepValue1.getStepText());
 
         assertTrue(methods.contains(method1));
         assertTrue(methods.contains(method2));
     }
 
     protected void tearDown() throws Exception {
-        StepRegistry.remove(stepValue1.getStepText());
-        StepRegistry.remove(stepValue2.getStepText());
-        StepRegistry.remove(stepValue3.getStepText());
-        StepRegistry.remove(aliasStep1.getStepText());
-        StepRegistry.remove(aliasStep2.getStepText());
+        stepRegistry.remove(stepValue1.getStepText());
+        stepRegistry.remove(stepValue2.getStepText());
+        stepRegistry.remove(stepValue3.getStepText());
+        stepRegistry.remove(aliasStep1.getStepText());
+        stepRegistry.remove(aliasStep2.getStepText());
     }
 }

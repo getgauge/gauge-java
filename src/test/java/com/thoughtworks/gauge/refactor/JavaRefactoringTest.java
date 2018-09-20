@@ -19,56 +19,54 @@ import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import junit.framework.TestCase;
-import org.junit.runner.RunWith;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 
 import static org.mockito.Mockito.mock;
-import static org.powermock.api.mockito.PowerMockito.mockStatic;
-import static org.powermock.api.mockito.PowerMockito.when;
+import static org.mockito.Mockito.when;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest(StepRegistry.class)
+
 public class JavaRefactoringTest extends TestCase {
 
-    public void testRefactoringWithAlias() throws Exception {
-        mockStatic(StepRegistry.class);
-        when(StepRegistry.hasAlias("old step")).thenReturn(true);
-        when(StepRegistry.getFileName("old step")).thenReturn("foo");
+    public void testRefactoringWithAlias() {
+        StepRegistry registry = mock(StepRegistry.class);
+        when(registry.hasAlias("old step")).thenReturn(true);
+        when(registry.getFileName("old step")).thenReturn("foo");
 
-        StepValue oldStepValue = new StepValue("old step", "", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("", "", new ArrayList<String>());
-        RefactoringResult result = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>()).performRefactoring();
-        assertEquals(false, result.passed());
+        StepValue oldStepValue = new StepValue("old step", "", new ArrayList<>());
+        StepValue newStepValue = new StepValue("", "", new ArrayList<>());
+        RefactoringResult result = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry).performRefactoring();
+        assertFalse(result.passed());
         assertEquals("Refactoring for steps having aliases are not supported.", result.errorMessage());
     }
 
-    public void testRefactoringWithDuplicateImplementations() throws Exception {
+    public void testRefactoringWithDuplicateImplementations() {
         HashSet<Method> set = mock(HashSet.class);
-        mockStatic(StepRegistry.class);
-        when(StepRegistry.getAll("old step")).thenReturn(set);
+        StepRegistry registry = mock(StepRegistry.class);
+        when(registry.getAll("old step")).thenReturn(set);
         when(set.size()).thenReturn(2);
-        when(StepRegistry.getFileName("old step")).thenReturn("foo");
+        when(registry.getFileName("old step")).thenReturn("foo");
 
-        StepValue oldStepValue = new StepValue("old step", "", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("", "", new ArrayList<String>());
-        RefactoringResult result = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>()).performRefactoring();
-        assertEquals(false, result.passed());
+        StepValue oldStepValue = new StepValue("old step", "", new ArrayList<>());
+        StepValue newStepValue = new StepValue("", "", new ArrayList<>());
+        RefactoringResult result = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry).performRefactoring();
+        assertFalse(result.passed());
         assertEquals("Duplicate step implementation found.", result.errorMessage());
     }
 
     public void testJavaElementForSimpleRefactoring() throws Exception {
-        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
+        StepRegistry registry = mock(StepRegistry.class);
+
+        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<>());
+        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<>());
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
@@ -80,14 +78,16 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringWithNewParameter() throws Exception {
-        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("step with {}", "step with <param 1>", Arrays.asList("param 1"));
+        StepRegistry registry = mock(StepRegistry.class);
+
+        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<>());
+        StepValue newStepValue = new StepValue("step with {}", "step with <param 1>", Collections.singletonList("param 1"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
         Messages.ParameterPosition parameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(0).build();
-        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
+        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<>();
         parameterPositions.add(parameterPosition);
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions, registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
@@ -98,16 +98,17 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringWithNewParametersWithSameName() throws Exception {
-        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("step with {} {}", "step with <n> <n>", Arrays.asList("n","n"));
+        StepRegistry registry = mock(StepRegistry.class);
+        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<>());
+        StepValue newStepValue = new StepValue("step with {} {}", "step with <n> <n>", Arrays.asList("n", "n"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
         Messages.ParameterPosition parameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(0).build();
         Messages.ParameterPosition parameterPosition1 = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(1).build();
-        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
+        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<>();
         parameterPositions.add(parameterPosition);
         parameterPositions.add(parameterPosition1);
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions, registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
@@ -118,6 +119,7 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringWithNewParameterWithSameNameAsExisting() throws Exception {
+        StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("Tell {} {}", "Tell <greeting> <name>", Arrays.asList("greeting", "name"));
         StepValue newStepValue = new StepValue("Tell {} {} {}", "Tell <greeting> <name> <name>", Arrays.asList("greeting", "name", "name"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
@@ -125,12 +127,12 @@ public class JavaRefactoringTest extends TestCase {
         Messages.ParameterPosition parameterPosition1 = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(0).build();
         Messages.ParameterPosition parameterPosition2 = Messages.ParameterPosition.newBuilder().setOldPosition(1).setNewPosition(1).build();
         Messages.ParameterPosition parameterPosition3 = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(2).build();
-        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
+        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<>();
         parameterPositions.add(parameterPosition1);
         parameterPositions.add(parameterPosition2);
         parameterPositions.add(parameterPosition3);
 
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions, registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
         assertTrue(element.getText().contains("    @Step(\"Tell <greeting> <name> <name>\")" + System.getProperty("line.separator") +
@@ -141,6 +143,7 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringWithNewParameterWhenParametersPresent() throws Exception {
+        StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("Tell {} to {}", "Tell <greeting> to <name>", Arrays.asList("greeting", "name"));
         StepValue newStepValue = new StepValue("Tell {} to {} {}", "Tell <greeting> to <name> <DD>", Arrays.asList("greeting", "name", "DD"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
@@ -148,12 +151,12 @@ public class JavaRefactoringTest extends TestCase {
         Messages.ParameterPosition parameterPosition1 = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(0).build();
         Messages.ParameterPosition parameterPosition2 = Messages.ParameterPosition.newBuilder().setOldPosition(1).setNewPosition(1).build();
         Messages.ParameterPosition parameterPosition3 = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(2).build();
-        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
+        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<>();
         parameterPositions.add(parameterPosition1);
         parameterPositions.add(parameterPosition2);
         parameterPositions.add(parameterPosition3);
 
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions, registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
         assertTrue(element.getText().contains("    @Step(\"Tell <greeting> to <name> <DD>\")" + System.getProperty("line.separator") +
@@ -169,20 +172,21 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringWithParametersRemoved() throws Exception {
-        StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<String>());
+        StepRegistry registry = mock(StepRegistry.class);
+        StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<>());
         StepValue newStepValue = new StepValue("{} changed {} and added {}", "<table> changed <c> and added <a>", Arrays.asList("b", "a", "c"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
         Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(2).build();
         Messages.ParameterPosition secondParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(1).setNewPosition(0).build();
         Messages.ParameterPosition thirdParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(1).build();
-        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
+        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<>();
         parameterPositions.add(firstParameterPosition);
         parameterPositions.add(secondParameterPosition);
         parameterPositions.add(thirdParameterPosition);
 
 
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions, registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
@@ -193,15 +197,16 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringForStepWithUnicodeCharacters() throws Exception {
+        StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("† ‡ µ ¢ step with {} and {}", "† ‡ µ ¢ step with <Û> and <į>", Arrays.asList("Û", "į"));
-        StepValue newStepValue = new StepValue("† ‡ µ ¢ step with {}", "† ‡ µ ¢ step with <Û>", Arrays.asList("Û"));
+        StepValue newStepValue = new StepValue("† ‡ µ ¢ step with {}", "† ‡ µ ¢ step with <Û>", Collections.singletonList("Û"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
         Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(0).build();
-        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
+        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<>();
         parameterPositions.add(firstParameterPosition);
 
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions, registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
@@ -212,11 +217,12 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringWithSlash() throws Exception {
-        StepValue oldStepValue = new StepValue("A step with \\", "A step with \\", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("step changed to \\", "step changed to \\", new ArrayList<String>());
+        StepRegistry registry = mock(StepRegistry.class);
+        StepValue oldStepValue = new StepValue("A step with \\", "A step with \\", new ArrayList<>());
+        StepValue newStepValue = new StepValue("step changed to \\", "step changed to \\", new ArrayList<>());
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
@@ -227,11 +233,12 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringWithTab() throws Exception {
-        StepValue oldStepValue = new StepValue("A step 123", "A step 123", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("step changed to \t", "step changed to \t", new ArrayList<String>());
+        StepRegistry registry = mock(StepRegistry.class);
+        StepValue oldStepValue = new StepValue("A step 123", "A step 123", new ArrayList<>());
+        StepValue newStepValue = new StepValue("step changed to \t", "step changed to \t", new ArrayList<>());
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
@@ -242,20 +249,21 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringWithParametersRemovedAndAdded() throws Exception {
-        StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<String>());
+        StepRegistry registry = mock(StepRegistry.class);
+        StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<>());
         StepValue newStepValue = new StepValue("{} changed {} and added {}", "<b> changed <a> and added <c>", Arrays.asList("b", "a", "c"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
         Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(0).build();
         Messages.ParameterPosition secondParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(1).build();
         Messages.ParameterPosition thirdParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(2).build();
-        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<Messages.ParameterPosition>();
+        ArrayList<Messages.ParameterPosition> parameterPositions = new ArrayList<>();
         parameterPositions.add(firstParameterPosition);
         parameterPositions.add(secondParameterPosition);
         parameterPositions.add(thirdParameterPosition);
 
 
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions);
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions, registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
@@ -266,37 +274,40 @@ public class JavaRefactoringTest extends TestCase {
 
     }
 
-    public void testResultForRefactoringWhenFileNotFound() throws Exception {
-        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+    public void testResultForRefactoringWhenFileNotFound() {
+        StepRegistry registry = mock(StepRegistry.class);
+        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<>());
+        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<>());
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry);
         RefactoringResult result = refactoring.performRefactoring();
 
-        assertEquals(result.passed(), false);
+        assertFalse(result.passed());
         assertEquals(result.errorMessage(), "Step Implementation Not Found: Unable to find a file Name to refactor");
         assertEquals(result.fileChanged(), "");
     }
 
-    public void testResultForRefactoringWhenFileDoesNotExist() throws Exception {
-        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
+    public void testResultForRefactoringWhenFileDoesNotExist() {
 
-        mockStatic(StepRegistry.class);
-        when(StepRegistry.getFileName("A step with no params")).thenReturn("foobar");
+        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<>());
+        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<>());
 
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        StepRegistry registry = mock(StepRegistry.class);
+        when(registry.getFileName("A step with no params")).thenReturn("foobar");
+
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry);
         RefactoringResult result = refactoring.performRefactoring();
 
-        assertEquals(result.passed(), false);
+        assertFalse(result.passed());
         assertEquals(result.errorMessage(), "Step Implementation Not Found: Unable to find file: foobar");
         assertEquals(result.fileChanged(), "");
     }
 
     public void testJavaElementForRefactoringWithMethodWithComments() throws Exception {
-        StepValue oldStepValue = new StepValue("A step with comments", "A step with comments", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("with comments", "with comments", new ArrayList<String>());
+        StepRegistry registry = mock(StepRegistry.class);
+        StepValue oldStepValue = new StepValue("A step with comments", "A step with comments", new ArrayList<>());
+        StepValue newStepValue = new StepValue("with comments", "with comments", new ArrayList<>());
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
@@ -319,11 +330,12 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testRefactoringWithOrphanComments() throws RefactoringException {
-        StepValue oldStepValue = new StepValue("A step with comments", "A step with comments", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("with comments", "with comments", new ArrayList<String>());
+        StepRegistry registry = mock(StepRegistry.class);
+        StepValue oldStepValue = new StepValue("A step with comments", "A step with comments", new ArrayList<>());
+        StepValue newStepValue = new StepValue("with comments", "with comments", new ArrayList<>());
         String implFile = String.format("test%sfiles%sformatted%sStepImplWithComments.java", File.separator, File.separator, File.separator);
 
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         String expectedValue = "    @Step(\"with comments\")" + System.getProperty("line.separator") +
@@ -360,10 +372,11 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringWithUnFormattedMethod() throws Exception {
-        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("A step with no paramss", "A step with no paramss", new ArrayList<String>());
+        StepRegistry registry = mock(StepRegistry.class);
+        StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<>());
+        StepValue newStepValue = new StepValue("A step with no paramss", "A step with no paramss", new ArrayList<>());
         String implFile = String.format("test%sfiles%sunformatted%sUnFormattedStepImpl.java", File.separator, File.separator, File.separator);
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
@@ -376,10 +389,11 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringWithMethodHavingNewLineCharInString() throws Exception {
-        StepValue oldStepValue = new StepValue("A step with newLine", "A step with newLine", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
+        StepRegistry registry = mock(StepRegistry.class);
+        StepValue oldStepValue = new StepValue("A step with newLine", "A step with newLine", new ArrayList<>());
+        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<>());
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
@@ -391,11 +405,12 @@ public class JavaRefactoringTest extends TestCase {
     }
 
     public void testJavaElementForRefactoringWithStepHavingOneAlias() throws Exception {
-        StepValue oldStepValue = new StepValue("A step defined with alias syntax", "A step defined with alias syntax", new ArrayList<String>());
-        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<String>());
+        StepRegistry registry = mock(StepRegistry.class);
+        StepValue oldStepValue = new StepValue("A step defined with alias syntax", "A step defined with alias syntax", new ArrayList<>());
+        StepValue newStepValue = new StepValue("step changed", "step changed", new ArrayList<>());
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
-        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<Messages.ParameterPosition>());
+        JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());

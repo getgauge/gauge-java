@@ -22,11 +22,14 @@ import gauge.messages.Messages;
 import java.util.Set;
 
 public class StepNameRequestProcessor implements IMessageProcessor {
-    public StepNameRequestProcessor(ClassInstanceManager instanceManager) {
+    private final StepRegistry registry;
+
+    public StepNameRequestProcessor(ClassInstanceManager instanceManager, StepRegistry registry) {
+        this.registry = registry;
     }
 
     public Messages.Message process(Messages.Message message) {
-        Set<String> stepAnnotations = StepRegistry.getAllAliasAnnotationTextsFor(message.getStepNameRequest().getStepValue());
+        Set<String> stepAnnotations = registry.getAllAliasAnnotationTextsFor(message.getStepNameRequest().getStepValue());
         boolean hasAlias = false, isStepPresent = false;
 
         if (stepAnnotations.size() > 1) {

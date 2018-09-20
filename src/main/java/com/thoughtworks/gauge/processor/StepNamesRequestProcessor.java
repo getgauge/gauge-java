@@ -23,11 +23,14 @@ import gauge.messages.Messages;
 import java.util.List;
 
 public class StepNamesRequestProcessor implements IMessageProcessor {
-    public StepNamesRequestProcessor(ClassInstanceManager instanceManager) {
+    private final StepRegistry registry;
+
+    public StepNamesRequestProcessor(ClassInstanceManager instanceManager, StepRegistry registry) {
+        this.registry = registry;
     }
 
     public Messages.Message process(Messages.Message receivedMessage) {
-        List<String> stepTexts = StepRegistry.getAllStepAnnotationTexts();
+        List<String> stepTexts = registry.getAllStepAnnotationTexts();
 
         return Messages.Message.newBuilder()
                 .setMessageId(receivedMessage.getMessageId())

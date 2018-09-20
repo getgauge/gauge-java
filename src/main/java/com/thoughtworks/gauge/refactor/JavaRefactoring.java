@@ -29,23 +29,25 @@ public class  JavaRefactoring {
     private final StepValue oldStepValue;
     private final StepValue newStepValue;
     private final List<Messages.ParameterPosition> paramPositions;
+    private StepRegistry registry;
 
-    public JavaRefactoring(StepValue oldStepValue, StepValue newStepValue, List<Messages.ParameterPosition> paramPositionsList) {
+    public JavaRefactoring(StepValue oldStepValue, StepValue newStepValue, List<Messages.ParameterPosition> paramPositionsList, StepRegistry registry) {
         this.oldStepValue = oldStepValue;
         this.newStepValue = newStepValue;
         this.paramPositions = paramPositionsList;
+        this.registry = registry;
     }
 
     public RefactoringResult performRefactoring() {
         String oldStepText = oldStepValue.getStepText();
-        String fileName = StepRegistry.getFileName(oldStepText);
+        String fileName = registry.getFileName(oldStepText);
         if (fileName == null || fileName.isEmpty()) {
             return new RefactoringResult(false, "Step Implementation Not Found: Unable to find a file Name to refactor");
         }
-        if (StepRegistry.hasAlias(oldStepText)) {
+        if (registry.hasAlias(oldStepText)) {
             return new RefactoringResult(false, "Refactoring for steps having aliases are not supported.");
         }
-        if (StepRegistry.getAll(oldStepText).size() > 1) {
+        if (registry.getAll(oldStepText).size() > 1) {
             return new RefactoringResult(false, "Duplicate step implementation found.");
         }
 
@@ -64,7 +66,7 @@ public class  JavaRefactoring {
         return new RefactoringResult(true, "", element.getFile().getAbsolutePath());
     }
 
-    public JavaRefactoringElement createJavaRefactoringElement(String fileName) throws RefactoringException {
+    JavaRefactoringElement createJavaRefactoringElement(String fileName) throws RefactoringException {
         List<JavaParseWorker> javaParseWorkers = parseJavaFiles(Util.workingDir(), fileName);
         if (javaParseWorkers.isEmpty()) {
             throw new RefactoringException("Unable to find file: " + fileName);
