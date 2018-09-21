@@ -34,14 +34,14 @@ public class ExecutionInfoMapper {
                 stepFrom(currentExecutionInfo.getCurrentStep()));
     }
 
-    public Specification specificationFrom(Messages.SpecInfo currentSpec) {
+    private Specification specificationFrom(Messages.SpecInfo currentSpec) {
         if (currentSpec.isInitialized()) {
             return new Specification(currentSpec.getName(), currentSpec.getFileName(), currentSpec.getIsFailed(), currentSpec.getTagsList());
         }
         return new Specification();
     }
 
-    public Scenario scenarioFrom(Messages.ScenarioInfo currentScenario) {
+    Scenario scenarioFrom(Messages.ScenarioInfo currentScenario) {
         if (currentScenario.isInitialized()) {
             return new Scenario(currentScenario.getName(), currentScenario.getIsFailed(), currentScenario.getTagsList());
         }

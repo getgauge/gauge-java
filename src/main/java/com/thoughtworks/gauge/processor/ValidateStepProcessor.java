@@ -22,16 +22,19 @@ import gauge.messages.Messages.StepValidateResponse;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 public class ValidateStepProcessor implements IMessageProcessor {
     private static Integer num = 1;
     private static final Integer MAX_LENGTH = 3;
+    private final StepRegistry registry;
 
-    public ValidateStepProcessor(ClassInstanceManager instanceManager) {
+    public ValidateStepProcessor(ClassInstanceManager instanceManager, StepRegistry registry) {
+        this.registry = registry;
     }
 
     public Messages.Message process(Messages.Message message) {
@@ -44,7 +47,7 @@ public class ValidateStepProcessor implements IMessageProcessor {
     }
 
     private StepValidateResponse validateStep(Messages.StepValidateRequest stepValidateRequest) {
-        Set<Method> methodImplementations = StepRegistry.getAll(stepValidateRequest.getStepText());
+        Set<Method> methodImplementations = registry.getAll(stepValidateRequest.getStepText());
 
         if (methodImplementations != null && methodImplementations.size() == 1) {
             return buildSuccessValidationResponse();
@@ -63,8 +66,8 @@ public class ValidateStepProcessor implements IMessageProcessor {
         final StringBuilder methodName = new StringBuilder();
         if (!stepText.equals("")) {
             String[] methodNameArray = stepText.split(" ");
-            List<String> list = new ArrayList<String>(Arrays.asList(methodNameArray));
-            list.removeAll(Arrays.asList("{}"));
+            List<String> list = new ArrayList<>(Arrays.asList(methodNameArray));
+            list.removeAll(Collections.singletonList("{}"));
             int length = list.size();
             if (length == 0) {
                 methodName.append(String.format("implementation%s", (num++).toString()));

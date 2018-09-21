@@ -4,24 +4,16 @@ import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
 import static com.thoughtworks.gauge.execution.parameters.DynamicParametersReplacer.replacePlaceholders;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.powermock.api.mockito.PowerMockito.mock;
-import static org.powermock.api.mockito.PowerMockito.when;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({Messages.StepInfo.class, Messages.ExecuteStepRequest.class})
+
 public class DynamicParametersReplacerTest {
 
-    private Messages.StepInfo stepInfo = mock(Messages.StepInfo.class);
-    private Messages.ExecuteStepRequest executeStepRequest = mock(Messages.ExecuteStepRequest.class);
     private ExecutionInfoMapper executionInfoMapper = new ExecutionInfoMapper();
 
     @Test
@@ -61,37 +53,45 @@ public class DynamicParametersReplacerTest {
 
     @Test
     public void shouldGetEmptyStepTextWhenStepIsNotInitialized() {
-        when(stepInfo.isInitialized()).thenReturn(false);
+        Messages.StepInfo stepInfo = Messages.StepInfo.newBuilder().build();
 
         assertThat(executionInfoMapper.stepFrom(stepInfo).getDynamicText()).isEmpty();
     }
 
     @Test
     public void shouldGetActualStepTextWhenStepParametersListIsEmpty() {
-        when(stepInfo.getStep()).thenReturn(executeStepRequest);
-        when(stepInfo.isInitialized()).thenReturn(true);
-        when(executeStepRequest.getActualStepText()).thenReturn("User makes login");
-        when(executeStepRequest.getParametersList()).thenReturn(emptyList());
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().
+                setActualStepText("User makes login")
+                .build();
+        Messages.StepInfo stepInfo = Messages.StepInfo.newBuilder().setStep(executeStepRequest).build();
 
         assertThat(executionInfoMapper.stepFrom(stepInfo).getDynamicText()).isEqualTo("User makes login");
     }
 
     @Test
     public void shouldGetActualStepTextWhenStepParametersAreStatic() {
-        when(stepInfo.getStep()).thenReturn(executeStepRequest);
-        when(stepInfo.isInitialized()).thenReturn(true);
-        when(executeStepRequest.getActualStepText()).thenReturn("User \"Elon\" makes login from \"Facebook Web\"");
-        when(executeStepRequest.getParametersList()).thenReturn(asList(staticParameter("Elon"), staticParameter("Facebook Web")));
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder()
+                .setActualStepText("User \"Elon\" makes login from \"Facebook Web\"")
+                .addParameters(staticParameter("Elon"))
+                .addParameters(staticParameter("Facebook Web"))
+                .build();
+        Messages.StepInfo stepInfo = Messages.StepInfo.newBuilder()
+                .setStep(executeStepRequest)
+                .build();
 
         assertThat(executionInfoMapper.stepFrom(stepInfo).getDynamicText()).isEqualTo("User \"Elon\" makes login from \"Facebook Web\"");
     }
 
     @Test
     public void shouldGetUpdatedStepTextWhenStepParametersAreDynamic() {
-        when(stepInfo.getStep()).thenReturn(executeStepRequest);
-        when(stepInfo.isInitialized()).thenReturn(true);
-        when(executeStepRequest.getActualStepText()).thenReturn("User <username> makes login from <clientType>");
-        when(executeStepRequest.getParametersList()).thenReturn(asList(dynamicParameter("Elon"), dynamicParameter("Facebook Web")));
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder()
+                .setActualStepText("User <username> makes login from <clientType>")
+                .addParameters(dynamicParameter("Elon"))
+                .addParameters(dynamicParameter("Facebook Web"))
+                .build();
+        Messages.StepInfo stepInfo = Messages.StepInfo.newBuilder()
+                .setStep(executeStepRequest)
+                .build();
 
         assertThat(executionInfoMapper.stepFrom(stepInfo).getDynamicText()).isEqualTo("User \"Elon\" makes login from \"Facebook Web\"");
     }

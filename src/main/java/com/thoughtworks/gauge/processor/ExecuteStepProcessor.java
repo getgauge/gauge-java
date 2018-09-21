@@ -32,16 +32,18 @@ import java.lang.reflect.Method;
 public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
 
     private final ParameterParsingChain chain;
+    private StepRegistry registry;
 
-    public ExecuteStepProcessor(ClassInstanceManager instanceManager, ParameterParsingChain chain) {
+    public ExecuteStepProcessor(ClassInstanceManager instanceManager, ParameterParsingChain chain, StepRegistry stepRegistry) {
         super(instanceManager);
         this.chain = chain;
+        this.registry = stepRegistry;
     }
 
     public Messages.Message process(Messages.Message message) {
-        Method method = StepRegistry.get(message.getExecuteStepRequest().getParsedStepText());
+        Method method = registry.get(message.getExecuteStepRequest().getParsedStepText());
         ExecutionPipeline pipeline = new ExecutionPipeline(new HookExecutionStage(HooksRegistry.getBeforeClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));
-        pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest(), getInstanceManager(), this.chain),
+        pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest(), getInstanceManager(), chain, registry),
                 new HookExecutionStage(HooksRegistry.getAfterClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));
         Spec.ProtoExecutionResult executionResult = pipeline.start();
         Spec.ProtoExecutionResult protoExecutionResult = new MessageCollector().addPendingMessagesTo(executionResult);

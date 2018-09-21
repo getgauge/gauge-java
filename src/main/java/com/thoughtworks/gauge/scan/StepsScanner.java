@@ -29,9 +29,11 @@ import java.util.Set;
  */
 public class StepsScanner implements IScanner {
     private GaugeConnector connector;
+    private StepRegistry registry;
 
-    public StepsScanner(GaugeConnector connector) {
+    public StepsScanner(GaugeConnector connector, StepRegistry registry) {
         this.connector = connector;
+        this.registry = registry;
     }
 
     public void scan(Reflections reflections) {
@@ -45,7 +47,7 @@ public class StepsScanner implements IScanner {
             if (annotation != null) {
                 for (String stepName : annotation.value()) {
                     StepValue stepValue = connector.getGaugeApiConnection().getStepValue(stepName);
-                    StepRegistry.addStepImplementation(stepValue, method);
+                    registry.addStepImplementation(stepValue, method);
                 }
             }
         }
