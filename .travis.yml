@@ -2,6 +2,7 @@ os:
   - linux
 language: java
 jdk:
+  - oraclejdk8
   - oraclejdk10
 env:
   - GOPATH="/tmp" GAUGE_ROOT="/tmp/gauge" GAUGE_TELEMETRY_ENABLED=false
