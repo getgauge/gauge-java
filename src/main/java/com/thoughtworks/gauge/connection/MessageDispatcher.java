@@ -56,7 +56,7 @@ public class MessageDispatcher {
 
     public MessageDispatcher(ParameterParsingChain chain, StepRegistry stepRegistry) {
         final ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
-        messageProcessors = new HashMap<>() {{
+        messageProcessors = new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));
             put(Messages.Message.MessageType.SpecExecutionStarting, new SpecExecutionStartingProcessor(instanceManager));
