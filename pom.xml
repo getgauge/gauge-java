@@ -221,7 +221,7 @@
 
     <properties>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
-        <projectVersion>0.6.9</projectVersion>
+        <projectVersion>0.7.0</projectVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
@@ -230,7 +230,7 @@
         <profile>
             <id>nightly</id>
             <properties>
-                <projectVersion>0.6.9.nightly-${maven.build.timestamp}</projectVersion>
+                <projectVersion>0.7.0.nightly-${maven.build.timestamp}</projectVersion>
             </properties>
         </profile>
     </profiles>
