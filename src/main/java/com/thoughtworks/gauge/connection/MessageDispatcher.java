@@ -38,6 +38,10 @@ import com.thoughtworks.gauge.processor.RefactorRequestProcessor;
 import com.thoughtworks.gauge.processor.StepNameRequestProcessor;
 import com.thoughtworks.gauge.registry.ClassInitializerRegistry;
 import com.thoughtworks.gauge.registry.StepRegistry;
+import com.thoughtworks.gauge.scan.CustomClassInitializerScanner;
+import com.thoughtworks.gauge.scan.HooksScanner;
+import com.thoughtworks.gauge.scan.StaticScanner;
+import com.thoughtworks.gauge.screenshot.CustomScreenshotScanner;
 import gauge.messages.Messages;
 
 import java.io.ByteArrayOutputStream;
@@ -53,8 +57,16 @@ import java.util.HashMap;
 public class MessageDispatcher {
 
     private final HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors;
+    private final ParameterParsingChain chain;
+    private final GaugeConnector connector;
 
-    public MessageDispatcher(ParameterParsingChain chain, StepRegistry stepRegistry) {
+    public MessageDispatcher(ParameterParsingChain parameterParsingChain, GaugeConnector connector) {
+
+        this.chain = parameterParsingChain;
+        this.connector = connector;
+        StaticScanner staticScanner = new StaticScanner(connector);
+        staticScanner.scan(new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
+        StepRegistry stepRegistry = staticScanner.getStepRegistry();
         final ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
         messageProcessors = new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
@@ -67,17 +79,17 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.StepExecutionEnding, new StepExecutionEndingProcessor(instanceManager));
             put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager, chain, stepRegistry));
             put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor(instanceManager, stepRegistry));
-            put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor(instanceManager, stepRegistry));
+            put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer(instanceManager));
             put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer(instanceManager));
             put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer(instanceManager));
             put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor(instanceManager));
-            put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(instanceManager, stepRegistry));
+            put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor(instanceManager, stepRegistry));
         }};
     }
 
-    public void dispatchMessages(GaugeConnector connector) throws IOException {
+    public void dispatchMessages() throws IOException {
         Socket gaugeSocket = connector.getGaugeSocket();
         InputStream inputStream = gaugeSocket.getInputStream();
         while (isConnected(gaugeSocket)) {

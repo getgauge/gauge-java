@@ -16,6 +16,8 @@
 package com.thoughtworks.gauge.scan;
 
 import com.thoughtworks.gauge.ClasspathHelper;
+import com.thoughtworks.gauge.connection.GaugeConnector;
+import com.thoughtworks.gauge.registry.StepRegistry;
 import org.reflections.Configuration;
 import org.reflections.Reflections;
 import org.reflections.scanners.MethodAnnotationsScanner;
@@ -32,16 +34,22 @@ import java.util.jar.JarFile;
 
 import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
 
-/**
- * Scans the current Classpath and passes to all the scanners passed.
- */
-public class ClasspathScanner {
+public class StaticScanner {
+
+    private StepRegistry stepRegistry = new StepRegistry();
+    private GaugeConnector connector;
+
+    public StaticScanner(GaugeConnector connector) {
+        this.connector = connector;
+    }
 
     public void scan(IScanner... scanners) {
         Reflections reflections = createReflections();
         for (IScanner scanner : scanners) {
             scanner.scan(reflections);
         }
+        StepsScanner stepsScanner = new StepsScanner(connector, stepRegistry);
+        stepsScanner.scan(reflections);
     }
 
     private Reflections createReflections() {
@@ -79,5 +87,9 @@ public class ClasspathScanner {
             }
         }
         return false;
+    }
+
+    public StepRegistry getStepRegistry() {
+        return stepRegistry;
     }
 }

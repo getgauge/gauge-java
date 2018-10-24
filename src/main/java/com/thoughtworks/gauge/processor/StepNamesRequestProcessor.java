@@ -16,7 +16,6 @@
 package com.thoughtworks.gauge.processor;
 
 
-import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 
@@ -25,7 +24,7 @@ import java.util.List;
 public class StepNamesRequestProcessor implements IMessageProcessor {
     private final StepRegistry registry;
 
-    public StepNamesRequestProcessor(ClassInstanceManager instanceManager, StepRegistry registry) {
+    public StepNamesRequestProcessor(StepRegistry registry) {
         this.registry = registry;
     }
 
