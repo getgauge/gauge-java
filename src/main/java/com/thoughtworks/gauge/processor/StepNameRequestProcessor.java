@@ -15,7 +15,6 @@
 
 package com.thoughtworks.gauge.processor;
 
-import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 
@@ -24,12 +23,14 @@ import java.util.Set;
 public class StepNameRequestProcessor implements IMessageProcessor {
     private final StepRegistry registry;
 
-    public StepNameRequestProcessor(ClassInstanceManager instanceManager, StepRegistry registry) {
+    public StepNameRequestProcessor(StepRegistry registry) {
         this.registry = registry;
     }
 
     public Messages.Message process(Messages.Message message) {
         Set<String> stepAnnotations = registry.getAllAliasAnnotationTextsFor(message.getStepNameRequest().getStepValue());
+        String fileName = registry.getFileName(message.getStepNameRequest().getStepValue());
+//        Method method = registry.get(message.getStepNameRequest().getStepValue());
         boolean hasAlias = false, isStepPresent = false;
 
         if (stepAnnotations.size() > 1) {
@@ -43,7 +44,7 @@ public class StepNameRequestProcessor implements IMessageProcessor {
         return Messages.Message.newBuilder()
                 .setMessageId(message.getMessageId())
                 .setMessageType(Messages.Message.MessageType.StepNameResponse)
-                .setStepNameResponse(Messages.StepNameResponse.newBuilder().addAllStepName(stepAnnotations).setIsStepPresent(isStepPresent).setHasAlias(hasAlias).build())
+                .setStepNameResponse(Messages.StepNameResponse.newBuilder().addAllStepName(stepAnnotations).setIsStepPresent(isStepPresent).setHasAlias(hasAlias).setFileName(fileName).build())
                 .build();
     }
 }

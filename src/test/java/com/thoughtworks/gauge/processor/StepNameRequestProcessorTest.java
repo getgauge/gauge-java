@@ -31,7 +31,7 @@ public class StepNameRequestProcessorTest {
     @Test
     public void shouldHaveTheStep() {
         StepRegistry registry = mockStepRegistry(Sets.newHashSet(anyString));
-        StepNameRequestProcessor stepNameRequestProcessor = new StepNameRequestProcessor(new ClassInstanceManager(), registry);
+        StepNameRequestProcessor stepNameRequestProcessor = new StepNameRequestProcessor(registry);
         Messages.Message outputMessage = stepNameRequestProcessor.process(message);
 
         assertFalse(outputMessage.getStepNameResponse().getHasAlias());
@@ -42,7 +42,7 @@ public class StepNameRequestProcessorTest {
     public void shouldHaveTheStepAlias() {
         String anyOtherString = "stepText \\ name";
         StepRegistry registry = mockStepRegistry(Sets.newHashSet(anyString, anyOtherString));
-        StepNameRequestProcessor stepNameRequestProcessor = new StepNameRequestProcessor(new ClassInstanceManager(), registry);
+        StepNameRequestProcessor stepNameRequestProcessor = new StepNameRequestProcessor(registry);
         Messages.Message outputMessage = stepNameRequestProcessor.process(message);
 
         assertTrue(outputMessage.getStepNameResponse().getHasAlias());

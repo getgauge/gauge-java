@@ -15,7 +15,10 @@
 
 package com.thoughtworks.gauge.registry;
 
+import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.StepValue;
+import com.thoughtworks.gauge.connection.GaugeConnector;
+import org.reflections.Reflections;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -96,6 +99,29 @@ public class StepRegistry {
         return registry.getOrDefault(stepText, new HashSet<>()).stream()
                 .map(StepRegistryEntry::getMethod)
                 .collect(toSet());
+    }
+
+    public void removeSteps(String fileName) {
+        registry.remove(fileName);
+    }
+
+    public void loadSteps(String fileName, GaugeConnector connector) {
+        Reflections reflections = new Reflections().collect(new File(fileName));
+        Set<Method> methods = reflections.getMethodsAnnotatedWith(Step.class);
+        buildStepRegistry(methods, connector);
+
+    }
+
+    public void buildStepRegistry(Set<Method> stepImplementations, GaugeConnector connector) {
+        for (Method method : stepImplementations) {
+            Step annotation = method.getAnnotation(Step.class);
+            if (annotation != null) {
+                for (String stepName : annotation.value()) {
+                    StepValue stepValue = connector.getGaugeApiConnection().getStepValue(stepName);
+                    addStepImplementation(stepValue, method);
+                }
+            }
+        }
     }
 
     private class StepRegistryEntry {

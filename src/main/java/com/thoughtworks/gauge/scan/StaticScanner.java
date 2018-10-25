@@ -16,6 +16,7 @@
 package com.thoughtworks.gauge.scan;
 
 import com.thoughtworks.gauge.ClasspathHelper;
+import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.connection.GaugeConnector;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import org.reflections.Configuration;
@@ -29,7 +30,9 @@ import org.reflections.vfs.Vfs;
 import org.reflections.vfs.ZipDir;
 
 import java.io.File;
+import java.lang.reflect.Method;
 import java.net.URL;
+import java.util.Set;
 import java.util.jar.JarFile;
 
 import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
@@ -48,9 +51,10 @@ public class StaticScanner {
         for (IScanner scanner : scanners) {
             scanner.scan(reflections);
         }
-        StepsScanner stepsScanner = new StepsScanner(connector, stepRegistry);
-        stepsScanner.scan(reflections);
+        Set<Method> stepImplementations = reflections.getMethodsAnnotatedWith(Step.class);
+        stepRegistry.buildStepRegistry(stepImplementations, connector);
     }
+
 
     private Reflections createReflections() {
         Vfs.addDefaultURLTypes(new Vfs.UrlType() {
@@ -91,5 +95,14 @@ public class StaticScanner {
 
     public StepRegistry getStepRegistry() {
         return stepRegistry;
+    }
+
+    public void reloadSteps(String fileName) {
+        removeSteps(fileName);
+        getStepRegistry().loadSteps(fileName, connector);
+    }
+
+    public void removeSteps(String fileName) {
+        getStepRegistry().removeSteps(fileName);
     }
 }

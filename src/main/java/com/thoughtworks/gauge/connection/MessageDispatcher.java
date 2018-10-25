@@ -31,6 +31,7 @@ import com.thoughtworks.gauge.processor.SpecExecutionEndingProcessor;
 import com.thoughtworks.gauge.processor.StepExecutionStartingProcessor;
 import com.thoughtworks.gauge.processor.ExecuteStepProcessor;
 import com.thoughtworks.gauge.processor.StepExecutionEndingProcessor;
+import com.thoughtworks.gauge.processor.CacheFileRequestProcessor;
 import com.thoughtworks.gauge.processor.StepNamesRequestProcessor;
 import com.thoughtworks.gauge.processor.ValidateStepProcessor;
 import com.thoughtworks.gauge.processor.KillProcessProcessor;
@@ -86,6 +87,7 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor(instanceManager));
             put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor(instanceManager, stepRegistry));
+            put(Messages.Message.MessageType.CacheFileRequest, new CacheFileRequestProcessor(staticScanner));
         }};
     }
 
