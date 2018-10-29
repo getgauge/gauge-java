@@ -35,6 +35,7 @@ import static java.util.stream.Collectors.toSet;
 
 public class StepRegistry {
     private HashMap<String, Set<StepRegistryEntry>> registry = new HashMap<>();
+    private GaugeConnector connector;
 
     public void addStepImplementation(StepValue stepValue, Method method) {
         String stepText = stepValue.getStepText();
@@ -105,19 +106,20 @@ public class StepRegistry {
         registry.remove(fileName);
     }
 
-    public void loadSteps(String fileName, GaugeConnector connector) {
+    public void loadSteps(String fileName) {
         Reflections reflections = new Reflections().collect(new File(fileName));
         Set<Method> methods = reflections.getMethodsAnnotatedWith(Step.class);
         buildStepRegistry(methods, connector);
 
     }
 
-    public void buildStepRegistry(Set<Method> stepImplementations, GaugeConnector connector) {
+    public void buildStepRegistry(Set<Method> stepImplementations, GaugeConnector gaugeConnector) {
         for (Method method : stepImplementations) {
             Step annotation = method.getAnnotation(Step.class);
             if (annotation != null) {
                 for (String stepName : annotation.value()) {
-                    StepValue stepValue = connector.getGaugeApiConnection().getStepValue(stepName);
+                    StepValue stepValue = gaugeConnector.getGaugeApiConnection().getStepValue(stepName);
+
                     addStepImplementation(stepValue, method);
                 }
             }

@@ -17,7 +17,8 @@ package com.thoughtworks.gauge;
 
 import com.thoughtworks.gauge.connection.GaugeConnector;
 import com.thoughtworks.gauge.connection.MessageDispatcher;
-import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
+import com.thoughtworks.gauge.scan.StaticScanner;
+import io.grpc.ServerBuilder;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,24 +36,41 @@ public class GaugeRuntime {
     private static List<Thread> threads = new ArrayList<Thread>();
 
     public static void main(String[] args) throws Exception {
+        StaticScanner staticScanner = new StaticScanner();
+        MessageDispatcher messageDispatcher = new MessageDispatcher(staticScanner);
+        if (System.getenv(GaugeConstant.GAUGE_LSP_GRPC) != null) {
+            startGRPCServer(messageDispatcher, staticScanner);
+        } else {
+            startGaugeServer(messageDispatcher, staticScanner);
+        }
+
+        for (Thread thread : threads) {
+            thread.join();
+        }
+        System.exit(0);
+    }
+
+    private static void startGaugeServer(MessageDispatcher messageDispatcher, StaticScanner staticScanner) {
         int apiPort = readEnvVar(GaugeConstant.GAUGE_API_PORT);
         String portInfo = System.getenv("GAUGE_API_PORTS");
         if (portInfo != null && !portInfo.trim().isEmpty()) {
             List<String> ports = Arrays.asList(portInfo.split(","));
             for (int i = 0, portsSize = ports.size(); i < portsSize; i++) {
                 if (i == 0) {
-                    connectSynchronously(Integer.parseInt(ports.get(i)), apiPort);
+                    connectSynchronously(Integer.parseInt(ports.get(i)), apiPort, messageDispatcher, staticScanner);
                 } else {
-                    connectInParallel(Integer.parseInt(ports.get(i)), apiPort);
+                    connectInParallel(Integer.parseInt(ports.get(i)), apiPort, messageDispatcher, staticScanner);
                 }
             }
         } else {
-            connectSynchronously(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), apiPort);
+            connectSynchronously(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), apiPort, messageDispatcher, staticScanner);
         }
-        for (Thread thread : threads) {
-            thread.join();
-        }
-        System.exit(0);
+    }
+
+    private static void startGRPCServer(MessageDispatcher messageDispatcher, StaticScanner staticScanner) {
+        System.out.println("connected grpc server.........");
+        new LspServer(staticScanner, messageDispatcher)
+        ServerBuilder.forPort(0).addService().build();
     }
 
     private static int readEnvVar(String env) {
@@ -63,14 +81,15 @@ public class GaugeRuntime {
         return Integer.parseInt(port);
     }
 
-    private static void connectInParallel(final int gaugeInternalPort, final int gaugeApiPort) {
-        Thread thread = new Thread(() -> dispatchMessages(makeConnection(gaugeInternalPort, gaugeApiPort)));
+    private static void connectInParallel(final int gaugeInternalPort, final int gaugeApiPort, MessageDispatcher messageDispatcher, StaticScanner staticScanner) {
+        Thread thread = new Thread(() -> dispatchMessages(messageDispatcher, makeConnection(gaugeInternalPort, gaugeApiPort)));
         startThread(thread);
     }
 
-    private static void connectSynchronously(final int gaugeInternalPort, final int gaugeApiPort) {
+    private static void connectSynchronously(final int gaugeInternalPort, final int gaugeApiPort, MessageDispatcher messageDispatcher, StaticScanner staticScanner) {
         final GaugeConnector connector = makeConnection(gaugeInternalPort, gaugeApiPort);
-        Thread thread = new Thread(() -> dispatchMessages(connector));
+        staticScanner.buildStepRegistry(connector);
+        Thread thread = new Thread(() -> dispatchMessages(messageDispatcher, connector));
         startThread(thread);
     }
 
@@ -85,9 +104,9 @@ public class GaugeRuntime {
         return connector;
     }
 
-    private static void dispatchMessages(GaugeConnector connector) {
+    private static void dispatchMessages(MessageDispatcher messageDispatcher, GaugeConnector connector) {
         try {
-            new MessageDispatcher(new ParameterParsingChain(), connector).dispatchMessages();
+            messageDispatcher.dispatchMessages(connector);
         } catch (IOException e) {
             Thread t = Thread.currentThread();
             t.getUncaughtExceptionHandler().uncaughtException(t, e);

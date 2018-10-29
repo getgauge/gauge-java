@@ -40,17 +40,16 @@ import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
 public class StaticScanner {
 
     private StepRegistry stepRegistry = new StepRegistry();
-    private GaugeConnector connector;
-
-    public StaticScanner(GaugeConnector connector) {
-        this.connector = connector;
-    }
+    private Reflections reflections;
 
     public void scan(IScanner... scanners) {
-        Reflections reflections = createReflections();
+        reflections = createReflections();
         for (IScanner scanner : scanners) {
             scanner.scan(reflections);
         }
+    }
+
+    public void buildStepRegistry(GaugeConnector connector) {
         Set<Method> stepImplementations = reflections.getMethodsAnnotatedWith(Step.class);
         stepRegistry.buildStepRegistry(stepImplementations, connector);
     }
@@ -99,7 +98,7 @@ public class StaticScanner {
 
     public void reloadSteps(String fileName) {
         removeSteps(fileName);
-        getStepRegistry().loadSteps(fileName, connector);
+        getStepRegistry().loadSteps(fileName);
     }
 
     public void removeSteps(String fileName) {

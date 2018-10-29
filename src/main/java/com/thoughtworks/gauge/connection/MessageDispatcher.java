@@ -20,7 +20,6 @@ import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
-import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.processor.IMessageProcessor;
 import com.thoughtworks.gauge.processor.SpecExecutionStartingProcessor;
 import com.thoughtworks.gauge.processor.SuiteExecutionEndingProcessor;
@@ -57,18 +56,17 @@ import java.util.HashMap;
  */
 public class MessageDispatcher {
 
-    private final HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors;
-    private final ParameterParsingChain chain;
-    private final GaugeConnector connector;
+    private HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors;
+    private StaticScanner staticScanner;
+    private StepRegistry stepRegistry;
 
-    public MessageDispatcher(ParameterParsingChain parameterParsingChain, GaugeConnector connector) {
+    public MessageDispatcher(StaticScanner staticScanner) {
+        this.staticScanner = staticScanner;
+        this.staticScanner.scan(new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
+        stepRegistry = staticScanner.getStepRegistry();
 
-        this.chain = parameterParsingChain;
-        this.connector = connector;
-        StaticScanner staticScanner = new StaticScanner(connector);
-        staticScanner.scan(new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
-        StepRegistry stepRegistry = staticScanner.getStepRegistry();
         final ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
+
         messageProcessors = new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));
@@ -78,7 +76,7 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.ScenarioExecutionEnding, new ScenarioExecutionEndingProcessor(instanceManager));
             put(Messages.Message.MessageType.StepExecutionStarting, new StepExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.StepExecutionEnding, new StepExecutionEndingProcessor(instanceManager));
-            put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager, chain, stepRegistry));
+            put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager, stepRegistry));
             put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor(instanceManager, stepRegistry));
             put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer(instanceManager));
@@ -91,7 +89,7 @@ public class MessageDispatcher {
         }};
     }
 
-    public void dispatchMessages() throws IOException {
+    public void dispatchMessages(GaugeConnector connector) throws IOException {
         Socket gaugeSocket = connector.getGaugeSocket();
         InputStream inputStream = gaugeSocket.getInputStream();
         while (isConnected(gaugeSocket)) {
@@ -150,5 +148,9 @@ public class MessageDispatcher {
 
     private boolean isConnected(Socket socket) {
         return !socket.isClosed() && socket.isConnected();
+    }
+
+    public IMessageProcessor getProcessor(Messages.Message.MessageType stepNameRequest) {
+        return messageProcessors.get(stepNameRequest);
     }
 }

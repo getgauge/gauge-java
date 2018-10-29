@@ -22,4 +22,6 @@ public class GaugeConstant {
     public static final String STEP_ANNOTATION_QUALIFIER = "com.thoughtworks.gauge.Step";
     public static final String GAUGE_DEBUG_OPTS_ENV = "GAUGE_DEBUG_OPTS";
     public static final String PACKAGE_TO_SCAN = "package_to_scan";
+    public static final String GAUGE_LSP_GRPC = "GAUGE_LSP_GRPC";
+
 }
