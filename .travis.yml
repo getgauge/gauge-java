@@ -3,7 +3,7 @@ os:
 language: java
 jdk:
   - oraclejdk8
-  - oraclejdk10
+  - oraclejdk11
 env:
   - GOPATH="/tmp" GAUGE_ROOT="/tmp/gauge" GAUGE_TELEMETRY_ENABLED=false
 before_install:
