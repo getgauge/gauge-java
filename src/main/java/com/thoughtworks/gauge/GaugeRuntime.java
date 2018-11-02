@@ -69,8 +69,8 @@ public class GaugeRuntime {
 
     private static void startGRPCServer(MessageDispatcher messageDispatcher, StaticScanner staticScanner) {
         System.out.println("connected grpc server.........");
-        new LspServer(staticScanner, messageDispatcher)
-        ServerBuilder.forPort(0).addService().build();
+        LspServer lspServer = new LspServer(staticScanner, messageDispatcher);
+        ServerBuilder.forPort(0).addService(lspServer).build();
     }
 
     private static int readEnvVar(String env) {

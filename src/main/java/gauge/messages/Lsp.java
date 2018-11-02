@@ -449,7 +449,7 @@ public final class Lsp {
   static {
     java.lang.String[] descriptorData = {
       "\n\tlsp.proto\022\016gauge.messages\032\016messages.pr" +
-      "oto\"\007\n\005Empty2\352\006\n\nLspService\022S\n\014GetStepNa" +
+      "oto\"\007\n\005Empty2\352\006\n\nlspService\022S\n\014GetStepNa" +
       "mes\022 .gauge.messages.StepNamesRequest\032!." +
       "gauge.messages.StepNamesResponse\022D\n\tCach" +
       "eFile\022 .gauge.messages.CacheFileRequest\032" +
@@ -471,8 +471,7 @@ public final class Lsp {
       "\0325.gauge.messages.ImplementationFileGlob" +
       "PatternResponse\022H\n\013KillProcess\022\".gauge.m" +
       "essages.KillProcessRequest\032\025.gauge.messa" +
-      "ges.EmptyB!\n\016gauge.messages\252\002\016Gauge.Mess" +
-      "agesb\006proto3"
+      "ges.EmptyB\021\252\002\016Gauge.Messagesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
