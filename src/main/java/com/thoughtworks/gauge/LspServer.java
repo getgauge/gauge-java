@@ -19,8 +19,6 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
 
     @Override
     public void getStepNames(Messages.StepNamesRequest request, StreamObserver<Messages.StepNamesResponse> responseObserver) {
-//        messageDispatcher.getProcessor(Messages.Message.MessageType.StepNameRequest).process(request);
-//        return Messages.Message.newBuilder().getStepNameResponse();
         super.getStepNames(request, responseObserver);
     }
 

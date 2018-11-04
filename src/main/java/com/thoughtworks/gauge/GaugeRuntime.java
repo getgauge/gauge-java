@@ -18,6 +18,7 @@ package com.thoughtworks.gauge;
 import com.thoughtworks.gauge.connection.GaugeConnector;
 import com.thoughtworks.gauge.connection.MessageDispatcher;
 import com.thoughtworks.gauge.scan.StaticScanner;
+import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
 import java.io.IOException;
@@ -67,10 +68,13 @@ public class GaugeRuntime {
         }
     }
 
-    private static void startGRPCServer(MessageDispatcher messageDispatcher, StaticScanner staticScanner) {
-        System.out.println("connected grpc server.........");
+    private static void startGRPCServer(MessageDispatcher messageDispatcher, StaticScanner staticScanner) throws IOException, InterruptedException {
         LspServer lspServer = new LspServer(staticScanner, messageDispatcher);
-        ServerBuilder.forPort(0).addService(lspServer).build();
+        Server server = ServerBuilder.forPort(0).addService(lspServer).build();
+        server.start();
+        int port = server.getPort();
+        System.out.println("Listening on port:" + port);
+        server.awaitTermination();
     }
 
     private static int readEnvVar(String env) {
