@@ -69,8 +69,9 @@ public class GaugeRuntime {
     }
 
     private static void startGRPCServer(MessageDispatcher messageDispatcher, StaticScanner staticScanner) throws IOException, InterruptedException {
-        LspServer lspServer = new LspServer(staticScanner, messageDispatcher);
-        Server server = ServerBuilder.forPort(0).addService(lspServer).build();
+        Server server = null;
+        LspServer lspServer = new LspServer(server, messageDispatcher);
+        server = ServerBuilder.forPort(0).addService(lspServer).build();
         server.start();
         int port = server.getPort();
         System.out.println("Listening on port:" + port);
@@ -91,7 +92,7 @@ public class GaugeRuntime {
     }
 
     private static void connectSynchronously(final int gaugeInternalPort, final int gaugeApiPort, MessageDispatcher messageDispatcher, StaticScanner staticScanner) {
-        final GaugeConnector connector = makeConnection(gaugeInternalPort, gaugeApiPort);
+        GaugeConnector connector = makeConnection(gaugeInternalPort, gaugeApiPort);
         staticScanner.buildStepRegistry(connector);
         Thread thread = new Thread(() -> dispatchMessages(messageDispatcher, connector));
         startThread(thread);
