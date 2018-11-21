@@ -56,16 +56,10 @@ public class StepRegistryTest extends TestCase {
         assertTrue(stepRegistry.contains(aliasStep1.getStepText()));
         assertTrue(stepRegistry.contains(aliasStep2.getStepText()));
 
-        assertEquals(method1, stepRegistry.get(stepValue1.getStepText()));
-        assertEquals(method2, stepRegistry.get(stepValue2.getStepText()));
-        assertEquals(method3, stepRegistry.get(stepValue3.getStepText()));
-        assertNull(stepRegistry.get("unknown"));
-    }
-
-    public void testGetFileNameFromStepRegistry() throws Exception {
-        String expected = String.format("com%sthoughtworks%sgauge%sTestStepImplClass.java", File.separator, File.separator, File.separator);
-        assertEquals(expected, stepRegistry.getFileName(stepValue1.getStepText()));
-        assertEquals("", stepRegistry.getFileName("unknown"));
+        assertEquals(method1, stepRegistry.getMethod(stepValue1.getStepText()));
+        assertEquals(method2, stepRegistry.getMethod(stepValue2.getStepText()));
+        assertEquals(method3, stepRegistry.getMethod(stepValue3.getStepText()));
+        assertNull(stepRegistry.getMethod("unknown"));
     }
 
     public void testGetAllStepTexts() throws Exception {
@@ -114,8 +108,8 @@ public class StepRegistryTest extends TestCase {
     public void testRemoveEntry() throws Exception {
         stepRegistry.remove(stepValue1.getStepText());
         assertFalse(stepRegistry.contains(stepValue1.getStepText()));
-        assertNull(stepRegistry.get(stepValue1.getStepText()));
-        assertTrue(stepRegistry.getAll(stepValue1.getStepText()).isEmpty());
+        assertNull(stepRegistry.getMethod(stepValue1.getStepText()));
+        assertTrue(stepRegistry.getAllMethods(stepValue1.getStepText()).isEmpty());
         assertEquals("", stepRegistry.getStepAnnotationFor(stepValue1.getStepText()));
         assertFalse(stepRegistry.hasAlias(stepValue1.getStepText()));
     }
@@ -123,7 +117,7 @@ public class StepRegistryTest extends TestCase {
     public void testAddedToRawRegistry() {
         stepRegistry.addStepImplementation(stepValue1, method2);
 
-        Set<Method> methods = stepRegistry.getAll(stepValue1.getStepText());
+        Set<Method> methods = stepRegistry.getAllMethods(stepValue1.getStepText());
 
         assertTrue(methods.contains(method1));
         assertTrue(methods.contains(method2));

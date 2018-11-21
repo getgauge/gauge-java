@@ -12,7 +12,7 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     private Server server;
     private MessageDispatcher messageDispatcher;
 
-    public LspServer(Server server, MessageDispatcher messageDispatcher) {
+    LspServer(Server server, MessageDispatcher messageDispatcher) {
         this.server = server;
         this.messageDispatcher = messageDispatcher;
     }
@@ -59,7 +59,8 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     @Override
     public void getImplementationFiles(Lsp.Empty request, StreamObserver<Messages.ImplementationFileListResponse> responseObserver) {
         Messages.ImplementationFileListResponse response = new Messages.ImplementationFileListResponse();
-//        response.getImplementationFilePathsList().addAll(allImpfiles);
+        Iterable<String> allImplFiles = FileHelper.getAllImplementationFiles();
+        response.toBuilder().addAllImplementationFilePaths(allImplFiles);
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
@@ -119,8 +120,8 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     @Override
     public void getGlobPatterns(Lsp.Empty request, StreamObserver<Messages.ImplementationFileGlobPatternResponse> responseObserver) {
         Messages.ImplementationFileGlobPatternResponse response = new Messages.ImplementationFileGlobPatternResponse();
-//        String gaugeProjectRoot = System.getenv("GAUGE_PROJECT_ROOT") + "/**/*.java";
-//        response.getGlobPatternsList().add(gaugeProjectRoot);
+        String gaugeProjectRoot = System.getenv("GAUGE_PROJECT_ROOT") + "/**/*.java";
+        response.toBuilder().addGlobPatterns(gaugeProjectRoot);
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }

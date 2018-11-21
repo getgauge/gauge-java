@@ -48,7 +48,7 @@ public class JavaRefactoringTest extends TestCase {
     public void testRefactoringWithDuplicateImplementations() {
         HashSet<Method> set = mock(HashSet.class);
         StepRegistry registry = mock(StepRegistry.class);
-        when(registry.getAll("old step")).thenReturn(set);
+        when(registry.getAllMethods("old step")).thenReturn(set);
         when(set.size()).thenReturn(2);
         when(registry.getFileName("old step")).thenReturn("foo");
 

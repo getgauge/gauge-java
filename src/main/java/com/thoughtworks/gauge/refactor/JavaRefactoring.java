@@ -47,7 +47,7 @@ public class  JavaRefactoring {
         if (registry.hasAlias(oldStepText)) {
             return new RefactoringResult(false, "Refactoring for steps having aliases are not supported.");
         }
-        if (registry.getAll(oldStepText).size() > 1) {
+        if (registry.getAllMethods(oldStepText).size() > 1) {
             return new RefactoringResult(false, "Duplicate step implementation found.");
         }
 

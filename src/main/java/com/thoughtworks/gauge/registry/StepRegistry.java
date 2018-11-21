@@ -16,6 +16,7 @@
 package com.thoughtworks.gauge.registry;
 
 import com.thoughtworks.gauge.Step;
+import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.connection.GaugeConnector;
 import org.reflections.Reflections;
@@ -27,19 +28,18 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.HashMap;
-import java.util.HashSet;
 
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
 public class StepRegistry {
-    private HashMap<String, Set<StepRegistryEntry>> registry = new HashMap<>();
+    private HashMap<String, List<StepRegistryEntry>> registry = new HashMap<>();
     private GaugeConnector connector;
 
     public void addStepImplementation(StepValue stepValue, Method method) {
         String stepText = stepValue.getStepText();
-        registry.putIfAbsent(stepText, new HashSet<>());
+        registry.putIfAbsent(stepText, new ArrayList<>());
         registry.get(stepText).add(new StepRegistryEntry(stepValue, method));
     }
 
@@ -47,12 +47,16 @@ public class StepRegistry {
         return registry.containsKey(stepTemplateText);
     }
 
-    public Method get(String stepTemplateText) {
-        return getFirstEntry(stepTemplateText).getMethod();
+    public Method getMethod(String stepTemplateText) {
+        return getFirstEntry(stepTemplateText).getMethodInfo();
+    }
+
+    public StepRegistryEntry get(String stepTemplateText) {
+        return getFirstEntry(stepTemplateText);
     }
 
     private StepRegistryEntry getFirstEntry(String stepTemplateText) {
-        return registry.getOrDefault(stepTemplateText, new HashSet<>()).stream()
+        return registry.getOrDefault(stepTemplateText, new ArrayList<>()).stream()
                 .findFirst()
                 .orElse(new StepRegistryEntry());
     }
@@ -82,9 +86,9 @@ public class StepRegistry {
     }
 
     public Set<String> getAllAliasAnnotationTextsFor(String stepTemplateText) {
-        Method method = get(stepTemplateText);
+        Method method = getMethod(stepTemplateText);
         return registry.values().stream().flatMap(Collection::stream)
-                .filter(registryEntry -> registryEntry.getMethod().equals(method))
+                .filter(registryEntry -> registryEntry.getMethodInfo().equals(method))
                 .map(registryEntry -> registryEntry.getStepValue().getStepAnnotationText()).collect(toSet());
     }
 
@@ -96,10 +100,14 @@ public class StepRegistry {
         registry.remove(stepTemplateText);
     }
 
-    public Set<Method> getAll(String stepText) {
-        return registry.getOrDefault(stepText, new HashSet<>()).stream()
-                .map(StepRegistryEntry::getMethod)
+    public Set<Method> getAllMethods(String stepText) {
+        return registry.getOrDefault(stepText, new ArrayList<>()).stream()
+                .map(StepRegistryEntry::getMethodInfo)
                 .collect(toSet());
+    }
+
+    public List<StepRegistryEntry> getAllEntries(String stepText) {
+        return registry.get(stepText);
     }
 
     public void removeSteps(String fileName) {
@@ -113,46 +121,26 @@ public class StepRegistry {
 
     }
 
+    public void addStep(StepValue stepValue, StepRegistryEntry entry) {
+        String stepText = stepValue.getStepText();
+        registry.putIfAbsent(stepText, new ArrayList<>());
+        registry.get(stepText).add(entry);
+    }
+
     public void buildStepRegistry(Set<Method> stepImplementations, GaugeConnector gaugeConnector) {
         for (Method method : stepImplementations) {
             Step annotation = method.getAnnotation(Step.class);
             if (annotation != null) {
                 for (String stepName : annotation.value()) {
                     StepValue stepValue = gaugeConnector.getGaugeApiConnection().getStepValue(stepName);
-
                     addStepImplementation(stepValue, method);
                 }
             }
         }
     }
 
-    private class StepRegistryEntry {
-        private final StepValue stepValue;
-        private final Method method;
-
-        StepRegistryEntry(StepValue stepValue, Method method) {
-            this.stepValue = stepValue;
-            this.method = method;
-        }
-
-        StepRegistryEntry() {
-            stepValue = new StepValue("", "", new ArrayList<String>());
-            method = null;
-        }
-
-        public StepValue getStepValue() {
-            return stepValue;
-        }
-
-        public Method getMethod() {
-            return method;
-        }
-
-        public String getFileName() {
-            if (method == null) {
-                return "";
-            }
-            return method.getDeclaringClass().getCanonicalName().replace(".", File.separator) + ".java";
-        }
+    public boolean hasMultipleImplementations(String stepToValidate) {
+        return getAllEntries(stepToValidate).size() > 1;
     }
+
 }

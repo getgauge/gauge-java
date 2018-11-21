@@ -41,7 +41,7 @@ public class ValidateStepProcessorTest {
     @Test
     public void shouldFailIfStepIsNotFoundAndShouldGiveSuggestion() {
         StepRegistry stepRegistry = mock(StepRegistry.class);
-        when(stepRegistry.getAll(STEP_TEXT)).thenReturn(new HashSet<>());
+        when(stepRegistry.getAllMethods(STEP_TEXT)).thenReturn(new HashSet<>());
         ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
@@ -64,7 +64,7 @@ public class ValidateStepProcessorTest {
         messageBuilder.setStepValidateRequest(stepValidationRequest);
         this.message = messageBuilder.build();
         StepRegistry stepRegistry = mock(StepRegistry.class);
-        when(stepRegistry.getAll(STEP_TEXT)).thenReturn(new HashSet<>());
+        when(stepRegistry.getAllMethods(STEP_TEXT)).thenReturn(new HashSet<>());
         ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
@@ -79,7 +79,8 @@ public class ValidateStepProcessorTest {
     @Test
     public void shouldNotFailIfStepIsFoundAndShouldNotGiveSuggestion() {
         StepRegistry stepRegistry = mock(StepRegistry.class);
-        when(stepRegistry.getAll(STEP_TEXT)).thenReturn(Sets.newHashSet(anyMethod()));
+        when(stepRegistry.contains(STEP_TEXT)).thenReturn(true);
+        when(stepRegistry.hasMultipleImplementations(STEP_TEXT)).thenReturn(false);
         ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
@@ -91,7 +92,8 @@ public class ValidateStepProcessorTest {
     @Test
     public void shouldFailIfStepIsDefinedTwice() {
         StepRegistry stepRegistry = mock(StepRegistry.class);
-        when(stepRegistry.getAll(STEP_TEXT)).thenReturn(Sets.newHashSet(anyMethod(), anyOtherMethod()));
+        when(stepRegistry.contains(STEP_TEXT)).thenReturn(true);
+        when(stepRegistry.hasMultipleImplementations(STEP_TEXT)).thenReturn(true);
         ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);

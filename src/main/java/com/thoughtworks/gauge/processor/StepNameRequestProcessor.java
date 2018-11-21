@@ -15,10 +15,13 @@
 
 package com.thoughtworks.gauge.processor;
 
+import com.github.javaparser.Range;
+import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
+import gauge.messages.Spec;
 
-import java.util.Set;
+import java.util.List;
 
 public class StepNameRequestProcessor implements IMessageProcessor {
     private final StepRegistry registry;
@@ -28,23 +31,38 @@ public class StepNameRequestProcessor implements IMessageProcessor {
     }
 
     public Messages.Message process(Messages.Message message) {
-        Set<String> stepAnnotations = registry.getAllAliasAnnotationTextsFor(message.getStepNameRequest().getStepValue());
-        String fileName = registry.getFileName(message.getStepNameRequest().getStepValue());
-//        Method method = registry.get(message.getStepNameRequest().getStepValue());
-        boolean hasAlias = false, isStepPresent = false;
+        StepRegistryEntry entry = registry.get(message.getStepNameRequest().getStepValue());
+        List<String> aliases = entry.getAliases();
+        String stepText = entry.getStepText();
+        String fileName = entry.getFileName();
 
-        if (stepAnnotations.size() > 1) {
-            hasAlias = true;
+        Range range = entry.getSpan();
+
+        Spec.Span.Builder spanBuilder = Spec.Span.newBuilder()
+                .setStart(range.begin.line)
+                .setStartChar(range.begin.column)
+                .setEnd(range.end.line)
+                .setEndChar(range.end.column);
+
+        boolean hasAlias = entry.getHasAlias(), isStepPresent = false;
+
+        if (!hasAlias) {
+            aliases.add(stepText);
         }
 
-        if (stepAnnotations.size() >= 1) {
+        if (aliases.size() >= 1) {
             isStepPresent = true;
         }
 
         return Messages.Message.newBuilder()
                 .setMessageId(message.getMessageId())
                 .setMessageType(Messages.Message.MessageType.StepNameResponse)
-                .setStepNameResponse(Messages.StepNameResponse.newBuilder().addAllStepName(stepAnnotations).setIsStepPresent(isStepPresent).setHasAlias(hasAlias).setFileName(fileName).build())
+                .setStepNameResponse(Messages.StepNameResponse.newBuilder()
+                        .addAllStepName(aliases)
+                        .setIsStepPresent(isStepPresent)
+                        .setHasAlias(hasAlias)
+                        .setFileName(fileName)
+                        .setSpan(spanBuilder).build())
                 .build();
     }
 }

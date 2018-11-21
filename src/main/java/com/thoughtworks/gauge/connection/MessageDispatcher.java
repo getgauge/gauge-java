@@ -20,6 +20,7 @@ import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
+import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.processor.IMessageProcessor;
 import com.thoughtworks.gauge.processor.SpecExecutionStartingProcessor;
 import com.thoughtworks.gauge.processor.SuiteExecutionEndingProcessor;
@@ -36,6 +37,7 @@ import com.thoughtworks.gauge.processor.ValidateStepProcessor;
 import com.thoughtworks.gauge.processor.KillProcessProcessor;
 import com.thoughtworks.gauge.processor.RefactorRequestProcessor;
 import com.thoughtworks.gauge.processor.StepNameRequestProcessor;
+import com.thoughtworks.gauge.processor.StepPositionsRequestProcessor;
 import com.thoughtworks.gauge.registry.ClassInitializerRegistry;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import com.thoughtworks.gauge.scan.CustomClassInitializerScanner;
@@ -61,6 +63,7 @@ public class MessageDispatcher {
     private StepRegistry stepRegistry;
 
     public MessageDispatcher(StaticScanner staticScanner) {
+        ParameterParsingChain chain = new ParameterParsingChain();
         this.staticScanner = staticScanner;
         this.staticScanner.scan(new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
         stepRegistry = staticScanner.getStepRegistry();
@@ -68,7 +71,7 @@ public class MessageDispatcher {
         final ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
 
         messageProcessors = new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
-            put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
+            put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager, staticScanner));
             put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));
             put(Messages.Message.MessageType.SpecExecutionStarting, new SpecExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.SpecExecutionEnding, new SpecExecutionEndingProcessor(instanceManager));
@@ -76,7 +79,7 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.ScenarioExecutionEnding, new ScenarioExecutionEndingProcessor(instanceManager));
             put(Messages.Message.MessageType.StepExecutionStarting, new StepExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.StepExecutionEnding, new StepExecutionEndingProcessor(instanceManager));
-            put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager, stepRegistry));
+            put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager, chain, stepRegistry));
             put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor(instanceManager, stepRegistry));
             put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer(instanceManager));
@@ -86,6 +89,8 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor(instanceManager, stepRegistry));
             put(Messages.Message.MessageType.CacheFileRequest, new CacheFileRequestProcessor(staticScanner));
+            put(Messages.Message.MessageType.StepPositionsRequest, new StepPositionsRequestProcessor(stepRegistry));
+
         }};
     }
 

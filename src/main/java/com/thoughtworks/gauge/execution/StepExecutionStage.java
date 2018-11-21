@@ -18,6 +18,7 @@ package com.thoughtworks.gauge.execution;
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.execution.parameters.ParametersExtractor;
 import com.thoughtworks.gauge.execution.parameters.ParsingException;
+import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
@@ -32,10 +33,10 @@ public class StepExecutionStage extends AbstractExecutionStage {
     private ParametersExtractor parametersExtractor;
     private StepRegistry registry;
 
-    public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest, ClassInstanceManager manager, StepRegistry registry) {
+    public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest, ClassInstanceManager manager, ParameterParsingChain chain, StepRegistry registry) {
         this.manager = manager;
         this.executeStepRequest = executeStepRequest;
-        this.parametersExtractor = new ParametersExtractor();
+        this.parametersExtractor = new ParametersExtractor(chain);
         this.registry = registry;
     }
 
@@ -52,7 +53,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
     }
 
     private Spec.ProtoExecutionResult executeStep() {
-        Method method = registry.get(executeStepRequest.getParsedStepText());
+        Method method = registry.getMethod(executeStepRequest.getParsedStepText());
 
         int implementationParamCount = method.getParameterTypes().length;
         int numberOfParameters = this.executeStepRequest.getParametersCount();

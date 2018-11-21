@@ -15,7 +15,11 @@
 
 package com.thoughtworks.gauge.scan;
 
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParseException;
+import com.github.javaparser.ast.CompilationUnit;
 import com.thoughtworks.gauge.ClasspathHelper;
+import com.thoughtworks.gauge.FileHelper;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.connection.GaugeConnector;
 import com.thoughtworks.gauge.registry.StepRegistry;
@@ -30,6 +34,7 @@ import org.reflections.vfs.Vfs;
 import org.reflections.vfs.ZipDir;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.Set;
@@ -103,5 +108,30 @@ public class StaticScanner {
 
     public void removeSteps(String fileName) {
         getStepRegistry().removeSteps(fileName);
+    }
+
+    public void addStepsToRegistry() {
+        Iterable<String> files = FileHelper.getAllImplementationFiles();
+        for (String file : files) {
+            addStepsFromFile(file);
+        }
+    }
+
+    public void removeStepsFromRegistry() {
+        Iterable<String> files = FileHelper.getAllImplementationFiles();
+        for (String file : files) {
+            removeSteps(file);
+        }
+    }
+
+    private void addStepsFromFile(String file) {
+        try {
+            CompilationUnit compilationUnit = JavaParser.parse(new File(file));
+            MethodVisitor methodVisitor = new MethodVisitor(stepRegistry, file);
+            methodVisitor.visit(compilationUnit, null);
+
+        } catch (ParseException | IOException e) {
+            e.printStackTrace();
+        }
     }
 }

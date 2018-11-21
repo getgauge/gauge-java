@@ -21,12 +21,10 @@ import gauge.messages.Messages;
 import gauge.messages.Messages.StepValidateResponse;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
 
-import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class ValidateStepProcessor implements IMessageProcessor {
     private static Integer num = 1;
@@ -47,18 +45,17 @@ public class ValidateStepProcessor implements IMessageProcessor {
     }
 
     private StepValidateResponse validateStep(Messages.StepValidateRequest stepValidateRequest) {
-        Set<Method> methodImplementations = registry.getAll(stepValidateRequest.getStepText());
-
-        if (methodImplementations != null && methodImplementations.size() == 1) {
-            return buildSuccessValidationResponse();
-        } else if (methodImplementations.isEmpty()) {
+        String stepToValidate = stepValidateRequest.getStepText();
+        if (!registry.contains(stepToValidate)) {
             final StringBuilder suggestion = new StringBuilder(String.format("\n\t@Step(\"%s\")\n", stepValidateRequest.getStepValue().getParameterizedStepValue()));
             final String methodName = getMethodName(stepValidateRequest.getStepText());
             suggestion.append(String.format("\tpublic void %s(%s){\n\t\t", methodName, getParamList(stepValidateRequest.getStepValue().getParametersList())));
             suggestion.append("throw new UnsupportedOperationException(\"Provide custom implementation\");\n\t}");
             return buildFailureValidationResponse("Step implementation not found", ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, suggestion.toString());
-        } else {
+        } else if (registry.hasMultipleImplementations(stepToValidate)) {
             return buildFailureValidationResponse("Duplicate step implementation found", ErrorType.DUPLICATE_STEP_IMPLEMENTATION, "");
+        } else {
+            return buildSuccessValidationResponse();
         }
     }
 
