@@ -103,7 +103,11 @@ public class StaticScanner {
 
     public void reloadSteps(String fileName) {
         removeSteps(fileName);
-        getStepRegistry().loadSteps(fileName);
+        loadSteps(fileName);
+    }
+
+    private void loadSteps(String fileName) {
+        addStepsFromFile(fileName);
     }
 
     public void removeSteps(String fileName) {

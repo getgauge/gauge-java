@@ -21,9 +21,7 @@ import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.connection.GaugeConnector;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
-import org.reflections.Reflections;
 
-import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.ArrayList;
@@ -113,15 +111,17 @@ public class StepRegistry {
     }
 
     public void removeSteps(String fileName) {
-        registry.remove(fileName);
+        HashMap<String, List<StepRegistryEntry>> newRegistry = new HashMap<>();
+        for (Map.Entry<String, List<StepRegistryEntry>> entryList : newRegistry.entrySet()) {
+            for (StepRegistryEntry entry : entryList.getValue()) {
+                if (!entry.getFileName().equals(fileName)) {
+                    newRegistry.put(entry.getStepText(), newRegistry.get(entry.getStepText()));
+                }
+            }
+        }
+        registry = newRegistry;
     }
 
-    public void loadSteps(String fileName) {
-        Reflections reflections = new Reflections().collect(new File(fileName));
-        Set<Method> methods = reflections.getMethodsAnnotatedWith(Step.class);
-        buildStepRegistry(methods, connector);
-
-    }
 
     public void addStep(StepValue stepValue, StepRegistryEntry entry) {
         String stepText = stepValue.getStepText();
