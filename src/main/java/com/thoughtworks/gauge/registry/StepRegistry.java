@@ -19,16 +19,18 @@ import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.connection.GaugeConnector;
+import gauge.messages.Messages;
+import gauge.messages.Spec;
 import org.reflections.Reflections;
 
 import java.io.File;
 import java.lang.reflect.Method;
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.HashMap;
-
 
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
@@ -143,4 +145,25 @@ public class StepRegistry {
         return getAllEntries(stepToValidate).size() > 1;
     }
 
+    public List<Messages.StepPositionsResponse.StepPosition> getStepPositions(String filePath) {
+        List<Messages.StepPositionsResponse.StepPosition> stepPositionsList = new ArrayList<>();
+
+        for (Map.Entry<String, List<StepRegistryEntry>> entryList : registry.entrySet()) {
+            for (StepRegistryEntry entry : entryList.getValue()) {
+                if (entry.getFileName().equals(filePath)) {
+                    Messages.StepPositionsResponse.StepPosition stepPosition = Messages.StepPositionsResponse.StepPosition.newBuilder()
+                            .setStepValue(entryList.getKey())
+                            .setSpan(Spec.Span.newBuilder()
+                                    .setStart(entry.getSpan().begin.line)
+                                    .setStartChar(entry.getSpan().begin.column)
+                                    .setEnd(entry.getSpan().end.line)
+                                    .setEndChar(entry.getSpan().end.column).build())
+                            .build();
+                    stepPositionsList.add(stepPosition);
+                }
+            }
+        }
+
+        return stepPositionsList;
+    }
 }

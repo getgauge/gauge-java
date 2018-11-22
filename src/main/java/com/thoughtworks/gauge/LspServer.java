@@ -119,10 +119,8 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
 
     @Override
     public void getGlobPatterns(Lsp.Empty request, StreamObserver<Messages.ImplementationFileGlobPatternResponse> responseObserver) {
-        Messages.ImplementationFileGlobPatternResponse response = new Messages.ImplementationFileGlobPatternResponse();
         String gaugeProjectRoot = System.getenv("GAUGE_PROJECT_ROOT") + "/**/*.java";
-        response.toBuilder().addGlobPatterns(gaugeProjectRoot);
-        responseObserver.onNext(response);
+        responseObserver.onNext(Messages.ImplementationFileGlobPatternResponse.newBuilder().addGlobPatterns(gaugeProjectRoot).build());
         responseObserver.onCompleted();
     }
 

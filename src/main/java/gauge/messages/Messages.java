@@ -25650,7 +25650,7 @@ public final class Messages {
       private StepPosition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
       }
-      private StepPosition() {
+      public StepPosition() {
         stepValue_ = "";
       }
 
