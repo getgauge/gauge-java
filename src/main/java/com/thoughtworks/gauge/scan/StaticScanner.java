@@ -21,6 +21,8 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.thoughtworks.gauge.ClasspathHelper;
 import com.thoughtworks.gauge.FileHelper;
 import com.thoughtworks.gauge.Step;
+import com.thoughtworks.gauge.StepValue;
+import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.connection.GaugeConnector;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import org.reflections.Configuration;
@@ -98,7 +100,21 @@ public class StaticScanner {
     }
 
     public StepRegistry getStepRegistry() {
-        return stepRegistry;
+        StepRegistry registry = new StepRegistry();
+        Set<Method> methods = reflections.getMethodsAnnotatedWith(Step.class);
+        for (Method method : methods) {
+            Step annotation = method.getAnnotation(Step.class);
+            if (annotation != null) {
+                for (String stepName : annotation.value()) {
+                    String stepText = stepName.replaceAll("(<.*?>)", "{}");
+                    StepValue stepValue = new StepValue(stepText, stepName);
+                    StepRegistryEntry entry = stepRegistry.get(stepText);
+                    entry.setMethodInfo(method);
+                    registry.addStep(stepValue, entry);
+                }
+            }
+        }
+        return registry;
     }
 
     public void reloadSteps(String fileName) {
@@ -111,7 +127,7 @@ public class StaticScanner {
     }
 
     public void removeSteps(String fileName) {
-        getStepRegistry().removeSteps(fileName);
+        stepRegistry.removeSteps(fileName);
     }
 
     public void addStepsToRegistry() {
