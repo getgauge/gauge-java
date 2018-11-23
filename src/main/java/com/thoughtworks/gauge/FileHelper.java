@@ -1,5 +1,6 @@
 package com.thoughtworks.gauge;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -21,5 +22,18 @@ public class FileHelper {
             e.printStackTrace();
         }
         return outputFiles;
+    }
+
+    public static String getClassName(File filepath) {
+        String fileName = filepath.getName();
+        return com.google.common.io.Files.getNameWithoutExtension(fileName);
+    }
+
+    public static File getFileName(String suffix, int count) {
+
+        String filename = "StepImplementation" + suffix + ".java";
+        Path filepath = Paths.get(System.getenv("GAUGE_PROJECT_ROOT"), "src", "test", "java", filename);
+        File file = new File(filepath.toString());
+         return file.exists() ? getFileName(String.valueOf(++count), count) : file;
     }
 }

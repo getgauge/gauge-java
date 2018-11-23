@@ -90,6 +90,7 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor(instanceManager, stepRegistry));
             put(Messages.Message.MessageType.CacheFileRequest, new CacheFileRequestProcessor(staticScanner));
             put(Messages.Message.MessageType.StepPositionsRequest, new StepPositionsRequestProcessor(stepRegistry));
+            put(Messages.Message.MessageType.StubImplementationCodeRequest, new StubImplementationCodeProcessor());
 
         }};
     }

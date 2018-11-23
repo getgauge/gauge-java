@@ -1,3 +1,18 @@
+// Copyright 2015 ThoughtWorks, Inc.
+
+// This file is part of Gauge-Java.
+
+// This program is free software.
+//
+// It is dual-licensed under:
+// 1) the GNU General Public License as published by the Free Software Foundation,
+// either version 3 of the License, or (at your option) any later version;
+// or
+// 2) the Eclipse Public License v1.0.
+//
+// You can redistribute it and/or modify it under the terms of either license.
+// We would then provide copied of each license in a separate .txt file with the name of the license as the title of the file.
+
 package com.thoughtworks.gauge;
 
 import com.thoughtworks.gauge.connection.MessageDispatcher;
@@ -58,10 +73,8 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
 
     @Override
     public void getImplementationFiles(Lsp.Empty request, StreamObserver<Messages.ImplementationFileListResponse> responseObserver) {
-        Messages.ImplementationFileListResponse response = new Messages.ImplementationFileListResponse();
         Iterable<String> allImplFiles = FileHelper.getAllImplementationFiles();
-        response.toBuilder().addAllImplementationFilePaths(allImplFiles);
-        responseObserver.onNext(response);
+        responseObserver.onNext(Messages.ImplementationFileListResponse.newBuilder().addAllImplementationFilePaths(allImplFiles).build());
         responseObserver.onCompleted();
     }
 

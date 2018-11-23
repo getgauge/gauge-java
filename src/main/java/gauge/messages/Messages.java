@@ -31338,7 +31338,7 @@ public final class Messages {
     private FileDiff(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private FileDiff() {
+    public FileDiff() {
       filePath_ = "";
       textDiffs_ = java.util.Collections.emptyList();
     }
