@@ -21,21 +21,17 @@ import com.thoughtworks.gauge.MessageCollector;
 import com.thoughtworks.gauge.ScreenshotCollector;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import com.thoughtworks.gauge.registry.HooksRegistry;
-import com.thoughtworks.gauge.scan.StaticScanner;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
 public class SuiteExecutionStartingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
 
-    private StaticScanner staticScanner;
 
-    public SuiteExecutionStartingProcessor(ClassInstanceManager instanceManager, StaticScanner staticScanner) {
+    public SuiteExecutionStartingProcessor(ClassInstanceManager instanceManager) {
         super(instanceManager);
-        this.staticScanner = staticScanner;
     }
 
     public Messages.Message process(Messages.Message message) {
-        staticScanner.removeStepsFromRegistry();
         ExecutionContext info = new ExecutionInfoMapper().executionInfoFrom(message.getExecutionStartingRequest().getCurrentExecutionInfo());
         Messages.Message result = executeHooks(HooksRegistry.getBeforeSuiteHooks(), message, info);
         Spec.ProtoExecutionResult executionResult = result.getExecutionStatusResponse().getExecutionResult();

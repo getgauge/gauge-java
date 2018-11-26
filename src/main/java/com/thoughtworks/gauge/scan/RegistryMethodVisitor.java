@@ -1,3 +1,18 @@
+// Copyright 2015 ThoughtWorks, Inc.
+
+// This file is part of Gauge-Java.
+
+// This program is free software.
+//
+// It is dual-licensed under:
+// 1) the GNU General Public License as published by the Free Software Foundation,
+// either version 3 of the License, or (at your option) any later version;
+// or
+// 2) the Eclipse Public License v1.0.
+//
+// You can redistribute it and/or modify it under the terms of either license.
+// We would then provide copied of each license in a separate .txt file with the name of the license as the title of the file.
+
 package com.thoughtworks.gauge.scan;
 
 import com.github.javaparser.ast.body.MethodDeclaration;
@@ -10,7 +25,7 @@ import com.thoughtworks.gauge.registry.StepRegistry;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MethodVisitor extends VoidVisitorAdapter {
+public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
 
     private StepValue stepValue;
@@ -18,7 +33,7 @@ public class MethodVisitor extends VoidVisitorAdapter {
     private StepRegistry stepRegistry;
     private String file;
 
-    public MethodVisitor(StepRegistry stepRegistry, String file) {
+    public RegistryMethodVisitor(StepRegistry stepRegistry, String file) {
         this.stepRegistry = stepRegistry;
         this.file = file;
     }
@@ -42,9 +57,7 @@ public class MethodVisitor extends VoidVisitorAdapter {
 
     private void addStepToRegistry(String parameterizedStepText, MethodDeclaration methodDeclaration) {
         List<AnnotationExpr> annotations = methodDeclaration.getAnnotations();
-        String stepText = parameterizedStepText
-                .replaceAll("(<.*?>)", "{}")
-                .replaceAll("\"", "");
+        String stepText = getStepText(parameterizedStepText);
         stepValue = new StepValue(stepText, parameterizedStepText);
 
         entry = new StepRegistryEntry();
@@ -58,6 +71,12 @@ public class MethodVisitor extends VoidVisitorAdapter {
         entry.setFileName(file);
 
         stepRegistry.addStep(stepValue, entry);
+    }
+
+    private String getStepText(String parameterizedStepText) {
+        return parameterizedStepText
+                .replaceAll("(<.*?>)", "{}")
+                .replaceAll("\"", "");
     }
 
     private Boolean hasAlias(List<AnnotationExpr> annotations) {

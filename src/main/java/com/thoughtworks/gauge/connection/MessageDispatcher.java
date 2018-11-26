@@ -71,7 +71,7 @@ public class MessageDispatcher {
         final ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
 
         messageProcessors = new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
-            put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager, staticScanner));
+            put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));
             put(Messages.Message.MessageType.SpecExecutionStarting, new SpecExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.SpecExecutionEnding, new SpecExecutionEndingProcessor(instanceManager));
@@ -106,7 +106,7 @@ public class MessageDispatcher {
                 if (!messageProcessors.containsKey(message.getMessageType())) {
                     System.err.println("Invalid message type received " + message.getMessageType());
                 } else {
-                    IMessageProcessor messageProcessor = messageProcessors.get(message.getMessageType());
+                    IMessageProcessor messageProcessor = getProcessor(message.getMessageType());
                     Messages.Message response = messageProcessor.process(message);
                     writeMessage(gaugeSocket, response);
                     if (message.getMessageType() == Messages.Message.MessageType.KillProcessRequest) {

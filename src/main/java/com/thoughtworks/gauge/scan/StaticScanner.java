@@ -119,11 +119,7 @@ public class StaticScanner {
 
     public void reloadSteps(String fileName) {
         removeSteps(fileName);
-        loadSteps();
-    }
-
-    private void loadSteps() {
-        addStepsToRegistry();
+        addStepsFromFile(fileName);
     }
 
     public void removeSteps(String fileName) {
@@ -137,21 +133,18 @@ public class StaticScanner {
         }
     }
 
-    public void removeStepsFromRegistry() {
-        Iterable<String> files = FileHelper.getAllImplementationFiles();
-        for (String file : files) {
-            removeSteps(file);
-        }
-    }
-
-    private void addStepsFromFile(String file) {
+    public void addStepsFromFile(String file) {
         try {
             CompilationUnit compilationUnit = JavaParser.parse(new File(file));
-            MethodVisitor methodVisitor = new MethodVisitor(stepRegistry, file);
+            RegistryMethodVisitor methodVisitor = new RegistryMethodVisitor(stepRegistry, file);
             methodVisitor.visit(compilationUnit, null);
 
         } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public StepRegistry getRegistry() {
+        return stepRegistry;
     }
 }

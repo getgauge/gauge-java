@@ -35,10 +35,9 @@ public class CacheFileRequestProcessor implements IMessageProcessor {
     }
 
     private void loadFromDisk(String fileName) {
-        if (!(new File(fileName).exists())) {
-            return;
+        if ((new File(fileName).exists())) {
+            staticScanner.reloadSteps(fileName);
         }
-        staticScanner.reloadSteps(fileName);
     }
 }
 

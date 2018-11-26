@@ -112,11 +112,10 @@ public class StepRegistry {
 
     public void removeSteps(String fileName) {
         HashMap<String, List<StepRegistryEntry>> newRegistry = new HashMap<>();
-        for (Map.Entry<String, List<StepRegistryEntry>> entryList : newRegistry.entrySet()) {
-            for (StepRegistryEntry entry : entryList.getValue()) {
-                if (!entry.getFileName().equals(fileName)) {
-                    newRegistry.put(entry.getStepText(), newRegistry.get(entry.getStepText()));
-                }
+        for (String key : registry.keySet()) {
+            List<StepRegistryEntry> newEntryList = registry.get(key).stream().filter(entry -> !entry.getFileName().equals(fileName)).collect(toList());
+            if (newEntryList.size() > 0) {
+                newRegistry.put(key, newEntryList);
             }
         }
         registry = newRegistry;
