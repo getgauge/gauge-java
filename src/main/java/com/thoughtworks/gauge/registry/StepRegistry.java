@@ -15,10 +15,8 @@
 
 package com.thoughtworks.gauge.registry;
 
-import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
-import com.thoughtworks.gauge.connection.GaugeConnector;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
@@ -35,7 +33,6 @@ import static java.util.stream.Collectors.toSet;
 
 public class StepRegistry {
     private HashMap<String, List<StepRegistryEntry>> registry = new HashMap<>();
-    private GaugeConnector connector;
 
     public void addStepImplementation(StepValue stepValue, Method method) {
         String stepText = stepValue.getStepText();
@@ -126,18 +123,6 @@ public class StepRegistry {
         String stepText = stepValue.getStepText();
         registry.putIfAbsent(stepText, new ArrayList<>());
         registry.get(stepText).add(entry);
-    }
-
-    public void buildStepRegistry(Set<Method> stepImplementations, GaugeConnector gaugeConnector) {
-        for (Method method : stepImplementations) {
-            Step annotation = method.getAnnotation(Step.class);
-            if (annotation != null) {
-                for (String stepName : annotation.value()) {
-                    StepValue stepValue = gaugeConnector.getGaugeApiConnection().getStepValue(stepName);
-                    addStepImplementation(stepValue, method);
-                }
-            }
-        }
     }
 
     public boolean hasMultipleImplementations(String stepToValidate) {

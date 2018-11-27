@@ -1,7 +1,5 @@
 package com.thoughtworks.gauge.processor;
 
-import com.google.common.collect.Sets;
-import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Messages.Message;
@@ -43,7 +41,7 @@ public class ValidateStepProcessorTest {
     public void shouldFailIfStepIsNotFoundAndShouldGiveSuggestion() {
         StepRegistry stepRegistry = mock(StepRegistry.class);
         when(stepRegistry.getAllMethods(STEP_TEXT)).thenReturn(new HashSet<>());
-        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
+        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
 
@@ -66,7 +64,7 @@ public class ValidateStepProcessorTest {
         this.message = messageBuilder.build();
         StepRegistry stepRegistry = mock(StepRegistry.class);
         when(stepRegistry.getAllMethods(STEP_TEXT)).thenReturn(new HashSet<>());
-        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
+        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
 
@@ -82,7 +80,7 @@ public class ValidateStepProcessorTest {
         StepRegistry stepRegistry = mock(StepRegistry.class);
         when(stepRegistry.contains(STEP_TEXT)).thenReturn(true);
         when(stepRegistry.hasMultipleImplementations(STEP_TEXT)).thenReturn(false);
-        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
+        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
 
@@ -95,7 +93,7 @@ public class ValidateStepProcessorTest {
         StepRegistry stepRegistry = mock(StepRegistry.class);
         when(stepRegistry.contains(STEP_TEXT)).thenReturn(true);
         when(stepRegistry.hasMultipleImplementations(STEP_TEXT)).thenReturn(true);
-        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
+        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
 

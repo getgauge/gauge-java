@@ -19,7 +19,6 @@ import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.TestStepImplClass;
 import junit.framework.TestCase;
 
-import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Set;

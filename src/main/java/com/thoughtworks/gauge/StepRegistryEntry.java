@@ -109,4 +109,8 @@ public class StepRegistryEntry {
     public Boolean getHasAlias() {
         return hasAlias;
     }
+
+    public String getName() {
+        return name;
+    }
 }

@@ -37,10 +37,13 @@ public class GaugeRuntime {
     private static List<Thread> threads = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
+        StaticScanner staticScanner = new StaticScanner();
+        staticScanner.addStepsToRegistry();
+        MessageDispatcher messageDispatcher = new MessageDispatcher(staticScanner);
         if (System.getenv(GaugeConstant.GAUGE_LSP_GRPC) != null) {
-            startGRPCServer();
+            startGRPCServer(messageDispatcher);
         } else {
-            startGaugeServer();
+            startGaugeServer(messageDispatcher);
         }
 
         for (Thread thread : threads) {
@@ -49,29 +52,24 @@ public class GaugeRuntime {
         System.exit(0);
     }
 
-    private static void startGaugeServer() {
-        StaticScanner staticScanner = new StaticScanner();
-        MessageDispatcher messageDispatcher = new MessageDispatcher(staticScanner);
+    private static void startGaugeServer(MessageDispatcher messageDispatcher) {
         int apiPort = readEnvVar(GaugeConstant.GAUGE_API_PORT);
         String portInfo = System.getenv("GAUGE_API_PORTS");
         if (portInfo != null && !portInfo.trim().isEmpty()) {
             List<String> ports = Arrays.asList(portInfo.split(","));
             for (int i = 0, portsSize = ports.size(); i < portsSize; i++) {
                 if (i == 0) {
-                    connectSynchronously(Integer.parseInt(ports.get(i)), apiPort, messageDispatcher, staticScanner);
+                    connectSynchronously(Integer.parseInt(ports.get(i)), apiPort, messageDispatcher);
                 } else {
                     connectInParallel(Integer.parseInt(ports.get(i)), apiPort, messageDispatcher);
                 }
             }
         } else {
-            connectSynchronously(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), apiPort, messageDispatcher, staticScanner);
+            connectSynchronously(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), apiPort, messageDispatcher);
         }
     }
 
-    private static void startGRPCServer() throws IOException, InterruptedException {
-        StaticScanner staticScanner = new StaticScanner();
-        staticScanner.addStepsToRegistry();
-        MessageDispatcher messageDispatcher = new MessageDispatcher(staticScanner);
+    private static void startGRPCServer(MessageDispatcher messageDispatcher) throws IOException, InterruptedException {
         Server server = null;
         LspServer lspServer = new LspServer(server, messageDispatcher);
         server = ServerBuilder.forPort(0).addService(lspServer).build();
@@ -94,9 +92,8 @@ public class GaugeRuntime {
         startThread(thread);
     }
 
-    private static void connectSynchronously(final int gaugeInternalPort, final int gaugeApiPort, MessageDispatcher messageDispatcher, StaticScanner staticScanner) {
+    private static void connectSynchronously(final int gaugeInternalPort, final int gaugeApiPort, MessageDispatcher messageDispatcher) {
         GaugeConnector connector = makeConnection(gaugeInternalPort, gaugeApiPort);
-        staticScanner.buildStepRegistry(connector);
         Thread thread = new Thread(() -> dispatchMessages(messageDispatcher, connector));
         startThread(thread);
     }

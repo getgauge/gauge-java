@@ -15,7 +15,6 @@
 
 package com.thoughtworks.gauge.processor;
 
-import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Messages.StepValidateResponse;
@@ -28,10 +27,9 @@ import java.util.List;
 
 public class ValidateStepProcessor implements IMessageProcessor {
     private static Integer num = 1;
-    private static final Integer MAX_LENGTH = 3;
     private final StepRegistry registry;
 
-    public ValidateStepProcessor(ClassInstanceManager instanceManager, StepRegistry registry) {
+    public ValidateStepProcessor(StepRegistry registry) {
         this.registry = registry;
     }
 
