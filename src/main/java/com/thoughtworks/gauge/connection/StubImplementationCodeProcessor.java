@@ -17,8 +17,9 @@ package com.thoughtworks.gauge.connection;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseException;
-import com.github.javaparser.Range;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.google.protobuf.ProtocolStringList;
 import com.thoughtworks.gauge.FileHelper;
 import gauge.messages.Messages;
@@ -27,8 +28,13 @@ import gauge.messages.Spec;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.processor.IMessageProcessor {
+    private static final String NEW_LINE = "\n";
+    private static ArrayList<MethodDeclaration> methodDeclarations = new ArrayList<MethodDeclaration>();
+
+
     @Override
     public Messages.Message process(Messages.Message message) {
         ProtocolStringList stubs = message.getStubImplementationCodeRequest().getCodesList();
@@ -78,21 +84,26 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
     }
 
     private String getNewClassContents(String className, ProtocolStringList stubs) {
-        return  "import com.thoughtworks.gauge.Step;\n\n"
-                + "public class "
-                + className
-                + " {\n"
-                + String.join("\n", stubs) + "\n"
-                + "}\n";
+        return "import com.thoughtworks.gauge.Step;"
+                + NEW_LINE
+                + NEW_LINE
+                + "public class " + className + " {"
+                + NEW_LINE
+                + String.join(NEW_LINE, stubs)
+                + NEW_LINE
+                + "}"
+                + NEW_LINE;
     }
 
     private Messages.FileDiff implementInExistingClass(ProtocolStringList stubs, File file) {
         try {
             CompilationUnit compilationUnit = JavaParser.parse(file);
-            Range range = compilationUnit.getRange();
-            int lastLine = range.end.line - 1;
-            int column = range.end.column - 1;
-            String contents = String.join("\n", stubs) + "\n";
+            MethodVisitor methodVisitor = new MethodVisitor();
+            methodVisitor.visit(compilationUnit, null);
+            MethodDeclaration methodDeclaration = methodDeclarations.get(methodDeclarations.size() - 1);
+            int lastLine = methodDeclaration.getRange().end.line - 1;
+            int column = methodDeclaration.getRange().end.column + 1;
+            String contents = NEW_LINE + String.join(NEW_LINE, stubs);
             Spec.Span.Builder span = Spec.Span.newBuilder()
                     .setStart(lastLine)
                     .setStartChar(column)
@@ -105,5 +116,12 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
             e.printStackTrace();
         }
         return null;
+    }
+
+    private class MethodVisitor extends VoidVisitorAdapter {
+        @Override
+        public void visit(MethodDeclaration methodDeclaration, Object arg) {
+            methodDeclarations.add(methodDeclaration);
+        }
     }
 }
