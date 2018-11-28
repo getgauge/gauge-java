@@ -40,7 +40,6 @@ public class ValidateStepProcessorTest {
     @Test
     public void shouldFailIfStepIsNotFoundAndShouldGiveSuggestion() {
         StepRegistry stepRegistry = mock(StepRegistry.class);
-        when(stepRegistry.getAllMethods(STEP_TEXT)).thenReturn(new HashSet<>());
         ValidateStepProcessor stepProcessor = new ValidateStepProcessor(stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
@@ -63,7 +62,6 @@ public class ValidateStepProcessorTest {
         messageBuilder.setStepValidateRequest(stepValidationRequest);
         this.message = messageBuilder.build();
         StepRegistry stepRegistry = mock(StepRegistry.class);
-        when(stepRegistry.getAllMethods(STEP_TEXT)).thenReturn(new HashSet<>());
         ValidateStepProcessor stepProcessor = new ValidateStepProcessor(stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);

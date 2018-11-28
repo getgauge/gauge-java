@@ -17,13 +17,16 @@ package com.thoughtworks.gauge.scan;
 
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AnnotationExpr;
+import com.github.javaparser.ast.expr.ArrayInitializerExpr;
+import com.github.javaparser.ast.expr.Expression;
+import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
@@ -41,33 +44,39 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
     @Override
     public void visit(MethodDeclaration methodDeclaration, Object arg) {
         List<AnnotationExpr> annotations = methodDeclaration.getAnnotations();
-        if (!annotations.isEmpty()) {
-            if (hasAlias(annotations)) {
-                List<String> allAliasAnnotations = getAllAliasAnnotations(annotations);
-                for (String parameterizedStepText : allAliasAnnotations) {
-                    addStepToRegistry(parameterizedStepText, methodDeclaration);
+        if (annotations.isEmpty()) {
+            return;
+        }
+
+        for (AnnotationExpr annotationExpr : annotations) {
+            if (!(annotationExpr instanceof SingleMemberAnnotationExpr)) {
+                continue;
+            }
+            SingleMemberAnnotationExpr annotation = (SingleMemberAnnotationExpr) annotationExpr;
+            if (annotation.getMemberValue() instanceof ArrayInitializerExpr) {
+                ArrayInitializerExpr memberValue = (ArrayInitializerExpr) annotation.getMemberValue();
+                for (Expression expression : memberValue.getValues()) {
+                    addStepToRegistry(expression, methodDeclaration, annotation);
                 }
             } else {
-                String parameterizedStepText = getStepName(annotations.get(0));
-                addStepToRegistry(parameterizedStepText, methodDeclaration);
-
+                addStepToRegistry(annotation.getMemberValue(), methodDeclaration, annotation);
             }
         }
     }
 
-    private void addStepToRegistry(String parameterizedStepText, MethodDeclaration methodDeclaration) {
-        List<AnnotationExpr> annotations = methodDeclaration.getAnnotations();
-        String stepText = getStepText(parameterizedStepText);
-        stepValue = new StepValue(stepText, parameterizedStepText);
+    private void addStepToRegistry(Expression expression, MethodDeclaration methodDeclaration, SingleMemberAnnotationExpr annotation) {
+        String parameterizedStep = expression.toString();
+        String stepText = getStepText(parameterizedStep);
+        stepValue = new StepValue(stepText, parameterizedStep);
 
         entry = new StepRegistryEntry();
         entry.setName(methodDeclaration.getDeclarationAsString());
-        entry.setStepText(stepText);
+        entry.setStepText(parameterizedStep.replaceAll("\"", ""));
         entry.setStepValue(stepValue);
         entry.setParameters(methodDeclaration.getTypeParameters());
         entry.setSpan(methodDeclaration.getRange());
-        entry.setHasAlias(hasAlias(annotations));
-        entry.setAliases(getAllAliasAnnotations(annotations));
+        entry.setHasAlias(hasAlias(annotation));
+        entry.setAliases(getAliases(annotation));
         entry.setFileName(file);
 
         stepRegistry.addStep(stepValue, entry);
@@ -79,18 +88,18 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
                 .replaceAll("\"", "");
     }
 
-    private Boolean hasAlias(List<AnnotationExpr> annotations) {
-        return annotations.get(0).getChildrenNodes().get(1).getChildrenNodes().size() > 0;
+    private Boolean hasAlias(SingleMemberAnnotationExpr annotation) {
+        return annotation.getMemberValue() instanceof ArrayInitializerExpr;
     }
 
-    private List<String> getAllAliasAnnotations(List<AnnotationExpr> annotations) {
-        return annotations.get(0).getChildrenNodes().get(1).getChildrenNodes().stream().map(node -> node.toString().replace("\"", "")).collect(Collectors.toList());
+    private List<String> getAliases(SingleMemberAnnotationExpr annotation) {
+        List<String> aliases = new ArrayList<>();
+        if (annotation.getMemberValue() instanceof ArrayInitializerExpr) {
+            ArrayInitializerExpr memberValue = (ArrayInitializerExpr) annotation.getMemberValue();
+            for (Expression expression : memberValue.getValues()) {
+                aliases.add(expression.toString().replaceAll("\"", ""));
+            }
+        }
+        return aliases;
     }
-
-
-
-    private String getStepName(AnnotationExpr expr) {
-        return expr.getChildrenNodes().get(1).toString();
-    }
-
 }

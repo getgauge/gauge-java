@@ -25,11 +25,9 @@ import java.util.Map;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 import java.util.HashMap;
 
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
 
 public class StepRegistry {
     private HashMap<String, List<StepRegistryEntry>> registry = new HashMap<>();
@@ -58,22 +56,10 @@ public class StepRegistry {
                 .orElse(new StepRegistryEntry());
     }
 
-    public String getFileName(String stepTemplateText) {
-        return getFirstEntry(stepTemplateText).getFileName();
-    }
-
     public List<String> getAllStepAnnotationTexts() {
         return registry.values().stream().flatMap(Collection::stream)
                 .map(entry -> entry.getStepValue().getStepAnnotationText())
                 .collect(toList());
-    }
-
-    private List<String> getStepAnnotationFor(Set<String> stepTexts) {
-        List<String> annotations = new ArrayList<>();
-        for (String stepText : stepTexts) {
-            annotations.add(this.getStepAnnotationFor(stepText));
-        }
-        return annotations;
     }
 
     String getStepAnnotationFor(String stepTemplateText) {
@@ -82,25 +68,8 @@ public class StepRegistry {
                 .map(StepValue::getStepAnnotationText).findFirst().orElse("");
     }
 
-    public Set<String> getAllAliasAnnotationTextsFor(String stepTemplateText) {
-        Method method = getMethod(stepTemplateText);
-        return registry.values().stream().flatMap(Collection::stream)
-                .filter(registryEntry -> registryEntry.getMethodInfo().equals(method))
-                .map(registryEntry -> registryEntry.getStepValue().getStepAnnotationText()).collect(toSet());
-    }
-
-    public boolean hasAlias(String stepTemplateText) {
-        return getStepAnnotationFor(getAllAliasAnnotationTextsFor(stepTemplateText)).size() > 1;
-    }
-
     void remove(String stepTemplateText) {
         registry.remove(stepTemplateText);
-    }
-
-    public Set<Method> getAllMethods(String stepText) {
-        return registry.getOrDefault(stepText, new ArrayList<>()).stream()
-                .map(StepRegistryEntry::getMethodInfo)
-                .collect(toSet());
     }
 
     public List<StepRegistryEntry> getAllEntries(String stepText) {

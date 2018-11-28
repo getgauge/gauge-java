@@ -39,7 +39,7 @@ public class StepNameRequestProcessorTest {
         ArrayList<String> stringSet = Lists.newArrayList(anyString);
         StepRegistry registry = mock(StepRegistry.class);
         StepRegistryEntry entry = mock(StepRegistryEntry.class);
-
+        when(registry.contains(STEP_TEXT)).thenReturn(true);
         when(registry.get(STEP_TEXT)).thenReturn(entry);
         when(entry.getSpan()).thenReturn(range);
         when(entry.getFileName()).thenReturn("foo");
@@ -59,7 +59,7 @@ public class StepNameRequestProcessorTest {
 
         StepRegistry registry = mock(StepRegistry.class);
         StepRegistryEntry entry = mock(StepRegistryEntry.class);
-
+        when(registry.contains(STEP_TEXT)).thenReturn(true);
         when(registry.get(STEP_TEXT)).thenReturn(entry);
         when(entry.getSpan()).thenReturn(range);
         when(entry.getFileName()).thenReturn("foo");

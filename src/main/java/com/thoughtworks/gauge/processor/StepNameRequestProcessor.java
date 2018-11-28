@@ -31,35 +31,40 @@ public class StepNameRequestProcessor implements IMessageProcessor {
     }
 
     public Messages.Message process(Messages.Message message) {
+        boolean isStepPresent = registry.contains(message.getStepNameRequest().getStepValue());
+
+        if (!isStepPresent) {
+            return Messages.Message.newBuilder()
+                    .setMessageId(message.getMessageId())
+                    .setMessageType(Messages.Message.MessageType.StepNameResponse)
+                    .setStepNameResponse(Messages.StepNameResponse.newBuilder().setIsStepPresent(false).build())
+                    .build();
+        }
+
         StepRegistryEntry entry = registry.get(message.getStepNameRequest().getStepValue());
-        List<String> aliases = entry.getAliases();
+        List<String> stepTexts = entry.getAliases();
         String stepText = entry.getStepText();
         String fileName = entry.getFileName();
 
-        Range range = entry.getSpan();
+        boolean hasAlias = entry.getHasAlias();
 
+        if (!hasAlias) {
+            stepTexts.add(stepText);
+        }
+
+        Range range = entry.getSpan();
         Spec.Span.Builder spanBuilder = Spec.Span.newBuilder()
                 .setStart(range.begin.line)
                 .setStartChar(range.begin.column)
                 .setEnd(range.end.line)
                 .setEndChar(range.end.column);
 
-        boolean hasAlias = entry.getHasAlias(), isStepPresent = false;
-
-        if (!hasAlias) {
-            aliases.add(stepText);
-        }
-
-        if (aliases.size() >= 1) {
-            isStepPresent = true;
-        }
-
         return Messages.Message.newBuilder()
                 .setMessageId(message.getMessageId())
                 .setMessageType(Messages.Message.MessageType.StepNameResponse)
                 .setStepNameResponse(Messages.StepNameResponse.newBuilder()
-                        .addAllStepName(aliases)
-                        .setIsStepPresent(isStepPresent)
+                        .addAllStepName(stepTexts)
+                        .setIsStepPresent(true)
                         .setHasAlias(hasAlias)
                         .setFileName(fileName)
                         .setSpan(spanBuilder).build())
