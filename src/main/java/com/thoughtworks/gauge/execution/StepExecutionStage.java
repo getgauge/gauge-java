@@ -53,7 +53,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
     }
 
     private Spec.ProtoExecutionResult executeStep() {
-        Method method = registry.getMethod(executeStepRequest.getParsedStepText());
+        Method method = registry.get(executeStepRequest.getParsedStepText()).getMethodInfo();
 
         int implementationParamCount = method.getParameterTypes().length;
         int numberOfParameters = this.executeStepRequest.getParametersCount();

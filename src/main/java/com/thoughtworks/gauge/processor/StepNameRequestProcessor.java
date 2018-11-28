@@ -32,7 +32,6 @@ public class StepNameRequestProcessor implements IMessageProcessor {
 
     public Messages.Message process(Messages.Message message) {
         boolean isStepPresent = registry.contains(message.getStepNameRequest().getStepValue());
-
         if (!isStepPresent) {
             return Messages.Message.newBuilder()
                     .setMessageId(message.getMessageId())
@@ -40,18 +39,14 @@ public class StepNameRequestProcessor implements IMessageProcessor {
                     .setStepNameResponse(Messages.StepNameResponse.newBuilder().setIsStepPresent(false).build())
                     .build();
         }
-
         StepRegistryEntry entry = registry.get(message.getStepNameRequest().getStepValue());
         List<String> stepTexts = entry.getAliases();
         String stepText = entry.getStepText();
         String fileName = entry.getFileName();
-
         boolean hasAlias = entry.getHasAlias();
-
         if (!hasAlias) {
             stepTexts.add(stepText);
         }
-
         Range range = entry.getSpan();
         Spec.Span.Builder spanBuilder = Spec.Span.newBuilder()
                 .setStart(range.begin.line)

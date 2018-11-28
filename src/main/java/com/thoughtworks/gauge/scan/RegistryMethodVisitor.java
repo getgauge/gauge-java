@@ -30,7 +30,6 @@ import java.util.List;
 
 public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
-
     private StepValue stepValue;
     private StepRegistryEntry entry;
     private StepRegistry stepRegistry;

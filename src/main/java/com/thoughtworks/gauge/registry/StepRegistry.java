@@ -42,10 +42,6 @@ public class StepRegistry {
         return registry.containsKey(stepTemplateText);
     }
 
-    public Method getMethod(String stepTemplateText) {
-        return getFirstEntry(stepTemplateText).getMethodInfo();
-    }
-
     public StepRegistryEntry get(String stepTemplateText) {
         return getFirstEntry(stepTemplateText);
     }
@@ -68,11 +64,11 @@ public class StepRegistry {
                 .map(StepValue::getStepAnnotationText).findFirst().orElse("");
     }
 
-    void remove(String stepTemplateText) {
+    public void remove(String stepTemplateText) {
         registry.remove(stepTemplateText);
     }
 
-    public List<StepRegistryEntry> getAllEntries(String stepText) {
+    List<StepRegistryEntry> getAllEntries(String stepText) {
         return registry.get(stepText);
     }
 
