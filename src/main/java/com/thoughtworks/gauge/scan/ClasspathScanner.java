@@ -16,6 +16,7 @@
 package com.thoughtworks.gauge.scan;
 
 import com.thoughtworks.gauge.ClasspathHelper;
+import com.thoughtworks.gauge.Step;
 import org.reflections.Configuration;
 import org.reflections.Reflections;
 import org.reflections.scanners.MethodAnnotationsScanner;
@@ -27,7 +28,9 @@ import org.reflections.vfs.Vfs;
 import org.reflections.vfs.ZipDir;
 
 import java.io.File;
+import java.lang.reflect.Method;
 import java.net.URL;
+import java.util.Set;
 import java.util.jar.JarFile;
 
 import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
@@ -37,8 +40,10 @@ import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
  */
 public class ClasspathScanner {
 
+    private Reflections reflections;
+
     public void scan(IScanner... scanners) {
-        Reflections reflections = createReflections();
+        reflections = createReflections();
         for (IScanner scanner : scanners) {
             scanner.scan(reflections);
         }
@@ -79,5 +84,9 @@ public class ClasspathScanner {
             }
         }
         return false;
+    }
+
+    public Set<Method> getAllMethods() {
+        return reflections.getMethodsAnnotatedWith(Step.class);
     }
 }

@@ -1,7 +1,5 @@
 package com.thoughtworks.gauge.processor;
 
-import com.google.common.collect.Sets;
-import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Messages.Message;
@@ -13,12 +11,12 @@ import gauge.messages.Spec;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -41,8 +39,7 @@ public class ValidateStepProcessorTest {
     @Test
     public void shouldFailIfStepIsNotFoundAndShouldGiveSuggestion() {
         StepRegistry stepRegistry = mock(StepRegistry.class);
-        when(stepRegistry.getAll(STEP_TEXT)).thenReturn(new HashSet<>());
-        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
+        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
 
@@ -64,8 +61,7 @@ public class ValidateStepProcessorTest {
         messageBuilder.setStepValidateRequest(stepValidationRequest);
         this.message = messageBuilder.build();
         StepRegistry stepRegistry = mock(StepRegistry.class);
-        when(stepRegistry.getAll(STEP_TEXT)).thenReturn(new HashSet<>());
-        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
+        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
 
@@ -79,8 +75,9 @@ public class ValidateStepProcessorTest {
     @Test
     public void shouldNotFailIfStepIsFoundAndShouldNotGiveSuggestion() {
         StepRegistry stepRegistry = mock(StepRegistry.class);
-        when(stepRegistry.getAll(STEP_TEXT)).thenReturn(Sets.newHashSet(anyMethod()));
-        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
+        when(stepRegistry.contains(STEP_TEXT)).thenReturn(true);
+        when(stepRegistry.hasMultipleImplementations(STEP_TEXT)).thenReturn(false);
+        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
 
@@ -91,30 +88,13 @@ public class ValidateStepProcessorTest {
     @Test
     public void shouldFailIfStepIsDefinedTwice() {
         StepRegistry stepRegistry = mock(StepRegistry.class);
-        when(stepRegistry.getAll(STEP_TEXT)).thenReturn(Sets.newHashSet(anyMethod(), anyOtherMethod()));
-        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(new ClassInstanceManager(), stepRegistry);
+        when(stepRegistry.contains(STEP_TEXT)).thenReturn(true);
+        when(stepRegistry.hasMultipleImplementations(STEP_TEXT)).thenReturn(true);
+        ValidateStepProcessor stepProcessor = new ValidateStepProcessor(stepRegistry);
 
         Message outputMessage = stepProcessor.process(message);
 
         assertEquals(ErrorType.DUPLICATE_STEP_IMPLEMENTATION, outputMessage.getStepValidateResponse().getErrorType());
         assertFalse(outputMessage.getStepValidateResponse().getIsValid());
-    }
-
-    private Method anyMethod() {
-
-        try {
-            return String.class.getMethod("toString");
-        } catch (NoSuchMethodException | SecurityException exception) {
-            throw new RuntimeException(exception);
-        }
-    }
-
-    private Method anyOtherMethod() {
-
-        try {
-            return String.class.getMethod("hashCode");
-        } catch (NoSuchMethodException | SecurityException exception) {
-            throw new RuntimeException(exception);
-        }
     }
 }

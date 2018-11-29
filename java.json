@@ -22,5 +22,6 @@
     "gaugeVersionSupport": {
         "minimum": "0.9.0",
         "maximum": ""
-    }
+    },
+    "lspLangId" : "java"
 }

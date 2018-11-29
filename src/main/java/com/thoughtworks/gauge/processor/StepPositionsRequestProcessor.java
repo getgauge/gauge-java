@@ -15,26 +15,26 @@
 
 package com.thoughtworks.gauge.processor;
 
-
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 
 import java.util.List;
 
-public class StepNamesRequestProcessor implements IMessageProcessor {
-    private final StepRegistry registry;
+public class StepPositionsRequestProcessor implements IMessageProcessor {
+    private StepRegistry stepRegistry;
 
-    public StepNamesRequestProcessor(StepRegistry registry) {
-        this.registry = registry;
+    public StepPositionsRequestProcessor(StepRegistry stepRegistry) {
+        this.stepRegistry = stepRegistry;
     }
 
-    public Messages.Message process(Messages.Message receivedMessage) {
-        List<String> stepTexts = registry.getAllStepAnnotationTexts();
+    @Override
+    public Messages.Message process(Messages.Message message) {
+        List<Messages.StepPositionsResponse.StepPosition> positions = stepRegistry.getStepPositions(message.getStepPositionsRequest().getFilePath());
 
         return Messages.Message.newBuilder()
-                .setMessageId(receivedMessage.getMessageId())
-                .setMessageType(Messages.Message.MessageType.StepNamesResponse)
-                .setStepNamesResponse(Messages.StepNamesResponse.newBuilder().addAllSteps(stepTexts).build())
+                .setMessageId(message.getMessageId())
+                .setStepPositionsResponse(Messages.StepPositionsResponse.newBuilder().addAllStepPositions(positions))
+                .setMessageType(Messages.Message.MessageType.StepPositionsResponse)
                 .build();
     }
 }

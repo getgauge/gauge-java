@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class  JavaRefactoring {
+public class JavaRefactoring {
     private final StepValue oldStepValue;
     private final StepValue newStepValue;
     private final List<Messages.ParameterPosition> paramPositions;
@@ -40,14 +40,14 @@ public class  JavaRefactoring {
 
     public RefactoringResult performRefactoring() {
         String oldStepText = oldStepValue.getStepText();
-        String fileName = registry.getFileName(oldStepText);
+        String fileName = registry.get(oldStepText).getFileName();
         if (fileName == null || fileName.isEmpty()) {
             return new RefactoringResult(false, "Step Implementation Not Found: Unable to find a file Name to refactor");
         }
-        if (registry.hasAlias(oldStepText)) {
+        if (registry.get(oldStepText).getHasAlias()) {
             return new RefactoringResult(false, "Refactoring for steps having aliases are not supported.");
         }
-        if (registry.getAll(oldStepText).size() > 1) {
+        if (registry.hasMultipleImplementations(oldStepText)) {
             return new RefactoringResult(false, "Duplicate step implementation found.");
         }
 

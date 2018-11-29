@@ -25650,7 +25650,7 @@ public final class Messages {
       private StepPosition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
       }
-      private StepPosition() {
+      public StepPosition() {
         stepValue_ = "";
       }
 
@@ -27827,7 +27827,7 @@ public final class Messages {
     private ImplementationFileGlobPatternResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ImplementationFileGlobPatternResponse() {
+    public ImplementationFileGlobPatternResponse() {
       globPatterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -28927,7 +28927,7 @@ public final class Messages {
     private ImplementationFileListResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ImplementationFileListResponse() {
+    public ImplementationFileListResponse() {
       implementationFilePaths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -31338,7 +31338,7 @@ public final class Messages {
     private FileDiff(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private FileDiff() {
+    public FileDiff() {
       filePath_ = "";
       textDiffs_ = java.util.Collections.emptyList();
     }
@@ -33191,7 +33191,7 @@ public final class Messages {
    *
    * Protobuf type {@code gauge.messages.Message}
    */
-  public  static final class Message extends
+  public  static class Message extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.Message)
       MessageOrBuilder {
@@ -33200,7 +33200,7 @@ public final class Messages {
     private Message(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Message() {
+    public Message() {
       messageType_ = 0;
       messageId_ = 0L;
     }

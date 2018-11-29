@@ -15,26 +15,18 @@
 
 package com.thoughtworks.gauge.processor;
 
-
-import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
+import gauge.messages.Spec;
 
-import java.util.List;
-
-public class StepNamesRequestProcessor implements IMessageProcessor {
-    private final StepRegistry registry;
-
-    public StepNamesRequestProcessor(StepRegistry registry) {
-        this.registry = registry;
-    }
-
-    public Messages.Message process(Messages.Message receivedMessage) {
-        List<String> stepTexts = registry.getAllStepAnnotationTexts();
+public class DefaultMessageProcessor implements IMessageProcessor {
+    @Override
+    public Messages.Message process(Messages.Message message) {
+        Messages.ExecutionStatusResponse.Builder response = Messages.ExecutionStatusResponse.newBuilder().setExecutionResult(Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(0).build());
 
         return Messages.Message.newBuilder()
-                .setMessageId(receivedMessage.getMessageId())
-                .setMessageType(Messages.Message.MessageType.StepNamesResponse)
-                .setStepNamesResponse(Messages.StepNamesResponse.newBuilder().addAllSteps(stepTexts).build())
+                .setMessageId(message.getMessageId())
+                .setMessageType(Messages.Message.MessageType.ExecutionStatusResponse)
+                .setExecutionStatusResponse(response)
                 .build();
     }
 }

@@ -1,12 +1,12 @@
 package com.thoughtworks.gauge.execution.parameters;
 
-import java.util.List;
-
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParser;
-
 import gauge.messages.Spec;
 
+import java.util.List;
+
 public class ParametersExtractor {
+
     private ParameterParser parameterParser;
 
     public ParametersExtractor(ParameterParser parameterParser) {

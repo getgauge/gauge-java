@@ -26,6 +26,7 @@ import gauge.messages.Spec;
 
 public class SuiteExecutionStartingProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
 
+
     public SuiteExecutionStartingProcessor(ClassInstanceManager instanceManager) {
         super(instanceManager);
     }

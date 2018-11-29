@@ -19,3 +19,4 @@ cd gauge-proto
 protoc --java_out=../src/main/java/ spec.proto
 protoc --java_out=../src/main/java/ messages.proto
 protoc --java_out=../src/main/java/ api.proto
+protoc --java_out=../src/main/java/ lsp.proto

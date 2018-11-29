@@ -15,27 +15,26 @@
 
 package com.thoughtworks.gauge.registry;
 
+import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
+import gauge.messages.Messages;
+import gauge.messages.Spec;
 
-import java.io.File;
 import java.lang.reflect.Method;
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 import java.util.HashMap;
-import java.util.HashSet;
-
 
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
 
 public class StepRegistry {
-    private HashMap<String, Set<StepRegistryEntry>> registry = new HashMap<>();
+    private HashMap<String, List<StepRegistryEntry>> registry = new HashMap<>();
 
     public void addStepImplementation(StepValue stepValue, Method method) {
         String stepText = stepValue.getStepText();
-        registry.putIfAbsent(stepText, new HashSet<>());
+        registry.putIfAbsent(stepText, new ArrayList<>());
         registry.get(stepText).add(new StepRegistryEntry(stepValue, method));
     }
 
@@ -43,18 +42,14 @@ public class StepRegistry {
         return registry.containsKey(stepTemplateText);
     }
 
-    public Method get(String stepTemplateText) {
-        return getFirstEntry(stepTemplateText).getMethod();
+    public StepRegistryEntry get(String stepTemplateText) {
+        return getFirstEntry(stepTemplateText);
     }
 
     private StepRegistryEntry getFirstEntry(String stepTemplateText) {
-        return registry.getOrDefault(stepTemplateText, new HashSet<>()).stream()
+        return registry.getOrDefault(stepTemplateText, new ArrayList<>()).stream()
                 .findFirst()
                 .orElse(new StepRegistryEntry());
-    }
-
-    public String getFileName(String stepTemplateText) {
-        return getFirstEntry(stepTemplateText).getFileName();
     }
 
     public List<String> getAllStepAnnotationTexts() {
@@ -63,68 +58,61 @@ public class StepRegistry {
                 .collect(toList());
     }
 
-    private List<String> getStepAnnotationFor(Set<String> stepTexts) {
-        List<String> annotations = new ArrayList<>();
-        for (String stepText : stepTexts) {
-            annotations.add(this.getStepAnnotationFor(stepText));
-        }
-        return annotations;
-    }
-
     String getStepAnnotationFor(String stepTemplateText) {
         return registry.values().stream().flatMap(Collection::stream).map(StepRegistryEntry::getStepValue)
                 .filter(stepValue -> stepValue.getStepText().equals(stepTemplateText))
                 .map(StepValue::getStepAnnotationText).findFirst().orElse("");
     }
 
-    public Set<String> getAllAliasAnnotationTextsFor(String stepTemplateText) {
-        Method method = get(stepTemplateText);
-        return registry.values().stream().flatMap(Collection::stream)
-                .filter(registryEntry -> registryEntry.getMethod().equals(method))
-                .map(registryEntry -> registryEntry.getStepValue().getStepAnnotationText()).collect(toSet());
-    }
-
-    public boolean hasAlias(String stepTemplateText) {
-        return getStepAnnotationFor(getAllAliasAnnotationTextsFor(stepTemplateText)).size() > 1;
-    }
-
-    void remove(String stepTemplateText) {
+    public void remove(String stepTemplateText) {
         registry.remove(stepTemplateText);
     }
 
-    public Set<Method> getAll(String stepText) {
-        return registry.getOrDefault(stepText, new HashSet<>()).stream()
-                .map(StepRegistryEntry::getMethod)
-                .collect(toSet());
+    List<StepRegistryEntry> getAllEntries(String stepText) {
+        return registry.get(stepText);
     }
 
-    private class StepRegistryEntry {
-        private final StepValue stepValue;
-        private final Method method;
-
-        StepRegistryEntry(StepValue stepValue, Method method) {
-            this.stepValue = stepValue;
-            this.method = method;
-        }
-
-        StepRegistryEntry() {
-            stepValue = new StepValue("", "", new ArrayList<String>());
-            method = null;
-        }
-
-        public StepValue getStepValue() {
-            return stepValue;
-        }
-
-        public Method getMethod() {
-            return method;
-        }
-
-        public String getFileName() {
-            if (method == null) {
-                return "";
+    public void removeSteps(String fileName) {
+        HashMap<String, List<StepRegistryEntry>> newRegistry = new HashMap<>();
+        for (String key : registry.keySet()) {
+            List<StepRegistryEntry> newEntryList = registry.get(key).stream().filter(entry -> !entry.getFileName().equals(fileName)).collect(toList());
+            if (newEntryList.size() > 0) {
+                newRegistry.put(key, newEntryList);
             }
-            return method.getDeclaringClass().getCanonicalName().replace(".", File.separator) + ".java";
         }
+        registry = newRegistry;
+    }
+
+
+    public void addStep(StepValue stepValue, StepRegistryEntry entry) {
+        String stepText = stepValue.getStepText();
+        registry.putIfAbsent(stepText, new ArrayList<>());
+        registry.get(stepText).add(entry);
+    }
+
+    public boolean hasMultipleImplementations(String stepToValidate) {
+        return getAllEntries(stepToValidate).size() > 1;
+    }
+
+    public List<Messages.StepPositionsResponse.StepPosition> getStepPositions(String filePath) {
+        List<Messages.StepPositionsResponse.StepPosition> stepPositionsList = new ArrayList<>();
+
+        for (Map.Entry<String, List<StepRegistryEntry>> entryList : registry.entrySet()) {
+            for (StepRegistryEntry entry : entryList.getValue()) {
+                if (entry.getFileName().equals(filePath)) {
+                    Messages.StepPositionsResponse.StepPosition stepPosition = Messages.StepPositionsResponse.StepPosition.newBuilder()
+                            .setStepValue(entryList.getKey())
+                            .setSpan(Spec.Span.newBuilder()
+                                    .setStart(entry.getSpan().begin.line)
+                                    .setStartChar(entry.getSpan().begin.column)
+                                    .setEnd(entry.getSpan().end.line)
+                                    .setEndChar(entry.getSpan().end.column).build())
+                            .build();
+                    stepPositionsList.add(stepPosition);
+                }
+            }
+        }
+
+        return stepPositionsList;
     }
 }
