@@ -33,6 +33,15 @@ public class MessageCollectorTest extends TestCase {
         }
     }
 
+    public void testAddingNullMessagesToProtoResult() {
+        Spec.ProtoExecutionResult executionResult = emptyExecResult();
+        String[] messages = {"first message", "second message", null};
+        Spec.ProtoExecutionResult protoExecutionResult = new MessageCollector().addPendingMessages(executionResult, Arrays.asList(messages));
+        ProtocolStringList actualMessageList = protoExecutionResult.getMessageList();
+        assertEquals(2, actualMessageList.size());
+        assertFalse(actualMessageList.contains(null));
+    }
+
     private Spec.ProtoExecutionResult emptyExecResult() {
         return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(0).build();
     }

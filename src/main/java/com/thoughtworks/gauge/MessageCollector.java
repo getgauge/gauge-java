@@ -19,6 +19,7 @@ import gauge.messages.Spec;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static com.thoughtworks.gauge.Gauge.getMessages;
 
@@ -30,7 +31,7 @@ public class MessageCollector {
 
     Spec.ProtoExecutionResult addPendingMessages(Spec.ProtoExecutionResult result, List<String> messages) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder(result);
-        builder.addAllMessage(messages);
+        messages.stream().filter(Objects::nonNull).forEach(builder::addMessage);
         return builder.build();
     }
 
