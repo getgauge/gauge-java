@@ -60,7 +60,7 @@ public class ValidateStepProcessor implements IMessageProcessor {
     private String getMethodName(String stepText) {
         final StringBuilder methodName = new StringBuilder();
         if (!stepText.equals("")) {
-            String[] methodNameArray = stepText.split(" ");
+            String[] methodNameArray = stepText.split("\\s+");
             List<String> list = new ArrayList<>(Arrays.asList(methodNameArray));
             list.removeAll(Collections.singletonList("{}"));
             int length = list.size();

@@ -15,7 +15,7 @@ This project adds java [language plugin](https://docs.gauge.org/plugins.html#lan
 ### Pre-requisite
 
 - [Install Gauge](https://docs.gauge.org/installing.html#installation)
-- [Java](https://www.java.com/en/download/index.jsp)
+- [Java](https://www.java.com/en/download/)
 
 ### Installation
 

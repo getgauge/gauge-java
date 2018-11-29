@@ -22,7 +22,7 @@ import static org.mockito.Mockito.when;
 
 public class ValidateStepProcessorTest {
 
-    private static final String STEP_TEXT = "stepText";
+    private static final String STEP_TEXT = "step    with arbitrary text ";
 
     private Message message;
 
@@ -44,7 +44,7 @@ public class ValidateStepProcessorTest {
         Message outputMessage = stepProcessor.process(message);
 
         assertEquals(ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, outputMessage.getStepValidateResponse().getErrorType());
-        String suggestion = "\n\t@Step(\"stepText\")\n" + "\tpublic void steptext(){\n\t\t" +
+        String suggestion = "\n\t@Step(\"step    with arbitrary text \")\n" + "\tpublic void stepWithArbitraryText(){\n\t\t" +
                 "throw new UnsupportedOperationException(\"Provide custom implementation\");\n\t}";
         assertEquals(suggestion, outputMessage.getStepValidateResponse().getSuggestion());
         assertFalse(outputMessage.getStepValidateResponse().getIsValid());
