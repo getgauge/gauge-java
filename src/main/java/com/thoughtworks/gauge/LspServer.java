@@ -24,12 +24,15 @@ import io.grpc.Server;
 import io.grpc.stub.StreamObserver;
 
 public class LspServer extends lspServiceGrpc.lspServiceImplBase {
-    private Server server;
     private MessageDispatcher messageDispatcher;
+    private Server server;
 
-    LspServer(Server server, MessageDispatcher messageDispatcher) {
-        this.server = server;
+    LspServer(MessageDispatcher messageDispatcher) {
         this.messageDispatcher = messageDispatcher;
+    }
+
+    void addServer(Server lspServer) {
+        this.server = lspServer;
     }
 
     @Override

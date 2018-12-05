@@ -70,9 +70,10 @@ public class GaugeRuntime {
     }
 
     private static void startGRPCServer(MessageDispatcher messageDispatcher) throws IOException, InterruptedException {
-        Server server = null;
-        LspServer lspServer = new LspServer(server, messageDispatcher);
+        Server server;
+        LspServer lspServer = new LspServer(messageDispatcher);
         server = ServerBuilder.forPort(0).addService(lspServer).build();
+        lspServer.addServer(server);
         server.start();
         int port = server.getPort();
         System.out.println("Listening on port:" + port);
