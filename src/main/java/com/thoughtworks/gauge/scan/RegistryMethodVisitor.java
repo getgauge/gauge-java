@@ -64,13 +64,13 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
     }
 
     private void addStepToRegistry(Expression expression, MethodDeclaration methodDeclaration, SingleMemberAnnotationExpr annotation) {
-        String parameterizedStep = expression.toString();
+        String parameterizedStep = expression.toString().replaceAll("\"", "");
         String stepText = getStepText(parameterizedStep);
         stepValue = new StepValue(stepText, parameterizedStep);
 
         entry = new StepRegistryEntry();
         entry.setName(methodDeclaration.getDeclarationAsString());
-        entry.setStepText(parameterizedStep.replaceAll("\"", ""));
+        entry.setStepText(parameterizedStep);
         entry.setStepValue(stepValue);
         entry.setParameters(methodDeclaration.getTypeParameters());
         entry.setSpan(methodDeclaration.getRange());
@@ -83,8 +83,7 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
     private String getStepText(String parameterizedStepText) {
         return parameterizedStepText
-                .replaceAll("(<.*?>)", "{}")
-                .replaceAll("\"", "");
+                .replaceAll("(<.*?>)", "{}");
     }
 
     private Boolean hasAlias(SingleMemberAnnotationExpr annotation) {

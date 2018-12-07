@@ -18,29 +18,48 @@ package com.thoughtworks.gauge.scan;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseException;
 import com.github.javaparser.ast.CompilationUnit;
+import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.FileHelper;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.lang.reflect.Method;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Set;
 
 public class StaticScanner {
 
-    private StepRegistry stepRegistry = new StepRegistry();
+    private StepRegistry stepRegistry;
+
+    public StaticScanner() {
+        this.stepRegistry = new StepRegistry();
+    }
 
     public StepRegistry getRegistry() {
         return stepRegistry;
     }
 
 
-    public void reloadSteps(String fileName) {
+    public void reloadSteps(String fileName, String contents) {
         removeSteps(fileName);
-        addStepsFromFile(fileName);
+        addStepsFromFileContents(fileName, contents);
+    }
+
+    public void addStepsFromFileContents(String file, String contents) {
+        try {
+            StringReader reader = new StringReader(contents);
+            CompilationUnit compilationUnit = JavaParser.parse(reader);
+            RegistryMethodVisitor methodVisitor = new RegistryMethodVisitor(stepRegistry, file);
+            methodVisitor.visit(compilationUnit, null);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     public void removeSteps(String fileName) {
@@ -50,18 +69,8 @@ public class StaticScanner {
     public void addStepsToRegistry() {
         Iterable<String> files = FileHelper.getAllImplementationFiles();
         for (String file : files) {
-            addStepsFromFile(file);
-        }
-    }
-
-    public void addStepsFromFile(String file) {
-        try {
-            CompilationUnit compilationUnit = JavaParser.parse(new File(file));
-            RegistryMethodVisitor methodVisitor = new RegistryMethodVisitor(stepRegistry, file);
-            methodVisitor.visit(compilationUnit, null);
-
-        } catch (ParseException | IOException e) {
-            e.printStackTrace();
+            String contents = readFile(file, Charsets.UTF_8);
+            addStepsFromFileContents(file, contents);
         }
     }
 
@@ -80,5 +89,15 @@ public class StaticScanner {
             }
         }
         return stepRegistry;
+    }
+
+    public String readFile(String path, Charset encoding) {
+        try {
+            byte[] contents = Files.readAllBytes(Paths.get(path));
+            return new String(contents, encoding);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

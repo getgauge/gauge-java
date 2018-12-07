@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.scan;
 
+import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.refactor.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import org.junit.Test;
@@ -31,7 +32,8 @@ public class StaticScannerTest {
     @Test
     public void ShouldAddStepsFromFile() {
         StaticScanner staticScanner = new StaticScanner();
-        staticScanner.addStepsFromFile(IMPL_FILE);
+        String contents = staticScanner.readFile(IMPL_FILE, Charsets.UTF_8);
+        staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
         assertTrue(registry.contains(STEP_TEXT));
     }
@@ -39,7 +41,8 @@ public class StaticScannerTest {
     @Test
     public void ShouldRemoveStepsFromFile() {
         StaticScanner staticScanner = new StaticScanner();
-        staticScanner.addStepsFromFile(IMPL_FILE);
+        String contents = staticScanner.readFile(IMPL_FILE, Charsets.UTF_8);
+        staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
 
         assertTrue(registry.contains(STEP_TEXT));
@@ -50,10 +53,11 @@ public class StaticScannerTest {
     @Test
     public void ShouldReloadStepsFromFile() {
         StaticScanner staticScanner = new StaticScanner();
-        staticScanner.addStepsFromFile(IMPL_FILE);
+        String contents = staticScanner.readFile(IMPL_FILE, Charsets.UTF_8);
+        staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
         assertTrue(registry.contains(STEP_TEXT));
-        staticScanner.reloadSteps(IMPL_FILE);
+        staticScanner.reloadSteps(IMPL_FILE, contents);
         assertTrue(registry.contains(STEP_TEXT));
     }
 }
