@@ -30,7 +30,11 @@ import java.util.HashMap;
 import static java.util.stream.Collectors.toList;
 
 public class StepRegistry {
-    private HashMap<String, List<StepRegistryEntry>> registry = new HashMap<>();
+    private HashMap<String, List<StepRegistryEntry>> registry;
+
+    public StepRegistry() {
+        registry = new HashMap<>();
+    }
 
     public void addStepImplementation(StepValue stepValue, Method method) {
         String stepText = stepValue.getStepText();

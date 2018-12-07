@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.processor;
 
+import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.refactor.Util;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import gauge.messages.Messages;
@@ -32,8 +33,9 @@ public class CacheFileRequestProcessorTest {
     public void shouldProcessRequestWithFileOpenedStatus() {
         StaticScanner staticScanner = new StaticScanner();
         String implFile = Util.workingDir() + File.separator + String.format("src%stest%sresources%stest%sfiles%sfoo.java", File.separator, File.separator, File.separator, File.separator, File.separator);
+        String contents = staticScanner.readFile(implFile, Charsets.UTF_8);
         CacheFileRequestProcessor cacheFileRequestProcessor = new CacheFileRequestProcessor(staticScanner);
-        Messages.CacheFileRequest cacheFileRequest = Messages.CacheFileRequest.newBuilder().setFilePath(implFile).setStatus(Messages.CacheFileRequest.FileStatus.OPENED).build();
+        Messages.CacheFileRequest cacheFileRequest = Messages.CacheFileRequest.newBuilder().setFilePath(implFile).setContent(contents).setStatus(Messages.CacheFileRequest.FileStatus.OPENED).build();
         Messages.Message request = Messages.Message.newBuilder().setMessageType(Messages.Message.MessageType.CacheFileRequest).setMessageId(1l).setCacheFileRequest(cacheFileRequest).build();
         cacheFileRequestProcessor.process(request);
 
@@ -45,8 +47,8 @@ public class CacheFileRequestProcessorTest {
     public void ShouldProcessRequestWithDeletedStatus() {
         StaticScanner staticScanner = new StaticScanner();
         String implFile = Util.workingDir() + File.separator + String.format("src%stest%sresources%stest%sfiles%sfoo.java", File.separator, File.separator, File.separator, File.separator, File.separator);
-        staticScanner.addStepsFromFile(implFile);
-
+        String contents = staticScanner.readFile(implFile, Charsets.UTF_8);
+        staticScanner.addStepsFromFileContents(implFile, contents);
         CacheFileRequestProcessor cacheFileRequestProcessor = new CacheFileRequestProcessor(staticScanner);
         Messages.CacheFileRequest cacheFileRequest = Messages.CacheFileRequest.newBuilder().setFilePath(implFile).setStatus(Messages.CacheFileRequest.FileStatus.DELETED).build();
         Messages.Message request = Messages.Message.newBuilder().setMessageType(Messages.Message.MessageType.CacheFileRequest).setMessageId(1l).setCacheFileRequest(cacheFileRequest).build();

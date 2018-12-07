@@ -30,18 +30,19 @@ public class CacheFileRequestProcessor implements IMessageProcessor {
     @Override
     public Messages.Message process(Messages.Message request) {
         String fileName = request.getCacheFileRequest().getFilePath();
+        String contents = request.getCacheFileRequest().getContent();
         Messages.CacheFileRequest.FileStatus status = request.getCacheFileRequest().getStatus();
         switch (status) {
             case OPENED:
             case CHANGED:
-                staticScanner.reloadSteps(fileName);
+                staticScanner.reloadSteps(fileName, contents);
                 break;
             case DELETED:
                 staticScanner.removeSteps(fileName);
                 break;
             case CREATED:
             case CLOSED:
-                loadFromDisk(fileName);
+                loadFromDisk(fileName, contents);
                 break;
             default:
                 throw new IllegalArgumentException();
@@ -49,9 +50,9 @@ public class CacheFileRequestProcessor implements IMessageProcessor {
         return Messages.Message.newBuilder().build();
     }
 
-    private void loadFromDisk(String fileName) {
+    private void loadFromDisk(String fileName, String contents) {
         if ((new File(fileName).exists())) {
-            staticScanner.reloadSteps(fileName);
+            staticScanner.reloadSteps(fileName, contents);
         }
     }
 }
