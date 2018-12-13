@@ -16,14 +16,17 @@
 package com.thoughtworks.gauge.refactor;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class JavaRefactoringElement {
+    private final ArrayList<Diff> diffs;
     private String text;
     private File file;
 
     public JavaRefactoringElement(String text, File file) {
         this.text = text;
         this.file = file;
+        this.diffs = new ArrayList<>();
     }
 
     public File getFile() {
@@ -37,4 +40,13 @@ public class JavaRefactoringElement {
     public String getText() {
         return text;
     }
+
+    public ArrayList<Diff> getDiffs() {
+        return diffs;
+    }
+
+    public void addDiffs(Diff diff) {
+        this.diffs.add(diff);
+    }
+
 }

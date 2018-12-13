@@ -43,6 +43,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
     private List<Messages.ParameterPosition> paramPositions;
     private boolean refactored;
     private JavaRefactoringElement javaElement;
+    private List<Parameter> newParameters;
 
 
     public RefactoringMethodVisitor(StepValue oldStepValue, StepValue newStepValue, List<Messages.ParameterPosition> paramPositions) {
@@ -91,7 +92,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
 
     private void refactor(MethodDeclaration methodDeclaration, StringLiteralExpr memberValue, SingleMemberAnnotationExpr annotation) {
         if (StringEscapeUtils.unescapeJava(memberValue.getValue()).trim().equals(oldStepValue.getStepAnnotationText().trim())) {
-            List<Parameter> newParameters = Arrays.asList(new Parameter[paramPositions.size()]);
+            newParameters = Arrays.asList(new Parameter[paramPositions.size()]);
             memberValue.setValue(StringEscapeUtils.escapeJava(newStepValue.getStepAnnotationText()));
             List<Parameter> parameters = methodDeclaration.getParameters();
             for (int i = 0, paramPositionsSize = paramPositions.size(); i < paramPositionsSize; i++) {
@@ -136,5 +137,9 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
 
     public JavaRefactoringElement getRefactoredJavaElement() {
         return this.javaElement;
+    }
+
+    public List<Parameter> getNewParameters() {
+        return newParameters;
     }
 }
