@@ -26,11 +26,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.HashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
+import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toList;
 
 public class StepRegistry {
-    private HashMap<String, List<StepRegistryEntry>> registry;
+    private HashMap<String, CopyOnWriteArrayList<StepRegistryEntry>> registry;
 
     public StepRegistry() {
         registry = new HashMap<>();
@@ -38,7 +40,7 @@ public class StepRegistry {
 
     public void addStepImplementation(StepValue stepValue, Method method) {
         String stepText = stepValue.getStepText();
-        registry.putIfAbsent(stepText, new ArrayList<>());
+        registry.putIfAbsent(stepText, new CopyOnWriteArrayList<>());
         registry.get(stepText).add(new StepRegistryEntry(stepValue, method));
     }
 
@@ -51,7 +53,7 @@ public class StepRegistry {
     }
 
     private StepRegistryEntry getFirstEntry(String stepTemplateText) {
-        return registry.getOrDefault(stepTemplateText, new ArrayList<>()).stream()
+        return registry.getOrDefault(stepTemplateText, new CopyOnWriteArrayList<>()).stream()
                 .findFirst()
                 .orElse(new StepRegistryEntry());
     }
@@ -77,9 +79,9 @@ public class StepRegistry {
     }
 
     public void removeSteps(String fileName) {
-        HashMap<String, List<StepRegistryEntry>> newRegistry = new HashMap<>();
+        HashMap<String, CopyOnWriteArrayList<StepRegistryEntry>> newRegistry = new HashMap<>();
         for (String key : registry.keySet()) {
-            List<StepRegistryEntry> newEntryList = registry.get(key).stream().filter(entry -> !entry.getFileName().equals(fileName)).collect(toList());
+            CopyOnWriteArrayList<StepRegistryEntry> newEntryList = registry.get(key).stream().filter(entry -> !entry.getFileName().equals(fileName)).collect(toCollection(CopyOnWriteArrayList::new));
             if (newEntryList.size() > 0) {
                 newRegistry.put(key, newEntryList);
             }
@@ -90,7 +92,7 @@ public class StepRegistry {
 
     public void addStep(StepValue stepValue, StepRegistryEntry entry) {
         String stepText = stepValue.getStepText();
-        registry.putIfAbsent(stepText, new ArrayList<>());
+        registry.putIfAbsent(stepText, new CopyOnWriteArrayList<>());
         registry.get(stepText).add(entry);
     }
 
@@ -101,7 +103,7 @@ public class StepRegistry {
     public List<Messages.StepPositionsResponse.StepPosition> getStepPositions(String filePath) {
         List<Messages.StepPositionsResponse.StepPosition> stepPositionsList = new ArrayList<>();
 
-        for (Map.Entry<String, List<StepRegistryEntry>> entryList : registry.entrySet()) {
+        for (Map.Entry<String, CopyOnWriteArrayList<StepRegistryEntry>> entryList : registry.entrySet()) {
             for (StepRegistryEntry entry : entryList.getValue()) {
                 if (entry.getFileName().equals(filePath)) {
                     Messages.StepPositionsResponse.StepPosition stepPosition = Messages.StepPositionsResponse.StepPosition.newBuilder()
