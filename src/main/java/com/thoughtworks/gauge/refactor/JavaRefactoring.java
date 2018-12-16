@@ -76,25 +76,24 @@ public class JavaRefactoring {
         return new RefactoringResult(true, element);
     }
 
-    private Range getStepRange() {
-        String step = "@Step";
-        Range range = registry.get(oldStepValue.getStepText()).getSpan();
-        int stepStart = step.length() + range.begin.column;
-        String stepText = "\"" + oldStepValue.getStepAnnotationText() + "\"";
-        int stepEnd = stepStart + stepText.length();
-        return new Range(new Position(range.begin.line, stepStart), new Position(range.begin.line, stepEnd));
+    private Range getStepRange(Range range) {
+        return new Range(new Position(range.begin.line, range.begin.column - 1), new Position(range.end.line, range.end.column));
     }
 
     private String updatedParameters(List<Parameter> parameters) {
-        StringBuilder paramTexts = new StringBuilder(StringUtils.join(parameters, ", "));
-        return "(" + paramTexts + ")";
+        return new StringBuilder(StringUtils.join(parameters, ", ")).toString();
     }
 
     private Range getParamsRange() {
         List<Parameter> parameters = registry.get(oldStepValue.getStepText()).getParameters();
+        if (parameters.isEmpty()) {
+            int line = registry.get(oldStepValue.getStepText()).getSpan().begin.line + 1;
+            int column = registry.get(oldStepValue.getStepText()).getName().length();
+            return new Range(new Position(line, column), new Position(line, column));
+        }
         Range firstParam = parameters.get(0).getRange();
         Range lastParam = parameters.get(parameters.size() - 1).getRange();
-        return new Range(new Position(firstParam.begin.line, firstParam.begin.column - 2), new Position(lastParam.end.line, lastParam.end.column + 1));
+        return new Range(new Position(firstParam.begin.line, firstParam.begin.column - 1), new Position(lastParam.end.line, lastParam.end.column));
     }
 
     JavaRefactoringElement createJavaRefactoringElement(String fileName) throws RefactoringException {
@@ -109,10 +108,10 @@ public class JavaRefactoring {
                 methodVisitor.visit(compilationUnit, null);
                 if (methodVisitor.refactored()) {
                     JavaRefactoringElement javaElement = methodVisitor.getRefactoredJavaElement();
-                    if (!saveChanges) {
-                        javaElement = addjavaDiffElements(methodVisitor, javaElement);
-                    }
                     javaElement.setFile(javaFile.getJavaFile());
+                    if (!saveChanges) {
+                        javaElement = addJavaDiffElements(methodVisitor, javaElement);
+                    }
                     return javaElement;
                 }
             }
@@ -122,12 +121,11 @@ public class JavaRefactoring {
         throw new RefactoringException("Unable to find implementation");
     }
 
-    private JavaRefactoringElement addjavaDiffElements(RefactoringMethodVisitor methodVisitor, JavaRefactoringElement javaElement) {
+    private JavaRefactoringElement addJavaDiffElements(RefactoringMethodVisitor methodVisitor, JavaRefactoringElement javaElement) {
         List<Parameter> newParameters = methodVisitor.getNewParameters();
-        javaElement.addDiffs(new Diff("\"" + parameterizedStepValue + "\"", getStepRange()));
-        if (!newParameters.isEmpty()) {
-            javaElement.addDiffs(new Diff(updatedParameters(newParameters), getParamsRange()));
-        }
+        Range stepLineSpan = methodVisitor.getStepLineSpan();
+        javaElement.addDiffs(new Diff("\"" + parameterizedStepValue + "\"", getStepRange(stepLineSpan)));
+        javaElement.addDiffs(new Diff(updatedParameters(newParameters), getParamsRange()));
         return javaElement;
     }
 

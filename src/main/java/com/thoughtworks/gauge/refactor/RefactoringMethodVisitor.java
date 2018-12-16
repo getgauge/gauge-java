@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.refactor;
 
+import com.github.javaparser.Range;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.MethodDeclaration;
@@ -44,6 +45,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
     private boolean refactored;
     private JavaRefactoringElement javaElement;
     private List<Parameter> newParameters;
+    private Range stepSpan;
 
 
     public RefactoringMethodVisitor(StepValue oldStepValue, StepValue newStepValue, List<Messages.ParameterPosition> paramPositions) {
@@ -116,6 +118,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
             methodDeclaration.setParameters(newParameters);
             annotation.setMemberValue(memberValue);
             this.javaElement = new JavaRefactoringElement(getJavaFileText(methodDeclaration), null);
+            stepSpan = annotation.getChildrenNodes().get(1).getRange();
             this.refactored = true;
         }
     }
@@ -141,5 +144,9 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
 
     public List<Parameter> getNewParameters() {
         return newParameters;
+    }
+
+    public Range getStepLineSpan() {
+        return stepSpan;
     }
 }
