@@ -22,13 +22,12 @@ import (
 	"os"
 	"os/exec"
 	"os/signal"
+	"path"
 	"path/filepath"
 	"runtime"
 	"strings"
 	"syscall"
 	"time"
-
-	"path"
 
 	"github.com/getgauge/common"
 )
@@ -345,7 +344,9 @@ func createClasspath() string {
 		//TODO: Move to log
 		//fmt.Println("Failed to detect project build path")
 		//fmt.Printf("Building to %s directory \n", default_build_dir)
-		build(default_build_dir, cp)
+		if os.Getenv("SHOULD_BUILD_PROJECT") != "false" {
+			build(default_build_dir, cp)
+		}
 		appendClasspath(&cp, default_build_dir)
 	}
 	return cp
