@@ -15,10 +15,14 @@
 
 package com.thoughtworks.gauge.refactor;
 
+import com.github.javaparser.Position;
+import com.github.javaparser.Range;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.Parameter;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,17 +34,22 @@ public class JavaRefactoring {
     private final StepValue newStepValue;
     private final List<Messages.ParameterPosition> paramPositions;
     private StepRegistry registry;
+    private String parameterizedStepValue;
+    private boolean saveChanges;
 
-    public JavaRefactoring(StepValue oldStepValue, StepValue newStepValue, List<Messages.ParameterPosition> paramPositionsList, StepRegistry registry) {
+    public JavaRefactoring(StepValue oldStepValue, StepValue newStepValue, List<Messages.ParameterPosition> paramPositionsList, StepRegistry registry, String parameterizedStepValue, boolean saveChanges) {
         this.oldStepValue = oldStepValue;
         this.newStepValue = newStepValue;
         this.paramPositions = paramPositionsList;
         this.registry = registry;
+        this.parameterizedStepValue = parameterizedStepValue;
+        this.saveChanges = saveChanges;
     }
 
     public RefactoringResult performRefactoring() {
         String oldStepText = oldStepValue.getStepText();
         String fileName = registry.get(oldStepText).getFileName();
+
         if (fileName == null || fileName.isEmpty()) {
             return new RefactoringResult(false, "Step Implementation Not Found: Unable to find a file Name to refactor");
         }
@@ -54,7 +63,9 @@ public class JavaRefactoring {
         JavaRefactoringElement element;
         try {
             element = createJavaRefactoringElement(fileName);
-            new FileModifier(element).refactor();
+            if (saveChanges) {
+                new FileModifier(element).refactor();
+            }
         } catch (IOException e) {
             return new RefactoringResult(false, "Unable to read/write file while refactoring. " + e.getMessage());
         } catch (RefactoringException e) {
@@ -62,8 +73,27 @@ public class JavaRefactoring {
         } catch (Exception e) {
             return new RefactoringResult(false, "Refactoring failed: " + e.getMessage());
         }
+        return new RefactoringResult(true, element);
+    }
 
-        return new RefactoringResult(true, "", element.getFile().getAbsolutePath());
+    private Range getStepRange(Range range) {
+        return new Range(new Position(range.begin.line, range.begin.column - 1), new Position(range.end.line, range.end.column));
+    }
+
+    private String updatedParameters(List<Parameter> parameters) {
+        return new StringBuilder(StringUtils.join(parameters, ", ")).toString();
+    }
+
+    private Range getParamsRange() {
+        List<Parameter> parameters = registry.get(oldStepValue.getStepText()).getParameters();
+        if (parameters.isEmpty()) {
+            int line = registry.get(oldStepValue.getStepText()).getSpan().begin.line + 1;
+            int column = registry.get(oldStepValue.getStepText()).getName().length();
+            return new Range(new Position(line, column), new Position(line, column));
+        }
+        Range firstParam = parameters.get(0).getRange();
+        Range lastParam = parameters.get(parameters.size() - 1).getRange();
+        return new Range(new Position(firstParam.begin.line, firstParam.begin.column - 1), new Position(lastParam.end.line, lastParam.end.column));
     }
 
     JavaRefactoringElement createJavaRefactoringElement(String fileName) throws RefactoringException {
@@ -79,6 +109,9 @@ public class JavaRefactoring {
                 if (methodVisitor.refactored()) {
                     JavaRefactoringElement javaElement = methodVisitor.getRefactoredJavaElement();
                     javaElement.setFile(javaFile.getJavaFile());
+                    if (!saveChanges) {
+                        javaElement = addJavaDiffElements(methodVisitor, javaElement);
+                    }
                     return javaElement;
                 }
             }
@@ -88,8 +121,16 @@ public class JavaRefactoring {
         throw new RefactoringException("Unable to find implementation");
     }
 
+    private JavaRefactoringElement addJavaDiffElements(RefactoringMethodVisitor methodVisitor, JavaRefactoringElement javaElement) {
+        List<Parameter> newParameters = methodVisitor.getNewParameters();
+        Range stepLineSpan = methodVisitor.getStepLineSpan();
+        javaElement.addDiffs(new Diff("\"" + parameterizedStepValue + "\"", getStepRange(stepLineSpan)));
+        javaElement.addDiffs(new Diff(updatedParameters(newParameters), getParamsRange()));
+        return javaElement;
+    }
+
     private List<JavaParseWorker> parseJavaFiles(File workingDir, String fileName) {
-        ArrayList<JavaParseWorker> javaFiles = new ArrayList<JavaParseWorker>();
+        ArrayList<JavaParseWorker> javaFiles = new ArrayList<>();
         File[] allFiles = workingDir.listFiles();
         for (File file : allFiles) {
             if (file.isDirectory()) {

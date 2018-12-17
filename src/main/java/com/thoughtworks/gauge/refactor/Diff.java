@@ -15,38 +15,22 @@
 
 package com.thoughtworks.gauge.refactor;
 
-import java.io.File;
-import java.util.ArrayList;
+import com.github.javaparser.Range;
 
-public class JavaRefactoringElement {
-    private final ArrayList<Diff> diffs;
+public class Diff {
     private String text;
-    private File file;
+    private Range range;
 
-    public JavaRefactoringElement(String text, File file) {
+    public Diff(String text, Range range) {
         this.text = text;
-        this.file = file;
-        this.diffs = new ArrayList<>();
-    }
-
-    public File getFile() {
-        return file;
-    }
-
-    public void setFile(File file) {
-        this.file = file;
+        this.range = range;
     }
 
     public String getText() {
         return text;
     }
 
-    public ArrayList<Diff> getDiffs() {
-        return diffs;
+    public Range getRange() {
+        return range;
     }
-
-    public void addDiffs(Diff diff) {
-        this.diffs.add(diff);
-    }
-
 }

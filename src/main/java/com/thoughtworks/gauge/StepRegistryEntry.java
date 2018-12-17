@@ -16,7 +16,7 @@
 package com.thoughtworks.gauge;
 
 import com.github.javaparser.Range;
-import com.github.javaparser.ast.TypeParameter;
+import com.github.javaparser.ast.body.Parameter;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -32,7 +32,7 @@ public class StepRegistryEntry {
     private String stepText;
     private String name;
     private Boolean continueOnFailure;
-    private List<TypeParameter> parameters;
+    private List<Parameter> parameters;
 
     public StepRegistryEntry(StepValue stepValue, Method method) {
         this.stepValue = stepValue;
@@ -95,11 +95,11 @@ public class StepRegistryEntry {
         return className;
     }
 
-    public void setParameters(List<TypeParameter> parameters) {
+    public void setParameters(List<Parameter> parameters) {
         this.parameters = parameters;
     }
 
-    public List<TypeParameter> getParameters() {
+    public List<Parameter> getParameters() {
         return parameters;
     }
 
