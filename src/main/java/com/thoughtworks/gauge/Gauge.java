@@ -36,6 +36,10 @@ public class Gauge {
         }
     };
 
+    public static void setInstanceManager(ClassInstanceManager instanceManager) {
+        Gauge.instanceManager = instanceManager;
+    }
+
     /**
      * @param message - Custom message that can be added at runtime that will be visible in reports.
      */

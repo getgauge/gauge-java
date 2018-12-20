@@ -19,6 +19,7 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.thoughtworks.gauge.ClassInstanceManager;
+import com.thoughtworks.gauge.Gauge;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.processor.IMessageProcessor;
@@ -110,6 +111,7 @@ public class MessageDispatcher {
             ClasspathScanner classpathScanner = new ClasspathScanner();
             classpathScanner.scan(new StepsScanner(connector, stepRegistry), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
             this.stepRegistry = staticScanner.getStepRegistry(classpathScanner);
+            Gauge.setInstanceManager(instanceManager);
             initializeExecutionMessageProcessor();
         }
         return getProcessor(request);
