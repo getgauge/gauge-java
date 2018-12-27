@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.processor;
 
+import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import gauge.messages.Messages;
 
@@ -42,7 +43,7 @@ public class CacheFileRequestProcessor implements IMessageProcessor {
                 break;
             case CREATED:
             case CLOSED:
-                loadFromDisk(fileName, contents);
+                loadFromDisk(fileName);
                 break;
             default:
                 throw new IllegalArgumentException();
@@ -50,9 +51,9 @@ public class CacheFileRequestProcessor implements IMessageProcessor {
         return Messages.Message.newBuilder().build();
     }
 
-    private void loadFromDisk(String fileName, String contents) {
+    private void loadFromDisk(String fileName) {
         if ((new File(fileName).exists())) {
-            staticScanner.reloadSteps(fileName, contents);
+            staticScanner.reloadSteps(fileName, staticScanner.readFile(fileName, Charsets.UTF_8));
         }
     }
 }
