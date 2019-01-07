@@ -146,6 +146,7 @@ func createCommandArgs() []string {
 	args := []string{}
 	javaDebugPort := os.Getenv(common.GaugeDebugOptsEnv)
 	if javaDebugPort != "" {
+		fmt.Println("\nRunner Ready for Debugging")
 		value := fmt.Sprintf(JavaDebugOptsTemplate, javaDebugPort)
 		args = append(args, value)
 	}
