@@ -20,11 +20,19 @@ import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.TestStepImplClass;
 import junit.framework.TestCase;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.lang.reflect.Method;
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-public class StepRegistryTest extends TestCase {
+public class StepRegistryTest {
 
     private StepValue stepValue1 = new StepValue("hello world", "hello world");
     private StepValue stepValue2 = new StepValue("hello world {}", "hello world <param0>");
@@ -39,7 +47,8 @@ public class StepRegistryTest extends TestCase {
 
     private StepRegistry stepRegistry;
 
-    protected void setUp() throws Exception {
+    @Before
+    public void setUp() throws Exception {
         this.stepRegistry = new StepRegistry();
         this.stepRegistry.addStepImplementation(stepValue1, method1);
         this.stepRegistry.addStepImplementation(stepValue2, method2);
@@ -48,6 +57,7 @@ public class StepRegistryTest extends TestCase {
         this.stepRegistry.addStepImplementation(aliasStep2, aliasMethod);
     }
 
+    @Test
     public void testAddingStepImplementationToRegistry() throws Exception {
         assertTrue(stepRegistry.contains(stepValue1.getStepText()));
         assertTrue(stepRegistry.contains(stepValue2.getStepText()));
@@ -61,6 +71,7 @@ public class StepRegistryTest extends TestCase {
         assertNull(stepRegistry.get("unknown").getMethodInfo());
     }
 
+    @Test
     public void testGetAllStepTexts() throws Exception {
         List<String> stepTexts = stepRegistry.getAllStepAnnotationTexts();
         assertEquals(5, stepTexts.size());
@@ -71,6 +82,7 @@ public class StepRegistryTest extends TestCase {
         assertTrue(stepTexts.contains(aliasStep2.getStepAnnotationText()));
     }
 
+    @Test
     public void testGetStepAnnotationFor() throws Exception {
         assertEquals(stepValue1.getStepAnnotationText(), stepRegistry.getStepAnnotationFor(stepValue1.getStepText()));
         assertEquals(stepValue2.getStepAnnotationText(), stepRegistry.getStepAnnotationFor(stepValue2.getStepText()));
@@ -80,6 +92,7 @@ public class StepRegistryTest extends TestCase {
         assertEquals("", stepRegistry.getStepAnnotationFor("unknown"));
     }
 
+    @Test
     public void testRemoveEntry() throws Exception {
         stepRegistry.remove(stepValue1.getStepText());
         assertFalse(stepRegistry.contains(stepValue1.getStepText()));
@@ -87,6 +100,7 @@ public class StepRegistryTest extends TestCase {
         assertEquals("", stepRegistry.getStepAnnotationFor(stepValue1.getStepText()));
     }
 
+    @Test
     public void testAddedToRawRegistry() {
         stepRegistry.addStepImplementation(stepValue1, method2);
 
@@ -96,7 +110,20 @@ public class StepRegistryTest extends TestCase {
         assertEquals(entries.get(1).getMethodInfo(), method2);
     }
 
-    protected void tearDown() throws Exception {
+    @Test
+    public void TestIsFileCached() {
+        stepRegistry.get(stepValue1.getStepText()).setFileName("/somepath/file1.java");
+        stepRegistry.get(stepValue2.getStepText()).setFileName("/somepath/file2.java");
+        stepRegistry.get(stepValue3.getStepText()).setFileName("/somepath/file1.java");
+        stepRegistry.get(aliasStep1.getStepText()).setFileName("/somepath/file2.java");
+        stepRegistry.get(aliasStep2.getStepText()).setFileName("/somepath/file1.java");
+
+        assertTrue(stepRegistry.isFileCached("/somepath/file1.java"));
+        assertFalse(stepRegistry.isFileCached("/someotherpath/file2.java"));
+    }
+
+    @After
+    public void tearDown() throws Exception {
         stepRegistry.remove(stepValue1.getStepText());
         stepRegistry.remove(stepValue2.getStepText());
         stepRegistry.remove(stepValue3.getStepText());
