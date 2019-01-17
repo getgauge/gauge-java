@@ -91,6 +91,10 @@ public class StaticScanner {
         return stepRegistry;
     }
 
+    public boolean isFileCached(String fileName) {
+        return stepRegistry.isFileCached(fileName);
+    }
+
     public String readFile(String path, Charset encoding) {
         try {
             byte[] contents = Files.readAllBytes(Paths.get(path));

@@ -121,4 +121,13 @@ public class StepRegistry {
 
         return stepPositionsList;
     }
+
+    public boolean isFileCached(String fileName) {
+        for (String key : registry.keySet()) {
+            if (registry.get(key).stream().anyMatch(entry -> entry.getFileName().equals(fileName))) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

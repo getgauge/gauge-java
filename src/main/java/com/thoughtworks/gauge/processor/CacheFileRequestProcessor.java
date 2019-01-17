@@ -42,6 +42,10 @@ public class CacheFileRequestProcessor implements IMessageProcessor {
                 staticScanner.removeSteps(fileName);
                 break;
             case CREATED:
+                if (!staticScanner.isFileCached(fileName)) {
+                    loadFromDisk(fileName);
+                }
+                break;
             case CLOSED:
                 loadFromDisk(fileName);
                 break;
