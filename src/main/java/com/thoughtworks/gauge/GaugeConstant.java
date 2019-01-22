@@ -23,5 +23,8 @@ public class GaugeConstant {
     public static final String GAUGE_DEBUG_OPTS_ENV = "GAUGE_DEBUG_OPTS";
     public static final String PACKAGE_TO_SCAN = "package_to_scan";
     public static final String GAUGE_LSP_GRPC = "GAUGE_LSP_GRPC";
+    public static final String GAUGE_PROJECT_ROOT = "GAUGE_PROJECT_ROOT";
+    public static final String  GAUGE_CUSTOM_COMPILE_DIR = "gauge_custom_compile_dir";
+    public static final String DEFAULT_SRC_DIR = "src";
 
 }
