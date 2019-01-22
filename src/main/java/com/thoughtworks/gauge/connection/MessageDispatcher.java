@@ -91,11 +91,11 @@ public class MessageDispatcher {
                     System.err.println("Invalid message type received " + message.getMessageType());
                 }
                 Messages.Message response = messageProcessor.process(message);
-                    writeMessage(gaugeSocket, response);
-                    if (message.getMessageType() == Messages.Message.MessageType.KillProcessRequest) {
-                        gaugeSocket.close();
-                        return;
-                    }
+                writeMessage(gaugeSocket, response);
+                if (message.getMessageType() == Messages.Message.MessageType.KillProcessRequest) {
+                    gaugeSocket.close();
+                    return;
+                }
             } catch (InvalidProtocolBufferException e) {
                 return;
             } catch (Throwable throwable) {
@@ -138,7 +138,6 @@ public class MessageDispatcher {
         messageProcessors.put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer(instanceManager));
         messageProcessors.put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer(instanceManager));
         messageProcessors.put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer(instanceManager));
-        messageProcessors.put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor(instanceManager));
     }
 
     private HashMap<Messages.Message.MessageType, IMessageProcessor> initializeMessageProcessor() {
@@ -150,6 +149,7 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.StepPositionsRequest, new StepPositionsRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor(stepRegistry));
             put(Messages.Message.MessageType.StubImplementationCodeRequest, new StubImplementationCodeProcessor());
+            put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor(instanceManager));
         }};
     }
 
