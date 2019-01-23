@@ -34,8 +34,8 @@ public class FileHelper {
 
     public static Iterable<String> getAllImplementationFiles() {
         ArrayList<String> outputFiles = new ArrayList<>();
-        getStepImplDir().forEach(dir -> {
-            try (Stream<Path> filePathStream = Files.walk(getAbsolutePath(dir))) {
+        getStepImplDirs().forEach(dir -> {
+            try (Stream<Path> filePathStream = Files.walk(Paths.get(dir))) {
                 filePathStream.forEach(filePath -> {
                     if (Files.isRegularFile(filePath) && filePath.toString().endsWith(".java")) {
                         outputFiles.add(filePath.toString());
@@ -53,13 +53,14 @@ public class FileHelper {
         return !path.isAbsolute() ? Paths.get(System.getenv(GAUGE_PROJECT_ROOT), dir) : path;
     }
 
-    private static List<String> getStepImplDir() {
+    static List<String> getStepImplDirs() {
         List<String> srcDirs = new ArrayList<>();
         String customCompileDirs = System.getenv(GAUGE_CUSTOM_COMPILE_DIR);
         if (customCompileDirs != null && !customCompileDirs.isEmpty()) {
-            srcDirs.addAll(Arrays.asList(customCompileDirs.trim().split(";")));
+            Arrays.asList(customCompileDirs.trim().split(";"))
+                    .forEach(d -> srcDirs.add(getAbsolutePath(d).toString()));
         }
-        srcDirs.add(DEFAULT_SRC_DIR);
+        srcDirs.add(getDefaultStepImplDir());
         return srcDirs;
     }
 

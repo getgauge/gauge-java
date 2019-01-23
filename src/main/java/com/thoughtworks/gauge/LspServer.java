@@ -23,6 +23,9 @@ import gauge.messages.lspServiceGrpc;
 import io.grpc.Server;
 import io.grpc.stub.StreamObserver;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     private MessageDispatcher messageDispatcher;
     private Server server;
@@ -135,8 +138,8 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
 
     @Override
     public void getGlobPatterns(Lsp.Empty request, StreamObserver<Messages.ImplementationFileGlobPatternResponse> responseObserver) {
-        String gaugeProjectRoot = System.getenv("GAUGE_PROJECT_ROOT") + "/**/*.java";
-        responseObserver.onNext(Messages.ImplementationFileGlobPatternResponse.newBuilder().addGlobPatterns(gaugeProjectRoot).build());
+        List<String> patterns = FileHelper.getStepImplDirs().stream().map(dir -> dir + "/**/*.java").collect(Collectors.toList());
+        responseObserver.onNext(Messages.ImplementationFileGlobPatternResponse.newBuilder().addAllGlobPatterns(patterns).build());
         responseObserver.onCompleted();
     }
 
