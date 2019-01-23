@@ -82,7 +82,6 @@ public class MessageDispatcher {
                 byte[] bytes = toBytes(messageLength);
                 Messages.Message message = Messages.Message.parseFrom(bytes);
                 IMessageProcessor messageProcessor;
-                System.out.println(message.getMessageType());
                 if (message.getMessageType() == Messages.Message.MessageType.SuiteDataStoreInit) {
                     messageProcessor = getProcessor(message.getMessageType(), connector);
                 } else {
