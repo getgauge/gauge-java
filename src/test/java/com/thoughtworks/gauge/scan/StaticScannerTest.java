@@ -16,13 +16,14 @@
 package com.thoughtworks.gauge.scan;
 
 import com.google.common.base.Charsets;
-import com.thoughtworks.gauge.refactor.Util;
+import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import org.junit.Test;
 
 import java.io.File;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class StaticScannerTest {
 

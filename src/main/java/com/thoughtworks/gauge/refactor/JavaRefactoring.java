@@ -20,6 +20,7 @@ import com.github.javaparser.Range;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.Parameter;
 import com.thoughtworks.gauge.StepValue;
+import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import org.apache.commons.lang.StringUtils;

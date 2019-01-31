@@ -47,7 +47,7 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
         if (file.exists()) {
             fileDiff = implementInExistingFile(stubs, file);
         } else {
-            File fileName = FileHelper.getFileName("", 0);
+            File fileName = FileHelper.getDefaultImplFileName("", 0);
             fileDiff = implementInNewClass(stubs, fileName);
         }
 
