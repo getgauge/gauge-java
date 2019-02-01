@@ -16,7 +16,7 @@
 package com.thoughtworks.gauge.processor;
 
 import com.google.common.base.Charsets;
-import com.thoughtworks.gauge.refactor.Util;
+import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import gauge.messages.Messages;
 import org.junit.Test;

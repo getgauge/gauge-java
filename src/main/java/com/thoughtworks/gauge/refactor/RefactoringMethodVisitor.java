@@ -29,6 +29,7 @@ import com.github.javaparser.ast.expr.StringLiteralExpr;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.StepValue;
+import com.thoughtworks.gauge.Util;
 import gauge.messages.Messages;
 import org.apache.commons.lang.StringEscapeUtils;
 

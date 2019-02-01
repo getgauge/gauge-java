@@ -31,13 +31,15 @@ import static com.thoughtworks.gauge.GaugeConstant.GAUGE_PROJECT_ROOT;
 import static com.thoughtworks.gauge.GaugeConstant.GAUGE_CUSTOM_COMPILE_DIR;
 
 public class FileHelper {
+    private static final String CUSTOM_COMPILE_DIR_SEPARATOR = ",";
+    private static final String JAVA_FILE_EXT = ".java";
 
-    public static Iterable<String> getAllImplementationFiles() {
+    public static List<String> getAllImplementationFiles() {
         ArrayList<String> outputFiles = new ArrayList<>();
         getStepImplDirs().forEach(dir -> {
             try (Stream<Path> filePathStream = Files.walk(Paths.get(dir))) {
                 filePathStream.forEach(filePath -> {
-                    if (Files.isRegularFile(filePath) && filePath.toString().endsWith(".java")) {
+                    if (Files.isRegularFile(filePath) && filePath.toString().endsWith(JAVA_FILE_EXT)) {
                         outputFiles.add(filePath.toString());
                     }
                 });
@@ -57,8 +59,8 @@ public class FileHelper {
         List<String> srcDirs = new ArrayList<>();
         String customCompileDirs = System.getenv(GAUGE_CUSTOM_COMPILE_DIR);
         if (customCompileDirs != null && !customCompileDirs.isEmpty()) {
-            Arrays.asList(customCompileDirs.trim().split(";"))
-                    .forEach(d -> srcDirs.add(getAbsolutePath(d).toString()));
+            Arrays.asList(customCompileDirs.split(CUSTOM_COMPILE_DIR_SEPARATOR))
+                    .forEach(d -> srcDirs.add(getAbsolutePath(d.trim()).toString()));
         }
         srcDirs.add(getDefaultStepImplDir());
         return srcDirs;
@@ -69,11 +71,11 @@ public class FileHelper {
         return getNameWithoutExtension(fileName);
     }
 
-    public static File getFileName(String suffix, int count) {
-        String filename = "StepImplementation" + suffix + ".java";
+    public static File getDefaultImplFileName(String suffix, int count) {
+        String filename = "StepImplementation" + suffix + JAVA_FILE_EXT;
         Path filepath = Paths.get(getDefaultStepImplDir(), filename);
         File file = new File(filepath.toString());
-        return file.exists() ? getFileName(String.valueOf(++count), count) : file;
+        return file.exists() ? getDefaultImplFileName(String.valueOf(++count), count) : file;
     }
 
     private static String getDefaultStepImplDir() {
