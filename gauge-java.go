@@ -19,6 +19,7 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"os/exec"
 	"os/signal"
@@ -419,7 +420,11 @@ func build(destination string, classpath string) {
 
 	// Writing all java src file names to a file and using it as a @filename parameter to javac. Eg: javac -cp jar1:jar2 @sources.txt
 	// This needs to be done because if the number of java files is too high the command length will be more than that permitted by the os.
-	tempDir := common.GetTempDir()
+	tempDir, err := ioutil.TempDir("", "gauge_temp")
+	if err != nil {
+		fmt.Print(err.Error())
+		return
+	}
 	defer os.RemoveAll(tempDir)
 
 	sourcesFile := filepath.Join(tempDir, uniqueFileName())
