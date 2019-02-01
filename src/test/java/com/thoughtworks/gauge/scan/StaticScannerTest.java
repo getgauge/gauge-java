@@ -57,8 +57,14 @@ public class StaticScannerTest {
         String contents = staticScanner.readFile(IMPL_FILE, Charsets.UTF_8);
         staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
+        registry.get(STEP_TEXT).setHasAlias(true);
+
         assertTrue(registry.contains(STEP_TEXT));
+        assertTrue(registry.get(STEP_TEXT).getHasAlias());
+
         staticScanner.reloadSteps(IMPL_FILE, contents);
+
         assertTrue(registry.contains(STEP_TEXT));
+        assertFalse(registry.get(STEP_TEXT).getHasAlias());
     }
 }
