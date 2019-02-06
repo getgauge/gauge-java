@@ -64,7 +64,6 @@ public class MessageDispatcher {
 
     private HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors;
     private StepRegistry stepRegistry;
-    private final ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
     private StaticScanner staticScanner;
 
     public MessageDispatcher(StaticScanner staticScanner) {
@@ -110,9 +109,10 @@ public class MessageDispatcher {
         if (request == Messages.Message.MessageType.SuiteDataStoreInit) {
             ClasspathScanner classpathScanner = new ClasspathScanner();
             classpathScanner.scan(new StepsScanner(connector, stepRegistry), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
+            ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
             this.stepRegistry = staticScanner.getStepRegistry(classpathScanner);
             Gauge.setInstanceManager(instanceManager);
-            initializeExecutionMessageProcessor();
+            initializeExecutionMessageProcessor(instanceManager);
         }
         return getProcessor(request);
     }
@@ -124,7 +124,7 @@ public class MessageDispatcher {
         return new DefaultMessageProcessor();
     }
 
-    private void initializeExecutionMessageProcessor() {
+    private void initializeExecutionMessageProcessor(ClassInstanceManager instanceManager) {
         ParameterParsingChain chain = new ParameterParsingChain();
         messageProcessors.put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
         messageProcessors.put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));
@@ -144,12 +144,12 @@ public class MessageDispatcher {
         return new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor(stepRegistry));
-            put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor(instanceManager, stepRegistry));
+            put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.CacheFileRequest, new CacheFileRequestProcessor(staticScanner));
             put(Messages.Message.MessageType.StepPositionsRequest, new StepPositionsRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor(stepRegistry));
             put(Messages.Message.MessageType.StubImplementationCodeRequest, new StubImplementationCodeProcessor());
-            put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor(instanceManager));
+            put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor());
         }};
     }
 

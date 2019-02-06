@@ -16,7 +16,6 @@
 package com.thoughtworks.gauge.processor;
 
 
-import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.refactor.JavaRefactoring;
 import com.thoughtworks.gauge.refactor.RefactoringResult;
@@ -28,7 +27,7 @@ import java.util.List;
 public class RefactorRequestProcessor implements IMessageProcessor {
     private final StepRegistry registry;
 
-    public RefactorRequestProcessor(ClassInstanceManager instanceManager, StepRegistry registry) {
+    public RefactorRequestProcessor(StepRegistry registry) {
         this.registry = registry;
     }
 
