@@ -20,6 +20,7 @@ import com.thoughtworks.gauge.StepValue;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
+import java.io.File;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.ArrayList;
@@ -43,6 +44,14 @@ public class StepRegistry {
         registry.putIfAbsent(stepText, new CopyOnWriteArrayList<>());
         registry.get(stepText).add(new StepRegistryEntry(stepValue, method));
     }
+
+    public List<String> getAllAliasAnnotationTextsFor(String stepTemplateText) {
+        Method method = get(stepTemplateText).getMethodInfo();
+        return registry.values().stream().flatMap(Collection::stream)
+                .filter(registryEntry -> registryEntry.getMethodInfo().equals(method))
+                .map(registryEntry -> registryEntry.getStepValue().getStepAnnotationText()).collect(toList());
+    }
+
 
     public boolean contains(String stepTemplateText) {
         return registry.containsKey(stepTemplateText);
@@ -129,5 +138,13 @@ public class StepRegistry {
             }
         }
         return false;
+    }
+
+    public String getFileName(String oldStepText) {
+        Method method = get(oldStepText).getMethodInfo();
+        if (method == null) {
+            return "";
+        }
+        return method.getDeclaringClass().getCanonicalName().replace(".", File.separator) + ".java";
     }
 }

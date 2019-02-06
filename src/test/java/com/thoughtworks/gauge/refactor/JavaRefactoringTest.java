@@ -20,14 +20,15 @@ import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import junit.framework.TestCase;
+import org.assertj.core.util.Lists;
 
 import java.io.File;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 public class JavaRefactoringTest extends TestCase {
@@ -35,11 +36,13 @@ public class JavaRefactoringTest extends TestCase {
     private boolean saveChanges = true;
 
     public void testRefactoringWithAlias() {
+        ArrayList<String> stringSet = Lists.newArrayList("anyString", "anyOtherString");
+
         StepRegistry registry = mock(StepRegistry.class);
         StepRegistryEntry entry = mock(StepRegistryEntry.class);
         when(registry.get("old step")).thenReturn(entry);
-        when(entry.getHasAlias()).thenReturn(true);
-        when(entry.getFileName()).thenReturn("foo");
+        when(registry.getFileName("old step")).thenReturn("foo");
+        when(registry.getAllAliasAnnotationTextsFor("old step")).thenReturn(stringSet);
 
         StepValue oldStepValue = new StepValue("old step", "", new ArrayList<>());
         StepValue newStepValue = new StepValue("", "", new ArrayList<>());
@@ -54,8 +57,8 @@ public class JavaRefactoringTest extends TestCase {
         StepRegistry registry = mock(StepRegistry.class);
         when(registry.hasMultipleImplementations("old step")).thenReturn(true);
         when(registry.get("old step")).thenReturn(entry);
+        when(registry.getFileName("old step")).thenReturn("foo");
         when(entry.getHasAlias()).thenReturn(false);
-        when(entry.getFileName()).thenReturn("foo");
 
         StepValue oldStepValue = new StepValue("old step", "", new ArrayList<>());
         StepValue newStepValue = new StepValue("", "", new ArrayList<>());
@@ -314,8 +317,7 @@ public class JavaRefactoringTest extends TestCase {
         StepRegistry registry = mock(StepRegistry.class);
         StepRegistryEntry entry = mock(StepRegistryEntry.class);
         when(registry.get("A step with no params")).thenReturn(entry);
-        when(entry.getHasAlias()).thenReturn(false);
-        when(entry.getFileName()).thenReturn("foobar");
+        when(registry.getFileName("A step with no params")).thenReturn("foobar");
 
         String parameterizedStepValue = "step changed";
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry, parameterizedStepValue, saveChanges);

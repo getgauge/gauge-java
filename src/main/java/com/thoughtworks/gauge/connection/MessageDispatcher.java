@@ -19,7 +19,6 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.thoughtworks.gauge.ClassInstanceManager;
-import com.thoughtworks.gauge.Gauge;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.processor.IMessageProcessor;
@@ -42,12 +41,7 @@ import com.thoughtworks.gauge.processor.StepPositionsRequestProcessor;
 import com.thoughtworks.gauge.processor.DefaultMessageProcessor;
 import com.thoughtworks.gauge.registry.ClassInitializerRegistry;
 import com.thoughtworks.gauge.registry.StepRegistry;
-import com.thoughtworks.gauge.scan.ClasspathScanner;
-import com.thoughtworks.gauge.scan.CustomClassInitializerScanner;
-import com.thoughtworks.gauge.scan.HooksScanner;
 import com.thoughtworks.gauge.scan.StaticScanner;
-import com.thoughtworks.gauge.scan.StepsScanner;
-import com.thoughtworks.gauge.screenshot.CustomScreenshotScanner;
 import gauge.messages.Messages;
 
 import java.io.ByteArrayOutputStream;
@@ -82,11 +76,7 @@ public class MessageDispatcher {
                 byte[] bytes = toBytes(messageLength);
                 Messages.Message message = Messages.Message.parseFrom(bytes);
                 IMessageProcessor messageProcessor;
-                if (message.getMessageType() == Messages.Message.MessageType.SuiteDataStoreInit) {
-                    messageProcessor = getProcessor(message.getMessageType(), connector);
-                } else {
-                    messageProcessor = getProcessor(message.getMessageType());
-                }
+                messageProcessor = getProcessor(message.getMessageType());
                 if (!messageProcessors.containsKey(message.getMessageType())) {
                     System.err.println("Invalid message type received " + message.getMessageType());
                 }
@@ -106,17 +96,6 @@ public class MessageDispatcher {
         }
     }
 
-    private IMessageProcessor getProcessor(Messages.Message.MessageType request, GaugeConnector connector) {
-        if (request == Messages.Message.MessageType.SuiteDataStoreInit) {
-            ClasspathScanner classpathScanner = new ClasspathScanner();
-            classpathScanner.scan(new StepsScanner(connector, stepRegistry), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
-            this.stepRegistry = staticScanner.getStepRegistry(classpathScanner);
-            Gauge.setInstanceManager(instanceManager);
-            initializeExecutionMessageProcessor();
-        }
-        return getProcessor(request);
-    }
-
     public IMessageProcessor getProcessor(Messages.Message.MessageType request) {
         if (messageProcessors.containsKey(request)) {
             return messageProcessors.get(request);
@@ -124,23 +103,8 @@ public class MessageDispatcher {
         return new DefaultMessageProcessor();
     }
 
-    private void initializeExecutionMessageProcessor() {
-        ParameterParsingChain chain = new ParameterParsingChain();
-        messageProcessors.put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
-        messageProcessors.put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));
-        messageProcessors.put(Messages.Message.MessageType.SpecExecutionStarting, new SpecExecutionStartingProcessor(instanceManager));
-        messageProcessors.put(Messages.Message.MessageType.SpecExecutionEnding, new SpecExecutionEndingProcessor(instanceManager));
-        messageProcessors.put(Messages.Message.MessageType.ScenarioExecutionStarting, new ScenarioExecutionStartingProcessor(instanceManager));
-        messageProcessors.put(Messages.Message.MessageType.ScenarioExecutionEnding, new ScenarioExecutionEndingProcessor(instanceManager));
-        messageProcessors.put(Messages.Message.MessageType.StepExecutionStarting, new StepExecutionStartingProcessor(instanceManager));
-        messageProcessors.put(Messages.Message.MessageType.StepExecutionEnding, new StepExecutionEndingProcessor(instanceManager));
-        messageProcessors.put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager, chain, stepRegistry));
-        messageProcessors.put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer(instanceManager));
-        messageProcessors.put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer(instanceManager));
-        messageProcessors.put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer(instanceManager));
-    }
-
     private HashMap<Messages.Message.MessageType, IMessageProcessor> initializeMessageProcessor() {
+        ParameterParsingChain chain = new ParameterParsingChain();
         return new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor(stepRegistry));
@@ -150,6 +114,18 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor(stepRegistry));
             put(Messages.Message.MessageType.StubImplementationCodeRequest, new StubImplementationCodeProcessor());
             put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor(instanceManager));
+            put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
+            put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));
+            put(Messages.Message.MessageType.SpecExecutionStarting, new SpecExecutionStartingProcessor(instanceManager));
+            put(Messages.Message.MessageType.SpecExecutionEnding, new SpecExecutionEndingProcessor(instanceManager));
+            put(Messages.Message.MessageType.ScenarioExecutionStarting, new ScenarioExecutionStartingProcessor(instanceManager));
+            put(Messages.Message.MessageType.ScenarioExecutionEnding, new ScenarioExecutionEndingProcessor(instanceManager));
+            put(Messages.Message.MessageType.StepExecutionStarting, new StepExecutionStartingProcessor(instanceManager));
+            put(Messages.Message.MessageType.StepExecutionEnding, new StepExecutionEndingProcessor(instanceManager));
+            put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager, chain, stepRegistry));
+            put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer(instanceManager));
+            put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer(instanceManager));
+            put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer(instanceManager));
         }};
     }
 
