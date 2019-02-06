@@ -78,7 +78,7 @@ public class ClasspathScanner {
         }
         final String[] packages = packagesToScan.split(",");
         for (String packageToScan : packages) {
-            String regex = String.format(".?\\.??%s.+\\.class", packageToScan);
+            String regex = String.format(".?\\.??%s\\..+\\.class", packageToScan);
             if (new FilterBuilder().include(regex).apply(s)) {
                 return true;
             }
