@@ -22,8 +22,7 @@ import org.junit.Test;
 
 import java.io.File;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class StaticScannerTest {
 
@@ -37,6 +36,39 @@ public class StaticScannerTest {
         staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
         assertTrue(registry.contains(STEP_TEXT));
+    }
+
+    @Test
+    public void ShouldAddStepsWithConcatenatedAnnotationStep() {
+        String contents = "public class StepTest {\n" +
+                "   @Step(\"This is \" + \"a step\")\n" +
+                "       public void newstep() {\n" +
+                "       assertThat(2).isEqualTo(2);\n" +
+                "   }\n" +
+                "}";
+        StaticScanner staticScanner = new StaticScanner();
+        staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
+        StepRegistry registry = staticScanner.getRegistry();
+        System.out.println(registry.getAllStepAnnotationTexts());
+        assertTrue(registry.contains("This is a step"));
+    }
+
+    @Test
+    public void ShouldAddStepsAliases() {
+        String contents = "public class StepTest {\n" +
+                "   @Step({\"This is \" + \"a step\", \"new step\"})\n" +
+                "       public void newstep() {\n" +
+                "       assertThat(2).isEqualTo(2);\n" +
+                "   }\n" +
+                "}";
+        StaticScanner staticScanner = new StaticScanner();
+        staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
+        StepRegistry registry = staticScanner.getRegistry();
+        System.out.println(registry.getAllStepAnnotationTexts());
+        assertTrue(registry.contains("This is a step"));
+        assertTrue(registry.contains("new step"));
+        assertTrue(registry.get("This is a step").getAliases().contains("new step"));
+        assertTrue(registry.get("new step").getAliases().contains("This is a step"));
     }
 
     @Test
