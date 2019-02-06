@@ -63,7 +63,8 @@ public class MessageDispatcher {
     public MessageDispatcher(StaticScanner staticScanner) {
         this.staticScanner = staticScanner;
         stepRegistry = staticScanner.getRegistry();
-        messageProcessors = initializeMessageProcessor();
+        ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
+        messageProcessors = initializeMessageProcessor(instanceManager);
     }
 
     public void dispatchMessages(GaugeConnector connector) throws IOException {
@@ -101,8 +102,8 @@ public class MessageDispatcher {
         }
         return new DefaultMessageProcessor();
     }
-
-    private HashMap<Messages.Message.MessageType, IMessageProcessor> initializeMessageProcessor() {
+    private HashMap<Messages.Message.MessageType, IMessageProcessor> initializeMessageProcessor(
+            ClassInstanceManager instanceManager) {
         ParameterParsingChain chain = new ParameterParsingChain();
         return new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(stepRegistry));
@@ -112,7 +113,6 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.StepPositionsRequest, new StepPositionsRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor(stepRegistry));
             put(Messages.Message.MessageType.StubImplementationCodeRequest, new StubImplementationCodeProcessor());
-            put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor());
             put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));
             put(Messages.Message.MessageType.SpecExecutionStarting, new SpecExecutionStartingProcessor(instanceManager));
@@ -125,6 +125,8 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer(instanceManager));
             put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer(instanceManager));
             put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer(instanceManager));
+            put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor());
+
         }};
     }
 
