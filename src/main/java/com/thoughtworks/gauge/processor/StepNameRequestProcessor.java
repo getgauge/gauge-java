@@ -16,6 +16,7 @@
 package com.thoughtworks.gauge.processor;
 
 import com.github.javaparser.Range;
+import com.thoughtworks.gauge.GaugeConstant;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
@@ -41,18 +42,26 @@ public class StepNameRequestProcessor implements IMessageProcessor {
         }
         StepRegistryEntry entry = registry.get(message.getStepNameRequest().getStepValue());
         List<String> stepTexts = entry.getAliases();
-        String stepText = entry.getStepText();
-        String fileName = entry.getFileName();
-        boolean hasAlias = entry.getHasAlias();
-        if (!hasAlias) {
-            stepTexts.add(stepText);
-        }
         Range range = entry.getSpan();
-        Spec.Span.Builder spanBuilder = Spec.Span.newBuilder()
-                .setStart(range.begin.line)
-                .setStartChar(range.begin.column)
-                .setEnd(range.end.line)
-                .setEndChar(range.end.column);
+        String fileName = "";
+        Spec.Span.Builder spanBuilder = Spec.Span.newBuilder();
+        boolean hasAlias;
+        if (System.getenv(GaugeConstant.GAUGE_LSP_GRPC) != null) {
+            String stepText = entry.getStepText();
+            fileName = entry.getFileName();
+            hasAlias = entry.getHasAlias();
+            if (!hasAlias) {
+                stepTexts.add(stepText);
+            }
+            spanBuilder = Spec.Span.newBuilder()
+                    .setStart(range.begin.line)
+                    .setStartChar(range.begin.column)
+                    .setEnd(range.end.line)
+                    .setEndChar(range.end.column);
+        } else {
+            stepTexts = registry.getAllAliasAnnotationTextsFor(message.getStepNameRequest().getStepValue());
+            hasAlias = stepTexts.size() > 1;
+        }
 
         return Messages.Message.newBuilder()
                 .setMessageId(message.getMessageId())

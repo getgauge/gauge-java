@@ -63,8 +63,7 @@ public class StepNameRequestProcessorTest {
         when(registry.get(STEP_TEXT)).thenReturn(entry);
         when(entry.getSpan()).thenReturn(range);
         when(entry.getFileName()).thenReturn("foo");
-        when(entry.getHasAlias()).thenReturn(true);
-        when(entry.getAliases()).thenReturn(stringSet);
+        when(registry.getAllAliasAnnotationTextsFor(STEP_TEXT)).thenReturn(stringSet);
         when(entry.getStepText()).thenReturn(anyString);
 
         StepNameRequestProcessor stepNameRequestProcessor = new StepNameRequestProcessor(registry);
