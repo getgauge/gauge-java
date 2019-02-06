@@ -44,7 +44,7 @@ build_script:
 
     gauge -v
 
-    mvn -q clean install -Denv=ci-java -DinParallel=false
+    mvn -q clean install -Denv=ci-java -Dtags=java -DinParallel=false
 notifications:
 - provider: Webhook
   url: https://webhooks.gitter.im/e/68b514dcb2c08a6a5809
