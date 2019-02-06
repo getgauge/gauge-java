@@ -66,8 +66,7 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
     }
 
     private void addStepToRegistry(Expression expression, MethodDeclaration methodDeclaration, SingleMemberAnnotationExpr annotation) {
-        String parameterizedStep;
-        parameterizedStep = getParameterizedStep(expression);
+        String parameterizedStep = getParameterizedStep(expression);
         String stepText = getStepText(parameterizedStep);
         stepValue = new StepValue(stepText, parameterizedStep);
 
@@ -86,12 +85,12 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
     private String getParameterizedStep(Expression expression) {
         if (expression instanceof BinaryExpr) {
-            return stripText(((BinaryExpr) expression).getLeft().toString()) + stripText(((BinaryExpr) expression).getRight().toString());
+            return trimQuotes(((BinaryExpr) expression).getLeft().toString()) + trimQuotes(((BinaryExpr) expression).getRight().toString());
         }
-        return stripText(expression.toString());
+        return trimQuotes(expression.toString());
     }
 
-    private String stripText(String text) {
+    private String trimQuotes(String text) {
         return StringUtils.stripEnd(StringUtils.stripStart(text, "\""), "\"");
     }
 
