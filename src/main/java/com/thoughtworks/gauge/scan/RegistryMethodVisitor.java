@@ -18,12 +18,14 @@ package com.thoughtworks.gauge.scan;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.expr.ArrayInitializerExpr;
+import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.expr.Expression;
 import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +66,7 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
     }
 
     private void addStepToRegistry(Expression expression, MethodDeclaration methodDeclaration, SingleMemberAnnotationExpr annotation) {
-        String parameterizedStep = expression.toString().replaceAll("\"", "");
+        String parameterizedStep = getParameterizedStep(expression);
         String stepText = getStepText(parameterizedStep);
         stepValue = new StepValue(stepText, parameterizedStep);
 
@@ -81,6 +83,17 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
         stepRegistry.addStep(stepValue, entry);
     }
 
+    private String getParameterizedStep(Expression expression) {
+        if (expression instanceof BinaryExpr) {
+            return trimQuotes(((BinaryExpr) expression).getLeft().toString()) + trimQuotes(((BinaryExpr) expression).getRight().toString());
+        }
+        return trimQuotes(expression.toString());
+    }
+
+    private String trimQuotes(String text) {
+        return StringUtils.stripEnd(StringUtils.stripStart(text, "\""), "\"");
+    }
+
     private String getStepText(String parameterizedStepText) {
         return parameterizedStepText
                 .replaceAll("(<.*?>)", "{}");
@@ -95,7 +108,7 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
         if (annotation.getMemberValue() instanceof ArrayInitializerExpr) {
             ArrayInitializerExpr memberValue = (ArrayInitializerExpr) annotation.getMemberValue();
             for (Expression expression : memberValue.getValues()) {
-                aliases.add(expression.toString().replaceAll("\"", ""));
+                aliases.add(getParameterizedStep(expression));
             }
         }
         return aliases;
