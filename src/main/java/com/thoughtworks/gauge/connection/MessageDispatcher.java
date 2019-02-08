@@ -39,7 +39,6 @@ import com.thoughtworks.gauge.processor.RefactorRequestProcessor;
 import com.thoughtworks.gauge.processor.StepNameRequestProcessor;
 import com.thoughtworks.gauge.processor.StepPositionsRequestProcessor;
 import com.thoughtworks.gauge.processor.DefaultMessageProcessor;
-import com.thoughtworks.gauge.registry.ClassInitializerRegistry;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import gauge.messages.Messages;
@@ -58,12 +57,13 @@ public class MessageDispatcher {
 
     private HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors;
     private StepRegistry stepRegistry;
-    private final ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
     private StaticScanner staticScanner;
+    private ClassInstanceManager instanceManager;
 
-    public MessageDispatcher(StaticScanner staticScanner) {
+    public MessageDispatcher(StaticScanner staticScanner, ClassInstanceManager instanceManager) {
         this.staticScanner = staticScanner;
         stepRegistry = staticScanner.getRegistry();
+        this.instanceManager = instanceManager;
         messageProcessors = initializeMessageProcessor();
     }
 
@@ -102,7 +102,6 @@ public class MessageDispatcher {
         }
         return new DefaultMessageProcessor();
     }
-
     private HashMap<Messages.Message.MessageType, IMessageProcessor> initializeMessageProcessor() {
         ParameterParsingChain chain = new ParameterParsingChain();
         return new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
@@ -113,7 +112,6 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.StepPositionsRequest, new StepPositionsRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor(stepRegistry));
             put(Messages.Message.MessageType.StubImplementationCodeRequest, new StubImplementationCodeProcessor());
-            put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor(instanceManager));
             put(Messages.Message.MessageType.ExecutionStarting, new SuiteExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.ExecutionEnding, new SuiteExecutionEndingProcessor(instanceManager));
             put(Messages.Message.MessageType.SpecExecutionStarting, new SpecExecutionStartingProcessor(instanceManager));
@@ -126,6 +124,8 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer(instanceManager));
             put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer(instanceManager));
             put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer(instanceManager));
+            put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor());
+
         }};
     }
 
