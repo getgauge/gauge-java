@@ -107,7 +107,7 @@ public class MessageDispatcher {
         return new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor(stepRegistry));
-            put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor(instanceManager, stepRegistry));
+            put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.CacheFileRequest, new CacheFileRequestProcessor(staticScanner));
             put(Messages.Message.MessageType.StepPositionsRequest, new StepPositionsRequestProcessor(stepRegistry));
             put(Messages.Message.MessageType.StepValidateRequest, new ValidateStepProcessor(stepRegistry));
@@ -121,9 +121,9 @@ public class MessageDispatcher {
             put(Messages.Message.MessageType.StepExecutionStarting, new StepExecutionStartingProcessor(instanceManager));
             put(Messages.Message.MessageType.StepExecutionEnding, new StepExecutionEndingProcessor(instanceManager));
             put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager, chain, stepRegistry));
-            put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer(instanceManager));
-            put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer(instanceManager));
-            put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer(instanceManager));
+            put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer());
+            put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer());
+            put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer());
             put(Messages.Message.MessageType.KillProcessRequest, new KillProcessProcessor());
 
         }};
