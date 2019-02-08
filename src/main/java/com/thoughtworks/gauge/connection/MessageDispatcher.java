@@ -39,7 +39,6 @@ import com.thoughtworks.gauge.processor.RefactorRequestProcessor;
 import com.thoughtworks.gauge.processor.StepNameRequestProcessor;
 import com.thoughtworks.gauge.processor.StepPositionsRequestProcessor;
 import com.thoughtworks.gauge.processor.DefaultMessageProcessor;
-import com.thoughtworks.gauge.registry.ClassInitializerRegistry;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import gauge.messages.Messages;
@@ -59,12 +58,13 @@ public class MessageDispatcher {
     private HashMap<Messages.Message.MessageType, IMessageProcessor> messageProcessors;
     private StepRegistry stepRegistry;
     private StaticScanner staticScanner;
+    private ClassInstanceManager instanceManager;
 
-    public MessageDispatcher(StaticScanner staticScanner) {
+    public MessageDispatcher(StaticScanner staticScanner, ClassInstanceManager instanceManager) {
         this.staticScanner = staticScanner;
         stepRegistry = staticScanner.getRegistry();
-        ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
-        messageProcessors = initializeMessageProcessor(instanceManager);
+        this.instanceManager = instanceManager;
+        messageProcessors = initializeMessageProcessor();
     }
 
     public void dispatchMessages(GaugeConnector connector) throws IOException {
@@ -102,8 +102,7 @@ public class MessageDispatcher {
         }
         return new DefaultMessageProcessor();
     }
-    private HashMap<Messages.Message.MessageType, IMessageProcessor> initializeMessageProcessor(
-            ClassInstanceManager instanceManager) {
+    private HashMap<Messages.Message.MessageType, IMessageProcessor> initializeMessageProcessor() {
         ParameterParsingChain chain = new ParameterParsingChain();
         return new HashMap<Messages.Message.MessageType, IMessageProcessor>() {{
             put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(stepRegistry));
