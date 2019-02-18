@@ -54,6 +54,10 @@ public class StepImpl {
     public void stepWithSlash() {
     }
 
+    @Step("A step with |")
+    public void stepWithPipeline() {
+    }
+
     @Step("A step 123")
     public void stepWithTab() {
     }
