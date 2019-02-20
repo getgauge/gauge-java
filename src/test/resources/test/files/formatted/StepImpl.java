@@ -61,6 +61,10 @@ public class StepImpl {
     @Step("A step 123")
     public void stepWithTab() {
     }
+    
+    @Step("A step with ` ~ = + ? # $ % ^ ! & * ( ) : ; , . - _ [ ]")
+    public void stepWithSpecialChars() {
+    }
 
     @Step({"A step defined with alias syntax"})
     public void stepDefinedWithAliasSyntax() {
