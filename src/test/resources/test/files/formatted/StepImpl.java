@@ -51,7 +51,7 @@ public class StepImpl {
     }
 
     @Step("A step with \\")
-    public void stepWithSlash() {
+    public void stepWithDualBackSlashes() {
     }
 
     @Step("A step with |")

@@ -232,7 +232,7 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(element.getText().contains("† ‡ µ ¢ step with <Û> and <į>"));
     }
 
-    public void testJavaElementForRefactoringWithSlash() throws Exception {
+    public void testJavaElementForRefactoringWithDualBackSlashes() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("A step with \\", "A step with \\", new ArrayList<>());
         StepValue newStepValue = new StepValue("step changed to \\", "step changed to \\", new ArrayList<>());
@@ -244,7 +244,7 @@ public class JavaRefactoringTest extends TestCase {
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
         assertTrue(element.getText().contains("    @Step(\"step changed to \\\\\")" + System.getProperty("line.separator") +
-                "    public void stepWithSlash() {" + System.getProperty("line.separator") +
+                "    public void stepWithDualBackSlashes() {" + System.getProperty("line.separator") +
                 "    }"));
         assertFalse(element.getText().contains("A step with \\"));
     }
