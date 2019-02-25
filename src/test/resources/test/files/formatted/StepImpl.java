@@ -54,6 +54,14 @@ public class StepImpl {
     public void stepWithDualBackSlashes() {
     }
 
+    @Step("A step with /")
+    public void stepWithCommonSlash() {
+    }
+
+    @Step("A step with //")
+    public void stepWithCommonDualSlashes() {
+    }
+
     @Step("A step with |")
     public void stepWithPipeline() {
     }
