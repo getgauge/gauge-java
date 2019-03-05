@@ -19,10 +19,10 @@ import com.thoughtworks.gauge.connection.GaugeConnector;
 import com.thoughtworks.gauge.connection.MessageDispatcher;
 import com.thoughtworks.gauge.registry.ClassInitializerRegistry;
 import com.thoughtworks.gauge.scan.ClasspathScanner;
+import com.thoughtworks.gauge.scan.CustomClassInitializerScanner;
 import com.thoughtworks.gauge.scan.HooksScanner;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import com.thoughtworks.gauge.scan.StepsScanner;
-import com.thoughtworks.gauge.scan.CustomClassInitializerScanner;
 import com.thoughtworks.gauge.screenshot.CustomScreenshotScanner;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 /**
  * Holds Main for starting Gauge-java
@@ -78,7 +79,7 @@ public class GaugeRuntime {
         Server server;
         MessageDispatcher messageDispatcher = new MessageDispatcher(staticScanner, new ClassInstanceManager(ClassInitializerRegistry.classInitializer()));
         LspServer lspServer = new LspServer(messageDispatcher);
-        server = ServerBuilder.forPort(0).addService(lspServer).build();
+        server = ServerBuilder.forPort(0).addService(lspServer).executor(Executors.newFixedThreadPool(1)).build();
         lspServer.addServer(server);
         server.start();
         int port = server.getPort();
