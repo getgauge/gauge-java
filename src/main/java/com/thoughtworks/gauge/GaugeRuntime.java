@@ -121,7 +121,9 @@ public class GaugeRuntime {
 
     private static void dispatchMessages(StaticScanner staticScanner, GaugeConnector connector) {
         try {
-            MessageDispatcher messageDispatcher = new MessageDispatcher(staticScanner, new ClassInstanceManager(ClassInitializerRegistry.classInitializer()));
+            ClassInstanceManager instanceManager = new ClassInstanceManager(ClassInitializerRegistry.classInitializer());
+            Gauge.setInstanceManager(instanceManager);
+            MessageDispatcher messageDispatcher = new MessageDispatcher(staticScanner, instanceManager);
             messageDispatcher.dispatchMessages(connector);
         } catch (IOException e) {
             Thread t = Thread.currentThread();

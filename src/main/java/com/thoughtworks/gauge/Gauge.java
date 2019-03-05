@@ -36,7 +36,7 @@ public class Gauge {
         }
     };
 
-    public static void setInstanceManager(ClassInstanceManager instanceManager) {
+    static void setInstanceManager(ClassInstanceManager instanceManager) {
         Gauge.instanceManager = instanceManager;
     }
 
