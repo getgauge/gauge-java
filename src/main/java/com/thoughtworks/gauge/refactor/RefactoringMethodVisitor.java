@@ -95,8 +95,6 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
 
     private void refactor(MethodDeclaration methodDeclaration, StringLiteralExpr memberValue, SingleMemberAnnotationExpr annotation) {
         if (StringEscapeUtils.unescapeJava(memberValue.getValue()).trim().equals(oldStepValue.getStepAnnotationText().trim())) {
-            System.out.println(String.format("New Step Value Parameters : %s", newStepValue.getParameters().toString()));
-            System.out.println(String.format("Param Positions : %s", paramPositions.toString()));
             newParameters = Arrays.asList(new Parameter[paramPositions.size()]);
             memberValue.setValue(StringEscapeUtils.escapeJava(newStepValue.getStepAnnotationText()));
             List<Parameter> parameters = methodDeclaration.getParameters();
