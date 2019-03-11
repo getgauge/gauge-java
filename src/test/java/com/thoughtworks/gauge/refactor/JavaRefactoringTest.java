@@ -185,10 +185,10 @@ public class JavaRefactoringTest extends TestCase {
         return new File(String.format("src%stest%sresources", File.separator, File.separator), fileName);
     }
 
-    public void testJavaElementForRefactoringWithParametersRemoved() throws Exception {
+    public void testJavaElementForRefactoringWithParametersAdded() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
-        StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<>());
-        StepValue newStepValue = new StepValue("{} changed {} and added {}", "<table> changed <c> and added <a>", Arrays.asList("b", "a", "c"));
+        StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", Arrays.asList("a", "b"));
+        StepValue newStepValue = new StepValue("{} changed {} and added {}", "<table> changed <c> and added <a>", Arrays.asList("b", "c", "a"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
         Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(2).build();
