@@ -24,14 +24,6 @@
     <!-- See http://checkstyle.sf.net/config_misc.html#Translation -->
     <module name="Translation"/>
 
-    <!-- Ignore checkstyle for a particular line of code                                  -->
-    <!-- See http://checkstyle.sf.net/config_filters.html#SuppressWithNearbyCommentFilter -->
-    <module name="SuppressWithNearbyCommentFilter">
-        <property name="commentFormat" value="SUPPRESS CHECKSTYLE"/>
-        <property name="checkFormat" value=".*"/>
-        <property name="influenceFormat" value="0"/>
-    </module>
-
     <!-- Checks for Size Violations.                    -->
     <!-- See http://checkstyle.sf.net/config_sizes.html -->
     <module name="FileLength"/>
@@ -58,7 +50,13 @@
 
     <module name="TreeWalker">
 
-        <module name="FileContentsHolder"/>
+        <!-- Ignore checkstyle for a particular line of code                                  -->
+        <!-- See http://checkstyle.sf.net/config_filters.html#SuppressWithNearbyCommentFilter -->
+        <module name="SuppressWithNearbyCommentFilter">
+            <property name="commentFormat" value="SUPPRESS CHECKSTYLE"/>
+            <property name="checkFormat" value=".*"/>
+            <property name="influenceFormat" value="0"/>
+        </module>
 
         <!-- Checks for Javadoc comments.                     -->
         <!-- See http://checkstyle.sf.net/config_javadoc.html -->
