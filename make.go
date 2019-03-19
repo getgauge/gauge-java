@@ -53,6 +53,7 @@ const (
 	deploy            = "deploy"
 	commonDep         = "github.com/getgauge/common"
 	targetDir         = "target"
+	libsDir           = "libs"
 	jarExt            = ".jar"
 )
 
@@ -477,6 +478,7 @@ func compileGaugeJavaAcrossPlatforms() {
 
 func buildGaugeJavaJar() {
 	os.RemoveAll(targetDir)
+	os.RemoveAll(libsDir)
 	if *profile != "" {
 		runCommand("mvn", "-q", "package", "-P", *profile)
 	} else {
