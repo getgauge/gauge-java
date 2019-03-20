@@ -28,12 +28,9 @@ public class GaugeConnector {
 
     public static final String LOCALHOST = "127.0.0.1";
     private Socket gaugeSocket;
-    private GaugeConnection gaugeApiConnection;
 
-    public void makeConnectionsToGaugeCore(int gaugeInternalPort, int gaugeApiPort) {
+    public void makeConnectionsToGaugeCore(int gaugeInternalPort) {
         gaugeSocket = connect(gaugeInternalPort);
-        Socket apiSocket = connect(gaugeApiPort);
-        gaugeApiConnection = new GaugeConnection(apiSocket);
     }
 
     private static Socket connect(int port) {
@@ -47,10 +44,6 @@ public class GaugeConnector {
         }
 
         return clientSocket;
-    }
-
-    public GaugeConnection getGaugeApiConnection() {
-        return gaugeApiConnection;
     }
 
     public Socket getGaugeSocket() {

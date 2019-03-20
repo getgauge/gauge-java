@@ -59,19 +59,18 @@ public class GaugeRuntime {
     }
 
     private static void startGaugeServer(StaticScanner staticScanner) {
-        int apiPort = readEnvVar(GaugeConstant.GAUGE_API_PORT);
         String portInfo = System.getenv("GAUGE_API_PORTS");
         if (portInfo != null && !portInfo.trim().isEmpty()) {
             List<String> ports = Arrays.asList(portInfo.split(","));
             for (int i = 0, portsSize = ports.size(); i < portsSize; i++) {
                 if (i == 0) {
-                    connectSynchronously(Integer.parseInt(ports.get(i)), apiPort, staticScanner);
+                    connectSynchronously(Integer.parseInt(ports.get(i)), staticScanner);
                 } else {
-                    connectInParallel(Integer.parseInt(ports.get(i)), apiPort, staticScanner);
+                    connectInParallel(Integer.parseInt(ports.get(i)), staticScanner);
                 }
             }
         } else {
-            connectSynchronously(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), apiPort, staticScanner);
+            connectSynchronously(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), staticScanner);
         }
     }
 
@@ -95,15 +94,15 @@ public class GaugeRuntime {
         return Integer.parseInt(port);
     }
 
-    private static void connectInParallel(final int gaugeInternalPort, final int gaugeApiPort, StaticScanner staticScanner) {
-        Thread thread = new Thread(() -> dispatchMessages(staticScanner, makeConnection(gaugeInternalPort, gaugeApiPort)));
+    private static void connectInParallel(final int gaugeInternalPort, StaticScanner staticScanner) {
+        Thread thread = new Thread(() -> dispatchMessages(staticScanner, makeConnection(gaugeInternalPort)));
         startThread(thread);
     }
 
-    private static void connectSynchronously(final int gaugeInternalPort, final int gaugeApiPort, StaticScanner staticScanner) {
-        GaugeConnector connector = makeConnection(gaugeInternalPort, gaugeApiPort);
+    private static void connectSynchronously(final int gaugeInternalPort, StaticScanner staticScanner) {
+        GaugeConnector connector = makeConnection(gaugeInternalPort);
         ClasspathScanner classpathScanner = new ClasspathScanner();
-        classpathScanner.scan(new StepsScanner(connector, staticScanner.getRegistry()), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
+        classpathScanner.scan(new StepsScanner(staticScanner.getRegistry()), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
         Thread thread = new Thread(() -> dispatchMessages(staticScanner, connector));
         startThread(thread);
     }
@@ -113,9 +112,9 @@ public class GaugeRuntime {
         thread.start();
     }
 
-    private static GaugeConnector makeConnection(int gaugeInternalPort, int gaugeApiPort) {
+    private static GaugeConnector makeConnection(int gaugeInternalPort) {
         GaugeConnector connector = new GaugeConnector();
-        connector.makeConnectionsToGaugeCore(gaugeInternalPort, gaugeApiPort);
+        connector.makeConnectionsToGaugeCore(gaugeInternalPort);
         return connector;
     }
 

@@ -25,7 +25,6 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
-import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +35,7 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
     private StepRegistryEntry entry;
     private StepRegistry stepRegistry;
     private String file;
+    private StepsUtil stepsUtil = new StepsUtil();
 
     public RegistryMethodVisitor(StepRegistry stepRegistry, String file) {
         this.stepRegistry = stepRegistry;
@@ -67,7 +67,7 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
     private void addStepToRegistry(Expression expression, MethodDeclaration methodDeclaration, SingleMemberAnnotationExpr annotation) {
         String parameterizedStep = getParameterizedStep(expression);
-        String stepText = getStepText(parameterizedStep);
+        String stepText = stepsUtil.getStepText(parameterizedStep);
         stepValue = new StepValue(stepText, parameterizedStep);
 
         entry = new StepRegistryEntry();
@@ -85,18 +85,9 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
     private String getParameterizedStep(Expression expression) {
         if (expression instanceof BinaryExpr) {
-            return trimQuotes(((BinaryExpr) expression).getLeft().toString()) + trimQuotes(((BinaryExpr) expression).getRight().toString());
+            return stepsUtil.trimQuotes(((BinaryExpr) expression).getLeft().toString()) + stepsUtil.trimQuotes(((BinaryExpr) expression).getRight().toString());
         }
-        return trimQuotes(expression.toString());
-    }
-
-    private String trimQuotes(String text) {
-        return StringUtils.stripEnd(StringUtils.stripStart(text, "\""), "\"");
-    }
-
-    private String getStepText(String parameterizedStepText) {
-        return parameterizedStepText
-                .replaceAll("(<.*?>)", "{}");
+        return stepsUtil.trimQuotes(expression.toString());
     }
 
     private Boolean hasAlias(SingleMemberAnnotationExpr annotation) {
