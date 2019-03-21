@@ -398,6 +398,7 @@ func createGaugeDistro(forAllPlatforms bool) {
 }
 
 func createDistro() {
+	os.RemoveAll(deploy)
 	packageName := fmt.Sprintf("%s-%s-%s.%s", gaugeJava, getGaugeJavaVersion(), getGOOS(), getArch())
 	distroDir := filepath.Join(deploy, packageName)
 	copyGaugeJavaFiles(distroDir)
