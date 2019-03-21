@@ -386,6 +386,7 @@ func compileGaugeJava() {
 }
 
 func createGaugeDistro(forAllPlatforms bool) {
+	os.RemoveAll(deploy)
 	if forAllPlatforms {
 		for _, platformEnv := range platformEnvs {
 			setEnv(platformEnv)
@@ -398,7 +399,6 @@ func createGaugeDistro(forAllPlatforms bool) {
 }
 
 func createDistro() {
-	os.RemoveAll(deploy)
 	packageName := fmt.Sprintf("%s-%s-%s.%s", gaugeJava, getGaugeJavaVersion(), getGOOS(), getArch())
 	distroDir := filepath.Join(deploy, packageName)
 	copyGaugeJavaFiles(distroDir)
