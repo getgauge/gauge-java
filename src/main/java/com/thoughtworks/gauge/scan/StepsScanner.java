@@ -17,6 +17,7 @@ package com.thoughtworks.gauge.scan;
 
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.StepValue;
+import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import org.reflections.Reflections;
 
@@ -45,7 +46,7 @@ public class StepsScanner implements IScanner {
             Step annotation = method.getAnnotation(Step.class);
             if (annotation != null) {
                 for (String stepName : annotation.value()) {
-                    String parameterizedStep = stepsUtil.trimQuotes(stepName);
+                    String parameterizedStep = Util.trimQuotes(stepName);
                     String stepText = stepsUtil.getStepText(parameterizedStep);
                     List<String> parameters = stepsUtil.getParameters(parameterizedStep);
                     StepValue stepValue = new StepValue(stepText, parameterizedStep, parameters);

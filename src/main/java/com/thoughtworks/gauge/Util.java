@@ -15,6 +15,8 @@
 
 package com.thoughtworks.gauge;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.io.File;
 
 public class Util {
@@ -42,5 +44,9 @@ public class Util {
             }
         }
         return builder.toString();
+    }
+
+    public static String trimQuotes(String text) {
+        return StringUtils.stripEnd(StringUtils.stripStart(text, "\""), "\"");
     }
 }

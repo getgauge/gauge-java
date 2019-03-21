@@ -24,6 +24,7 @@ import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
+import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
 
 import java.util.ArrayList;
@@ -35,7 +36,6 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
     private StepRegistryEntry entry;
     private StepRegistry stepRegistry;
     private String file;
-    private StepsUtil stepsUtil = new StepsUtil();
 
     public RegistryMethodVisitor(StepRegistry stepRegistry, String file) {
         this.stepRegistry = stepRegistry;
@@ -67,7 +67,7 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
     private void addStepToRegistry(Expression expression, MethodDeclaration methodDeclaration, SingleMemberAnnotationExpr annotation) {
         String parameterizedStep = getParameterizedStep(expression);
-        String stepText = stepsUtil.getStepText(parameterizedStep);
+        String stepText = new StepsUtil().getStepText(parameterizedStep);
         stepValue = new StepValue(stepText, parameterizedStep);
 
         entry = new StepRegistryEntry();
@@ -85,9 +85,9 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
     private String getParameterizedStep(Expression expression) {
         if (expression instanceof BinaryExpr) {
-            return stepsUtil.trimQuotes(((BinaryExpr) expression).getLeft().toString()) + stepsUtil.trimQuotes(((BinaryExpr) expression).getRight().toString());
+            return Util.trimQuotes(((BinaryExpr) expression).getLeft().toString()) + Util.trimQuotes(((BinaryExpr) expression).getRight().toString());
         }
-        return stepsUtil.trimQuotes(expression.toString());
+        return Util.trimQuotes(expression.toString());
     }
 
     private Boolean hasAlias(SingleMemberAnnotationExpr annotation) {

@@ -1,4 +1,4 @@
-// Copyright 2015 ThoughtWorks, Inc.
+// Copyright 2019 ThoughtWorks, Inc.
 
 // This file is part of Gauge-Java.
 
@@ -14,18 +14,12 @@
 // We would then provide copied of each license in a separate .txt file with the name of the license as the title of the file.
 package com.thoughtworks.gauge.scan;
 
-import org.apache.commons.lang.StringUtils;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class StepsUtil {
-    public String trimQuotes(String text) {
-        return StringUtils.stripEnd(StringUtils.stripStart(text, "\""), "\"");
-    }
-
     public String getStepText(String parameterizedStepText) {
         return parameterizedStepText
                 .replaceAll("(<.*?>)", "{}");
