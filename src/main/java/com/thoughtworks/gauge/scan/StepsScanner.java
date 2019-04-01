@@ -17,22 +17,21 @@ package com.thoughtworks.gauge.scan;
 
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.StepValue;
-import com.thoughtworks.gauge.connection.GaugeConnector;
+import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import org.reflections.Reflections;
 
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Set;
 
 /**
  * Scans for step implementations.
  */
 public class StepsScanner implements IScanner {
-    private GaugeConnector connector;
     private StepRegistry registry;
 
-    public StepsScanner(GaugeConnector connector, StepRegistry registry) {
-        this.connector = connector;
+    public StepsScanner(StepRegistry registry) {
         this.registry = registry;
     }
 
@@ -42,11 +41,15 @@ public class StepsScanner implements IScanner {
     }
 
     private void buildStepRegistry(Set<Method> stepImplementations) {
+        StepsUtil stepsUtil = new StepsUtil();
         for (Method method : stepImplementations) {
             Step annotation = method.getAnnotation(Step.class);
             if (annotation != null) {
                 for (String stepName : annotation.value()) {
-                    StepValue stepValue = connector.getGaugeApiConnection().getStepValue(stepName);
+                    String parameterizedStep = Util.trimQuotes(stepName);
+                    String stepText = stepsUtil.getStepText(parameterizedStep);
+                    List<String> parameters = stepsUtil.getParameters(parameterizedStep);
+                    StepValue stepValue = new StepValue(stepText, parameterizedStep, parameters);
                     registry.addStepImplementation(stepValue, method);
                 }
             }
