@@ -61,8 +61,9 @@ public class FileHelper {
         if (customCompileDirs != null && !customCompileDirs.isEmpty()) {
             Arrays.asList(customCompileDirs.split(CUSTOM_COMPILE_DIR_SEPARATOR))
                     .forEach(d -> srcDirs.add(getAbsolutePath(d.trim()).toString()));
+        } else {
+            srcDirs.add(getDefaultStepImplDir());
         }
-        srcDirs.add(getDefaultStepImplDir());
         return srcDirs;
     }
 

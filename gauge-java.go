@@ -393,9 +393,9 @@ func build(destination string, classpath string) {
 		for _, src := range paths {
 			srcDirs = append(srcDirs, src)
 		}
+	} else {
+		srcDirs = append(srcDirs, defaultSrcDir)
 	}
-	srcDirs = append(srcDirs, defaultSrcDir)
-
 	for _, srcDirItem := range srcDirs {
 		filepath.Walk(srcDirItem, func(currentPath string, info os.FileInfo, err error) error {
 			if err != nil {
