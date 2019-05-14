@@ -3,6 +3,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/b3xfe7d6fftbq6gf?svg=true)](https://ci.appveyor.com/project/getgauge/gauge-java)
 [![Build Status](https://travis-ci.org/getgauge/gauge-java.svg?branch=master)](https://travis-ci.org/getgauge/gauge-java)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 |Gauge-Java Nightly|Maven-Gauge-Java Nightly|
 |----------|----------------|
