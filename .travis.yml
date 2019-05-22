@@ -1,5 +1,6 @@
 os:
   - linux
+  - osx
 language: java
 jdk:
   - oraclejdk8
@@ -30,4 +31,4 @@ script:
   - cd gauge-tests
   - gauge install
   - gauge -v
-  - ./starttests.sh java
+  - ./gradlew clean javaFT
