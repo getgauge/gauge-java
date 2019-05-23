@@ -1,19 +1,8 @@
 version: 1.0.{build}
-init:
-- ps: >-
-    Add-Type -AssemblyName System.IO.Compression.FileSystem
-
-    if (!(Test-Path -Path "C:\maven" )) {
-        (new-object System.Net.WebClient).DownloadFile('http://www.us.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip', 'C:\maven-bin.zip')
-        [System.IO.Compression.ZipFile]::ExtractToDirectory("C:\maven-bin.zip", "C:\maven")
-        }
-cache:
-- C:\maven\
-- C:\Users\appveyor\.m2
 environment:
   GAUGE_TELEMETRY_ENABLED: false
   GAUGE_PREFIX: C:\Program Files\Gauge\bin
-  JAVA_HOME: C:\Program Files\Java\jdk10
+  JAVA_HOME: C:\Program Files\Java\jdk11
 build_script:
 - ps: >-
     $env:Path="$env:ProgramFiles\Gauge\bin;C:\maven\apache-maven-3.3.9\bin;" + [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
@@ -44,4 +33,4 @@ build_script:
 
     gauge -v
 
-- gradlew.bat -q clean javaFT
+- gradlew.bat clean javaFT
