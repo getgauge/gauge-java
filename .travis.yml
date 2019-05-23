@@ -17,7 +17,7 @@ matrix:
       jdk:
         - openjdk12
 env:
-  - GOPATH="/tmp" GAUGE_ROOT="/tmp/gauge" GAUGE_TELEMETRY_ENABLED=false
+  - GOPATH="/tmp" GAUGE_TELEMETRY_ENABLED=false TERM=dumb
 addons:
   apt:
     packages:
