@@ -16,6 +16,7 @@
 package com.thoughtworks.gauge.execution.parameters.parsers.base;
 
 import com.thoughtworks.gauge.ClasspathHelper;
+import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.execution.parameters.ParsingException;
 import com.thoughtworks.gauge.execution.parameters.parsers.converters.TableConverter;
 import com.thoughtworks.gauge.execution.parameters.parsers.types.EnumParameterParser;
@@ -59,9 +60,11 @@ public class ParameterParsingChain implements ParameterParser {
     private @Nullable
     ParameterParser asCustomParameterParser(Class<? extends ParameterParser> clazz) {
         try {
-            return clazz.newInstance();
+            ParameterParser instance = clazz.newInstance();
+            Logger.debug(String.format("Adding %s as custom parameter parser", clazz.getName()));
+            return instance;
         } catch (InstantiationException | IllegalAccessException e) {
-            // currently there seems to be no logging system used, so we cannot warn the user about an error
+            Logger.error(String.format("Cannot add %s as custom parameter parser", clazz.getName()), e);
             return null;
         }
     }

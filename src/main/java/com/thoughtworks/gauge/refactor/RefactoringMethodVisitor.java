@@ -28,6 +28,7 @@ import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.Util;
 import gauge.messages.Messages;
@@ -89,7 +90,8 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
                     }
                 }
             }
-        } catch (Exception ignored) {
+        } catch (Exception e) {
+            Logger.error("Exception while refactoring", e);
         }
     }
 

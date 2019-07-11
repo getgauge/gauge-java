@@ -22,7 +22,8 @@ import org.junit.Test;
 
 import java.io.File;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class StaticScannerTest {
 
@@ -49,7 +50,6 @@ public class StaticScannerTest {
         StaticScanner staticScanner = new StaticScanner();
         staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
-        System.out.println(registry.getAllStepAnnotationTexts());
         assertTrue(registry.contains("This is a step"));
     }
 
@@ -64,7 +64,6 @@ public class StaticScannerTest {
         StaticScanner staticScanner = new StaticScanner();
         staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
-        System.out.println(registry.getAllStepAnnotationTexts());
         assertTrue(registry.contains("This is a step"));
         assertTrue(registry.contains("new step"));
         assertTrue(registry.get("This is a step").getAliases().contains("new step"));

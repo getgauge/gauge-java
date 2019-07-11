@@ -18,6 +18,7 @@ package com.thoughtworks.gauge.refactor;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.thoughtworks.gauge.Logger;
 
 import java.io.File;
 
@@ -35,7 +36,7 @@ public class JavaParseWorker extends Thread {
         try {
             compilationUnit = JavaParser.parse(javaFile, ENCODING);
         } catch (Exception e) {
-            // ignore exceptions
+            Logger.error("Unable to parse file " + javaFile.getName());
         }
     }
 

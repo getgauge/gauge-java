@@ -25,6 +25,7 @@ import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.BeforeSpec;
 import com.thoughtworks.gauge.BeforeStep;
 import com.thoughtworks.gauge.BeforeSuite;
+import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.registry.HooksRegistry;
 import org.reflections.Reflections;
 
@@ -34,6 +35,7 @@ import org.reflections.Reflections;
 public class HooksScanner implements IScanner {
 
     public void scan(Reflections reflections) {
+        Logger.debug("Scanning packages for hooks");
         buildHooksRegistry(reflections);
     }
 

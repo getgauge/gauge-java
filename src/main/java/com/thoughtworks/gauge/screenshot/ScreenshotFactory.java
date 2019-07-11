@@ -17,13 +17,13 @@ package com.thoughtworks.gauge.screenshot;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.GaugeConstant;
+import com.thoughtworks.gauge.Logger;
 
 import javax.imageio.ImageIO;
-
-import java.awt.Rectangle;
-import java.awt.Robot;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
+import java.awt.Robot;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 
@@ -61,8 +61,8 @@ public class ScreenshotFactory {
                 }
                 return bytes;
             } catch (Exception e) {
-                System.err.println(String.format("Failed to take Custom screenshot: %s : %s", customScreenshotGrabber.getCanonicalName(), e.getMessage()));
-                System.out.println("Capturing regular screenshot..");
+                Logger.error(String.format("Failed to take Custom screenshot: %s : %s", customScreenshotGrabber.getCanonicalName(), e.getMessage()));
+                Logger.warning("Capturing regular screenshot..");
             }
         }
         return captureScreen();
@@ -80,7 +80,7 @@ public class ScreenshotFactory {
                 BufferedImage image = new Robot().createScreenCapture(screenRect);
                 ImageIO.write(image, IMAGE_EXTENSION, imageBytes);
             } catch (Throwable e) {
-                System.err.println("Failed to take regular screenshot: " + e.getMessage());
+                Logger.error("Failed to take regular screenshot: " + e.getMessage());
                 return new byte[0];
             }
         }

@@ -20,26 +20,27 @@ import com.google.protobuf.CodedInputStream;
 import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.thoughtworks.gauge.ClassInstanceManager;
+import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
+import com.thoughtworks.gauge.processor.CacheFileRequestProcessor;
+import com.thoughtworks.gauge.processor.DefaultMessageProcessor;
+import com.thoughtworks.gauge.processor.ExecuteStepProcessor;
 import com.thoughtworks.gauge.processor.IMessageProcessor;
-import com.thoughtworks.gauge.processor.SpecExecutionStartingProcessor;
-import com.thoughtworks.gauge.processor.SuiteExecutionEndingProcessor;
-import com.thoughtworks.gauge.processor.SuiteExecutionStartingProcessor;
+import com.thoughtworks.gauge.processor.KillProcessProcessor;
+import com.thoughtworks.gauge.processor.RefactorRequestProcessor;
 import com.thoughtworks.gauge.processor.ScenarioExecutionEndingProcessor;
 import com.thoughtworks.gauge.processor.ScenarioExecutionStartingProcessor;
 import com.thoughtworks.gauge.processor.SpecExecutionEndingProcessor;
-import com.thoughtworks.gauge.processor.StepExecutionStartingProcessor;
-import com.thoughtworks.gauge.processor.ExecuteStepProcessor;
+import com.thoughtworks.gauge.processor.SpecExecutionStartingProcessor;
 import com.thoughtworks.gauge.processor.StepExecutionEndingProcessor;
-import com.thoughtworks.gauge.processor.CacheFileRequestProcessor;
-import com.thoughtworks.gauge.processor.StepNamesRequestProcessor;
-import com.thoughtworks.gauge.processor.ValidateStepProcessor;
-import com.thoughtworks.gauge.processor.KillProcessProcessor;
-import com.thoughtworks.gauge.processor.RefactorRequestProcessor;
+import com.thoughtworks.gauge.processor.StepExecutionStartingProcessor;
 import com.thoughtworks.gauge.processor.StepNameRequestProcessor;
+import com.thoughtworks.gauge.processor.StepNamesRequestProcessor;
 import com.thoughtworks.gauge.processor.StepPositionsRequestProcessor;
-import com.thoughtworks.gauge.processor.DefaultMessageProcessor;
+import com.thoughtworks.gauge.processor.SuiteExecutionEndingProcessor;
+import com.thoughtworks.gauge.processor.SuiteExecutionStartingProcessor;
+import com.thoughtworks.gauge.processor.ValidateStepProcessor;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import gauge.messages.Messages;
@@ -79,19 +80,20 @@ public class MessageDispatcher {
                 IMessageProcessor messageProcessor;
                 messageProcessor = getProcessor(message.getMessageType());
                 if (!messageProcessors.containsKey(message.getMessageType())) {
-                    System.err.println("Invalid message type received " + message.getMessageType());
+                    Logger.error("Invalid message type received " + message.getMessageType());
                 }
                 Messages.Message response = messageProcessor.process(message);
                 writeMessage(gaugeSocket, response);
                 if (message.getMessageType() == Messages.Message.MessageType.KillProcessRequest) {
                     gaugeSocket.close();
+                    Logger.debug("Kill process request recieved");
                     return;
                 }
             } catch (InvalidProtocolBufferException e) {
+                Logger.error("Exception while processing protobuf ", e);
                 return;
             } catch (Throwable throwable) {
-                throwable.printStackTrace();
-                System.err.println(throwable.toString());
+                Logger.error("", throwable);
                 return;
             }
         }

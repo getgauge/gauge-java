@@ -44,6 +44,7 @@ public class GaugeRuntime {
     private static List<Thread> threads = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
+        Thread.setDefaultUncaughtExceptionHandler((t, e) ->  Logger.fatal("Error in thread " + t.getId(), e));
         StaticScanner staticScanner = new StaticScanner();
         if (System.getenv(GaugeConstant.GAUGE_LSP_GRPC) != null) {
             staticScanner.addStepsToRegistry();
@@ -62,6 +63,7 @@ public class GaugeRuntime {
         String portInfo = System.getenv("GAUGE_API_PORTS");
         if (portInfo != null && !portInfo.trim().isEmpty()) {
             List<String> ports = Arrays.asList(portInfo.split(","));
+            Logger.debug(String.format("Connecting to port(s): %s", portInfo));
             for (int i = 0, portsSize = ports.size(); i < portsSize; i++) {
                 if (i == 0) {
                     connectSynchronously(Integer.parseInt(ports.get(i)), staticScanner);
@@ -70,7 +72,9 @@ public class GaugeRuntime {
                 }
             }
         } else {
-            connectSynchronously(readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT), staticScanner);
+            int gaugeInternalPort = readEnvVar(GaugeConstant.GAUGE_INTERNAL_PORT);
+            Logger.debug(String.format("Connecting to port: %d", gaugeInternalPort));
+            connectSynchronously(gaugeInternalPort, staticScanner);
         }
     }
 
@@ -82,7 +86,7 @@ public class GaugeRuntime {
         lspServer.addServer(server);
         server.start();
         int port = server.getPort();
-        System.out.println("Listening on port:" + port);
+        Logger.info("Listening on port:" + port);
         server.awaitTermination();
     }
 
