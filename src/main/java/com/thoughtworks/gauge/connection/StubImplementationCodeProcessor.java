@@ -22,6 +22,7 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.google.protobuf.ProtocolStringList;
 import com.thoughtworks.gauge.FileHelper;
+import com.thoughtworks.gauge.Logger;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
@@ -66,7 +67,7 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
             }
             return implementInNewClass(stubs, file);
         } catch (IOException e) {
-            e.printStackTrace();
+            Logger.error("Unable to implement method", e);
         }
         return null;
     }
@@ -113,7 +114,7 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
             return Messages.FileDiff.newBuilder().setFilePath(file.toString()).addTextDiffs(textDiff).build();
 
         } catch (ParseException | IOException e) {
-            e.printStackTrace();
+            Logger.error("Unable to implement method", e);
         }
         return null;
     }

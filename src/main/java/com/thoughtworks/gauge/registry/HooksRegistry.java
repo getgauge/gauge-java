@@ -25,6 +25,7 @@ import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.BeforeSpec;
 import com.thoughtworks.gauge.BeforeStep;
 import com.thoughtworks.gauge.BeforeSuite;
+import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.Operator;
 import com.thoughtworks.gauge.hook.Hook;
 
@@ -153,7 +154,7 @@ public class HooksRegistry {
                 Operator tagsAggregation = (Operator) annotation.getClass().getMethod(TAG_AGGREGATION_METHOD).invoke(annotation);
                 registryMap.get(hookClass).add(new Hook(method, tags, tagsAggregation));
             } catch (Exception e) {
-                e.printStackTrace();
+                Logger.warning("Unable to add hooks", e);
                 continue;
             }
         }

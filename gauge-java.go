@@ -1,4 +1,4 @@
-// Copyright 2015 ThoughtWorks, Inc.
+// Copyright 2019 ThoughtWorks, Inc.
 
 // This file is part of Gauge-Java.
 
@@ -17,6 +17,7 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -70,6 +71,20 @@ func main() {
 	}
 }
 
+type logger struct {
+	LogLevel string `json:"logLevel"`
+	Message  string `json:"message"`
+}
+
+func logMessage(level, text string) {
+	c := &logger{LogLevel: level, Message: text}
+	if b, err := json.Marshal(c); err != nil {
+		fmt.Println(text)
+	} else {
+		fmt.Println(string(b))
+	}
+}
+
 func initializeProject() {
 	os.Chdir(projectRoot)
 	funcs := []initializerFunc{createSrcDirectory, createLibsDirectory, createStepImplementationClass, createEnvDir, createJavaPropertiesFile, createOrAppendGitignore}
@@ -84,7 +99,7 @@ func startJava() {
 	if cp == "" {
 		cp = createClasspath()
 	}
-
+	logMessage("debug", fmt.Sprintf("classpath set to %s", cp))
 	javaPath := getExecPathFrom(java_home, alternate_java_home, execName(java))
 	args := createCommandArgs()
 	cmd := runJavaCommandAsync(javaPath, args, cp)
@@ -93,7 +108,7 @@ func startJava() {
 
 	err := cmd.Wait()
 	if err != nil {
-		fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())
+		logMessage("fatal", fmt.Sprintf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error()))
 		os.Exit(1)
 	}
 }
@@ -111,7 +126,6 @@ func killIfGaugeIsDead(cmd *exec.Cmd) {
 	parentProcessID := os.Getppid()
 	for {
 		if !isProcessRunning(parentProcessID) {
-			// fmt.Printf("Parent Gauge process with pid %d has terminated.", parentProcessID)
 			err := cmd.Process.Kill()
 			if err != nil {
 				fmt.Printf("Failed to kill process with pid %d. %s\n", cmd.Process.Pid, err.Error())
@@ -147,7 +161,7 @@ func createCommandArgs() []string {
 	args := []string{}
 	javaDebugPort := os.Getenv(common.GaugeDebugOptsEnv)
 	if javaDebugPort != "" {
-		fmt.Println("\nRunner Ready for Debugging")
+		logMessage("debug", fmt.Sprintf("\nRunner Ready for Debugging"))
 		value := fmt.Sprintf(JavaDebugOptsTemplate, javaDebugPort)
 		args = append(args, value)
 	}
@@ -175,12 +189,12 @@ func setPluginAndProjectRoots() {
 	var err error
 	pluginDir, err = os.Getwd()
 	if err != nil {
-		fmt.Printf("Failed to find current working directory: %s \n", err)
+		logMessage("fatal", fmt.Sprintf("Failed to find current working directory: %s \n", err))
 		os.Exit(1)
 	}
 	projectRoot = os.Getenv(common.GaugeProjectRootEnv)
 	if projectRoot == "" {
-		fmt.Printf("Could not find %s env. Java Runner exiting...", common.GaugeProjectRootEnv)
+		logMessage("fatal", fmt.Sprintf("Could not find %s env. Java Runner exiting...", common.GaugeProjectRootEnv))
 		os.Exit(1)
 	}
 }
@@ -189,7 +203,6 @@ func appendClasspath(source *string, classpath string) {
 	if len(classpath) == 0 {
 		return
 	}
-
 	if len(*source) == 0 {
 		*source = classpath
 	} else {
@@ -219,8 +232,8 @@ func getClassPathForVariable(envVariableName string) string {
 
 type initializerFunc func()
 
-func showMessage(action, filename string) {
-	fmt.Printf(" %s  %s\n", action, filename)
+func showMessage(action, filename string) string {
+	return fmt.Sprintf(" %s  %s\n", action, filename)
 }
 
 func createSrcDirectory() {
@@ -236,50 +249,50 @@ func createEnvDir() {
 }
 
 func createDirectory(filePath string) {
-	showMessage("create", filePath)
+	logMessage("info", showMessage("create", filePath))
 	if !common.DirExists(filePath) {
 		err := os.MkdirAll(filePath, 0755)
 		if err != nil {
-			fmt.Printf("Failed to make directory. %s\n", err.Error())
+			logMessage("error", fmt.Sprintf("Failed to make directory. %s\n", err.Error()))
 		}
 	} else {
-		showMessage("skip", filePath)
+		logMessage("info", showMessage("skip", filePath))
 	}
 }
 
 func createStepImplementationClass() {
 	javaSrc := filepath.Join(defaultSrcDir, "test", java)
 	destFile := filepath.Join(javaSrc, step_implementation_class)
-	showMessage("create", destFile)
+	logMessage("info", showMessage("create", destFile))
 	if common.FileExists(destFile) {
-		showMessage("skip", destFile)
+		logMessage("info", showMessage("skip", destFile))
 	} else {
 		srcFile := filepath.Join(pluginDir, skelDir, step_implementation_class)
 		if !common.FileExists(srcFile) {
-			showMessage("error", fmt.Sprintf("%s Does not exist.\n", step_implementation_class))
+			logMessage("error", showMessage("error", fmt.Sprintf("%s Does not exist.\n", step_implementation_class)))
 			return
 		}
 		err := common.CopyFile(srcFile, destFile)
 		if err != nil {
-			showMessage("error", fmt.Sprintf("Failed to copy %s. %s \n", srcFile, err.Error()))
+			logMessage("error", showMessage("error", fmt.Sprintf("Failed to copy %s. %s \n", srcFile, err.Error())))
 		}
 	}
 }
 
 func createJavaPropertiesFile() {
 	destFile := filepath.Join(envDir, "default", "java.properties")
-	showMessage("create", destFile)
+	logMessage("info", showMessage("create", destFile))
 	if common.FileExists(destFile) {
-		showMessage("skip", destFile)
+		logMessage("info", showMessage("skip", destFile))
 	} else {
 		srcFile := filepath.Join(pluginDir, skelDir, envDir, "java.properties")
 		if !common.FileExists(srcFile) {
-			showMessage("error", fmt.Sprintf("java.properties does not exist at %s. \n", srcFile))
+			logMessage("error", showMessage("error", fmt.Sprintf("java.properties does not exist at %s. \n", srcFile)))
 			return
 		}
 		err := common.CopyFile(srcFile, destFile)
 		if err != nil {
-			showMessage("error", fmt.Sprintf("Failed to copy %s. %s \n", srcFile, err.Error()))
+			logMessage("error", showMessage("error", fmt.Sprintf("Failed to copy %s. %s \n", srcFile, err.Error())))
 		}
 	}
 }
@@ -287,9 +300,9 @@ func createJavaPropertiesFile() {
 func createOrAppendGitignore() {
 	destFile := filepath.Join(projectRoot, ".gitignore")
 	srcFile := filepath.Join(pluginDir, skelDir, ".gitignore")
-	showMessage("create", destFile)
+	logMessage("info", showMessage("create", destFile))
 	if err := common.AppendToFile(srcFile, destFile); err != nil {
-		showMessage("error", err.Error())
+		logMessage("error", showMessage("error", err.Error()))
 	}
 }
 
@@ -299,12 +312,8 @@ func printUsage() {
 }
 
 func runJavaCommand(cmdName string, args []string, classpath string, printErrorsOnFailure bool) {
-	cmd := runJavaCommandAsync(cmdName, args, classpath)
-	err := cmd.Wait()
-	if err != nil {
-		if printErrorsOnFailure {
-			fmt.Printf("process %s with pid %d quit unexpectedly. %s\n", cmd.Path, cmd.Process.Pid, err.Error())
-		}
+	cmd := runJavaCommandAsync(cmdName, args, classpath)	
+	if err := cmd.Wait(); err != nil {
 		os.Exit(1)
 	}
 }
@@ -320,7 +329,7 @@ func runJavaCommandAsync(cmdName string, args []string, classpath string) *exec.
 	var err error
 	err = cmd.Start()
 	if err != nil {
-		fmt.Printf("Failed to start %s. %s\n", cmd.Path, err.Error())
+		logMessage("fatal", fmt.Sprintf("Failed to start %s. %s\n", cmd.Path, err.Error()))
 		os.Exit(1)
 	}
 	return cmd
@@ -343,9 +352,6 @@ func createClasspath() string {
 	if userSpecifiedClasspath != "" {
 		appendClasspath(&cp, userSpecifiedClasspath)
 	} else {
-		//TODO: Move to log
-		//fmt.Println("Failed to detect project build path")
-		//fmt.Printf("Building to %s directory \n", default_build_dir)
 		if os.Getenv("SHOULD_BUILD_PROJECT") != "false" {
 			build(default_build_dir, cp)
 		}
@@ -422,7 +428,7 @@ func build(destination string, classpath string) {
 	// This needs to be done because if the number of java files is too high the command length will be more than that permitted by the os.
 	tempDir, err := ioutil.TempDir("", "gauge_temp")
 	if err != nil {
-		fmt.Print(err.Error())
+		logMessage("error", fmt.Sprint(err.Error()))
 		return
 	}
 	defer os.RemoveAll(tempDir)
@@ -434,8 +440,6 @@ func build(destination string, classpath string) {
 	args = append(args, "@"+sourcesFile)
 	javac := getExecPathFrom(java_home, alternate_java_home, execName("javac"))
 
-	//TODO: should move to logs
-	//fmt.Println(fmt.Sprintf("Building files in %s directory to %s", "src", destination))
 	runJavaCommand(javac, args, classpath, false)
 	copyResources(resourceFiles, destination)
 }

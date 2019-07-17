@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.screenshot;
 
+import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.scan.IScanner;
 import org.reflections.Reflections;
 
@@ -27,7 +28,9 @@ public class CustomScreenshotScanner implements IScanner {
     public void scan(Reflections reflections) {
         Set<Class<? extends ICustomScreenshotGrabber>> customScreenshotGrabbers = reflections.getSubTypesOf(ICustomScreenshotGrabber.class);
         if (customScreenshotGrabbers.size() > 0) {
-            ScreenshotFactory.setCustomScreenshotGrabber(customScreenshotGrabbers.iterator().next());
+            Class<? extends ICustomScreenshotGrabber> customScreenGrabber = customScreenshotGrabbers.iterator().next();
+            Logger.debug(String.format("Using %s as custom screenshot grabber", customScreenGrabber.getName()));
+            ScreenshotFactory.setCustomScreenshotGrabber(customScreenGrabber);
         }
     }
 }

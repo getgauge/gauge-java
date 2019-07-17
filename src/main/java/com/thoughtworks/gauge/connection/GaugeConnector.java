@@ -15,6 +15,8 @@
 
 package com.thoughtworks.gauge.connection;
 
+import com.thoughtworks.gauge.Logger;
+
 import java.net.Socket;
 
 /**
@@ -39,10 +41,11 @@ public class GaugeConnector {
             try {
                 clientSocket = new Socket(LOCALHOST, port);
                 break;
-            } catch (Exception ignored) {
+            } catch (Exception e) {
+                Logger.error(String.format("Error occurred while trying to connect to %d port:\n%s\n%s", port), e);
             }
         }
-
+        Logger.debug(String.format("Connected to %s:%d", LOCALHOST, port));
         return clientSocket;
     }
 

@@ -31,6 +31,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.thoughtworks.gauge.connection.GaugeConnector.LOCALHOST;
+
 public class GaugeConnection {
 
     private static final int GET_STEP_MSG_ID = 2;
@@ -76,7 +78,7 @@ public class GaugeConnection {
             throw new RuntimeException("Gauge API not started");
         }
         try {
-            gaugeSocket = new Socket("127.0.0.1", port);
+            gaugeSocket = new Socket(LOCALHOST, port);
         } catch (IOException e) {
             try {
                 //waits for the process to start accepting connection

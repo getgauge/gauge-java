@@ -20,6 +20,7 @@ import com.github.javaparser.ParseException;
 import com.github.javaparser.ast.CompilationUnit;
 import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.FileHelper;
+import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
@@ -58,7 +59,8 @@ public class StaticScanner {
             RegistryMethodVisitor methodVisitor = new RegistryMethodVisitor(stepRegistry, file);
             methodVisitor.visit(compilationUnit, null);
         } catch (ParseException e) {
-            e.printStackTrace();
+            Logger.error(String.format("Exception while adding steps from %s file:", file));
+            Logger.error(String.format("%s\n%s", e.getMessage(), e.getStackTrace()));
         }
     }
 
@@ -100,7 +102,7 @@ public class StaticScanner {
             byte[] contents = Files.readAllBytes(Paths.get(path));
             return new String(contents, encoding);
         } catch (IOException e) {
-            e.printStackTrace();
+            Logger.error("Unable to read file", e);
         }
         return null;
     }

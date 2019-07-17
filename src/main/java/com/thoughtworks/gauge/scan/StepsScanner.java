@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.scan;
 
+import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.Step;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.Util;
@@ -36,6 +37,7 @@ public class StepsScanner implements IScanner {
     }
 
     public void scan(Reflections reflections) {
+        Logger.debug("Scanning packages for steps");
         Set<Method> stepImplementations = reflections.getMethodsAnnotatedWith(Step.class);
         buildStepRegistry(stepImplementations);
     }

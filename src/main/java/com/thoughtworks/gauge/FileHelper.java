@@ -27,8 +27,8 @@ import java.util.stream.Stream;
 
 import static com.google.common.io.Files.getNameWithoutExtension;
 import static com.thoughtworks.gauge.GaugeConstant.DEFAULT_SRC_DIR;
-import static com.thoughtworks.gauge.GaugeConstant.GAUGE_PROJECT_ROOT;
 import static com.thoughtworks.gauge.GaugeConstant.GAUGE_CUSTOM_COMPILE_DIR;
+import static com.thoughtworks.gauge.GaugeConstant.GAUGE_PROJECT_ROOT;
 
 public class FileHelper {
     private static final String CUSTOM_COMPILE_DIR_SEPARATOR = ",";
@@ -44,7 +44,7 @@ public class FileHelper {
                     }
                 });
             } catch (IOException e) {
-                e.printStackTrace();
+                Logger.error("", e);
             }
         });
         return outputFiles;
