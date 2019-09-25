@@ -74,9 +74,6 @@ public class GaugeConnection {
     }
 
     private void createConnection(int tries) {
-        if (tries == 0) {
-            throw new RuntimeException("Gauge API not started");
-        }
         try {
             gaugeSocket = new Socket(LOCALHOST, port);
         } catch (IOException e) {
@@ -85,6 +82,11 @@ public class GaugeConnection {
                 Thread.sleep(1000); // SUPPRESS CHECKSTYLE
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
+            }
+            if (tries == 0) {
+                RuntimeException re = new RuntimeException("Gauge API not started : " + e);
+                re.setStackTrace(e.getStackTrace());
+                throw re;
             }
             createConnection(tries - 1);
         }
