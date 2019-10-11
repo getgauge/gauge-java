@@ -3,7 +3,7 @@ name: tests
 on: [push, pull_request]
 
 jobs:
-  test-linux:
+  test:
     name: Java ${{ matrix.java_version }} and ${{ matrix.os }}
     runs-on: ubuntu-latest
     strategy:
@@ -23,3 +23,43 @@ jobs:
         run: |
           java -version
           mvn clean test
+
+  functional_tests:
+    name: GaugeJava FTs with java ${{ matrix.java_version }} and ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    needs: test
+    env:
+      PATH: /tmp/bin:$PATH
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        java_version: [ '1.8', '11.x.x', '12.x.x' ]
+    steps:
+
+      - uses: actions/checkout@v1
+
+      - name: Setup go 1.13.1
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13.1
+
+      - name: Install Gauge Java plugin from source
+        run: |
+          go run make.go
+          go run make.go --install
+
+      - name: Clone gauge-tests
+        run: |
+          git clone --depth=1 https://github.com/getgauge/gauge-tests
+
+      - name: Install latest gauge nightly and plugins
+        run: |
+          cd gauge-tests
+          GAUGE_PREFIX=/tmp ./install_latest_gauge_nightly.sh
+          gauge config gauge_repository_url https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/
+          gauge install
+          gauge -v
+
+      - run: |
+          cd gauge-tests
+          ./gradlew clean javaFT
