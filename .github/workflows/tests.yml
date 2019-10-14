@@ -75,6 +75,7 @@ jobs:
 
       - name: Run FTs on windows
         if: matrix.os == 'windows-latest'
+        shell: pwsh
         run: |
           ${env:PATH} += ";C:\Program Files\gauge\bin"
           cd gauge-tests
