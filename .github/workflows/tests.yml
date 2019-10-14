@@ -41,23 +41,22 @@ jobs:
         with:
           go-version: 1.13.1
 
+      - name: Install gauge from source
+        run: |
+          git clone https://github.com/getgauge/gauge
+          cd gauge
+          go run build/make.go --verbose
+          go run build/make.go --install
+
       - name: Install Gauge Java plugin from source
         run: |
+          gauge -v
           go run make.go
           go run make.go --install
 
       - name: Clone gauge-tests
         run: |
           git clone --depth=1 https://github.com/getgauge/gauge-tests
-
-      - name: Install latest gauge nightly and plugins
-        run: |
-          cd gauge-tests
-          GAUGE_PREFIX=/tmp ./install_latest_gauge_nightly.sh
-          export PATH=/tmp/bin:$PATH
-          gauge config gauge_repository_url https://raw.githubusercontent.com/getgauge/gauge-nightly-repository/master/
-          gauge install
-          gauge -v
 
       - run: |
           export PATH=/tmp/bin:$PATH
