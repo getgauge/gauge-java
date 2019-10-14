@@ -1,0 +1,82 @@
+name: tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Java ${{ matrix.java_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        java_version: [ '1.8', '11.x.x', '12.x.x' ]
+    steps:
+
+      - uses: actions/checkout@v1
+
+      - name: Setup java
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java_version }}
+
+      - name: Run test
+        run: |
+          java -version
+          mvn clean test
+
+  functional_tests:
+    name: GaugeJava FTs with java ${{ matrix.java_version }} and ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    needs: test
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        java_version: [ '1.8', '11.x.x', '12.x.x' ]
+    steps:
+
+      - uses: actions/checkout@v1
+
+      - name: Setup go 1.13.1
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13.1
+
+      - name: Install gauge on linux and macos
+        if: matrix.os != 'windows-latest'
+        run: |
+          git clone https://github.com/getgauge/gauge
+          cd gauge
+          go run build/make.go --verbose
+          go run build/make.go --install --prefix=/tmp/
+
+      - name: Install gauge (windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          git clone https://github.com/getgauge/gauge
+          cd gauge
+          go run build/make.go --verbose
+          go run build/make.go --install
+
+      - name: Install Gauge Java plugin from source
+        run: |
+          go run make.go
+          go run make.go --install
+
+      - name: Clone gauge-tests
+        run: |
+          git clone --depth=1 https://github.com/getgauge/gauge-tests
+
+      - name: Run FTs on linux and macos
+        if: matrix.os != 'windows-latest'
+        run: |
+          export PATH=/tmp/bin:$PATH
+          cd gauge-tests
+          ./gradlew clean javaFT
+
+      - name: Run FTs on windows
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        run: |
+          ${env:PATH} += ";C:\Program Files\gauge\bin"
+          cd gauge-tests
+          .\gradlew.bat clean javaFT
