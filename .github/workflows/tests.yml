@@ -41,7 +41,16 @@ jobs:
         with:
           go-version: 1.13.1
 
-      - name: Install gauge from source
+      - name: Install gauge on linux and macos
+        if: matrix.os != 'windows-latest'
+        run: |
+          git clone https://github.com/getgauge/gauge
+          cd gauge
+          go run build/make.go --verbose
+          go run build/make.go --install --prefix=/tmp/
+
+      - name: Install gauge (windows)
+        if: matrix.os == 'windows-latest'
         run: |
           git clone https://github.com/getgauge/gauge
           cd gauge
@@ -50,7 +59,6 @@ jobs:
 
       - name: Install Gauge Java plugin from source
         run: |
-          gauge -v
           go run make.go
           go run make.go --install
 
@@ -58,7 +66,16 @@ jobs:
         run: |
           git clone --depth=1 https://github.com/getgauge/gauge-tests
 
-      - run: |
+      - name: Run FTs on linux and macos
+        if: matrix.os != 'windows-latest'
+        run: |
           export PATH=/tmp/bin:$PATH
           cd gauge-tests
           ./gradlew clean javaFT
+
+      - name: Run FTs on windows
+        if: matrix.os == 'windows-latest'
+        run: |
+          ${env:PATH} += ";C:\Program Files\gauge\bin"
+          cd gauge-tests
+          .\gradlew.bat clean javaFT
