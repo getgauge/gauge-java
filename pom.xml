@@ -288,13 +288,4 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
-    <profiles>
-        <profile>
-            <id>nightly</id>
-            <properties>
-                <projectVersion>0.7.3.nightly-${maven.build.timestamp}</projectVersion>
-            </properties>
-        </profile>
-    </profiles>
-
 </project>
