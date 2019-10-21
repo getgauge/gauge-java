@@ -48,7 +48,7 @@ public class GaugeConnection {
 
     public GaugeConnection(int port) {
         this.port = port;
-        createConnection(5); // SUPPRESS CHECKSTYLE
+        createConnection(10); // SUPPRESS CHECKSTYLE
     }
 
     public GaugeConnection(Socket socket) {
