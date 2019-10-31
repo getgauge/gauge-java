@@ -1,13 +1,8 @@
 # Gauge-Java
 
-[![Build status](https://ci.appveyor.com/api/projects/status/b3xfe7d6fftbq6gf?svg=true)](https://ci.appveyor.com/project/getgauge/gauge-java)
-[![Build Status](https://travis-ci.org/getgauge/gauge-java.svg?branch=master)](https://travis-ci.org/getgauge/gauge-java)
+[![Actions Status](https://github.com/getgauge/gauge-java/workflows/tests/badge.svg)](https://github.com/getgauge/gauge-java/actions)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
-
-|Gauge-Java Nightly|Maven-Gauge-Java Nightly|
-|----------|----------------|
-|[ ![Download Nightly](https://api.bintray.com/packages/gauge/gauge-java/Nightly/images/download.svg) ](https://bintray.com/gauge/gauge-java/Nightly/_latestVersion)| [ ![Download Maven Nightly](https://api.bintray.com/packages/gauge/maven-gauge-java/Nightly/images/download.svg) ](https://bintray.com/gauge/maven-gauge-java/Nightly/_latestVersion)|
 
 This project adds java [language plugin](https://docs.gauge.org/plugins.html#language-reporting-plugins) for [gauge](http://getgauge.io).
 
@@ -49,14 +44,6 @@ gauge install java --version 0.6.5
 ```
 gauge install java --file gauge-java-0.6.5-windows.x86_64.zip
 ```
-
-#### Nightly installation
-
-To install java nightly, download the latest nightly from [here](https://bintray.com/gauge/gauge-java/Nightly).
-
-Once you have the downloaded nightly gauge-java-version.nightly-yyyy-mm-dd.zip, install using:
-
-    gauge install java -f gauge-java-version.nightly-yyyy-mm-dd.zip
 
 #### Build from source
 

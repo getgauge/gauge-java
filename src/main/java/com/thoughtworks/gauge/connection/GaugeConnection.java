@@ -48,7 +48,7 @@ public class GaugeConnection {
 
     public GaugeConnection(int port) {
         this.port = port;
-        createConnection(5); // SUPPRESS CHECKSTYLE
+        createConnection(10); // SUPPRESS CHECKSTYLE
     }
 
     public GaugeConnection(Socket socket) {
@@ -79,7 +79,7 @@ public class GaugeConnection {
         } catch (IOException e) {
             try {
                 //waits for the process to start accepting connection
-                Thread.sleep(1000); // SUPPRESS CHECKSTYLE
+                Thread.sleep(5000); // SUPPRESS CHECKSTYLE
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }

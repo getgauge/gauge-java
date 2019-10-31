@@ -338,20 +338,21 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"with comments\")" + System.getProperty("line.separator") +
-                "    public void someStepWithComments() {" + System.getProperty("line.separator") +
-                "        //comment1" + System.getProperty("line.separator") +
-                "        //comment2" + System.getProperty("line.separator") +
-                "        /*\n" +
-                "                    comment3\n" +
-                "                    comment4\n" +
-                "         */" + System.getProperty("line.separator") +
-                "        /*\n" +
-                "                comment6\n" +
-                "                    comment7\n" +
-                "                        comment8\n" +
-                "         */" + System.getProperty("line.separator") +
-                "        System.out.println(\"\");" + System.getProperty("line.separator") +
+        String newLineChar = System.getProperty("line.separator");
+        assertTrue(element.getText().contains("    @Step(\"with comments\")" + newLineChar +
+                "    public void someStepWithComments() {" + newLineChar +
+                "        //comment1" + newLineChar +
+                "        //comment2" + newLineChar +
+                "        /*" + newLineChar +
+                "                    comment3" + newLineChar +
+                "                    comment4" + newLineChar +
+                "         */" + newLineChar +
+                "        /*" + newLineChar +
+                "                comment6" + newLineChar +
+                "                    comment7" + newLineChar +
+                "                        comment8" + newLineChar +
+                "         */" + newLineChar +
+                "        System.out.println(\"\");" + newLineChar +
                 "    }"));
         assertFalse(element.getText().contains("A step with comments"));
     }
@@ -366,31 +367,32 @@ public class JavaRefactoringTest extends TestCase {
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry, parameterizedStepValue, saveChanges);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
-        String expectedValue = "    @Step(\"with comments\")" + System.getProperty("line.separator") +
-                "    public void someStepWithComments() {" + System.getProperty("line.separator") +
-                "        //comment1" + System.getProperty("line.separator") +
-                "        //comment2" + System.getProperty("line.separator") +
-                "        /*\n" +
-                "                    comment3\n" +
-                "                    comment4\n" +
-                "         */" + System.getProperty("line.separator") +
-                "        /*\n" +
-                "                comment6\n" +
-                "                    comment7\n" +
-                "                        comment8\n" +
-                "         */" + System.getProperty("line.separator") +
-                "        System.out.println(\"\");" + System.getProperty("line.separator") +
-                "    //comment9" + System.getProperty("line.separator") +
-                "    //comment10" + System.getProperty("line.separator") +
-                "    /*\n" +
-                "                    comment11\n" +
-                "                    comment12\n" +
-                "         */" + System.getProperty("line.separator") +
-                "    /*\n" +
-                "                comment13\n" +
-                "                    comment14\n" +
-                "                        comment15\n" +
-                "         */" + System.getProperty("line.separator") +
+        String newLineChar = System.getProperty("line.separator");
+        String expectedValue = "    @Step(\"with comments\")" + newLineChar +
+                "    public void someStepWithComments() {" + newLineChar +
+                "        //comment1" + newLineChar +
+                "        //comment2" + newLineChar +
+                "        /*" + newLineChar +
+                "                    comment3" + newLineChar +
+                "                    comment4" + newLineChar +
+                "         */" + newLineChar +
+                "        /*" + newLineChar +
+                "                comment6" + newLineChar +
+                "                    comment7" + newLineChar +
+                "                        comment8" + newLineChar +
+                "         */" + newLineChar +
+                "        System.out.println(\"\");" + newLineChar +
+                "    //comment9" + newLineChar +
+                "    //comment10" + newLineChar +
+                "    /*" + newLineChar +
+                "                    comment11" + newLineChar +
+                "                    comment12" + newLineChar +
+                "         */" + newLineChar +
+                "    /*" + newLineChar +
+                "                comment13" + newLineChar +
+                "                    comment14" + newLineChar +
+                "                        comment15" + newLineChar +
+                "         */" + newLineChar +
                 "    }";
         String actualValue = element.getText();
 
