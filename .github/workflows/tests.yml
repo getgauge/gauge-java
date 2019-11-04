@@ -25,7 +25,7 @@ jobs:
           mvn clean test
 
   functional_tests:
-    name: GaugeJava FTs with java ${{ matrix.java_version }} and ${{ matrix.os }}
+    name: FTs & LSP tests- java v${{ matrix.java_version }} & ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs: test
     strategy:
@@ -80,3 +80,29 @@ jobs:
           ${env:PATH} += ";C:\Program Files\gauge\bin"
           cd gauge-tests
           .\gradlew.bat clean javaFT
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+
+      - name: Clone gauge-lsp-tests
+        run: |
+          git clone https://github.com/getgauge/gauge-lsp-tests
+          cd gauge-lsp-tests
+          npm install
+
+      - name: Run LSP tests on linux and macos
+        if: matrix.os != 'windows-latest'
+        run: |
+          export PATH=/tmp/bin:$PATH
+          cd gauge-lsp-tests
+          gauge install
+          gauge run --tags='!knownIssue & (actions_on_project_load | actions_on_file_edit)' --env=js-wd
+
+      - name: Run LSP tests on windows
+        if: matrix.os == 'windows-latest'
+        shell: pwsh
+        run: |
+          ${env:PATH} += ";C:\Program Files\gauge\bin"
+          cd gauge-lsp-tests
+          gauge install
+          gauge run --tags="!knownIssue & (actions_on_project_load | actions_on_file_edit)" --env=js-wd
