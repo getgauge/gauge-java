@@ -8,7 +8,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
 
       - uses: actions/checkout@v1
@@ -29,7 +29,7 @@ jobs:
     needs: test
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest]
         java_version: [ '1.8', '11.x.x', '12.x.x' ]
     steps:
 
@@ -40,7 +40,7 @@ jobs:
         with:
           go-version: 1.13.1
 
-      - name: Install gauge on linux and macos
+      - name: Install gauge on linux
         if: matrix.os != 'windows-latest'
         run: |
           git clone https://github.com/getgauge/gauge
@@ -67,7 +67,7 @@ jobs:
         run: |
           git clone --depth=1 https://github.com/getgauge/gauge-tests
 
-      - name: Run FTs on linux and macos
+      - name: Run FTs on linux
         if: matrix.os != 'windows-latest'
         run: |
           cd gauge-tests
@@ -82,13 +82,8 @@ jobs:
 
       - uses: actions/upload-artifact@v1
         with:
-          name: logs
-          path: gauge-tests/logs
-
-      - uses: actions/upload-artifact@v1
-        with:
-          name: html-report
-          path: gauge-tests/reports/html-report
+          name: ft-logs-${{ matrix.os }}-${{ matrix.java_version }}
+          path: gauge-tests/testLogs
 
       - name: Use Node.js
         uses: actions/setup-node@v1
@@ -112,3 +107,8 @@ jobs:
           gauge install
           gauge -v
           gauge run --tags='!knownIssue & (actions_on_project_load | actions_on_file_edit)' --env=js-wd
+
+      - uses: actions/upload-artifact@v1
+        with:
+          name: lsp-logs-${{ matrix.os }}-${{ matrix.java_version }}
+          path: gauge-lsp-tests/logs
