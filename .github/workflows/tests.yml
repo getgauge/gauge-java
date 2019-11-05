@@ -60,7 +60,7 @@ jobs:
 
       - name: Install Gauge Java plugin from source
         run: |
-          go run make.go --distro
+          go run make.go
           go run make.go --install
 
       - name: Clone gauge-tests
