@@ -80,12 +80,12 @@ jobs:
           cd gauge-tests
           .\gradlew.bat clean javaFT
 
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v1
         with:
           name: logs
           path: gauge-tests/logs
 
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v1
         with:
           name: html-report
           path: gauge-tests/reports/html-report
