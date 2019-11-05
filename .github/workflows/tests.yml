@@ -47,6 +47,7 @@ jobs:
           cd gauge
           go run build/make.go --verbose
           go run build/make.go --install --prefix=/tmp/
+          echo "::add-path::/tmp/bin"
 
       - name: Install gauge (windows)
         if: matrix.os == 'windows-latest'
@@ -55,6 +56,7 @@ jobs:
           cd gauge
           go run build/make.go --verbose
           go run build/make.go --install
+          echo "::add-path::C:\Program Files\gauge\bin"
 
       - name: Install Gauge Java plugin from source
         run: |
@@ -68,7 +70,6 @@ jobs:
       - name: Run FTs on linux and macos
         if: matrix.os != 'windows-latest'
         run: |
-          export PATH=/tmp/bin:$PATH
           cd gauge-tests
           ./gradlew clean javaFT
 
@@ -76,12 +77,18 @@ jobs:
         if: matrix.os == 'windows-latest'
         shell: pwsh
         run: |
-          ${env:PATH} += ";C:\Program Files\gauge\bin"
           cd gauge-tests
           .\gradlew.bat clean javaFT
 
       - name: Use Node.js
         uses: actions/setup-node@v1
+
+      - name: Install gauge js
+        run: |
+          git clone https://github.com/getgauge/gauge-js
+          cd gauge-js
+          npm install
+          npm run installPlugin
 
       - name: Clone gauge-lsp-tests
         run: |
@@ -89,19 +96,8 @@ jobs:
           cd gauge-lsp-tests
           npm install
 
-      - name: Run LSP tests on linux and macos
-        if: matrix.os != 'windows-latest'
+      - name: Run LSP tests
         run: |
-          export PATH=/tmp/bin:$PATH
-          cd gauge-lsp-tests
           gauge install
+          gauge -v
           gauge run --tags='!knownIssue & (actions_on_project_load | actions_on_file_edit)' --env=js-wd
-
-      - name: Run LSP tests on windows
-        if: matrix.os == 'windows-latest'
-        shell: pwsh
-        run: |
-          ${env:PATH} += ";C:\Program Files\gauge\bin"
-          cd gauge-lsp-tests
-          gauge install
-          gauge run --tags="!knownIssue & (actions_on_project_load | actions_on_file_edit)" --env=js-wd
