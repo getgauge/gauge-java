@@ -85,14 +85,58 @@ jobs:
           name: ft-logs-${{ matrix.os }}-${{ matrix.java_version }}
           path: gauge-tests/testLogs
 
+  lsp-tests:
+    name: FTs & LSP tests- java v${{ matrix.java_version }} & ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    needs: test
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        java_version: [ '1.8', '11.x.x', '12.x.x' ]
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup go 1.13.1
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13.1
+
+      - name: Install gauge on linux
+        if: matrix.os != 'windows-latest'
+        run: |
+          git clone https://github.com/getgauge/gauge
+          cd gauge
+          go run build/make.go --verbose
+          go run build/make.go --install --prefix=/tmp/
+          echo "::add-path::/tmp/bin"
+
+      - name: Install gauge (windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          git clone https://github.com/getgauge/gauge
+          cd gauge
+          go run build/make.go --verbose
+          go run build/make.go --install
+          echo "::add-path::C:\Program Files\gauge\bin"
+
+      - name: Install Gauge Java plugin from source
+        run: |
+          go run make.go
+          go run make.go --install
+
       - name: Use Node.js
         uses: actions/setup-node@v1
 
-      - name: Install gauge js
+      - name: Prep gauge-js
         run: |
-          git clone https://github.com/getgauge/gauge-js
+          git clone https://github.com/getgauge/gauge-js.git
           cd gauge-js
           npm install
+        shell: bash
+
+      - name: Install gauge-js
+        run: |
+          cd gauge-js
           npm run installPlugin
 
       - name: Clone gauge-lsp-tests
