@@ -140,13 +140,17 @@ jobs:
           cd gauge-js
           npm run installPlugin
 
-      - name: Run LSP tests
+      - name: Prep LSP tests
         run: |
           git clone https://github.com/getgauge/gauge-lsp-tests
           cd gauge-lsp-tests
           npm install
           gauge install
           gauge -v
+
+      - name: Run LSP tests
+        run: |
+          cd gauge-lsp-tests
           gauge run --tags="!knownIssue & (actions_on_project_load | actions_on_file_edit)" --env=java-wd
 
       - uses: actions/upload-artifact@v1
