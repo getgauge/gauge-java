@@ -81,6 +81,7 @@ jobs:
           .\gradlew.bat clean javaFT
 
       - uses: actions/upload-artifact@v1
+        if: failure()
         with:
           name: ft-logs-${{ matrix.os }}-${{ matrix.java_version }}
           path: gauge-tests/testLogs
@@ -154,6 +155,7 @@ jobs:
           gauge run --tags='!knownIssue & (actions_on_project_load | actions_on_file_edit)' --env=java-wd
 
       - uses: actions/upload-artifact@v1
+        if: failure()
         with:
           name: lsp-logs-${{ matrix.os }}-${{ matrix.java_version }}
           path: gauge-lsp-tests/logs
