@@ -140,16 +140,11 @@ jobs:
           cd gauge-js
           npm run installPlugin
 
-      - name: Clone gauge-lsp-tests
-        shell: bash
+      - name: Run LSP tests
         run: |
           git clone https://github.com/getgauge/gauge-lsp-tests
           cd gauge-lsp-tests
           npm install
-
-      - name: Run LSP tests
-        run: |
-          cd gauge-lsp-tests
           gauge install
           gauge -v
           gauge run --tags='!knownIssue & (actions_on_project_load | actions_on_file_edit)' --env=java-wd
