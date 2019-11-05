@@ -140,6 +140,7 @@ jobs:
           npm run installPlugin
 
       - name: Clone gauge-lsp-tests
+        shell: bash
         run: |
           git clone https://github.com/getgauge/gauge-lsp-tests
           cd gauge-lsp-tests
