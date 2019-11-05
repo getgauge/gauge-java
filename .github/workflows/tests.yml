@@ -151,7 +151,7 @@ jobs:
           cd gauge-lsp-tests
           gauge install
           gauge -v
-          gauge run --tags='!knownIssue & (actions_on_project_load | actions_on_file_edit)' --env=js-wd
+          gauge run --tags='!knownIssue & (actions_on_project_load | actions_on_file_edit)' --env=java-wd
 
       - uses: actions/upload-artifact@v1
         with:
