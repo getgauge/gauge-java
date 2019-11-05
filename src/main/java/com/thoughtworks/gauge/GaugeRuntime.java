@@ -51,10 +51,9 @@ public class GaugeRuntime {
             startGRPCServer(staticScanner);
         } else {
             startGaugeServer(staticScanner);
-        }
-
-        for (Thread thread : threads) {
-            thread.join();
+            for (Thread thread : threads) {
+                thread.join();
+            }
         }
         System.exit(0);
     }
