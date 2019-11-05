@@ -149,6 +149,7 @@ jobs:
           gauge -v
 
       - name: Run LSP tests
+        shell: bash
         run: |
           cd gauge-lsp-tests
           gauge run --tags="!knownIssue & (actions_on_project_load | actions_on_file_edit)" --env=java-wd
