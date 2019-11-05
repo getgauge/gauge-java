@@ -145,8 +145,8 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
 
     @Override
     public void killProcess(Messages.KillProcessRequest request, StreamObserver<Lsp.Empty> responseObserver) {
-        server.shutdownNow();
         responseObserver.onNext(Lsp.Empty.newBuilder().build());
         responseObserver.onCompleted();
+        server.shutdownNow();
     }
 }
