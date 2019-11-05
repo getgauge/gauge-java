@@ -24,7 +24,7 @@ jobs:
           mvn clean test
 
   functional_tests:
-    name: FTs & LSP tests- java v${{ matrix.java_version }} & ${{ matrix.os }}
+    name: FTs - java v${{ matrix.java_version }} & ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs: test
     strategy:
@@ -86,7 +86,7 @@ jobs:
           path: gauge-tests/testLogs
 
   lsp-tests:
-    name: FTs & LSP tests- java v${{ matrix.java_version }} & ${{ matrix.os }}
+    name: LSP tests - java v${{ matrix.java_version }} & ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs: test
     strategy:
