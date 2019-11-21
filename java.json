@@ -8,14 +8,32 @@
         "darwin": []
     },
     "run": {
-        "windows": ["bin/gauge-java", "--start"],
-        "linux": ["bin/gauge-java", "--start"],
-        "darwin": ["bin/gauge-java", "--start"]
+        "windows": [
+            "launcher.cmd",
+            "start"
+        ],
+        "linux": [
+            "launcher.sh",
+            "start"
+        ],
+        "darwin": [
+            "launcher.sh",
+            "start"
+        ]
     },
     "init": {
-        "windows": ["bin/gauge-java", "--init"],
-        "linux": ["bin/gauge-java", "--init"],
-        "darwin": ["bin/gauge-java", "--init"]
+        "windows": [
+            "launcher.cmd",
+            "init"
+        ],
+        "linux": [
+            "launcher.sh",
+            "init"
+        ],
+        "darwin": [
+            "launcher.sh",
+            "init"
+        ]
     },
     "lib": "libs",
     "multithreaded": true,
@@ -23,5 +41,5 @@
         "minimum": "1.0.6",
         "maximum": ""
     },
-    "lspLangId" : "java"
+    "lspLangId": "java"
 }
