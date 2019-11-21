@@ -1,0 +1,82 @@
+package com.thoughtworks.gauge.command;
+
+public class SetupCommand implements GaugeJavaCommand {
+
+
+    @Override
+    public void execute() {
+        String gitignore = "# Gauge - java class output directory\n"
+                + "gauge_bin\n";
+        System.out.println(gitignore);
+        String properties = "# Specify an alternate Java home if you want to use a custom version\n"
+                + "gauge_java_home =\n"
+                + "\n"
+                + "# IntelliJ and Eclipse out directory will be usually autodetected\n"
+                + "# Use the below property if you need to override the build path\n"
+                + "gauge_custom_build_path =\n"
+                + "\n"
+                + "# specify the directory where additional libs are kept\n"
+                + "# you can specify multiple directory names separated with a comma (,)\n"
+                + "gauge_additional_libs = libs/*\n"
+                + "\n"
+                + "# JVM arguments passed to java while launching. Enter multiple values separated by comma (,) eg. Xmx1024m, Xms128m\n"
+                + "gauge_jvm_args =\n"
+                + "\n"
+                + "# specify the directory containing java files to be compiled\n"
+                + "# you can specify multiple directory names separated with a comma (,)\n"
+                + "gauge_custom_compile_dir =\n"
+                + "\n"
+                + "# specify the level at which the objects should be cleared\n"
+                + "# Possible values are suite, spec and scenario. Default value is scenario.\n"
+                + "gauge_clear_state_level = scenario\n";
+        System.out.println(properties);
+        String implementation = "import com.thoughtworks.gauge.Step;\n"
+                + "import com.thoughtworks.gauge.Table;\n"
+                + "import com.thoughtworks.gauge.TableRow;\n"
+                + "\n"
+                + "import java.util.HashSet;\n"
+                + "\n"
+                + "import static org.assertj.core.api.Assertions.assertThat;\n"
+                + "\n"
+                + "public class StepImplementation {\n"
+                + "\n"
+                + "    private HashSet<Character> vowels;\n"
+                + "\n"
+                + "    @Step(\"Vowels in English language are <vowelString>.\")\n"
+                + "    public void setLanguageVowels(String vowelString) {\n"
+                + "        vowels = new HashSet<>();\n"
+                + "        for (char ch : vowelString.toCharArray()) {\n"
+                + "            vowels.add(ch);\n"
+                + "        }\n"
+                + "    }\n"
+                + "\n"
+                + "    @Step(\"The word <word> has <expectedCount> vowels.\")\n"
+                + "    public void verifyVowelsCountInWord(String word, int expectedCount) {\n"
+                + "        int actualCount = countVowels(word);\n"
+                + "        assertThat(expectedCount).isEqualTo(actualCount);\n"
+                + "    }\n"
+                + "\n"
+                + "    @Step(\"Almost all words have vowels <wordsTable>\")\n"
+                + "    public void verifyVowelsCountInMultipleWords(Table wordsTable) {\n"
+                + "        for (TableRow row : wordsTable.getTableRows()) {\n"
+                + "            String word = row.getCell(\"Word\");\n"
+                + "            int expectedCount = Integer.parseInt(row.getCell(\"Vowel Count\"));\n"
+                + "            int actualCount = countVowels(word);\n"
+                + "\n"
+                + "            assertThat(expectedCount).isEqualTo(actualCount);\n"
+                + "        }\n"
+                + "    }\n"
+                + "\n"
+                + "    private int countVowels(String word) {\n"
+                + "        int count = 0;\n"
+                + "        for (char ch : word.toCharArray()) {\n"
+                + "            if (vowels.contains(ch)) {\n"
+                + "                count++;\n"
+                + "            }\n"
+                + "        }\n"
+                + "        return count;\n"
+                + "    }\n"
+                + "}";
+        System.out.println(implementation);
+    }
+}

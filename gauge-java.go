@@ -312,7 +312,7 @@ func printUsage() {
 }
 
 func runJavaCommand(cmdName string, args []string, classpath string, printErrorsOnFailure bool) {
-	cmd := runJavaCommandAsync(cmdName, args, classpath)	
+	cmd := runJavaCommandAsync(cmdName, args, classpath)
 	if err := cmd.Wait(); err != nil {
 		os.Exit(1)
 	}

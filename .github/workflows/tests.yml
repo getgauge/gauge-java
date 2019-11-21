@@ -59,9 +59,14 @@ jobs:
           echo "::add-path::C:\Program Files\gauge\bin"
 
       - name: Install Gauge Java plugin from source
+        if: matrix.os != 'windows-latest'
         run: |
-          go run make.go
-          go run make.go --install
+          ./build.sh forceinstall
+
+      - name: Install Gauge Java plugin from source
+        if: matrix.os == 'windows-latest'
+        run: |
+          ./build.ps1 forceinstall
 
       - name: Clone gauge-tests
         run: |
@@ -121,9 +126,14 @@ jobs:
           echo "::add-path::C:\Program Files\gauge\bin"
 
       - name: Install Gauge Java plugin from source
+        if: matrix.os != 'windows-latest'
         run: |
-          go run make.go
-          go run make.go --install
+          ./build.sh forceinstall
+
+      - name: Install Gauge Java plugin from source
+        if: matrix.os == 'windows-latest'
+        run: |
+          ./build.ps1 forceinstall
 
       - name: Use Node.js
         uses: actions/setup-node@v1

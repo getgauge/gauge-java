@@ -30,11 +30,11 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     private MessageDispatcher messageDispatcher;
     private Server server;
 
-    LspServer(MessageDispatcher messageDispatcher) {
+    public LspServer(MessageDispatcher messageDispatcher) {
         this.messageDispatcher = messageDispatcher;
     }
 
-    void addServer(Server lspServer) {
+    public void addServer(Server lspServer) {
         this.server = lspServer;
     }
 
