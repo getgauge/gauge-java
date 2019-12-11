@@ -4,8 +4,7 @@ Param(
 
 $DefaultDuildDir = "gauge_bin"
 $PluginDir = Get-Location
-$classpath = $env:gauge_custom_classpath
-
+$global:classpath = $env:gauge_custom_classpath
 Set-Location $env:GAUGE_PROJECT_ROOT
 
 function AddRunnerInClassPath {
@@ -71,22 +70,7 @@ function AddClassPathRequiredForExecution() {
   }
 }
 
-function CreateExectionArgs() {
-  $args = "-Dfile.encoding=UTF-8"
-  if ("$env:gauge_jvm_args" -ne "" ) {
-    $args = "$args  $env:gauge_jvm_args"
-  }
-
-  if ("$env:GAUGE_DEBUG_OPTS" -ne "" ) {
-    $args = "$args -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=$env:GAUGE_DEBUG_OPTS,timeout=25000"
-    Write-Output "\nRunner Ready for Debugging"
-  }
-  return $args
-}
-
-# Define the tasks
 $tasks = @{ }
-
 $tasks.Add('init', {
     if ("$global:classpath" -eq "" ) { AddRunnerInClassPath }
     $env:CLASSPATH = $global:classpath
@@ -99,12 +83,14 @@ $tasks.Add('start', {
       AddRunnerInClassPath
       AddClassPathRequiredForExecution
     }
-    $args = CreateExectionArgs
     $env:CLASSPATH = $global:classpath
-    java $args com.thoughtworks.gauge.GaugeRuntime --start
+    if ("$env:GAUGE_DEBUG_OPTS" -ne "" ) {
+      $debugArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=$env:GAUGE_DEBUG_OPTS,timeout=25000"
+      Write-Output "`nRunner Ready for Debugging"
+    } 
+    java  "-Dfile.encoding=UTF-8" $debugArgs $gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start
     exit
   })
-
 
 if ($tasks.ContainsKey($TaskName)) {
   Invoke-Command $tasks.Get_Item($TaskName)
