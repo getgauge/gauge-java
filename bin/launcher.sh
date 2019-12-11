@@ -56,15 +56,15 @@ function list_files() {
 
 function build_project() {
     rm -rf $default_build_dir
-    mkdir $default_build_dir
-    target_file="$TMPDIR/files.txt"
+    mkdir -p $default_build_dir
+    target_file="$TMPDIR$RANDOM-$RANDOM.txt"
     echo $(list_files) > $target_file
     args="-encoding UTF-8 -d ${default_build_dir} @${target_file}"
     javac -cp $class_path $args
     rm $target_file
 }
 
-function add_class_path_requiresd_for_execution() {
+function add_class_path_required_for_execution() {
     # Add addlitional libs
     additional_path=$(get_additional_path "${gauge_additional_libs}")
     if [ ! -z "$additional_path" ]; then
@@ -92,7 +92,7 @@ function add_runner_in_classpath() {
 function start() {
     if [ -z "${class_path}" ]; then
         add_runner_in_classpath
-        add_class_path_requiresd_for_execution
+        add_class_path_required_for_execution
     fi
     args="-Dfile.encoding=UTF-8"
     if [ ! -z "${gauge_jvm_args}"]; then

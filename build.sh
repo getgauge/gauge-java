@@ -35,8 +35,7 @@ function package() {
     checkCommand "zip"
     rm -rf deploy artifacts
     mkdir -p deploy
-    cp bin/launcher.sh deploy
-    cp bin/launcher.cmd deploy
+    cp bin/launcher.* deploy
     cp java.json deploy
     cp -r libs deploy
     mkdir -p artifacts
