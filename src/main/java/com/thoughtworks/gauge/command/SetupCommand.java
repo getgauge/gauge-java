@@ -1,17 +1,23 @@
 package com.thoughtworks.gauge.command;
 
+import com.thoughtworks.gauge.Logger;
+import org.apache.commons.io.FileUtils;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class SetupCommand implements GaugeJavaCommand {
 
-
     @Override
-    public void execute() {
-        String gitignore = "# Gauge - java class output directory\n"
+    public void execute() throws IOException {
+        String gitIgnore = "# Gauge - java class output directory\n"
                 + "gauge_bin\n";
-        System.out.println(gitignore);
         String properties = "# Specify an alternate Java home if you want to use a custom version\n"
                 + "gauge_java_home =\n"
                 + "\n"
-                + "# IntelliJ and Eclipse out directory will be usually autodetected\n"
+                + "# IntelliJ and Eclipse out directory will be usually auto detected\n"
                 + "# Use the below property if you need to override the build path\n"
                 + "gauge_custom_build_path =\n"
                 + "\n"
@@ -29,7 +35,6 @@ public class SetupCommand implements GaugeJavaCommand {
                 + "# specify the level at which the objects should be cleared\n"
                 + "# Possible values are suite, spec and scenario. Default value is scenario.\n"
                 + "gauge_clear_state_level = scenario\n";
-        System.out.println(properties);
         String implementation = "import com.thoughtworks.gauge.Step;\n"
                 + "import com.thoughtworks.gauge.Table;\n"
                 + "import com.thoughtworks.gauge.TableRow;\n"
@@ -77,6 +82,29 @@ public class SetupCommand implements GaugeJavaCommand {
                 + "        return count;\n"
                 + "    }\n"
                 + "}";
-        System.out.println(implementation);
+
+        String projectRoot = System.getenv("GAUGE_PROJECT_ROOT");
+
+        Path implFilePath = Paths.get(projectRoot, "src", "test", "java", "StepImplementation.java");
+        Logger.info(String.format("create %s", implFilePath.toString()));
+        this.writeContent(implFilePath, implementation);
+
+        Path propFilePath = Paths.get(projectRoot, "env", "default", "java.properties");
+        Logger.info(String.format("create %s", propFilePath.toString()));
+        this.writeContent(propFilePath, properties);
+
+        Path gitIgnoreFilePath = Paths.get(projectRoot, ".gitignore");
+        Logger.info(String.format("create %s", gitIgnoreFilePath.toString()));
+        this.writeContent(gitIgnoreFilePath, gitIgnore);
+
+        Path libsDirPath = Paths.get(projectRoot, "libs", ".gitkeep");
+        Logger.info(String.format("create %s", libsDirPath.toString()));
+        this.writeContent(libsDirPath, "");
     }
+
+    private void writeContent(Path implFilePath, String content) throws IOException {
+        FileOutputStream fileOutputStream = FileUtils.openOutputStream(implFilePath.toFile(), true);
+        fileOutputStream.write(content.getBytes());
+    }
+
 }
