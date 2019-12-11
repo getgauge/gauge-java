@@ -46,7 +46,8 @@ function BuildProject() {
   Remove-Item -Recurse -Force $DefaultDuildDir -ErrorAction SilentlyContinue
   mkdir $DefaultDuildDir > $null
   $files = ListFiles
-  $targetFile = Join-Path "$env:TEMP" "filenames.txt"
+  $random = (New-Guid).ToString()
+  $targetFile = Join-Path "$env:TEMP" "$random.txt"
   Write-Output $files.Trim() | Out-File -FilePath $targetFile -Encoding default -NoNewline
   javac -cp `"$global:classpath`" -encoding UTF-8 -d gauge_bin "@$targetFile"
   Remove-Item -Force $targetFile
