@@ -439,14 +439,26 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *&#47; Holds the suite result after suite execution done.
+     * </pre>
+     *
      * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     boolean hasExecutionResult();
     /**
+     * <pre>
+     *&#47; Holds the suite result after suite execution done.
+     * </pre>
+     *
      * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     gauge.messages.Spec.ProtoExecutionResult getExecutionResult();
     /**
+     * <pre>
+     *&#47; Holds the suite result after suite execution done.
+     * </pre>
+     *
      * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     gauge.messages.Spec.ProtoExecutionResultOrBuilder getExecutionResultOrBuilder();
@@ -543,18 +555,30 @@ public final class Messages {
     public static final int EXECUTIONRESULT_FIELD_NUMBER = 1;
     private gauge.messages.Spec.ProtoExecutionResult executionResult_;
     /**
+     * <pre>
+     *&#47; Holds the suite result after suite execution done.
+     * </pre>
+     *
      * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     public boolean hasExecutionResult() {
       return executionResult_ != null;
     }
     /**
+     * <pre>
+     *&#47; Holds the suite result after suite execution done.
+     * </pre>
+     *
      * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     public gauge.messages.Spec.ProtoExecutionResult getExecutionResult() {
       return executionResult_ == null ? gauge.messages.Spec.ProtoExecutionResult.getDefaultInstance() : executionResult_;
     }
     /**
+     * <pre>
+     *&#47; Holds the suite result after suite execution done.
+     * </pre>
+     *
      * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
      */
     public gauge.messages.Spec.ProtoExecutionResultOrBuilder getExecutionResultOrBuilder() {
@@ -886,12 +910,20 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Spec.ProtoExecutionResult, gauge.messages.Spec.ProtoExecutionResult.Builder, gauge.messages.Spec.ProtoExecutionResultOrBuilder> executionResultBuilder_;
       /**
+       * <pre>
+       *&#47; Holds the suite result after suite execution done.
+       * </pre>
+       *
        * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public boolean hasExecutionResult() {
         return executionResultBuilder_ != null || executionResult_ != null;
       }
       /**
+       * <pre>
+       *&#47; Holds the suite result after suite execution done.
+       * </pre>
+       *
        * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoExecutionResult getExecutionResult() {
@@ -902,6 +934,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the suite result after suite execution done.
+       * </pre>
+       *
        * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder setExecutionResult(gauge.messages.Spec.ProtoExecutionResult value) {
@@ -918,6 +954,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the suite result after suite execution done.
+       * </pre>
+       *
        * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder setExecutionResult(
@@ -932,6 +972,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the suite result after suite execution done.
+       * </pre>
+       *
        * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder mergeExecutionResult(gauge.messages.Spec.ProtoExecutionResult value) {
@@ -950,6 +994,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the suite result after suite execution done.
+       * </pre>
+       *
        * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public Builder clearExecutionResult() {
@@ -964,6 +1012,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the suite result after suite execution done.
+       * </pre>
+       *
        * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoExecutionResult.Builder getExecutionResultBuilder() {
@@ -972,6 +1024,10 @@ public final class Messages {
         return getExecutionResultFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       *&#47; Holds the suite result after suite execution done.
+       * </pre>
+       *
        * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       public gauge.messages.Spec.ProtoExecutionResultOrBuilder getExecutionResultOrBuilder() {
@@ -983,6 +1039,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the suite result after suite execution done.
+       * </pre>
+       *
        * <code>.gauge.messages.ProtoExecutionResult executionResult = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1056,17 +1116,57 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    boolean hasSuiteResult();
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoSuiteResult getSuiteResult();
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoSuiteResultOrBuilder getSuiteResultOrBuilder();
   }
   /**
    * <pre>
@@ -1124,6 +1224,19 @@ public final class Messages {
 
               break;
             }
+            case 18: {
+              gauge.messages.Spec.ProtoSuiteResult.Builder subBuilder = null;
+              if (suiteResult_ != null) {
+                subBuilder = suiteResult_.toBuilder();
+              }
+              suiteResult_ = input.readMessage(gauge.messages.Spec.ProtoSuiteResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(suiteResult_);
+                suiteResult_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1159,22 +1272,70 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
+    }
+
+    public static final int SUITERESULT_FIELD_NUMBER = 2;
+    private gauge.messages.Spec.ProtoSuiteResult suiteResult_;
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    public boolean hasSuiteResult() {
+      return suiteResult_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoSuiteResult getSuiteResult() {
+      return suiteResult_ == null ? gauge.messages.Spec.ProtoSuiteResult.getDefaultInstance() : suiteResult_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoSuiteResultOrBuilder getSuiteResultOrBuilder() {
+      return getSuiteResult();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1194,6 +1355,9 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         output.writeMessage(1, getCurrentExecutionInfo());
       }
+      if (suiteResult_ != null) {
+        output.writeMessage(2, getSuiteResult());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1206,6 +1370,10 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCurrentExecutionInfo());
+      }
+      if (suiteResult_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getSuiteResult());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1228,6 +1396,11 @@ public final class Messages {
         result = result && getCurrentExecutionInfo()
             .equals(other.getCurrentExecutionInfo());
       }
+      result = result && (hasSuiteResult() == other.hasSuiteResult());
+      if (hasSuiteResult()) {
+        result = result && getSuiteResult()
+            .equals(other.getSuiteResult());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1242,6 +1415,10 @@ public final class Messages {
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
+      }
+      if (hasSuiteResult()) {
+        hash = (37 * hash) + SUITERESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getSuiteResult().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1386,6 +1563,12 @@ public final class Messages {
           currentExecutionInfo_ = null;
           currentExecutionInfoBuilder_ = null;
         }
+        if (suiteResultBuilder_ == null) {
+          suiteResult_ = null;
+        } else {
+          suiteResult_ = null;
+          suiteResultBuilder_ = null;
+        }
         return this;
       }
 
@@ -1416,6 +1599,11 @@ public final class Messages {
           result.currentExecutionInfo_ = currentExecutionInfo_;
         } else {
           result.currentExecutionInfo_ = currentExecutionInfoBuilder_.build();
+        }
+        if (suiteResultBuilder_ == null) {
+          result.suiteResult_ = suiteResult_;
+        } else {
+          result.suiteResult_ = suiteResultBuilder_.build();
         }
         onBuilt();
         return result;
@@ -1468,6 +1656,9 @@ public final class Messages {
         if (other.hasCurrentExecutionInfo()) {
           mergeCurrentExecutionInfo(other.getCurrentExecutionInfo());
         }
+        if (other.hasSuiteResult()) {
+          mergeSuiteResult(other.getSuiteResult());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1501,12 +1692,20 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
@@ -1517,6 +1716,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -1533,6 +1736,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
@@ -1547,6 +1754,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -1565,6 +1776,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
@@ -1579,6 +1794,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
@@ -1587,6 +1806,10 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
@@ -1598,6 +1821,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -1612,6 +1839,168 @@ public final class Messages {
           currentExecutionInfo_ = null;
         }
         return currentExecutionInfoBuilder_;
+      }
+
+      private gauge.messages.Spec.ProtoSuiteResult suiteResult_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoSuiteResult, gauge.messages.Spec.ProtoSuiteResult.Builder, gauge.messages.Spec.ProtoSuiteResultOrBuilder> suiteResultBuilder_;
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public boolean hasSuiteResult() {
+        return suiteResultBuilder_ != null || suiteResult_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSuiteResult getSuiteResult() {
+        if (suiteResultBuilder_ == null) {
+          return suiteResult_ == null ? gauge.messages.Spec.ProtoSuiteResult.getDefaultInstance() : suiteResult_;
+        } else {
+          return suiteResultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public Builder setSuiteResult(gauge.messages.Spec.ProtoSuiteResult value) {
+        if (suiteResultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          suiteResult_ = value;
+          onChanged();
+        } else {
+          suiteResultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public Builder setSuiteResult(
+          gauge.messages.Spec.ProtoSuiteResult.Builder builderForValue) {
+        if (suiteResultBuilder_ == null) {
+          suiteResult_ = builderForValue.build();
+          onChanged();
+        } else {
+          suiteResultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public Builder mergeSuiteResult(gauge.messages.Spec.ProtoSuiteResult value) {
+        if (suiteResultBuilder_ == null) {
+          if (suiteResult_ != null) {
+            suiteResult_ =
+              gauge.messages.Spec.ProtoSuiteResult.newBuilder(suiteResult_).mergeFrom(value).buildPartial();
+          } else {
+            suiteResult_ = value;
+          }
+          onChanged();
+        } else {
+          suiteResultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public Builder clearSuiteResult() {
+        if (suiteResultBuilder_ == null) {
+          suiteResult_ = null;
+          onChanged();
+        } else {
+          suiteResult_ = null;
+          suiteResultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSuiteResult.Builder getSuiteResultBuilder() {
+        
+        onChanged();
+        return getSuiteResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSuiteResultOrBuilder getSuiteResultOrBuilder() {
+        if (suiteResultBuilder_ != null) {
+          return suiteResultBuilder_.getMessageOrBuilder();
+        } else {
+          return suiteResult_ == null ?
+              gauge.messages.Spec.ProtoSuiteResult.getDefaultInstance() : suiteResult_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoSuiteResult, gauge.messages.Spec.ProtoSuiteResult.Builder, gauge.messages.Spec.ProtoSuiteResultOrBuilder> 
+          getSuiteResultFieldBuilder() {
+        if (suiteResultBuilder_ == null) {
+          suiteResultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoSuiteResult, gauge.messages.Spec.ProtoSuiteResult.Builder, gauge.messages.Spec.ProtoSuiteResultOrBuilder>(
+                  getSuiteResult(),
+                  getParentForChildren(),
+                  isClean());
+          suiteResult_ = null;
+        }
+        return suiteResultBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -1671,17 +2060,54 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    boolean hasSuiteResult();
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoSuiteResult getSuiteResult();
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoSuiteResultOrBuilder getSuiteResultOrBuilder();
   }
   /**
    * <pre>
@@ -1739,6 +2165,19 @@ public final class Messages {
 
               break;
             }
+            case 18: {
+              gauge.messages.Spec.ProtoSuiteResult.Builder subBuilder = null;
+              if (suiteResult_ != null) {
+                subBuilder = suiteResult_.toBuilder();
+              }
+              suiteResult_ = input.readMessage(gauge.messages.Spec.ProtoSuiteResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(suiteResult_);
+                suiteResult_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1774,22 +2213,67 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
+     * <pre>
+     *&#47; Holds the current suite execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
+    }
+
+    public static final int SUITERESULT_FIELD_NUMBER = 2;
+    private gauge.messages.Spec.ProtoSuiteResult suiteResult_;
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    public boolean hasSuiteResult() {
+      return suiteResult_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoSuiteResult getSuiteResult() {
+      return suiteResult_ == null ? gauge.messages.Spec.ProtoSuiteResult.getDefaultInstance() : suiteResult_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the suite result in execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoSuiteResultOrBuilder getSuiteResultOrBuilder() {
+      return getSuiteResult();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1809,6 +2293,9 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         output.writeMessage(1, getCurrentExecutionInfo());
       }
+      if (suiteResult_ != null) {
+        output.writeMessage(2, getSuiteResult());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1821,6 +2308,10 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCurrentExecutionInfo());
+      }
+      if (suiteResult_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getSuiteResult());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1843,6 +2334,11 @@ public final class Messages {
         result = result && getCurrentExecutionInfo()
             .equals(other.getCurrentExecutionInfo());
       }
+      result = result && (hasSuiteResult() == other.hasSuiteResult());
+      if (hasSuiteResult()) {
+        result = result && getSuiteResult()
+            .equals(other.getSuiteResult());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1857,6 +2353,10 @@ public final class Messages {
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
+      }
+      if (hasSuiteResult()) {
+        hash = (37 * hash) + SUITERESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getSuiteResult().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2001,6 +2501,12 @@ public final class Messages {
           currentExecutionInfo_ = null;
           currentExecutionInfoBuilder_ = null;
         }
+        if (suiteResultBuilder_ == null) {
+          suiteResult_ = null;
+        } else {
+          suiteResult_ = null;
+          suiteResultBuilder_ = null;
+        }
         return this;
       }
 
@@ -2031,6 +2537,11 @@ public final class Messages {
           result.currentExecutionInfo_ = currentExecutionInfo_;
         } else {
           result.currentExecutionInfo_ = currentExecutionInfoBuilder_.build();
+        }
+        if (suiteResultBuilder_ == null) {
+          result.suiteResult_ = suiteResult_;
+        } else {
+          result.suiteResult_ = suiteResultBuilder_.build();
         }
         onBuilt();
         return result;
@@ -2083,6 +2594,9 @@ public final class Messages {
         if (other.hasCurrentExecutionInfo()) {
           mergeCurrentExecutionInfo(other.getCurrentExecutionInfo());
         }
+        if (other.hasSuiteResult()) {
+          mergeSuiteResult(other.getSuiteResult());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2116,12 +2630,20 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
@@ -2132,6 +2654,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -2148,6 +2674,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
@@ -2162,6 +2692,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -2180,6 +2714,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
@@ -2194,6 +2732,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
@@ -2202,6 +2744,10 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
@@ -2213,6 +2759,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current suite execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2227,6 +2777,159 @@ public final class Messages {
           currentExecutionInfo_ = null;
         }
         return currentExecutionInfoBuilder_;
+      }
+
+      private gauge.messages.Spec.ProtoSuiteResult suiteResult_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoSuiteResult, gauge.messages.Spec.ProtoSuiteResult.Builder, gauge.messages.Spec.ProtoSuiteResultOrBuilder> suiteResultBuilder_;
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public boolean hasSuiteResult() {
+        return suiteResultBuilder_ != null || suiteResult_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSuiteResult getSuiteResult() {
+        if (suiteResultBuilder_ == null) {
+          return suiteResult_ == null ? gauge.messages.Spec.ProtoSuiteResult.getDefaultInstance() : suiteResult_;
+        } else {
+          return suiteResultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public Builder setSuiteResult(gauge.messages.Spec.ProtoSuiteResult value) {
+        if (suiteResultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          suiteResult_ = value;
+          onChanged();
+        } else {
+          suiteResultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public Builder setSuiteResult(
+          gauge.messages.Spec.ProtoSuiteResult.Builder builderForValue) {
+        if (suiteResultBuilder_ == null) {
+          suiteResult_ = builderForValue.build();
+          onChanged();
+        } else {
+          suiteResultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public Builder mergeSuiteResult(gauge.messages.Spec.ProtoSuiteResult value) {
+        if (suiteResultBuilder_ == null) {
+          if (suiteResult_ != null) {
+            suiteResult_ =
+              gauge.messages.Spec.ProtoSuiteResult.newBuilder(suiteResult_).mergeFrom(value).buildPartial();
+          } else {
+            suiteResult_ = value;
+          }
+          onChanged();
+        } else {
+          suiteResultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public Builder clearSuiteResult() {
+        if (suiteResultBuilder_ == null) {
+          suiteResult_ = null;
+          onChanged();
+        } else {
+          suiteResult_ = null;
+          suiteResultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSuiteResult.Builder getSuiteResultBuilder() {
+        
+        onChanged();
+        return getSuiteResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSuiteResultOrBuilder getSuiteResultOrBuilder() {
+        if (suiteResultBuilder_ != null) {
+          return suiteResultBuilder_.getMessageOrBuilder();
+        } else {
+          return suiteResult_ == null ?
+              gauge.messages.Spec.ProtoSuiteResult.getDefaultInstance() : suiteResult_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the suite result in execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoSuiteResult, gauge.messages.Spec.ProtoSuiteResult.Builder, gauge.messages.Spec.ProtoSuiteResultOrBuilder> 
+          getSuiteResultFieldBuilder() {
+        if (suiteResultBuilder_ == null) {
+          suiteResultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoSuiteResult, gauge.messages.Spec.ProtoSuiteResult.Builder, gauge.messages.Spec.ProtoSuiteResultOrBuilder>(
+                  getSuiteResult(),
+                  getParentForChildren(),
+                  isClean());
+          suiteResult_ = null;
+        }
+        return suiteResultBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2286,17 +2989,57 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    boolean hasSpecResult();
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoSpecResult getSpecResult();
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoSpecResultOrBuilder getSpecResultOrBuilder();
   }
   /**
    * <pre>
@@ -2354,6 +3097,19 @@ public final class Messages {
 
               break;
             }
+            case 18: {
+              gauge.messages.Spec.ProtoSpecResult.Builder subBuilder = null;
+              if (specResult_ != null) {
+                subBuilder = specResult_.toBuilder();
+              }
+              specResult_ = input.readMessage(gauge.messages.Spec.ProtoSpecResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(specResult_);
+                specResult_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2389,22 +3145,70 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
+    }
+
+    public static final int SPECRESULT_FIELD_NUMBER = 2;
+    private gauge.messages.Spec.ProtoSpecResult specResult_;
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    public boolean hasSpecResult() {
+      return specResult_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoSpecResult getSpecResult() {
+      return specResult_ == null ? gauge.messages.Spec.ProtoSpecResult.getDefaultInstance() : specResult_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoSpecResultOrBuilder getSpecResultOrBuilder() {
+      return getSpecResult();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2424,6 +3228,9 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         output.writeMessage(1, getCurrentExecutionInfo());
       }
+      if (specResult_ != null) {
+        output.writeMessage(2, getSpecResult());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2436,6 +3243,10 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCurrentExecutionInfo());
+      }
+      if (specResult_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getSpecResult());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2458,6 +3269,11 @@ public final class Messages {
         result = result && getCurrentExecutionInfo()
             .equals(other.getCurrentExecutionInfo());
       }
+      result = result && (hasSpecResult() == other.hasSpecResult());
+      if (hasSpecResult()) {
+        result = result && getSpecResult()
+            .equals(other.getSpecResult());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2472,6 +3288,10 @@ public final class Messages {
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
+      }
+      if (hasSpecResult()) {
+        hash = (37 * hash) + SPECRESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getSpecResult().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2616,6 +3436,12 @@ public final class Messages {
           currentExecutionInfo_ = null;
           currentExecutionInfoBuilder_ = null;
         }
+        if (specResultBuilder_ == null) {
+          specResult_ = null;
+        } else {
+          specResult_ = null;
+          specResultBuilder_ = null;
+        }
         return this;
       }
 
@@ -2646,6 +3472,11 @@ public final class Messages {
           result.currentExecutionInfo_ = currentExecutionInfo_;
         } else {
           result.currentExecutionInfo_ = currentExecutionInfoBuilder_.build();
+        }
+        if (specResultBuilder_ == null) {
+          result.specResult_ = specResult_;
+        } else {
+          result.specResult_ = specResultBuilder_.build();
         }
         onBuilt();
         return result;
@@ -2698,6 +3529,9 @@ public final class Messages {
         if (other.hasCurrentExecutionInfo()) {
           mergeCurrentExecutionInfo(other.getCurrentExecutionInfo());
         }
+        if (other.hasSpecResult()) {
+          mergeSpecResult(other.getSpecResult());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2731,12 +3565,20 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
@@ -2747,6 +3589,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -2763,6 +3609,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
@@ -2777,6 +3627,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -2795,6 +3649,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
@@ -2809,6 +3667,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
@@ -2817,6 +3679,10 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
@@ -2828,6 +3694,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2842,6 +3712,168 @@ public final class Messages {
           currentExecutionInfo_ = null;
         }
         return currentExecutionInfoBuilder_;
+      }
+
+      private gauge.messages.Spec.ProtoSpecResult specResult_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoSpecResult, gauge.messages.Spec.ProtoSpecResult.Builder, gauge.messages.Spec.ProtoSpecResultOrBuilder> specResultBuilder_;
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public boolean hasSpecResult() {
+        return specResultBuilder_ != null || specResult_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSpecResult getSpecResult() {
+        if (specResultBuilder_ == null) {
+          return specResult_ == null ? gauge.messages.Spec.ProtoSpecResult.getDefaultInstance() : specResult_;
+        } else {
+          return specResultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public Builder setSpecResult(gauge.messages.Spec.ProtoSpecResult value) {
+        if (specResultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          specResult_ = value;
+          onChanged();
+        } else {
+          specResultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public Builder setSpecResult(
+          gauge.messages.Spec.ProtoSpecResult.Builder builderForValue) {
+        if (specResultBuilder_ == null) {
+          specResult_ = builderForValue.build();
+          onChanged();
+        } else {
+          specResultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public Builder mergeSpecResult(gauge.messages.Spec.ProtoSpecResult value) {
+        if (specResultBuilder_ == null) {
+          if (specResult_ != null) {
+            specResult_ =
+              gauge.messages.Spec.ProtoSpecResult.newBuilder(specResult_).mergeFrom(value).buildPartial();
+          } else {
+            specResult_ = value;
+          }
+          onChanged();
+        } else {
+          specResultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public Builder clearSpecResult() {
+        if (specResultBuilder_ == null) {
+          specResult_ = null;
+          onChanged();
+        } else {
+          specResult_ = null;
+          specResultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSpecResult.Builder getSpecResultBuilder() {
+        
+        onChanged();
+        return getSpecResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSpecResultOrBuilder getSpecResultOrBuilder() {
+        if (specResultBuilder_ != null) {
+          return specResultBuilder_.getMessageOrBuilder();
+        } else {
+          return specResult_ == null ?
+              gauge.messages.Spec.ProtoSpecResult.getDefaultInstance() : specResult_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoSpecResult, gauge.messages.Spec.ProtoSpecResult.Builder, gauge.messages.Spec.ProtoSpecResultOrBuilder> 
+          getSpecResultFieldBuilder() {
+        if (specResultBuilder_ == null) {
+          specResultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoSpecResult, gauge.messages.Spec.ProtoSpecResult.Builder, gauge.messages.Spec.ProtoSpecResultOrBuilder>(
+                  getSpecResult(),
+                  getParentForChildren(),
+                  isClean());
+          specResult_ = null;
+        }
+        return specResultBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2901,17 +3933,54 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    boolean hasSpecResult();
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoSpecResult getSpecResult();
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoSpecResultOrBuilder getSpecResultOrBuilder();
   }
   /**
    * <pre>
@@ -2969,6 +4038,19 @@ public final class Messages {
 
               break;
             }
+            case 18: {
+              gauge.messages.Spec.ProtoSpecResult.Builder subBuilder = null;
+              if (specResult_ != null) {
+                subBuilder = specResult_.toBuilder();
+              }
+              specResult_ = input.readMessage(gauge.messages.Spec.ProtoSpecResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(specResult_);
+                specResult_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3004,22 +4086,67 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
+     * <pre>
+     *&#47; Holds the current spec execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
+    }
+
+    public static final int SPECRESULT_FIELD_NUMBER = 2;
+    private gauge.messages.Spec.ProtoSpecResult specResult_;
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    public boolean hasSpecResult() {
+      return specResult_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoSpecResult getSpecResult() {
+      return specResult_ == null ? gauge.messages.Spec.ProtoSpecResult.getDefaultInstance() : specResult_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the specs result in spec execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoSpecResultOrBuilder getSpecResultOrBuilder() {
+      return getSpecResult();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3039,6 +4166,9 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         output.writeMessage(1, getCurrentExecutionInfo());
       }
+      if (specResult_ != null) {
+        output.writeMessage(2, getSpecResult());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3051,6 +4181,10 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCurrentExecutionInfo());
+      }
+      if (specResult_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getSpecResult());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3073,6 +4207,11 @@ public final class Messages {
         result = result && getCurrentExecutionInfo()
             .equals(other.getCurrentExecutionInfo());
       }
+      result = result && (hasSpecResult() == other.hasSpecResult());
+      if (hasSpecResult()) {
+        result = result && getSpecResult()
+            .equals(other.getSpecResult());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3087,6 +4226,10 @@ public final class Messages {
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
+      }
+      if (hasSpecResult()) {
+        hash = (37 * hash) + SPECRESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getSpecResult().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3231,6 +4374,12 @@ public final class Messages {
           currentExecutionInfo_ = null;
           currentExecutionInfoBuilder_ = null;
         }
+        if (specResultBuilder_ == null) {
+          specResult_ = null;
+        } else {
+          specResult_ = null;
+          specResultBuilder_ = null;
+        }
         return this;
       }
 
@@ -3261,6 +4410,11 @@ public final class Messages {
           result.currentExecutionInfo_ = currentExecutionInfo_;
         } else {
           result.currentExecutionInfo_ = currentExecutionInfoBuilder_.build();
+        }
+        if (specResultBuilder_ == null) {
+          result.specResult_ = specResult_;
+        } else {
+          result.specResult_ = specResultBuilder_.build();
         }
         onBuilt();
         return result;
@@ -3313,6 +4467,9 @@ public final class Messages {
         if (other.hasCurrentExecutionInfo()) {
           mergeCurrentExecutionInfo(other.getCurrentExecutionInfo());
         }
+        if (other.hasSpecResult()) {
+          mergeSpecResult(other.getSpecResult());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -3346,12 +4503,20 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
@@ -3362,6 +4527,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -3378,6 +4547,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
@@ -3392,6 +4565,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -3410,6 +4587,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
@@ -3424,6 +4605,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
@@ -3432,6 +4617,10 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
@@ -3443,6 +4632,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current spec execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3457,6 +4650,159 @@ public final class Messages {
           currentExecutionInfo_ = null;
         }
         return currentExecutionInfoBuilder_;
+      }
+
+      private gauge.messages.Spec.ProtoSpecResult specResult_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoSpecResult, gauge.messages.Spec.ProtoSpecResult.Builder, gauge.messages.Spec.ProtoSpecResultOrBuilder> specResultBuilder_;
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public boolean hasSpecResult() {
+        return specResultBuilder_ != null || specResult_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSpecResult getSpecResult() {
+        if (specResultBuilder_ == null) {
+          return specResult_ == null ? gauge.messages.Spec.ProtoSpecResult.getDefaultInstance() : specResult_;
+        } else {
+          return specResultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public Builder setSpecResult(gauge.messages.Spec.ProtoSpecResult value) {
+        if (specResultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          specResult_ = value;
+          onChanged();
+        } else {
+          specResultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public Builder setSpecResult(
+          gauge.messages.Spec.ProtoSpecResult.Builder builderForValue) {
+        if (specResultBuilder_ == null) {
+          specResult_ = builderForValue.build();
+          onChanged();
+        } else {
+          specResultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public Builder mergeSpecResult(gauge.messages.Spec.ProtoSpecResult value) {
+        if (specResultBuilder_ == null) {
+          if (specResult_ != null) {
+            specResult_ =
+              gauge.messages.Spec.ProtoSpecResult.newBuilder(specResult_).mergeFrom(value).buildPartial();
+          } else {
+            specResult_ = value;
+          }
+          onChanged();
+        } else {
+          specResultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public Builder clearSpecResult() {
+        if (specResultBuilder_ == null) {
+          specResult_ = null;
+          onChanged();
+        } else {
+          specResult_ = null;
+          specResultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSpecResult.Builder getSpecResultBuilder() {
+        
+        onChanged();
+        return getSpecResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoSpecResultOrBuilder getSpecResultOrBuilder() {
+        if (specResultBuilder_ != null) {
+          return specResultBuilder_.getMessageOrBuilder();
+        } else {
+          return specResult_ == null ?
+              gauge.messages.Spec.ProtoSpecResult.getDefaultInstance() : specResult_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the specs result in spec execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoSpecResult, gauge.messages.Spec.ProtoSpecResult.Builder, gauge.messages.Spec.ProtoSpecResultOrBuilder> 
+          getSpecResultFieldBuilder() {
+        if (specResultBuilder_ == null) {
+          specResultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoSpecResult, gauge.messages.Spec.ProtoSpecResult.Builder, gauge.messages.Spec.ProtoSpecResultOrBuilder>(
+                  getSpecResult(),
+                  getParentForChildren(),
+                  isClean());
+          specResult_ = null;
+        }
+        return specResultBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3516,17 +4862,57 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *&#47; Holds the current sceanrio execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current sceanrio execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current sceanrio execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Holds the scenarion result in scenarion execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    boolean hasScenarioResult();
+    /**
+     * <pre>
+     *&#47; Holds the scenarion result in scenarion execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoScenarioResult getScenarioResult();
+    /**
+     * <pre>
+     *&#47; Holds the scenarion result in scenarion execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoScenarioResultOrBuilder getScenarioResultOrBuilder();
   }
   /**
    * <pre>
@@ -3584,6 +4970,19 @@ public final class Messages {
 
               break;
             }
+            case 18: {
+              gauge.messages.Spec.ProtoScenarioResult.Builder subBuilder = null;
+              if (scenarioResult_ != null) {
+                subBuilder = scenarioResult_.toBuilder();
+              }
+              scenarioResult_ = input.readMessage(gauge.messages.Spec.ProtoScenarioResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(scenarioResult_);
+                scenarioResult_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3619,22 +5018,70 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
+     * <pre>
+     *&#47; Holds the current sceanrio execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
+     * <pre>
+     *&#47; Holds the current sceanrio execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
+     * <pre>
+     *&#47; Holds the current sceanrio execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
+    }
+
+    public static final int SCENARIORESULT_FIELD_NUMBER = 2;
+    private gauge.messages.Spec.ProtoScenarioResult scenarioResult_;
+    /**
+     * <pre>
+     *&#47; Holds the scenarion result in scenarion execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    public boolean hasScenarioResult() {
+      return scenarioResult_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the scenarion result in scenarion execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoScenarioResult getScenarioResult() {
+      return scenarioResult_ == null ? gauge.messages.Spec.ProtoScenarioResult.getDefaultInstance() : scenarioResult_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the scenarion result in scenarion execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoScenarioResultOrBuilder getScenarioResultOrBuilder() {
+      return getScenarioResult();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3654,6 +5101,9 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         output.writeMessage(1, getCurrentExecutionInfo());
       }
+      if (scenarioResult_ != null) {
+        output.writeMessage(2, getScenarioResult());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3666,6 +5116,10 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCurrentExecutionInfo());
+      }
+      if (scenarioResult_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getScenarioResult());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3688,6 +5142,11 @@ public final class Messages {
         result = result && getCurrentExecutionInfo()
             .equals(other.getCurrentExecutionInfo());
       }
+      result = result && (hasScenarioResult() == other.hasScenarioResult());
+      if (hasScenarioResult()) {
+        result = result && getScenarioResult()
+            .equals(other.getScenarioResult());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3702,6 +5161,10 @@ public final class Messages {
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
+      }
+      if (hasScenarioResult()) {
+        hash = (37 * hash) + SCENARIORESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getScenarioResult().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3846,6 +5309,12 @@ public final class Messages {
           currentExecutionInfo_ = null;
           currentExecutionInfoBuilder_ = null;
         }
+        if (scenarioResultBuilder_ == null) {
+          scenarioResult_ = null;
+        } else {
+          scenarioResult_ = null;
+          scenarioResultBuilder_ = null;
+        }
         return this;
       }
 
@@ -3876,6 +5345,11 @@ public final class Messages {
           result.currentExecutionInfo_ = currentExecutionInfo_;
         } else {
           result.currentExecutionInfo_ = currentExecutionInfoBuilder_.build();
+        }
+        if (scenarioResultBuilder_ == null) {
+          result.scenarioResult_ = scenarioResult_;
+        } else {
+          result.scenarioResult_ = scenarioResultBuilder_.build();
         }
         onBuilt();
         return result;
@@ -3928,6 +5402,9 @@ public final class Messages {
         if (other.hasCurrentExecutionInfo()) {
           mergeCurrentExecutionInfo(other.getCurrentExecutionInfo());
         }
+        if (other.hasScenarioResult()) {
+          mergeScenarioResult(other.getScenarioResult());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -3961,12 +5438,20 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
+       * <pre>
+       *&#47; Holds the current sceanrio execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
+       * <pre>
+       *&#47; Holds the current sceanrio execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
@@ -3977,6 +5462,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current sceanrio execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -3993,6 +5482,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current sceanrio execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
@@ -4007,6 +5500,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current sceanrio execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -4025,6 +5522,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current sceanrio execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
@@ -4039,6 +5540,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current sceanrio execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
@@ -4047,6 +5552,10 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       *&#47; Holds the current sceanrio execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
@@ -4058,6 +5567,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current sceanrio execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4072,6 +5585,168 @@ public final class Messages {
           currentExecutionInfo_ = null;
         }
         return currentExecutionInfoBuilder_;
+      }
+
+      private gauge.messages.Spec.ProtoScenarioResult scenarioResult_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoScenarioResult, gauge.messages.Spec.ProtoScenarioResult.Builder, gauge.messages.Spec.ProtoScenarioResultOrBuilder> scenarioResultBuilder_;
+      /**
+       * <pre>
+       *&#47; Holds the scenarion result in scenarion execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public boolean hasScenarioResult() {
+        return scenarioResultBuilder_ != null || scenarioResult_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenarion result in scenarion execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoScenarioResult getScenarioResult() {
+        if (scenarioResultBuilder_ == null) {
+          return scenarioResult_ == null ? gauge.messages.Spec.ProtoScenarioResult.getDefaultInstance() : scenarioResult_;
+        } else {
+          return scenarioResultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenarion result in scenarion execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public Builder setScenarioResult(gauge.messages.Spec.ProtoScenarioResult value) {
+        if (scenarioResultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          scenarioResult_ = value;
+          onChanged();
+        } else {
+          scenarioResultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenarion result in scenarion execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public Builder setScenarioResult(
+          gauge.messages.Spec.ProtoScenarioResult.Builder builderForValue) {
+        if (scenarioResultBuilder_ == null) {
+          scenarioResult_ = builderForValue.build();
+          onChanged();
+        } else {
+          scenarioResultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenarion result in scenarion execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public Builder mergeScenarioResult(gauge.messages.Spec.ProtoScenarioResult value) {
+        if (scenarioResultBuilder_ == null) {
+          if (scenarioResult_ != null) {
+            scenarioResult_ =
+              gauge.messages.Spec.ProtoScenarioResult.newBuilder(scenarioResult_).mergeFrom(value).buildPartial();
+          } else {
+            scenarioResult_ = value;
+          }
+          onChanged();
+        } else {
+          scenarioResultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenarion result in scenarion execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public Builder clearScenarioResult() {
+        if (scenarioResultBuilder_ == null) {
+          scenarioResult_ = null;
+          onChanged();
+        } else {
+          scenarioResult_ = null;
+          scenarioResultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenarion result in scenarion execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoScenarioResult.Builder getScenarioResultBuilder() {
+        
+        onChanged();
+        return getScenarioResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenarion result in scenarion execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoScenarioResultOrBuilder getScenarioResultOrBuilder() {
+        if (scenarioResultBuilder_ != null) {
+          return scenarioResultBuilder_.getMessageOrBuilder();
+        } else {
+          return scenarioResult_ == null ?
+              gauge.messages.Spec.ProtoScenarioResult.getDefaultInstance() : scenarioResult_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenarion result in scenarion execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoScenarioResult, gauge.messages.Spec.ProtoScenarioResult.Builder, gauge.messages.Spec.ProtoScenarioResultOrBuilder> 
+          getScenarioResultFieldBuilder() {
+        if (scenarioResultBuilder_ == null) {
+          scenarioResultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoScenarioResult, gauge.messages.Spec.ProtoScenarioResult.Builder, gauge.messages.Spec.ProtoScenarioResultOrBuilder>(
+                  getScenarioResult(),
+                  getParentForChildren(),
+                  isClean());
+          scenarioResult_ = null;
+        }
+        return scenarioResultBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4131,17 +5806,42 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *&#47; Holds the current scenario execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current scenario execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current scenario execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
+
+    /**
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    boolean hasScenarioResult();
+    /**
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoScenarioResult getScenarioResult();
+    /**
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoScenarioResultOrBuilder getScenarioResultOrBuilder();
   }
   /**
    * <pre>
@@ -4199,6 +5899,19 @@ public final class Messages {
 
               break;
             }
+            case 18: {
+              gauge.messages.Spec.ProtoScenarioResult.Builder subBuilder = null;
+              if (scenarioResult_ != null) {
+                subBuilder = scenarioResult_.toBuilder();
+              }
+              scenarioResult_ = input.readMessage(gauge.messages.Spec.ProtoScenarioResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(scenarioResult_);
+                scenarioResult_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -4234,22 +5947,55 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
+     * <pre>
+     *&#47; Holds the current scenario execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
+     * <pre>
+     *&#47; Holds the current scenario execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
+     * <pre>
+     *&#47; Holds the current scenario execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
+    }
+
+    public static final int SCENARIORESULT_FIELD_NUMBER = 2;
+    private gauge.messages.Spec.ProtoScenarioResult scenarioResult_;
+    /**
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    public boolean hasScenarioResult() {
+      return scenarioResult_ != null;
+    }
+    /**
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoScenarioResult getScenarioResult() {
+      return scenarioResult_ == null ? gauge.messages.Spec.ProtoScenarioResult.getDefaultInstance() : scenarioResult_;
+    }
+    /**
+     * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoScenarioResultOrBuilder getScenarioResultOrBuilder() {
+      return getScenarioResult();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4269,6 +6015,9 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         output.writeMessage(1, getCurrentExecutionInfo());
       }
+      if (scenarioResult_ != null) {
+        output.writeMessage(2, getScenarioResult());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4281,6 +6030,10 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCurrentExecutionInfo());
+      }
+      if (scenarioResult_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getScenarioResult());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4303,6 +6056,11 @@ public final class Messages {
         result = result && getCurrentExecutionInfo()
             .equals(other.getCurrentExecutionInfo());
       }
+      result = result && (hasScenarioResult() == other.hasScenarioResult());
+      if (hasScenarioResult()) {
+        result = result && getScenarioResult()
+            .equals(other.getScenarioResult());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4317,6 +6075,10 @@ public final class Messages {
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
+      }
+      if (hasScenarioResult()) {
+        hash = (37 * hash) + SCENARIORESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getScenarioResult().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4461,6 +6223,12 @@ public final class Messages {
           currentExecutionInfo_ = null;
           currentExecutionInfoBuilder_ = null;
         }
+        if (scenarioResultBuilder_ == null) {
+          scenarioResult_ = null;
+        } else {
+          scenarioResult_ = null;
+          scenarioResultBuilder_ = null;
+        }
         return this;
       }
 
@@ -4491,6 +6259,11 @@ public final class Messages {
           result.currentExecutionInfo_ = currentExecutionInfo_;
         } else {
           result.currentExecutionInfo_ = currentExecutionInfoBuilder_.build();
+        }
+        if (scenarioResultBuilder_ == null) {
+          result.scenarioResult_ = scenarioResult_;
+        } else {
+          result.scenarioResult_ = scenarioResultBuilder_.build();
         }
         onBuilt();
         return result;
@@ -4543,6 +6316,9 @@ public final class Messages {
         if (other.hasCurrentExecutionInfo()) {
           mergeCurrentExecutionInfo(other.getCurrentExecutionInfo());
         }
+        if (other.hasScenarioResult()) {
+          mergeScenarioResult(other.getScenarioResult());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -4576,12 +6352,20 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
+       * <pre>
+       *&#47; Holds the current scenario execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
+       * <pre>
+       *&#47; Holds the current scenario execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
@@ -4592,6 +6376,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current scenario execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -4608,6 +6396,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current scenario execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
@@ -4622,6 +6414,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current scenario execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -4640,6 +6436,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current scenario execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
@@ -4654,6 +6454,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current scenario execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
@@ -4662,6 +6466,10 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       *&#47; Holds the current scenario execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
@@ -4673,6 +6481,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current scenario execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -4687,6 +6499,123 @@ public final class Messages {
           currentExecutionInfo_ = null;
         }
         return currentExecutionInfoBuilder_;
+      }
+
+      private gauge.messages.Spec.ProtoScenarioResult scenarioResult_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoScenarioResult, gauge.messages.Spec.ProtoScenarioResult.Builder, gauge.messages.Spec.ProtoScenarioResultOrBuilder> scenarioResultBuilder_;
+      /**
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public boolean hasScenarioResult() {
+        return scenarioResultBuilder_ != null || scenarioResult_ != null;
+      }
+      /**
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoScenarioResult getScenarioResult() {
+        if (scenarioResultBuilder_ == null) {
+          return scenarioResult_ == null ? gauge.messages.Spec.ProtoScenarioResult.getDefaultInstance() : scenarioResult_;
+        } else {
+          return scenarioResultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public Builder setScenarioResult(gauge.messages.Spec.ProtoScenarioResult value) {
+        if (scenarioResultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          scenarioResult_ = value;
+          onChanged();
+        } else {
+          scenarioResultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public Builder setScenarioResult(
+          gauge.messages.Spec.ProtoScenarioResult.Builder builderForValue) {
+        if (scenarioResultBuilder_ == null) {
+          scenarioResult_ = builderForValue.build();
+          onChanged();
+        } else {
+          scenarioResultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public Builder mergeScenarioResult(gauge.messages.Spec.ProtoScenarioResult value) {
+        if (scenarioResultBuilder_ == null) {
+          if (scenarioResult_ != null) {
+            scenarioResult_ =
+              gauge.messages.Spec.ProtoScenarioResult.newBuilder(scenarioResult_).mergeFrom(value).buildPartial();
+          } else {
+            scenarioResult_ = value;
+          }
+          onChanged();
+        } else {
+          scenarioResultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public Builder clearScenarioResult() {
+        if (scenarioResultBuilder_ == null) {
+          scenarioResult_ = null;
+          onChanged();
+        } else {
+          scenarioResult_ = null;
+          scenarioResultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoScenarioResult.Builder getScenarioResultBuilder() {
+        
+        onChanged();
+        return getScenarioResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoScenarioResultOrBuilder getScenarioResultOrBuilder() {
+        if (scenarioResultBuilder_ != null) {
+          return scenarioResultBuilder_.getMessageOrBuilder();
+        } else {
+          return scenarioResult_ == null ?
+              gauge.messages.Spec.ProtoScenarioResult.getDefaultInstance() : scenarioResult_;
+        }
+      }
+      /**
+       * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoScenarioResult, gauge.messages.Spec.ProtoScenarioResult.Builder, gauge.messages.Spec.ProtoScenarioResultOrBuilder> 
+          getScenarioResultFieldBuilder() {
+        if (scenarioResultBuilder_ == null) {
+          scenarioResultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoScenarioResult, gauge.messages.Spec.ProtoScenarioResult.Builder, gauge.messages.Spec.ProtoScenarioResultOrBuilder>(
+                  getScenarioResult(),
+                  getParentForChildren(),
+                  isClean());
+          scenarioResult_ = null;
+        }
+        return scenarioResultBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4746,17 +6675,57 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    boolean hasStepResult();
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoStepResult getStepResult();
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoStepResultOrBuilder getStepResultOrBuilder();
   }
   /**
    * <pre>
@@ -4814,6 +6783,19 @@ public final class Messages {
 
               break;
             }
+            case 18: {
+              gauge.messages.Spec.ProtoStepResult.Builder subBuilder = null;
+              if (stepResult_ != null) {
+                subBuilder = stepResult_.toBuilder();
+              }
+              stepResult_ = input.readMessage(gauge.messages.Spec.ProtoStepResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(stepResult_);
+                stepResult_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -4849,22 +6831,70 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
+    }
+
+    public static final int STEPRESULT_FIELD_NUMBER = 2;
+    private gauge.messages.Spec.ProtoStepResult stepResult_;
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    public boolean hasStepResult() {
+      return stepResult_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoStepResult getStepResult() {
+      return stepResult_ == null ? gauge.messages.Spec.ProtoStepResult.getDefaultInstance() : stepResult_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution starting.
+     * / Some fields will not be populated before execution.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoStepResultOrBuilder getStepResultOrBuilder() {
+      return getStepResult();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4884,6 +6914,9 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         output.writeMessage(1, getCurrentExecutionInfo());
       }
+      if (stepResult_ != null) {
+        output.writeMessage(2, getStepResult());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4896,6 +6929,10 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCurrentExecutionInfo());
+      }
+      if (stepResult_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getStepResult());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4918,6 +6955,11 @@ public final class Messages {
         result = result && getCurrentExecutionInfo()
             .equals(other.getCurrentExecutionInfo());
       }
+      result = result && (hasStepResult() == other.hasStepResult());
+      if (hasStepResult()) {
+        result = result && getStepResult()
+            .equals(other.getStepResult());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4932,6 +6974,10 @@ public final class Messages {
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
+      }
+      if (hasStepResult()) {
+        hash = (37 * hash) + STEPRESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getStepResult().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5076,6 +7122,12 @@ public final class Messages {
           currentExecutionInfo_ = null;
           currentExecutionInfoBuilder_ = null;
         }
+        if (stepResultBuilder_ == null) {
+          stepResult_ = null;
+        } else {
+          stepResult_ = null;
+          stepResultBuilder_ = null;
+        }
         return this;
       }
 
@@ -5106,6 +7158,11 @@ public final class Messages {
           result.currentExecutionInfo_ = currentExecutionInfo_;
         } else {
           result.currentExecutionInfo_ = currentExecutionInfoBuilder_.build();
+        }
+        if (stepResultBuilder_ == null) {
+          result.stepResult_ = stepResult_;
+        } else {
+          result.stepResult_ = stepResultBuilder_.build();
         }
         onBuilt();
         return result;
@@ -5158,6 +7215,9 @@ public final class Messages {
         if (other.hasCurrentExecutionInfo()) {
           mergeCurrentExecutionInfo(other.getCurrentExecutionInfo());
         }
+        if (other.hasStepResult()) {
+          mergeStepResult(other.getStepResult());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -5191,12 +7251,20 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
@@ -5207,6 +7275,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -5223,6 +7295,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
@@ -5237,6 +7313,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -5255,6 +7335,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
@@ -5269,6 +7353,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
@@ -5277,6 +7365,10 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
@@ -5288,6 +7380,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5302,6 +7398,168 @@ public final class Messages {
           currentExecutionInfo_ = null;
         }
         return currentExecutionInfoBuilder_;
+      }
+
+      private gauge.messages.Spec.ProtoStepResult stepResult_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoStepResult, gauge.messages.Spec.ProtoStepResult.Builder, gauge.messages.Spec.ProtoStepResultOrBuilder> stepResultBuilder_;
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public boolean hasStepResult() {
+        return stepResultBuilder_ != null || stepResult_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoStepResult getStepResult() {
+        if (stepResultBuilder_ == null) {
+          return stepResult_ == null ? gauge.messages.Spec.ProtoStepResult.getDefaultInstance() : stepResult_;
+        } else {
+          return stepResultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public Builder setStepResult(gauge.messages.Spec.ProtoStepResult value) {
+        if (stepResultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          stepResult_ = value;
+          onChanged();
+        } else {
+          stepResultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public Builder setStepResult(
+          gauge.messages.Spec.ProtoStepResult.Builder builderForValue) {
+        if (stepResultBuilder_ == null) {
+          stepResult_ = builderForValue.build();
+          onChanged();
+        } else {
+          stepResultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public Builder mergeStepResult(gauge.messages.Spec.ProtoStepResult value) {
+        if (stepResultBuilder_ == null) {
+          if (stepResult_ != null) {
+            stepResult_ =
+              gauge.messages.Spec.ProtoStepResult.newBuilder(stepResult_).mergeFrom(value).buildPartial();
+          } else {
+            stepResult_ = value;
+          }
+          onChanged();
+        } else {
+          stepResultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public Builder clearStepResult() {
+        if (stepResultBuilder_ == null) {
+          stepResult_ = null;
+          onChanged();
+        } else {
+          stepResult_ = null;
+          stepResultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoStepResult.Builder getStepResultBuilder() {
+        
+        onChanged();
+        return getStepResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoStepResultOrBuilder getStepResultOrBuilder() {
+        if (stepResultBuilder_ != null) {
+          return stepResultBuilder_.getMessageOrBuilder();
+        } else {
+          return stepResult_ == null ?
+              gauge.messages.Spec.ProtoStepResult.getDefaultInstance() : stepResult_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution starting.
+       * / Some fields will not be populated before execution.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoStepResult, gauge.messages.Spec.ProtoStepResult.Builder, gauge.messages.Spec.ProtoStepResultOrBuilder> 
+          getStepResultFieldBuilder() {
+        if (stepResultBuilder_ == null) {
+          stepResultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoStepResult, gauge.messages.Spec.ProtoStepResult.Builder, gauge.messages.Spec.ProtoStepResultOrBuilder>(
+                  getStepResult(),
+                  getParentForChildren(),
+                  isClean());
+          stepResult_ = null;
+        }
+        return stepResultBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5361,17 +7619,54 @@ public final class Messages {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     boolean hasCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo();
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    boolean hasStepResult();
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoStepResult getStepResult();
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    gauge.messages.Spec.ProtoStepResultOrBuilder getStepResultOrBuilder();
   }
   /**
    * <pre>
@@ -5429,6 +7724,19 @@ public final class Messages {
 
               break;
             }
+            case 18: {
+              gauge.messages.Spec.ProtoStepResult.Builder subBuilder = null;
+              if (stepResult_ != null) {
+                subBuilder = stepResult_.toBuilder();
+              }
+              stepResult_ = input.readMessage(gauge.messages.Spec.ProtoStepResult.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(stepResult_);
+                stepResult_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -5464,22 +7772,67 @@ public final class Messages {
     public static final int CURRENTEXECUTIONINFO_FIELD_NUMBER = 1;
     private gauge.messages.Messages.ExecutionInfo currentExecutionInfo_;
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public boolean hasCurrentExecutionInfo() {
       return currentExecutionInfo_ != null;
     }
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
       return currentExecutionInfo_ == null ? gauge.messages.Messages.ExecutionInfo.getDefaultInstance() : currentExecutionInfo_;
     }
     /**
+     * <pre>
+     *&#47; Holds the current step execution info.
+     * </pre>
+     *
      * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
      */
     public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
       return getCurrentExecutionInfo();
+    }
+
+    public static final int STEPRESULT_FIELD_NUMBER = 2;
+    private gauge.messages.Spec.ProtoStepResult stepResult_;
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    public boolean hasStepResult() {
+      return stepResult_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoStepResult getStepResult() {
+      return stepResult_ == null ? gauge.messages.Spec.ProtoStepResult.getDefaultInstance() : stepResult_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds step result in step execution ending.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+     */
+    public gauge.messages.Spec.ProtoStepResultOrBuilder getStepResultOrBuilder() {
+      return getStepResult();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5499,6 +7852,9 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         output.writeMessage(1, getCurrentExecutionInfo());
       }
+      if (stepResult_ != null) {
+        output.writeMessage(2, getStepResult());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5511,6 +7867,10 @@ public final class Messages {
       if (currentExecutionInfo_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCurrentExecutionInfo());
+      }
+      if (stepResult_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getStepResult());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5533,6 +7893,11 @@ public final class Messages {
         result = result && getCurrentExecutionInfo()
             .equals(other.getCurrentExecutionInfo());
       }
+      result = result && (hasStepResult() == other.hasStepResult());
+      if (hasStepResult()) {
+        result = result && getStepResult()
+            .equals(other.getStepResult());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5547,6 +7912,10 @@ public final class Messages {
       if (hasCurrentExecutionInfo()) {
         hash = (37 * hash) + CURRENTEXECUTIONINFO_FIELD_NUMBER;
         hash = (53 * hash) + getCurrentExecutionInfo().hashCode();
+      }
+      if (hasStepResult()) {
+        hash = (37 * hash) + STEPRESULT_FIELD_NUMBER;
+        hash = (53 * hash) + getStepResult().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -5691,6 +8060,12 @@ public final class Messages {
           currentExecutionInfo_ = null;
           currentExecutionInfoBuilder_ = null;
         }
+        if (stepResultBuilder_ == null) {
+          stepResult_ = null;
+        } else {
+          stepResult_ = null;
+          stepResultBuilder_ = null;
+        }
         return this;
       }
 
@@ -5721,6 +8096,11 @@ public final class Messages {
           result.currentExecutionInfo_ = currentExecutionInfo_;
         } else {
           result.currentExecutionInfo_ = currentExecutionInfoBuilder_.build();
+        }
+        if (stepResultBuilder_ == null) {
+          result.stepResult_ = stepResult_;
+        } else {
+          result.stepResult_ = stepResultBuilder_.build();
         }
         onBuilt();
         return result;
@@ -5773,6 +8153,9 @@ public final class Messages {
         if (other.hasCurrentExecutionInfo()) {
           mergeCurrentExecutionInfo(other.getCurrentExecutionInfo());
         }
+        if (other.hasStepResult()) {
+          mergeStepResult(other.getStepResult());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -5806,12 +8189,20 @@ public final class Messages {
       private com.google.protobuf.SingleFieldBuilderV3<
           gauge.messages.Messages.ExecutionInfo, gauge.messages.Messages.ExecutionInfo.Builder, gauge.messages.Messages.ExecutionInfoOrBuilder> currentExecutionInfoBuilder_;
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public boolean hasCurrentExecutionInfo() {
         return currentExecutionInfoBuilder_ != null || currentExecutionInfo_ != null;
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo getCurrentExecutionInfo() {
@@ -5822,6 +8213,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -5838,6 +8233,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder setCurrentExecutionInfo(
@@ -5852,6 +8251,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder mergeCurrentExecutionInfo(gauge.messages.Messages.ExecutionInfo value) {
@@ -5870,6 +8273,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public Builder clearCurrentExecutionInfo() {
@@ -5884,6 +8291,10 @@ public final class Messages {
         return this;
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfo.Builder getCurrentExecutionInfoBuilder() {
@@ -5892,6 +8303,10 @@ public final class Messages {
         return getCurrentExecutionInfoFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       public gauge.messages.Messages.ExecutionInfoOrBuilder getCurrentExecutionInfoOrBuilder() {
@@ -5903,6 +8318,10 @@ public final class Messages {
         }
       }
       /**
+       * <pre>
+       *&#47; Holds the current step execution info.
+       * </pre>
+       *
        * <code>.gauge.messages.ExecutionInfo currentExecutionInfo = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5917,6 +8336,159 @@ public final class Messages {
           currentExecutionInfo_ = null;
         }
         return currentExecutionInfoBuilder_;
+      }
+
+      private gauge.messages.Spec.ProtoStepResult stepResult_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoStepResult, gauge.messages.Spec.ProtoStepResult.Builder, gauge.messages.Spec.ProtoStepResultOrBuilder> stepResultBuilder_;
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public boolean hasStepResult() {
+        return stepResultBuilder_ != null || stepResult_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoStepResult getStepResult() {
+        if (stepResultBuilder_ == null) {
+          return stepResult_ == null ? gauge.messages.Spec.ProtoStepResult.getDefaultInstance() : stepResult_;
+        } else {
+          return stepResultBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public Builder setStepResult(gauge.messages.Spec.ProtoStepResult value) {
+        if (stepResultBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          stepResult_ = value;
+          onChanged();
+        } else {
+          stepResultBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public Builder setStepResult(
+          gauge.messages.Spec.ProtoStepResult.Builder builderForValue) {
+        if (stepResultBuilder_ == null) {
+          stepResult_ = builderForValue.build();
+          onChanged();
+        } else {
+          stepResultBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public Builder mergeStepResult(gauge.messages.Spec.ProtoStepResult value) {
+        if (stepResultBuilder_ == null) {
+          if (stepResult_ != null) {
+            stepResult_ =
+              gauge.messages.Spec.ProtoStepResult.newBuilder(stepResult_).mergeFrom(value).buildPartial();
+          } else {
+            stepResult_ = value;
+          }
+          onChanged();
+        } else {
+          stepResultBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public Builder clearStepResult() {
+        if (stepResultBuilder_ == null) {
+          stepResult_ = null;
+          onChanged();
+        } else {
+          stepResult_ = null;
+          stepResultBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoStepResult.Builder getStepResultBuilder() {
+        
+        onChanged();
+        return getStepResultFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      public gauge.messages.Spec.ProtoStepResultOrBuilder getStepResultOrBuilder() {
+        if (stepResultBuilder_ != null) {
+          return stepResultBuilder_.getMessageOrBuilder();
+        } else {
+          return stepResult_ == null ?
+              gauge.messages.Spec.ProtoStepResult.getDefaultInstance() : stepResult_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds step result in step execution ending.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoStepResult, gauge.messages.Spec.ProtoStepResult.Builder, gauge.messages.Spec.ProtoStepResultOrBuilder> 
+          getStepResultFieldBuilder() {
+        if (stepResultBuilder_ == null) {
+          stepResultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoStepResult, gauge.messages.Spec.ProtoStepResult.Builder, gauge.messages.Spec.ProtoStepResultOrBuilder>(
+                  getStepResult(),
+                  getParentForChildren(),
+                  isClean());
+          stepResult_ = null;
+        }
+        return stepResultBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -5966,6 +8538,862 @@ public final class Messages {
 
     @java.lang.Override
     public gauge.messages.Messages.StepExecutionEndingRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ExecutionArgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.ExecutionArg)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *&#47; Holds the flag name passed from command line.
+     * </pre>
+     *
+     * <code>string flagName = 1;</code>
+     */
+    java.lang.String getFlagName();
+    /**
+     * <pre>
+     *&#47; Holds the flag name passed from command line.
+     * </pre>
+     *
+     * <code>string flagName = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getFlagNameBytes();
+
+    /**
+     * <pre>
+     *&#47; Holds the flag value passed from command line.
+     * </pre>
+     *
+     * <code>repeated string flagValue = 2;</code>
+     */
+    java.util.List<java.lang.String>
+        getFlagValueList();
+    /**
+     * <pre>
+     *&#47; Holds the flag value passed from command line.
+     * </pre>
+     *
+     * <code>repeated string flagValue = 2;</code>
+     */
+    int getFlagValueCount();
+    /**
+     * <pre>
+     *&#47; Holds the flag value passed from command line.
+     * </pre>
+     *
+     * <code>repeated string flagValue = 2;</code>
+     */
+    java.lang.String getFlagValue(int index);
+    /**
+     * <pre>
+     *&#47; Holds the flag value passed from command line.
+     * </pre>
+     *
+     * <code>repeated string flagValue = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getFlagValueBytes(int index);
+  }
+  /**
+   * <pre>
+   *&#47; Contains command line arguments which passed by user during execution.
+   * </pre>
+   *
+   * Protobuf type {@code gauge.messages.ExecutionArg}
+   */
+  public  static final class ExecutionArg extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.ExecutionArg)
+      ExecutionArgOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ExecutionArg.newBuilder() to construct.
+    private ExecutionArg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ExecutionArg() {
+      flagName_ = "";
+      flagValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ExecutionArg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              flagName_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                flagValue_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              flagValue_.add(s);
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          flagValue_ = flagValue_.getUnmodifiableView();
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Messages.internal_static_gauge_messages_ExecutionArg_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Messages.internal_static_gauge_messages_ExecutionArg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Messages.ExecutionArg.class, gauge.messages.Messages.ExecutionArg.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int FLAGNAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object flagName_;
+    /**
+     * <pre>
+     *&#47; Holds the flag name passed from command line.
+     * </pre>
+     *
+     * <code>string flagName = 1;</code>
+     */
+    public java.lang.String getFlagName() {
+      java.lang.Object ref = flagName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        flagName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Holds the flag name passed from command line.
+     * </pre>
+     *
+     * <code>string flagName = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFlagNameBytes() {
+      java.lang.Object ref = flagName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        flagName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FLAGVALUE_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList flagValue_;
+    /**
+     * <pre>
+     *&#47; Holds the flag value passed from command line.
+     * </pre>
+     *
+     * <code>repeated string flagValue = 2;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getFlagValueList() {
+      return flagValue_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the flag value passed from command line.
+     * </pre>
+     *
+     * <code>repeated string flagValue = 2;</code>
+     */
+    public int getFlagValueCount() {
+      return flagValue_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Holds the flag value passed from command line.
+     * </pre>
+     *
+     * <code>repeated string flagValue = 2;</code>
+     */
+    public java.lang.String getFlagValue(int index) {
+      return flagValue_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Holds the flag value passed from command line.
+     * </pre>
+     *
+     * <code>repeated string flagValue = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFlagValueBytes(int index) {
+      return flagValue_.getByteString(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getFlagNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, flagName_);
+      }
+      for (int i = 0; i < flagValue_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, flagValue_.getRaw(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getFlagNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, flagName_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < flagValue_.size(); i++) {
+          dataSize += computeStringSizeNoTag(flagValue_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getFlagValueList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Messages.ExecutionArg)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Messages.ExecutionArg other = (gauge.messages.Messages.ExecutionArg) obj;
+
+      boolean result = true;
+      result = result && getFlagName()
+          .equals(other.getFlagName());
+      result = result && getFlagValueList()
+          .equals(other.getFlagValueList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FLAGNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFlagName().hashCode();
+      if (getFlagValueCount() > 0) {
+        hash = (37 * hash) + FLAGVALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getFlagValueList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Messages.ExecutionArg parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.ExecutionArg parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.ExecutionArg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.ExecutionArg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.ExecutionArg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.ExecutionArg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.ExecutionArg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.ExecutionArg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.ExecutionArg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.ExecutionArg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.ExecutionArg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.ExecutionArg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Messages.ExecutionArg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; Contains command line arguments which passed by user during execution.
+     * </pre>
+     *
+     * Protobuf type {@code gauge.messages.ExecutionArg}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.ExecutionArg)
+        gauge.messages.Messages.ExecutionArgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_ExecutionArg_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_ExecutionArg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.ExecutionArg.class, gauge.messages.Messages.ExecutionArg.Builder.class);
+      }
+
+      // Construct using gauge.messages.Messages.ExecutionArg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        flagName_ = "";
+
+        flagValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Messages.internal_static_gauge_messages_ExecutionArg_descriptor;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.ExecutionArg getDefaultInstanceForType() {
+        return gauge.messages.Messages.ExecutionArg.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.ExecutionArg build() {
+        gauge.messages.Messages.ExecutionArg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.ExecutionArg buildPartial() {
+        gauge.messages.Messages.ExecutionArg result = new gauge.messages.Messages.ExecutionArg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.flagName_ = flagName_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          flagValue_ = flagValue_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.flagValue_ = flagValue_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Messages.ExecutionArg) {
+          return mergeFrom((gauge.messages.Messages.ExecutionArg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Messages.ExecutionArg other) {
+        if (other == gauge.messages.Messages.ExecutionArg.getDefaultInstance()) return this;
+        if (!other.getFlagName().isEmpty()) {
+          flagName_ = other.flagName_;
+          onChanged();
+        }
+        if (!other.flagValue_.isEmpty()) {
+          if (flagValue_.isEmpty()) {
+            flagValue_ = other.flagValue_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureFlagValueIsMutable();
+            flagValue_.addAll(other.flagValue_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Messages.ExecutionArg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Messages.ExecutionArg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object flagName_ = "";
+      /**
+       * <pre>
+       *&#47; Holds the flag name passed from command line.
+       * </pre>
+       *
+       * <code>string flagName = 1;</code>
+       */
+      public java.lang.String getFlagName() {
+        java.lang.Object ref = flagName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          flagName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag name passed from command line.
+       * </pre>
+       *
+       * <code>string flagName = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFlagNameBytes() {
+        java.lang.Object ref = flagName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          flagName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag name passed from command line.
+       * </pre>
+       *
+       * <code>string flagName = 1;</code>
+       */
+      public Builder setFlagName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        flagName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag name passed from command line.
+       * </pre>
+       *
+       * <code>string flagName = 1;</code>
+       */
+      public Builder clearFlagName() {
+        
+        flagName_ = getDefaultInstance().getFlagName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag name passed from command line.
+       * </pre>
+       *
+       * <code>string flagName = 1;</code>
+       */
+      public Builder setFlagNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        flagName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList flagValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFlagValueIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          flagValue_ = new com.google.protobuf.LazyStringArrayList(flagValue_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag value passed from command line.
+       * </pre>
+       *
+       * <code>repeated string flagValue = 2;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getFlagValueList() {
+        return flagValue_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag value passed from command line.
+       * </pre>
+       *
+       * <code>repeated string flagValue = 2;</code>
+       */
+      public int getFlagValueCount() {
+        return flagValue_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag value passed from command line.
+       * </pre>
+       *
+       * <code>repeated string flagValue = 2;</code>
+       */
+      public java.lang.String getFlagValue(int index) {
+        return flagValue_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag value passed from command line.
+       * </pre>
+       *
+       * <code>repeated string flagValue = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFlagValueBytes(int index) {
+        return flagValue_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag value passed from command line.
+       * </pre>
+       *
+       * <code>repeated string flagValue = 2;</code>
+       */
+      public Builder setFlagValue(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFlagValueIsMutable();
+        flagValue_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag value passed from command line.
+       * </pre>
+       *
+       * <code>repeated string flagValue = 2;</code>
+       */
+      public Builder addFlagValue(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureFlagValueIsMutable();
+        flagValue_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag value passed from command line.
+       * </pre>
+       *
+       * <code>repeated string flagValue = 2;</code>
+       */
+      public Builder addAllFlagValue(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureFlagValueIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, flagValue_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag value passed from command line.
+       * </pre>
+       *
+       * <code>repeated string flagValue = 2;</code>
+       */
+      public Builder clearFlagValue() {
+        flagValue_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the flag value passed from command line.
+       * </pre>
+       *
+       * <code>repeated string flagValue = 2;</code>
+       */
+      public Builder addFlagValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureFlagValueIsMutable();
+        flagValue_.add(value);
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.ExecutionArg)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.ExecutionArg)
+    private static final gauge.messages.Messages.ExecutionArg DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Messages.ExecutionArg();
+    }
+
+    public static gauge.messages.Messages.ExecutionArg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ExecutionArg>
+        PARSER = new com.google.protobuf.AbstractParser<ExecutionArg>() {
+      @java.lang.Override
+      public ExecutionArg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ExecutionArg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ExecutionArg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ExecutionArg> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public gauge.messages.Messages.ExecutionArg getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -6067,10 +9495,90 @@ public final class Messages {
      */
     com.google.protobuf.ByteString
         getStacktraceBytes();
+
+    /**
+     * <pre>
+     *&#47; Holds the project name
+     * </pre>
+     *
+     * <code>string projectName = 5;</code>
+     */
+    java.lang.String getProjectName();
+    /**
+     * <pre>
+     *&#47; Holds the project name
+     * </pre>
+     *
+     * <code>string projectName = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getProjectNameBytes();
+
+    /**
+     * <pre>
+     *&#47; Holds the command line arguments.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+     */
+    java.util.List<gauge.messages.Messages.ExecutionArg> 
+        getExecutionArgsList();
+    /**
+     * <pre>
+     *&#47; Holds the command line arguments.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+     */
+    gauge.messages.Messages.ExecutionArg getExecutionArgs(int index);
+    /**
+     * <pre>
+     *&#47; Holds the command line arguments.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+     */
+    int getExecutionArgsCount();
+    /**
+     * <pre>
+     *&#47; Holds the command line arguments.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+     */
+    java.util.List<? extends gauge.messages.Messages.ExecutionArgOrBuilder> 
+        getExecutionArgsOrBuilderList();
+    /**
+     * <pre>
+     *&#47; Holds the command line arguments.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+     */
+    gauge.messages.Messages.ExecutionArgOrBuilder getExecutionArgsOrBuilder(
+        int index);
+
+    /**
+     * <pre>
+     *&#47; Holds the number of running execution streams.
+     * </pre>
+     *
+     * <code>int32 numberOfExecutionStreams = 7;</code>
+     */
+    int getNumberOfExecutionStreams();
+
+    /**
+     * <pre>
+     *&#47; Holds the runner id for parallel execution.
+     * </pre>
+     *
+     * <code>int32 runnerId = 8;</code>
+     */
+    int getRunnerId();
   }
   /**
    * <pre>
-   *&#47; Contains details of the execution. 
+   *&#47; Contains details of the execution.
    * / Depending on the context (Step, Scenario, Spec or Suite), the respective fields are set.
    * </pre>
    *
@@ -6087,6 +9595,10 @@ public final class Messages {
     }
     private ExecutionInfo() {
       stacktrace_ = "";
+      projectName_ = "";
+      executionArgs_ = java.util.Collections.emptyList();
+      numberOfExecutionStreams_ = 0;
+      runnerId_ = 0;
     }
 
     @java.lang.Override
@@ -6158,6 +9670,31 @@ public final class Messages {
               stacktrace_ = s;
               break;
             }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              projectName_ = s;
+              break;
+            }
+            case 50: {
+              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                executionArgs_ = new java.util.ArrayList<gauge.messages.Messages.ExecutionArg>();
+                mutable_bitField0_ |= 0x00000020;
+              }
+              executionArgs_.add(
+                  input.readMessage(gauge.messages.Messages.ExecutionArg.parser(), extensionRegistry));
+              break;
+            }
+            case 56: {
+
+              numberOfExecutionStreams_ = input.readInt32();
+              break;
+            }
+            case 64: {
+
+              runnerId_ = input.readInt32();
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -6173,6 +9710,9 @@ public final class Messages {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+          executionArgs_ = java.util.Collections.unmodifiableList(executionArgs_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -6190,6 +9730,7 @@ public final class Messages {
               gauge.messages.Messages.ExecutionInfo.class, gauge.messages.Messages.ExecutionInfo.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CURRENTSPEC_FIELD_NUMBER = 1;
     private gauge.messages.Messages.SpecInfo currentSpec_;
     /**
@@ -6331,6 +9872,129 @@ public final class Messages {
       }
     }
 
+    public static final int PROJECTNAME_FIELD_NUMBER = 5;
+    private volatile java.lang.Object projectName_;
+    /**
+     * <pre>
+     *&#47; Holds the project name
+     * </pre>
+     *
+     * <code>string projectName = 5;</code>
+     */
+    public java.lang.String getProjectName() {
+      java.lang.Object ref = projectName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        projectName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Holds the project name
+     * </pre>
+     *
+     * <code>string projectName = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getProjectNameBytes() {
+      java.lang.Object ref = projectName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        projectName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EXECUTIONARGS_FIELD_NUMBER = 6;
+    private java.util.List<gauge.messages.Messages.ExecutionArg> executionArgs_;
+    /**
+     * <pre>
+     *&#47; Holds the command line arguments.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+     */
+    public java.util.List<gauge.messages.Messages.ExecutionArg> getExecutionArgsList() {
+      return executionArgs_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the command line arguments.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+     */
+    public java.util.List<? extends gauge.messages.Messages.ExecutionArgOrBuilder> 
+        getExecutionArgsOrBuilderList() {
+      return executionArgs_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the command line arguments.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+     */
+    public int getExecutionArgsCount() {
+      return executionArgs_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Holds the command line arguments.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+     */
+    public gauge.messages.Messages.ExecutionArg getExecutionArgs(int index) {
+      return executionArgs_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Holds the command line arguments.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+     */
+    public gauge.messages.Messages.ExecutionArgOrBuilder getExecutionArgsOrBuilder(
+        int index) {
+      return executionArgs_.get(index);
+    }
+
+    public static final int NUMBEROFEXECUTIONSTREAMS_FIELD_NUMBER = 7;
+    private int numberOfExecutionStreams_;
+    /**
+     * <pre>
+     *&#47; Holds the number of running execution streams.
+     * </pre>
+     *
+     * <code>int32 numberOfExecutionStreams = 7;</code>
+     */
+    public int getNumberOfExecutionStreams() {
+      return numberOfExecutionStreams_;
+    }
+
+    public static final int RUNNERID_FIELD_NUMBER = 8;
+    private int runnerId_;
+    /**
+     * <pre>
+     *&#47; Holds the runner id for parallel execution.
+     * </pre>
+     *
+     * <code>int32 runnerId = 8;</code>
+     */
+    public int getRunnerId() {
+      return runnerId_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6357,6 +10021,18 @@ public final class Messages {
       if (!getStacktraceBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, stacktrace_);
       }
+      if (!getProjectNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, projectName_);
+      }
+      for (int i = 0; i < executionArgs_.size(); i++) {
+        output.writeMessage(6, executionArgs_.get(i));
+      }
+      if (numberOfExecutionStreams_ != 0) {
+        output.writeInt32(7, numberOfExecutionStreams_);
+      }
+      if (runnerId_ != 0) {
+        output.writeInt32(8, runnerId_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6380,6 +10056,21 @@ public final class Messages {
       }
       if (!getStacktraceBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, stacktrace_);
+      }
+      if (!getProjectNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, projectName_);
+      }
+      for (int i = 0; i < executionArgs_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, executionArgs_.get(i));
+      }
+      if (numberOfExecutionStreams_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, numberOfExecutionStreams_);
+      }
+      if (runnerId_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, runnerId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6414,6 +10105,14 @@ public final class Messages {
       }
       result = result && getStacktrace()
           .equals(other.getStacktrace());
+      result = result && getProjectName()
+          .equals(other.getProjectName());
+      result = result && getExecutionArgsList()
+          .equals(other.getExecutionArgsList());
+      result = result && (getNumberOfExecutionStreams()
+          == other.getNumberOfExecutionStreams());
+      result = result && (getRunnerId()
+          == other.getRunnerId());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6439,6 +10138,16 @@ public final class Messages {
       }
       hash = (37 * hash) + STACKTRACE_FIELD_NUMBER;
       hash = (53 * hash) + getStacktrace().hashCode();
+      hash = (37 * hash) + PROJECTNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getProjectName().hashCode();
+      if (getExecutionArgsCount() > 0) {
+        hash = (37 * hash) + EXECUTIONARGS_FIELD_NUMBER;
+        hash = (53 * hash) + getExecutionArgsList().hashCode();
+      }
+      hash = (37 * hash) + NUMBEROFEXECUTIONSTREAMS_FIELD_NUMBER;
+      hash = (53 * hash) + getNumberOfExecutionStreams();
+      hash = (37 * hash) + RUNNERID_FIELD_NUMBER;
+      hash = (53 * hash) + getRunnerId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6536,7 +10245,7 @@ public final class Messages {
     }
     /**
      * <pre>
-     *&#47; Contains details of the execution. 
+     *&#47; Contains details of the execution.
      * / Depending on the context (Step, Scenario, Spec or Suite), the respective fields are set.
      * </pre>
      *
@@ -6572,6 +10281,7 @@ public final class Messages {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getExecutionArgsFieldBuilder();
         }
       }
       @java.lang.Override
@@ -6596,6 +10306,18 @@ public final class Messages {
           currentStepBuilder_ = null;
         }
         stacktrace_ = "";
+
+        projectName_ = "";
+
+        if (executionArgsBuilder_ == null) {
+          executionArgs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        } else {
+          executionArgsBuilder_.clear();
+        }
+        numberOfExecutionStreams_ = 0;
+
+        runnerId_ = 0;
 
         return this;
       }
@@ -6623,6 +10345,8 @@ public final class Messages {
       @java.lang.Override
       public gauge.messages.Messages.ExecutionInfo buildPartial() {
         gauge.messages.Messages.ExecutionInfo result = new gauge.messages.Messages.ExecutionInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (currentSpecBuilder_ == null) {
           result.currentSpec_ = currentSpec_;
         } else {
@@ -6639,6 +10363,19 @@ public final class Messages {
           result.currentStep_ = currentStepBuilder_.build();
         }
         result.stacktrace_ = stacktrace_;
+        result.projectName_ = projectName_;
+        if (executionArgsBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+            executionArgs_ = java.util.Collections.unmodifiableList(executionArgs_);
+            bitField0_ = (bitField0_ & ~0x00000020);
+          }
+          result.executionArgs_ = executionArgs_;
+        } else {
+          result.executionArgs_ = executionArgsBuilder_.build();
+        }
+        result.numberOfExecutionStreams_ = numberOfExecutionStreams_;
+        result.runnerId_ = runnerId_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -6700,6 +10437,42 @@ public final class Messages {
           stacktrace_ = other.stacktrace_;
           onChanged();
         }
+        if (!other.getProjectName().isEmpty()) {
+          projectName_ = other.projectName_;
+          onChanged();
+        }
+        if (executionArgsBuilder_ == null) {
+          if (!other.executionArgs_.isEmpty()) {
+            if (executionArgs_.isEmpty()) {
+              executionArgs_ = other.executionArgs_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+            } else {
+              ensureExecutionArgsIsMutable();
+              executionArgs_.addAll(other.executionArgs_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.executionArgs_.isEmpty()) {
+            if (executionArgsBuilder_.isEmpty()) {
+              executionArgsBuilder_.dispose();
+              executionArgsBuilder_ = null;
+              executionArgs_ = other.executionArgs_;
+              bitField0_ = (bitField0_ & ~0x00000020);
+              executionArgsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getExecutionArgsFieldBuilder() : null;
+            } else {
+              executionArgsBuilder_.addAllMessages(other.executionArgs_);
+            }
+          }
+        }
+        if (other.getNumberOfExecutionStreams() != 0) {
+          setNumberOfExecutionStreams(other.getNumberOfExecutionStreams());
+        }
+        if (other.getRunnerId() != 0) {
+          setRunnerId(other.getRunnerId());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -6728,6 +10501,7 @@ public final class Messages {
         }
         return this;
       }
+      private int bitField0_;
 
       private gauge.messages.Messages.SpecInfo currentSpec_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -7273,6 +11047,483 @@ public final class Messages {
   checkByteStringIsUtf8(value);
         
         stacktrace_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object projectName_ = "";
+      /**
+       * <pre>
+       *&#47; Holds the project name
+       * </pre>
+       *
+       * <code>string projectName = 5;</code>
+       */
+      public java.lang.String getProjectName() {
+        java.lang.Object ref = projectName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          projectName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the project name
+       * </pre>
+       *
+       * <code>string projectName = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getProjectNameBytes() {
+        java.lang.Object ref = projectName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          projectName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the project name
+       * </pre>
+       *
+       * <code>string projectName = 5;</code>
+       */
+      public Builder setProjectName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        projectName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the project name
+       * </pre>
+       *
+       * <code>string projectName = 5;</code>
+       */
+      public Builder clearProjectName() {
+        
+        projectName_ = getDefaultInstance().getProjectName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the project name
+       * </pre>
+       *
+       * <code>string projectName = 5;</code>
+       */
+      public Builder setProjectNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        projectName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<gauge.messages.Messages.ExecutionArg> executionArgs_ =
+        java.util.Collections.emptyList();
+      private void ensureExecutionArgsIsMutable() {
+        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+          executionArgs_ = new java.util.ArrayList<gauge.messages.Messages.ExecutionArg>(executionArgs_);
+          bitField0_ |= 0x00000020;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Messages.ExecutionArg, gauge.messages.Messages.ExecutionArg.Builder, gauge.messages.Messages.ExecutionArgOrBuilder> executionArgsBuilder_;
+
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public java.util.List<gauge.messages.Messages.ExecutionArg> getExecutionArgsList() {
+        if (executionArgsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(executionArgs_);
+        } else {
+          return executionArgsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public int getExecutionArgsCount() {
+        if (executionArgsBuilder_ == null) {
+          return executionArgs_.size();
+        } else {
+          return executionArgsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public gauge.messages.Messages.ExecutionArg getExecutionArgs(int index) {
+        if (executionArgsBuilder_ == null) {
+          return executionArgs_.get(index);
+        } else {
+          return executionArgsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public Builder setExecutionArgs(
+          int index, gauge.messages.Messages.ExecutionArg value) {
+        if (executionArgsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureExecutionArgsIsMutable();
+          executionArgs_.set(index, value);
+          onChanged();
+        } else {
+          executionArgsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public Builder setExecutionArgs(
+          int index, gauge.messages.Messages.ExecutionArg.Builder builderForValue) {
+        if (executionArgsBuilder_ == null) {
+          ensureExecutionArgsIsMutable();
+          executionArgs_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          executionArgsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public Builder addExecutionArgs(gauge.messages.Messages.ExecutionArg value) {
+        if (executionArgsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureExecutionArgsIsMutable();
+          executionArgs_.add(value);
+          onChanged();
+        } else {
+          executionArgsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public Builder addExecutionArgs(
+          int index, gauge.messages.Messages.ExecutionArg value) {
+        if (executionArgsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureExecutionArgsIsMutable();
+          executionArgs_.add(index, value);
+          onChanged();
+        } else {
+          executionArgsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public Builder addExecutionArgs(
+          gauge.messages.Messages.ExecutionArg.Builder builderForValue) {
+        if (executionArgsBuilder_ == null) {
+          ensureExecutionArgsIsMutable();
+          executionArgs_.add(builderForValue.build());
+          onChanged();
+        } else {
+          executionArgsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public Builder addExecutionArgs(
+          int index, gauge.messages.Messages.ExecutionArg.Builder builderForValue) {
+        if (executionArgsBuilder_ == null) {
+          ensureExecutionArgsIsMutable();
+          executionArgs_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          executionArgsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public Builder addAllExecutionArgs(
+          java.lang.Iterable<? extends gauge.messages.Messages.ExecutionArg> values) {
+        if (executionArgsBuilder_ == null) {
+          ensureExecutionArgsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, executionArgs_);
+          onChanged();
+        } else {
+          executionArgsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public Builder clearExecutionArgs() {
+        if (executionArgsBuilder_ == null) {
+          executionArgs_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000020);
+          onChanged();
+        } else {
+          executionArgsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public Builder removeExecutionArgs(int index) {
+        if (executionArgsBuilder_ == null) {
+          ensureExecutionArgsIsMutable();
+          executionArgs_.remove(index);
+          onChanged();
+        } else {
+          executionArgsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public gauge.messages.Messages.ExecutionArg.Builder getExecutionArgsBuilder(
+          int index) {
+        return getExecutionArgsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public gauge.messages.Messages.ExecutionArgOrBuilder getExecutionArgsOrBuilder(
+          int index) {
+        if (executionArgsBuilder_ == null) {
+          return executionArgs_.get(index);  } else {
+          return executionArgsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public java.util.List<? extends gauge.messages.Messages.ExecutionArgOrBuilder> 
+           getExecutionArgsOrBuilderList() {
+        if (executionArgsBuilder_ != null) {
+          return executionArgsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(executionArgs_);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public gauge.messages.Messages.ExecutionArg.Builder addExecutionArgsBuilder() {
+        return getExecutionArgsFieldBuilder().addBuilder(
+            gauge.messages.Messages.ExecutionArg.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public gauge.messages.Messages.ExecutionArg.Builder addExecutionArgsBuilder(
+          int index) {
+        return getExecutionArgsFieldBuilder().addBuilder(
+            index, gauge.messages.Messages.ExecutionArg.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Holds the command line arguments.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.ExecutionArg ExecutionArgs = 6;</code>
+       */
+      public java.util.List<gauge.messages.Messages.ExecutionArg.Builder> 
+           getExecutionArgsBuilderList() {
+        return getExecutionArgsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Messages.ExecutionArg, gauge.messages.Messages.ExecutionArg.Builder, gauge.messages.Messages.ExecutionArgOrBuilder> 
+          getExecutionArgsFieldBuilder() {
+        if (executionArgsBuilder_ == null) {
+          executionArgsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              gauge.messages.Messages.ExecutionArg, gauge.messages.Messages.ExecutionArg.Builder, gauge.messages.Messages.ExecutionArgOrBuilder>(
+                  executionArgs_,
+                  ((bitField0_ & 0x00000020) == 0x00000020),
+                  getParentForChildren(),
+                  isClean());
+          executionArgs_ = null;
+        }
+        return executionArgsBuilder_;
+      }
+
+      private int numberOfExecutionStreams_ ;
+      /**
+       * <pre>
+       *&#47; Holds the number of running execution streams.
+       * </pre>
+       *
+       * <code>int32 numberOfExecutionStreams = 7;</code>
+       */
+      public int getNumberOfExecutionStreams() {
+        return numberOfExecutionStreams_;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the number of running execution streams.
+       * </pre>
+       *
+       * <code>int32 numberOfExecutionStreams = 7;</code>
+       */
+      public Builder setNumberOfExecutionStreams(int value) {
+        
+        numberOfExecutionStreams_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the number of running execution streams.
+       * </pre>
+       *
+       * <code>int32 numberOfExecutionStreams = 7;</code>
+       */
+      public Builder clearNumberOfExecutionStreams() {
+        
+        numberOfExecutionStreams_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int runnerId_ ;
+      /**
+       * <pre>
+       *&#47; Holds the runner id for parallel execution.
+       * </pre>
+       *
+       * <code>int32 runnerId = 8;</code>
+       */
+      public int getRunnerId() {
+        return runnerId_;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the runner id for parallel execution.
+       * </pre>
+       *
+       * <code>int32 runnerId = 8;</code>
+       */
+      public Builder setRunnerId(int value) {
+        
+        runnerId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the runner id for parallel execution.
+       * </pre>
+       *
+       * <code>int32 runnerId = 8;</code>
+       */
+      public Builder clearRunnerId() {
+        
+        runnerId_ = 0;
         onChanged();
         return this;
       }
@@ -10493,7 +14744,7 @@ public final class Messages {
 
     /**
      * <pre>
-     *&#47; Contains the actual text of the Step being executed. 
+     *&#47; Contains the actual text of the Step being executed.
      * / This contains the parameters as defined in the Spec.
      * </pre>
      *
@@ -10502,7 +14753,7 @@ public final class Messages {
     java.lang.String getActualStepText();
     /**
      * <pre>
-     *&#47; Contains the actual text of the Step being executed. 
+     *&#47; Contains the actual text of the Step being executed.
      * / This contains the parameters as defined in the Spec.
      * </pre>
      *
@@ -10513,7 +14764,7 @@ public final class Messages {
 
     /**
      * <pre>
-     *&#47; Contains the parsed text of the Step being executed. 
+     *&#47; Contains the parsed text of the Step being executed.
      * / The paramters are replaced with placeholders.
      * </pre>
      *
@@ -10522,7 +14773,7 @@ public final class Messages {
     java.lang.String getParsedStepText();
     /**
      * <pre>
-     *&#47; Contains the parsed text of the Step being executed. 
+     *&#47; Contains the parsed text of the Step being executed.
      * / The paramters are replaced with placeholders.
      * </pre>
      *
@@ -10697,7 +14948,7 @@ public final class Messages {
     private volatile java.lang.Object actualStepText_;
     /**
      * <pre>
-     *&#47; Contains the actual text of the Step being executed. 
+     *&#47; Contains the actual text of the Step being executed.
      * / This contains the parameters as defined in the Spec.
      * </pre>
      *
@@ -10717,7 +14968,7 @@ public final class Messages {
     }
     /**
      * <pre>
-     *&#47; Contains the actual text of the Step being executed. 
+     *&#47; Contains the actual text of the Step being executed.
      * / This contains the parameters as defined in the Spec.
      * </pre>
      *
@@ -10741,7 +14992,7 @@ public final class Messages {
     private volatile java.lang.Object parsedStepText_;
     /**
      * <pre>
-     *&#47; Contains the parsed text of the Step being executed. 
+     *&#47; Contains the parsed text of the Step being executed.
      * / The paramters are replaced with placeholders.
      * </pre>
      *
@@ -10761,7 +15012,7 @@ public final class Messages {
     }
     /**
      * <pre>
-     *&#47; Contains the parsed text of the Step being executed. 
+     *&#47; Contains the parsed text of the Step being executed.
      * / The paramters are replaced with placeholders.
      * </pre>
      *
@@ -11253,7 +15504,7 @@ public final class Messages {
       private java.lang.Object actualStepText_ = "";
       /**
        * <pre>
-       *&#47; Contains the actual text of the Step being executed. 
+       *&#47; Contains the actual text of the Step being executed.
        * / This contains the parameters as defined in the Spec.
        * </pre>
        *
@@ -11273,7 +15524,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Contains the actual text of the Step being executed. 
+       *&#47; Contains the actual text of the Step being executed.
        * / This contains the parameters as defined in the Spec.
        * </pre>
        *
@@ -11294,7 +15545,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Contains the actual text of the Step being executed. 
+       *&#47; Contains the actual text of the Step being executed.
        * / This contains the parameters as defined in the Spec.
        * </pre>
        *
@@ -11312,7 +15563,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Contains the actual text of the Step being executed. 
+       *&#47; Contains the actual text of the Step being executed.
        * / This contains the parameters as defined in the Spec.
        * </pre>
        *
@@ -11326,7 +15577,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Contains the actual text of the Step being executed. 
+       *&#47; Contains the actual text of the Step being executed.
        * / This contains the parameters as defined in the Spec.
        * </pre>
        *
@@ -11347,7 +15598,7 @@ public final class Messages {
       private java.lang.Object parsedStepText_ = "";
       /**
        * <pre>
-       *&#47; Contains the parsed text of the Step being executed. 
+       *&#47; Contains the parsed text of the Step being executed.
        * / The paramters are replaced with placeholders.
        * </pre>
        *
@@ -11367,7 +15618,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Contains the parsed text of the Step being executed. 
+       *&#47; Contains the parsed text of the Step being executed.
        * / The paramters are replaced with placeholders.
        * </pre>
        *
@@ -11388,7 +15639,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Contains the parsed text of the Step being executed. 
+       *&#47; Contains the parsed text of the Step being executed.
        * / The paramters are replaced with placeholders.
        * </pre>
        *
@@ -11406,7 +15657,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Contains the parsed text of the Step being executed. 
+       *&#47; Contains the parsed text of the Step being executed.
        * / The paramters are replaced with placeholders.
        * </pre>
        *
@@ -11420,7 +15671,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Contains the parsed text of the Step being executed. 
+       *&#47; Contains the parsed text of the Step being executed.
        * / The paramters are replaced with placeholders.
        * </pre>
        *
@@ -11898,7 +16149,7 @@ public final class Messages {
   }
   /**
    * <pre>
-   *&#47; Request sent ot the runner to check if given Step is valid. 
+   *&#47; Request sent ot the runner to check if given Step is valid.
    * / The runner should check if there is an implementation defined for the given Step Text.
    * </pre>
    *
@@ -12270,7 +16521,7 @@ public final class Messages {
     }
     /**
      * <pre>
-     *&#47; Request sent ot the runner to check if given Step is valid. 
+     *&#47; Request sent ot the runner to check if given Step is valid.
      * / The runner should check if there is an implementation defined for the given Step Text.
      * </pre>
      *
@@ -12814,7 +17065,7 @@ public final class Messages {
   /**
    * <pre>
    *&#47; Response of StepValidateRequest.
-   * / The runner tells the caller if the Request was valid, 
+   * / The runner tells the caller if the Request was valid,
    * / i.e. an implementation exists for given Step text.
    * / Returns an error message if it is an error response.
    * </pre>
@@ -13298,7 +17549,7 @@ public final class Messages {
     /**
      * <pre>
      *&#47; Response of StepValidateRequest.
-     * / The runner tells the caller if the Request was valid, 
+     * / The runner tells the caller if the Request was valid,
      * / i.e. an implementation exists for given Step text.
      * / Returns an error message if it is an error response.
      * </pre>
@@ -14340,6 +18591,613 @@ public final class Messages {
 
     @java.lang.Override
     public gauge.messages.Messages.SuiteExecutionResult getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SuiteExecutionResultItemOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.SuiteExecutionResultItem)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+     */
+    boolean hasResultItem();
+    /**
+     * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+     */
+    gauge.messages.Spec.ProtoItem getResultItem();
+    /**
+     * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+     */
+    gauge.messages.Spec.ProtoItemOrBuilder getResultItemOrBuilder();
+  }
+  /**
+   * Protobuf type {@code gauge.messages.SuiteExecutionResultItem}
+   */
+  public  static final class SuiteExecutionResultItem extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.SuiteExecutionResultItem)
+      SuiteExecutionResultItemOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SuiteExecutionResultItem.newBuilder() to construct.
+    private SuiteExecutionResultItem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SuiteExecutionResultItem() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SuiteExecutionResultItem(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              gauge.messages.Spec.ProtoItem.Builder subBuilder = null;
+              if (resultItem_ != null) {
+                subBuilder = resultItem_.toBuilder();
+              }
+              resultItem_ = input.readMessage(gauge.messages.Spec.ProtoItem.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(resultItem_);
+                resultItem_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Messages.internal_static_gauge_messages_SuiteExecutionResultItem_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Messages.internal_static_gauge_messages_SuiteExecutionResultItem_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Messages.SuiteExecutionResultItem.class, gauge.messages.Messages.SuiteExecutionResultItem.Builder.class);
+    }
+
+    public static final int RESULTITEM_FIELD_NUMBER = 1;
+    private gauge.messages.Spec.ProtoItem resultItem_;
+    /**
+     * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+     */
+    public boolean hasResultItem() {
+      return resultItem_ != null;
+    }
+    /**
+     * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+     */
+    public gauge.messages.Spec.ProtoItem getResultItem() {
+      return resultItem_ == null ? gauge.messages.Spec.ProtoItem.getDefaultInstance() : resultItem_;
+    }
+    /**
+     * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+     */
+    public gauge.messages.Spec.ProtoItemOrBuilder getResultItemOrBuilder() {
+      return getResultItem();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (resultItem_ != null) {
+        output.writeMessage(1, getResultItem());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (resultItem_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getResultItem());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Messages.SuiteExecutionResultItem)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Messages.SuiteExecutionResultItem other = (gauge.messages.Messages.SuiteExecutionResultItem) obj;
+
+      boolean result = true;
+      result = result && (hasResultItem() == other.hasResultItem());
+      if (hasResultItem()) {
+        result = result && getResultItem()
+            .equals(other.getResultItem());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasResultItem()) {
+        hash = (37 * hash) + RESULTITEM_FIELD_NUMBER;
+        hash = (53 * hash) + getResultItem().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.SuiteExecutionResultItem parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Messages.SuiteExecutionResultItem prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gauge.messages.SuiteExecutionResultItem}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.SuiteExecutionResultItem)
+        gauge.messages.Messages.SuiteExecutionResultItemOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_SuiteExecutionResultItem_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_SuiteExecutionResultItem_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.SuiteExecutionResultItem.class, gauge.messages.Messages.SuiteExecutionResultItem.Builder.class);
+      }
+
+      // Construct using gauge.messages.Messages.SuiteExecutionResultItem.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (resultItemBuilder_ == null) {
+          resultItem_ = null;
+        } else {
+          resultItem_ = null;
+          resultItemBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Messages.internal_static_gauge_messages_SuiteExecutionResultItem_descriptor;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.SuiteExecutionResultItem getDefaultInstanceForType() {
+        return gauge.messages.Messages.SuiteExecutionResultItem.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.SuiteExecutionResultItem build() {
+        gauge.messages.Messages.SuiteExecutionResultItem result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.SuiteExecutionResultItem buildPartial() {
+        gauge.messages.Messages.SuiteExecutionResultItem result = new gauge.messages.Messages.SuiteExecutionResultItem(this);
+        if (resultItemBuilder_ == null) {
+          result.resultItem_ = resultItem_;
+        } else {
+          result.resultItem_ = resultItemBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Messages.SuiteExecutionResultItem) {
+          return mergeFrom((gauge.messages.Messages.SuiteExecutionResultItem)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Messages.SuiteExecutionResultItem other) {
+        if (other == gauge.messages.Messages.SuiteExecutionResultItem.getDefaultInstance()) return this;
+        if (other.hasResultItem()) {
+          mergeResultItem(other.getResultItem());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Messages.SuiteExecutionResultItem parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Messages.SuiteExecutionResultItem) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private gauge.messages.Spec.ProtoItem resultItem_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder> resultItemBuilder_;
+      /**
+       * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+       */
+      public boolean hasResultItem() {
+        return resultItemBuilder_ != null || resultItem_ != null;
+      }
+      /**
+       * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+       */
+      public gauge.messages.Spec.ProtoItem getResultItem() {
+        if (resultItemBuilder_ == null) {
+          return resultItem_ == null ? gauge.messages.Spec.ProtoItem.getDefaultInstance() : resultItem_;
+        } else {
+          return resultItemBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+       */
+      public Builder setResultItem(gauge.messages.Spec.ProtoItem value) {
+        if (resultItemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          resultItem_ = value;
+          onChanged();
+        } else {
+          resultItemBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+       */
+      public Builder setResultItem(
+          gauge.messages.Spec.ProtoItem.Builder builderForValue) {
+        if (resultItemBuilder_ == null) {
+          resultItem_ = builderForValue.build();
+          onChanged();
+        } else {
+          resultItemBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+       */
+      public Builder mergeResultItem(gauge.messages.Spec.ProtoItem value) {
+        if (resultItemBuilder_ == null) {
+          if (resultItem_ != null) {
+            resultItem_ =
+              gauge.messages.Spec.ProtoItem.newBuilder(resultItem_).mergeFrom(value).buildPartial();
+          } else {
+            resultItem_ = value;
+          }
+          onChanged();
+        } else {
+          resultItemBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+       */
+      public Builder clearResultItem() {
+        if (resultItemBuilder_ == null) {
+          resultItem_ = null;
+          onChanged();
+        } else {
+          resultItem_ = null;
+          resultItemBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+       */
+      public gauge.messages.Spec.ProtoItem.Builder getResultItemBuilder() {
+        
+        onChanged();
+        return getResultItemFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+       */
+      public gauge.messages.Spec.ProtoItemOrBuilder getResultItemOrBuilder() {
+        if (resultItemBuilder_ != null) {
+          return resultItemBuilder_.getMessageOrBuilder();
+        } else {
+          return resultItem_ == null ?
+              gauge.messages.Spec.ProtoItem.getDefaultInstance() : resultItem_;
+        }
+      }
+      /**
+       * <code>.gauge.messages.ProtoItem resultItem = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder> 
+          getResultItemFieldBuilder() {
+        if (resultItemBuilder_ == null) {
+          resultItemBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder>(
+                  getResultItem(),
+                  getParentForChildren(),
+                  isClean());
+          resultItem_ = null;
+        }
+        return resultItemBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.SuiteExecutionResultItem)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.SuiteExecutionResultItem)
+    private static final gauge.messages.Messages.SuiteExecutionResultItem DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Messages.SuiteExecutionResultItem();
+    }
+
+    public static gauge.messages.Messages.SuiteExecutionResultItem getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SuiteExecutionResultItem>
+        PARSER = new com.google.protobuf.AbstractParser<SuiteExecutionResultItem>() {
+      @java.lang.Override
+      public SuiteExecutionResultItem parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SuiteExecutionResultItem(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SuiteExecutionResultItem> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SuiteExecutionResultItem> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public gauge.messages.Messages.SuiteExecutionResultItem getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -21249,7 +26107,7 @@ public final class Messages {
 
     /**
      * <pre>
-     *&#47; Step text to lookup the Step. 
+     *&#47; Step text to lookup the Step.
      * / This is the parsed step value, i.e. with placeholders for parameters.
      * </pre>
      *
@@ -21258,7 +26116,7 @@ public final class Messages {
     java.lang.String getStepValue();
     /**
      * <pre>
-     *&#47; Step text to lookup the Step. 
+     *&#47; Step text to lookup the Step.
      * / This is the parsed step value, i.e. with placeholders for parameters.
      * </pre>
      *
@@ -21353,7 +26211,7 @@ public final class Messages {
     private volatile java.lang.Object stepValue_;
     /**
      * <pre>
-     *&#47; Step text to lookup the Step. 
+     *&#47; Step text to lookup the Step.
      * / This is the parsed step value, i.e. with placeholders for parameters.
      * </pre>
      *
@@ -21373,7 +26231,7 @@ public final class Messages {
     }
     /**
      * <pre>
-     *&#47; Step text to lookup the Step. 
+     *&#47; Step text to lookup the Step.
      * / This is the parsed step value, i.e. with placeholders for parameters.
      * </pre>
      *
@@ -21703,7 +26561,7 @@ public final class Messages {
       private java.lang.Object stepValue_ = "";
       /**
        * <pre>
-       *&#47; Step text to lookup the Step. 
+       *&#47; Step text to lookup the Step.
        * / This is the parsed step value, i.e. with placeholders for parameters.
        * </pre>
        *
@@ -21723,7 +26581,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Step text to lookup the Step. 
+       *&#47; Step text to lookup the Step.
        * / This is the parsed step value, i.e. with placeholders for parameters.
        * </pre>
        *
@@ -21744,7 +26602,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Step text to lookup the Step. 
+       *&#47; Step text to lookup the Step.
        * / This is the parsed step value, i.e. with placeholders for parameters.
        * </pre>
        *
@@ -21762,7 +26620,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Step text to lookup the Step. 
+       *&#47; Step text to lookup the Step.
        * / This is the parsed step value, i.e. with placeholders for parameters.
        * </pre>
        *
@@ -21776,7 +26634,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; Step text to lookup the Step. 
+       *&#47; Step text to lookup the Step.
        * / This is the parsed step value, i.e. with placeholders for parameters.
        * </pre>
        *
@@ -21861,7 +26719,7 @@ public final class Messages {
 
     /**
      * <pre>
-     *&#47; The Step name of the given step. 
+     *&#47; The Step name of the given step.
      * </pre>
      *
      * <code>repeated string stepName = 2;</code>
@@ -21870,7 +26728,7 @@ public final class Messages {
         getStepNameList();
     /**
      * <pre>
-     *&#47; The Step name of the given step. 
+     *&#47; The Step name of the given step.
      * </pre>
      *
      * <code>repeated string stepName = 2;</code>
@@ -21878,7 +26736,7 @@ public final class Messages {
     int getStepNameCount();
     /**
      * <pre>
-     *&#47; The Step name of the given step. 
+     *&#47; The Step name of the given step.
      * </pre>
      *
      * <code>repeated string stepName = 2;</code>
@@ -21886,7 +26744,7 @@ public final class Messages {
     java.lang.String getStepName(int index);
     /**
      * <pre>
-     *&#47; The Step name of the given step. 
+     *&#47; The Step name of the given step.
      * </pre>
      *
      * <code>repeated string stepName = 2;</code>
@@ -22084,7 +26942,7 @@ public final class Messages {
     private com.google.protobuf.LazyStringList stepName_;
     /**
      * <pre>
-     *&#47; The Step name of the given step. 
+     *&#47; The Step name of the given step.
      * </pre>
      *
      * <code>repeated string stepName = 2;</code>
@@ -22095,7 +26953,7 @@ public final class Messages {
     }
     /**
      * <pre>
-     *&#47; The Step name of the given step. 
+     *&#47; The Step name of the given step.
      * </pre>
      *
      * <code>repeated string stepName = 2;</code>
@@ -22105,7 +26963,7 @@ public final class Messages {
     }
     /**
      * <pre>
-     *&#47; The Step name of the given step. 
+     *&#47; The Step name of the given step.
      * </pre>
      *
      * <code>repeated string stepName = 2;</code>
@@ -22115,7 +26973,7 @@ public final class Messages {
     }
     /**
      * <pre>
-     *&#47; The Step name of the given step. 
+     *&#47; The Step name of the given step.
      * </pre>
      *
      * <code>repeated string stepName = 2;</code>
@@ -22671,7 +27529,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; The Step name of the given step. 
+       *&#47; The Step name of the given step.
        * </pre>
        *
        * <code>repeated string stepName = 2;</code>
@@ -22682,7 +27540,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; The Step name of the given step. 
+       *&#47; The Step name of the given step.
        * </pre>
        *
        * <code>repeated string stepName = 2;</code>
@@ -22692,7 +27550,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; The Step name of the given step. 
+       *&#47; The Step name of the given step.
        * </pre>
        *
        * <code>repeated string stepName = 2;</code>
@@ -22702,7 +27560,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; The Step name of the given step. 
+       *&#47; The Step name of the given step.
        * </pre>
        *
        * <code>repeated string stepName = 2;</code>
@@ -22713,7 +27571,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; The Step name of the given step. 
+       *&#47; The Step name of the given step.
        * </pre>
        *
        * <code>repeated string stepName = 2;</code>
@@ -22730,7 +27588,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; The Step name of the given step. 
+       *&#47; The Step name of the given step.
        * </pre>
        *
        * <code>repeated string stepName = 2;</code>
@@ -22747,7 +27605,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; The Step name of the given step. 
+       *&#47; The Step name of the given step.
        * </pre>
        *
        * <code>repeated string stepName = 2;</code>
@@ -22762,7 +27620,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; The Step name of the given step. 
+       *&#47; The Step name of the given step.
        * </pre>
        *
        * <code>repeated string stepName = 2;</code>
@@ -22775,7 +27633,7 @@ public final class Messages {
       }
       /**
        * <pre>
-       *&#47; The Step name of the given step. 
+       *&#47; The Step name of the given step.
        * </pre>
        *
        * <code>repeated string stepName = 2;</code>
@@ -25650,7 +30508,7 @@ public final class Messages {
       private StepPosition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
       }
-      public StepPosition() {
+      private StepPosition() {
         stepValue_ = "";
       }
 
@@ -27827,7 +32685,7 @@ public final class Messages {
     private ImplementationFileGlobPatternResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    public ImplementationFileGlobPatternResponse() {
+    private ImplementationFileGlobPatternResponse() {
       globPatterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -28927,7 +33785,7 @@ public final class Messages {
     private ImplementationFileListResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    public ImplementationFileListResponse() {
+    private ImplementationFileListResponse() {
       implementationFilePaths_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
@@ -31338,7 +36196,7 @@ public final class Messages {
     private FileDiff(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    public FileDiff() {
+    private FileDiff() {
       filePath_ = "";
       textDiffs_ = java.util.Collections.emptyList();
     }
@@ -32334,6 +37192,1020 @@ public final class Messages {
 
   }
 
+  public interface KeepAliveOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.KeepAlive)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *&#47; ID of the plugin initiating this request
+     * </pre>
+     *
+     * <code>string pluginId = 1;</code>
+     */
+    java.lang.String getPluginId();
+    /**
+     * <pre>
+     *&#47; ID of the plugin initiating this request
+     * </pre>
+     *
+     * <code>string pluginId = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getPluginIdBytes();
+  }
+  /**
+   * <pre>
+   *&#47; Tell gauge to reset the kill timer, thus extending the life
+   * </pre>
+   *
+   * Protobuf type {@code gauge.messages.KeepAlive}
+   */
+  public  static final class KeepAlive extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.KeepAlive)
+      KeepAliveOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use KeepAlive.newBuilder() to construct.
+    private KeepAlive(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private KeepAlive() {
+      pluginId_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private KeepAlive(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              pluginId_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Messages.internal_static_gauge_messages_KeepAlive_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Messages.internal_static_gauge_messages_KeepAlive_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Messages.KeepAlive.class, gauge.messages.Messages.KeepAlive.Builder.class);
+    }
+
+    public static final int PLUGINID_FIELD_NUMBER = 1;
+    private volatile java.lang.Object pluginId_;
+    /**
+     * <pre>
+     *&#47; ID of the plugin initiating this request
+     * </pre>
+     *
+     * <code>string pluginId = 1;</code>
+     */
+    public java.lang.String getPluginId() {
+      java.lang.Object ref = pluginId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        pluginId_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; ID of the plugin initiating this request
+     * </pre>
+     *
+     * <code>string pluginId = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPluginIdBytes() {
+      java.lang.Object ref = pluginId_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        pluginId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getPluginIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, pluginId_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getPluginIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, pluginId_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Messages.KeepAlive)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Messages.KeepAlive other = (gauge.messages.Messages.KeepAlive) obj;
+
+      boolean result = true;
+      result = result && getPluginId()
+          .equals(other.getPluginId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PLUGINID_FIELD_NUMBER;
+      hash = (53 * hash) + getPluginId().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Messages.KeepAlive parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.KeepAlive parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.KeepAlive parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.KeepAlive parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.KeepAlive parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.KeepAlive parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.KeepAlive parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.KeepAlive parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.KeepAlive parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.KeepAlive parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.KeepAlive parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.KeepAlive parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Messages.KeepAlive prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; Tell gauge to reset the kill timer, thus extending the life
+     * </pre>
+     *
+     * Protobuf type {@code gauge.messages.KeepAlive}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.KeepAlive)
+        gauge.messages.Messages.KeepAliveOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_KeepAlive_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_KeepAlive_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.KeepAlive.class, gauge.messages.Messages.KeepAlive.Builder.class);
+      }
+
+      // Construct using gauge.messages.Messages.KeepAlive.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        pluginId_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Messages.internal_static_gauge_messages_KeepAlive_descriptor;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.KeepAlive getDefaultInstanceForType() {
+        return gauge.messages.Messages.KeepAlive.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.KeepAlive build() {
+        gauge.messages.Messages.KeepAlive result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.KeepAlive buildPartial() {
+        gauge.messages.Messages.KeepAlive result = new gauge.messages.Messages.KeepAlive(this);
+        result.pluginId_ = pluginId_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Messages.KeepAlive) {
+          return mergeFrom((gauge.messages.Messages.KeepAlive)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Messages.KeepAlive other) {
+        if (other == gauge.messages.Messages.KeepAlive.getDefaultInstance()) return this;
+        if (!other.getPluginId().isEmpty()) {
+          pluginId_ = other.pluginId_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Messages.KeepAlive parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Messages.KeepAlive) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object pluginId_ = "";
+      /**
+       * <pre>
+       *&#47; ID of the plugin initiating this request
+       * </pre>
+       *
+       * <code>string pluginId = 1;</code>
+       */
+      public java.lang.String getPluginId() {
+        java.lang.Object ref = pluginId_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          pluginId_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; ID of the plugin initiating this request
+       * </pre>
+       *
+       * <code>string pluginId = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPluginIdBytes() {
+        java.lang.Object ref = pluginId_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          pluginId_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; ID of the plugin initiating this request
+       * </pre>
+       *
+       * <code>string pluginId = 1;</code>
+       */
+      public Builder setPluginId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        pluginId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; ID of the plugin initiating this request
+       * </pre>
+       *
+       * <code>string pluginId = 1;</code>
+       */
+      public Builder clearPluginId() {
+        
+        pluginId_ = getDefaultInstance().getPluginId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; ID of the plugin initiating this request
+       * </pre>
+       *
+       * <code>string pluginId = 1;</code>
+       */
+      public Builder setPluginIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        pluginId_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.KeepAlive)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.KeepAlive)
+    private static final gauge.messages.Messages.KeepAlive DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Messages.KeepAlive();
+    }
+
+    public static gauge.messages.Messages.KeepAlive getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<KeepAlive>
+        PARSER = new com.google.protobuf.AbstractParser<KeepAlive>() {
+      @java.lang.Override
+      public KeepAlive parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new KeepAlive(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<KeepAlive> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<KeepAlive> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public gauge.messages.Messages.KeepAlive getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface EmptyOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.Empty)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * <pre>
+   * Empty is a blank response, to be used when there is no return expected.
+   * </pre>
+   *
+   * Protobuf type {@code gauge.messages.Empty}
+   */
+  public  static final class Empty extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.Empty)
+      EmptyOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Empty.newBuilder() to construct.
+    private Empty(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Empty() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Empty(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Messages.internal_static_gauge_messages_Empty_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Messages.internal_static_gauge_messages_Empty_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Messages.Empty.class, gauge.messages.Messages.Empty.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Messages.Empty)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Messages.Empty other = (gauge.messages.Messages.Empty) obj;
+
+      boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Messages.Empty parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.Empty parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.Empty parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.Empty parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.Empty parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.Empty parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.Empty parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.Empty parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.Empty parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.Empty parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.Empty parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.Empty parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Messages.Empty prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Empty is a blank response, to be used when there is no return expected.
+     * </pre>
+     *
+     * Protobuf type {@code gauge.messages.Empty}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.Empty)
+        gauge.messages.Messages.EmptyOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_Empty_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_Empty_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.Empty.class, gauge.messages.Messages.Empty.Builder.class);
+      }
+
+      // Construct using gauge.messages.Messages.Empty.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Messages.internal_static_gauge_messages_Empty_descriptor;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.Empty getDefaultInstanceForType() {
+        return gauge.messages.Messages.Empty.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.Empty build() {
+        gauge.messages.Messages.Empty result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.Empty buildPartial() {
+        gauge.messages.Messages.Empty result = new gauge.messages.Messages.Empty(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Messages.Empty) {
+          return mergeFrom((gauge.messages.Messages.Empty)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Messages.Empty other) {
+        if (other == gauge.messages.Messages.Empty.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Messages.Empty parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Messages.Empty) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.Empty)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.Empty)
+    private static final gauge.messages.Messages.Empty DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Messages.Empty();
+    }
+
+    public static gauge.messages.Messages.Empty getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Empty>
+        PARSER = new com.google.protobuf.AbstractParser<Empty>() {
+      @java.lang.Override
+      public Empty parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Empty(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Empty> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Empty> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public gauge.messages.Messages.Empty getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface MessageOrBuilder extends
       // @@protoc_insertion_point(interface_extends:gauge.messages.Message)
       com.google.protobuf.MessageOrBuilder {
@@ -33181,6 +39053,56 @@ public final class Messages {
      * <code>.gauge.messages.ImplementationFileGlobPatternResponse implementationFileGlobPatternResponse = 35;</code>
      */
     gauge.messages.Messages.ImplementationFileGlobPatternResponseOrBuilder getImplementationFileGlobPatternResponseOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+     * </pre>
+     *
+     * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+     */
+    boolean hasSuiteExecutionResultItem();
+    /**
+     * <pre>
+     *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+     * </pre>
+     *
+     * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+     */
+    gauge.messages.Messages.SuiteExecutionResultItem getSuiteExecutionResultItem();
+    /**
+     * <pre>
+     *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+     * </pre>
+     *
+     * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+     */
+    gauge.messages.Messages.SuiteExecutionResultItemOrBuilder getSuiteExecutionResultItemOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+     * </pre>
+     *
+     * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+     */
+    boolean hasKeepAlive();
+    /**
+     * <pre>
+     *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+     * </pre>
+     *
+     * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+     */
+    gauge.messages.Messages.KeepAlive getKeepAlive();
+    /**
+     * <pre>
+     *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+     * </pre>
+     *
+     * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+     */
+    gauge.messages.Messages.KeepAliveOrBuilder getKeepAliveOrBuilder();
   }
   /**
    * <pre>
@@ -33191,7 +39113,7 @@ public final class Messages {
    *
    * Protobuf type {@code gauge.messages.Message}
    */
-  public  static class Message extends
+  public  static final class Message extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:gauge.messages.Message)
       MessageOrBuilder {
@@ -33200,7 +39122,7 @@ public final class Messages {
     private Message(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    public Message() {
+    private Message() {
       messageType_ = 0;
       messageId_ = 0L;
     }
@@ -33670,6 +39592,32 @@ public final class Messages {
 
               break;
             }
+            case 290: {
+              gauge.messages.Messages.SuiteExecutionResultItem.Builder subBuilder = null;
+              if (suiteExecutionResultItem_ != null) {
+                subBuilder = suiteExecutionResultItem_.toBuilder();
+              }
+              suiteExecutionResultItem_ = input.readMessage(gauge.messages.Messages.SuiteExecutionResultItem.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(suiteExecutionResultItem_);
+                suiteExecutionResultItem_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 298: {
+              gauge.messages.Messages.KeepAlive.Builder subBuilder = null;
+              if (keepAlive_ != null) {
+                subBuilder = keepAlive_.toBuilder();
+              }
+              keepAlive_ = input.readMessage(gauge.messages.Messages.KeepAlive.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(keepAlive_);
+                keepAlive_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -33839,6 +39787,14 @@ public final class Messages {
        * <code>ImplementationFileGlobPatternResponse = 32;</code>
        */
       ImplementationFileGlobPatternResponse(32),
+      /**
+       * <code>SuiteExecutionResultItem = 33;</code>
+       */
+      SuiteExecutionResultItem(33),
+      /**
+       * <code>KeepAlive = 34;</code>
+       */
+      KeepAlive(34),
       UNRECOGNIZED(-1),
       ;
 
@@ -33974,6 +39930,14 @@ public final class Messages {
        * <code>ImplementationFileGlobPatternResponse = 32;</code>
        */
       public static final int ImplementationFileGlobPatternResponse_VALUE = 32;
+      /**
+       * <code>SuiteExecutionResultItem = 33;</code>
+       */
+      public static final int SuiteExecutionResultItem_VALUE = 33;
+      /**
+       * <code>KeepAlive = 34;</code>
+       */
+      public static final int KeepAlive_VALUE = 34;
 
 
       public final int getNumber() {
@@ -34027,6 +39991,8 @@ public final class Messages {
           case 30: return FileDiff;
           case 31: return ImplementationFileGlobPatternRequest;
           case 32: return ImplementationFileGlobPatternResponse;
+          case 33: return SuiteExecutionResultItem;
+          case 34: return KeepAlive;
           default: return null;
         }
       }
@@ -35199,6 +41165,72 @@ public final class Messages {
       return getImplementationFileGlobPatternResponse();
     }
 
+    public static final int SUITEEXECUTIONRESULTITEM_FIELD_NUMBER = 36;
+    private gauge.messages.Messages.SuiteExecutionResultItem suiteExecutionResultItem_;
+    /**
+     * <pre>
+     *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+     * </pre>
+     *
+     * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+     */
+    public boolean hasSuiteExecutionResultItem() {
+      return suiteExecutionResultItem_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+     * </pre>
+     *
+     * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+     */
+    public gauge.messages.Messages.SuiteExecutionResultItem getSuiteExecutionResultItem() {
+      return suiteExecutionResultItem_ == null ? gauge.messages.Messages.SuiteExecutionResultItem.getDefaultInstance() : suiteExecutionResultItem_;
+    }
+    /**
+     * <pre>
+     *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+     * </pre>
+     *
+     * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+     */
+    public gauge.messages.Messages.SuiteExecutionResultItemOrBuilder getSuiteExecutionResultItemOrBuilder() {
+      return getSuiteExecutionResultItem();
+    }
+
+    public static final int KEEPALIVE_FIELD_NUMBER = 37;
+    private gauge.messages.Messages.KeepAlive keepAlive_;
+    /**
+     * <pre>
+     *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+     * </pre>
+     *
+     * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+     */
+    public boolean hasKeepAlive() {
+      return keepAlive_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+     * </pre>
+     *
+     * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+     */
+    public gauge.messages.Messages.KeepAlive getKeepAlive() {
+      return keepAlive_ == null ? gauge.messages.Messages.KeepAlive.getDefaultInstance() : keepAlive_;
+    }
+    /**
+     * <pre>
+     *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+     * </pre>
+     *
+     * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+     */
+    public gauge.messages.Messages.KeepAliveOrBuilder getKeepAliveOrBuilder() {
+      return getKeepAlive();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -35317,6 +41349,12 @@ public final class Messages {
       }
       if (implementationFileGlobPatternResponse_ != null) {
         output.writeMessage(35, getImplementationFileGlobPatternResponse());
+      }
+      if (suiteExecutionResultItem_ != null) {
+        output.writeMessage(36, getSuiteExecutionResultItem());
+      }
+      if (keepAlive_ != null) {
+        output.writeMessage(37, getKeepAlive());
       }
       unknownFields.writeTo(output);
     }
@@ -35466,6 +41504,14 @@ public final class Messages {
       if (implementationFileGlobPatternResponse_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(35, getImplementationFileGlobPatternResponse());
+      }
+      if (suiteExecutionResultItem_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(36, getSuiteExecutionResultItem());
+      }
+      if (keepAlive_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(37, getKeepAlive());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -35651,6 +41697,16 @@ public final class Messages {
         result = result && getImplementationFileGlobPatternResponse()
             .equals(other.getImplementationFileGlobPatternResponse());
       }
+      result = result && (hasSuiteExecutionResultItem() == other.hasSuiteExecutionResultItem());
+      if (hasSuiteExecutionResultItem()) {
+        result = result && getSuiteExecutionResultItem()
+            .equals(other.getSuiteExecutionResultItem());
+      }
+      result = result && (hasKeepAlive() == other.hasKeepAlive());
+      if (hasKeepAlive()) {
+        result = result && getKeepAlive()
+            .equals(other.getKeepAlive());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -35798,6 +41854,14 @@ public final class Messages {
       if (hasImplementationFileGlobPatternResponse()) {
         hash = (37 * hash) + IMPLEMENTATIONFILEGLOBPATTERNRESPONSE_FIELD_NUMBER;
         hash = (53 * hash) + getImplementationFileGlobPatternResponse().hashCode();
+      }
+      if (hasSuiteExecutionResultItem()) {
+        hash = (37 * hash) + SUITEEXECUTIONRESULTITEM_FIELD_NUMBER;
+        hash = (53 * hash) + getSuiteExecutionResultItem().hashCode();
+      }
+      if (hasKeepAlive()) {
+        hash = (37 * hash) + KEEPALIVE_FIELD_NUMBER;
+        hash = (53 * hash) + getKeepAlive().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -36140,6 +42204,18 @@ public final class Messages {
           implementationFileGlobPatternResponse_ = null;
           implementationFileGlobPatternResponseBuilder_ = null;
         }
+        if (suiteExecutionResultItemBuilder_ == null) {
+          suiteExecutionResultItem_ = null;
+        } else {
+          suiteExecutionResultItem_ = null;
+          suiteExecutionResultItemBuilder_ = null;
+        }
+        if (keepAliveBuilder_ == null) {
+          keepAlive_ = null;
+        } else {
+          keepAlive_ = null;
+          keepAliveBuilder_ = null;
+        }
         return this;
       }
 
@@ -36333,6 +42409,16 @@ public final class Messages {
         } else {
           result.implementationFileGlobPatternResponse_ = implementationFileGlobPatternResponseBuilder_.build();
         }
+        if (suiteExecutionResultItemBuilder_ == null) {
+          result.suiteExecutionResultItem_ = suiteExecutionResultItem_;
+        } else {
+          result.suiteExecutionResultItem_ = suiteExecutionResultItemBuilder_.build();
+        }
+        if (keepAliveBuilder_ == null) {
+          result.keepAlive_ = keepAlive_;
+        } else {
+          result.keepAlive_ = keepAliveBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -36485,6 +42571,12 @@ public final class Messages {
         }
         if (other.hasImplementationFileGlobPatternResponse()) {
           mergeImplementationFileGlobPatternResponse(other.getImplementationFileGlobPatternResponse());
+        }
+        if (other.hasSuiteExecutionResultItem()) {
+          mergeSuiteExecutionResultItem(other.getSuiteExecutionResultItem());
+        }
+        if (other.hasKeepAlive()) {
+          mergeKeepAlive(other.getKeepAlive());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -41649,6 +47741,312 @@ public final class Messages {
         }
         return implementationFileGlobPatternResponseBuilder_;
       }
+
+      private gauge.messages.Messages.SuiteExecutionResultItem suiteExecutionResultItem_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Messages.SuiteExecutionResultItem, gauge.messages.Messages.SuiteExecutionResultItem.Builder, gauge.messages.Messages.SuiteExecutionResultItemOrBuilder> suiteExecutionResultItemBuilder_;
+      /**
+       * <pre>
+       *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+       * </pre>
+       *
+       * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+       */
+      public boolean hasSuiteExecutionResultItem() {
+        return suiteExecutionResultItemBuilder_ != null || suiteExecutionResultItem_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+       * </pre>
+       *
+       * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+       */
+      public gauge.messages.Messages.SuiteExecutionResultItem getSuiteExecutionResultItem() {
+        if (suiteExecutionResultItemBuilder_ == null) {
+          return suiteExecutionResultItem_ == null ? gauge.messages.Messages.SuiteExecutionResultItem.getDefaultInstance() : suiteExecutionResultItem_;
+        } else {
+          return suiteExecutionResultItemBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+       * </pre>
+       *
+       * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+       */
+      public Builder setSuiteExecutionResultItem(gauge.messages.Messages.SuiteExecutionResultItem value) {
+        if (suiteExecutionResultItemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          suiteExecutionResultItem_ = value;
+          onChanged();
+        } else {
+          suiteExecutionResultItemBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+       * </pre>
+       *
+       * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+       */
+      public Builder setSuiteExecutionResultItem(
+          gauge.messages.Messages.SuiteExecutionResultItem.Builder builderForValue) {
+        if (suiteExecutionResultItemBuilder_ == null) {
+          suiteExecutionResultItem_ = builderForValue.build();
+          onChanged();
+        } else {
+          suiteExecutionResultItemBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+       * </pre>
+       *
+       * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+       */
+      public Builder mergeSuiteExecutionResultItem(gauge.messages.Messages.SuiteExecutionResultItem value) {
+        if (suiteExecutionResultItemBuilder_ == null) {
+          if (suiteExecutionResultItem_ != null) {
+            suiteExecutionResultItem_ =
+              gauge.messages.Messages.SuiteExecutionResultItem.newBuilder(suiteExecutionResultItem_).mergeFrom(value).buildPartial();
+          } else {
+            suiteExecutionResultItem_ = value;
+          }
+          onChanged();
+        } else {
+          suiteExecutionResultItemBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+       * </pre>
+       *
+       * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+       */
+      public Builder clearSuiteExecutionResultItem() {
+        if (suiteExecutionResultItemBuilder_ == null) {
+          suiteExecutionResultItem_ = null;
+          onChanged();
+        } else {
+          suiteExecutionResultItem_ = null;
+          suiteExecutionResultItemBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+       * </pre>
+       *
+       * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+       */
+      public gauge.messages.Messages.SuiteExecutionResultItem.Builder getSuiteExecutionResultItemBuilder() {
+        
+        onChanged();
+        return getSuiteExecutionResultItemFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+       * </pre>
+       *
+       * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+       */
+      public gauge.messages.Messages.SuiteExecutionResultItemOrBuilder getSuiteExecutionResultItemOrBuilder() {
+        if (suiteExecutionResultItemBuilder_ != null) {
+          return suiteExecutionResultItemBuilder_.getMessageOrBuilder();
+        } else {
+          return suiteExecutionResultItem_ == null ?
+              gauge.messages.Messages.SuiteExecutionResultItem.getDefaultInstance() : suiteExecutionResultItem_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; [SuiteExecutionResult ](#gauge.messages.SuiteExecutionResult )
+       * </pre>
+       *
+       * <code>.gauge.messages.SuiteExecutionResultItem suiteExecutionResultItem = 36;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Messages.SuiteExecutionResultItem, gauge.messages.Messages.SuiteExecutionResultItem.Builder, gauge.messages.Messages.SuiteExecutionResultItemOrBuilder> 
+          getSuiteExecutionResultItemFieldBuilder() {
+        if (suiteExecutionResultItemBuilder_ == null) {
+          suiteExecutionResultItemBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Messages.SuiteExecutionResultItem, gauge.messages.Messages.SuiteExecutionResultItem.Builder, gauge.messages.Messages.SuiteExecutionResultItemOrBuilder>(
+                  getSuiteExecutionResultItem(),
+                  getParentForChildren(),
+                  isClean());
+          suiteExecutionResultItem_ = null;
+        }
+        return suiteExecutionResultItemBuilder_;
+      }
+
+      private gauge.messages.Messages.KeepAlive keepAlive_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Messages.KeepAlive, gauge.messages.Messages.KeepAlive.Builder, gauge.messages.Messages.KeepAliveOrBuilder> keepAliveBuilder_;
+      /**
+       * <pre>
+       *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+       * </pre>
+       *
+       * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+       */
+      public boolean hasKeepAlive() {
+        return keepAliveBuilder_ != null || keepAlive_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+       * </pre>
+       *
+       * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+       */
+      public gauge.messages.Messages.KeepAlive getKeepAlive() {
+        if (keepAliveBuilder_ == null) {
+          return keepAlive_ == null ? gauge.messages.Messages.KeepAlive.getDefaultInstance() : keepAlive_;
+        } else {
+          return keepAliveBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+       * </pre>
+       *
+       * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+       */
+      public Builder setKeepAlive(gauge.messages.Messages.KeepAlive value) {
+        if (keepAliveBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          keepAlive_ = value;
+          onChanged();
+        } else {
+          keepAliveBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+       * </pre>
+       *
+       * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+       */
+      public Builder setKeepAlive(
+          gauge.messages.Messages.KeepAlive.Builder builderForValue) {
+        if (keepAliveBuilder_ == null) {
+          keepAlive_ = builderForValue.build();
+          onChanged();
+        } else {
+          keepAliveBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+       * </pre>
+       *
+       * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+       */
+      public Builder mergeKeepAlive(gauge.messages.Messages.KeepAlive value) {
+        if (keepAliveBuilder_ == null) {
+          if (keepAlive_ != null) {
+            keepAlive_ =
+              gauge.messages.Messages.KeepAlive.newBuilder(keepAlive_).mergeFrom(value).buildPartial();
+          } else {
+            keepAlive_ = value;
+          }
+          onChanged();
+        } else {
+          keepAliveBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+       * </pre>
+       *
+       * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+       */
+      public Builder clearKeepAlive() {
+        if (keepAliveBuilder_ == null) {
+          keepAlive_ = null;
+          onChanged();
+        } else {
+          keepAlive_ = null;
+          keepAliveBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+       * </pre>
+       *
+       * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+       */
+      public gauge.messages.Messages.KeepAlive.Builder getKeepAliveBuilder() {
+        
+        onChanged();
+        return getKeepAliveFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+       * </pre>
+       *
+       * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+       */
+      public gauge.messages.Messages.KeepAliveOrBuilder getKeepAliveOrBuilder() {
+        if (keepAliveBuilder_ != null) {
+          return keepAliveBuilder_.getMessageOrBuilder();
+        } else {
+          return keepAlive_ == null ?
+              gauge.messages.Messages.KeepAlive.getDefaultInstance() : keepAlive_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; [KeepAlive ](#gauge.messages.KeepAlive )
+       * </pre>
+       *
+       * <code>.gauge.messages.KeepAlive keepAlive = 37;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Messages.KeepAlive, gauge.messages.Messages.KeepAlive.Builder, gauge.messages.Messages.KeepAliveOrBuilder> 
+          getKeepAliveFieldBuilder() {
+        if (keepAliveBuilder_ == null) {
+          keepAliveBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Messages.KeepAlive, gauge.messages.Messages.KeepAlive.Builder, gauge.messages.Messages.KeepAliveOrBuilder>(
+                  getKeepAlive(),
+                  getParentForChildren(),
+                  isClean());
+          keepAlive_ = null;
+        }
+        return keepAliveBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -41753,6 +48151,11 @@ public final class Messages {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_gauge_messages_StepExecutionEndingRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_ExecutionArg_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_ExecutionArg_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_ExecutionInfo_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -41792,6 +48195,11 @@ public final class Messages {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_gauge_messages_SuiteExecutionResult_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_SuiteExecutionResultItem_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_SuiteExecutionResultItem_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_StepNamesRequest_descriptor;
   private static final 
@@ -41908,6 +48316,16 @@ public final class Messages {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_gauge_messages_FileDiff_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_KeepAlive_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_KeepAlive_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_Empty_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_Empty_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_Message_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -41924,181 +48342,204 @@ public final class Messages {
       "\n\016messages.proto\022\016gauge.messages\032\nspec.p" +
       "roto\"\024\n\022KillProcessRequest\"X\n\027ExecutionS" +
       "tatusResponse\022=\n\017executionResult\030\001 \001(\0132$" +
-      ".gauge.messages.ProtoExecutionResult\"W\n\030" +
-      "ExecutionStartingRequest\022;\n\024currentExecu" +
-      "tionInfo\030\001 \001(\0132\035.gauge.messages.Executio" +
-      "nInfo\"U\n\026ExecutionEndingRequest\022;\n\024curre" +
-      "ntExecutionInfo\030\001 \001(\0132\035.gauge.messages.E" +
-      "xecutionInfo\"[\n\034SpecExecutionStartingReq" +
-      "uest\022;\n\024currentExecutionInfo\030\001 \001(\0132\035.gau" +
-      "ge.messages.ExecutionInfo\"Y\n\032SpecExecuti" +
-      "onEndingRequest\022;\n\024currentExecutionInfo\030" +
-      "\001 \001(\0132\035.gauge.messages.ExecutionInfo\"_\n " +
-      "ScenarioExecutionStartingRequest\022;\n\024curr" +
-      "entExecutionInfo\030\001 \001(\0132\035.gauge.messages." +
-      "ExecutionInfo\"]\n\036ScenarioExecutionEnding" +
-      "Request\022;\n\024currentExecutionInfo\030\001 \001(\0132\035." +
-      "gauge.messages.ExecutionInfo\"[\n\034StepExec" +
-      "utionStartingRequest\022;\n\024currentExecution" +
-      "Info\030\001 \001(\0132\035.gauge.messages.ExecutionInf" +
-      "o\"Y\n\032StepExecutionEndingRequest\022;\n\024curre" +
-      "ntExecutionInfo\030\001 \001(\0132\035.gauge.messages.E" +
-      "xecutionInfo\"\270\001\n\rExecutionInfo\022-\n\013curren" +
-      "tSpec\030\001 \001(\0132\030.gauge.messages.SpecInfo\0225\n" +
-      "\017currentScenario\030\002 \001(\0132\034.gauge.messages." +
-      "ScenarioInfo\022-\n\013currentStep\030\003 \001(\0132\030.gaug" +
-      "e.messages.StepInfo\022\022\n\nstacktrace\030\004 \001(\t\"" +
-      "J\n\010SpecInfo\022\014\n\004name\030\001 \001(\t\022\020\n\010fileName\030\002 " +
-      "\001(\t\022\020\n\010isFailed\030\003 \001(\010\022\014\n\004tags\030\004 \003(\t\"<\n\014S" +
-      "cenarioInfo\022\014\n\004name\030\001 \001(\t\022\020\n\010isFailed\030\002 " +
-      "\001(\010\022\014\n\004tags\030\003 \003(\t\"x\n\010StepInfo\0220\n\004step\030\001 " +
-      "\001(\0132\".gauge.messages.ExecuteStepRequest\022" +
-      "\020\n\010isFailed\030\002 \001(\010\022\022\n\nstackTrace\030\003 \001(\t\022\024\n" +
-      "\014errorMessage\030\004 \001(\t\"\214\001\n\022ExecuteStepReque" +
-      "st\022\026\n\016actualStepText\030\001 \001(\t\022\026\n\016parsedStep" +
-      "Text\030\002 \001(\t\022\027\n\017scenarioFailing\030\003 \001(\010\022-\n\np" +
-      "arameters\030\004 \003(\0132\031.gauge.messages.Paramet" +
-      "er\"v\n\023StepValidateRequest\022\020\n\010stepText\030\001 " +
-      "\001(\t\022\032\n\022numberOfParameters\030\002 \001(\005\0221\n\tstepV" +
-      "alue\030\003 \001(\0132\036.gauge.messages.ProtoStepVal" +
-      "ue\"\347\001\n\024StepValidateResponse\022\017\n\007isValid\030\001" +
-      " \001(\010\022\024\n\014errorMessage\030\002 \001(\t\022A\n\terrorType\030" +
-      "\003 \001(\0162..gauge.messages.StepValidateRespo" +
-      "nse.ErrorType\022\022\n\nsuggestion\030\004 \001(\t\"Q\n\tErr" +
-      "orType\022!\n\035STEP_IMPLEMENTATION_NOT_FOUND\020" +
-      "\000\022!\n\035DUPLICATE_STEP_IMPLEMENTATION\020\001\"M\n\024" +
-      "SuiteExecutionResult\0225\n\013suiteResult\030\001 \001(" +
-      "\0132 .gauge.messages.ProtoSuiteResult\"\022\n\020S" +
-      "tepNamesRequest\"\"\n\021StepNamesResponse\022\r\n\005" +
-      "steps\030\001 \003(\t\"\036\n\034ScenarioDataStoreInitRequ" +
-      "est\"\032\n\030SpecDataStoreInitRequest\"\033\n\031Suite" +
-      "DataStoreInitRequest\"=\n\021ParameterPositio" +
-      "n\022\023\n\013oldPosition\030\001 \001(\005\022\023\n\013newPosition\030\002 " +
-      "\001(\005\"\315\001\n\017RefactorRequest\0224\n\014oldStepValue\030" +
-      "\001 \001(\0132\036.gauge.messages.ProtoStepValue\0224\n" +
-      "\014newStepValue\030\002 \001(\0132\036.gauge.messages.Pro" +
-      "toStepValue\0229\n\016paramPositions\030\003 \003(\0132!.ga" +
-      "uge.messages.ParameterPosition\022\023\n\013saveCh" +
-      "anges\030\004 \001(\010\"a\n\013FileChanges\022\020\n\010fileName\030\001" +
-      " \001(\t\022\027\n\013fileContent\030\002 \001(\tB\002\030\001\022\'\n\005diffs\030\003" +
-      " \003(\0132\030.gauge.messages.TextDiff\"z\n\020Refact" +
-      "orResponse\022\017\n\007success\030\001 \001(\010\022\r\n\005error\030\002 \001" +
-      "(\t\022\024\n\014filesChanged\030\003 \003(\t\0220\n\013fileChanges\030" +
-      "\004 \003(\0132\033.gauge.messages.FileChanges\"$\n\017St" +
-      "epNameRequest\022\021\n\tstepValue\030\001 \001(\t\"\203\001\n\020Ste" +
-      "pNameResponse\022\025\n\risStepPresent\030\001 \001(\010\022\020\n\010" +
-      "stepName\030\002 \003(\t\022\020\n\010hasAlias\030\003 \001(\010\022\020\n\010file" +
-      "Name\030\004 \001(\t\022\"\n\004span\030\005 \001(\0132\024.gauge.message" +
-      "s.Span\"-\n\032UnsupportedMessageResponse\022\017\n\007" +
-      "message\030\001 \001(\t\"\321\001\n\020CacheFileRequest\022\017\n\007co" +
-      "ntent\030\001 \001(\t\022\020\n\010filePath\030\002 \001(\t\022\020\n\010isClose" +
-      "d\030\003 \001(\010\022;\n\006status\030\004 \001(\0162+.gauge.messages" +
-      ".CacheFileRequest.FileStatus\"K\n\nFileStat" +
-      "us\022\013\n\007CHANGED\020\000\022\n\n\006CLOSED\020\001\022\013\n\007CREATED\020\002" +
-      "\022\013\n\007DELETED\020\003\022\n\n\006OPENED\020\004\"(\n\024StepPositio" +
-      "nsRequest\022\020\n\010filePath\030\001 \001(\t\"\270\001\n\025StepPosi" +
-      "tionsResponse\022I\n\rstepPositions\030\001 \003(\01322.g" +
-      "auge.messages.StepPositionsResponse.Step" +
-      "Position\022\r\n\005error\030\002 \001(\t\032E\n\014StepPosition\022" +
-      "\021\n\tstepValue\030\001 \001(\t\022\"\n\004span\030\002 \001(\0132\024.gauge" +
-      ".messages.Span\"&\n$ImplementationFileGlob" +
-      "PatternRequest\"=\n%ImplementationFileGlob" +
-      "PatternResponse\022\024\n\014globPatterns\030\001 \003(\t\"\037\n" +
-      "\035ImplementationFileListRequest\"A\n\036Implem" +
-      "entationFileListResponse\022\037\n\027implementati" +
-      "onFilePaths\030\001 \003(\t\"N\n\035StubImplementationC" +
-      "odeRequest\022\036\n\026implementationFilePath\030\001 \001" +
-      "(\t\022\r\n\005codes\030\002 \003(\t\"?\n\010TextDiff\022\"\n\004span\030\001 " +
-      "\001(\0132\024.gauge.messages.Span\022\017\n\007content\030\002 \001" +
-      "(\t\"I\n\010FileDiff\022\020\n\010filePath\030\001 \001(\t\022+\n\ttext" +
-      "Diffs\030\002 \003(\0132\030.gauge.messages.TextDiff\"\326\032" +
-      "\n\007Message\0228\n\013messageType\030\001 \001(\0162#.gauge.m" +
-      "essages.Message.MessageType\022\021\n\tmessageId" +
-      "\030\002 \001(\003\022J\n\030executionStartingRequest\030\003 \001(\013" +
-      "2(.gauge.messages.ExecutionStartingReque" +
-      "st\022R\n\034specExecutionStartingRequest\030\004 \001(\013" +
-      "2,.gauge.messages.SpecExecutionStartingR" +
-      "equest\022N\n\032specExecutionEndingRequest\030\005 \001" +
-      "(\0132*.gauge.messages.SpecExecutionEndingR" +
-      "equest\022Z\n scenarioExecutionStartingReque" +
-      "st\030\006 \001(\01320.gauge.messages.ScenarioExecut" +
-      "ionStartingRequest\022V\n\036scenarioExecutionE" +
-      "ndingRequest\030\007 \001(\0132..gauge.messages.Scen" +
-      "arioExecutionEndingRequest\022R\n\034stepExecut" +
-      "ionStartingRequest\030\010 \001(\0132,.gauge.message" +
-      "s.StepExecutionStartingRequest\022N\n\032stepEx" +
-      "ecutionEndingRequest\030\t \001(\0132*.gauge.messa" +
-      "ges.StepExecutionEndingRequest\022>\n\022execut" +
-      "eStepRequest\030\n \001(\0132\".gauge.messages.Exec" +
-      "uteStepRequest\022F\n\026executionEndingRequest" +
-      "\030\013 \001(\0132&.gauge.messages.ExecutionEndingR" +
-      "equest\022@\n\023stepValidateRequest\030\014 \001(\0132#.ga" +
-      "uge.messages.StepValidateRequest\022B\n\024step" +
-      "ValidateResponse\030\r \001(\0132$.gauge.messages." +
-      "StepValidateResponse\022H\n\027executionStatusR" +
-      "esponse\030\016 \001(\0132\'.gauge.messages.Execution" +
-      "StatusResponse\022:\n\020stepNamesRequest\030\017 \001(\013" +
-      "2 .gauge.messages.StepNamesRequest\022<\n\021st" +
-      "epNamesResponse\030\020 \001(\0132!.gauge.messages.S" +
-      "tepNamesResponse\022B\n\024suiteExecutionResult" +
-      "\030\021 \001(\0132$.gauge.messages.SuiteExecutionRe" +
-      "sult\022>\n\022killProcessRequest\030\022 \001(\0132\".gauge" +
-      ".messages.KillProcessRequest\022R\n\034scenario" +
-      "DataStoreInitRequest\030\023 \001(\0132,.gauge.messa" +
-      "ges.ScenarioDataStoreInitRequest\022J\n\030spec" +
-      "DataStoreInitRequest\030\024 \001(\0132(.gauge.messa" +
-      "ges.SpecDataStoreInitRequest\022L\n\031suiteDat" +
-      "aStoreInitRequest\030\025 \001(\0132).gauge.messages" +
-      ".SuiteDataStoreInitRequest\0228\n\017stepNameRe" +
-      "quest\030\026 \001(\0132\037.gauge.messages.StepNameReq" +
-      "uest\022:\n\020stepNameResponse\030\027 \001(\0132 .gauge.m" +
-      "essages.StepNameResponse\0228\n\017refactorRequ" +
-      "est\030\030 \001(\0132\037.gauge.messages.RefactorReque" +
-      "st\022:\n\020refactorResponse\030\031 \001(\0132 .gauge.mes" +
-      "sages.RefactorResponse\022N\n\032unsupportedMes" +
-      "sageResponse\030\032 \001(\0132*.gauge.messages.Unsu" +
-      "pportedMessageResponse\022:\n\020cacheFileReque" +
-      "st\030\033 \001(\0132 .gauge.messages.CacheFileReque" +
-      "st\022B\n\024stepPositionsRequest\030\034 \001(\0132$.gauge" +
-      ".messages.StepPositionsRequest\022D\n\025stepPo" +
-      "sitionsResponse\030\035 \001(\0132%.gauge.messages.S" +
-      "tepPositionsResponse\022T\n\035implementationFi" +
-      "leListRequest\030\036 \001(\0132-.gauge.messages.Imp" +
-      "lementationFileListRequest\022V\n\036implementa" +
-      "tionFileListResponse\030\037 \001(\0132..gauge.messa" +
-      "ges.ImplementationFileListResponse\022T\n\035st" +
-      "ubImplementationCodeRequest\030  \001(\0132-.gaug" +
-      "e.messages.StubImplementationCodeRequest" +
-      "\022*\n\010fileDiff\030! \001(\0132\030.gauge.messages.File" +
-      "Diff\022b\n$implementationFileGlobPatternReq" +
-      "uest\030\" \001(\01324.gauge.messages.Implementati" +
-      "onFileGlobPatternRequest\022d\n%implementati" +
-      "onFileGlobPatternResponse\030# \001(\01325.gauge." +
-      "messages.ImplementationFileGlobPatternRe" +
-      "sponse\"\365\006\n\013MessageType\022\025\n\021ExecutionStart" +
-      "ing\020\000\022\031\n\025SpecExecutionStarting\020\001\022\027\n\023Spec" +
-      "ExecutionEnding\020\002\022\035\n\031ScenarioExecutionSt" +
-      "arting\020\003\022\033\n\027ScenarioExecutionEnding\020\004\022\031\n" +
-      "\025StepExecutionStarting\020\005\022\027\n\023StepExecutio" +
-      "nEnding\020\006\022\017\n\013ExecuteStep\020\007\022\023\n\017ExecutionE" +
-      "nding\020\010\022\027\n\023StepValidateRequest\020\t\022\030\n\024Step" +
-      "ValidateResponse\020\n\022\033\n\027ExecutionStatusRes" +
-      "ponse\020\013\022\024\n\020StepNamesRequest\020\014\022\025\n\021StepNam" +
-      "esResponse\020\r\022\026\n\022KillProcessRequest\020\016\022\030\n\024" +
-      "SuiteExecutionResult\020\017\022\031\n\025ScenarioDataSt" +
-      "oreInit\020\020\022\025\n\021SpecDataStoreInit\020\021\022\026\n\022Suit" +
-      "eDataStoreInit\020\022\022\023\n\017StepNameRequest\020\023\022\024\n" +
-      "\020StepNameResponse\020\024\022\023\n\017RefactorRequest\020\025" +
-      "\022\024\n\020RefactorResponse\020\026\022\036\n\032UnsupportedMes" +
-      "sageResponse\020\027\022\024\n\020CacheFileRequest\020\030\022\030\n\024" +
-      "StepPositionsRequest\020\031\022\031\n\025StepPositionsR" +
-      "esponse\020\032\022!\n\035ImplementationFileListReque" +
-      "st\020\033\022\"\n\036ImplementationFileListResponse\020\034" +
-      "\022!\n\035StubImplementationCodeRequest\020\035\022\014\n\010F" +
-      "ileDiff\020\036\022(\n$ImplementationFileGlobPatte" +
-      "rnRequest\020\037\022)\n%ImplementationFileGlobPat" +
-      "ternResponse\020 B\021\252\002\016Gauge.Messagesb\006proto" +
-      "3"
+      ".gauge.messages.ProtoExecutionResult\"\216\001\n" +
+      "\030ExecutionStartingRequest\022;\n\024currentExec" +
+      "utionInfo\030\001 \001(\0132\035.gauge.messages.Executi" +
+      "onInfo\0225\n\013suiteResult\030\002 \001(\0132 .gauge.mess" +
+      "ages.ProtoSuiteResult\"\214\001\n\026ExecutionEndin" +
+      "gRequest\022;\n\024currentExecutionInfo\030\001 \001(\0132\035" +
+      ".gauge.messages.ExecutionInfo\0225\n\013suiteRe" +
+      "sult\030\002 \001(\0132 .gauge.messages.ProtoSuiteRe" +
+      "sult\"\220\001\n\034SpecExecutionStartingRequest\022;\n" +
+      "\024currentExecutionInfo\030\001 \001(\0132\035.gauge.mess" +
+      "ages.ExecutionInfo\0223\n\nspecResult\030\002 \001(\0132\037" +
+      ".gauge.messages.ProtoSpecResult\"\216\001\n\032Spec" +
+      "ExecutionEndingRequest\022;\n\024currentExecuti" +
+      "onInfo\030\001 \001(\0132\035.gauge.messages.ExecutionI" +
+      "nfo\0223\n\nspecResult\030\002 \001(\0132\037.gauge.messages" +
+      ".ProtoSpecResult\"\234\001\n ScenarioExecutionSt" +
+      "artingRequest\022;\n\024currentExecutionInfo\030\001 " +
+      "\001(\0132\035.gauge.messages.ExecutionInfo\022;\n\016sc" +
+      "enarioResult\030\002 \001(\0132#.gauge.messages.Prot" +
+      "oScenarioResult\"\232\001\n\036ScenarioExecutionEnd" +
+      "ingRequest\022;\n\024currentExecutionInfo\030\001 \001(\013" +
+      "2\035.gauge.messages.ExecutionInfo\022;\n\016scena" +
+      "rioResult\030\002 \001(\0132#.gauge.messages.ProtoSc" +
+      "enarioResult\"\220\001\n\034StepExecutionStartingRe" +
+      "quest\022;\n\024currentExecutionInfo\030\001 \001(\0132\035.ga" +
+      "uge.messages.ExecutionInfo\0223\n\nstepResult" +
+      "\030\002 \001(\0132\037.gauge.messages.ProtoStepResult\"" +
+      "\216\001\n\032StepExecutionEndingRequest\022;\n\024curren" +
+      "tExecutionInfo\030\001 \001(\0132\035.gauge.messages.Ex" +
+      "ecutionInfo\0223\n\nstepResult\030\002 \001(\0132\037.gauge." +
+      "messages.ProtoStepResult\"3\n\014ExecutionArg" +
+      "\022\020\n\010flagName\030\001 \001(\t\022\021\n\tflagValue\030\002 \003(\t\"\266\002" +
+      "\n\rExecutionInfo\022-\n\013currentSpec\030\001 \001(\0132\030.g" +
+      "auge.messages.SpecInfo\0225\n\017currentScenari" +
+      "o\030\002 \001(\0132\034.gauge.messages.ScenarioInfo\022-\n" +
+      "\013currentStep\030\003 \001(\0132\030.gauge.messages.Step" +
+      "Info\022\022\n\nstacktrace\030\004 \001(\t\022\023\n\013projectName\030" +
+      "\005 \001(\t\0223\n\rExecutionArgs\030\006 \003(\0132\034.gauge.mes" +
+      "sages.ExecutionArg\022 \n\030numberOfExecutionS" +
+      "treams\030\007 \001(\005\022\020\n\010runnerId\030\010 \001(\005\"J\n\010SpecIn" +
+      "fo\022\014\n\004name\030\001 \001(\t\022\020\n\010fileName\030\002 \001(\t\022\020\n\010is" +
+      "Failed\030\003 \001(\010\022\014\n\004tags\030\004 \003(\t\"<\n\014ScenarioIn" +
+      "fo\022\014\n\004name\030\001 \001(\t\022\020\n\010isFailed\030\002 \001(\010\022\014\n\004ta" +
+      "gs\030\003 \003(\t\"x\n\010StepInfo\0220\n\004step\030\001 \001(\0132\".gau" +
+      "ge.messages.ExecuteStepRequest\022\020\n\010isFail" +
+      "ed\030\002 \001(\010\022\022\n\nstackTrace\030\003 \001(\t\022\024\n\014errorMes" +
+      "sage\030\004 \001(\t\"\214\001\n\022ExecuteStepRequest\022\026\n\016act" +
+      "ualStepText\030\001 \001(\t\022\026\n\016parsedStepText\030\002 \001(" +
+      "\t\022\027\n\017scenarioFailing\030\003 \001(\010\022-\n\nparameters" +
+      "\030\004 \003(\0132\031.gauge.messages.Parameter\"v\n\023Ste" +
+      "pValidateRequest\022\020\n\010stepText\030\001 \001(\t\022\032\n\022nu" +
+      "mberOfParameters\030\002 \001(\005\0221\n\tstepValue\030\003 \001(" +
+      "\0132\036.gauge.messages.ProtoStepValue\"\347\001\n\024St" +
+      "epValidateResponse\022\017\n\007isValid\030\001 \001(\010\022\024\n\014e" +
+      "rrorMessage\030\002 \001(\t\022A\n\terrorType\030\003 \001(\0162..g" +
+      "auge.messages.StepValidateResponse.Error" +
+      "Type\022\022\n\nsuggestion\030\004 \001(\t\"Q\n\tErrorType\022!\n" +
+      "\035STEP_IMPLEMENTATION_NOT_FOUND\020\000\022!\n\035DUPL" +
+      "ICATE_STEP_IMPLEMENTATION\020\001\"M\n\024SuiteExec" +
+      "utionResult\0225\n\013suiteResult\030\001 \001(\0132 .gauge" +
+      ".messages.ProtoSuiteResult\"I\n\030SuiteExecu" +
+      "tionResultItem\022-\n\nresultItem\030\001 \001(\0132\031.gau" +
+      "ge.messages.ProtoItem\"\022\n\020StepNamesReques" +
+      "t\"\"\n\021StepNamesResponse\022\r\n\005steps\030\001 \003(\t\"\036\n" +
+      "\034ScenarioDataStoreInitRequest\"\032\n\030SpecDat" +
+      "aStoreInitRequest\"\033\n\031SuiteDataStoreInitR" +
+      "equest\"=\n\021ParameterPosition\022\023\n\013oldPositi" +
+      "on\030\001 \001(\005\022\023\n\013newPosition\030\002 \001(\005\"\315\001\n\017Refact" +
+      "orRequest\0224\n\014oldStepValue\030\001 \001(\0132\036.gauge." +
+      "messages.ProtoStepValue\0224\n\014newStepValue\030" +
+      "\002 \001(\0132\036.gauge.messages.ProtoStepValue\0229\n" +
+      "\016paramPositions\030\003 \003(\0132!.gauge.messages.P" +
+      "arameterPosition\022\023\n\013saveChanges\030\004 \001(\010\"a\n" +
+      "\013FileChanges\022\020\n\010fileName\030\001 \001(\t\022\027\n\013fileCo" +
+      "ntent\030\002 \001(\tB\002\030\001\022\'\n\005diffs\030\003 \003(\0132\030.gauge.m" +
+      "essages.TextDiff\"z\n\020RefactorResponse\022\017\n\007" +
+      "success\030\001 \001(\010\022\r\n\005error\030\002 \001(\t\022\024\n\014filesCha" +
+      "nged\030\003 \003(\t\0220\n\013fileChanges\030\004 \003(\0132\033.gauge." +
+      "messages.FileChanges\"$\n\017StepNameRequest\022" +
+      "\021\n\tstepValue\030\001 \001(\t\"\203\001\n\020StepNameResponse\022" +
+      "\025\n\risStepPresent\030\001 \001(\010\022\020\n\010stepName\030\002 \003(\t" +
+      "\022\020\n\010hasAlias\030\003 \001(\010\022\020\n\010fileName\030\004 \001(\t\022\"\n\004" +
+      "span\030\005 \001(\0132\024.gauge.messages.Span\"-\n\032Unsu" +
+      "pportedMessageResponse\022\017\n\007message\030\001 \001(\t\"" +
+      "\321\001\n\020CacheFileRequest\022\017\n\007content\030\001 \001(\t\022\020\n" +
+      "\010filePath\030\002 \001(\t\022\020\n\010isClosed\030\003 \001(\010\022;\n\006sta" +
+      "tus\030\004 \001(\0162+.gauge.messages.CacheFileRequ" +
+      "est.FileStatus\"K\n\nFileStatus\022\013\n\007CHANGED\020" +
+      "\000\022\n\n\006CLOSED\020\001\022\013\n\007CREATED\020\002\022\013\n\007DELETED\020\003\022" +
+      "\n\n\006OPENED\020\004\"(\n\024StepPositionsRequest\022\020\n\010f" +
+      "ilePath\030\001 \001(\t\"\270\001\n\025StepPositionsResponse\022" +
+      "I\n\rstepPositions\030\001 \003(\01322.gauge.messages." +
+      "StepPositionsResponse.StepPosition\022\r\n\005er" +
+      "ror\030\002 \001(\t\032E\n\014StepPosition\022\021\n\tstepValue\030\001" +
+      " \001(\t\022\"\n\004span\030\002 \001(\0132\024.gauge.messages.Span" +
+      "\"&\n$ImplementationFileGlobPatternRequest" +
+      "\"=\n%ImplementationFileGlobPatternRespons" +
+      "e\022\024\n\014globPatterns\030\001 \003(\t\"\037\n\035Implementatio" +
+      "nFileListRequest\"A\n\036ImplementationFileLi" +
+      "stResponse\022\037\n\027implementationFilePaths\030\001 " +
+      "\003(\t\"N\n\035StubImplementationCodeRequest\022\036\n\026" +
+      "implementationFilePath\030\001 \001(\t\022\r\n\005codes\030\002 " +
+      "\003(\t\"?\n\010TextDiff\022\"\n\004span\030\001 \001(\0132\024.gauge.me" +
+      "ssages.Span\022\017\n\007content\030\002 \001(\t\"I\n\010FileDiff" +
+      "\022\020\n\010filePath\030\001 \001(\t\022+\n\ttextDiffs\030\002 \003(\0132\030." +
+      "gauge.messages.TextDiff\"\035\n\tKeepAlive\022\020\n\010" +
+      "pluginId\030\001 \001(\t\"\007\n\005Empty\"\375\033\n\007Message\0228\n\013m" +
+      "essageType\030\001 \001(\0162#.gauge.messages.Messag" +
+      "e.MessageType\022\021\n\tmessageId\030\002 \001(\003\022J\n\030exec" +
+      "utionStartingRequest\030\003 \001(\0132(.gauge.messa" +
+      "ges.ExecutionStartingRequest\022R\n\034specExec" +
+      "utionStartingRequest\030\004 \001(\0132,.gauge.messa" +
+      "ges.SpecExecutionStartingRequest\022N\n\032spec" +
+      "ExecutionEndingRequest\030\005 \001(\0132*.gauge.mes" +
+      "sages.SpecExecutionEndingRequest\022Z\n scen" +
+      "arioExecutionStartingRequest\030\006 \001(\01320.gau" +
+      "ge.messages.ScenarioExecutionStartingReq" +
+      "uest\022V\n\036scenarioExecutionEndingRequest\030\007" +
+      " \001(\0132..gauge.messages.ScenarioExecutionE" +
+      "ndingRequest\022R\n\034stepExecutionStartingReq" +
+      "uest\030\010 \001(\0132,.gauge.messages.StepExecutio" +
+      "nStartingRequest\022N\n\032stepExecutionEndingR" +
+      "equest\030\t \001(\0132*.gauge.messages.StepExecut" +
+      "ionEndingRequest\022>\n\022executeStepRequest\030\n" +
+      " \001(\0132\".gauge.messages.ExecuteStepRequest" +
+      "\022F\n\026executionEndingRequest\030\013 \001(\0132&.gauge" +
+      ".messages.ExecutionEndingRequest\022@\n\023step" +
+      "ValidateRequest\030\014 \001(\0132#.gauge.messages.S" +
+      "tepValidateRequest\022B\n\024stepValidateRespon" +
+      "se\030\r \001(\0132$.gauge.messages.StepValidateRe" +
+      "sponse\022H\n\027executionStatusResponse\030\016 \001(\0132" +
+      "\'.gauge.messages.ExecutionStatusResponse" +
+      "\022:\n\020stepNamesRequest\030\017 \001(\0132 .gauge.messa" +
+      "ges.StepNamesRequest\022<\n\021stepNamesRespons" +
+      "e\030\020 \001(\0132!.gauge.messages.StepNamesRespon" +
+      "se\022B\n\024suiteExecutionResult\030\021 \001(\0132$.gauge" +
+      ".messages.SuiteExecutionResult\022>\n\022killPr" +
+      "ocessRequest\030\022 \001(\0132\".gauge.messages.Kill" +
+      "ProcessRequest\022R\n\034scenarioDataStoreInitR" +
+      "equest\030\023 \001(\0132,.gauge.messages.ScenarioDa" +
+      "taStoreInitRequest\022J\n\030specDataStoreInitR" +
+      "equest\030\024 \001(\0132(.gauge.messages.SpecDataSt" +
+      "oreInitRequest\022L\n\031suiteDataStoreInitRequ" +
+      "est\030\025 \001(\0132).gauge.messages.SuiteDataStor" +
+      "eInitRequest\0228\n\017stepNameRequest\030\026 \001(\0132\037." +
+      "gauge.messages.StepNameRequest\022:\n\020stepNa" +
+      "meResponse\030\027 \001(\0132 .gauge.messages.StepNa" +
+      "meResponse\0228\n\017refactorRequest\030\030 \001(\0132\037.ga" +
+      "uge.messages.RefactorRequest\022:\n\020refactor" +
+      "Response\030\031 \001(\0132 .gauge.messages.Refactor" +
+      "Response\022N\n\032unsupportedMessageResponse\030\032" +
+      " \001(\0132*.gauge.messages.UnsupportedMessage" +
+      "Response\022:\n\020cacheFileRequest\030\033 \001(\0132 .gau" +
+      "ge.messages.CacheFileRequest\022B\n\024stepPosi" +
+      "tionsRequest\030\034 \001(\0132$.gauge.messages.Step" +
+      "PositionsRequest\022D\n\025stepPositionsRespons" +
+      "e\030\035 \001(\0132%.gauge.messages.StepPositionsRe" +
+      "sponse\022T\n\035implementationFileListRequest\030" +
+      "\036 \001(\0132-.gauge.messages.ImplementationFil" +
+      "eListRequest\022V\n\036implementationFileListRe" +
+      "sponse\030\037 \001(\0132..gauge.messages.Implementa" +
+      "tionFileListResponse\022T\n\035stubImplementati" +
+      "onCodeRequest\030  \001(\0132-.gauge.messages.Stu" +
+      "bImplementationCodeRequest\022*\n\010fileDiff\030!" +
+      " \001(\0132\030.gauge.messages.FileDiff\022b\n$implem" +
+      "entationFileGlobPatternRequest\030\" \001(\01324.g" +
+      "auge.messages.ImplementationFileGlobPatt" +
+      "ernRequest\022d\n%implementationFileGlobPatt" +
+      "ernResponse\030# \001(\01325.gauge.messages.Imple" +
+      "mentationFileGlobPatternResponse\022J\n\030suit" +
+      "eExecutionResultItem\030$ \001(\0132(.gauge.messa" +
+      "ges.SuiteExecutionResultItem\022,\n\tkeepAliv" +
+      "e\030% \001(\0132\031.gauge.messages.KeepAlive\"\242\007\n\013M" +
+      "essageType\022\025\n\021ExecutionStarting\020\000\022\031\n\025Spe" +
+      "cExecutionStarting\020\001\022\027\n\023SpecExecutionEnd" +
+      "ing\020\002\022\035\n\031ScenarioExecutionStarting\020\003\022\033\n\027" +
+      "ScenarioExecutionEnding\020\004\022\031\n\025StepExecuti" +
+      "onStarting\020\005\022\027\n\023StepExecutionEnding\020\006\022\017\n" +
+      "\013ExecuteStep\020\007\022\023\n\017ExecutionEnding\020\010\022\027\n\023S" +
+      "tepValidateRequest\020\t\022\030\n\024StepValidateResp" +
+      "onse\020\n\022\033\n\027ExecutionStatusResponse\020\013\022\024\n\020S" +
+      "tepNamesRequest\020\014\022\025\n\021StepNamesResponse\020\r" +
+      "\022\026\n\022KillProcessRequest\020\016\022\030\n\024SuiteExecuti" +
+      "onResult\020\017\022\031\n\025ScenarioDataStoreInit\020\020\022\025\n" +
+      "\021SpecDataStoreInit\020\021\022\026\n\022SuiteDataStoreIn" +
+      "it\020\022\022\023\n\017StepNameRequest\020\023\022\024\n\020StepNameRes" +
+      "ponse\020\024\022\023\n\017RefactorRequest\020\025\022\024\n\020Refactor" +
+      "Response\020\026\022\036\n\032UnsupportedMessageResponse" +
+      "\020\027\022\024\n\020CacheFileRequest\020\030\022\030\n\024StepPosition" +
+      "sRequest\020\031\022\031\n\025StepPositionsResponse\020\032\022!\n" +
+      "\035ImplementationFileListRequest\020\033\022\"\n\036Impl" +
+      "ementationFileListResponse\020\034\022!\n\035StubImpl" +
+      "ementationCodeRequest\020\035\022\014\n\010FileDiff\020\036\022(\n" +
+      "$ImplementationFileGlobPatternRequest\020\037\022" +
+      ")\n%ImplementationFileGlobPatternResponse" +
+      "\020 \022\034\n\030SuiteExecutionResultItem\020!\022\r\n\tKeep" +
+      "Alive\020\"B!\n\016gauge.messages\252\002\016Gauge.Messag" +
+      "esb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -42130,183 +48571,195 @@ public final class Messages {
     internal_static_gauge_messages_ExecutionStartingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ExecutionStartingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", });
+        new java.lang.String[] { "CurrentExecutionInfo", "SuiteResult", });
     internal_static_gauge_messages_ExecutionEndingRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_gauge_messages_ExecutionEndingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ExecutionEndingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", });
+        new java.lang.String[] { "CurrentExecutionInfo", "SuiteResult", });
     internal_static_gauge_messages_SpecExecutionStartingRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_gauge_messages_SpecExecutionStartingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_SpecExecutionStartingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", });
+        new java.lang.String[] { "CurrentExecutionInfo", "SpecResult", });
     internal_static_gauge_messages_SpecExecutionEndingRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_gauge_messages_SpecExecutionEndingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_SpecExecutionEndingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", });
+        new java.lang.String[] { "CurrentExecutionInfo", "SpecResult", });
     internal_static_gauge_messages_ScenarioExecutionStartingRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_gauge_messages_ScenarioExecutionStartingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ScenarioExecutionStartingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", });
+        new java.lang.String[] { "CurrentExecutionInfo", "ScenarioResult", });
     internal_static_gauge_messages_ScenarioExecutionEndingRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_gauge_messages_ScenarioExecutionEndingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ScenarioExecutionEndingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", });
+        new java.lang.String[] { "CurrentExecutionInfo", "ScenarioResult", });
     internal_static_gauge_messages_StepExecutionStartingRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_gauge_messages_StepExecutionStartingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepExecutionStartingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", });
+        new java.lang.String[] { "CurrentExecutionInfo", "StepResult", });
     internal_static_gauge_messages_StepExecutionEndingRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_gauge_messages_StepExecutionEndingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepExecutionEndingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", });
-    internal_static_gauge_messages_ExecutionInfo_descriptor =
+        new java.lang.String[] { "CurrentExecutionInfo", "StepResult", });
+    internal_static_gauge_messages_ExecutionArg_descriptor =
       getDescriptor().getMessageTypes().get(10);
+    internal_static_gauge_messages_ExecutionArg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_ExecutionArg_descriptor,
+        new java.lang.String[] { "FlagName", "FlagValue", });
+    internal_static_gauge_messages_ExecutionInfo_descriptor =
+      getDescriptor().getMessageTypes().get(11);
     internal_static_gauge_messages_ExecutionInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ExecutionInfo_descriptor,
-        new java.lang.String[] { "CurrentSpec", "CurrentScenario", "CurrentStep", "Stacktrace", });
+        new java.lang.String[] { "CurrentSpec", "CurrentScenario", "CurrentStep", "Stacktrace", "ProjectName", "ExecutionArgs", "NumberOfExecutionStreams", "RunnerId", });
     internal_static_gauge_messages_SpecInfo_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_gauge_messages_SpecInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_SpecInfo_descriptor,
         new java.lang.String[] { "Name", "FileName", "IsFailed", "Tags", });
     internal_static_gauge_messages_ScenarioInfo_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_gauge_messages_ScenarioInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ScenarioInfo_descriptor,
         new java.lang.String[] { "Name", "IsFailed", "Tags", });
     internal_static_gauge_messages_StepInfo_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_gauge_messages_StepInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepInfo_descriptor,
         new java.lang.String[] { "Step", "IsFailed", "StackTrace", "ErrorMessage", });
     internal_static_gauge_messages_ExecuteStepRequest_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_gauge_messages_ExecuteStepRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ExecuteStepRequest_descriptor,
         new java.lang.String[] { "ActualStepText", "ParsedStepText", "ScenarioFailing", "Parameters", });
     internal_static_gauge_messages_StepValidateRequest_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_gauge_messages_StepValidateRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepValidateRequest_descriptor,
         new java.lang.String[] { "StepText", "NumberOfParameters", "StepValue", });
     internal_static_gauge_messages_StepValidateResponse_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_gauge_messages_StepValidateResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepValidateResponse_descriptor,
         new java.lang.String[] { "IsValid", "ErrorMessage", "ErrorType", "Suggestion", });
     internal_static_gauge_messages_SuiteExecutionResult_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_gauge_messages_SuiteExecutionResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_SuiteExecutionResult_descriptor,
         new java.lang.String[] { "SuiteResult", });
+    internal_static_gauge_messages_SuiteExecutionResultItem_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_gauge_messages_SuiteExecutionResultItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_SuiteExecutionResultItem_descriptor,
+        new java.lang.String[] { "ResultItem", });
     internal_static_gauge_messages_StepNamesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_gauge_messages_StepNamesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepNamesRequest_descriptor,
         new java.lang.String[] { });
     internal_static_gauge_messages_StepNamesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_gauge_messages_StepNamesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepNamesResponse_descriptor,
         new java.lang.String[] { "Steps", });
     internal_static_gauge_messages_ScenarioDataStoreInitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_gauge_messages_ScenarioDataStoreInitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ScenarioDataStoreInitRequest_descriptor,
         new java.lang.String[] { });
     internal_static_gauge_messages_SpecDataStoreInitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_gauge_messages_SpecDataStoreInitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_SpecDataStoreInitRequest_descriptor,
         new java.lang.String[] { });
     internal_static_gauge_messages_SuiteDataStoreInitRequest_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_gauge_messages_SuiteDataStoreInitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_SuiteDataStoreInitRequest_descriptor,
         new java.lang.String[] { });
     internal_static_gauge_messages_ParameterPosition_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_gauge_messages_ParameterPosition_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ParameterPosition_descriptor,
         new java.lang.String[] { "OldPosition", "NewPosition", });
     internal_static_gauge_messages_RefactorRequest_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_gauge_messages_RefactorRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_RefactorRequest_descriptor,
         new java.lang.String[] { "OldStepValue", "NewStepValue", "ParamPositions", "SaveChanges", });
     internal_static_gauge_messages_FileChanges_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_gauge_messages_FileChanges_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_FileChanges_descriptor,
         new java.lang.String[] { "FileName", "FileContent", "Diffs", });
     internal_static_gauge_messages_RefactorResponse_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_gauge_messages_RefactorResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_RefactorResponse_descriptor,
         new java.lang.String[] { "Success", "Error", "FilesChanged", "FileChanges", });
     internal_static_gauge_messages_StepNameRequest_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_gauge_messages_StepNameRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepNameRequest_descriptor,
         new java.lang.String[] { "StepValue", });
     internal_static_gauge_messages_StepNameResponse_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_gauge_messages_StepNameResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepNameResponse_descriptor,
         new java.lang.String[] { "IsStepPresent", "StepName", "HasAlias", "FileName", "Span", });
     internal_static_gauge_messages_UnsupportedMessageResponse_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_gauge_messages_UnsupportedMessageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_UnsupportedMessageResponse_descriptor,
         new java.lang.String[] { "Message", });
     internal_static_gauge_messages_CacheFileRequest_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_gauge_messages_CacheFileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_CacheFileRequest_descriptor,
         new java.lang.String[] { "Content", "FilePath", "IsClosed", "Status", });
     internal_static_gauge_messages_StepPositionsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_gauge_messages_StepPositionsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepPositionsRequest_descriptor,
         new java.lang.String[] { "FilePath", });
     internal_static_gauge_messages_StepPositionsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_gauge_messages_StepPositionsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepPositionsResponse_descriptor,
@@ -42318,53 +48771,65 @@ public final class Messages {
         internal_static_gauge_messages_StepPositionsResponse_StepPosition_descriptor,
         new java.lang.String[] { "StepValue", "Span", });
     internal_static_gauge_messages_ImplementationFileGlobPatternRequest_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_gauge_messages_ImplementationFileGlobPatternRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ImplementationFileGlobPatternRequest_descriptor,
         new java.lang.String[] { });
     internal_static_gauge_messages_ImplementationFileGlobPatternResponse_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_gauge_messages_ImplementationFileGlobPatternResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ImplementationFileGlobPatternResponse_descriptor,
         new java.lang.String[] { "GlobPatterns", });
     internal_static_gauge_messages_ImplementationFileListRequest_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_gauge_messages_ImplementationFileListRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ImplementationFileListRequest_descriptor,
         new java.lang.String[] { });
     internal_static_gauge_messages_ImplementationFileListResponse_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_gauge_messages_ImplementationFileListResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ImplementationFileListResponse_descriptor,
         new java.lang.String[] { "ImplementationFilePaths", });
     internal_static_gauge_messages_StubImplementationCodeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_gauge_messages_StubImplementationCodeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StubImplementationCodeRequest_descriptor,
         new java.lang.String[] { "ImplementationFilePath", "Codes", });
     internal_static_gauge_messages_TextDiff_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_gauge_messages_TextDiff_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_TextDiff_descriptor,
         new java.lang.String[] { "Span", "Content", });
     internal_static_gauge_messages_FileDiff_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_gauge_messages_FileDiff_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_FileDiff_descriptor,
         new java.lang.String[] { "FilePath", "TextDiffs", });
+    internal_static_gauge_messages_KeepAlive_descriptor =
+      getDescriptor().getMessageTypes().get(42);
+    internal_static_gauge_messages_KeepAlive_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_KeepAlive_descriptor,
+        new java.lang.String[] { "PluginId", });
+    internal_static_gauge_messages_Empty_descriptor =
+      getDescriptor().getMessageTypes().get(43);
+    internal_static_gauge_messages_Empty_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_Empty_descriptor,
+        new java.lang.String[] { });
     internal_static_gauge_messages_Message_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_gauge_messages_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_Message_descriptor,
-        new java.lang.String[] { "MessageType", "MessageId", "ExecutionStartingRequest", "SpecExecutionStartingRequest", "SpecExecutionEndingRequest", "ScenarioExecutionStartingRequest", "ScenarioExecutionEndingRequest", "StepExecutionStartingRequest", "StepExecutionEndingRequest", "ExecuteStepRequest", "ExecutionEndingRequest", "StepValidateRequest", "StepValidateResponse", "ExecutionStatusResponse", "StepNamesRequest", "StepNamesResponse", "SuiteExecutionResult", "KillProcessRequest", "ScenarioDataStoreInitRequest", "SpecDataStoreInitRequest", "SuiteDataStoreInitRequest", "StepNameRequest", "StepNameResponse", "RefactorRequest", "RefactorResponse", "UnsupportedMessageResponse", "CacheFileRequest", "StepPositionsRequest", "StepPositionsResponse", "ImplementationFileListRequest", "ImplementationFileListResponse", "StubImplementationCodeRequest", "FileDiff", "ImplementationFileGlobPatternRequest", "ImplementationFileGlobPatternResponse", });
+        new java.lang.String[] { "MessageType", "MessageId", "ExecutionStartingRequest", "SpecExecutionStartingRequest", "SpecExecutionEndingRequest", "ScenarioExecutionStartingRequest", "ScenarioExecutionEndingRequest", "StepExecutionStartingRequest", "StepExecutionEndingRequest", "ExecuteStepRequest", "ExecutionEndingRequest", "StepValidateRequest", "StepValidateResponse", "ExecutionStatusResponse", "StepNamesRequest", "StepNamesResponse", "SuiteExecutionResult", "KillProcessRequest", "ScenarioDataStoreInitRequest", "SpecDataStoreInitRequest", "SuiteDataStoreInitRequest", "StepNameRequest", "StepNameResponse", "RefactorRequest", "RefactorResponse", "UnsupportedMessageResponse", "CacheFileRequest", "StepPositionsRequest", "StepPositionsResponse", "ImplementationFileListRequest", "ImplementationFileListResponse", "StubImplementationCodeRequest", "FileDiff", "ImplementationFileGlobPatternRequest", "ImplementationFileGlobPatternResponse", "SuiteExecutionResultItem", "KeepAlive", });
     gauge.messages.Spec.getDescriptor();
   }
 
