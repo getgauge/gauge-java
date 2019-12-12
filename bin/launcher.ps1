@@ -2,7 +2,7 @@ Param(
   [String]$TaskName # The name of the task to run
 )
 
-$DefaultDuildDir = "gauge_bin"
+$DefaultBuildDir = "gauge_bin"
 $PluginDir = Get-Location
 $global:classpath = $env:gauge_custom_classpath
 Set-Location $env:GAUGE_PROJECT_ROOT
@@ -20,7 +20,7 @@ function GetAdditionalPath() {
   }
   $libs = ""
   foreach ($dir in $DirNames.Split(",")){
-    $lib = Join-Path (Get-Location) $dir
+    $lib = Resolve-Path -Path $dir
     $libs = "$lib;$libs"
   }
   return $libs 
@@ -34,7 +34,7 @@ function ListFiles {
   }
   foreach ($dir in $dirs.Split(",")) {
     $items = Get-ChildItem -Recurse -File -Include "*.java" -Path $dir | Select-Object FullName
-    $files = $items.FullName.Trim() + "`n" + $files.Trim()
+    $files = $items.FullName + "`n" + $files
   }
   return $files
 }
@@ -43,13 +43,13 @@ function BuildProject() {
   param(
     $classpath
   )
-  Remove-Item -Recurse -Force $DefaultDuildDir -ErrorAction SilentlyContinue
-  mkdir $DefaultDuildDir > $null
+  Remove-Item -Recurse -Force $DefaultBuildDir -ErrorAction SilentlyContinue
+  mkdir $DefaultBuildDir > $null
   $files = ListFiles
   $random = (New-Guid).ToString()
   $targetFile = Join-Path "$env:TEMP" "$random.txt"
-  Write-Output $files.Trim() | Out-File -FilePath $targetFile -Encoding default -NoNewline
-  javac -cp `"$global:classpath`" -encoding UTF-8 -d gauge_bin "@$targetFile"
+  Write-Output $files.Trim() | Out-File -FilePath $targetFile -Encoding default
+  javac -cp `"$global:classpath`" -encoding UTF-8 -d $DefaultBuildDir "@$targetFile"
   Remove-Item -Force $targetFile
 }
 
@@ -65,9 +65,9 @@ function AddClassPathRequiredForExecution() {
   } else {
     if ("$env:SHOULD_BUILD_PROJECT" -ne "false") {
       BuildProject
-      $buildDir = Resolve-Path -Path $DefaultDuildDir
-      $global:classpath = $global:classpath + ";" + $buildDir
     }
+    $buildDir = Resolve-Path -Path $DefaultBuildDir
+    $global:classpath = $global:classpath + ";" + $buildDir
   }
 }
 
