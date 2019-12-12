@@ -115,9 +115,11 @@
                     <pluginArtifact>
                         io.grpc:protoc-gen-grpc-java:1.13.1:exe:${os.detected.classifier}
                     </pluginArtifact>
+                    <protoSourceRoot>gauge-proto</protoSourceRoot>
                 </configuration>
                 <executions>
                     <execution>
+                        <phase>none</phase>
                         <goals>
                             <goal>compile</goal>
                             <goal>compile-custom</goal>
