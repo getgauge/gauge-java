@@ -8,7 +8,7 @@ plugin_dir=$(pwd)
 project_root="$GAUGE_PROJECT_ROOT"
 compile_dir="$gauge_custom_compile_dir"
 
-cd $project_root
+cd "$project_root"
 
 function get_abs() {
     if [[ "$1" == /* ]]; then
@@ -49,7 +49,7 @@ function list_files() {
         dirs="$compile_dir"
     fi
     for d in $(split_on_commas "$dirs"); do
-        find "$(cd ${d}; pwd)" -name "*.java"
+        find "$(cd ${d}; pwd)" -name "*.java" | xargs -I{lin} echo \"{lin}\"
     done
 }
 
@@ -60,7 +60,7 @@ function build_project() {
     target_file="$TMPDIR$RANDOM-$RANDOM.txt"
     echo $(list_files) > $target_file
     args="-encoding UTF-8 -d ${default_build_dir} @${target_file}"
-    javac -cp $class_path $args
+    javac -cp "$class_path" $args
     rm $target_file
 }
 
@@ -103,12 +103,12 @@ function start() {
         args="${args} -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=${GAUGE_DEBUG_OPTS},timeout=25000"
         echo -e "\nRunner Ready for Debugging"
     fi
-    CLASSPATH=${class_path} java ${args} com.thoughtworks.gauge.GaugeRuntime --start
+    CLASSPATH="${class_path}" java ${args} com.thoughtworks.gauge.GaugeRuntime --start
 }
 
 function init() {
     add_runner_in_classpath
-    CLASSPATH=${class_path} java com.thoughtworks.gauge.GaugeRuntime --init
+    CLASSPATH="${class_path}" java com.thoughtworks.gauge.GaugeRuntime --init
 }
 
 tasks=(init start)
