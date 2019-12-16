@@ -15,7 +15,6 @@
 
 package com.thoughtworks.gauge.execution;
 
-import com.google.protobuf.ByteString;
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ContinueOnFailure;
 import com.thoughtworks.gauge.screenshot.ScreenshotFactory;
@@ -51,9 +50,8 @@ public class MethodExecutor {
 
     private Spec.ProtoExecutionResult createFailureExecResult(long execTime, Throwable e, boolean recoverable, Class[] continuableExceptions) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
-        ByteString screenshotBytes = ByteString.copyFrom(new ScreenshotFactory(instanceManager).getScreenshotBytes());
-        builder.setScreenShot(screenshotBytes);
-        builder.setFailureScreenshot(screenshotBytes);
+        String screenshotFileName = new ScreenshotFactory(instanceManager).getScreenshotBytes();
+        builder.setFailureScreenshotFile(screenshotFileName);
         if (e.getCause() != null) {
             builder.setRecoverableError(false);
             for (Class c : continuableExceptions) {
