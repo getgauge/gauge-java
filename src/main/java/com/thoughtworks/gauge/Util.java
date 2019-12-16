@@ -15,12 +15,16 @@
 
 package com.thoughtworks.gauge;
 
-import org.apache.commons.lang.StringUtils;
-
 import java.io.File;
+
+import org.apache.commons.lang.StringUtils;
 
 public class Util {
     public static File workingDir() {
+        String wd = System.getenv(GaugeConstant.GAUGE_PROJECT_ROOT);
+        if (wd != null && !wd.isEmpty()) {
+            return new File(wd);
+        }
         return new File(System.getProperty("user.dir"));
     }
 
