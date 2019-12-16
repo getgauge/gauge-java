@@ -27,10 +27,19 @@ import java.util.Set;
 public class CustomScreenshotScanner implements IScanner {
     public void scan(Reflections reflections) {
         Set<Class<? extends ICustomScreenshotGrabber>> customScreenshotGrabbers = reflections.getSubTypesOf(ICustomScreenshotGrabber.class);
+
         if (customScreenshotGrabbers.size() > 0) {
             Class<? extends ICustomScreenshotGrabber> customScreenGrabber = customScreenshotGrabbers.iterator().next();
             Logger.debug(String.format("Using %s as custom screenshot grabber", customScreenGrabber.getName()));
             ScreenshotFactory.setCustomScreenshotGrabber(customScreenGrabber);
+        }
+
+        Set<Class<? extends ICustomScreenshotWriter>> customScreenshotWriters = reflections.getSubTypesOf(ICustomScreenshotWriter.class);
+
+        if (customScreenshotWriters.size() > 0) {
+            Class<? extends ICustomScreenshotWriter> customScreenWriter = customScreenshotWriters.iterator().next();
+            Logger.debug(String.format("Using %s as custom screenshot grabber", customScreenWriter.getName()));
+            ScreenshotFactory.setCustomScreenshotGrabber(customScreenWriter);
         }
     }
 }

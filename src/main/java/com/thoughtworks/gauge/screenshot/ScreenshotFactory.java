@@ -37,14 +37,14 @@ import java.util.UUID;
 public class ScreenshotFactory {
 
     public static final String IMAGE_EXTENSION = "png";
-    private static Class<? extends ICustomScreenshotGrabber> customScreenshotGrabber;
+    private static Class<? extends ICustomScreenshot> customScreenshotGrabber;
     private static ClassInstanceManager manager;
 
     public ScreenshotFactory(ClassInstanceManager manager) {
         this.manager = manager;
     }
 
-    static void setCustomScreenshotGrabber(Class<? extends ICustomScreenshotGrabber> customScreenGrabber) {
+    static void setCustomScreenshotGrabber(Class<? extends ICustomScreenshot> customScreenGrabber) {
         customScreenshotGrabber = customScreenGrabber;
     }
 
@@ -58,13 +58,17 @@ public class ScreenshotFactory {
     private String takeScreenshot() {
         if (customScreenshotGrabber != null) {
             try {
-                ICustomScreenshotGrabber customScreenGrabberInstance = (ICustomScreenshotGrabber) manager.get(customScreenshotGrabber);
-                byte[] bytes = customScreenGrabberInstance.takeScreenshot();
-                File file = generateUniqueScreenshotFile();
-                ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
-                BufferedImage bufferedImage = ImageIO.read(byteArrayInputStream);
-                ImageIO.write(bufferedImage, IMAGE_EXTENSION, file);
-                return file.getName();
+                ICustomScreenshot customScreenInstance = (ICustomScreenshot) manager.get(customScreenshotGrabber);
+                if (customScreenInstance instanceof ICustomScreenshotWriter) {
+                     return ((ICustomScreenshotWriter) customScreenInstance).takeScreenshot();
+                } else {
+                    byte[] bytes = ((ICustomScreenshotGrabber) customScreenInstance).takeScreenshot();
+                    File file = generateUniqueScreenshotFile();
+                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+                    BufferedImage bufferedImage = ImageIO.read(byteArrayInputStream);
+                    ImageIO.write(bufferedImage, IMAGE_EXTENSION, file);
+                    return file.getName();
+                }
             } catch (Exception e) {
                 Logger.error(String.format("Failed to take Custom screenshot: %s : %s", customScreenshotGrabber.getCanonicalName(), e.getMessage()));
                 Logger.warning("Capturing regular screenshot..");
@@ -74,7 +78,8 @@ public class ScreenshotFactory {
     }
 
     private File generateUniqueScreenshotFile() {
-        Path path = Paths.get(System.getenv("screenshots_dir"), String.format("screenshot-%s.png", UUID.randomUUID().toString()));
+        String fileName = String.format("screenshot-%s.%s", UUID.randomUUID().toString(), IMAGE_EXTENSION);
+        Path path = Paths.get(System.getenv(GaugeConstant.SCREENSHOTS_DIR), fileName);
         return new File(path.toAbsolutePath().toString());
     }
 
