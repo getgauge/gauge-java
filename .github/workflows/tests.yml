@@ -3,34 +3,34 @@ name: tests
 on: [push, pull_request]
 
 jobs:
-  test:
-    name: Java ${{ matrix.java_version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-    steps:
+  # test:
+  #   name: Java ${{ matrix.java_version }} and ${{ matrix.os }}
+  #   runs-on: ${{ matrix.os }}
+  #   strategy:
+  #     matrix:
+  #       os: [ubuntu-latest, windows-latest]
+  #   steps:
 
-      - uses: actions/checkout@v1
+  #     - uses: actions/checkout@v1
 
-      - name: Setup java
-        uses: actions/setup-java@v1
-        with:
-          java-version: '12.x.x'
+  #     - name: Setup java
+  #       uses: actions/setup-java@v1
+  #       with:
+  #         java-version: '12.x.x'
 
-      - name: Run test
-        run: |
-          java -version
-          mvn clean test
+  #     - name: Run test
+  #       run: |
+  #         java -version
+  #         mvn clean test
 
   functional_tests:
     name: FTs - java v${{ matrix.java_version }} & ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    needs: test
+    # needs: test
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        java_version: [ '1.8', '11.x.x', '12.x.x' ]
+        os: [windows-latest]
+        java_version: [ '1.8']
     steps:
 
       - uses: actions/checkout@v1
@@ -91,81 +91,81 @@ jobs:
           name: ft-logs-${{ matrix.os }}-${{ matrix.java_version }}
           path: gauge-tests/testLogs
 
-  lsp-tests:
-    name: LSP tests - java v${{ matrix.java_version }} & ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    needs: test
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        java_version: [ '1.8', '11.x.x', '12.x.x' ]
-    steps:
-      - uses: actions/checkout@v1
+  # lsp-tests:
+  #   name: LSP tests - java v${{ matrix.java_version }} & ${{ matrix.os }}
+  #   runs-on: ${{ matrix.os }}
+  #   needs: test
+  #   strategy:
+  #     matrix:
+  #       os: [ubuntu-latest, windows-latest]
+  #       java_version: [ '1.8', '11.x.x', '12.x.x' ]
+  #   steps:
+  #     - uses: actions/checkout@v1
 
-      - name: Setup go 1.13.1
-        uses: actions/setup-go@v1
-        with:
-          go-version: 1.13.1
+  #     - name: Setup go 1.13.1
+  #       uses: actions/setup-go@v1
+  #       with:
+  #         go-version: 1.13.1
 
-      - name: Install gauge on linux
-        if: matrix.os != 'windows-latest'
-        run: |
-          git clone https://github.com/getgauge/gauge
-          cd gauge
-          go run build/make.go --verbose
-          go run build/make.go --install --prefix=/tmp/
-          echo "::add-path::/tmp/bin"
+  #     - name: Install gauge on linux
+  #       if: matrix.os != 'windows-latest'
+  #       run: |
+  #         git clone https://github.com/getgauge/gauge
+  #         cd gauge
+  #         go run build/make.go --verbose
+  #         go run build/make.go --install --prefix=/tmp/
+  #         echo "::add-path::/tmp/bin"
 
-      - name: Install gauge (windows)
-        if: matrix.os == 'windows-latest'
-        run: |
-          git clone https://github.com/getgauge/gauge
-          cd gauge
-          go run build/make.go --verbose
-          go run build/make.go --install
-          echo "::add-path::C:\Program Files\gauge\bin"
+  #     - name: Install gauge (windows)
+  #       if: matrix.os == 'windows-latest'
+  #       run: |
+  #         git clone https://github.com/getgauge/gauge
+  #         cd gauge
+  #         go run build/make.go --verbose
+  #         go run build/make.go --install
+  #         echo "::add-path::C:\Program Files\gauge\bin"
 
-      - name: Install Gauge Java plugin from source
-        if: matrix.os != 'windows-latest'
-        run: |
-          ./build.sh forceinstall
+  #     - name: Install Gauge Java plugin from source
+  #       if: matrix.os != 'windows-latest'
+  #       run: |
+  #         ./build.sh forceinstall
 
-      - name: Install Gauge Java plugin from source
-        if: matrix.os == 'windows-latest'
-        run: |
-          ./build.ps1 forceinstall
+  #     - name: Install Gauge Java plugin from source
+  #       if: matrix.os == 'windows-latest'
+  #       run: |
+  #         ./build.ps1 forceinstall
 
-      - name: Use Node.js
-        uses: actions/setup-node@v1
+  #     - name: Use Node.js
+  #       uses: actions/setup-node@v1
 
-      - name: Prep gauge-js
-        run: |
-          git clone https://github.com/getgauge/gauge-js.git
-          cd gauge-js
-          npm install
-        shell: bash
+  #     - name: Prep gauge-js
+  #       run: |
+  #         git clone https://github.com/getgauge/gauge-js.git
+  #         cd gauge-js
+  #         npm install
+  #       shell: bash
 
-      - name: Install gauge-js
-        run: |
-          cd gauge-js
-          npm run installPlugin
+  #     - name: Install gauge-js
+  #       run: |
+  #         cd gauge-js
+  #         npm run installPlugin
 
-      - name: Prep LSP tests
-        run: |
-          git clone https://github.com/getgauge/gauge-lsp-tests
-          cd gauge-lsp-tests
-          npm install
-          gauge install
-          gauge -v
+  #     - name: Prep LSP tests
+  #       run: |
+  #         git clone https://github.com/getgauge/gauge-lsp-tests
+  #         cd gauge-lsp-tests
+  #         npm install
+  #         gauge install
+  #         gauge -v
 
-      - name: Run LSP tests
-        shell: bash
-        run: |
-          cd gauge-lsp-tests
-          gauge run --tags="!knownIssue & (actions_on_project_load | actions_on_file_edit)" --env=java-wd
+  #     - name: Run LSP tests
+  #       shell: bash
+  #       run: |
+  #         cd gauge-lsp-tests
+  #         gauge run --tags="!knownIssue & (actions_on_project_load | actions_on_file_edit)" --env=java-wd
 
-      - uses: actions/upload-artifact@v1
-        if: failure()
-        with:
-          name: lsp-logs-${{ matrix.os }}-${{ matrix.java_version }}
-          path: gauge-lsp-tests/logs
+  #     - uses: actions/upload-artifact@v1
+  #       if: failure()
+  #       with:
+  #         name: lsp-logs-${{ matrix.os }}-${{ matrix.java_version }}
+  #         path: gauge-lsp-tests/logs

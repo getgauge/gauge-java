@@ -19,24 +19,28 @@ function GetAdditionalPath() {
     return ""
   }
   $libs = ""
-  foreach ($dir in $DirNames.Split(",")){
+  foreach ($dir in $DirNames.Split(",")) {
     $lib = Resolve-Path -Path $dir
     $libs = "$lib;$libs"
   }
-  return $libs 
+  return $libs
 }
 
 function ListFiles {
+  param(
+    $targetFile
+  )
+
   $dirs = "src"
-  $files = ""
   if ("$env:gauge_custom_compile_dir" -ne "") {
     $dirs = $env:gauge_custom_compile_dir
   }
   foreach ($dir in $dirs.Split(",")) {
-    $items = Get-ChildItem -Recurse -File -Include "*.java" -Path $dir | Select-Object FullName
-    $files = $items.FullName + "`n" + $files
+    Get-ChildItem -Recurse -File -Include "*.java" -Path $dir.Trim() |
+    ForEach-Object { Write-Output `"$_`" } |
+    ForEach-Object { Write-Output $_.Replace('\', '\\') } |
+    Out-File $targetFile -Append -Encoding default
   }
-  return $files
 }
 
 function BuildProject() {
@@ -45,10 +49,9 @@ function BuildProject() {
   )
   Remove-Item -Recurse -Force $DefaultBuildDir -ErrorAction SilentlyContinue
   mkdir $DefaultBuildDir > $null
-  $files = ListFiles
-  $random = (New-Guid).ToString()
+  $random = (Get-Random)
   $targetFile = Join-Path "$env:TEMP" "$random.txt"
-  Write-Output $files.Trim() | Out-File -FilePath $targetFile -Encoding default
+  ListFiles $targetFile
   javac -cp `"$global:classpath`" -encoding UTF-8 -d $DefaultBuildDir "@$targetFile"
   Remove-Item -Force $targetFile
 }
@@ -62,12 +65,15 @@ function AddClassPathRequiredForExecution() {
   $user_classpath = GetAdditionalPath $env:gauge_custom_build_path
   if ("$user_classpath" -ne "" ) {
     $global:classpath = $global:classpath + ";" + $user_classpath
-  } else {
+  }
+  else {
     if ("$env:SHOULD_BUILD_PROJECT" -ne "false") {
+      Write-Output "Starting build "
       BuildProject
     }
     $buildDir = Resolve-Path -Path $DefaultBuildDir
     $global:classpath = $global:classpath + ";" + $buildDir
+    Write-Output "Finale Classpath : `n $global:classpath"
   }
 }
 
@@ -88,7 +94,7 @@ $tasks.Add('start', {
     if ("$env:GAUGE_DEBUG_OPTS" -ne "" ) {
       $debugArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=$env:GAUGE_DEBUG_OPTS,timeout=25000"
       Write-Output "`nRunner Ready for Debugging"
-    } 
+    }
     java  "-Dfile.encoding=UTF-8" $debugArgs $gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start
     exit
   })
