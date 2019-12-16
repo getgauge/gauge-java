@@ -60,7 +60,9 @@ function build_project() {
     target_file="$TMPDIR$RANDOM-$RANDOM.txt"
     echo $(list_files) > $target_file
     args="-encoding UTF-8 -d ${default_build_dir} @${target_file}"
-    javac -cp "$class_path" $args
+    if [ ! -z  "$(sed '/^$/d' $target_file)" ]; then
+        javac -cp "$class_path" $args
+    fi
     rm $target_file
 }
 
@@ -95,7 +97,7 @@ function start() {
         add_class_path_required_for_execution
     fi
     args="-Dfile.encoding=UTF-8"
-    if [ ! -z "${gauge_jvm_args}"]; then
+    if [ ! -z "${gauge_jvm_args}" ]; then
         args="${args} ${gauge_jvm_args}"
     fi
 
