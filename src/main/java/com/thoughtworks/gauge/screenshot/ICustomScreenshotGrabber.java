@@ -20,6 +20,7 @@ package com.thoughtworks.gauge.screenshot;
  * The captured screenshots can be seen on the reports on failure.
  * If multiple implementations are found, one will be picked randomly to capture screenshots.
  */
+@Deprecated
 public interface ICustomScreenshotGrabber extends ICustomScreenshot {
 
 
