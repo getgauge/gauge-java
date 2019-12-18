@@ -48,37 +48,25 @@ gauge install java --file gauge-java-0.6.5-windows.x86_64.zip
 #### Build from source
 
 The plugin is authored in [Java](https://en.wikipedia.org/wiki/Java_(programming_language)).
-Gauge is authored in golang. These are independent processes talking to each other over TCP on port GAUGE_INTERNAL_PORT (env variable) using [Protobuf](https://github.com/getgauge/gauge-proto). This project contains a launcher component (gauge-java.go) written in golang which is used to start the plugin from [gauge](https://github.com/getgauge/gauge).
+Gauge is authored in golang. These are independent processes talking to each other over TCP on port GAUGE_INTERNAL_PORT (env variable) using [Protobuf](https://github.com/getgauge/gauge-proto).
 
 ##### Additional Requirements
 Apart from [Gauge](https://gauge.org/index.html) and [Java](https://www.java.com/en/download/index.jsp) you will need
 
-* [Golang](http://golang.org/)
 * [Maven](https://maven.apache.org/)
-
+* [JQ](https://stedolan.github.io/jq/) (for unix)
 ##### Compiling
 
 ````
-go run make.go
-````
-
-For cross platform compilation (launcher)
-
-````
-go run make.go --all-platforms
+./build.sh | .\build.ps1 build
 ````
 
 ##### Installing
 
 After compilation
-````
-go run make.go --install
-````
-
-Installing to a CUSTOM_LOCATION
 
 ````
-go run make.go --install --plugin-prefix CUSTOM_LOCATION
+./build.sh | .\build.ps1 forceinstall
 ````
 
 ##### Creating distributable
@@ -86,14 +74,9 @@ go run make.go --install --plugin-prefix CUSTOM_LOCATION
 Note: Run after compiling
 
 ````
-go run make.go --distro
+./build.sh | .\build.ps1 package
 ````
 
-For distributable across platforms os, windows and linux for bith x86 and x86_64
-
-````
-go run make.go --distro --all-platforms
-````
 
 New distribution details need to be updated in the java-install.json file in  [gauge plugin repository](https://github.com/getgauge/gauge-repository) for a new verison update.
 
