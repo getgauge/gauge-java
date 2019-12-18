@@ -74,7 +74,11 @@ function add_class_path_required_for_execution() {
     fi
 
     # Add user specified class path
-    user_path=$(get_additional_path "${gauge_custom_build_path}")
+    custom_build_path="${gauge_custom_build_path}"
+    if [ -z $custom_build_path ]; then
+        custom_build_path="${GAUGE_CUSTOM_BUILD_PATH}"
+    fi
+    user_path=$(get_additional_path "${custom_build_path}")
 
     if [ ! -z "$user_path" ]; then
         class_path="${class_path}:${user_path}"
