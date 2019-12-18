@@ -86,24 +86,21 @@ public class SetupCommand implements GaugeJavaCommand {
         String projectRoot = System.getenv("GAUGE_PROJECT_ROOT");
 
         Path implFilePath = Paths.get(projectRoot, "src", "test", "java", "StepImplementation.java");
-        Logger.info(String.format("create %s", implFilePath.toString()));
         this.writeContent(implFilePath, implementation);
 
         Path propFilePath = Paths.get(projectRoot, "env", "default", "java.properties");
-        Logger.info(String.format("create %s", propFilePath.toString()));
         this.writeContent(propFilePath, properties);
 
         Path gitIgnoreFilePath = Paths.get(projectRoot, ".gitignore");
-        Logger.info(String.format("create %s", gitIgnoreFilePath.toString()));
         this.writeContent(gitIgnoreFilePath, gitIgnore);
 
         Path libsDirPath = Paths.get(projectRoot, "libs", ".gitkeep");
-        Logger.info(String.format("create %s", libsDirPath.toString()));
         this.writeContent(libsDirPath, "");
     }
 
-    private void writeContent(Path implFilePath, String content) throws IOException {
-        FileOutputStream fileOutputStream = FileUtils.openOutputStream(implFilePath.toFile(), true);
+    private void writeContent(Path templateFilePath, String content) throws IOException {
+        Logger.info(String.format("create %s", templateFilePath.toString()));
+        FileOutputStream fileOutputStream = FileUtils.openOutputStream(templateFilePath.toFile(), true);
         fileOutputStream.write(content.getBytes());
     }
 
