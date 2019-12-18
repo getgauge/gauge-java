@@ -68,12 +68,10 @@ function AddClassPathRequiredForExecution() {
   }
   else {
     if ("$env:SHOULD_BUILD_PROJECT" -ne "false") {
-      Write-Output "Starting build "
       BuildProject
     }
     $buildDir = Resolve-Path -Path $DefaultBuildDir
     $global:classpath = $global:classpath + ";" + $buildDir
-    Write-Output "Finale Classpath : `n $global:classpath"
   }
 }
 
