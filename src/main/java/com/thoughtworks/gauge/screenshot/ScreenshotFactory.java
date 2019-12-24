@@ -79,7 +79,7 @@ public class ScreenshotFactory {
 
     private File generateUniqueScreenshotFile() {
         String fileName = String.format("screenshot-%s.%s", UUID.randomUUID().toString(), IMAGE_EXTENSION);
-        Path path = Paths.get(System.getenv(GaugeConstant.SCREENSHOTS_DIR), fileName);
+        Path path = Paths.get(System.getenv(GaugeConstant.SCREENSHOTS_DIR_ENV), fileName);
         return new File(path.toAbsolutePath().toString());
     }
 
