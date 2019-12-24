@@ -37,14 +37,14 @@ import java.util.UUID;
 public class ScreenshotFactory {
 
     public static final String IMAGE_EXTENSION = "png";
-    private static Class<? extends ICustomScreenshot> customScreenshotGrabber;
+    private static Class<? extends CustomScreenshot> customScreenshotGrabber;
     private static ClassInstanceManager manager;
 
     public ScreenshotFactory(ClassInstanceManager manager) {
         this.manager = manager;
     }
 
-    static void setCustomScreenshotGrabber(Class<? extends ICustomScreenshot> customScreenGrabber) {
+    static void setCustomScreenshotGrabber(Class<? extends CustomScreenshot> customScreenGrabber) {
         customScreenshotGrabber = customScreenGrabber;
     }
 
@@ -58,9 +58,9 @@ public class ScreenshotFactory {
     private String takeScreenshot() {
         if (customScreenshotGrabber != null) {
             try {
-                ICustomScreenshot customScreenInstance = (ICustomScreenshot) manager.get(customScreenshotGrabber);
-                if (customScreenInstance instanceof ICustomScreenshotWriter) {
-                     return ((ICustomScreenshotWriter) customScreenInstance).takeScreenshot();
+                CustomScreenshot customScreenInstance = (CustomScreenshot) manager.get(customScreenshotGrabber);
+                if (customScreenInstance instanceof CustomScreenshotWriter) {
+                     return ((CustomScreenshotWriter) customScreenInstance).takeScreenshot();
                 } else {
                     byte[] bytes = ((ICustomScreenshotGrabber) customScreenInstance).takeScreenshot();
                     File file = generateUniqueScreenshotFile();

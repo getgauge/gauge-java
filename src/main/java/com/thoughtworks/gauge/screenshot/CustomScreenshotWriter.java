@@ -22,7 +22,7 @@ package com.thoughtworks.gauge.screenshot;
  * Implementation of this interface should capture screenshot and write them into a unique file
  * inside screenshots directory. Use "screenshots_dir" env to get screenshot directory path"
  */
-public interface ICustomScreenshotWriter extends ICustomScreenshot {
+public interface CustomScreenshotWriter extends CustomScreenshot {
 
     /**
      * @return Name of the screenshot file taken.

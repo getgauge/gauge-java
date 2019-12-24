@@ -21,7 +21,7 @@ package com.thoughtworks.gauge.screenshot;
  * If multiple implementations are found, one will be picked randomly to capture screenshots.
  */
 @Deprecated
-public interface ICustomScreenshotGrabber extends ICustomScreenshot {
+public interface ICustomScreenshotGrabber extends CustomScreenshot {
 
 
     /**

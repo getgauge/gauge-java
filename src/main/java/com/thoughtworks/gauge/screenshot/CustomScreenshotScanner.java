@@ -34,10 +34,10 @@ public class CustomScreenshotScanner implements IScanner {
             ScreenshotFactory.setCustomScreenshotGrabber(customScreenGrabber);
         }
 
-        Set<Class<? extends ICustomScreenshotWriter>> customScreenshotWriters = reflections.getSubTypesOf(ICustomScreenshotWriter.class);
+        Set<Class<? extends CustomScreenshotWriter>> customScreenshotWriters = reflections.getSubTypesOf(CustomScreenshotWriter.class);
 
         if (customScreenshotWriters.size() > 0) {
-            Class<? extends ICustomScreenshotWriter> customScreenWriter = customScreenshotWriters.iterator().next();
+            Class<? extends CustomScreenshotWriter> customScreenWriter = customScreenshotWriters.iterator().next();
             Logger.debug(String.format("Using %s as custom screenshot grabber", customScreenWriter.getName()));
             ScreenshotFactory.setCustomScreenshotGrabber(customScreenWriter);
         }
