@@ -43,7 +43,7 @@ jobs:
       - name: Install gauge on linux
         if: matrix.os != 'windows-latest'
         run: |
-          git clone https://github.com/getgauge/gauge
+          git clone --depth=1 https://github.com/getgauge/gauge
           cd gauge
           go run build/make.go --verbose
           go run build/make.go --install --prefix=/tmp/
@@ -52,11 +52,18 @@ jobs:
       - name: Install gauge (windows)
         if: matrix.os == 'windows-latest'
         run: |
-          git clone https://github.com/getgauge/gauge
+          git clone --depth=1 https://github.com/getgauge/gauge
           cd gauge
           go run build/make.go --verbose
           go run build/make.go --install
           echo "::add-path::C:\Program Files\gauge\bin"
+
+      - name: Install html report
+        run: |
+          git clone --depth=1 https://github.com/getgauge/html-report
+          cd html-report
+          go run build/make.go
+          go run build/make.go --install
 
       - name: Install Gauge Java plugin from source
         if: matrix.os != 'windows-latest'
@@ -70,7 +77,7 @@ jobs:
 
       - name: Clone gauge-tests
         run: |
-          git clone --depth=1 https://github.com/getgauge/gauge-tests
+          git clone --depth=1 --branch=fileBasedScreenshot https://github.com/getgauge/gauge-tests
 
       - name: Run FTs on linux
         if: matrix.os != 'windows-latest'

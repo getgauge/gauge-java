@@ -1,4 +1,4 @@
-// Copyright 2015 ThoughtWorks, Inc.
+// Copyright 2019 ThoughtWorks, Inc.
 
 // This file is part of Gauge-Java.
 
@@ -19,15 +19,14 @@ package com.thoughtworks.gauge.screenshot;
  * Implement this interface to take Custom Screenshots on Failure. It overrides the default screenshot taking mechanism.
  * The captured screenshots can be seen on the reports on failure.
  * If multiple implementations are found, one will be picked randomly to capture screenshots.
+ * Implementation of this interface should capture screenshot and write them into a unique file
+ * inside screenshots directory. Use "screenshots_dir" env to get screenshot directory path"
  */
-@Deprecated
-public interface ICustomScreenshotGrabber extends CustomScreenshot {
-
+public interface CustomScreenshotWriter extends CustomScreenshot {
 
     /**
-     * @return Byte array of the screenshot taken.
-     * Return an empty Byte array if unable to capture screen.
+     * @return Name of the screenshot file taken.
      */
-    byte[] takeScreenshot();
+    String takeScreenshot();
 
 }

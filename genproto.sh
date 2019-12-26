@@ -15,8 +15,13 @@
 #!/bin/sh
 
 #Using protoc version 2.6.1
-cd gauge-proto
-protoc --java_out=../src/main/java/ spec.proto
-protoc --java_out=../src/main/java/ messages.proto
-protoc --java_out=../src/main/java/ api.proto
-protoc --java_out=../src/main/java/ lsp.proto
+for filename in gauge-proto/*.proto; do
+  newName="$filename-bkp"
+  sed 's/option java_package = "com.thoughtworks.gauge";/option java_package = "gauge.messages";/' "$filename" > "$newName"
+  rm "$filename"
+  cp "$newName" "$filename"
+  rm "$newName"
+done
+mvn protobuf:compile-custom protobuf:compile
+cp  target/generated-sources/protobuf/java/gauge/messages/*.java src/main/java/gauge/messages
+cp  target/generated-sources/protobuf/grpc-java/gauge/messages/*.java src/main/java/gauge/messages

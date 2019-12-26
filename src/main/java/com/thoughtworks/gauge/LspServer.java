@@ -41,12 +41,10 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     @Override
     public void getStepNames(Messages.StepNamesRequest request, StreamObserver<Messages.StepNamesResponse> responseObserver) {
         IMessageProcessor processor = messageDispatcher.getProcessor(Messages.Message.MessageType.StepNamesRequest);
-        Messages.Message process = processor.process(new Messages.Message() {
-            @Override
-            public Messages.StepNamesRequest getStepNamesRequest() {
-                return request;
-            }
-        });
+        Messages.Message.Builder builder = Messages.Message.newBuilder();
+        builder.setStepNamesRequest(request);
+
+        Messages.Message process = processor.process(builder.build());
         responseObserver.onNext(process.getStepNamesResponse());
         responseObserver.onCompleted();
     }
@@ -54,12 +52,9 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     @Override
     public void cacheFile(Messages.CacheFileRequest request, StreamObserver<Lsp.Empty> responseObserver) {
         IMessageProcessor processor = messageDispatcher.getProcessor(Messages.Message.MessageType.CacheFileRequest);
-        processor.process(new Messages.Message() {
-            @Override
-            public Messages.CacheFileRequest getCacheFileRequest() {
-                return request;
-            }
-        });
+        Messages.Message.Builder builder = Messages.Message.newBuilder();
+        builder.setCacheFileRequest(request);
+        processor.process(builder.build());
         responseObserver.onNext(Lsp.Empty.newBuilder().build());
         responseObserver.onCompleted();
     }
@@ -67,12 +62,9 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     @Override
     public void getStepPositions(Messages.StepPositionsRequest request, StreamObserver<Messages.StepPositionsResponse> responseObserver) {
         IMessageProcessor processor = messageDispatcher.getProcessor(Messages.Message.MessageType.StepPositionsRequest);
-        Messages.Message process = processor.process(new Messages.Message() {
-            @Override
-            public Messages.StepPositionsRequest getStepPositionsRequest() {
-                return request;
-            }
-        });
+        Messages.Message.Builder builder = Messages.Message.newBuilder();
+        builder.setStepPositionsRequest(request);
+        Messages.Message process = processor.process(builder.build());
         responseObserver.onNext(process.getStepPositionsResponse());
         responseObserver.onCompleted();
     }
@@ -87,12 +79,9 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     @Override
     public void implementStub(Messages.StubImplementationCodeRequest request, StreamObserver<Messages.FileDiff> responseObserver) {
         IMessageProcessor processor = messageDispatcher.getProcessor(Messages.Message.MessageType.StubImplementationCodeRequest);
-        Messages.Message process = processor.process(new Messages.Message() {
-            @Override
-            public Messages.StubImplementationCodeRequest getStubImplementationCodeRequest() {
-                return request;
-            }
-        });
+        Messages.Message.Builder builder = Messages.Message.newBuilder();
+        builder.setStubImplementationCodeRequest(request);
+        Messages.Message process = processor.process(builder.build());
         responseObserver.onNext(process.getFileDiff());
         responseObserver.onCompleted();
     }
@@ -100,12 +89,9 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     @Override
     public void validateStep(Messages.StepValidateRequest request, StreamObserver<Messages.StepValidateResponse> responseObserver) {
         IMessageProcessor processor = messageDispatcher.getProcessor(Messages.Message.MessageType.StepValidateRequest);
-        Messages.Message process = processor.process(new Messages.Message() {
-            @Override
-            public Messages.StepValidateRequest getStepValidateRequest() {
-                return request;
-            }
-        });
+        Messages.Message.Builder builder = Messages.Message.newBuilder();
+        builder.setStepValidateRequest(request);
+        Messages.Message process = processor.process(builder.build());
         responseObserver.onNext(process.getStepValidateResponse());
         responseObserver.onCompleted();
     }
@@ -113,12 +99,9 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     @Override
     public void refactor(Messages.RefactorRequest request, StreamObserver<Messages.RefactorResponse> responseObserver) {
         IMessageProcessor processor = messageDispatcher.getProcessor(Messages.Message.MessageType.RefactorRequest);
-        Messages.Message process = processor.process(new Messages.Message() {
-            @Override
-            public Messages.RefactorRequest getRefactorRequest() {
-                return request;
-            }
-        });
+        Messages.Message.Builder builder = Messages.Message.newBuilder();
+        builder.setRefactorRequest(request);
+        Messages.Message process = processor.process(builder.build());
         responseObserver.onNext(process.getRefactorResponse());
         responseObserver.onCompleted();
     }
@@ -126,12 +109,9 @@ public class LspServer extends lspServiceGrpc.lspServiceImplBase {
     @Override
     public void getStepName(Messages.StepNameRequest request, StreamObserver<Messages.StepNameResponse> responseObserver) {
         IMessageProcessor processor = messageDispatcher.getProcessor(Messages.Message.MessageType.StepNameRequest);
-        Messages.Message process = processor.process(new Messages.Message() {
-            @Override
-            public Messages.StepNameRequest getStepNameRequest() {
-                return request;
-            }
-        });
+        Messages.Message.Builder builder = Messages.Message.newBuilder();
+        builder.setStepNameRequest(request);
+        Messages.Message process = processor.process(builder.build());
         responseObserver.onNext(process.getStepNameResponse());
         responseObserver.onCompleted();
     }

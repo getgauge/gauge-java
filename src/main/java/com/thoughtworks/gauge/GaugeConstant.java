@@ -23,4 +23,5 @@ public class GaugeConstant {
     public static final String GAUGE_PROJECT_ROOT = "GAUGE_PROJECT_ROOT";
     public static final String GAUGE_CUSTOM_COMPILE_DIR = "gauge_custom_compile_dir";
     public static final String DEFAULT_SRC_DIR = "src/test/java";
+    public static final String SCREENSHOTS_DIR_ENV = "screenshots_dir";
 }

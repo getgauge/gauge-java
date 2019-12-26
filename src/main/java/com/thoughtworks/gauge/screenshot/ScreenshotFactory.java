@@ -25,7 +25,11 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.UUID;
 
 /**
  * Used to take screenshots on failure.
@@ -33,33 +37,38 @@ import java.io.ByteArrayOutputStream;
 public class ScreenshotFactory {
 
     public static final String IMAGE_EXTENSION = "png";
-    private static Class<? extends ICustomScreenshotGrabber> customScreenshotGrabber;
+    private static Class<? extends CustomScreenshot> customScreenshotGrabber;
     private static ClassInstanceManager manager;
 
     public ScreenshotFactory(ClassInstanceManager manager) {
         this.manager = manager;
     }
 
-    static void setCustomScreenshotGrabber(Class<? extends ICustomScreenshotGrabber> customScreenGrabber) {
+    static void setCustomScreenshotGrabber(Class<? extends CustomScreenshot> customScreenGrabber) {
         customScreenshotGrabber = customScreenGrabber;
     }
 
-    public byte[] getScreenshotBytes() {
+    public String getScreenshotBytes() {
         if (shouldTakeScreenshot()) {
             return takeScreenshot();
         }
-        return new byte[0];
+        return "";
     }
 
-    private byte[] takeScreenshot() {
+    private String takeScreenshot() {
         if (customScreenshotGrabber != null) {
             try {
-                ICustomScreenshotGrabber customScreenGrabberInstance = (ICustomScreenshotGrabber) manager.get(customScreenshotGrabber);
-                byte[] bytes = customScreenGrabberInstance.takeScreenshot();
-                if (bytes == null) {
-                    bytes = new byte[0];
+                CustomScreenshot customScreenInstance = (CustomScreenshot) manager.get(customScreenshotGrabber);
+                if (customScreenInstance instanceof CustomScreenshotWriter) {
+                     return ((CustomScreenshotWriter) customScreenInstance).takeScreenshot();
+                } else {
+                    byte[] bytes = ((ICustomScreenshotGrabber) customScreenInstance).takeScreenshot();
+                    File file = generateUniqueScreenshotFile();
+                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+                    BufferedImage bufferedImage = ImageIO.read(byteArrayInputStream);
+                    ImageIO.write(bufferedImage, IMAGE_EXTENSION, file);
+                    return file.getName();
                 }
-                return bytes;
             } catch (Exception e) {
                 Logger.error(String.format("Failed to take Custom screenshot: %s : %s", customScreenshotGrabber.getCanonicalName(), e.getMessage()));
                 Logger.warning("Capturing regular screenshot..");
@@ -68,8 +77,14 @@ public class ScreenshotFactory {
         return captureScreen();
     }
 
-    private byte[] captureScreen() {
-        ByteArrayOutputStream imageBytes = new ByteArrayOutputStream();
+    private File generateUniqueScreenshotFile() {
+        String fileName = String.format("screenshot-%s.%s", UUID.randomUUID().toString(), IMAGE_EXTENSION);
+        Path path = Paths.get(System.getenv(GaugeConstant.SCREENSHOTS_DIR_ENV), fileName);
+        return new File(path.toAbsolutePath().toString());
+    }
+
+    private String captureScreen() {
+        File file = generateUniqueScreenshotFile();
         if (shouldTakeScreenshot()) {
             try {
                 // Union together all screen devices for 1 large screenshot
@@ -78,13 +93,12 @@ public class ScreenshotFactory {
                     screenRect = screenRect.union(gd.getDefaultConfiguration().getBounds());
                 }
                 BufferedImage image = new Robot().createScreenCapture(screenRect);
-                ImageIO.write(image, IMAGE_EXTENSION, imageBytes);
+                ImageIO.write(image, IMAGE_EXTENSION, file);
             } catch (Throwable e) {
                 Logger.error("Failed to take regular screenshot: " + e.getMessage());
-                return new byte[0];
             }
         }
-        return imageBytes.toByteArray();
+        return file.getName();
     }
 
     private boolean shouldTakeScreenshot() {

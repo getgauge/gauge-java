@@ -492,53 +492,133 @@ public final class Spec {
 
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 12;</code>
+     * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getPreHookScreenshotsList();
+    @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getPreHookScreenshotsList();
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 12;</code>
+     * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
      */
-    int getPreHookScreenshotsCount();
+    @java.lang.Deprecated int getPreHookScreenshotsCount();
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 12;</code>
+     * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
      */
-    com.google.protobuf.ByteString getPreHookScreenshots(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getPreHookScreenshots(int index);
 
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 13;</code>
+     * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getPostHookScreenshotsList();
+    @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getPostHookScreenshotsList();
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 13;</code>
+     * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
      */
-    int getPostHookScreenshotsCount();
+    @java.lang.Deprecated int getPostHookScreenshotsCount();
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 13;</code>
+     * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
      */
-    com.google.protobuf.ByteString getPostHookScreenshots(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getPostHookScreenshots(int index);
+
+    /**
+     * <pre>
+     *&#47; meta field to indicate the number of items in the list
+     * / used when items are sent as individual chunk
+     * </pre>
+     *
+     * <code>int64 itemCount = 14;</code>
+     */
+    long getItemCount();
+
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 15;</code>
+     */
+    java.util.List<java.lang.String>
+        getPreHookScreenshotFilesList();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 15;</code>
+     */
+    int getPreHookScreenshotFilesCount();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 15;</code>
+     */
+    java.lang.String getPreHookScreenshotFiles(int index);
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 15;</code>
+     */
+    com.google.protobuf.ByteString
+        getPreHookScreenshotFilesBytes(int index);
+
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 16;</code>
+     */
+    java.util.List<java.lang.String>
+        getPostHookScreenshotFilesList();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 16;</code>
+     */
+    int getPostHookScreenshotFilesCount();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 16;</code>
+     */
+    java.lang.String getPostHookScreenshotFiles(int index);
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 16;</code>
+     */
+    com.google.protobuf.ByteString
+        getPostHookScreenshotFilesBytes(int index);
   }
   /**
    * <pre>
@@ -571,6 +651,9 @@ public final class Spec {
       postHookMessage_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       preHookScreenshots_ = java.util.Collections.emptyList();
       postHookScreenshots_ = java.util.Collections.emptyList();
+      itemCount_ = 0L;
+      preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -702,6 +785,29 @@ public final class Spec {
               postHookScreenshots_.add(input.readBytes());
               break;
             }
+            case 112: {
+
+              itemCount_ = input.readInt64();
+              break;
+            }
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
+                preHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00004000;
+              }
+              preHookScreenshotFiles_.add(s);
+              break;
+            }
+            case 130: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+                postHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00008000;
+              }
+              postHookScreenshotFiles_.add(s);
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -746,6 +852,12 @@ public final class Spec {
         }
         if (((mutable_bitField0_ & 0x00001000) == 0x00001000)) {
           postHookScreenshots_ = java.util.Collections.unmodifiableList(postHookScreenshots_);
+        }
+        if (((mutable_bitField0_ & 0x00004000) == 0x00004000)) {
+          preHookScreenshotFiles_ = preHookScreenshotFiles_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00008000) == 0x00008000)) {
+          postHookScreenshotFiles_ = postHookScreenshotFiles_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1256,33 +1368,33 @@ public final class Spec {
     private java.util.List<com.google.protobuf.ByteString> preHookScreenshots_;
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 12;</code>
+     * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
+    @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
         getPreHookScreenshotsList() {
       return preHookScreenshots_;
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 12;</code>
+     * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
      */
-    public int getPreHookScreenshotsCount() {
+    @java.lang.Deprecated public int getPreHookScreenshotsCount() {
       return preHookScreenshots_.size();
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 12;</code>
+     * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
      */
-    public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
       return preHookScreenshots_.get(index);
     }
 
@@ -1290,34 +1402,138 @@ public final class Spec {
     private java.util.List<com.google.protobuf.ByteString> postHookScreenshots_;
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 13;</code>
+     * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
+    @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
         getPostHookScreenshotsList() {
       return postHookScreenshots_;
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 13;</code>
+     * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
      */
-    public int getPostHookScreenshotsCount() {
+    @java.lang.Deprecated public int getPostHookScreenshotsCount() {
       return postHookScreenshots_.size();
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 13;</code>
+     * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
      */
-    public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
       return postHookScreenshots_.get(index);
+    }
+
+    public static final int ITEMCOUNT_FIELD_NUMBER = 14;
+    private long itemCount_;
+    /**
+     * <pre>
+     *&#47; meta field to indicate the number of items in the list
+     * / used when items are sent as individual chunk
+     * </pre>
+     *
+     * <code>int64 itemCount = 14;</code>
+     */
+    public long getItemCount() {
+      return itemCount_;
+    }
+
+    public static final int PREHOOKSCREENSHOTFILES_FIELD_NUMBER = 15;
+    private com.google.protobuf.LazyStringList preHookScreenshotFiles_;
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 15;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPreHookScreenshotFilesList() {
+      return preHookScreenshotFiles_;
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 15;</code>
+     */
+    public int getPreHookScreenshotFilesCount() {
+      return preHookScreenshotFiles_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 15;</code>
+     */
+    public java.lang.String getPreHookScreenshotFiles(int index) {
+      return preHookScreenshotFiles_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 15;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPreHookScreenshotFilesBytes(int index) {
+      return preHookScreenshotFiles_.getByteString(index);
+    }
+
+    public static final int POSTHOOKSCREENSHOTFILES_FIELD_NUMBER = 16;
+    private com.google.protobuf.LazyStringList postHookScreenshotFiles_;
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 16;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPostHookScreenshotFilesList() {
+      return postHookScreenshotFiles_;
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 16;</code>
+     */
+    public int getPostHookScreenshotFilesCount() {
+      return postHookScreenshotFiles_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 16;</code>
+     */
+    public java.lang.String getPostHookScreenshotFiles(int index) {
+      return postHookScreenshotFiles_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 16;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPostHookScreenshotFilesBytes(int index) {
+      return postHookScreenshotFiles_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1372,6 +1588,15 @@ public final class Spec {
       }
       for (int i = 0; i < postHookScreenshots_.size(); i++) {
         output.writeBytes(13, postHookScreenshots_.get(i));
+      }
+      if (itemCount_ != 0L) {
+        output.writeInt64(14, itemCount_);
+      }
+      for (int i = 0; i < preHookScreenshotFiles_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, preHookScreenshotFiles_.getRaw(i));
+      }
+      for (int i = 0; i < postHookScreenshotFiles_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 16, postHookScreenshotFiles_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -1462,6 +1687,26 @@ public final class Spec {
         size += dataSize;
         size += 1 * getPostHookScreenshotsList().size();
       }
+      if (itemCount_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(14, itemCount_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < preHookScreenshotFiles_.size(); i++) {
+          dataSize += computeStringSizeNoTag(preHookScreenshotFiles_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPreHookScreenshotFilesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < postHookScreenshotFiles_.size(); i++) {
+          dataSize += computeStringSizeNoTag(postHookScreenshotFiles_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getPostHookScreenshotFilesList().size();
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1504,6 +1749,12 @@ public final class Spec {
           .equals(other.getPreHookScreenshotsList());
       result = result && getPostHookScreenshotsList()
           .equals(other.getPostHookScreenshotsList());
+      result = result && (getItemCount()
+          == other.getItemCount());
+      result = result && getPreHookScreenshotFilesList()
+          .equals(other.getPreHookScreenshotFilesList());
+      result = result && getPostHookScreenshotFilesList()
+          .equals(other.getPostHookScreenshotFilesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1561,6 +1812,17 @@ public final class Spec {
       if (getPostHookScreenshotsCount() > 0) {
         hash = (37 * hash) + POSTHOOKSCREENSHOTS_FIELD_NUMBER;
         hash = (53 * hash) + getPostHookScreenshotsList().hashCode();
+      }
+      hash = (37 * hash) + ITEMCOUNT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getItemCount());
+      if (getPreHookScreenshotFilesCount() > 0) {
+        hash = (37 * hash) + PREHOOKSCREENSHOTFILES_FIELD_NUMBER;
+        hash = (53 * hash) + getPreHookScreenshotFilesList().hashCode();
+      }
+      if (getPostHookScreenshotFilesCount() > 0) {
+        hash = (37 * hash) + POSTHOOKSCREENSHOTFILES_FIELD_NUMBER;
+        hash = (53 * hash) + getPostHookScreenshotFilesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1741,6 +2003,12 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000800);
         postHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00001000);
+        itemCount_ = 0L;
+
+        preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00004000);
+        postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00008000);
         return this;
       }
 
@@ -1834,6 +2102,17 @@ public final class Spec {
           bitField0_ = (bitField0_ & ~0x00001000);
         }
         result.postHookScreenshots_ = postHookScreenshots_;
+        result.itemCount_ = itemCount_;
+        if (((bitField0_ & 0x00004000) == 0x00004000)) {
+          preHookScreenshotFiles_ = preHookScreenshotFiles_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00004000);
+        }
+        result.preHookScreenshotFiles_ = preHookScreenshotFiles_;
+        if (((bitField0_ & 0x00008000) == 0x00008000)) {
+          postHookScreenshotFiles_ = postHookScreenshotFiles_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00008000);
+        }
+        result.postHookScreenshotFiles_ = postHookScreenshotFiles_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2039,6 +2318,29 @@ public final class Spec {
           } else {
             ensurePostHookScreenshotsIsMutable();
             postHookScreenshots_.addAll(other.postHookScreenshots_);
+          }
+          onChanged();
+        }
+        if (other.getItemCount() != 0L) {
+          setItemCount(other.getItemCount());
+        }
+        if (!other.preHookScreenshotFiles_.isEmpty()) {
+          if (preHookScreenshotFiles_.isEmpty()) {
+            preHookScreenshotFiles_ = other.preHookScreenshotFiles_;
+            bitField0_ = (bitField0_ & ~0x00004000);
+          } else {
+            ensurePreHookScreenshotFilesIsMutable();
+            preHookScreenshotFiles_.addAll(other.preHookScreenshotFiles_);
+          }
+          onChanged();
+        }
+        if (!other.postHookScreenshotFiles_.isEmpty()) {
+          if (postHookScreenshotFiles_.isEmpty()) {
+            postHookScreenshotFiles_ = other.postHookScreenshotFiles_;
+            bitField0_ = (bitField0_ & ~0x00008000);
+          } else {
+            ensurePostHookScreenshotFilesIsMutable();
+            postHookScreenshotFiles_.addAll(other.postHookScreenshotFiles_);
           }
           onChanged();
         }
@@ -3883,43 +4185,43 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 12;</code>
+       * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
+      @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
           getPreHookScreenshotsList() {
         return java.util.Collections.unmodifiableList(preHookScreenshots_);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 12;</code>
+       * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
        */
-      public int getPreHookScreenshotsCount() {
+      @java.lang.Deprecated public int getPreHookScreenshotsCount() {
         return preHookScreenshots_.size();
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 12;</code>
+       * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
        */
-      public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
         return preHookScreenshots_.get(index);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 12;</code>
+       * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
        */
-      public Builder setPreHookScreenshots(
+      @java.lang.Deprecated public Builder setPreHookScreenshots(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -3931,12 +4233,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 12;</code>
+       * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
        */
-      public Builder addPreHookScreenshots(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder addPreHookScreenshots(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3947,12 +4249,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 12;</code>
+       * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
        */
-      public Builder addAllPreHookScreenshots(
+      @java.lang.Deprecated public Builder addAllPreHookScreenshots(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensurePreHookScreenshotsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3962,12 +4264,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 12;</code>
+       * <code>repeated bytes preHookScreenshots = 12 [deprecated = true];</code>
        */
-      public Builder clearPreHookScreenshots() {
+      @java.lang.Deprecated public Builder clearPreHookScreenshots() {
         preHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000800);
         onChanged();
@@ -3983,43 +4285,43 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 13;</code>
+       * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
+      @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
           getPostHookScreenshotsList() {
         return java.util.Collections.unmodifiableList(postHookScreenshots_);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 13;</code>
+       * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
        */
-      public int getPostHookScreenshotsCount() {
+      @java.lang.Deprecated public int getPostHookScreenshotsCount() {
         return postHookScreenshots_.size();
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 13;</code>
+       * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
        */
-      public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
         return postHookScreenshots_.get(index);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 13;</code>
+       * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
        */
-      public Builder setPostHookScreenshots(
+      @java.lang.Deprecated public Builder setPostHookScreenshots(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -4031,12 +4333,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 13;</code>
+       * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
        */
-      public Builder addPostHookScreenshots(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder addPostHookScreenshots(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -4047,12 +4349,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 13;</code>
+       * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
        */
-      public Builder addAllPostHookScreenshots(
+      @java.lang.Deprecated public Builder addAllPostHookScreenshots(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensurePostHookScreenshotsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -4062,14 +4364,315 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 13;</code>
+       * <code>repeated bytes postHookScreenshots = 13 [deprecated = true];</code>
        */
-      public Builder clearPostHookScreenshots() {
+      @java.lang.Deprecated public Builder clearPostHookScreenshots() {
         postHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00001000);
+        onChanged();
+        return this;
+      }
+
+      private long itemCount_ ;
+      /**
+       * <pre>
+       *&#47; meta field to indicate the number of items in the list
+       * / used when items are sent as individual chunk
+       * </pre>
+       *
+       * <code>int64 itemCount = 14;</code>
+       */
+      public long getItemCount() {
+        return itemCount_;
+      }
+      /**
+       * <pre>
+       *&#47; meta field to indicate the number of items in the list
+       * / used when items are sent as individual chunk
+       * </pre>
+       *
+       * <code>int64 itemCount = 14;</code>
+       */
+      public Builder setItemCount(long value) {
+        
+        itemCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; meta field to indicate the number of items in the list
+       * / used when items are sent as individual chunk
+       * </pre>
+       *
+       * <code>int64 itemCount = 14;</code>
+       */
+      public Builder clearItemCount() {
+        
+        itemCount_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePreHookScreenshotFilesIsMutable() {
+        if (!((bitField0_ & 0x00004000) == 0x00004000)) {
+          preHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList(preHookScreenshotFiles_);
+          bitField0_ |= 0x00004000;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 15;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPreHookScreenshotFilesList() {
+        return preHookScreenshotFiles_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 15;</code>
+       */
+      public int getPreHookScreenshotFilesCount() {
+        return preHookScreenshotFiles_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 15;</code>
+       */
+      public java.lang.String getPreHookScreenshotFiles(int index) {
+        return preHookScreenshotFiles_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 15;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPreHookScreenshotFilesBytes(int index) {
+        return preHookScreenshotFiles_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 15;</code>
+       */
+      public Builder setPreHookScreenshotFiles(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 15;</code>
+       */
+      public Builder addPreHookScreenshotFiles(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 15;</code>
+       */
+      public Builder addAllPreHookScreenshotFiles(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePreHookScreenshotFilesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, preHookScreenshotFiles_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 15;</code>
+       */
+      public Builder clearPreHookScreenshotFiles() {
+        preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00004000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 15;</code>
+       */
+      public Builder addPreHookScreenshotFilesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePostHookScreenshotFilesIsMutable() {
+        if (!((bitField0_ & 0x00008000) == 0x00008000)) {
+          postHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList(postHookScreenshotFiles_);
+          bitField0_ |= 0x00008000;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 16;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPostHookScreenshotFilesList() {
+        return postHookScreenshotFiles_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 16;</code>
+       */
+      public int getPostHookScreenshotFilesCount() {
+        return postHookScreenshotFiles_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 16;</code>
+       */
+      public java.lang.String getPostHookScreenshotFiles(int index) {
+        return postHookScreenshotFiles_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 16;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPostHookScreenshotFilesBytes(int index) {
+        return postHookScreenshotFiles_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 16;</code>
+       */
+      public Builder setPostHookScreenshotFiles(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 16;</code>
+       */
+      public Builder addPostHookScreenshotFiles(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 16;</code>
+       */
+      public Builder addAllPostHookScreenshotFiles(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePostHookScreenshotFilesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, postHookScreenshotFiles_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 16;</code>
+       */
+      public Builder clearPostHookScreenshotFiles() {
+        postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00008000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 16;</code>
+       */
+      public Builder addPostHookScreenshotFilesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.add(value);
         onChanged();
         return this;
       }
@@ -4321,6 +4924,24 @@ public final class Spec {
      * <code>.gauge.messages.ProtoTags tags = 8;</code>
      */
     gauge.messages.Spec.ProtoTagsOrBuilder getTagsOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Holds the Filename that the item belongs to
+     * </pre>
+     *
+     * <code>string fileName = 9;</code>
+     */
+    java.lang.String getFileName();
+    /**
+     * <pre>
+     *&#47; Holds the Filename that the item belongs to
+     * </pre>
+     *
+     * <code>string fileName = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getFileNameBytes();
   }
   /**
    * <pre>
@@ -4340,6 +4961,7 @@ public final class Spec {
     }
     private ProtoItem() {
       itemType_ = 0;
+      fileName_ = "";
     }
 
     @java.lang.Override
@@ -4461,6 +5083,12 @@ public final class Spec {
                 tags_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              fileName_ = s;
               break;
             }
             default: {
@@ -4954,6 +5582,48 @@ public final class Spec {
       return getTags();
     }
 
+    public static final int FILENAME_FIELD_NUMBER = 9;
+    private volatile java.lang.Object fileName_;
+    /**
+     * <pre>
+     *&#47; Holds the Filename that the item belongs to
+     * </pre>
+     *
+     * <code>string fileName = 9;</code>
+     */
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Holds the Filename that the item belongs to
+     * </pre>
+     *
+     * <code>string fileName = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4991,6 +5661,9 @@ public final class Spec {
       }
       if (tags_ != null) {
         output.writeMessage(8, getTags());
+      }
+      if (!getFileNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, fileName_);
       }
       unknownFields.writeTo(output);
     }
@@ -5032,6 +5705,9 @@ public final class Spec {
       if (tags_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getTags());
+      }
+      if (!getFileNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, fileName_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5085,6 +5761,8 @@ public final class Spec {
         result = result && getTags()
             .equals(other.getTags());
       }
+      result = result && getFileName()
+          .equals(other.getFileName());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5126,6 +5804,8 @@ public final class Spec {
         hash = (37 * hash) + TAGS_FIELD_NUMBER;
         hash = (53 * hash) + getTags().hashCode();
       }
+      hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFileName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5307,6 +5987,8 @@ public final class Spec {
           tags_ = null;
           tagsBuilder_ = null;
         }
+        fileName_ = "";
+
         return this;
       }
 
@@ -5369,6 +6051,7 @@ public final class Spec {
         } else {
           result.tags_ = tagsBuilder_.build();
         }
+        result.fileName_ = fileName_;
         onBuilt();
         return result;
       }
@@ -5440,6 +6123,10 @@ public final class Spec {
         }
         if (other.hasTags()) {
           mergeTags(other.getTags());
+        }
+        if (!other.getFileName().isEmpty()) {
+          fileName_ = other.fileName_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6605,6 +7292,95 @@ public final class Spec {
         }
         return tagsBuilder_;
       }
+
+      private java.lang.Object fileName_ = "";
+      /**
+       * <pre>
+       *&#47; Holds the Filename that the item belongs to
+       * </pre>
+       *
+       * <code>string fileName = 9;</code>
+       */
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fileName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the Filename that the item belongs to
+       * </pre>
+       *
+       * <code>string fileName = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the Filename that the item belongs to
+       * </pre>
+       *
+       * <code>string fileName = 9;</code>
+       */
+      public Builder setFileName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the Filename that the item belongs to
+       * </pre>
+       *
+       * <code>string fileName = 9;</code>
+       */
+      public Builder clearFileName() {
+        
+        fileName_ = getDefaultInstance().getFileName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the Filename that the item belongs to
+       * </pre>
+       *
+       * <code>string fileName = 9;</code>
+       */
+      public Builder setFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7161,53 +7937,123 @@ public final class Spec {
 
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 19;</code>
+     * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getPreHookScreenshotsList();
+    @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getPreHookScreenshotsList();
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 19;</code>
+     * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
      */
-    int getPreHookScreenshotsCount();
+    @java.lang.Deprecated int getPreHookScreenshotsCount();
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 19;</code>
+     * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
      */
-    com.google.protobuf.ByteString getPreHookScreenshots(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getPreHookScreenshots(int index);
 
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 20;</code>
+     * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getPostHookScreenshotsList();
+    @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getPostHookScreenshotsList();
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 20;</code>
+     * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
      */
-    int getPostHookScreenshotsCount();
+    @java.lang.Deprecated int getPostHookScreenshotsCount();
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 20;</code>
+     * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
      */
-    com.google.protobuf.ByteString getPostHookScreenshots(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getPostHookScreenshots(int index);
+
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    java.util.List<java.lang.String>
+        getPreHookScreenshotFilesList();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    int getPreHookScreenshotFilesCount();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    java.lang.String getPreHookScreenshotFiles(int index);
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    com.google.protobuf.ByteString
+        getPreHookScreenshotFilesBytes(int index);
+
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    java.util.List<java.lang.String>
+        getPostHookScreenshotFilesList();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    int getPostHookScreenshotFilesCount();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    java.lang.String getPostHookScreenshotFiles(int index);
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    com.google.protobuf.ByteString
+        getPostHookScreenshotFilesBytes(int index);
   }
   /**
    * <pre>
@@ -7243,6 +8089,8 @@ public final class Spec {
       postHookMessage_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       preHookScreenshots_ = java.util.Collections.emptyList();
       postHookScreenshots_ = java.util.Collections.emptyList();
+      preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -7438,6 +8286,24 @@ public final class Spec {
               postHookScreenshots_.add(input.readBytes());
               break;
             }
+            case 170: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+                preHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00100000;
+              }
+              preHookScreenshotFiles_.add(s);
+              break;
+            }
+            case 178: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
+                postHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00200000;
+              }
+              postHookScreenshotFiles_.add(s);
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -7485,6 +8351,12 @@ public final class Spec {
         }
         if (((mutable_bitField0_ & 0x00080000) == 0x00080000)) {
           postHookScreenshots_ = java.util.Collections.unmodifiableList(postHookScreenshots_);
+        }
+        if (((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+          preHookScreenshotFiles_ = preHookScreenshotFiles_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
+          postHookScreenshotFiles_ = postHookScreenshotFiles_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -8190,33 +9062,33 @@ public final class Spec {
     private java.util.List<com.google.protobuf.ByteString> preHookScreenshots_;
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 19;</code>
+     * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
+    @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
         getPreHookScreenshotsList() {
       return preHookScreenshots_;
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 19;</code>
+     * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
      */
-    public int getPreHookScreenshotsCount() {
+    @java.lang.Deprecated public int getPreHookScreenshotsCount() {
       return preHookScreenshots_.size();
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 19;</code>
+     * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
      */
-    public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
       return preHookScreenshots_.get(index);
     }
 
@@ -8224,34 +9096,124 @@ public final class Spec {
     private java.util.List<com.google.protobuf.ByteString> postHookScreenshots_;
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 20;</code>
+     * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
+    @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
         getPostHookScreenshotsList() {
       return postHookScreenshots_;
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 20;</code>
+     * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
      */
-    public int getPostHookScreenshotsCount() {
+    @java.lang.Deprecated public int getPostHookScreenshotsCount() {
       return postHookScreenshots_.size();
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 20;</code>
+     * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
      */
-    public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
       return postHookScreenshots_.get(index);
+    }
+
+    public static final int PREHOOKSCREENSHOTFILES_FIELD_NUMBER = 21;
+    private com.google.protobuf.LazyStringList preHookScreenshotFiles_;
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPreHookScreenshotFilesList() {
+      return preHookScreenshotFiles_;
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    public int getPreHookScreenshotFilesCount() {
+      return preHookScreenshotFiles_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    public java.lang.String getPreHookScreenshotFiles(int index) {
+      return preHookScreenshotFiles_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPreHookScreenshotFilesBytes(int index) {
+      return preHookScreenshotFiles_.getByteString(index);
+    }
+
+    public static final int POSTHOOKSCREENSHOTFILES_FIELD_NUMBER = 22;
+    private com.google.protobuf.LazyStringList postHookScreenshotFiles_;
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPostHookScreenshotFilesList() {
+      return postHookScreenshotFiles_;
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    public int getPostHookScreenshotFilesCount() {
+      return postHookScreenshotFiles_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    public java.lang.String getPostHookScreenshotFiles(int index) {
+      return postHookScreenshotFiles_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPostHookScreenshotFilesBytes(int index) {
+      return postHookScreenshotFiles_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8327,6 +9289,12 @@ public final class Spec {
       }
       for (int i = 0; i < postHookScreenshots_.size(); i++) {
         output.writeBytes(20, postHookScreenshots_.get(i));
+      }
+      for (int i = 0; i < preHookScreenshotFiles_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 21, preHookScreenshotFiles_.getRaw(i));
+      }
+      for (int i = 0; i < postHookScreenshotFiles_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 22, postHookScreenshotFiles_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -8449,6 +9417,22 @@ public final class Spec {
         size += dataSize;
         size += 2 * getPostHookScreenshotsList().size();
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < preHookScreenshotFiles_.size(); i++) {
+          dataSize += computeStringSizeNoTag(preHookScreenshotFiles_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getPreHookScreenshotFilesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < postHookScreenshotFiles_.size(); i++) {
+          dataSize += computeStringSizeNoTag(postHookScreenshotFiles_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getPostHookScreenshotFilesList().size();
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -8513,6 +9497,10 @@ public final class Spec {
           .equals(other.getPreHookScreenshotsList());
       result = result && getPostHookScreenshotsList()
           .equals(other.getPostHookScreenshotsList());
+      result = result && getPreHookScreenshotFilesList()
+          .equals(other.getPreHookScreenshotFilesList());
+      result = result && getPostHookScreenshotFilesList()
+          .equals(other.getPostHookScreenshotFilesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -8594,6 +9582,14 @@ public final class Spec {
       if (getPostHookScreenshotsCount() > 0) {
         hash = (37 * hash) + POSTHOOKSCREENSHOTS_FIELD_NUMBER;
         hash = (53 * hash) + getPostHookScreenshotsList().hashCode();
+      }
+      if (getPreHookScreenshotFilesCount() > 0) {
+        hash = (37 * hash) + PREHOOKSCREENSHOTFILES_FIELD_NUMBER;
+        hash = (53 * hash) + getPreHookScreenshotFilesList().hashCode();
+      }
+      if (getPostHookScreenshotFilesCount() > 0) {
+        hash = (37 * hash) + POSTHOOKSCREENSHOTFILES_FIELD_NUMBER;
+        hash = (53 * hash) + getPostHookScreenshotFilesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -8799,6 +9795,10 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00040000);
         postHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00080000);
+        preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00100000);
+        postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00200000);
         return this;
       }
 
@@ -8915,6 +9915,16 @@ public final class Spec {
           bitField0_ = (bitField0_ & ~0x00080000);
         }
         result.postHookScreenshots_ = postHookScreenshots_;
+        if (((bitField0_ & 0x00100000) == 0x00100000)) {
+          preHookScreenshotFiles_ = preHookScreenshotFiles_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00100000);
+        }
+        result.preHookScreenshotFiles_ = preHookScreenshotFiles_;
+        if (((bitField0_ & 0x00200000) == 0x00200000)) {
+          postHookScreenshotFiles_ = postHookScreenshotFiles_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00200000);
+        }
+        result.postHookScreenshotFiles_ = postHookScreenshotFiles_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -9148,6 +10158,26 @@ public final class Spec {
           } else {
             ensurePostHookScreenshotsIsMutable();
             postHookScreenshots_.addAll(other.postHookScreenshots_);
+          }
+          onChanged();
+        }
+        if (!other.preHookScreenshotFiles_.isEmpty()) {
+          if (preHookScreenshotFiles_.isEmpty()) {
+            preHookScreenshotFiles_ = other.preHookScreenshotFiles_;
+            bitField0_ = (bitField0_ & ~0x00100000);
+          } else {
+            ensurePreHookScreenshotFilesIsMutable();
+            preHookScreenshotFiles_.addAll(other.preHookScreenshotFiles_);
+          }
+          onChanged();
+        }
+        if (!other.postHookScreenshotFiles_.isEmpty()) {
+          if (postHookScreenshotFiles_.isEmpty()) {
+            postHookScreenshotFiles_ = other.postHookScreenshotFiles_;
+            bitField0_ = (bitField0_ & ~0x00200000);
+          } else {
+            ensurePostHookScreenshotFilesIsMutable();
+            postHookScreenshotFiles_.addAll(other.postHookScreenshotFiles_);
           }
           onChanged();
         }
@@ -11722,43 +12752,43 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 19;</code>
+       * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
+      @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
           getPreHookScreenshotsList() {
         return java.util.Collections.unmodifiableList(preHookScreenshots_);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 19;</code>
+       * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
        */
-      public int getPreHookScreenshotsCount() {
+      @java.lang.Deprecated public int getPreHookScreenshotsCount() {
         return preHookScreenshots_.size();
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 19;</code>
+       * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
        */
-      public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
         return preHookScreenshots_.get(index);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 19;</code>
+       * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
        */
-      public Builder setPreHookScreenshots(
+      @java.lang.Deprecated public Builder setPreHookScreenshots(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -11770,12 +12800,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 19;</code>
+       * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
        */
-      public Builder addPreHookScreenshots(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder addPreHookScreenshots(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -11786,12 +12816,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 19;</code>
+       * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
        */
-      public Builder addAllPreHookScreenshots(
+      @java.lang.Deprecated public Builder addAllPreHookScreenshots(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensurePreHookScreenshotsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -11801,12 +12831,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 19;</code>
+       * <code>repeated bytes preHookScreenshots = 19 [deprecated = true];</code>
        */
-      public Builder clearPreHookScreenshots() {
+      @java.lang.Deprecated public Builder clearPreHookScreenshots() {
         preHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00040000);
         onChanged();
@@ -11822,43 +12852,43 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 20;</code>
+       * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
+      @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
           getPostHookScreenshotsList() {
         return java.util.Collections.unmodifiableList(postHookScreenshots_);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 20;</code>
+       * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
        */
-      public int getPostHookScreenshotsCount() {
+      @java.lang.Deprecated public int getPostHookScreenshotsCount() {
         return postHookScreenshots_.size();
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 20;</code>
+       * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
        */
-      public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
         return postHookScreenshots_.get(index);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 20;</code>
+       * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
        */
-      public Builder setPostHookScreenshots(
+      @java.lang.Deprecated public Builder setPostHookScreenshots(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -11870,12 +12900,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 20;</code>
+       * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
        */
-      public Builder addPostHookScreenshots(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder addPostHookScreenshots(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -11886,12 +12916,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 20;</code>
+       * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
        */
-      public Builder addAllPostHookScreenshots(
+      @java.lang.Deprecated public Builder addAllPostHookScreenshots(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensurePostHookScreenshotsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -11901,14 +12931,274 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 20;</code>
+       * <code>repeated bytes postHookScreenshots = 20 [deprecated = true];</code>
        */
-      public Builder clearPostHookScreenshots() {
+      @java.lang.Deprecated public Builder clearPostHookScreenshots() {
         postHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00080000);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePreHookScreenshotFilesIsMutable() {
+        if (!((bitField0_ & 0x00100000) == 0x00100000)) {
+          preHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList(preHookScreenshotFiles_);
+          bitField0_ |= 0x00100000;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPreHookScreenshotFilesList() {
+        return preHookScreenshotFiles_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public int getPreHookScreenshotFilesCount() {
+        return preHookScreenshotFiles_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public java.lang.String getPreHookScreenshotFiles(int index) {
+        return preHookScreenshotFiles_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPreHookScreenshotFilesBytes(int index) {
+        return preHookScreenshotFiles_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public Builder setPreHookScreenshotFiles(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public Builder addPreHookScreenshotFiles(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public Builder addAllPreHookScreenshotFiles(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePreHookScreenshotFilesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, preHookScreenshotFiles_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public Builder clearPreHookScreenshotFiles() {
+        preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00100000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public Builder addPreHookScreenshotFilesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePostHookScreenshotFilesIsMutable() {
+        if (!((bitField0_ & 0x00200000) == 0x00200000)) {
+          postHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList(postHookScreenshotFiles_);
+          bitField0_ |= 0x00200000;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPostHookScreenshotFilesList() {
+        return postHookScreenshotFiles_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public int getPostHookScreenshotFilesCount() {
+        return postHookScreenshotFiles_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public java.lang.String getPostHookScreenshotFiles(int index) {
+        return postHookScreenshotFiles_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPostHookScreenshotFilesBytes(int index) {
+        return postHookScreenshotFiles_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public Builder setPostHookScreenshotFiles(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public Builder addPostHookScreenshotFiles(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public Builder addAllPostHookScreenshotFiles(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePostHookScreenshotFilesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, postHookScreenshotFiles_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public Builder clearPostHookScreenshotFiles() {
+        postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00200000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public Builder addPostHookScreenshotFilesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.add(value);
         onChanged();
         return this;
       }
@@ -12679,6 +13969,83 @@ public final class Spec {
      * <code>int32 tableRowIndex = 2;</code>
      */
     int getTableRowIndex();
+
+    /**
+     * <pre>
+     *&#47; Row Index of scenario data table against which the current scenario is executed
+     * </pre>
+     *
+     * <code>int32 scenarioTableRowIndex = 3;</code>
+     */
+    int getScenarioTableRowIndex();
+
+    /**
+     * <pre>
+     *&#47; Executed against a spec data table
+     * </pre>
+     *
+     * <code>bool isSpecTableDriven = 4;</code>
+     */
+    boolean getIsSpecTableDriven();
+
+    /**
+     * <pre>
+     *&#47; Executed against a scenario data table
+     * </pre>
+     *
+     * <code>bool isScenarioTableDriven = 5;</code>
+     */
+    boolean getIsScenarioTableDriven();
+
+    /**
+     * <pre>
+     *&#47; Holds the scenario data table
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+     */
+    boolean hasScenarioDataTable();
+    /**
+     * <pre>
+     *&#47; Holds the scenario data table
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+     */
+    gauge.messages.Spec.ProtoTable getScenarioDataTable();
+    /**
+     * <pre>
+     *&#47; Holds the scenario data table
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+     */
+    gauge.messages.Spec.ProtoTableOrBuilder getScenarioDataTableOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Hold the row of scenario data table.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+     */
+    boolean hasScenarioTableRow();
+    /**
+     * <pre>
+     *&#47; Hold the row of scenario data table.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+     */
+    gauge.messages.Spec.ProtoTable getScenarioTableRow();
+    /**
+     * <pre>
+     *&#47; Hold the row of scenario data table.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+     */
+    gauge.messages.Spec.ProtoTableOrBuilder getScenarioTableRowOrBuilder();
   }
   /**
    * <pre>
@@ -12698,6 +14065,9 @@ public final class Spec {
     }
     private ProtoTableDrivenScenario() {
       tableRowIndex_ = 0;
+      scenarioTableRowIndex_ = 0;
+      isSpecTableDriven_ = false;
+      isScenarioTableDriven_ = false;
     }
 
     @java.lang.Override
@@ -12740,6 +14110,47 @@ public final class Spec {
             case 16: {
 
               tableRowIndex_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              scenarioTableRowIndex_ = input.readInt32();
+              break;
+            }
+            case 32: {
+
+              isSpecTableDriven_ = input.readBool();
+              break;
+            }
+            case 40: {
+
+              isScenarioTableDriven_ = input.readBool();
+              break;
+            }
+            case 50: {
+              gauge.messages.Spec.ProtoTable.Builder subBuilder = null;
+              if (scenarioDataTable_ != null) {
+                subBuilder = scenarioDataTable_.toBuilder();
+              }
+              scenarioDataTable_ = input.readMessage(gauge.messages.Spec.ProtoTable.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(scenarioDataTable_);
+                scenarioDataTable_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 58: {
+              gauge.messages.Spec.ProtoTable.Builder subBuilder = null;
+              if (scenarioTableRow_ != null) {
+                subBuilder = scenarioTableRow_.toBuilder();
+              }
+              scenarioTableRow_ = input.readMessage(gauge.messages.Spec.ProtoTable.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(scenarioTableRow_);
+                scenarioTableRow_ = subBuilder.buildPartial();
+              }
+
               break;
             }
             default: {
@@ -12820,6 +14231,111 @@ public final class Spec {
       return tableRowIndex_;
     }
 
+    public static final int SCENARIOTABLEROWINDEX_FIELD_NUMBER = 3;
+    private int scenarioTableRowIndex_;
+    /**
+     * <pre>
+     *&#47; Row Index of scenario data table against which the current scenario is executed
+     * </pre>
+     *
+     * <code>int32 scenarioTableRowIndex = 3;</code>
+     */
+    public int getScenarioTableRowIndex() {
+      return scenarioTableRowIndex_;
+    }
+
+    public static final int ISSPECTABLEDRIVEN_FIELD_NUMBER = 4;
+    private boolean isSpecTableDriven_;
+    /**
+     * <pre>
+     *&#47; Executed against a spec data table
+     * </pre>
+     *
+     * <code>bool isSpecTableDriven = 4;</code>
+     */
+    public boolean getIsSpecTableDriven() {
+      return isSpecTableDriven_;
+    }
+
+    public static final int ISSCENARIOTABLEDRIVEN_FIELD_NUMBER = 5;
+    private boolean isScenarioTableDriven_;
+    /**
+     * <pre>
+     *&#47; Executed against a scenario data table
+     * </pre>
+     *
+     * <code>bool isScenarioTableDriven = 5;</code>
+     */
+    public boolean getIsScenarioTableDriven() {
+      return isScenarioTableDriven_;
+    }
+
+    public static final int SCENARIODATATABLE_FIELD_NUMBER = 6;
+    private gauge.messages.Spec.ProtoTable scenarioDataTable_;
+    /**
+     * <pre>
+     *&#47; Holds the scenario data table
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+     */
+    public boolean hasScenarioDataTable() {
+      return scenarioDataTable_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the scenario data table
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+     */
+    public gauge.messages.Spec.ProtoTable getScenarioDataTable() {
+      return scenarioDataTable_ == null ? gauge.messages.Spec.ProtoTable.getDefaultInstance() : scenarioDataTable_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds the scenario data table
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+     */
+    public gauge.messages.Spec.ProtoTableOrBuilder getScenarioDataTableOrBuilder() {
+      return getScenarioDataTable();
+    }
+
+    public static final int SCENARIOTABLEROW_FIELD_NUMBER = 7;
+    private gauge.messages.Spec.ProtoTable scenarioTableRow_;
+    /**
+     * <pre>
+     *&#47; Hold the row of scenario data table.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+     */
+    public boolean hasScenarioTableRow() {
+      return scenarioTableRow_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Hold the row of scenario data table.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+     */
+    public gauge.messages.Spec.ProtoTable getScenarioTableRow() {
+      return scenarioTableRow_ == null ? gauge.messages.Spec.ProtoTable.getDefaultInstance() : scenarioTableRow_;
+    }
+    /**
+     * <pre>
+     *&#47; Hold the row of scenario data table.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+     */
+    public gauge.messages.Spec.ProtoTableOrBuilder getScenarioTableRowOrBuilder() {
+      return getScenarioTableRow();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -12840,6 +14356,21 @@ public final class Spec {
       if (tableRowIndex_ != 0) {
         output.writeInt32(2, tableRowIndex_);
       }
+      if (scenarioTableRowIndex_ != 0) {
+        output.writeInt32(3, scenarioTableRowIndex_);
+      }
+      if (isSpecTableDriven_ != false) {
+        output.writeBool(4, isSpecTableDriven_);
+      }
+      if (isScenarioTableDriven_ != false) {
+        output.writeBool(5, isScenarioTableDriven_);
+      }
+      if (scenarioDataTable_ != null) {
+        output.writeMessage(6, getScenarioDataTable());
+      }
+      if (scenarioTableRow_ != null) {
+        output.writeMessage(7, getScenarioTableRow());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -12856,6 +14387,26 @@ public final class Spec {
       if (tableRowIndex_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, tableRowIndex_);
+      }
+      if (scenarioTableRowIndex_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, scenarioTableRowIndex_);
+      }
+      if (isSpecTableDriven_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, isSpecTableDriven_);
+      }
+      if (isScenarioTableDriven_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, isScenarioTableDriven_);
+      }
+      if (scenarioDataTable_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getScenarioDataTable());
+      }
+      if (scenarioTableRow_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getScenarioTableRow());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12880,6 +14431,22 @@ public final class Spec {
       }
       result = result && (getTableRowIndex()
           == other.getTableRowIndex());
+      result = result && (getScenarioTableRowIndex()
+          == other.getScenarioTableRowIndex());
+      result = result && (getIsSpecTableDriven()
+          == other.getIsSpecTableDriven());
+      result = result && (getIsScenarioTableDriven()
+          == other.getIsScenarioTableDriven());
+      result = result && (hasScenarioDataTable() == other.hasScenarioDataTable());
+      if (hasScenarioDataTable()) {
+        result = result && getScenarioDataTable()
+            .equals(other.getScenarioDataTable());
+      }
+      result = result && (hasScenarioTableRow() == other.hasScenarioTableRow());
+      if (hasScenarioTableRow()) {
+        result = result && getScenarioTableRow()
+            .equals(other.getScenarioTableRow());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -12897,6 +14464,22 @@ public final class Spec {
       }
       hash = (37 * hash) + TABLEROWINDEX_FIELD_NUMBER;
       hash = (53 * hash) + getTableRowIndex();
+      hash = (37 * hash) + SCENARIOTABLEROWINDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getScenarioTableRowIndex();
+      hash = (37 * hash) + ISSPECTABLEDRIVEN_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsSpecTableDriven());
+      hash = (37 * hash) + ISSCENARIOTABLEDRIVEN_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsScenarioTableDriven());
+      if (hasScenarioDataTable()) {
+        hash = (37 * hash) + SCENARIODATATABLE_FIELD_NUMBER;
+        hash = (53 * hash) + getScenarioDataTable().hashCode();
+      }
+      if (hasScenarioTableRow()) {
+        hash = (37 * hash) + SCENARIOTABLEROW_FIELD_NUMBER;
+        hash = (53 * hash) + getScenarioTableRow().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -13042,6 +14625,24 @@ public final class Spec {
         }
         tableRowIndex_ = 0;
 
+        scenarioTableRowIndex_ = 0;
+
+        isSpecTableDriven_ = false;
+
+        isScenarioTableDriven_ = false;
+
+        if (scenarioDataTableBuilder_ == null) {
+          scenarioDataTable_ = null;
+        } else {
+          scenarioDataTable_ = null;
+          scenarioDataTableBuilder_ = null;
+        }
+        if (scenarioTableRowBuilder_ == null) {
+          scenarioTableRow_ = null;
+        } else {
+          scenarioTableRow_ = null;
+          scenarioTableRowBuilder_ = null;
+        }
         return this;
       }
 
@@ -13074,6 +14675,19 @@ public final class Spec {
           result.scenario_ = scenarioBuilder_.build();
         }
         result.tableRowIndex_ = tableRowIndex_;
+        result.scenarioTableRowIndex_ = scenarioTableRowIndex_;
+        result.isSpecTableDriven_ = isSpecTableDriven_;
+        result.isScenarioTableDriven_ = isScenarioTableDriven_;
+        if (scenarioDataTableBuilder_ == null) {
+          result.scenarioDataTable_ = scenarioDataTable_;
+        } else {
+          result.scenarioDataTable_ = scenarioDataTableBuilder_.build();
+        }
+        if (scenarioTableRowBuilder_ == null) {
+          result.scenarioTableRow_ = scenarioTableRow_;
+        } else {
+          result.scenarioTableRow_ = scenarioTableRowBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -13127,6 +14741,21 @@ public final class Spec {
         }
         if (other.getTableRowIndex() != 0) {
           setTableRowIndex(other.getTableRowIndex());
+        }
+        if (other.getScenarioTableRowIndex() != 0) {
+          setScenarioTableRowIndex(other.getScenarioTableRowIndex());
+        }
+        if (other.getIsSpecTableDriven() != false) {
+          setIsSpecTableDriven(other.getIsSpecTableDriven());
+        }
+        if (other.getIsScenarioTableDriven() != false) {
+          setIsScenarioTableDriven(other.getIsScenarioTableDriven());
+        }
+        if (other.hasScenarioDataTable()) {
+          mergeScenarioDataTable(other.getScenarioDataTable());
+        }
+        if (other.hasScenarioTableRow()) {
+          mergeScenarioTableRow(other.getScenarioTableRow());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -13346,6 +14975,426 @@ public final class Spec {
         tableRowIndex_ = 0;
         onChanged();
         return this;
+      }
+
+      private int scenarioTableRowIndex_ ;
+      /**
+       * <pre>
+       *&#47; Row Index of scenario data table against which the current scenario is executed
+       * </pre>
+       *
+       * <code>int32 scenarioTableRowIndex = 3;</code>
+       */
+      public int getScenarioTableRowIndex() {
+        return scenarioTableRowIndex_;
+      }
+      /**
+       * <pre>
+       *&#47; Row Index of scenario data table against which the current scenario is executed
+       * </pre>
+       *
+       * <code>int32 scenarioTableRowIndex = 3;</code>
+       */
+      public Builder setScenarioTableRowIndex(int value) {
+        
+        scenarioTableRowIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Row Index of scenario data table against which the current scenario is executed
+       * </pre>
+       *
+       * <code>int32 scenarioTableRowIndex = 3;</code>
+       */
+      public Builder clearScenarioTableRowIndex() {
+        
+        scenarioTableRowIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean isSpecTableDriven_ ;
+      /**
+       * <pre>
+       *&#47; Executed against a spec data table
+       * </pre>
+       *
+       * <code>bool isSpecTableDriven = 4;</code>
+       */
+      public boolean getIsSpecTableDriven() {
+        return isSpecTableDriven_;
+      }
+      /**
+       * <pre>
+       *&#47; Executed against a spec data table
+       * </pre>
+       *
+       * <code>bool isSpecTableDriven = 4;</code>
+       */
+      public Builder setIsSpecTableDriven(boolean value) {
+        
+        isSpecTableDriven_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Executed against a spec data table
+       * </pre>
+       *
+       * <code>bool isSpecTableDriven = 4;</code>
+       */
+      public Builder clearIsSpecTableDriven() {
+        
+        isSpecTableDriven_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean isScenarioTableDriven_ ;
+      /**
+       * <pre>
+       *&#47; Executed against a scenario data table
+       * </pre>
+       *
+       * <code>bool isScenarioTableDriven = 5;</code>
+       */
+      public boolean getIsScenarioTableDriven() {
+        return isScenarioTableDriven_;
+      }
+      /**
+       * <pre>
+       *&#47; Executed against a scenario data table
+       * </pre>
+       *
+       * <code>bool isScenarioTableDriven = 5;</code>
+       */
+      public Builder setIsScenarioTableDriven(boolean value) {
+        
+        isScenarioTableDriven_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Executed against a scenario data table
+       * </pre>
+       *
+       * <code>bool isScenarioTableDriven = 5;</code>
+       */
+      public Builder clearIsScenarioTableDriven() {
+        
+        isScenarioTableDriven_ = false;
+        onChanged();
+        return this;
+      }
+
+      private gauge.messages.Spec.ProtoTable scenarioDataTable_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder> scenarioDataTableBuilder_;
+      /**
+       * <pre>
+       *&#47; Holds the scenario data table
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+       */
+      public boolean hasScenarioDataTable() {
+        return scenarioDataTableBuilder_ != null || scenarioDataTable_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenario data table
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+       */
+      public gauge.messages.Spec.ProtoTable getScenarioDataTable() {
+        if (scenarioDataTableBuilder_ == null) {
+          return scenarioDataTable_ == null ? gauge.messages.Spec.ProtoTable.getDefaultInstance() : scenarioDataTable_;
+        } else {
+          return scenarioDataTableBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenario data table
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+       */
+      public Builder setScenarioDataTable(gauge.messages.Spec.ProtoTable value) {
+        if (scenarioDataTableBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          scenarioDataTable_ = value;
+          onChanged();
+        } else {
+          scenarioDataTableBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenario data table
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+       */
+      public Builder setScenarioDataTable(
+          gauge.messages.Spec.ProtoTable.Builder builderForValue) {
+        if (scenarioDataTableBuilder_ == null) {
+          scenarioDataTable_ = builderForValue.build();
+          onChanged();
+        } else {
+          scenarioDataTableBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenario data table
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+       */
+      public Builder mergeScenarioDataTable(gauge.messages.Spec.ProtoTable value) {
+        if (scenarioDataTableBuilder_ == null) {
+          if (scenarioDataTable_ != null) {
+            scenarioDataTable_ =
+              gauge.messages.Spec.ProtoTable.newBuilder(scenarioDataTable_).mergeFrom(value).buildPartial();
+          } else {
+            scenarioDataTable_ = value;
+          }
+          onChanged();
+        } else {
+          scenarioDataTableBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenario data table
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+       */
+      public Builder clearScenarioDataTable() {
+        if (scenarioDataTableBuilder_ == null) {
+          scenarioDataTable_ = null;
+          onChanged();
+        } else {
+          scenarioDataTable_ = null;
+          scenarioDataTableBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenario data table
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+       */
+      public gauge.messages.Spec.ProtoTable.Builder getScenarioDataTableBuilder() {
+        
+        onChanged();
+        return getScenarioDataTableFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenario data table
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+       */
+      public gauge.messages.Spec.ProtoTableOrBuilder getScenarioDataTableOrBuilder() {
+        if (scenarioDataTableBuilder_ != null) {
+          return scenarioDataTableBuilder_.getMessageOrBuilder();
+        } else {
+          return scenarioDataTable_ == null ?
+              gauge.messages.Spec.ProtoTable.getDefaultInstance() : scenarioDataTable_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the scenario data table
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioDataTable = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder> 
+          getScenarioDataTableFieldBuilder() {
+        if (scenarioDataTableBuilder_ == null) {
+          scenarioDataTableBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder>(
+                  getScenarioDataTable(),
+                  getParentForChildren(),
+                  isClean());
+          scenarioDataTable_ = null;
+        }
+        return scenarioDataTableBuilder_;
+      }
+
+      private gauge.messages.Spec.ProtoTable scenarioTableRow_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder> scenarioTableRowBuilder_;
+      /**
+       * <pre>
+       *&#47; Hold the row of scenario data table.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+       */
+      public boolean hasScenarioTableRow() {
+        return scenarioTableRowBuilder_ != null || scenarioTableRow_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Hold the row of scenario data table.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+       */
+      public gauge.messages.Spec.ProtoTable getScenarioTableRow() {
+        if (scenarioTableRowBuilder_ == null) {
+          return scenarioTableRow_ == null ? gauge.messages.Spec.ProtoTable.getDefaultInstance() : scenarioTableRow_;
+        } else {
+          return scenarioTableRowBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Hold the row of scenario data table.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+       */
+      public Builder setScenarioTableRow(gauge.messages.Spec.ProtoTable value) {
+        if (scenarioTableRowBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          scenarioTableRow_ = value;
+          onChanged();
+        } else {
+          scenarioTableRowBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Hold the row of scenario data table.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+       */
+      public Builder setScenarioTableRow(
+          gauge.messages.Spec.ProtoTable.Builder builderForValue) {
+        if (scenarioTableRowBuilder_ == null) {
+          scenarioTableRow_ = builderForValue.build();
+          onChanged();
+        } else {
+          scenarioTableRowBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Hold the row of scenario data table.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+       */
+      public Builder mergeScenarioTableRow(gauge.messages.Spec.ProtoTable value) {
+        if (scenarioTableRowBuilder_ == null) {
+          if (scenarioTableRow_ != null) {
+            scenarioTableRow_ =
+              gauge.messages.Spec.ProtoTable.newBuilder(scenarioTableRow_).mergeFrom(value).buildPartial();
+          } else {
+            scenarioTableRow_ = value;
+          }
+          onChanged();
+        } else {
+          scenarioTableRowBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Hold the row of scenario data table.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+       */
+      public Builder clearScenarioTableRow() {
+        if (scenarioTableRowBuilder_ == null) {
+          scenarioTableRow_ = null;
+          onChanged();
+        } else {
+          scenarioTableRow_ = null;
+          scenarioTableRowBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Hold the row of scenario data table.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+       */
+      public gauge.messages.Spec.ProtoTable.Builder getScenarioTableRowBuilder() {
+        
+        onChanged();
+        return getScenarioTableRowFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Hold the row of scenario data table.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+       */
+      public gauge.messages.Spec.ProtoTableOrBuilder getScenarioTableRowOrBuilder() {
+        if (scenarioTableRowBuilder_ != null) {
+          return scenarioTableRowBuilder_.getMessageOrBuilder();
+        } else {
+          return scenarioTableRow_ == null ?
+              gauge.messages.Spec.ProtoTable.getDefaultInstance() : scenarioTableRow_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Hold the row of scenario data table.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoTable scenarioTableRow = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder> 
+          getScenarioTableRowFieldBuilder() {
+        if (scenarioTableRowBuilder_ == null) {
+          scenarioTableRowBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoTable, gauge.messages.Spec.ProtoTable.Builder, gauge.messages.Spec.ProtoTableOrBuilder>(
+                  getScenarioTableRow(),
+                  getParentForChildren(),
+                  isClean());
+          scenarioTableRow_ = null;
+        }
+        return scenarioTableRowBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -13581,53 +15630,123 @@ public final class Spec {
 
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 7;</code>
+     * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getPreHookScreenshotsList();
+    @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getPreHookScreenshotsList();
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 7;</code>
+     * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
      */
-    int getPreHookScreenshotsCount();
+    @java.lang.Deprecated int getPreHookScreenshotsCount();
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 7;</code>
+     * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
      */
-    com.google.protobuf.ByteString getPreHookScreenshots(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getPreHookScreenshots(int index);
 
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 8;</code>
+     * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getPostHookScreenshotsList();
+    @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getPostHookScreenshotsList();
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 8;</code>
+     * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
      */
-    int getPostHookScreenshotsCount();
+    @java.lang.Deprecated int getPostHookScreenshotsCount();
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 8;</code>
+     * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
      */
-    com.google.protobuf.ByteString getPostHookScreenshots(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getPostHookScreenshots(int index);
+
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 9;</code>
+     */
+    java.util.List<java.lang.String>
+        getPreHookScreenshotFilesList();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 9;</code>
+     */
+    int getPreHookScreenshotFilesCount();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 9;</code>
+     */
+    java.lang.String getPreHookScreenshotFiles(int index);
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getPreHookScreenshotFilesBytes(int index);
+
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 10;</code>
+     */
+    java.util.List<java.lang.String>
+        getPostHookScreenshotFilesList();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 10;</code>
+     */
+    int getPostHookScreenshotFilesCount();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 10;</code>
+     */
+    java.lang.String getPostHookScreenshotFiles(int index);
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getPostHookScreenshotFilesBytes(int index);
   }
   /**
    * <pre>
@@ -13653,6 +15772,8 @@ public final class Spec {
       postHookMessages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       preHookScreenshots_ = java.util.Collections.emptyList();
       postHookScreenshots_ = java.util.Collections.emptyList();
+      preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -13747,6 +15868,24 @@ public final class Spec {
               postHookScreenshots_.add(input.readBytes());
               break;
             }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+                preHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000100;
+              }
+              preHookScreenshotFiles_.add(s);
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+                postHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000200;
+              }
+              postHookScreenshotFiles_.add(s);
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -13776,6 +15915,12 @@ public final class Spec {
         }
         if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
           postHookScreenshots_ = java.util.Collections.unmodifiableList(postHookScreenshots_);
+        }
+        if (((mutable_bitField0_ & 0x00000100) == 0x00000100)) {
+          preHookScreenshotFiles_ = preHookScreenshotFiles_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
+          postHookScreenshotFiles_ = postHookScreenshotFiles_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -14061,33 +16206,33 @@ public final class Spec {
     private java.util.List<com.google.protobuf.ByteString> preHookScreenshots_;
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 7;</code>
+     * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
+    @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
         getPreHookScreenshotsList() {
       return preHookScreenshots_;
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 7;</code>
+     * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
      */
-    public int getPreHookScreenshotsCount() {
+    @java.lang.Deprecated public int getPreHookScreenshotsCount() {
       return preHookScreenshots_.size();
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 7;</code>
+     * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
      */
-    public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
       return preHookScreenshots_.get(index);
     }
 
@@ -14095,34 +16240,124 @@ public final class Spec {
     private java.util.List<com.google.protobuf.ByteString> postHookScreenshots_;
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 8;</code>
+     * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
+    @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
         getPostHookScreenshotsList() {
       return postHookScreenshots_;
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 8;</code>
+     * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
      */
-    public int getPostHookScreenshotsCount() {
+    @java.lang.Deprecated public int getPostHookScreenshotsCount() {
       return postHookScreenshots_.size();
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 8;</code>
+     * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
      */
-    public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
       return postHookScreenshots_.get(index);
+    }
+
+    public static final int PREHOOKSCREENSHOTFILES_FIELD_NUMBER = 9;
+    private com.google.protobuf.LazyStringList preHookScreenshotFiles_;
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 9;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPreHookScreenshotFilesList() {
+      return preHookScreenshotFiles_;
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 9;</code>
+     */
+    public int getPreHookScreenshotFilesCount() {
+      return preHookScreenshotFiles_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 9;</code>
+     */
+    public java.lang.String getPreHookScreenshotFiles(int index) {
+      return preHookScreenshotFiles_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPreHookScreenshotFilesBytes(int index) {
+      return preHookScreenshotFiles_.getByteString(index);
+    }
+
+    public static final int POSTHOOKSCREENSHOTFILES_FIELD_NUMBER = 10;
+    private com.google.protobuf.LazyStringList postHookScreenshotFiles_;
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 10;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPostHookScreenshotFilesList() {
+      return postHookScreenshotFiles_;
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 10;</code>
+     */
+    public int getPostHookScreenshotFilesCount() {
+      return postHookScreenshotFiles_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 10;</code>
+     */
+    public java.lang.String getPostHookScreenshotFiles(int index) {
+      return postHookScreenshotFiles_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPostHookScreenshotFilesBytes(int index) {
+      return postHookScreenshotFiles_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14162,6 +16397,12 @@ public final class Spec {
       }
       for (int i = 0; i < postHookScreenshots_.size(); i++) {
         output.writeBytes(8, postHookScreenshots_.get(i));
+      }
+      for (int i = 0; i < preHookScreenshotFiles_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, preHookScreenshotFiles_.getRaw(i));
+      }
+      for (int i = 0; i < postHookScreenshotFiles_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, postHookScreenshotFiles_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -14220,6 +16461,22 @@ public final class Spec {
         size += dataSize;
         size += 1 * getPostHookScreenshotsList().size();
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < preHookScreenshotFiles_.size(); i++) {
+          dataSize += computeStringSizeNoTag(preHookScreenshotFiles_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPreHookScreenshotFilesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < postHookScreenshotFiles_.size(); i++) {
+          dataSize += computeStringSizeNoTag(postHookScreenshotFiles_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getPostHookScreenshotFilesList().size();
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -14255,6 +16512,10 @@ public final class Spec {
           .equals(other.getPreHookScreenshotsList());
       result = result && getPostHookScreenshotsList()
           .equals(other.getPostHookScreenshotsList());
+      result = result && getPreHookScreenshotFilesList()
+          .equals(other.getPreHookScreenshotFilesList());
+      result = result && getPostHookScreenshotFilesList()
+          .equals(other.getPostHookScreenshotFilesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -14293,6 +16554,14 @@ public final class Spec {
       if (getPostHookScreenshotsCount() > 0) {
         hash = (37 * hash) + POSTHOOKSCREENSHOTS_FIELD_NUMBER;
         hash = (53 * hash) + getPostHookScreenshotsList().hashCode();
+      }
+      if (getPreHookScreenshotFilesCount() > 0) {
+        hash = (37 * hash) + PREHOOKSCREENSHOTFILES_FIELD_NUMBER;
+        hash = (53 * hash) + getPreHookScreenshotFilesList().hashCode();
+      }
+      if (getPostHookScreenshotFilesCount() > 0) {
+        hash = (37 * hash) + POSTHOOKSCREENSHOTFILES_FIELD_NUMBER;
+        hash = (53 * hash) + getPostHookScreenshotFilesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -14456,6 +16725,10 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00000040);
         postHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000080);
+        preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000200);
         return this;
       }
 
@@ -14520,6 +16793,16 @@ public final class Spec {
           bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.postHookScreenshots_ = postHookScreenshots_;
+        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+          preHookScreenshotFiles_ = preHookScreenshotFiles_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000100);
+        }
+        result.preHookScreenshotFiles_ = preHookScreenshotFiles_;
+        if (((bitField0_ & 0x00000200) == 0x00000200)) {
+          postHookScreenshotFiles_ = postHookScreenshotFiles_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000200);
+        }
+        result.postHookScreenshotFiles_ = postHookScreenshotFiles_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -14643,6 +16926,26 @@ public final class Spec {
           } else {
             ensurePostHookScreenshotsIsMutable();
             postHookScreenshots_.addAll(other.postHookScreenshots_);
+          }
+          onChanged();
+        }
+        if (!other.preHookScreenshotFiles_.isEmpty()) {
+          if (preHookScreenshotFiles_.isEmpty()) {
+            preHookScreenshotFiles_ = other.preHookScreenshotFiles_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+          } else {
+            ensurePreHookScreenshotFilesIsMutable();
+            preHookScreenshotFiles_.addAll(other.preHookScreenshotFiles_);
+          }
+          onChanged();
+        }
+        if (!other.postHookScreenshotFiles_.isEmpty()) {
+          if (postHookScreenshotFiles_.isEmpty()) {
+            postHookScreenshotFiles_ = other.postHookScreenshotFiles_;
+            bitField0_ = (bitField0_ & ~0x00000200);
+          } else {
+            ensurePostHookScreenshotFilesIsMutable();
+            postHookScreenshotFiles_.addAll(other.postHookScreenshotFiles_);
           }
           onChanged();
         }
@@ -15588,43 +17891,43 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 7;</code>
+       * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
+      @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
           getPreHookScreenshotsList() {
         return java.util.Collections.unmodifiableList(preHookScreenshots_);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 7;</code>
+       * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
        */
-      public int getPreHookScreenshotsCount() {
+      @java.lang.Deprecated public int getPreHookScreenshotsCount() {
         return preHookScreenshots_.size();
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 7;</code>
+       * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
        */
-      public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
         return preHookScreenshots_.get(index);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 7;</code>
+       * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
        */
-      public Builder setPreHookScreenshots(
+      @java.lang.Deprecated public Builder setPreHookScreenshots(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -15636,12 +17939,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 7;</code>
+       * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
        */
-      public Builder addPreHookScreenshots(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder addPreHookScreenshots(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -15652,12 +17955,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 7;</code>
+       * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
        */
-      public Builder addAllPreHookScreenshots(
+      @java.lang.Deprecated public Builder addAllPreHookScreenshots(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensurePreHookScreenshotsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -15667,12 +17970,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 7;</code>
+       * <code>repeated bytes preHookScreenshots = 7 [deprecated = true];</code>
        */
-      public Builder clearPreHookScreenshots() {
+      @java.lang.Deprecated public Builder clearPreHookScreenshots() {
         preHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
@@ -15688,43 +17991,43 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 8;</code>
+       * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
+      @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
           getPostHookScreenshotsList() {
         return java.util.Collections.unmodifiableList(postHookScreenshots_);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 8;</code>
+       * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
        */
-      public int getPostHookScreenshotsCount() {
+      @java.lang.Deprecated public int getPostHookScreenshotsCount() {
         return postHookScreenshots_.size();
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 8;</code>
+       * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
        */
-      public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
         return postHookScreenshots_.get(index);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 8;</code>
+       * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
        */
-      public Builder setPostHookScreenshots(
+      @java.lang.Deprecated public Builder setPostHookScreenshots(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -15736,12 +18039,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 8;</code>
+       * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
        */
-      public Builder addPostHookScreenshots(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder addPostHookScreenshots(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -15752,12 +18055,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 8;</code>
+       * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
        */
-      public Builder addAllPostHookScreenshots(
+      @java.lang.Deprecated public Builder addAllPostHookScreenshots(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensurePostHookScreenshotsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -15767,14 +18070,274 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 8;</code>
+       * <code>repeated bytes postHookScreenshots = 8 [deprecated = true];</code>
        */
-      public Builder clearPostHookScreenshots() {
+      @java.lang.Deprecated public Builder clearPostHookScreenshots() {
         postHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePreHookScreenshotFilesIsMutable() {
+        if (!((bitField0_ & 0x00000100) == 0x00000100)) {
+          preHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList(preHookScreenshotFiles_);
+          bitField0_ |= 0x00000100;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 9;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPreHookScreenshotFilesList() {
+        return preHookScreenshotFiles_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 9;</code>
+       */
+      public int getPreHookScreenshotFilesCount() {
+        return preHookScreenshotFiles_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 9;</code>
+       */
+      public java.lang.String getPreHookScreenshotFiles(int index) {
+        return preHookScreenshotFiles_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPreHookScreenshotFilesBytes(int index) {
+        return preHookScreenshotFiles_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 9;</code>
+       */
+      public Builder setPreHookScreenshotFiles(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 9;</code>
+       */
+      public Builder addPreHookScreenshotFiles(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 9;</code>
+       */
+      public Builder addAllPreHookScreenshotFiles(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePreHookScreenshotFilesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, preHookScreenshotFiles_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 9;</code>
+       */
+      public Builder clearPreHookScreenshotFiles() {
+        preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 9;</code>
+       */
+      public Builder addPreHookScreenshotFilesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePostHookScreenshotFilesIsMutable() {
+        if (!((bitField0_ & 0x00000200) == 0x00000200)) {
+          postHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList(postHookScreenshotFiles_);
+          bitField0_ |= 0x00000200;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 10;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPostHookScreenshotFilesList() {
+        return postHookScreenshotFiles_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 10;</code>
+       */
+      public int getPostHookScreenshotFilesCount() {
+        return postHookScreenshotFiles_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 10;</code>
+       */
+      public java.lang.String getPostHookScreenshotFiles(int index) {
+        return postHookScreenshotFiles_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPostHookScreenshotFilesBytes(int index) {
+        return postHookScreenshotFiles_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 10;</code>
+       */
+      public Builder setPostHookScreenshotFiles(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 10;</code>
+       */
+      public Builder addPostHookScreenshotFiles(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 10;</code>
+       */
+      public Builder addAllPostHookScreenshotFiles(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePostHookScreenshotFilesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, postHookScreenshotFiles_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 10;</code>
+       */
+      public Builder clearPostHookScreenshotFiles() {
+        postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 10;</code>
+       */
+      public Builder addPostHookScreenshotFilesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.add(value);
         onChanged();
         return this;
       }
@@ -24223,7 +26786,7 @@ public final class Spec {
 
     /**
      * <pre>
-     *&#47; [DEPRECATED, use failedScreenshot] Bytes containing screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failureScreenshotFile] Bytes containing screenshot taken at the time of failure.
      * </pre>
      *
      * <code>bytes screenShot = 5 [deprecated = true];</code>
@@ -24293,37 +26856,90 @@ public final class Spec {
 
     /**
      * <pre>
-     *&#47; Bytes containing screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failureScreenshotFile] Bytes containing screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>bytes failureScreenshot = 9;</code>
+     * <code>bytes failureScreenshot = 9 [deprecated = true];</code>
      */
-    com.google.protobuf.ByteString getFailureScreenshot();
+    @java.lang.Deprecated com.google.protobuf.ByteString getFailureScreenshot();
 
     /**
      * <pre>
-     *&#47; Bytes array containing screenshots at the time of it invoked
+     *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
      * </pre>
      *
-     * <code>repeated bytes screenshots = 10;</code>
+     * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getScreenshotsList();
+    @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getScreenshotsList();
     /**
      * <pre>
-     *&#47; Bytes array containing screenshots at the time of it invoked
+     *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
      * </pre>
      *
-     * <code>repeated bytes screenshots = 10;</code>
+     * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
      */
-    int getScreenshotsCount();
+    @java.lang.Deprecated int getScreenshotsCount();
     /**
      * <pre>
-     *&#47; Bytes array containing screenshots at the time of it invoked
+     *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
      * </pre>
      *
-     * <code>repeated bytes screenshots = 10;</code>
+     * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
      */
-    com.google.protobuf.ByteString getScreenshots(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getScreenshots(int index);
+
+    /**
+     * <pre>
+     *&#47; Path to the screenshot file captured at the time of failure.
+     * </pre>
+     *
+     * <code>string failureScreenshotFile = 11;</code>
+     */
+    java.lang.String getFailureScreenshotFile();
+    /**
+     * <pre>
+     *&#47; Path to the screenshot file captured at the time of failure.
+     * </pre>
+     *
+     * <code>string failureScreenshotFile = 11;</code>
+     */
+    com.google.protobuf.ByteString
+        getFailureScreenshotFileBytes();
+
+    /**
+     * <pre>
+     *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+     * </pre>
+     *
+     * <code>repeated string screenshotFiles = 12;</code>
+     */
+    java.util.List<java.lang.String>
+        getScreenshotFilesList();
+    /**
+     * <pre>
+     *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+     * </pre>
+     *
+     * <code>repeated string screenshotFiles = 12;</code>
+     */
+    int getScreenshotFilesCount();
+    /**
+     * <pre>
+     *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+     * </pre>
+     *
+     * <code>repeated string screenshotFiles = 12;</code>
+     */
+    java.lang.String getScreenshotFiles(int index);
+    /**
+     * <pre>
+     *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+     * </pre>
+     *
+     * <code>repeated string screenshotFiles = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getScreenshotFilesBytes(int index);
   }
   /**
    * <pre>
@@ -24352,6 +26968,8 @@ public final class Spec {
       errorType_ = 0;
       failureScreenshot_ = com.google.protobuf.ByteString.EMPTY;
       screenshots_ = java.util.Collections.emptyList();
+      failureScreenshotFile_ = "";
+      screenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -24438,6 +27056,21 @@ public final class Spec {
               screenshots_.add(input.readBytes());
               break;
             }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              failureScreenshotFile_ = s;
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+                screenshotFiles_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000800;
+              }
+              screenshotFiles_.add(s);
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -24458,6 +27091,9 @@ public final class Spec {
         }
         if (((mutable_bitField0_ & 0x00000200) == 0x00000200)) {
           screenshots_ = java.util.Collections.unmodifiableList(screenshots_);
+        }
+        if (((mutable_bitField0_ & 0x00000800) == 0x00000800)) {
+          screenshotFiles_ = screenshotFiles_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -24689,7 +27325,7 @@ public final class Spec {
     private com.google.protobuf.ByteString screenShot_;
     /**
      * <pre>
-     *&#47; [DEPRECATED, use failedScreenshot] Bytes containing screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failureScreenshotFile] Bytes containing screenshot taken at the time of failure.
      * </pre>
      *
      * <code>bytes screenShot = 5 [deprecated = true];</code>
@@ -24785,12 +27421,12 @@ public final class Spec {
     private com.google.protobuf.ByteString failureScreenshot_;
     /**
      * <pre>
-     *&#47; Bytes containing screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failureScreenshotFile] Bytes containing screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>bytes failureScreenshot = 9;</code>
+     * <code>bytes failureScreenshot = 9 [deprecated = true];</code>
      */
-    public com.google.protobuf.ByteString getFailureScreenshot() {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getFailureScreenshot() {
       return failureScreenshot_;
     }
 
@@ -24798,34 +27434,121 @@ public final class Spec {
     private java.util.List<com.google.protobuf.ByteString> screenshots_;
     /**
      * <pre>
-     *&#47; Bytes array containing screenshots at the time of it invoked
+     *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
      * </pre>
      *
-     * <code>repeated bytes screenshots = 10;</code>
+     * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
+    @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
         getScreenshotsList() {
       return screenshots_;
     }
     /**
      * <pre>
-     *&#47; Bytes array containing screenshots at the time of it invoked
+     *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
      * </pre>
      *
-     * <code>repeated bytes screenshots = 10;</code>
+     * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
      */
-    public int getScreenshotsCount() {
+    @java.lang.Deprecated public int getScreenshotsCount() {
       return screenshots_.size();
     }
     /**
      * <pre>
-     *&#47; Bytes array containing screenshots at the time of it invoked
+     *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
      * </pre>
      *
-     * <code>repeated bytes screenshots = 10;</code>
+     * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
      */
-    public com.google.protobuf.ByteString getScreenshots(int index) {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getScreenshots(int index) {
       return screenshots_.get(index);
+    }
+
+    public static final int FAILURESCREENSHOTFILE_FIELD_NUMBER = 11;
+    private volatile java.lang.Object failureScreenshotFile_;
+    /**
+     * <pre>
+     *&#47; Path to the screenshot file captured at the time of failure.
+     * </pre>
+     *
+     * <code>string failureScreenshotFile = 11;</code>
+     */
+    public java.lang.String getFailureScreenshotFile() {
+      java.lang.Object ref = failureScreenshotFile_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        failureScreenshotFile_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Path to the screenshot file captured at the time of failure.
+     * </pre>
+     *
+     * <code>string failureScreenshotFile = 11;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFailureScreenshotFileBytes() {
+      java.lang.Object ref = failureScreenshotFile_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        failureScreenshotFile_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCREENSHOTFILES_FIELD_NUMBER = 12;
+    private com.google.protobuf.LazyStringList screenshotFiles_;
+    /**
+     * <pre>
+     *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+     * </pre>
+     *
+     * <code>repeated string screenshotFiles = 12;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getScreenshotFilesList() {
+      return screenshotFiles_;
+    }
+    /**
+     * <pre>
+     *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+     * </pre>
+     *
+     * <code>repeated string screenshotFiles = 12;</code>
+     */
+    public int getScreenshotFilesCount() {
+      return screenshotFiles_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+     * </pre>
+     *
+     * <code>repeated string screenshotFiles = 12;</code>
+     */
+    public java.lang.String getScreenshotFiles(int index) {
+      return screenshotFiles_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+     * </pre>
+     *
+     * <code>repeated string screenshotFiles = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getScreenshotFilesBytes(int index) {
+      return screenshotFiles_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -24871,6 +27594,12 @@ public final class Spec {
       }
       for (int i = 0; i < screenshots_.size(); i++) {
         output.writeBytes(10, screenshots_.get(i));
+      }
+      if (!getFailureScreenshotFileBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, failureScreenshotFile_);
+      }
+      for (int i = 0; i < screenshotFiles_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, screenshotFiles_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -24928,6 +27657,17 @@ public final class Spec {
         size += dataSize;
         size += 1 * getScreenshotsList().size();
       }
+      if (!getFailureScreenshotFileBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, failureScreenshotFile_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < screenshotFiles_.size(); i++) {
+          dataSize += computeStringSizeNoTag(screenshotFiles_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getScreenshotFilesList().size();
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -24963,6 +27703,10 @@ public final class Spec {
           .equals(other.getFailureScreenshot());
       result = result && getScreenshotsList()
           .equals(other.getScreenshotsList());
+      result = result && getFailureScreenshotFile()
+          .equals(other.getFailureScreenshotFile());
+      result = result && getScreenshotFilesList()
+          .equals(other.getScreenshotFilesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -25000,6 +27744,12 @@ public final class Spec {
       if (getScreenshotsCount() > 0) {
         hash = (37 * hash) + SCREENSHOTS_FIELD_NUMBER;
         hash = (53 * hash) + getScreenshotsList().hashCode();
+      }
+      hash = (37 * hash) + FAILURESCREENSHOTFILE_FIELD_NUMBER;
+      hash = (53 * hash) + getFailureScreenshotFile().hashCode();
+      if (getScreenshotFilesCount() > 0) {
+        hash = (37 * hash) + SCREENSHOTFILES_FIELD_NUMBER;
+        hash = (53 * hash) + getScreenshotFilesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -25158,6 +27908,10 @@ public final class Spec {
 
         screenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000200);
+        failureScreenshotFile_ = "";
+
+        screenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -25204,6 +27958,12 @@ public final class Spec {
           bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.screenshots_ = screenshots_;
+        result.failureScreenshotFile_ = failureScreenshotFile_;
+        if (((bitField0_ & 0x00000800) == 0x00000800)) {
+          screenshotFiles_ = screenshotFiles_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000800);
+        }
+        result.screenshotFiles_ = screenshotFiles_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -25296,6 +28056,20 @@ public final class Spec {
           } else {
             ensureScreenshotsIsMutable();
             screenshots_.addAll(other.screenshots_);
+          }
+          onChanged();
+        }
+        if (!other.getFailureScreenshotFile().isEmpty()) {
+          failureScreenshotFile_ = other.failureScreenshotFile_;
+          onChanged();
+        }
+        if (!other.screenshotFiles_.isEmpty()) {
+          if (screenshotFiles_.isEmpty()) {
+            screenshotFiles_ = other.screenshotFiles_;
+            bitField0_ = (bitField0_ & ~0x00000800);
+          } else {
+            ensureScreenshotFilesIsMutable();
+            screenshotFiles_.addAll(other.screenshotFiles_);
           }
           onChanged();
         }
@@ -25586,7 +28360,7 @@ public final class Spec {
       private com.google.protobuf.ByteString screenShot_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
-       *&#47; [DEPRECATED, use failedScreenshot] Bytes containing screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes containing screenshot taken at the time of failure.
        * </pre>
        *
        * <code>bytes screenShot = 5 [deprecated = true];</code>
@@ -25596,7 +28370,7 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; [DEPRECATED, use failedScreenshot] Bytes containing screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes containing screenshot taken at the time of failure.
        * </pre>
        *
        * <code>bytes screenShot = 5 [deprecated = true];</code>
@@ -25612,7 +28386,7 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; [DEPRECATED, use failedScreenshot] Bytes containing screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes containing screenshot taken at the time of failure.
        * </pre>
        *
        * <code>bytes screenShot = 5 [deprecated = true];</code>
@@ -25860,22 +28634,22 @@ public final class Spec {
       private com.google.protobuf.ByteString failureScreenshot_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
-       *&#47; Bytes containing screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes containing screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>bytes failureScreenshot = 9;</code>
+       * <code>bytes failureScreenshot = 9 [deprecated = true];</code>
        */
-      public com.google.protobuf.ByteString getFailureScreenshot() {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getFailureScreenshot() {
         return failureScreenshot_;
       }
       /**
        * <pre>
-       *&#47; Bytes containing screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes containing screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>bytes failureScreenshot = 9;</code>
+       * <code>bytes failureScreenshot = 9 [deprecated = true];</code>
        */
-      public Builder setFailureScreenshot(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder setFailureScreenshot(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -25886,12 +28660,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Bytes containing screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes containing screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>bytes failureScreenshot = 9;</code>
+       * <code>bytes failureScreenshot = 9 [deprecated = true];</code>
        */
-      public Builder clearFailureScreenshot() {
+      @java.lang.Deprecated public Builder clearFailureScreenshot() {
         
         failureScreenshot_ = getDefaultInstance().getFailureScreenshot();
         onChanged();
@@ -25907,43 +28681,43 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Bytes array containing screenshots at the time of it invoked
+       *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
        * </pre>
        *
-       * <code>repeated bytes screenshots = 10;</code>
+       * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
+      @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
           getScreenshotsList() {
         return java.util.Collections.unmodifiableList(screenshots_);
       }
       /**
        * <pre>
-       *&#47; Bytes array containing screenshots at the time of it invoked
+       *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
        * </pre>
        *
-       * <code>repeated bytes screenshots = 10;</code>
+       * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
        */
-      public int getScreenshotsCount() {
+      @java.lang.Deprecated public int getScreenshotsCount() {
         return screenshots_.size();
       }
       /**
        * <pre>
-       *&#47; Bytes array containing screenshots at the time of it invoked
+       *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
        * </pre>
        *
-       * <code>repeated bytes screenshots = 10;</code>
+       * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
        */
-      public com.google.protobuf.ByteString getScreenshots(int index) {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getScreenshots(int index) {
         return screenshots_.get(index);
       }
       /**
        * <pre>
-       *&#47; Bytes array containing screenshots at the time of it invoked
+       *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
        * </pre>
        *
-       * <code>repeated bytes screenshots = 10;</code>
+       * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
        */
-      public Builder setScreenshots(
+      @java.lang.Deprecated public Builder setScreenshots(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -25955,12 +28729,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Bytes array containing screenshots at the time of it invoked
+       *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
        * </pre>
        *
-       * <code>repeated bytes screenshots = 10;</code>
+       * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
        */
-      public Builder addScreenshots(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder addScreenshots(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -25971,12 +28745,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Bytes array containing screenshots at the time of it invoked
+       *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
        * </pre>
        *
-       * <code>repeated bytes screenshots = 10;</code>
+       * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
        */
-      public Builder addAllScreenshots(
+      @java.lang.Deprecated public Builder addAllScreenshots(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensureScreenshotsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -25986,14 +28760,233 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Bytes array containing screenshots at the time of it invoked
+       *&#47; [DEPRECATED, use screenshotFiles] Bytes array containing screenshots at the time of it invoked
        * </pre>
        *
-       * <code>repeated bytes screenshots = 10;</code>
+       * <code>repeated bytes screenshots = 10 [deprecated = true];</code>
        */
-      public Builder clearScreenshots() {
+      @java.lang.Deprecated public Builder clearScreenshots() {
         screenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000200);
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object failureScreenshotFile_ = "";
+      /**
+       * <pre>
+       *&#47; Path to the screenshot file captured at the time of failure.
+       * </pre>
+       *
+       * <code>string failureScreenshotFile = 11;</code>
+       */
+      public java.lang.String getFailureScreenshotFile() {
+        java.lang.Object ref = failureScreenshotFile_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          failureScreenshotFile_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot file captured at the time of failure.
+       * </pre>
+       *
+       * <code>string failureScreenshotFile = 11;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFailureScreenshotFileBytes() {
+        java.lang.Object ref = failureScreenshotFile_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          failureScreenshotFile_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot file captured at the time of failure.
+       * </pre>
+       *
+       * <code>string failureScreenshotFile = 11;</code>
+       */
+      public Builder setFailureScreenshotFile(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        failureScreenshotFile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot file captured at the time of failure.
+       * </pre>
+       *
+       * <code>string failureScreenshotFile = 11;</code>
+       */
+      public Builder clearFailureScreenshotFile() {
+        
+        failureScreenshotFile_ = getDefaultInstance().getFailureScreenshotFile();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot file captured at the time of failure.
+       * </pre>
+       *
+       * <code>string failureScreenshotFile = 11;</code>
+       */
+      public Builder setFailureScreenshotFileBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        failureScreenshotFile_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList screenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureScreenshotFilesIsMutable() {
+        if (!((bitField0_ & 0x00000800) == 0x00000800)) {
+          screenshotFiles_ = new com.google.protobuf.LazyStringArrayList(screenshotFiles_);
+          bitField0_ |= 0x00000800;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+       * </pre>
+       *
+       * <code>repeated string screenshotFiles = 12;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getScreenshotFilesList() {
+        return screenshotFiles_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+       * </pre>
+       *
+       * <code>repeated string screenshotFiles = 12;</code>
+       */
+      public int getScreenshotFilesCount() {
+        return screenshotFiles_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+       * </pre>
+       *
+       * <code>repeated string screenshotFiles = 12;</code>
+       */
+      public java.lang.String getScreenshotFiles(int index) {
+        return screenshotFiles_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+       * </pre>
+       *
+       * <code>repeated string screenshotFiles = 12;</code>
+       */
+      public com.google.protobuf.ByteString
+          getScreenshotFilesBytes(int index) {
+        return screenshotFiles_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+       * </pre>
+       *
+       * <code>repeated string screenshotFiles = 12;</code>
+       */
+      public Builder setScreenshotFiles(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureScreenshotFilesIsMutable();
+        screenshotFiles_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+       * </pre>
+       *
+       * <code>repeated string screenshotFiles = 12;</code>
+       */
+      public Builder addScreenshotFiles(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureScreenshotFilesIsMutable();
+        screenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+       * </pre>
+       *
+       * <code>repeated string screenshotFiles = 12;</code>
+       */
+      public Builder addAllScreenshotFiles(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureScreenshotFilesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, screenshotFiles_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+       * </pre>
+       *
+       * <code>repeated string screenshotFiles = 12;</code>
+       */
+      public Builder clearScreenshotFiles() {
+        screenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000800);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot files captured using Gauge screenshsot API.
+       * </pre>
+       *
+       * <code>repeated string screenshotFiles = 12;</code>
+       */
+      public Builder addScreenshotFilesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureScreenshotFilesIsMutable();
+        screenshotFiles_.add(value);
         onChanged();
         return this;
       }
@@ -26092,7 +29085,7 @@ public final class Spec {
 
     /**
      * <pre>
-     *&#47; [DEPRECATED, use failedScreenshot] Bytes holding the screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failureScreenshotFile] Bytes holding the screenshot taken at the time of failure.
      * </pre>
      *
      * <code>bytes screenShot = 3 [deprecated = true];</code>
@@ -26110,12 +29103,30 @@ public final class Spec {
 
     /**
      * <pre>
-     *&#47;Bytes holding the screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failureScreenshotFile] Bytes holding the screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>bytes failureScreenshot = 5;</code>
+     * <code>bytes failureScreenshot = 5 [deprecated = true];</code>
      */
-    com.google.protobuf.ByteString getFailureScreenshot();
+    @java.lang.Deprecated com.google.protobuf.ByteString getFailureScreenshot();
+
+    /**
+     * <pre>
+     *&#47; Path to the screenshot file captured at the time of failure.
+     * </pre>
+     *
+     * <code>string failureScreenshotFile = 6;</code>
+     */
+    java.lang.String getFailureScreenshotFile();
+    /**
+     * <pre>
+     *&#47; Path to the screenshot file captured at the time of failure.
+     * </pre>
+     *
+     * <code>string failureScreenshotFile = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getFailureScreenshotFileBytes();
   }
   /**
    * <pre>
@@ -26140,6 +29151,7 @@ public final class Spec {
       screenShot_ = com.google.protobuf.ByteString.EMPTY;
       tableRowIndex_ = 0;
       failureScreenshot_ = com.google.protobuf.ByteString.EMPTY;
+      failureScreenshotFile_ = "";
     }
 
     @java.lang.Override
@@ -26191,6 +29203,12 @@ public final class Spec {
             case 42: {
 
               failureScreenshot_ = input.readBytes();
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              failureScreenshotFile_ = s;
               break;
             }
             default: {
@@ -26313,7 +29331,7 @@ public final class Spec {
     private com.google.protobuf.ByteString screenShot_;
     /**
      * <pre>
-     *&#47; [DEPRECATED, use failedScreenshot] Bytes holding the screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failureScreenshotFile] Bytes holding the screenshot taken at the time of failure.
      * </pre>
      *
      * <code>bytes screenShot = 3 [deprecated = true];</code>
@@ -26339,13 +29357,55 @@ public final class Spec {
     private com.google.protobuf.ByteString failureScreenshot_;
     /**
      * <pre>
-     *&#47;Bytes holding the screenshot taken at the time of failure.
+     *&#47; [DEPRECATED, use failureScreenshotFile] Bytes holding the screenshot taken at the time of failure.
      * </pre>
      *
-     * <code>bytes failureScreenshot = 5;</code>
+     * <code>bytes failureScreenshot = 5 [deprecated = true];</code>
      */
-    public com.google.protobuf.ByteString getFailureScreenshot() {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getFailureScreenshot() {
       return failureScreenshot_;
+    }
+
+    public static final int FAILURESCREENSHOTFILE_FIELD_NUMBER = 6;
+    private volatile java.lang.Object failureScreenshotFile_;
+    /**
+     * <pre>
+     *&#47; Path to the screenshot file captured at the time of failure.
+     * </pre>
+     *
+     * <code>string failureScreenshotFile = 6;</code>
+     */
+    public java.lang.String getFailureScreenshotFile() {
+      java.lang.Object ref = failureScreenshotFile_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        failureScreenshotFile_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Path to the screenshot file captured at the time of failure.
+     * </pre>
+     *
+     * <code>string failureScreenshotFile = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFailureScreenshotFileBytes() {
+      java.lang.Object ref = failureScreenshotFile_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        failureScreenshotFile_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -26377,6 +29437,9 @@ public final class Spec {
       if (!failureScreenshot_.isEmpty()) {
         output.writeBytes(5, failureScreenshot_);
       }
+      if (!getFailureScreenshotFileBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, failureScreenshotFile_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -26404,6 +29467,9 @@ public final class Spec {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, failureScreenshot_);
       }
+      if (!getFailureScreenshotFileBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, failureScreenshotFile_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -26430,6 +29496,8 @@ public final class Spec {
           == other.getTableRowIndex());
       result = result && getFailureScreenshot()
           .equals(other.getFailureScreenshot());
+      result = result && getFailureScreenshotFile()
+          .equals(other.getFailureScreenshotFile());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -26451,6 +29519,8 @@ public final class Spec {
       hash = (53 * hash) + getTableRowIndex();
       hash = (37 * hash) + FAILURESCREENSHOT_FIELD_NUMBER;
       hash = (53 * hash) + getFailureScreenshot().hashCode();
+      hash = (37 * hash) + FAILURESCREENSHOTFILE_FIELD_NUMBER;
+      hash = (53 * hash) + getFailureScreenshotFile().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -26599,6 +29669,8 @@ public final class Spec {
 
         failureScreenshot_ = com.google.protobuf.ByteString.EMPTY;
 
+        failureScreenshotFile_ = "";
+
         return this;
       }
 
@@ -26630,6 +29702,7 @@ public final class Spec {
         result.screenShot_ = screenShot_;
         result.tableRowIndex_ = tableRowIndex_;
         result.failureScreenshot_ = failureScreenshot_;
+        result.failureScreenshotFile_ = failureScreenshotFile_;
         onBuilt();
         return result;
       }
@@ -26694,6 +29767,10 @@ public final class Spec {
         }
         if (other.getFailureScreenshot() != com.google.protobuf.ByteString.EMPTY) {
           setFailureScreenshot(other.getFailureScreenshot());
+        }
+        if (!other.getFailureScreenshotFile().isEmpty()) {
+          failureScreenshotFile_ = other.failureScreenshotFile_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -26905,7 +29982,7 @@ public final class Spec {
       private com.google.protobuf.ByteString screenShot_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
-       *&#47; [DEPRECATED, use failedScreenshot] Bytes holding the screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes holding the screenshot taken at the time of failure.
        * </pre>
        *
        * <code>bytes screenShot = 3 [deprecated = true];</code>
@@ -26915,7 +29992,7 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; [DEPRECATED, use failedScreenshot] Bytes holding the screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes holding the screenshot taken at the time of failure.
        * </pre>
        *
        * <code>bytes screenShot = 3 [deprecated = true];</code>
@@ -26931,7 +30008,7 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; [DEPRECATED, use failedScreenshot] Bytes holding the screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes holding the screenshot taken at the time of failure.
        * </pre>
        *
        * <code>bytes screenShot = 3 [deprecated = true];</code>
@@ -26984,22 +30061,22 @@ public final class Spec {
       private com.google.protobuf.ByteString failureScreenshot_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <pre>
-       *&#47;Bytes holding the screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes holding the screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>bytes failureScreenshot = 5;</code>
+       * <code>bytes failureScreenshot = 5 [deprecated = true];</code>
        */
-      public com.google.protobuf.ByteString getFailureScreenshot() {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getFailureScreenshot() {
         return failureScreenshot_;
       }
       /**
        * <pre>
-       *&#47;Bytes holding the screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes holding the screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>bytes failureScreenshot = 5;</code>
+       * <code>bytes failureScreenshot = 5 [deprecated = true];</code>
        */
-      public Builder setFailureScreenshot(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder setFailureScreenshot(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -27010,14 +30087,103 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47;Bytes holding the screenshot taken at the time of failure.
+       *&#47; [DEPRECATED, use failureScreenshotFile] Bytes holding the screenshot taken at the time of failure.
        * </pre>
        *
-       * <code>bytes failureScreenshot = 5;</code>
+       * <code>bytes failureScreenshot = 5 [deprecated = true];</code>
        */
-      public Builder clearFailureScreenshot() {
+      @java.lang.Deprecated public Builder clearFailureScreenshot() {
         
         failureScreenshot_ = getDefaultInstance().getFailureScreenshot();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object failureScreenshotFile_ = "";
+      /**
+       * <pre>
+       *&#47; Path to the screenshot file captured at the time of failure.
+       * </pre>
+       *
+       * <code>string failureScreenshotFile = 6;</code>
+       */
+      public java.lang.String getFailureScreenshotFile() {
+        java.lang.Object ref = failureScreenshotFile_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          failureScreenshotFile_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot file captured at the time of failure.
+       * </pre>
+       *
+       * <code>string failureScreenshotFile = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFailureScreenshotFileBytes() {
+        java.lang.Object ref = failureScreenshotFile_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          failureScreenshotFile_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot file captured at the time of failure.
+       * </pre>
+       *
+       * <code>string failureScreenshotFile = 6;</code>
+       */
+      public Builder setFailureScreenshotFile(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        failureScreenshotFile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot file captured at the time of failure.
+       * </pre>
+       *
+       * <code>string failureScreenshotFile = 6;</code>
+       */
+      public Builder clearFailureScreenshotFile() {
+        
+        failureScreenshotFile_ = getDefaultInstance().getFailureScreenshotFile();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Path to the screenshot file captured at the time of failure.
+       * </pre>
+       *
+       * <code>string failureScreenshotFile = 6;</code>
+       */
+      public Builder setFailureScreenshotFileBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        failureScreenshotFile_ = value;
         onChanged();
         return this;
       }
@@ -27427,53 +30593,141 @@ public final class Spec {
 
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 17;</code>
+     * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getPreHookScreenshotsList();
+    @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getPreHookScreenshotsList();
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 17;</code>
+     * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      */
-    int getPreHookScreenshotsCount();
+    @java.lang.Deprecated int getPreHookScreenshotsCount();
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 17;</code>
+     * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      */
-    com.google.protobuf.ByteString getPreHookScreenshots(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getPreHookScreenshots(int index);
 
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 18;</code>
+     * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      */
-    java.util.List<com.google.protobuf.ByteString> getPostHookScreenshotsList();
+    @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getPostHookScreenshotsList();
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 18;</code>
+     * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      */
-    int getPostHookScreenshotsCount();
+    @java.lang.Deprecated int getPostHookScreenshotsCount();
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 18;</code>
+     * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      */
-    com.google.protobuf.ByteString getPostHookScreenshots(int index);
+    @java.lang.Deprecated com.google.protobuf.ByteString getPostHookScreenshots(int index);
+
+    /**
+     * <pre>
+     * Indicates if the result is sent in chunks
+     * </pre>
+     *
+     * <code>bool chunked = 19;</code>
+     */
+    boolean getChunked();
+
+    /**
+     * <pre>
+     * Indicates the number of chunks to expect after this
+     * </pre>
+     *
+     * <code>int64 chunkSize = 20;</code>
+     */
+    long getChunkSize();
+
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    java.util.List<java.lang.String>
+        getPreHookScreenshotFilesList();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    int getPreHookScreenshotFilesCount();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    java.lang.String getPreHookScreenshotFiles(int index);
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    com.google.protobuf.ByteString
+        getPreHookScreenshotFilesBytes(int index);
+
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    java.util.List<java.lang.String>
+        getPostHookScreenshotFilesList();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    int getPostHookScreenshotFilesCount();
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    java.lang.String getPostHookScreenshotFiles(int index);
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    com.google.protobuf.ByteString
+        getPostHookScreenshotFilesBytes(int index);
   }
   /**
    * <pre>
@@ -27508,6 +30762,10 @@ public final class Spec {
       postHookMessage_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       preHookScreenshots_ = java.util.Collections.emptyList();
       postHookScreenshots_ = java.util.Collections.emptyList();
+      chunked_ = false;
+      chunkSize_ = 0L;
+      preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -27670,6 +30928,34 @@ public final class Spec {
               postHookScreenshots_.add(input.readBytes());
               break;
             }
+            case 152: {
+
+              chunked_ = input.readBool();
+              break;
+            }
+            case 160: {
+
+              chunkSize_ = input.readInt64();
+              break;
+            }
+            case 170: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+                preHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00100000;
+              }
+              preHookScreenshotFiles_.add(s);
+              break;
+            }
+            case 178: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
+                postHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00200000;
+              }
+              postHookScreenshotFiles_.add(s);
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -27705,6 +30991,12 @@ public final class Spec {
         }
         if (((mutable_bitField0_ & 0x00020000) == 0x00020000)) {
           postHookScreenshots_ = java.util.Collections.unmodifiableList(postHookScreenshots_);
+        }
+        if (((mutable_bitField0_ & 0x00100000) == 0x00100000)) {
+          preHookScreenshotFiles_ = preHookScreenshotFiles_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00200000) == 0x00200000)) {
+          postHookScreenshotFiles_ = postHookScreenshotFiles_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -28258,33 +31550,33 @@ public final class Spec {
     private java.util.List<com.google.protobuf.ByteString> preHookScreenshots_;
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 17;</code>
+     * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
+    @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
         getPreHookScreenshotsList() {
       return preHookScreenshots_;
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 17;</code>
+     * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      */
-    public int getPreHookScreenshotsCount() {
+    @java.lang.Deprecated public int getPreHookScreenshotsCount() {
       return preHookScreenshots_.size();
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at pre hook exec time to be available on reports
+     *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes preHookScreenshots = 17;</code>
+     * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      */
-    public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
       return preHookScreenshots_.get(index);
     }
 
@@ -28292,34 +31584,150 @@ public final class Spec {
     private java.util.List<com.google.protobuf.ByteString> postHookScreenshots_;
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 18;</code>
+     * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      */
-    public java.util.List<com.google.protobuf.ByteString>
+    @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
         getPostHookScreenshotsList() {
       return postHookScreenshots_;
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 18;</code>
+     * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      */
-    public int getPostHookScreenshotsCount() {
+    @java.lang.Deprecated public int getPostHookScreenshotsCount() {
       return postHookScreenshots_.size();
     }
     /**
      * <pre>
-     *&#47; Capture Screenshot at post hook exec time to be available on reports
+     *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
      * </pre>
      *
-     * <code>repeated bytes postHookScreenshots = 18;</code>
+     * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      */
-    public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
+    @java.lang.Deprecated public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
       return postHookScreenshots_.get(index);
+    }
+
+    public static final int CHUNKED_FIELD_NUMBER = 19;
+    private boolean chunked_;
+    /**
+     * <pre>
+     * Indicates if the result is sent in chunks
+     * </pre>
+     *
+     * <code>bool chunked = 19;</code>
+     */
+    public boolean getChunked() {
+      return chunked_;
+    }
+
+    public static final int CHUNKSIZE_FIELD_NUMBER = 20;
+    private long chunkSize_;
+    /**
+     * <pre>
+     * Indicates the number of chunks to expect after this
+     * </pre>
+     *
+     * <code>int64 chunkSize = 20;</code>
+     */
+    public long getChunkSize() {
+      return chunkSize_;
+    }
+
+    public static final int PREHOOKSCREENSHOTFILES_FIELD_NUMBER = 21;
+    private com.google.protobuf.LazyStringList preHookScreenshotFiles_;
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPreHookScreenshotFilesList() {
+      return preHookScreenshotFiles_;
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    public int getPreHookScreenshotFilesCount() {
+      return preHookScreenshotFiles_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    public java.lang.String getPreHookScreenshotFiles(int index) {
+      return preHookScreenshotFiles_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on pre hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string preHookScreenshotFiles = 21;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPreHookScreenshotFilesBytes(int index) {
+      return preHookScreenshotFiles_.getByteString(index);
+    }
+
+    public static final int POSTHOOKSCREENSHOTFILES_FIELD_NUMBER = 22;
+    private com.google.protobuf.LazyStringList postHookScreenshotFiles_;
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getPostHookScreenshotFilesList() {
+      return postHookScreenshotFiles_;
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    public int getPostHookScreenshotFilesCount() {
+      return postHookScreenshotFiles_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    public java.lang.String getPostHookScreenshotFiles(int index) {
+      return postHookScreenshotFiles_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Screenshots captured on post hook exec time to be available on reports
+     * </pre>
+     *
+     * <code>repeated string postHookScreenshotFiles = 22;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPostHookScreenshotFilesBytes(int index) {
+      return postHookScreenshotFiles_.getByteString(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -28389,6 +31797,18 @@ public final class Spec {
       }
       for (int i = 0; i < postHookScreenshots_.size(); i++) {
         output.writeBytes(18, postHookScreenshots_.get(i));
+      }
+      if (chunked_ != false) {
+        output.writeBool(19, chunked_);
+      }
+      if (chunkSize_ != 0L) {
+        output.writeInt64(20, chunkSize_);
+      }
+      for (int i = 0; i < preHookScreenshotFiles_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 21, preHookScreenshotFiles_.getRaw(i));
+      }
+      for (int i = 0; i < postHookScreenshotFiles_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 22, postHookScreenshotFiles_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -28493,6 +31913,30 @@ public final class Spec {
         size += dataSize;
         size += 2 * getPostHookScreenshotsList().size();
       }
+      if (chunked_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(19, chunked_);
+      }
+      if (chunkSize_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(20, chunkSize_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < preHookScreenshotFiles_.size(); i++) {
+          dataSize += computeStringSizeNoTag(preHookScreenshotFiles_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getPreHookScreenshotFilesList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < postHookScreenshotFiles_.size(); i++) {
+          dataSize += computeStringSizeNoTag(postHookScreenshotFiles_.getRaw(i));
+        }
+        size += dataSize;
+        size += 2 * getPostHookScreenshotFilesList().size();
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -28553,6 +31997,14 @@ public final class Spec {
           .equals(other.getPreHookScreenshotsList());
       result = result && getPostHookScreenshotsList()
           .equals(other.getPostHookScreenshotsList());
+      result = result && (getChunked()
+          == other.getChunked());
+      result = result && (getChunkSize()
+          == other.getChunkSize());
+      result = result && getPreHookScreenshotFilesList()
+          .equals(other.getPreHookScreenshotFilesList());
+      result = result && getPostHookScreenshotFilesList()
+          .equals(other.getPostHookScreenshotFilesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -28620,6 +32072,20 @@ public final class Spec {
       if (getPostHookScreenshotsCount() > 0) {
         hash = (37 * hash) + POSTHOOKSCREENSHOTS_FIELD_NUMBER;
         hash = (53 * hash) + getPostHookScreenshotsList().hashCode();
+      }
+      hash = (37 * hash) + CHUNKED_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getChunked());
+      hash = (37 * hash) + CHUNKSIZE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getChunkSize());
+      if (getPreHookScreenshotFilesCount() > 0) {
+        hash = (37 * hash) + PREHOOKSCREENSHOTFILES_FIELD_NUMBER;
+        hash = (53 * hash) + getPreHookScreenshotFilesList().hashCode();
+      }
+      if (getPostHookScreenshotFilesCount() > 0) {
+        hash = (37 * hash) + POSTHOOKSCREENSHOTFILES_FIELD_NUMBER;
+        hash = (53 * hash) + getPostHookScreenshotFilesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -28807,6 +32273,14 @@ public final class Spec {
         bitField0_ = (bitField0_ & ~0x00010000);
         postHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00020000);
+        chunked_ = false;
+
+        chunkSize_ = 0L;
+
+        preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00100000);
+        postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00200000);
         return this;
       }
 
@@ -28893,6 +32367,18 @@ public final class Spec {
           bitField0_ = (bitField0_ & ~0x00020000);
         }
         result.postHookScreenshots_ = postHookScreenshots_;
+        result.chunked_ = chunked_;
+        result.chunkSize_ = chunkSize_;
+        if (((bitField0_ & 0x00100000) == 0x00100000)) {
+          preHookScreenshotFiles_ = preHookScreenshotFiles_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00100000);
+        }
+        result.preHookScreenshotFiles_ = preHookScreenshotFiles_;
+        if (((bitField0_ & 0x00200000) == 0x00200000)) {
+          postHookScreenshotFiles_ = postHookScreenshotFiles_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00200000);
+        }
+        result.postHookScreenshotFiles_ = postHookScreenshotFiles_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -29062,6 +32548,32 @@ public final class Spec {
           } else {
             ensurePostHookScreenshotsIsMutable();
             postHookScreenshots_.addAll(other.postHookScreenshots_);
+          }
+          onChanged();
+        }
+        if (other.getChunked() != false) {
+          setChunked(other.getChunked());
+        }
+        if (other.getChunkSize() != 0L) {
+          setChunkSize(other.getChunkSize());
+        }
+        if (!other.preHookScreenshotFiles_.isEmpty()) {
+          if (preHookScreenshotFiles_.isEmpty()) {
+            preHookScreenshotFiles_ = other.preHookScreenshotFiles_;
+            bitField0_ = (bitField0_ & ~0x00100000);
+          } else {
+            ensurePreHookScreenshotFilesIsMutable();
+            preHookScreenshotFiles_.addAll(other.preHookScreenshotFiles_);
+          }
+          onChanged();
+        }
+        if (!other.postHookScreenshotFiles_.isEmpty()) {
+          if (postHookScreenshotFiles_.isEmpty()) {
+            postHookScreenshotFiles_ = other.postHookScreenshotFiles_;
+            bitField0_ = (bitField0_ & ~0x00200000);
+          } else {
+            ensurePostHookScreenshotFilesIsMutable();
+            postHookScreenshotFiles_.addAll(other.postHookScreenshotFiles_);
           }
           onChanged();
         }
@@ -30776,43 +34288,43 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 17;</code>
+       * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
+      @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
           getPreHookScreenshotsList() {
         return java.util.Collections.unmodifiableList(preHookScreenshots_);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 17;</code>
+       * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        */
-      public int getPreHookScreenshotsCount() {
+      @java.lang.Deprecated public int getPreHookScreenshotsCount() {
         return preHookScreenshots_.size();
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 17;</code>
+       * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        */
-      public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getPreHookScreenshots(int index) {
         return preHookScreenshots_.get(index);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 17;</code>
+       * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        */
-      public Builder setPreHookScreenshots(
+      @java.lang.Deprecated public Builder setPreHookScreenshots(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -30824,12 +34336,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 17;</code>
+       * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        */
-      public Builder addPreHookScreenshots(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder addPreHookScreenshots(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -30840,12 +34352,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 17;</code>
+       * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        */
-      public Builder addAllPreHookScreenshots(
+      @java.lang.Deprecated public Builder addAllPreHookScreenshots(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensurePreHookScreenshotsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -30855,12 +34367,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at pre hook exec time to be available on reports
+       *&#47; [DEPRECATED, use preHookScreenshotFiles] Capture Screenshot at pre hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes preHookScreenshots = 17;</code>
+       * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        */
-      public Builder clearPreHookScreenshots() {
+      @java.lang.Deprecated public Builder clearPreHookScreenshots() {
         preHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00010000);
         onChanged();
@@ -30876,43 +34388,43 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 18;</code>
+       * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        */
-      public java.util.List<com.google.protobuf.ByteString>
+      @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
           getPostHookScreenshotsList() {
         return java.util.Collections.unmodifiableList(postHookScreenshots_);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 18;</code>
+       * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        */
-      public int getPostHookScreenshotsCount() {
+      @java.lang.Deprecated public int getPostHookScreenshotsCount() {
         return postHookScreenshots_.size();
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 18;</code>
+       * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        */
-      public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
+      @java.lang.Deprecated public com.google.protobuf.ByteString getPostHookScreenshots(int index) {
         return postHookScreenshots_.get(index);
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 18;</code>
+       * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        */
-      public Builder setPostHookScreenshots(
+      @java.lang.Deprecated public Builder setPostHookScreenshots(
           int index, com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
@@ -30924,12 +34436,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 18;</code>
+       * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        */
-      public Builder addPostHookScreenshots(com.google.protobuf.ByteString value) {
+      @java.lang.Deprecated public Builder addPostHookScreenshots(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -30940,12 +34452,12 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 18;</code>
+       * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        */
-      public Builder addAllPostHookScreenshots(
+      @java.lang.Deprecated public Builder addAllPostHookScreenshots(
           java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
         ensurePostHookScreenshotsIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -30955,14 +34467,350 @@ public final class Spec {
       }
       /**
        * <pre>
-       *&#47; Capture Screenshot at post hook exec time to be available on reports
+       *&#47; [DEPRECATED, use postHookScreenshotFiles] Capture Screenshot at post hook exec time to be available on reports
        * </pre>
        *
-       * <code>repeated bytes postHookScreenshots = 18;</code>
+       * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        */
-      public Builder clearPostHookScreenshots() {
+      @java.lang.Deprecated public Builder clearPostHookScreenshots() {
         postHookScreenshots_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00020000);
+        onChanged();
+        return this;
+      }
+
+      private boolean chunked_ ;
+      /**
+       * <pre>
+       * Indicates if the result is sent in chunks
+       * </pre>
+       *
+       * <code>bool chunked = 19;</code>
+       */
+      public boolean getChunked() {
+        return chunked_;
+      }
+      /**
+       * <pre>
+       * Indicates if the result is sent in chunks
+       * </pre>
+       *
+       * <code>bool chunked = 19;</code>
+       */
+      public Builder setChunked(boolean value) {
+        
+        chunked_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indicates if the result is sent in chunks
+       * </pre>
+       *
+       * <code>bool chunked = 19;</code>
+       */
+      public Builder clearChunked() {
+        
+        chunked_ = false;
+        onChanged();
+        return this;
+      }
+
+      private long chunkSize_ ;
+      /**
+       * <pre>
+       * Indicates the number of chunks to expect after this
+       * </pre>
+       *
+       * <code>int64 chunkSize = 20;</code>
+       */
+      public long getChunkSize() {
+        return chunkSize_;
+      }
+      /**
+       * <pre>
+       * Indicates the number of chunks to expect after this
+       * </pre>
+       *
+       * <code>int64 chunkSize = 20;</code>
+       */
+      public Builder setChunkSize(long value) {
+        
+        chunkSize_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Indicates the number of chunks to expect after this
+       * </pre>
+       *
+       * <code>int64 chunkSize = 20;</code>
+       */
+      public Builder clearChunkSize() {
+        
+        chunkSize_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePreHookScreenshotFilesIsMutable() {
+        if (!((bitField0_ & 0x00100000) == 0x00100000)) {
+          preHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList(preHookScreenshotFiles_);
+          bitField0_ |= 0x00100000;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPreHookScreenshotFilesList() {
+        return preHookScreenshotFiles_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public int getPreHookScreenshotFilesCount() {
+        return preHookScreenshotFiles_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public java.lang.String getPreHookScreenshotFiles(int index) {
+        return preHookScreenshotFiles_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPreHookScreenshotFilesBytes(int index) {
+        return preHookScreenshotFiles_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public Builder setPreHookScreenshotFiles(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public Builder addPreHookScreenshotFiles(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public Builder addAllPreHookScreenshotFiles(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePreHookScreenshotFilesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, preHookScreenshotFiles_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public Builder clearPreHookScreenshotFiles() {
+        preHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00100000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on pre hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string preHookScreenshotFiles = 21;</code>
+       */
+      public Builder addPreHookScreenshotFilesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePreHookScreenshotFilesIsMutable();
+        preHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensurePostHookScreenshotFilesIsMutable() {
+        if (!((bitField0_ & 0x00200000) == 0x00200000)) {
+          postHookScreenshotFiles_ = new com.google.protobuf.LazyStringArrayList(postHookScreenshotFiles_);
+          bitField0_ |= 0x00200000;
+         }
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getPostHookScreenshotFilesList() {
+        return postHookScreenshotFiles_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public int getPostHookScreenshotFilesCount() {
+        return postHookScreenshotFiles_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public java.lang.String getPostHookScreenshotFiles(int index) {
+        return postHookScreenshotFiles_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPostHookScreenshotFilesBytes(int index) {
+        return postHookScreenshotFiles_.getByteString(index);
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public Builder setPostHookScreenshotFiles(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public Builder addPostHookScreenshotFiles(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public Builder addAllPostHookScreenshotFiles(
+          java.lang.Iterable<java.lang.String> values) {
+        ensurePostHookScreenshotFilesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, postHookScreenshotFiles_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public Builder clearPostHookScreenshotFiles() {
+        postHookScreenshotFiles_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00200000);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Screenshots captured on post hook exec time to be available on reports
+       * </pre>
+       *
+       * <code>repeated string postHookScreenshotFiles = 22;</code>
+       */
+      public Builder addPostHookScreenshotFilesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensurePostHookScreenshotFilesIsMutable();
+        postHookScreenshotFiles_.add(value);
         onChanged();
         return this;
       }
@@ -31195,6 +35043,24 @@ public final class Spec {
      */
     gauge.messages.Spec.ErrorOrBuilder getErrorsOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 11;</code>
+     */
+    java.lang.String getTimestamp();
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 11;</code>
+     */
+    com.google.protobuf.ByteString
+        getTimestampBytes();
   }
   /**
    * <pre>
@@ -31222,6 +35088,7 @@ public final class Spec {
       scenarioSkippedCount_ = 0;
       skippedDataTableRows_ = java.util.Collections.emptyList();
       errors_ = java.util.Collections.emptyList();
+      timestamp_ = "";
     }
 
     @java.lang.Override
@@ -31340,6 +35207,12 @@ public final class Spec {
               }
               errors_.add(
                   input.readMessage(gauge.messages.Spec.Error.parser(), extensionRegistry));
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timestamp_ = s;
               break;
             }
             default: {
@@ -31620,6 +35493,48 @@ public final class Spec {
       return errors_.get(index);
     }
 
+    public static final int TIMESTAMP_FIELD_NUMBER = 11;
+    private volatile java.lang.Object timestamp_;
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 11;</code>
+     */
+    public java.lang.String getTimestamp() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timestamp_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 11;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTimestampBytes() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timestamp_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -31672,6 +35587,9 @@ public final class Spec {
       }
       for (int i = 0; i < errors_.size(); i++) {
         output.writeMessage(10, errors_.get(i));
+      }
+      if (!getTimestampBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, timestamp_);
       }
       unknownFields.writeTo(output);
     }
@@ -31742,6 +35660,9 @@ public final class Spec {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(10, errors_.get(i));
       }
+      if (!getTimestampBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, timestamp_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -31781,6 +35702,8 @@ public final class Spec {
           .equals(other.getSkippedDataTableRowsList());
       result = result && getErrorsList()
           .equals(other.getErrorsList());
+      result = result && getTimestamp()
+          .equals(other.getTimestamp());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -31823,6 +35746,8 @@ public final class Spec {
         hash = (37 * hash) + ERRORS_FIELD_NUMBER;
         hash = (53 * hash) + getErrorsList().hashCode();
       }
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + getTimestamp().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -31989,6 +35914,8 @@ public final class Spec {
         } else {
           errorsBuilder_.clear();
         }
+        timestamp_ = "";
+
         return this;
       }
 
@@ -32047,6 +35974,7 @@ public final class Spec {
         } else {
           result.errors_ = errorsBuilder_.build();
         }
+        result.timestamp_ = timestamp_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -32162,6 +36090,10 @@ public final class Spec {
               errorsBuilder_.addAllMessages(other.errors_);
             }
           }
+        }
+        if (!other.getTimestamp().isEmpty()) {
+          timestamp_ = other.timestamp_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -33073,6 +37005,95 @@ public final class Spec {
         }
         return errorsBuilder_;
       }
+
+      private java.lang.Object timestamp_ = "";
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 11;</code>
+       */
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timestamp_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 11;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTimestampBytes() {
+        java.lang.Object ref = timestamp_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timestamp_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 11;</code>
+       */
+      public Builder setTimestamp(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 11;</code>
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = getDefaultInstance().getTimestamp();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 11;</code>
+       */
+      public Builder setTimestampBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -33121,6 +37142,1870 @@ public final class Spec {
 
     @java.lang.Override
     public gauge.messages.Spec.ProtoSpecResult getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ProtoScenarioResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoScenarioResult)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *&#47; Collection of scenarios in scenario execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    boolean hasProtoItem();
+    /**
+     * <pre>
+     *&#47; Collection of scenarios in scenario execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    gauge.messages.Spec.ProtoItem getProtoItem();
+    /**
+     * <pre>
+     *&#47; Collection of scenarios in scenario execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    gauge.messages.Spec.ProtoItemOrBuilder getProtoItemOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Holds the time taken for executing the whole suite.
+     * </pre>
+     *
+     * <code>int64 executionTime = 2;</code>
+     */
+    long getExecutionTime();
+
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 3;</code>
+     */
+    java.lang.String getTimestamp();
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getTimestampBytes();
+  }
+  /**
+   * <pre>
+   *&#47; A proto object representing the result of Scenario execution.
+   * </pre>
+   *
+   * Protobuf type {@code gauge.messages.ProtoScenarioResult}
+   */
+  public  static final class ProtoScenarioResult extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoScenarioResult)
+      ProtoScenarioResultOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ProtoScenarioResult.newBuilder() to construct.
+    private ProtoScenarioResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ProtoScenarioResult() {
+      executionTime_ = 0L;
+      timestamp_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ProtoScenarioResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              gauge.messages.Spec.ProtoItem.Builder subBuilder = null;
+              if (protoItem_ != null) {
+                subBuilder = protoItem_.toBuilder();
+              }
+              protoItem_ = input.readMessage(gauge.messages.Spec.ProtoItem.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(protoItem_);
+                protoItem_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 16: {
+
+              executionTime_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timestamp_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Spec.internal_static_gauge_messages_ProtoScenarioResult_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Spec.internal_static_gauge_messages_ProtoScenarioResult_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Spec.ProtoScenarioResult.class, gauge.messages.Spec.ProtoScenarioResult.Builder.class);
+    }
+
+    public static final int PROTOITEM_FIELD_NUMBER = 1;
+    private gauge.messages.Spec.ProtoItem protoItem_;
+    /**
+     * <pre>
+     *&#47; Collection of scenarios in scenario execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    public boolean hasProtoItem() {
+      return protoItem_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Collection of scenarios in scenario execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    public gauge.messages.Spec.ProtoItem getProtoItem() {
+      return protoItem_ == null ? gauge.messages.Spec.ProtoItem.getDefaultInstance() : protoItem_;
+    }
+    /**
+     * <pre>
+     *&#47; Collection of scenarios in scenario execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    public gauge.messages.Spec.ProtoItemOrBuilder getProtoItemOrBuilder() {
+      return getProtoItem();
+    }
+
+    public static final int EXECUTIONTIME_FIELD_NUMBER = 2;
+    private long executionTime_;
+    /**
+     * <pre>
+     *&#47; Holds the time taken for executing the whole suite.
+     * </pre>
+     *
+     * <code>int64 executionTime = 2;</code>
+     */
+    public long getExecutionTime() {
+      return executionTime_;
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 3;
+    private volatile java.lang.Object timestamp_;
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 3;</code>
+     */
+    public java.lang.String getTimestamp() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timestamp_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTimestampBytes() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timestamp_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (protoItem_ != null) {
+        output.writeMessage(1, getProtoItem());
+      }
+      if (executionTime_ != 0L) {
+        output.writeInt64(2, executionTime_);
+      }
+      if (!getTimestampBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, timestamp_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (protoItem_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getProtoItem());
+      }
+      if (executionTime_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, executionTime_);
+      }
+      if (!getTimestampBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, timestamp_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Spec.ProtoScenarioResult)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Spec.ProtoScenarioResult other = (gauge.messages.Spec.ProtoScenarioResult) obj;
+
+      boolean result = true;
+      result = result && (hasProtoItem() == other.hasProtoItem());
+      if (hasProtoItem()) {
+        result = result && getProtoItem()
+            .equals(other.getProtoItem());
+      }
+      result = result && (getExecutionTime()
+          == other.getExecutionTime());
+      result = result && getTimestamp()
+          .equals(other.getTimestamp());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasProtoItem()) {
+        hash = (37 * hash) + PROTOITEM_FIELD_NUMBER;
+        hash = (53 * hash) + getProtoItem().hashCode();
+      }
+      hash = (37 * hash) + EXECUTIONTIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getExecutionTime());
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + getTimestamp().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Spec.ProtoScenarioResult parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoScenarioResult parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Spec.ProtoScenarioResult parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoScenarioResult parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Spec.ProtoScenarioResult parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoScenarioResult parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Spec.ProtoScenarioResult parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Spec.ProtoScenarioResult parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Spec.ProtoScenarioResult parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Spec.ProtoScenarioResult parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Spec.ProtoScenarioResult parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Spec.ProtoScenarioResult parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Spec.ProtoScenarioResult prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; A proto object representing the result of Scenario execution.
+     * </pre>
+     *
+     * Protobuf type {@code gauge.messages.ProtoScenarioResult}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoScenarioResult)
+        gauge.messages.Spec.ProtoScenarioResultOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Spec.internal_static_gauge_messages_ProtoScenarioResult_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Spec.internal_static_gauge_messages_ProtoScenarioResult_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Spec.ProtoScenarioResult.class, gauge.messages.Spec.ProtoScenarioResult.Builder.class);
+      }
+
+      // Construct using gauge.messages.Spec.ProtoScenarioResult.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (protoItemBuilder_ == null) {
+          protoItem_ = null;
+        } else {
+          protoItem_ = null;
+          protoItemBuilder_ = null;
+        }
+        executionTime_ = 0L;
+
+        timestamp_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Spec.internal_static_gauge_messages_ProtoScenarioResult_descriptor;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Spec.ProtoScenarioResult getDefaultInstanceForType() {
+        return gauge.messages.Spec.ProtoScenarioResult.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public gauge.messages.Spec.ProtoScenarioResult build() {
+        gauge.messages.Spec.ProtoScenarioResult result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Spec.ProtoScenarioResult buildPartial() {
+        gauge.messages.Spec.ProtoScenarioResult result = new gauge.messages.Spec.ProtoScenarioResult(this);
+        if (protoItemBuilder_ == null) {
+          result.protoItem_ = protoItem_;
+        } else {
+          result.protoItem_ = protoItemBuilder_.build();
+        }
+        result.executionTime_ = executionTime_;
+        result.timestamp_ = timestamp_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Spec.ProtoScenarioResult) {
+          return mergeFrom((gauge.messages.Spec.ProtoScenarioResult)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Spec.ProtoScenarioResult other) {
+        if (other == gauge.messages.Spec.ProtoScenarioResult.getDefaultInstance()) return this;
+        if (other.hasProtoItem()) {
+          mergeProtoItem(other.getProtoItem());
+        }
+        if (other.getExecutionTime() != 0L) {
+          setExecutionTime(other.getExecutionTime());
+        }
+        if (!other.getTimestamp().isEmpty()) {
+          timestamp_ = other.timestamp_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Spec.ProtoScenarioResult parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Spec.ProtoScenarioResult) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private gauge.messages.Spec.ProtoItem protoItem_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder> protoItemBuilder_;
+      /**
+       * <pre>
+       *&#47; Collection of scenarios in scenario execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public boolean hasProtoItem() {
+        return protoItemBuilder_ != null || protoItem_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Collection of scenarios in scenario execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public gauge.messages.Spec.ProtoItem getProtoItem() {
+        if (protoItemBuilder_ == null) {
+          return protoItem_ == null ? gauge.messages.Spec.ProtoItem.getDefaultInstance() : protoItem_;
+        } else {
+          return protoItemBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Collection of scenarios in scenario execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public Builder setProtoItem(gauge.messages.Spec.ProtoItem value) {
+        if (protoItemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          protoItem_ = value;
+          onChanged();
+        } else {
+          protoItemBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Collection of scenarios in scenario execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public Builder setProtoItem(
+          gauge.messages.Spec.ProtoItem.Builder builderForValue) {
+        if (protoItemBuilder_ == null) {
+          protoItem_ = builderForValue.build();
+          onChanged();
+        } else {
+          protoItemBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Collection of scenarios in scenario execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public Builder mergeProtoItem(gauge.messages.Spec.ProtoItem value) {
+        if (protoItemBuilder_ == null) {
+          if (protoItem_ != null) {
+            protoItem_ =
+              gauge.messages.Spec.ProtoItem.newBuilder(protoItem_).mergeFrom(value).buildPartial();
+          } else {
+            protoItem_ = value;
+          }
+          onChanged();
+        } else {
+          protoItemBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Collection of scenarios in scenario execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public Builder clearProtoItem() {
+        if (protoItemBuilder_ == null) {
+          protoItem_ = null;
+          onChanged();
+        } else {
+          protoItem_ = null;
+          protoItemBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Collection of scenarios in scenario execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public gauge.messages.Spec.ProtoItem.Builder getProtoItemBuilder() {
+        
+        onChanged();
+        return getProtoItemFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Collection of scenarios in scenario execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public gauge.messages.Spec.ProtoItemOrBuilder getProtoItemOrBuilder() {
+        if (protoItemBuilder_ != null) {
+          return protoItemBuilder_.getMessageOrBuilder();
+        } else {
+          return protoItem_ == null ?
+              gauge.messages.Spec.ProtoItem.getDefaultInstance() : protoItem_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Collection of scenarios in scenario execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder> 
+          getProtoItemFieldBuilder() {
+        if (protoItemBuilder_ == null) {
+          protoItemBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder>(
+                  getProtoItem(),
+                  getParentForChildren(),
+                  isClean());
+          protoItem_ = null;
+        }
+        return protoItemBuilder_;
+      }
+
+      private long executionTime_ ;
+      /**
+       * <pre>
+       *&#47; Holds the time taken for executing the whole suite.
+       * </pre>
+       *
+       * <code>int64 executionTime = 2;</code>
+       */
+      public long getExecutionTime() {
+        return executionTime_;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the time taken for executing the whole suite.
+       * </pre>
+       *
+       * <code>int64 executionTime = 2;</code>
+       */
+      public Builder setExecutionTime(long value) {
+        
+        executionTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the time taken for executing the whole suite.
+       * </pre>
+       *
+       * <code>int64 executionTime = 2;</code>
+       */
+      public Builder clearExecutionTime() {
+        
+        executionTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timestamp_ = "";
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 3;</code>
+       */
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timestamp_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTimestampBytes() {
+        java.lang.Object ref = timestamp_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timestamp_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 3;</code>
+       */
+      public Builder setTimestamp(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 3;</code>
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = getDefaultInstance().getTimestamp();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 3;</code>
+       */
+      public Builder setTimestampBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.ProtoScenarioResult)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.ProtoScenarioResult)
+    private static final gauge.messages.Spec.ProtoScenarioResult DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Spec.ProtoScenarioResult();
+    }
+
+    public static gauge.messages.Spec.ProtoScenarioResult getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ProtoScenarioResult>
+        PARSER = new com.google.protobuf.AbstractParser<ProtoScenarioResult>() {
+      @java.lang.Override
+      public ProtoScenarioResult parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ProtoScenarioResult(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProtoScenarioResult> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProtoScenarioResult> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public gauge.messages.Spec.ProtoScenarioResult getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ProtoStepResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.ProtoStepResult)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *&#47; Collection of steps in step execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    boolean hasProtoItem();
+    /**
+     * <pre>
+     *&#47; Collection of steps in step execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    gauge.messages.Spec.ProtoItem getProtoItem();
+    /**
+     * <pre>
+     *&#47; Collection of steps in step execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    gauge.messages.Spec.ProtoItemOrBuilder getProtoItemOrBuilder();
+
+    /**
+     * <pre>
+     *&#47; Holds the time taken for executing the whole suite.
+     * </pre>
+     *
+     * <code>int64 executionTime = 2;</code>
+     */
+    long getExecutionTime();
+
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 3;</code>
+     */
+    java.lang.String getTimestamp();
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getTimestampBytes();
+  }
+  /**
+   * <pre>
+   *&#47; A proto object representing the result of Step execution.
+   * </pre>
+   *
+   * Protobuf type {@code gauge.messages.ProtoStepResult}
+   */
+  public  static final class ProtoStepResult extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.ProtoStepResult)
+      ProtoStepResultOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ProtoStepResult.newBuilder() to construct.
+    private ProtoStepResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ProtoStepResult() {
+      executionTime_ = 0L;
+      timestamp_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ProtoStepResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              gauge.messages.Spec.ProtoItem.Builder subBuilder = null;
+              if (protoItem_ != null) {
+                subBuilder = protoItem_.toBuilder();
+              }
+              protoItem_ = input.readMessage(gauge.messages.Spec.ProtoItem.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(protoItem_);
+                protoItem_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 16: {
+
+              executionTime_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timestamp_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Spec.internal_static_gauge_messages_ProtoStepResult_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Spec.internal_static_gauge_messages_ProtoStepResult_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Spec.ProtoStepResult.class, gauge.messages.Spec.ProtoStepResult.Builder.class);
+    }
+
+    public static final int PROTOITEM_FIELD_NUMBER = 1;
+    private gauge.messages.Spec.ProtoItem protoItem_;
+    /**
+     * <pre>
+     *&#47; Collection of steps in step execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    public boolean hasProtoItem() {
+      return protoItem_ != null;
+    }
+    /**
+     * <pre>
+     *&#47; Collection of steps in step execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    public gauge.messages.Spec.ProtoItem getProtoItem() {
+      return protoItem_ == null ? gauge.messages.Spec.ProtoItem.getDefaultInstance() : protoItem_;
+    }
+    /**
+     * <pre>
+     *&#47; Collection of steps in step execution result.
+     * </pre>
+     *
+     * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+     */
+    public gauge.messages.Spec.ProtoItemOrBuilder getProtoItemOrBuilder() {
+      return getProtoItem();
+    }
+
+    public static final int EXECUTIONTIME_FIELD_NUMBER = 2;
+    private long executionTime_;
+    /**
+     * <pre>
+     *&#47; Holds the time taken for executing the whole suite.
+     * </pre>
+     *
+     * <code>int64 executionTime = 2;</code>
+     */
+    public long getExecutionTime() {
+      return executionTime_;
+    }
+
+    public static final int TIMESTAMP_FIELD_NUMBER = 3;
+    private volatile java.lang.Object timestamp_;
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 3;</code>
+     */
+    public java.lang.String getTimestamp() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timestamp_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     *&#47; Holds the timestamp of event starting.
+     * </pre>
+     *
+     * <code>string timestamp = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTimestampBytes() {
+      java.lang.Object ref = timestamp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timestamp_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (protoItem_ != null) {
+        output.writeMessage(1, getProtoItem());
+      }
+      if (executionTime_ != 0L) {
+        output.writeInt64(2, executionTime_);
+      }
+      if (!getTimestampBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, timestamp_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (protoItem_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getProtoItem());
+      }
+      if (executionTime_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, executionTime_);
+      }
+      if (!getTimestampBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, timestamp_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Spec.ProtoStepResult)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Spec.ProtoStepResult other = (gauge.messages.Spec.ProtoStepResult) obj;
+
+      boolean result = true;
+      result = result && (hasProtoItem() == other.hasProtoItem());
+      if (hasProtoItem()) {
+        result = result && getProtoItem()
+            .equals(other.getProtoItem());
+      }
+      result = result && (getExecutionTime()
+          == other.getExecutionTime());
+      result = result && getTimestamp()
+          .equals(other.getTimestamp());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasProtoItem()) {
+        hash = (37 * hash) + PROTOITEM_FIELD_NUMBER;
+        hash = (53 * hash) + getProtoItem().hashCode();
+      }
+      hash = (37 * hash) + EXECUTIONTIME_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getExecutionTime());
+      hash = (37 * hash) + TIMESTAMP_FIELD_NUMBER;
+      hash = (53 * hash) + getTimestamp().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Spec.ProtoStepResult parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoStepResult parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Spec.ProtoStepResult parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoStepResult parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Spec.ProtoStepResult parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Spec.ProtoStepResult parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Spec.ProtoStepResult parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Spec.ProtoStepResult parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Spec.ProtoStepResult parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Spec.ProtoStepResult parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Spec.ProtoStepResult parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Spec.ProtoStepResult parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Spec.ProtoStepResult prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *&#47; A proto object representing the result of Step execution.
+     * </pre>
+     *
+     * Protobuf type {@code gauge.messages.ProtoStepResult}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.ProtoStepResult)
+        gauge.messages.Spec.ProtoStepResultOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Spec.internal_static_gauge_messages_ProtoStepResult_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Spec.internal_static_gauge_messages_ProtoStepResult_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Spec.ProtoStepResult.class, gauge.messages.Spec.ProtoStepResult.Builder.class);
+      }
+
+      // Construct using gauge.messages.Spec.ProtoStepResult.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (protoItemBuilder_ == null) {
+          protoItem_ = null;
+        } else {
+          protoItem_ = null;
+          protoItemBuilder_ = null;
+        }
+        executionTime_ = 0L;
+
+        timestamp_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Spec.internal_static_gauge_messages_ProtoStepResult_descriptor;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Spec.ProtoStepResult getDefaultInstanceForType() {
+        return gauge.messages.Spec.ProtoStepResult.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public gauge.messages.Spec.ProtoStepResult build() {
+        gauge.messages.Spec.ProtoStepResult result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Spec.ProtoStepResult buildPartial() {
+        gauge.messages.Spec.ProtoStepResult result = new gauge.messages.Spec.ProtoStepResult(this);
+        if (protoItemBuilder_ == null) {
+          result.protoItem_ = protoItem_;
+        } else {
+          result.protoItem_ = protoItemBuilder_.build();
+        }
+        result.executionTime_ = executionTime_;
+        result.timestamp_ = timestamp_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Spec.ProtoStepResult) {
+          return mergeFrom((gauge.messages.Spec.ProtoStepResult)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Spec.ProtoStepResult other) {
+        if (other == gauge.messages.Spec.ProtoStepResult.getDefaultInstance()) return this;
+        if (other.hasProtoItem()) {
+          mergeProtoItem(other.getProtoItem());
+        }
+        if (other.getExecutionTime() != 0L) {
+          setExecutionTime(other.getExecutionTime());
+        }
+        if (!other.getTimestamp().isEmpty()) {
+          timestamp_ = other.timestamp_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Spec.ProtoStepResult parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Spec.ProtoStepResult) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private gauge.messages.Spec.ProtoItem protoItem_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder> protoItemBuilder_;
+      /**
+       * <pre>
+       *&#47; Collection of steps in step execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public boolean hasProtoItem() {
+        return protoItemBuilder_ != null || protoItem_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Collection of steps in step execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public gauge.messages.Spec.ProtoItem getProtoItem() {
+        if (protoItemBuilder_ == null) {
+          return protoItem_ == null ? gauge.messages.Spec.ProtoItem.getDefaultInstance() : protoItem_;
+        } else {
+          return protoItemBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Collection of steps in step execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public Builder setProtoItem(gauge.messages.Spec.ProtoItem value) {
+        if (protoItemBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          protoItem_ = value;
+          onChanged();
+        } else {
+          protoItemBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Collection of steps in step execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public Builder setProtoItem(
+          gauge.messages.Spec.ProtoItem.Builder builderForValue) {
+        if (protoItemBuilder_ == null) {
+          protoItem_ = builderForValue.build();
+          onChanged();
+        } else {
+          protoItemBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Collection of steps in step execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public Builder mergeProtoItem(gauge.messages.Spec.ProtoItem value) {
+        if (protoItemBuilder_ == null) {
+          if (protoItem_ != null) {
+            protoItem_ =
+              gauge.messages.Spec.ProtoItem.newBuilder(protoItem_).mergeFrom(value).buildPartial();
+          } else {
+            protoItem_ = value;
+          }
+          onChanged();
+        } else {
+          protoItemBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Collection of steps in step execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public Builder clearProtoItem() {
+        if (protoItemBuilder_ == null) {
+          protoItem_ = null;
+          onChanged();
+        } else {
+          protoItem_ = null;
+          protoItemBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Collection of steps in step execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public gauge.messages.Spec.ProtoItem.Builder getProtoItemBuilder() {
+        
+        onChanged();
+        return getProtoItemFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       *&#47; Collection of steps in step execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      public gauge.messages.Spec.ProtoItemOrBuilder getProtoItemOrBuilder() {
+        if (protoItemBuilder_ != null) {
+          return protoItemBuilder_.getMessageOrBuilder();
+        } else {
+          return protoItem_ == null ?
+              gauge.messages.Spec.ProtoItem.getDefaultInstance() : protoItem_;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Collection of steps in step execution result.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoItem protoItem = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder> 
+          getProtoItemFieldBuilder() {
+        if (protoItemBuilder_ == null) {
+          protoItemBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              gauge.messages.Spec.ProtoItem, gauge.messages.Spec.ProtoItem.Builder, gauge.messages.Spec.ProtoItemOrBuilder>(
+                  getProtoItem(),
+                  getParentForChildren(),
+                  isClean());
+          protoItem_ = null;
+        }
+        return protoItemBuilder_;
+      }
+
+      private long executionTime_ ;
+      /**
+       * <pre>
+       *&#47; Holds the time taken for executing the whole suite.
+       * </pre>
+       *
+       * <code>int64 executionTime = 2;</code>
+       */
+      public long getExecutionTime() {
+        return executionTime_;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the time taken for executing the whole suite.
+       * </pre>
+       *
+       * <code>int64 executionTime = 2;</code>
+       */
+      public Builder setExecutionTime(long value) {
+        
+        executionTime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the time taken for executing the whole suite.
+       * </pre>
+       *
+       * <code>int64 executionTime = 2;</code>
+       */
+      public Builder clearExecutionTime() {
+        
+        executionTime_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timestamp_ = "";
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 3;</code>
+       */
+      public java.lang.String getTimestamp() {
+        java.lang.Object ref = timestamp_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timestamp_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTimestampBytes() {
+        java.lang.Object ref = timestamp_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timestamp_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 3;</code>
+       */
+      public Builder setTimestamp(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 3;</code>
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = getDefaultInstance().getTimestamp();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds the timestamp of event starting.
+       * </pre>
+       *
+       * <code>string timestamp = 3;</code>
+       */
+      public Builder setTimestampBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.ProtoStepResult)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.ProtoStepResult)
+    private static final gauge.messages.Spec.ProtoStepResult DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Spec.ProtoStepResult();
+    }
+
+    public static gauge.messages.Spec.ProtoStepResult getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ProtoStepResult>
+        PARSER = new com.google.protobuf.AbstractParser<ProtoStepResult>() {
+      @java.lang.Override
+      public ProtoStepResult parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ProtoStepResult(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProtoStepResult> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProtoStepResult> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public gauge.messages.Spec.ProtoStepResult getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -35324,6 +41209,16 @@ public final class Spec {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_gauge_messages_ProtoSpecResult_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_ProtoScenarioResult_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_ProtoScenarioResult_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_ProtoStepResult_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_ProtoStepResult_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_Error_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -35342,7 +41237,7 @@ public final class Spec {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nspec.proto\022\016gauge.messages\"\235\003\n\tProtoSp" +
+      "\n\nspec.proto\022\016gauge.messages\"\371\003\n\tProtoSp" +
       "ec\022\023\n\013specHeading\030\001 \001(\t\022(\n\005items\030\002 \003(\0132\031" +
       ".gauge.messages.ProtoItem\022\025\n\risTableDriv" +
       "en\030\003 \001(\010\0229\n\017preHookFailures\030\004 \003(\0132 .gaug" +
@@ -35351,117 +41246,140 @@ public final class Spec {
       "Failure\022\020\n\010fileName\030\006 \001(\t\022\014\n\004tags\030\007 \003(\t\022" +
       "\027\n\017preHookMessages\030\010 \003(\t\022\030\n\020postHookMess" +
       "ages\030\t \003(\t\022\032\n\016preHookMessage\030\n \003(\tB\002\030\001\022\033" +
-      "\n\017postHookMessage\030\013 \003(\tB\002\030\001\022\032\n\022preHookSc" +
-      "reenshots\030\014 \003(\014\022\033\n\023postHookScreenshots\030\r" +
-      " \003(\014\"\200\004\n\tProtoItem\0224\n\010itemType\030\001 \001(\0162\".g" +
-      "auge.messages.ProtoItem.ItemType\022\'\n\004step" +
-      "\030\002 \001(\0132\031.gauge.messages.ProtoStep\022-\n\007con" +
-      "cept\030\003 \001(\0132\034.gauge.messages.ProtoConcept" +
-      "\022/\n\010scenario\030\004 \001(\0132\035.gauge.messages.Prot" +
-      "oScenario\022E\n\023tableDrivenScenario\030\005 \001(\0132(" +
-      ".gauge.messages.ProtoTableDrivenScenario" +
-      "\022-\n\007comment\030\006 \001(\0132\034.gauge.messages.Proto" +
-      "Comment\022)\n\005table\030\007 \001(\0132\032.gauge.messages." +
-      "ProtoTable\022\'\n\004tags\030\010 \001(\0132\031.gauge.message" +
-      "s.ProtoTags\"j\n\010ItemType\022\010\n\004Step\020\000\022\013\n\007Com" +
-      "ment\020\001\022\013\n\007Concept\020\002\022\014\n\010Scenario\020\003\022\027\n\023Tab" +
-      "leDrivenScenario\020\004\022\t\n\005Table\020\005\022\010\n\004Tags\020\006\"" +
-      "\237\005\n\rProtoScenario\022\027\n\017scenarioHeading\030\001 \001" +
-      "(\t\022\022\n\006failed\030\002 \001(\010B\002\030\001\022+\n\010contexts\030\003 \003(\013" +
-      "2\031.gauge.messages.ProtoItem\0220\n\rscenarioI" +
-      "tems\030\004 \003(\0132\031.gauge.messages.ProtoItem\0228\n" +
-      "\016preHookFailure\030\005 \001(\0132 .gauge.messages.P" +
-      "rotoHookFailure\0229\n\017postHookFailure\030\006 \001(\013" +
-      "2 .gauge.messages.ProtoHookFailure\022\014\n\004ta" +
-      "gs\030\007 \003(\t\022\025\n\rexecutionTime\030\010 \001(\003\022\023\n\007skipp" +
-      "ed\030\t \001(\010B\002\030\001\022\022\n\nskipErrors\030\n \003(\t\022\n\n\002ID\030\013" +
-      " \001(\t\0220\n\rtearDownSteps\030\014 \003(\0132\031.gauge.mess" +
-      "ages.ProtoItem\022\"\n\004span\030\r \001(\0132\024.gauge.mes" +
-      "sages.Span\0228\n\017executionStatus\030\016 \001(\0162\037.ga" +
-      "uge.messages.ExecutionStatus\022\027\n\017preHookM" +
-      "essages\030\017 \003(\t\022\030\n\020postHookMessages\030\020 \003(\t\022" +
-      "\032\n\016preHookMessage\030\021 \003(\tB\002\030\001\022\033\n\017postHookM" +
-      "essage\030\022 \003(\tB\002\030\001\022\032\n\022preHookScreenshots\030\023" +
-      " \003(\014\022\033\n\023postHookScreenshots\030\024 \003(\014\"F\n\004Spa" +
-      "n\022\r\n\005start\030\001 \001(\003\022\013\n\003end\030\002 \001(\003\022\021\n\tstartCh" +
-      "ar\030\003 \001(\003\022\017\n\007endChar\030\004 \001(\003\"b\n\030ProtoTableD" +
-      "rivenScenario\022/\n\010scenario\030\001 \001(\0132\035.gauge." +
-      "messages.ProtoScenario\022\025\n\rtableRowIndex\030" +
-      "\002 \001(\005\"\223\002\n\tProtoStep\022\022\n\nactualText\030\001 \001(\t\022" +
-      "\022\n\nparsedText\030\002 \001(\t\022+\n\tfragments\030\003 \003(\0132\030" +
-      ".gauge.messages.Fragment\022E\n\023stepExecutio" +
-      "nResult\030\004 \001(\0132(.gauge.messages.ProtoStep" +
-      "ExecutionResult\022\027\n\017preHookMessages\030\005 \003(\t" +
-      "\022\030\n\020postHookMessages\030\006 \003(\t\022\032\n\022preHookScr" +
-      "eenshots\030\007 \003(\014\022\033\n\023postHookScreenshots\030\010 " +
-      "\003(\014\"\262\001\n\014ProtoConcept\022.\n\013conceptStep\030\001 \001(" +
-      "\0132\031.gauge.messages.ProtoStep\022(\n\005steps\030\002 " +
-      "\003(\0132\031.gauge.messages.ProtoItem\022H\n\026concep" +
-      "tExecutionResult\030\003 \001(\0132(.gauge.messages." +
-      "ProtoStepExecutionResult\"\031\n\tProtoTags\022\014\n" +
-      "\004tags\030\001 \003(\t\"\254\001\n\010Fragment\022;\n\014fragmentType" +
-      "\030\001 \001(\0162%.gauge.messages.Fragment.Fragmen" +
-      "tType\022\014\n\004text\030\002 \001(\t\022,\n\tparameter\030\003 \001(\0132\031" +
-      ".gauge.messages.Parameter\"\'\n\014FragmentTyp" +
-      "e\022\010\n\004Text\020\000\022\r\n\tParameter\020\001\"\357\001\n\tParameter" +
-      "\022>\n\rparameterType\030\001 \001(\0162\'.gauge.messages" +
-      ".Parameter.ParameterType\022\r\n\005value\030\002 \001(\t\022" +
-      "\014\n\004name\030\003 \001(\t\022)\n\005table\030\004 \001(\0132\032.gauge.mes" +
-      "sages.ProtoTable\"Z\n\rParameterType\022\n\n\006Sta" +
-      "tic\020\000\022\013\n\007Dynamic\020\001\022\022\n\016Special_String\020\002\022\021" +
-      "\n\rSpecial_Table\020\003\022\t\n\005Table\020\004\"\034\n\014ProtoCom" +
-      "ment\022\014\n\004text\030\001 \001(\t\"i\n\nProtoTable\022.\n\007head" +
-      "ers\030\001 \001(\0132\035.gauge.messages.ProtoTableRow" +
-      "\022+\n\004rows\030\002 \003(\0132\035.gauge.messages.ProtoTab" +
-      "leRow\"\036\n\rProtoTableRow\022\r\n\005cells\030\001 \003(\t\"\366\001" +
-      "\n\030ProtoStepExecutionResult\022=\n\017executionR" +
-      "esult\030\001 \001(\0132$.gauge.messages.ProtoExecut" +
-      "ionResult\0228\n\016preHookFailure\030\002 \001(\0132 .gaug" +
-      "e.messages.ProtoHookFailure\0229\n\017postHookF" +
-      "ailure\030\003 \001(\0132 .gauge.messages.ProtoHookF" +
-      "ailure\022\017\n\007skipped\030\004 \001(\010\022\025\n\rskippedReason" +
-      "\030\005 \001(\t\"\313\002\n\024ProtoExecutionResult\022\016\n\006faile" +
-      "d\030\001 \001(\010\022\030\n\020recoverableError\030\002 \001(\010\022\024\n\014err" +
-      "orMessage\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(\t\022\026\n\ns" +
-      "creenShot\030\005 \001(\014B\002\030\001\022\025\n\rexecutionTime\030\006 \001" +
-      "(\003\022\017\n\007message\030\007 \003(\t\022A\n\terrorType\030\010 \001(\0162." +
-      ".gauge.messages.ProtoExecutionResult.Err" +
-      "orType\022\031\n\021failureScreenshot\030\t \001(\014\022\023\n\013scr" +
-      "eenshots\030\n \003(\014\",\n\tErrorType\022\r\n\tASSERTION" +
-      "\020\000\022\020\n\014VERIFICATION\020\001\"\206\001\n\020ProtoHookFailur" +
-      "e\022\022\n\nstackTrace\030\001 \001(\t\022\024\n\014errorMessage\030\002 " +
-      "\001(\t\022\026\n\nscreenShot\030\003 \001(\014B\002\030\001\022\025\n\rtableRowI" +
-      "ndex\030\004 \001(\005\022\031\n\021failureScreenshot\030\005 \001(\014\"\236\004" +
-      "\n\020ProtoSuiteResult\0224\n\013specResults\030\001 \003(\0132" +
-      "\037.gauge.messages.ProtoSpecResult\0228\n\016preH" +
-      "ookFailure\030\002 \001(\0132 .gauge.messages.ProtoH" +
-      "ookFailure\0229\n\017postHookFailure\030\003 \001(\0132 .ga" +
-      "uge.messages.ProtoHookFailure\022\016\n\006failed\030" +
-      "\004 \001(\010\022\030\n\020specsFailedCount\030\005 \001(\005\022\025\n\rexecu" +
-      "tionTime\030\006 \001(\003\022\023\n\013successRate\030\007 \001(\002\022\023\n\013e" +
-      "nvironment\030\010 \001(\t\022\014\n\004tags\030\t \001(\t\022\023\n\013projec" +
-      "tName\030\n \001(\t\022\021\n\ttimestamp\030\013 \001(\t\022\031\n\021specsS" +
-      "kippedCount\030\014 \001(\005\022\027\n\017preHookMessages\030\r \003" +
-      "(\t\022\030\n\020postHookMessages\030\016 \003(\t\022\032\n\016preHookM" +
-      "essage\030\017 \003(\tB\002\030\001\022\033\n\017postHookMessage\030\020 \003(" +
-      "\tB\002\030\001\022\032\n\022preHookScreenshots\030\021 \003(\014\022\033\n\023pos" +
-      "tHookScreenshots\030\022 \003(\014\"\253\002\n\017ProtoSpecResu" +
-      "lt\022,\n\tprotoSpec\030\001 \001(\0132\031.gauge.messages.P" +
-      "rotoSpec\022\025\n\rscenarioCount\030\002 \001(\005\022\033\n\023scena" +
-      "rioFailedCount\030\003 \001(\005\022\016\n\006failed\030\004 \001(\010\022\033\n\023" +
-      "failedDataTableRows\030\005 \003(\005\022\025\n\rexecutionTi" +
-      "me\030\006 \001(\003\022\017\n\007skipped\030\007 \001(\010\022\034\n\024scenarioSki" +
-      "ppedCount\030\010 \001(\005\022\034\n\024skippedDataTableRows\030" +
-      "\t \003(\005\022%\n\006errors\030\n \003(\0132\025.gauge.messages.E" +
-      "rror\"\241\001\n\005Error\022-\n\004type\030\001 \001(\0162\037.gauge.mes" +
-      "sages.Error.ErrorType\022\020\n\010filename\030\002 \001(\t\022" +
-      "\022\n\nlineNumber\030\003 \001(\005\022\017\n\007message\030\004 \001(\t\"2\n\t" +
-      "ErrorType\022\017\n\013PARSE_ERROR\020\000\022\024\n\020VALIDATION" +
-      "_ERROR\020\001\"W\n\016ProtoStepValue\022\021\n\tstepValue\030" +
-      "\001 \001(\t\022\036\n\026parameterizedStepValue\030\002 \001(\t\022\022\n" +
-      "\nparameters\030\003 \003(\t*G\n\017ExecutionStatus\022\017\n\013" +
-      "NOTEXECUTED\020\000\022\n\n\006PASSED\020\001\022\n\n\006FAILED\020\002\022\013\n" +
-      "\007SKIPPED\020\003B\021\252\002\016Gauge.Messagesb\006proto3"
+      "\n\017postHookMessage\030\013 \003(\tB\002\030\001\022\036\n\022preHookSc" +
+      "reenshots\030\014 \003(\014B\002\030\001\022\037\n\023postHookScreensho" +
+      "ts\030\r \003(\014B\002\030\001\022\021\n\titemCount\030\016 \001(\003\022\036\n\026preHo" +
+      "okScreenshotFiles\030\017 \003(\t\022\037\n\027postHookScree" +
+      "nshotFiles\030\020 \003(\t\"\222\004\n\tProtoItem\0224\n\010itemTy" +
+      "pe\030\001 \001(\0162\".gauge.messages.ProtoItem.Item" +
+      "Type\022\'\n\004step\030\002 \001(\0132\031.gauge.messages.Prot" +
+      "oStep\022-\n\007concept\030\003 \001(\0132\034.gauge.messages." +
+      "ProtoConcept\022/\n\010scenario\030\004 \001(\0132\035.gauge.m" +
+      "essages.ProtoScenario\022E\n\023tableDrivenScen" +
+      "ario\030\005 \001(\0132(.gauge.messages.ProtoTableDr" +
+      "ivenScenario\022-\n\007comment\030\006 \001(\0132\034.gauge.me" +
+      "ssages.ProtoComment\022)\n\005table\030\007 \001(\0132\032.gau" +
+      "ge.messages.ProtoTable\022\'\n\004tags\030\010 \001(\0132\031.g" +
+      "auge.messages.ProtoTags\022\020\n\010fileName\030\t \001(" +
+      "\t\"j\n\010ItemType\022\010\n\004Step\020\000\022\013\n\007Comment\020\001\022\013\n\007" +
+      "Concept\020\002\022\014\n\010Scenario\020\003\022\027\n\023TableDrivenSc" +
+      "enario\020\004\022\t\n\005Table\020\005\022\010\n\004Tags\020\006\"\350\005\n\rProtoS" +
+      "cenario\022\027\n\017scenarioHeading\030\001 \001(\t\022\022\n\006fail" +
+      "ed\030\002 \001(\010B\002\030\001\022+\n\010contexts\030\003 \003(\0132\031.gauge.m" +
+      "essages.ProtoItem\0220\n\rscenarioItems\030\004 \003(\013" +
+      "2\031.gauge.messages.ProtoItem\0228\n\016preHookFa" +
+      "ilure\030\005 \001(\0132 .gauge.messages.ProtoHookFa" +
+      "ilure\0229\n\017postHookFailure\030\006 \001(\0132 .gauge.m" +
+      "essages.ProtoHookFailure\022\014\n\004tags\030\007 \003(\t\022\025" +
+      "\n\rexecutionTime\030\010 \001(\003\022\023\n\007skipped\030\t \001(\010B\002" +
+      "\030\001\022\022\n\nskipErrors\030\n \003(\t\022\n\n\002ID\030\013 \001(\t\0220\n\rte" +
+      "arDownSteps\030\014 \003(\0132\031.gauge.messages.Proto" +
+      "Item\022\"\n\004span\030\r \001(\0132\024.gauge.messages.Span" +
+      "\0228\n\017executionStatus\030\016 \001(\0162\037.gauge.messag" +
+      "es.ExecutionStatus\022\027\n\017preHookMessages\030\017 " +
+      "\003(\t\022\030\n\020postHookMessages\030\020 \003(\t\022\032\n\016preHook" +
+      "Message\030\021 \003(\tB\002\030\001\022\033\n\017postHookMessage\030\022 \003" +
+      "(\tB\002\030\001\022\036\n\022preHookScreenshots\030\023 \003(\014B\002\030\001\022\037" +
+      "\n\023postHookScreenshots\030\024 \003(\014B\002\030\001\022\036\n\026preHo" +
+      "okScreenshotFiles\030\025 \003(\t\022\037\n\027postHookScree" +
+      "nshotFiles\030\026 \003(\t\"F\n\004Span\022\r\n\005start\030\001 \001(\003\022" +
+      "\013\n\003end\030\002 \001(\003\022\021\n\tstartChar\030\003 \001(\003\022\017\n\007endCh" +
+      "ar\030\004 \001(\003\"\250\002\n\030ProtoTableDrivenScenario\022/\n" +
+      "\010scenario\030\001 \001(\0132\035.gauge.messages.ProtoSc" +
+      "enario\022\025\n\rtableRowIndex\030\002 \001(\005\022\035\n\025scenari" +
+      "oTableRowIndex\030\003 \001(\005\022\031\n\021isSpecTableDrive" +
+      "n\030\004 \001(\010\022\035\n\025isScenarioTableDriven\030\005 \001(\010\0225" +
+      "\n\021scenarioDataTable\030\006 \001(\0132\032.gauge.messag" +
+      "es.ProtoTable\0224\n\020scenarioTableRow\030\007 \001(\0132" +
+      "\032.gauge.messages.ProtoTable\"\334\002\n\tProtoSte" +
+      "p\022\022\n\nactualText\030\001 \001(\t\022\022\n\nparsedText\030\002 \001(" +
+      "\t\022+\n\tfragments\030\003 \003(\0132\030.gauge.messages.Fr" +
+      "agment\022E\n\023stepExecutionResult\030\004 \001(\0132(.ga" +
+      "uge.messages.ProtoStepExecutionResult\022\027\n" +
+      "\017preHookMessages\030\005 \003(\t\022\030\n\020postHookMessag" +
+      "es\030\006 \003(\t\022\036\n\022preHookScreenshots\030\007 \003(\014B\002\030\001" +
+      "\022\037\n\023postHookScreenshots\030\010 \003(\014B\002\030\001\022\036\n\026pre" +
+      "HookScreenshotFiles\030\t \003(\t\022\037\n\027postHookScr" +
+      "eenshotFiles\030\n \003(\t\"\262\001\n\014ProtoConcept\022.\n\013c" +
+      "onceptStep\030\001 \001(\0132\031.gauge.messages.ProtoS" +
+      "tep\022(\n\005steps\030\002 \003(\0132\031.gauge.messages.Prot" +
+      "oItem\022H\n\026conceptExecutionResult\030\003 \001(\0132(." +
+      "gauge.messages.ProtoStepExecutionResult\"" +
+      "\031\n\tProtoTags\022\014\n\004tags\030\001 \003(\t\"\254\001\n\010Fragment\022" +
+      ";\n\014fragmentType\030\001 \001(\0162%.gauge.messages.F" +
+      "ragment.FragmentType\022\014\n\004text\030\002 \001(\t\022,\n\tpa" +
+      "rameter\030\003 \001(\0132\031.gauge.messages.Parameter" +
+      "\"\'\n\014FragmentType\022\010\n\004Text\020\000\022\r\n\tParameter\020" +
+      "\001\"\357\001\n\tParameter\022>\n\rparameterType\030\001 \001(\0162\'" +
+      ".gauge.messages.Parameter.ParameterType\022" +
+      "\r\n\005value\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022)\n\005table\030\004 " +
+      "\001(\0132\032.gauge.messages.ProtoTable\"Z\n\rParam" +
+      "eterType\022\n\n\006Static\020\000\022\013\n\007Dynamic\020\001\022\022\n\016Spe" +
+      "cial_String\020\002\022\021\n\rSpecial_Table\020\003\022\t\n\005Tabl" +
+      "e\020\004\"\034\n\014ProtoComment\022\014\n\004text\030\001 \001(\t\"i\n\nPro" +
+      "toTable\022.\n\007headers\030\001 \001(\0132\035.gauge.message" +
+      "s.ProtoTableRow\022+\n\004rows\030\002 \003(\0132\035.gauge.me" +
+      "ssages.ProtoTableRow\"\036\n\rProtoTableRow\022\r\n" +
+      "\005cells\030\001 \003(\t\"\366\001\n\030ProtoStepExecutionResul" +
+      "t\022=\n\017executionResult\030\001 \001(\0132$.gauge.messa" +
+      "ges.ProtoExecutionResult\0228\n\016preHookFailu" +
+      "re\030\002 \001(\0132 .gauge.messages.ProtoHookFailu" +
+      "re\0229\n\017postHookFailure\030\003 \001(\0132 .gauge.mess" +
+      "ages.ProtoHookFailure\022\017\n\007skipped\030\004 \001(\010\022\025" +
+      "\n\rskippedReason\030\005 \001(\t\"\213\003\n\024ProtoExecution" +
+      "Result\022\016\n\006failed\030\001 \001(\010\022\030\n\020recoverableErr" +
+      "or\030\002 \001(\010\022\024\n\014errorMessage\030\003 \001(\t\022\022\n\nstackT" +
+      "race\030\004 \001(\t\022\026\n\nscreenShot\030\005 \001(\014B\002\030\001\022\025\n\rex" +
+      "ecutionTime\030\006 \001(\003\022\017\n\007message\030\007 \003(\t\022A\n\ter" +
+      "rorType\030\010 \001(\0162..gauge.messages.ProtoExec" +
+      "utionResult.ErrorType\022\035\n\021failureScreensh" +
+      "ot\030\t \001(\014B\002\030\001\022\027\n\013screenshots\030\n \003(\014B\002\030\001\022\035\n" +
+      "\025failureScreenshotFile\030\013 \001(\t\022\027\n\017screensh" +
+      "otFiles\030\014 \003(\t\",\n\tErrorType\022\r\n\tASSERTION\020" +
+      "\000\022\020\n\014VERIFICATION\020\001\"\251\001\n\020ProtoHookFailure" +
+      "\022\022\n\nstackTrace\030\001 \001(\t\022\024\n\014errorMessage\030\002 \001" +
+      "(\t\022\026\n\nscreenShot\030\003 \001(\014B\002\030\001\022\025\n\rtableRowIn" +
+      "dex\030\004 \001(\005\022\035\n\021failureScreenshot\030\005 \001(\014B\002\030\001" +
+      "\022\035\n\025failureScreenshotFile\030\006 \001(\t\"\213\005\n\020Prot" +
+      "oSuiteResult\0224\n\013specResults\030\001 \003(\0132\037.gaug" +
+      "e.messages.ProtoSpecResult\0228\n\016preHookFai" +
+      "lure\030\002 \001(\0132 .gauge.messages.ProtoHookFai" +
+      "lure\0229\n\017postHookFailure\030\003 \001(\0132 .gauge.me" +
+      "ssages.ProtoHookFailure\022\016\n\006failed\030\004 \001(\010\022" +
+      "\030\n\020specsFailedCount\030\005 \001(\005\022\025\n\rexecutionTi" +
+      "me\030\006 \001(\003\022\023\n\013successRate\030\007 \001(\002\022\023\n\013environ" +
+      "ment\030\010 \001(\t\022\014\n\004tags\030\t \001(\t\022\023\n\013projectName\030" +
+      "\n \001(\t\022\021\n\ttimestamp\030\013 \001(\t\022\031\n\021specsSkipped" +
+      "Count\030\014 \001(\005\022\027\n\017preHookMessages\030\r \003(\t\022\030\n\020" +
+      "postHookMessages\030\016 \003(\t\022\032\n\016preHookMessage" +
+      "\030\017 \003(\tB\002\030\001\022\033\n\017postHookMessage\030\020 \003(\tB\002\030\001\022" +
+      "\036\n\022preHookScreenshots\030\021 \003(\014B\002\030\001\022\037\n\023postH" +
+      "ookScreenshots\030\022 \003(\014B\002\030\001\022\017\n\007chunked\030\023 \001(" +
+      "\010\022\021\n\tchunkSize\030\024 \001(\003\022\036\n\026preHookScreensho" +
+      "tFiles\030\025 \003(\t\022\037\n\027postHookScreenshotFiles\030" +
+      "\026 \003(\t\"\276\002\n\017ProtoSpecResult\022,\n\tprotoSpec\030\001" +
+      " \001(\0132\031.gauge.messages.ProtoSpec\022\025\n\rscena" +
+      "rioCount\030\002 \001(\005\022\033\n\023scenarioFailedCount\030\003 " +
+      "\001(\005\022\016\n\006failed\030\004 \001(\010\022\033\n\023failedDataTableRo" +
+      "ws\030\005 \003(\005\022\025\n\rexecutionTime\030\006 \001(\003\022\017\n\007skipp" +
+      "ed\030\007 \001(\010\022\034\n\024scenarioSkippedCount\030\010 \001(\005\022\034" +
+      "\n\024skippedDataTableRows\030\t \003(\005\022%\n\006errors\030\n" +
+      " \003(\0132\025.gauge.messages.Error\022\021\n\ttimestamp" +
+      "\030\013 \001(\t\"m\n\023ProtoScenarioResult\022,\n\tprotoIt" +
+      "em\030\001 \001(\0132\031.gauge.messages.ProtoItem\022\025\n\re" +
+      "xecutionTime\030\002 \001(\003\022\021\n\ttimestamp\030\003 \001(\t\"i\n" +
+      "\017ProtoStepResult\022,\n\tprotoItem\030\001 \001(\0132\031.ga" +
+      "uge.messages.ProtoItem\022\025\n\rexecutionTime\030" +
+      "\002 \001(\003\022\021\n\ttimestamp\030\003 \001(\t\"\241\001\n\005Error\022-\n\004ty" +
+      "pe\030\001 \001(\0162\037.gauge.messages.Error.ErrorTyp" +
+      "e\022\020\n\010filename\030\002 \001(\t\022\022\n\nlineNumber\030\003 \001(\005\022" +
+      "\017\n\007message\030\004 \001(\t\"2\n\tErrorType\022\017\n\013PARSE_E" +
+      "RROR\020\000\022\024\n\020VALIDATION_ERROR\020\001\"W\n\016ProtoSte" +
+      "pValue\022\021\n\tstepValue\030\001 \001(\t\022\036\n\026parameteriz" +
+      "edStepValue\030\002 \001(\t\022\022\n\nparameters\030\003 \003(\t*G\n" +
+      "\017ExecutionStatus\022\017\n\013NOTEXECUTED\020\000\022\n\n\006PAS" +
+      "SED\020\001\022\n\n\006FAILED\020\002\022\013\n\007SKIPPED\020\003B!\n\016gauge." +
+      "messages\252\002\016Gauge.Messagesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -35480,19 +41398,19 @@ public final class Spec {
     internal_static_gauge_messages_ProtoSpec_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoSpec_descriptor,
-        new java.lang.String[] { "SpecHeading", "Items", "IsTableDriven", "PreHookFailures", "PostHookFailures", "FileName", "Tags", "PreHookMessages", "PostHookMessages", "PreHookMessage", "PostHookMessage", "PreHookScreenshots", "PostHookScreenshots", });
+        new java.lang.String[] { "SpecHeading", "Items", "IsTableDriven", "PreHookFailures", "PostHookFailures", "FileName", "Tags", "PreHookMessages", "PostHookMessages", "PreHookMessage", "PostHookMessage", "PreHookScreenshots", "PostHookScreenshots", "ItemCount", "PreHookScreenshotFiles", "PostHookScreenshotFiles", });
     internal_static_gauge_messages_ProtoItem_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_gauge_messages_ProtoItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoItem_descriptor,
-        new java.lang.String[] { "ItemType", "Step", "Concept", "Scenario", "TableDrivenScenario", "Comment", "Table", "Tags", });
+        new java.lang.String[] { "ItemType", "Step", "Concept", "Scenario", "TableDrivenScenario", "Comment", "Table", "Tags", "FileName", });
     internal_static_gauge_messages_ProtoScenario_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_gauge_messages_ProtoScenario_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoScenario_descriptor,
-        new java.lang.String[] { "ScenarioHeading", "Failed", "Contexts", "ScenarioItems", "PreHookFailure", "PostHookFailure", "Tags", "ExecutionTime", "Skipped", "SkipErrors", "ID", "TearDownSteps", "Span", "ExecutionStatus", "PreHookMessages", "PostHookMessages", "PreHookMessage", "PostHookMessage", "PreHookScreenshots", "PostHookScreenshots", });
+        new java.lang.String[] { "ScenarioHeading", "Failed", "Contexts", "ScenarioItems", "PreHookFailure", "PostHookFailure", "Tags", "ExecutionTime", "Skipped", "SkipErrors", "ID", "TearDownSteps", "Span", "ExecutionStatus", "PreHookMessages", "PostHookMessages", "PreHookMessage", "PostHookMessage", "PreHookScreenshots", "PostHookScreenshots", "PreHookScreenshotFiles", "PostHookScreenshotFiles", });
     internal_static_gauge_messages_Span_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_gauge_messages_Span_fieldAccessorTable = new
@@ -35504,13 +41422,13 @@ public final class Spec {
     internal_static_gauge_messages_ProtoTableDrivenScenario_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoTableDrivenScenario_descriptor,
-        new java.lang.String[] { "Scenario", "TableRowIndex", });
+        new java.lang.String[] { "Scenario", "TableRowIndex", "ScenarioTableRowIndex", "IsSpecTableDriven", "IsScenarioTableDriven", "ScenarioDataTable", "ScenarioTableRow", });
     internal_static_gauge_messages_ProtoStep_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_gauge_messages_ProtoStep_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoStep_descriptor,
-        new java.lang.String[] { "ActualText", "ParsedText", "Fragments", "StepExecutionResult", "PreHookMessages", "PostHookMessages", "PreHookScreenshots", "PostHookScreenshots", });
+        new java.lang.String[] { "ActualText", "ParsedText", "Fragments", "StepExecutionResult", "PreHookMessages", "PostHookMessages", "PreHookScreenshots", "PostHookScreenshots", "PreHookScreenshotFiles", "PostHookScreenshotFiles", });
     internal_static_gauge_messages_ProtoConcept_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_gauge_messages_ProtoConcept_fieldAccessorTable = new
@@ -35564,33 +41482,45 @@ public final class Spec {
     internal_static_gauge_messages_ProtoExecutionResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoExecutionResult_descriptor,
-        new java.lang.String[] { "Failed", "RecoverableError", "ErrorMessage", "StackTrace", "ScreenShot", "ExecutionTime", "Message", "ErrorType", "FailureScreenshot", "Screenshots", });
+        new java.lang.String[] { "Failed", "RecoverableError", "ErrorMessage", "StackTrace", "ScreenShot", "ExecutionTime", "Message", "ErrorType", "FailureScreenshot", "Screenshots", "FailureScreenshotFile", "ScreenshotFiles", });
     internal_static_gauge_messages_ProtoHookFailure_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_gauge_messages_ProtoHookFailure_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoHookFailure_descriptor,
-        new java.lang.String[] { "StackTrace", "ErrorMessage", "ScreenShot", "TableRowIndex", "FailureScreenshot", });
+        new java.lang.String[] { "StackTrace", "ErrorMessage", "ScreenShot", "TableRowIndex", "FailureScreenshot", "FailureScreenshotFile", });
     internal_static_gauge_messages_ProtoSuiteResult_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_gauge_messages_ProtoSuiteResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoSuiteResult_descriptor,
-        new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", "ExecutionTime", "SuccessRate", "Environment", "Tags", "ProjectName", "Timestamp", "SpecsSkippedCount", "PreHookMessages", "PostHookMessages", "PreHookMessage", "PostHookMessage", "PreHookScreenshots", "PostHookScreenshots", });
+        new java.lang.String[] { "SpecResults", "PreHookFailure", "PostHookFailure", "Failed", "SpecsFailedCount", "ExecutionTime", "SuccessRate", "Environment", "Tags", "ProjectName", "Timestamp", "SpecsSkippedCount", "PreHookMessages", "PostHookMessages", "PreHookMessage", "PostHookMessage", "PreHookScreenshots", "PostHookScreenshots", "Chunked", "ChunkSize", "PreHookScreenshotFiles", "PostHookScreenshotFiles", });
     internal_static_gauge_messages_ProtoSpecResult_descriptor =
       getDescriptor().getMessageTypes().get(17);
     internal_static_gauge_messages_ProtoSpecResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoSpecResult_descriptor,
-        new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", "ExecutionTime", "Skipped", "ScenarioSkippedCount", "SkippedDataTableRows", "Errors", });
-    internal_static_gauge_messages_Error_descriptor =
+        new java.lang.String[] { "ProtoSpec", "ScenarioCount", "ScenarioFailedCount", "Failed", "FailedDataTableRows", "ExecutionTime", "Skipped", "ScenarioSkippedCount", "SkippedDataTableRows", "Errors", "Timestamp", });
+    internal_static_gauge_messages_ProtoScenarioResult_descriptor =
       getDescriptor().getMessageTypes().get(18);
+    internal_static_gauge_messages_ProtoScenarioResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_ProtoScenarioResult_descriptor,
+        new java.lang.String[] { "ProtoItem", "ExecutionTime", "Timestamp", });
+    internal_static_gauge_messages_ProtoStepResult_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_gauge_messages_ProtoStepResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_ProtoStepResult_descriptor,
+        new java.lang.String[] { "ProtoItem", "ExecutionTime", "Timestamp", });
+    internal_static_gauge_messages_Error_descriptor =
+      getDescriptor().getMessageTypes().get(20);
     internal_static_gauge_messages_Error_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_Error_descriptor,
         new java.lang.String[] { "Type", "Filename", "LineNumber", "Message", });
     internal_static_gauge_messages_ProtoStepValue_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_gauge_messages_ProtoStepValue_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ProtoStepValue_descriptor,

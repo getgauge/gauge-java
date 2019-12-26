@@ -26268,8 +26268,8 @@ public final class Api {
       "\020\022\031\n\025ExtractConceptRequest\020\021\022\032\n\026ExtractC" +
       "onceptResponse\020\022\022\026\n\022FormatSpecsRequest\020\023" +
       "\022\027\n\023FormatSpecsResponse\020\024\022!\n\035Unsupported" +
-      "ApiMessageResponse\020\025B\021\252\002\016Gauge.Messagesb" +
-      "\006proto3"
+      "ApiMessageResponse\020\025B!\n\016gauge.messages\252\002" +
+      "\016Gauge.Messagesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
