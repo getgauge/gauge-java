@@ -19,7 +19,6 @@ import com.github.javaparser.Position;
 import com.github.javaparser.Range;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.Parameter;
-import com.thoughtworks.gauge.GaugeConstant;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
@@ -50,16 +49,8 @@ public class JavaRefactoring {
 
     public RefactoringResult performRefactoring() {
         String oldStepText = oldStepValue.getStepText();
-        String fileName;
-        Boolean hasAlias;
-
-        if (System.getenv(GaugeConstant.GAUGE_LSP_GRPC) != null) {
-            fileName = registry.get(oldStepText).getFileName();
-            hasAlias = registry.get(oldStepText).getHasAlias();
-        } else {
-            fileName = registry.getFileName(oldStepText);
-            hasAlias = registry.getAllAliasAnnotationTextsFor(oldStepText).size() > 1;
-        }
+        String fileName  = registry.get(oldStepText).getFileName();
+        Boolean hasAlias = registry.get(oldStepText).getHasAlias();
 
         if (fileName == null || fileName.isEmpty()) {
             return new RefactoringResult(false, "Step Implementation Not Found: Unable to find a file Name to refactor");

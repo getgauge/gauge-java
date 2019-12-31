@@ -21,18 +21,13 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.FileHelper;
 import com.thoughtworks.gauge.Logger;
-import com.thoughtworks.gauge.Step;
-import com.thoughtworks.gauge.StepRegistryEntry;
-import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Set;
 
 public class StaticScanner {
 
@@ -64,10 +59,6 @@ public class StaticScanner {
         }
     }
 
-    public void removeSteps(String fileName) {
-        stepRegistry.removeSteps(fileName);
-    }
-
     public void addStepsToRegistry() {
         Iterable<String> files = FileHelper.getAllImplementationFiles();
         for (String file : files) {
@@ -76,21 +67,8 @@ public class StaticScanner {
         }
     }
 
-    public StepRegistry getStepRegistry(ClasspathScanner classpathScanner) {
-        Set<Method> methods = classpathScanner.getAllMethods();
-        for (Method method : methods) {
-            Step annotation = method.getAnnotation(Step.class);
-            if (annotation != null) {
-                for (String stepName : annotation.value()) {
-                    String stepText = stepName.replaceAll("(<.*?>)", "{}");
-                    StepValue stepValue = new StepValue(stepText, stepName);
-                    StepRegistryEntry entry = stepRegistry.get(stepText);
-                    entry.setMethodInfo(method);
-                    stepRegistry.addStep(stepValue, entry);
-                }
-            }
-        }
-        return stepRegistry;
+    public void removeSteps(String fileName) {
+        stepRegistry.removeSteps(fileName);
     }
 
     public boolean isFileCached(String fileName) {

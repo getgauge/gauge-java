@@ -46,12 +46,14 @@ public class StepRegistry {
     }
 
     public List<String> getAllAliasAnnotationTextsFor(String stepTemplateText) {
-        Method method = get(stepTemplateText).getMethodInfo();
         return registry.values().stream().flatMap(Collection::stream)
-                .filter(registryEntry -> registryEntry.getMethodInfo().equals(method))
+                .filter(registryEntry -> registryEntry.getStepValue().getStepText().equals(stepTemplateText))
                 .map(registryEntry -> registryEntry.getStepValue().getStepAnnotationText()).collect(toList());
     }
 
+    public void clear() {
+        this.registry  = new HashMap<>();
+    }
 
     public boolean contains(String stepTemplateText) {
         return registry.containsKey(stepTemplateText);

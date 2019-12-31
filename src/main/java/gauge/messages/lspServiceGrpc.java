@@ -55,16 +55,16 @@ public final class lspServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.CacheFileRequest,
-      gauge.messages.Lsp.Empty> getCacheFileMethod;
+      gauge.messages.Messages.Empty> getCacheFileMethod;
 
   public static io.grpc.MethodDescriptor<gauge.messages.Messages.CacheFileRequest,
-      gauge.messages.Lsp.Empty> getCacheFileMethod() {
-    io.grpc.MethodDescriptor<gauge.messages.Messages.CacheFileRequest, gauge.messages.Lsp.Empty> getCacheFileMethod;
+      gauge.messages.Messages.Empty> getCacheFileMethod() {
+    io.grpc.MethodDescriptor<gauge.messages.Messages.CacheFileRequest, gauge.messages.Messages.Empty> getCacheFileMethod;
     if ((getCacheFileMethod = lspServiceGrpc.getCacheFileMethod) == null) {
       synchronized (lspServiceGrpc.class) {
         if ((getCacheFileMethod = lspServiceGrpc.getCacheFileMethod) == null) {
           lspServiceGrpc.getCacheFileMethod = getCacheFileMethod = 
-              io.grpc.MethodDescriptor.<gauge.messages.Messages.CacheFileRequest, gauge.messages.Lsp.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<gauge.messages.Messages.CacheFileRequest, gauge.messages.Messages.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "gauge.messages.lspService", "CacheFile"))
@@ -72,7 +72,7 @@ public final class lspServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gauge.messages.Messages.CacheFileRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  gauge.messages.Lsp.Empty.getDefaultInstance()))
+                  gauge.messages.Messages.Empty.getDefaultInstance()))
                   .setSchemaDescriptor(new lspServiceMethodDescriptorSupplier("CacheFile"))
                   .build();
           }
@@ -108,23 +108,23 @@ public final class lspServiceGrpc {
      return getGetStepPositionsMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<gauge.messages.Lsp.Empty,
+  private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.Empty,
       gauge.messages.Messages.ImplementationFileListResponse> getGetImplementationFilesMethod;
 
-  public static io.grpc.MethodDescriptor<gauge.messages.Lsp.Empty,
+  public static io.grpc.MethodDescriptor<gauge.messages.Messages.Empty,
       gauge.messages.Messages.ImplementationFileListResponse> getGetImplementationFilesMethod() {
-    io.grpc.MethodDescriptor<gauge.messages.Lsp.Empty, gauge.messages.Messages.ImplementationFileListResponse> getGetImplementationFilesMethod;
+    io.grpc.MethodDescriptor<gauge.messages.Messages.Empty, gauge.messages.Messages.ImplementationFileListResponse> getGetImplementationFilesMethod;
     if ((getGetImplementationFilesMethod = lspServiceGrpc.getGetImplementationFilesMethod) == null) {
       synchronized (lspServiceGrpc.class) {
         if ((getGetImplementationFilesMethod = lspServiceGrpc.getGetImplementationFilesMethod) == null) {
           lspServiceGrpc.getGetImplementationFilesMethod = getGetImplementationFilesMethod = 
-              io.grpc.MethodDescriptor.<gauge.messages.Lsp.Empty, gauge.messages.Messages.ImplementationFileListResponse>newBuilder()
+              io.grpc.MethodDescriptor.<gauge.messages.Messages.Empty, gauge.messages.Messages.ImplementationFileListResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "gauge.messages.lspService", "GetImplementationFiles"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  gauge.messages.Lsp.Empty.getDefaultInstance()))
+                  gauge.messages.Messages.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gauge.messages.Messages.ImplementationFileListResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new lspServiceMethodDescriptorSupplier("GetImplementationFiles"))
@@ -243,23 +243,23 @@ public final class lspServiceGrpc {
      return getGetStepNameMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<gauge.messages.Lsp.Empty,
+  private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.Empty,
       gauge.messages.Messages.ImplementationFileGlobPatternResponse> getGetGlobPatternsMethod;
 
-  public static io.grpc.MethodDescriptor<gauge.messages.Lsp.Empty,
+  public static io.grpc.MethodDescriptor<gauge.messages.Messages.Empty,
       gauge.messages.Messages.ImplementationFileGlobPatternResponse> getGetGlobPatternsMethod() {
-    io.grpc.MethodDescriptor<gauge.messages.Lsp.Empty, gauge.messages.Messages.ImplementationFileGlobPatternResponse> getGetGlobPatternsMethod;
+    io.grpc.MethodDescriptor<gauge.messages.Messages.Empty, gauge.messages.Messages.ImplementationFileGlobPatternResponse> getGetGlobPatternsMethod;
     if ((getGetGlobPatternsMethod = lspServiceGrpc.getGetGlobPatternsMethod) == null) {
       synchronized (lspServiceGrpc.class) {
         if ((getGetGlobPatternsMethod = lspServiceGrpc.getGetGlobPatternsMethod) == null) {
           lspServiceGrpc.getGetGlobPatternsMethod = getGetGlobPatternsMethod = 
-              io.grpc.MethodDescriptor.<gauge.messages.Lsp.Empty, gauge.messages.Messages.ImplementationFileGlobPatternResponse>newBuilder()
+              io.grpc.MethodDescriptor.<gauge.messages.Messages.Empty, gauge.messages.Messages.ImplementationFileGlobPatternResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "gauge.messages.lspService", "GetGlobPatterns"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  gauge.messages.Lsp.Empty.getDefaultInstance()))
+                  gauge.messages.Messages.Empty.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gauge.messages.Messages.ImplementationFileGlobPatternResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new lspServiceMethodDescriptorSupplier("GetGlobPatterns"))
@@ -271,16 +271,16 @@ public final class lspServiceGrpc {
   }
 
   private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.KillProcessRequest,
-      gauge.messages.Lsp.Empty> getKillProcessMethod;
+      gauge.messages.Messages.Empty> getKillProcessMethod;
 
   public static io.grpc.MethodDescriptor<gauge.messages.Messages.KillProcessRequest,
-      gauge.messages.Lsp.Empty> getKillProcessMethod() {
-    io.grpc.MethodDescriptor<gauge.messages.Messages.KillProcessRequest, gauge.messages.Lsp.Empty> getKillProcessMethod;
+      gauge.messages.Messages.Empty> getKillProcessMethod() {
+    io.grpc.MethodDescriptor<gauge.messages.Messages.KillProcessRequest, gauge.messages.Messages.Empty> getKillProcessMethod;
     if ((getKillProcessMethod = lspServiceGrpc.getKillProcessMethod) == null) {
       synchronized (lspServiceGrpc.class) {
         if ((getKillProcessMethod = lspServiceGrpc.getKillProcessMethod) == null) {
           lspServiceGrpc.getKillProcessMethod = getKillProcessMethod = 
-              io.grpc.MethodDescriptor.<gauge.messages.Messages.KillProcessRequest, gauge.messages.Lsp.Empty>newBuilder()
+              io.grpc.MethodDescriptor.<gauge.messages.Messages.KillProcessRequest, gauge.messages.Messages.Empty>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "gauge.messages.lspService", "KillProcess"))
@@ -288,7 +288,7 @@ public final class lspServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gauge.messages.Messages.KillProcessRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  gauge.messages.Lsp.Empty.getDefaultInstance()))
+                  gauge.messages.Messages.Empty.getDefaultInstance()))
                   .setSchemaDescriptor(new lspServiceMethodDescriptorSupplier("KillProcess"))
                   .build();
           }
@@ -334,7 +334,7 @@ public final class lspServiceGrpc {
     /**
      */
     public void cacheFile(gauge.messages.Messages.CacheFileRequest request,
-        io.grpc.stub.StreamObserver<gauge.messages.Lsp.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<gauge.messages.Messages.Empty> responseObserver) {
       asyncUnimplementedUnaryCall(getCacheFileMethod(), responseObserver);
     }
 
@@ -347,7 +347,7 @@ public final class lspServiceGrpc {
 
     /**
      */
-    public void getImplementationFiles(gauge.messages.Lsp.Empty request,
+    public void getImplementationFiles(gauge.messages.Messages.Empty request,
         io.grpc.stub.StreamObserver<gauge.messages.Messages.ImplementationFileListResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getGetImplementationFilesMethod(), responseObserver);
     }
@@ -382,7 +382,7 @@ public final class lspServiceGrpc {
 
     /**
      */
-    public void getGlobPatterns(gauge.messages.Lsp.Empty request,
+    public void getGlobPatterns(gauge.messages.Messages.Empty request,
         io.grpc.stub.StreamObserver<gauge.messages.Messages.ImplementationFileGlobPatternResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getGetGlobPatternsMethod(), responseObserver);
     }
@@ -390,7 +390,7 @@ public final class lspServiceGrpc {
     /**
      */
     public void killProcess(gauge.messages.Messages.KillProcessRequest request,
-        io.grpc.stub.StreamObserver<gauge.messages.Lsp.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<gauge.messages.Messages.Empty> responseObserver) {
       asyncUnimplementedUnaryCall(getKillProcessMethod(), responseObserver);
     }
 
@@ -408,7 +408,7 @@ public final class lspServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 gauge.messages.Messages.CacheFileRequest,
-                gauge.messages.Lsp.Empty>(
+                gauge.messages.Messages.Empty>(
                   this, METHODID_CACHE_FILE)))
           .addMethod(
             getGetStepPositionsMethod(),
@@ -421,7 +421,7 @@ public final class lspServiceGrpc {
             getGetImplementationFilesMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                gauge.messages.Lsp.Empty,
+                gauge.messages.Messages.Empty,
                 gauge.messages.Messages.ImplementationFileListResponse>(
                   this, METHODID_GET_IMPLEMENTATION_FILES)))
           .addMethod(
@@ -456,7 +456,7 @@ public final class lspServiceGrpc {
             getGetGlobPatternsMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                gauge.messages.Lsp.Empty,
+                gauge.messages.Messages.Empty,
                 gauge.messages.Messages.ImplementationFileGlobPatternResponse>(
                   this, METHODID_GET_GLOB_PATTERNS)))
           .addMethod(
@@ -464,7 +464,7 @@ public final class lspServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 gauge.messages.Messages.KillProcessRequest,
-                gauge.messages.Lsp.Empty>(
+                gauge.messages.Messages.Empty>(
                   this, METHODID_KILL_PROCESS)))
           .build();
     }
@@ -499,7 +499,7 @@ public final class lspServiceGrpc {
     /**
      */
     public void cacheFile(gauge.messages.Messages.CacheFileRequest request,
-        io.grpc.stub.StreamObserver<gauge.messages.Lsp.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<gauge.messages.Messages.Empty> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getCacheFileMethod(), getCallOptions()), request, responseObserver);
     }
@@ -514,7 +514,7 @@ public final class lspServiceGrpc {
 
     /**
      */
-    public void getImplementationFiles(gauge.messages.Lsp.Empty request,
+    public void getImplementationFiles(gauge.messages.Messages.Empty request,
         io.grpc.stub.StreamObserver<gauge.messages.Messages.ImplementationFileListResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetImplementationFilesMethod(), getCallOptions()), request, responseObserver);
@@ -554,7 +554,7 @@ public final class lspServiceGrpc {
 
     /**
      */
-    public void getGlobPatterns(gauge.messages.Lsp.Empty request,
+    public void getGlobPatterns(gauge.messages.Messages.Empty request,
         io.grpc.stub.StreamObserver<gauge.messages.Messages.ImplementationFileGlobPatternResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetGlobPatternsMethod(), getCallOptions()), request, responseObserver);
@@ -563,7 +563,7 @@ public final class lspServiceGrpc {
     /**
      */
     public void killProcess(gauge.messages.Messages.KillProcessRequest request,
-        io.grpc.stub.StreamObserver<gauge.messages.Lsp.Empty> responseObserver) {
+        io.grpc.stub.StreamObserver<gauge.messages.Messages.Empty> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getKillProcessMethod(), getCallOptions()), request, responseObserver);
     }
@@ -596,7 +596,7 @@ public final class lspServiceGrpc {
 
     /**
      */
-    public gauge.messages.Lsp.Empty cacheFile(gauge.messages.Messages.CacheFileRequest request) {
+    public gauge.messages.Messages.Empty cacheFile(gauge.messages.Messages.CacheFileRequest request) {
       return blockingUnaryCall(
           getChannel(), getCacheFileMethod(), getCallOptions(), request);
     }
@@ -610,7 +610,7 @@ public final class lspServiceGrpc {
 
     /**
      */
-    public gauge.messages.Messages.ImplementationFileListResponse getImplementationFiles(gauge.messages.Lsp.Empty request) {
+    public gauge.messages.Messages.ImplementationFileListResponse getImplementationFiles(gauge.messages.Messages.Empty request) {
       return blockingUnaryCall(
           getChannel(), getGetImplementationFilesMethod(), getCallOptions(), request);
     }
@@ -645,14 +645,14 @@ public final class lspServiceGrpc {
 
     /**
      */
-    public gauge.messages.Messages.ImplementationFileGlobPatternResponse getGlobPatterns(gauge.messages.Lsp.Empty request) {
+    public gauge.messages.Messages.ImplementationFileGlobPatternResponse getGlobPatterns(gauge.messages.Messages.Empty request) {
       return blockingUnaryCall(
           getChannel(), getGetGlobPatternsMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public gauge.messages.Lsp.Empty killProcess(gauge.messages.Messages.KillProcessRequest request) {
+    public gauge.messages.Messages.Empty killProcess(gauge.messages.Messages.KillProcessRequest request) {
       return blockingUnaryCall(
           getChannel(), getKillProcessMethod(), getCallOptions(), request);
     }
@@ -686,7 +686,7 @@ public final class lspServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<gauge.messages.Lsp.Empty> cacheFile(
+    public com.google.common.util.concurrent.ListenableFuture<gauge.messages.Messages.Empty> cacheFile(
         gauge.messages.Messages.CacheFileRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getCacheFileMethod(), getCallOptions()), request);
@@ -703,7 +703,7 @@ public final class lspServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<gauge.messages.Messages.ImplementationFileListResponse> getImplementationFiles(
-        gauge.messages.Lsp.Empty request) {
+        gauge.messages.Messages.Empty request) {
       return futureUnaryCall(
           getChannel().newCall(getGetImplementationFilesMethod(), getCallOptions()), request);
     }
@@ -743,14 +743,14 @@ public final class lspServiceGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<gauge.messages.Messages.ImplementationFileGlobPatternResponse> getGlobPatterns(
-        gauge.messages.Lsp.Empty request) {
+        gauge.messages.Messages.Empty request) {
       return futureUnaryCall(
           getChannel().newCall(getGetGlobPatternsMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<gauge.messages.Lsp.Empty> killProcess(
+    public com.google.common.util.concurrent.ListenableFuture<gauge.messages.Messages.Empty> killProcess(
         gauge.messages.Messages.KillProcessRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getKillProcessMethod(), getCallOptions()), request);
@@ -791,14 +791,14 @@ public final class lspServiceGrpc {
           break;
         case METHODID_CACHE_FILE:
           serviceImpl.cacheFile((gauge.messages.Messages.CacheFileRequest) request,
-              (io.grpc.stub.StreamObserver<gauge.messages.Lsp.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<gauge.messages.Messages.Empty>) responseObserver);
           break;
         case METHODID_GET_STEP_POSITIONS:
           serviceImpl.getStepPositions((gauge.messages.Messages.StepPositionsRequest) request,
               (io.grpc.stub.StreamObserver<gauge.messages.Messages.StepPositionsResponse>) responseObserver);
           break;
         case METHODID_GET_IMPLEMENTATION_FILES:
-          serviceImpl.getImplementationFiles((gauge.messages.Lsp.Empty) request,
+          serviceImpl.getImplementationFiles((gauge.messages.Messages.Empty) request,
               (io.grpc.stub.StreamObserver<gauge.messages.Messages.ImplementationFileListResponse>) responseObserver);
           break;
         case METHODID_IMPLEMENT_STUB:
@@ -818,12 +818,12 @@ public final class lspServiceGrpc {
               (io.grpc.stub.StreamObserver<gauge.messages.Messages.StepNameResponse>) responseObserver);
           break;
         case METHODID_GET_GLOB_PATTERNS:
-          serviceImpl.getGlobPatterns((gauge.messages.Lsp.Empty) request,
+          serviceImpl.getGlobPatterns((gauge.messages.Messages.Empty) request,
               (io.grpc.stub.StreamObserver<gauge.messages.Messages.ImplementationFileGlobPatternResponse>) responseObserver);
           break;
         case METHODID_KILL_PROCESS:
           serviceImpl.killProcess((gauge.messages.Messages.KillProcessRequest) request,
-              (io.grpc.stub.StreamObserver<gauge.messages.Lsp.Empty>) responseObserver);
+              (io.grpc.stub.StreamObserver<gauge.messages.Messages.Empty>) responseObserver);
           break;
         default:
           throw new AssertionError();

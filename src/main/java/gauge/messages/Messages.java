@@ -37786,6 +37786,2051 @@ public final class Messages {
 
   }
 
+  public interface SpecDetailsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:gauge.messages.SpecDetails)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *&#47; Holds a collection of Spec details.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+     */
+    java.util.List<gauge.messages.Messages.SpecDetails.SpecDetail> 
+        getDetailsList();
+    /**
+     * <pre>
+     *&#47; Holds a collection of Spec details.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+     */
+    gauge.messages.Messages.SpecDetails.SpecDetail getDetails(int index);
+    /**
+     * <pre>
+     *&#47; Holds a collection of Spec details.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+     */
+    int getDetailsCount();
+    /**
+     * <pre>
+     *&#47; Holds a collection of Spec details.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+     */
+    java.util.List<? extends gauge.messages.Messages.SpecDetails.SpecDetailOrBuilder> 
+        getDetailsOrBuilderList();
+    /**
+     * <pre>
+     *&#47; Holds a collection of Spec details.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+     */
+    gauge.messages.Messages.SpecDetails.SpecDetailOrBuilder getDetailsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code gauge.messages.SpecDetails}
+   */
+  public  static final class SpecDetails extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:gauge.messages.SpecDetails)
+      SpecDetailsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SpecDetails.newBuilder() to construct.
+    private SpecDetails(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SpecDetails() {
+      details_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SpecDetails(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                details_ = new java.util.ArrayList<gauge.messages.Messages.SpecDetails.SpecDetail>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              details_.add(
+                  input.readMessage(gauge.messages.Messages.SpecDetails.SpecDetail.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          details_ = java.util.Collections.unmodifiableList(details_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return gauge.messages.Messages.internal_static_gauge_messages_SpecDetails_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return gauge.messages.Messages.internal_static_gauge_messages_SpecDetails_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              gauge.messages.Messages.SpecDetails.class, gauge.messages.Messages.SpecDetails.Builder.class);
+    }
+
+    public interface SpecDetailOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:gauge.messages.SpecDetails.SpecDetail)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <pre>
+       *&#47; Holds a collection of Specs that are defined in the project.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+       */
+      boolean hasSpec();
+      /**
+       * <pre>
+       *&#47; Holds a collection of Specs that are defined in the project.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+       */
+      gauge.messages.Spec.ProtoSpec getSpec();
+      /**
+       * <pre>
+       *&#47; Holds a collection of Specs that are defined in the project.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+       */
+      gauge.messages.Spec.ProtoSpecOrBuilder getSpecOrBuilder();
+
+      /**
+       * <pre>
+       *&#47; Holds a collection of parse errors present in the above spec.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+       */
+      java.util.List<gauge.messages.Spec.Error> 
+          getParseErrorsList();
+      /**
+       * <pre>
+       *&#47; Holds a collection of parse errors present in the above spec.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+       */
+      gauge.messages.Spec.Error getParseErrors(int index);
+      /**
+       * <pre>
+       *&#47; Holds a collection of parse errors present in the above spec.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+       */
+      int getParseErrorsCount();
+      /**
+       * <pre>
+       *&#47; Holds a collection of parse errors present in the above spec.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+       */
+      java.util.List<? extends gauge.messages.Spec.ErrorOrBuilder> 
+          getParseErrorsOrBuilderList();
+      /**
+       * <pre>
+       *&#47; Holds a collection of parse errors present in the above spec.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+       */
+      gauge.messages.Spec.ErrorOrBuilder getParseErrorsOrBuilder(
+          int index);
+    }
+    /**
+     * Protobuf type {@code gauge.messages.SpecDetails.SpecDetail}
+     */
+    public  static final class SpecDetail extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:gauge.messages.SpecDetails.SpecDetail)
+        SpecDetailOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use SpecDetail.newBuilder() to construct.
+      private SpecDetail(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private SpecDetail() {
+        parseErrors_ = java.util.Collections.emptyList();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private SpecDetail(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                gauge.messages.Spec.ProtoSpec.Builder subBuilder = null;
+                if (spec_ != null) {
+                  subBuilder = spec_.toBuilder();
+                }
+                spec_ = input.readMessage(gauge.messages.Spec.ProtoSpec.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom(spec_);
+                  spec_ = subBuilder.buildPartial();
+                }
+
+                break;
+              }
+              case 18: {
+                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                  parseErrors_ = new java.util.ArrayList<gauge.messages.Spec.Error>();
+                  mutable_bitField0_ |= 0x00000002;
+                }
+                parseErrors_.add(
+                    input.readMessage(gauge.messages.Spec.Error.parser(), extensionRegistry));
+                break;
+              }
+              default: {
+                if (!parseUnknownFieldProto3(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+            parseErrors_ = java.util.Collections.unmodifiableList(parseErrors_);
+          }
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_SpecDetails_SpecDetail_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_SpecDetails_SpecDetail_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.SpecDetails.SpecDetail.class, gauge.messages.Messages.SpecDetails.SpecDetail.Builder.class);
+      }
+
+      private int bitField0_;
+      public static final int SPEC_FIELD_NUMBER = 1;
+      private gauge.messages.Spec.ProtoSpec spec_;
+      /**
+       * <pre>
+       *&#47; Holds a collection of Specs that are defined in the project.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+       */
+      public boolean hasSpec() {
+        return spec_ != null;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Specs that are defined in the project.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+       */
+      public gauge.messages.Spec.ProtoSpec getSpec() {
+        return spec_ == null ? gauge.messages.Spec.ProtoSpec.getDefaultInstance() : spec_;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Specs that are defined in the project.
+       * </pre>
+       *
+       * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+       */
+      public gauge.messages.Spec.ProtoSpecOrBuilder getSpecOrBuilder() {
+        return getSpec();
+      }
+
+      public static final int PARSEERRORS_FIELD_NUMBER = 2;
+      private java.util.List<gauge.messages.Spec.Error> parseErrors_;
+      /**
+       * <pre>
+       *&#47; Holds a collection of parse errors present in the above spec.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+       */
+      public java.util.List<gauge.messages.Spec.Error> getParseErrorsList() {
+        return parseErrors_;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of parse errors present in the above spec.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+       */
+      public java.util.List<? extends gauge.messages.Spec.ErrorOrBuilder> 
+          getParseErrorsOrBuilderList() {
+        return parseErrors_;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of parse errors present in the above spec.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+       */
+      public int getParseErrorsCount() {
+        return parseErrors_.size();
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of parse errors present in the above spec.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+       */
+      public gauge.messages.Spec.Error getParseErrors(int index) {
+        return parseErrors_.get(index);
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of parse errors present in the above spec.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+       */
+      public gauge.messages.Spec.ErrorOrBuilder getParseErrorsOrBuilder(
+          int index) {
+        return parseErrors_.get(index);
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (spec_ != null) {
+          output.writeMessage(1, getSpec());
+        }
+        for (int i = 0; i < parseErrors_.size(); i++) {
+          output.writeMessage(2, parseErrors_.get(i));
+        }
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (spec_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, getSpec());
+        }
+        for (int i = 0; i < parseErrors_.size(); i++) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, parseErrors_.get(i));
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof gauge.messages.Messages.SpecDetails.SpecDetail)) {
+          return super.equals(obj);
+        }
+        gauge.messages.Messages.SpecDetails.SpecDetail other = (gauge.messages.Messages.SpecDetails.SpecDetail) obj;
+
+        boolean result = true;
+        result = result && (hasSpec() == other.hasSpec());
+        if (hasSpec()) {
+          result = result && getSpec()
+              .equals(other.getSpec());
+        }
+        result = result && getParseErrorsList()
+            .equals(other.getParseErrorsList());
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        if (hasSpec()) {
+          hash = (37 * hash) + SPEC_FIELD_NUMBER;
+          hash = (53 * hash) + getSpec().hashCode();
+        }
+        if (getParseErrorsCount() > 0) {
+          hash = (37 * hash) + PARSEERRORS_FIELD_NUMBER;
+          hash = (53 * hash) + getParseErrorsList().hashCode();
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static gauge.messages.Messages.SpecDetails.SpecDetail parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(gauge.messages.Messages.SpecDetails.SpecDetail prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code gauge.messages.SpecDetails.SpecDetail}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:gauge.messages.SpecDetails.SpecDetail)
+          gauge.messages.Messages.SpecDetails.SpecDetailOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return gauge.messages.Messages.internal_static_gauge_messages_SpecDetails_SpecDetail_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return gauge.messages.Messages.internal_static_gauge_messages_SpecDetails_SpecDetail_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  gauge.messages.Messages.SpecDetails.SpecDetail.class, gauge.messages.Messages.SpecDetails.SpecDetail.Builder.class);
+        }
+
+        // Construct using gauge.messages.Messages.SpecDetails.SpecDetail.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+            getParseErrorsFieldBuilder();
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          if (specBuilder_ == null) {
+            spec_ = null;
+          } else {
+            spec_ = null;
+            specBuilder_ = null;
+          }
+          if (parseErrorsBuilder_ == null) {
+            parseErrors_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            parseErrorsBuilder_.clear();
+          }
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return gauge.messages.Messages.internal_static_gauge_messages_SpecDetails_SpecDetail_descriptor;
+        }
+
+        @java.lang.Override
+        public gauge.messages.Messages.SpecDetails.SpecDetail getDefaultInstanceForType() {
+          return gauge.messages.Messages.SpecDetails.SpecDetail.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public gauge.messages.Messages.SpecDetails.SpecDetail build() {
+          gauge.messages.Messages.SpecDetails.SpecDetail result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public gauge.messages.Messages.SpecDetails.SpecDetail buildPartial() {
+          gauge.messages.Messages.SpecDetails.SpecDetail result = new gauge.messages.Messages.SpecDetails.SpecDetail(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (specBuilder_ == null) {
+            result.spec_ = spec_;
+          } else {
+            result.spec_ = specBuilder_.build();
+          }
+          if (parseErrorsBuilder_ == null) {
+            if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              parseErrors_ = java.util.Collections.unmodifiableList(parseErrors_);
+              bitField0_ = (bitField0_ & ~0x00000002);
+            }
+            result.parseErrors_ = parseErrors_;
+          } else {
+            result.parseErrors_ = parseErrorsBuilder_.build();
+          }
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof gauge.messages.Messages.SpecDetails.SpecDetail) {
+            return mergeFrom((gauge.messages.Messages.SpecDetails.SpecDetail)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(gauge.messages.Messages.SpecDetails.SpecDetail other) {
+          if (other == gauge.messages.Messages.SpecDetails.SpecDetail.getDefaultInstance()) return this;
+          if (other.hasSpec()) {
+            mergeSpec(other.getSpec());
+          }
+          if (parseErrorsBuilder_ == null) {
+            if (!other.parseErrors_.isEmpty()) {
+              if (parseErrors_.isEmpty()) {
+                parseErrors_ = other.parseErrors_;
+                bitField0_ = (bitField0_ & ~0x00000002);
+              } else {
+                ensureParseErrorsIsMutable();
+                parseErrors_.addAll(other.parseErrors_);
+              }
+              onChanged();
+            }
+          } else {
+            if (!other.parseErrors_.isEmpty()) {
+              if (parseErrorsBuilder_.isEmpty()) {
+                parseErrorsBuilder_.dispose();
+                parseErrorsBuilder_ = null;
+                parseErrors_ = other.parseErrors_;
+                bitField0_ = (bitField0_ & ~0x00000002);
+                parseErrorsBuilder_ = 
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                     getParseErrorsFieldBuilder() : null;
+              } else {
+                parseErrorsBuilder_.addAllMessages(other.parseErrors_);
+              }
+            }
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          gauge.messages.Messages.SpecDetails.SpecDetail parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (gauge.messages.Messages.SpecDetails.SpecDetail) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int bitField0_;
+
+        private gauge.messages.Spec.ProtoSpec spec_ = null;
+        private com.google.protobuf.SingleFieldBuilderV3<
+            gauge.messages.Spec.ProtoSpec, gauge.messages.Spec.ProtoSpec.Builder, gauge.messages.Spec.ProtoSpecOrBuilder> specBuilder_;
+        /**
+         * <pre>
+         *&#47; Holds a collection of Specs that are defined in the project.
+         * </pre>
+         *
+         * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+         */
+        public boolean hasSpec() {
+          return specBuilder_ != null || spec_ != null;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of Specs that are defined in the project.
+         * </pre>
+         *
+         * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+         */
+        public gauge.messages.Spec.ProtoSpec getSpec() {
+          if (specBuilder_ == null) {
+            return spec_ == null ? gauge.messages.Spec.ProtoSpec.getDefaultInstance() : spec_;
+          } else {
+            return specBuilder_.getMessage();
+          }
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of Specs that are defined in the project.
+         * </pre>
+         *
+         * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+         */
+        public Builder setSpec(gauge.messages.Spec.ProtoSpec value) {
+          if (specBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            spec_ = value;
+            onChanged();
+          } else {
+            specBuilder_.setMessage(value);
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of Specs that are defined in the project.
+         * </pre>
+         *
+         * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+         */
+        public Builder setSpec(
+            gauge.messages.Spec.ProtoSpec.Builder builderForValue) {
+          if (specBuilder_ == null) {
+            spec_ = builderForValue.build();
+            onChanged();
+          } else {
+            specBuilder_.setMessage(builderForValue.build());
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of Specs that are defined in the project.
+         * </pre>
+         *
+         * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+         */
+        public Builder mergeSpec(gauge.messages.Spec.ProtoSpec value) {
+          if (specBuilder_ == null) {
+            if (spec_ != null) {
+              spec_ =
+                gauge.messages.Spec.ProtoSpec.newBuilder(spec_).mergeFrom(value).buildPartial();
+            } else {
+              spec_ = value;
+            }
+            onChanged();
+          } else {
+            specBuilder_.mergeFrom(value);
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of Specs that are defined in the project.
+         * </pre>
+         *
+         * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+         */
+        public Builder clearSpec() {
+          if (specBuilder_ == null) {
+            spec_ = null;
+            onChanged();
+          } else {
+            spec_ = null;
+            specBuilder_ = null;
+          }
+
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of Specs that are defined in the project.
+         * </pre>
+         *
+         * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+         */
+        public gauge.messages.Spec.ProtoSpec.Builder getSpecBuilder() {
+          
+          onChanged();
+          return getSpecFieldBuilder().getBuilder();
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of Specs that are defined in the project.
+         * </pre>
+         *
+         * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+         */
+        public gauge.messages.Spec.ProtoSpecOrBuilder getSpecOrBuilder() {
+          if (specBuilder_ != null) {
+            return specBuilder_.getMessageOrBuilder();
+          } else {
+            return spec_ == null ?
+                gauge.messages.Spec.ProtoSpec.getDefaultInstance() : spec_;
+          }
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of Specs that are defined in the project.
+         * </pre>
+         *
+         * <code>.gauge.messages.ProtoSpec spec = 1;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            gauge.messages.Spec.ProtoSpec, gauge.messages.Spec.ProtoSpec.Builder, gauge.messages.Spec.ProtoSpecOrBuilder> 
+            getSpecFieldBuilder() {
+          if (specBuilder_ == null) {
+            specBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                gauge.messages.Spec.ProtoSpec, gauge.messages.Spec.ProtoSpec.Builder, gauge.messages.Spec.ProtoSpecOrBuilder>(
+                    getSpec(),
+                    getParentForChildren(),
+                    isClean());
+            spec_ = null;
+          }
+          return specBuilder_;
+        }
+
+        private java.util.List<gauge.messages.Spec.Error> parseErrors_ =
+          java.util.Collections.emptyList();
+        private void ensureParseErrorsIsMutable() {
+          if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+            parseErrors_ = new java.util.ArrayList<gauge.messages.Spec.Error>(parseErrors_);
+            bitField0_ |= 0x00000002;
+           }
+        }
+
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            gauge.messages.Spec.Error, gauge.messages.Spec.Error.Builder, gauge.messages.Spec.ErrorOrBuilder> parseErrorsBuilder_;
+
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public java.util.List<gauge.messages.Spec.Error> getParseErrorsList() {
+          if (parseErrorsBuilder_ == null) {
+            return java.util.Collections.unmodifiableList(parseErrors_);
+          } else {
+            return parseErrorsBuilder_.getMessageList();
+          }
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public int getParseErrorsCount() {
+          if (parseErrorsBuilder_ == null) {
+            return parseErrors_.size();
+          } else {
+            return parseErrorsBuilder_.getCount();
+          }
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public gauge.messages.Spec.Error getParseErrors(int index) {
+          if (parseErrorsBuilder_ == null) {
+            return parseErrors_.get(index);
+          } else {
+            return parseErrorsBuilder_.getMessage(index);
+          }
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public Builder setParseErrors(
+            int index, gauge.messages.Spec.Error value) {
+          if (parseErrorsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureParseErrorsIsMutable();
+            parseErrors_.set(index, value);
+            onChanged();
+          } else {
+            parseErrorsBuilder_.setMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public Builder setParseErrors(
+            int index, gauge.messages.Spec.Error.Builder builderForValue) {
+          if (parseErrorsBuilder_ == null) {
+            ensureParseErrorsIsMutable();
+            parseErrors_.set(index, builderForValue.build());
+            onChanged();
+          } else {
+            parseErrorsBuilder_.setMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public Builder addParseErrors(gauge.messages.Spec.Error value) {
+          if (parseErrorsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureParseErrorsIsMutable();
+            parseErrors_.add(value);
+            onChanged();
+          } else {
+            parseErrorsBuilder_.addMessage(value);
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public Builder addParseErrors(
+            int index, gauge.messages.Spec.Error value) {
+          if (parseErrorsBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureParseErrorsIsMutable();
+            parseErrors_.add(index, value);
+            onChanged();
+          } else {
+            parseErrorsBuilder_.addMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public Builder addParseErrors(
+            gauge.messages.Spec.Error.Builder builderForValue) {
+          if (parseErrorsBuilder_ == null) {
+            ensureParseErrorsIsMutable();
+            parseErrors_.add(builderForValue.build());
+            onChanged();
+          } else {
+            parseErrorsBuilder_.addMessage(builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public Builder addParseErrors(
+            int index, gauge.messages.Spec.Error.Builder builderForValue) {
+          if (parseErrorsBuilder_ == null) {
+            ensureParseErrorsIsMutable();
+            parseErrors_.add(index, builderForValue.build());
+            onChanged();
+          } else {
+            parseErrorsBuilder_.addMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public Builder addAllParseErrors(
+            java.lang.Iterable<? extends gauge.messages.Spec.Error> values) {
+          if (parseErrorsBuilder_ == null) {
+            ensureParseErrorsIsMutable();
+            com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                values, parseErrors_);
+            onChanged();
+          } else {
+            parseErrorsBuilder_.addAllMessages(values);
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public Builder clearParseErrors() {
+          if (parseErrorsBuilder_ == null) {
+            parseErrors_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000002);
+            onChanged();
+          } else {
+            parseErrorsBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public Builder removeParseErrors(int index) {
+          if (parseErrorsBuilder_ == null) {
+            ensureParseErrorsIsMutable();
+            parseErrors_.remove(index);
+            onChanged();
+          } else {
+            parseErrorsBuilder_.remove(index);
+          }
+          return this;
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public gauge.messages.Spec.Error.Builder getParseErrorsBuilder(
+            int index) {
+          return getParseErrorsFieldBuilder().getBuilder(index);
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public gauge.messages.Spec.ErrorOrBuilder getParseErrorsOrBuilder(
+            int index) {
+          if (parseErrorsBuilder_ == null) {
+            return parseErrors_.get(index);  } else {
+            return parseErrorsBuilder_.getMessageOrBuilder(index);
+          }
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public java.util.List<? extends gauge.messages.Spec.ErrorOrBuilder> 
+             getParseErrorsOrBuilderList() {
+          if (parseErrorsBuilder_ != null) {
+            return parseErrorsBuilder_.getMessageOrBuilderList();
+          } else {
+            return java.util.Collections.unmodifiableList(parseErrors_);
+          }
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public gauge.messages.Spec.Error.Builder addParseErrorsBuilder() {
+          return getParseErrorsFieldBuilder().addBuilder(
+              gauge.messages.Spec.Error.getDefaultInstance());
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public gauge.messages.Spec.Error.Builder addParseErrorsBuilder(
+            int index) {
+          return getParseErrorsFieldBuilder().addBuilder(
+              index, gauge.messages.Spec.Error.getDefaultInstance());
+        }
+        /**
+         * <pre>
+         *&#47; Holds a collection of parse errors present in the above spec.
+         * </pre>
+         *
+         * <code>repeated .gauge.messages.Error parseErrors = 2;</code>
+         */
+        public java.util.List<gauge.messages.Spec.Error.Builder> 
+             getParseErrorsBuilderList() {
+          return getParseErrorsFieldBuilder().getBuilderList();
+        }
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            gauge.messages.Spec.Error, gauge.messages.Spec.Error.Builder, gauge.messages.Spec.ErrorOrBuilder> 
+            getParseErrorsFieldBuilder() {
+          if (parseErrorsBuilder_ == null) {
+            parseErrorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                gauge.messages.Spec.Error, gauge.messages.Spec.Error.Builder, gauge.messages.Spec.ErrorOrBuilder>(
+                    parseErrors_,
+                    ((bitField0_ & 0x00000002) == 0x00000002),
+                    getParentForChildren(),
+                    isClean());
+            parseErrors_ = null;
+          }
+          return parseErrorsBuilder_;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFieldsProto3(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:gauge.messages.SpecDetails.SpecDetail)
+      }
+
+      // @@protoc_insertion_point(class_scope:gauge.messages.SpecDetails.SpecDetail)
+      private static final gauge.messages.Messages.SpecDetails.SpecDetail DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new gauge.messages.Messages.SpecDetails.SpecDetail();
+      }
+
+      public static gauge.messages.Messages.SpecDetails.SpecDetail getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<SpecDetail>
+          PARSER = new com.google.protobuf.AbstractParser<SpecDetail>() {
+        @java.lang.Override
+        public SpecDetail parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SpecDetail(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<SpecDetail> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<SpecDetail> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.SpecDetails.SpecDetail getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public static final int DETAILS_FIELD_NUMBER = 1;
+    private java.util.List<gauge.messages.Messages.SpecDetails.SpecDetail> details_;
+    /**
+     * <pre>
+     *&#47; Holds a collection of Spec details.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+     */
+    public java.util.List<gauge.messages.Messages.SpecDetails.SpecDetail> getDetailsList() {
+      return details_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds a collection of Spec details.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+     */
+    public java.util.List<? extends gauge.messages.Messages.SpecDetails.SpecDetailOrBuilder> 
+        getDetailsOrBuilderList() {
+      return details_;
+    }
+    /**
+     * <pre>
+     *&#47; Holds a collection of Spec details.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+     */
+    public int getDetailsCount() {
+      return details_.size();
+    }
+    /**
+     * <pre>
+     *&#47; Holds a collection of Spec details.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+     */
+    public gauge.messages.Messages.SpecDetails.SpecDetail getDetails(int index) {
+      return details_.get(index);
+    }
+    /**
+     * <pre>
+     *&#47; Holds a collection of Spec details.
+     * </pre>
+     *
+     * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+     */
+    public gauge.messages.Messages.SpecDetails.SpecDetailOrBuilder getDetailsOrBuilder(
+        int index) {
+      return details_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < details_.size(); i++) {
+        output.writeMessage(1, details_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < details_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, details_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof gauge.messages.Messages.SpecDetails)) {
+        return super.equals(obj);
+      }
+      gauge.messages.Messages.SpecDetails other = (gauge.messages.Messages.SpecDetails) obj;
+
+      boolean result = true;
+      result = result && getDetailsList()
+          .equals(other.getDetailsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getDetailsCount() > 0) {
+        hash = (37 * hash) + DETAILS_FIELD_NUMBER;
+        hash = (53 * hash) + getDetailsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static gauge.messages.Messages.SpecDetails parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.SpecDetails parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.SpecDetails parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.SpecDetails parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.SpecDetails parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static gauge.messages.Messages.SpecDetails parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static gauge.messages.Messages.SpecDetails parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.SpecDetails parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.SpecDetails parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.SpecDetails parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static gauge.messages.Messages.SpecDetails parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static gauge.messages.Messages.SpecDetails parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(gauge.messages.Messages.SpecDetails prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code gauge.messages.SpecDetails}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:gauge.messages.SpecDetails)
+        gauge.messages.Messages.SpecDetailsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return gauge.messages.Messages.internal_static_gauge_messages_SpecDetails_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return gauge.messages.Messages.internal_static_gauge_messages_SpecDetails_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                gauge.messages.Messages.SpecDetails.class, gauge.messages.Messages.SpecDetails.Builder.class);
+      }
+
+      // Construct using gauge.messages.Messages.SpecDetails.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDetailsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (detailsBuilder_ == null) {
+          details_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          detailsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return gauge.messages.Messages.internal_static_gauge_messages_SpecDetails_descriptor;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.SpecDetails getDefaultInstanceForType() {
+        return gauge.messages.Messages.SpecDetails.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.SpecDetails build() {
+        gauge.messages.Messages.SpecDetails result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public gauge.messages.Messages.SpecDetails buildPartial() {
+        gauge.messages.Messages.SpecDetails result = new gauge.messages.Messages.SpecDetails(this);
+        int from_bitField0_ = bitField0_;
+        if (detailsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            details_ = java.util.Collections.unmodifiableList(details_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.details_ = details_;
+        } else {
+          result.details_ = detailsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof gauge.messages.Messages.SpecDetails) {
+          return mergeFrom((gauge.messages.Messages.SpecDetails)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(gauge.messages.Messages.SpecDetails other) {
+        if (other == gauge.messages.Messages.SpecDetails.getDefaultInstance()) return this;
+        if (detailsBuilder_ == null) {
+          if (!other.details_.isEmpty()) {
+            if (details_.isEmpty()) {
+              details_ = other.details_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureDetailsIsMutable();
+              details_.addAll(other.details_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.details_.isEmpty()) {
+            if (detailsBuilder_.isEmpty()) {
+              detailsBuilder_.dispose();
+              detailsBuilder_ = null;
+              details_ = other.details_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              detailsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDetailsFieldBuilder() : null;
+            } else {
+              detailsBuilder_.addAllMessages(other.details_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        gauge.messages.Messages.SpecDetails parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (gauge.messages.Messages.SpecDetails) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<gauge.messages.Messages.SpecDetails.SpecDetail> details_ =
+        java.util.Collections.emptyList();
+      private void ensureDetailsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          details_ = new java.util.ArrayList<gauge.messages.Messages.SpecDetails.SpecDetail>(details_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Messages.SpecDetails.SpecDetail, gauge.messages.Messages.SpecDetails.SpecDetail.Builder, gauge.messages.Messages.SpecDetails.SpecDetailOrBuilder> detailsBuilder_;
+
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public java.util.List<gauge.messages.Messages.SpecDetails.SpecDetail> getDetailsList() {
+        if (detailsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(details_);
+        } else {
+          return detailsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public int getDetailsCount() {
+        if (detailsBuilder_ == null) {
+          return details_.size();
+        } else {
+          return detailsBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public gauge.messages.Messages.SpecDetails.SpecDetail getDetails(int index) {
+        if (detailsBuilder_ == null) {
+          return details_.get(index);
+        } else {
+          return detailsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public Builder setDetails(
+          int index, gauge.messages.Messages.SpecDetails.SpecDetail value) {
+        if (detailsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDetailsIsMutable();
+          details_.set(index, value);
+          onChanged();
+        } else {
+          detailsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public Builder setDetails(
+          int index, gauge.messages.Messages.SpecDetails.SpecDetail.Builder builderForValue) {
+        if (detailsBuilder_ == null) {
+          ensureDetailsIsMutable();
+          details_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          detailsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public Builder addDetails(gauge.messages.Messages.SpecDetails.SpecDetail value) {
+        if (detailsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDetailsIsMutable();
+          details_.add(value);
+          onChanged();
+        } else {
+          detailsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public Builder addDetails(
+          int index, gauge.messages.Messages.SpecDetails.SpecDetail value) {
+        if (detailsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDetailsIsMutable();
+          details_.add(index, value);
+          onChanged();
+        } else {
+          detailsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public Builder addDetails(
+          gauge.messages.Messages.SpecDetails.SpecDetail.Builder builderForValue) {
+        if (detailsBuilder_ == null) {
+          ensureDetailsIsMutable();
+          details_.add(builderForValue.build());
+          onChanged();
+        } else {
+          detailsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public Builder addDetails(
+          int index, gauge.messages.Messages.SpecDetails.SpecDetail.Builder builderForValue) {
+        if (detailsBuilder_ == null) {
+          ensureDetailsIsMutable();
+          details_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          detailsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public Builder addAllDetails(
+          java.lang.Iterable<? extends gauge.messages.Messages.SpecDetails.SpecDetail> values) {
+        if (detailsBuilder_ == null) {
+          ensureDetailsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, details_);
+          onChanged();
+        } else {
+          detailsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public Builder clearDetails() {
+        if (detailsBuilder_ == null) {
+          details_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          detailsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public Builder removeDetails(int index) {
+        if (detailsBuilder_ == null) {
+          ensureDetailsIsMutable();
+          details_.remove(index);
+          onChanged();
+        } else {
+          detailsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public gauge.messages.Messages.SpecDetails.SpecDetail.Builder getDetailsBuilder(
+          int index) {
+        return getDetailsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public gauge.messages.Messages.SpecDetails.SpecDetailOrBuilder getDetailsOrBuilder(
+          int index) {
+        if (detailsBuilder_ == null) {
+          return details_.get(index);  } else {
+          return detailsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public java.util.List<? extends gauge.messages.Messages.SpecDetails.SpecDetailOrBuilder> 
+           getDetailsOrBuilderList() {
+        if (detailsBuilder_ != null) {
+          return detailsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(details_);
+        }
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public gauge.messages.Messages.SpecDetails.SpecDetail.Builder addDetailsBuilder() {
+        return getDetailsFieldBuilder().addBuilder(
+            gauge.messages.Messages.SpecDetails.SpecDetail.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public gauge.messages.Messages.SpecDetails.SpecDetail.Builder addDetailsBuilder(
+          int index) {
+        return getDetailsFieldBuilder().addBuilder(
+            index, gauge.messages.Messages.SpecDetails.SpecDetail.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *&#47; Holds a collection of Spec details.
+       * </pre>
+       *
+       * <code>repeated .gauge.messages.SpecDetails.SpecDetail details = 1;</code>
+       */
+      public java.util.List<gauge.messages.Messages.SpecDetails.SpecDetail.Builder> 
+           getDetailsBuilderList() {
+        return getDetailsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          gauge.messages.Messages.SpecDetails.SpecDetail, gauge.messages.Messages.SpecDetails.SpecDetail.Builder, gauge.messages.Messages.SpecDetails.SpecDetailOrBuilder> 
+          getDetailsFieldBuilder() {
+        if (detailsBuilder_ == null) {
+          detailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              gauge.messages.Messages.SpecDetails.SpecDetail, gauge.messages.Messages.SpecDetails.SpecDetail.Builder, gauge.messages.Messages.SpecDetails.SpecDetailOrBuilder>(
+                  details_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          details_ = null;
+        }
+        return detailsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:gauge.messages.SpecDetails)
+    }
+
+    // @@protoc_insertion_point(class_scope:gauge.messages.SpecDetails)
+    private static final gauge.messages.Messages.SpecDetails DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new gauge.messages.Messages.SpecDetails();
+    }
+
+    public static gauge.messages.Messages.SpecDetails getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SpecDetails>
+        PARSER = new com.google.protobuf.AbstractParser<SpecDetails>() {
+      @java.lang.Override
+      public SpecDetails parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SpecDetails(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SpecDetails> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SpecDetails> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public gauge.messages.Messages.SpecDetails getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface EmptyOrBuilder extends
       // @@protoc_insertion_point(interface_extends:gauge.messages.Empty)
       com.google.protobuf.MessageOrBuilder {
@@ -48321,6 +50366,16 @@ public final class Messages {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_gauge_messages_KeepAlive_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_SpecDetails_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_SpecDetails_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_gauge_messages_SpecDetails_SpecDetail_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_gauge_messages_SpecDetails_SpecDetail_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_gauge_messages_Empty_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -48448,98 +50503,102 @@ public final class Messages {
       "ssages.Span\022\017\n\007content\030\002 \001(\t\"I\n\010FileDiff" +
       "\022\020\n\010filePath\030\001 \001(\t\022+\n\ttextDiffs\030\002 \003(\0132\030." +
       "gauge.messages.TextDiff\"\035\n\tKeepAlive\022\020\n\010" +
-      "pluginId\030\001 \001(\t\"\007\n\005Empty\"\375\033\n\007Message\0228\n\013m" +
-      "essageType\030\001 \001(\0162#.gauge.messages.Messag" +
-      "e.MessageType\022\021\n\tmessageId\030\002 \001(\003\022J\n\030exec" +
-      "utionStartingRequest\030\003 \001(\0132(.gauge.messa" +
-      "ges.ExecutionStartingRequest\022R\n\034specExec" +
-      "utionStartingRequest\030\004 \001(\0132,.gauge.messa" +
-      "ges.SpecExecutionStartingRequest\022N\n\032spec" +
-      "ExecutionEndingRequest\030\005 \001(\0132*.gauge.mes" +
-      "sages.SpecExecutionEndingRequest\022Z\n scen" +
-      "arioExecutionStartingRequest\030\006 \001(\01320.gau" +
-      "ge.messages.ScenarioExecutionStartingReq" +
-      "uest\022V\n\036scenarioExecutionEndingRequest\030\007" +
-      " \001(\0132..gauge.messages.ScenarioExecutionE" +
-      "ndingRequest\022R\n\034stepExecutionStartingReq" +
-      "uest\030\010 \001(\0132,.gauge.messages.StepExecutio" +
-      "nStartingRequest\022N\n\032stepExecutionEndingR" +
-      "equest\030\t \001(\0132*.gauge.messages.StepExecut" +
-      "ionEndingRequest\022>\n\022executeStepRequest\030\n" +
-      " \001(\0132\".gauge.messages.ExecuteStepRequest" +
-      "\022F\n\026executionEndingRequest\030\013 \001(\0132&.gauge" +
-      ".messages.ExecutionEndingRequest\022@\n\023step" +
-      "ValidateRequest\030\014 \001(\0132#.gauge.messages.S" +
-      "tepValidateRequest\022B\n\024stepValidateRespon" +
-      "se\030\r \001(\0132$.gauge.messages.StepValidateRe" +
-      "sponse\022H\n\027executionStatusResponse\030\016 \001(\0132" +
-      "\'.gauge.messages.ExecutionStatusResponse" +
-      "\022:\n\020stepNamesRequest\030\017 \001(\0132 .gauge.messa" +
-      "ges.StepNamesRequest\022<\n\021stepNamesRespons" +
-      "e\030\020 \001(\0132!.gauge.messages.StepNamesRespon" +
-      "se\022B\n\024suiteExecutionResult\030\021 \001(\0132$.gauge" +
-      ".messages.SuiteExecutionResult\022>\n\022killPr" +
-      "ocessRequest\030\022 \001(\0132\".gauge.messages.Kill" +
-      "ProcessRequest\022R\n\034scenarioDataStoreInitR" +
-      "equest\030\023 \001(\0132,.gauge.messages.ScenarioDa" +
-      "taStoreInitRequest\022J\n\030specDataStoreInitR" +
-      "equest\030\024 \001(\0132(.gauge.messages.SpecDataSt" +
-      "oreInitRequest\022L\n\031suiteDataStoreInitRequ" +
-      "est\030\025 \001(\0132).gauge.messages.SuiteDataStor" +
-      "eInitRequest\0228\n\017stepNameRequest\030\026 \001(\0132\037." +
-      "gauge.messages.StepNameRequest\022:\n\020stepNa" +
-      "meResponse\030\027 \001(\0132 .gauge.messages.StepNa" +
-      "meResponse\0228\n\017refactorRequest\030\030 \001(\0132\037.ga" +
-      "uge.messages.RefactorRequest\022:\n\020refactor" +
-      "Response\030\031 \001(\0132 .gauge.messages.Refactor" +
-      "Response\022N\n\032unsupportedMessageResponse\030\032" +
-      " \001(\0132*.gauge.messages.UnsupportedMessage" +
-      "Response\022:\n\020cacheFileRequest\030\033 \001(\0132 .gau" +
-      "ge.messages.CacheFileRequest\022B\n\024stepPosi" +
-      "tionsRequest\030\034 \001(\0132$.gauge.messages.Step" +
-      "PositionsRequest\022D\n\025stepPositionsRespons" +
-      "e\030\035 \001(\0132%.gauge.messages.StepPositionsRe" +
-      "sponse\022T\n\035implementationFileListRequest\030" +
-      "\036 \001(\0132-.gauge.messages.ImplementationFil" +
-      "eListRequest\022V\n\036implementationFileListRe" +
-      "sponse\030\037 \001(\0132..gauge.messages.Implementa" +
-      "tionFileListResponse\022T\n\035stubImplementati" +
-      "onCodeRequest\030  \001(\0132-.gauge.messages.Stu" +
-      "bImplementationCodeRequest\022*\n\010fileDiff\030!" +
-      " \001(\0132\030.gauge.messages.FileDiff\022b\n$implem" +
-      "entationFileGlobPatternRequest\030\" \001(\01324.g" +
-      "auge.messages.ImplementationFileGlobPatt" +
-      "ernRequest\022d\n%implementationFileGlobPatt" +
-      "ernResponse\030# \001(\01325.gauge.messages.Imple" +
-      "mentationFileGlobPatternResponse\022J\n\030suit" +
-      "eExecutionResultItem\030$ \001(\0132(.gauge.messa" +
-      "ges.SuiteExecutionResultItem\022,\n\tkeepAliv" +
-      "e\030% \001(\0132\031.gauge.messages.KeepAlive\"\242\007\n\013M" +
-      "essageType\022\025\n\021ExecutionStarting\020\000\022\031\n\025Spe" +
-      "cExecutionStarting\020\001\022\027\n\023SpecExecutionEnd" +
-      "ing\020\002\022\035\n\031ScenarioExecutionStarting\020\003\022\033\n\027" +
-      "ScenarioExecutionEnding\020\004\022\031\n\025StepExecuti" +
-      "onStarting\020\005\022\027\n\023StepExecutionEnding\020\006\022\017\n" +
-      "\013ExecuteStep\020\007\022\023\n\017ExecutionEnding\020\010\022\027\n\023S" +
-      "tepValidateRequest\020\t\022\030\n\024StepValidateResp" +
-      "onse\020\n\022\033\n\027ExecutionStatusResponse\020\013\022\024\n\020S" +
-      "tepNamesRequest\020\014\022\025\n\021StepNamesResponse\020\r" +
-      "\022\026\n\022KillProcessRequest\020\016\022\030\n\024SuiteExecuti" +
-      "onResult\020\017\022\031\n\025ScenarioDataStoreInit\020\020\022\025\n" +
-      "\021SpecDataStoreInit\020\021\022\026\n\022SuiteDataStoreIn" +
-      "it\020\022\022\023\n\017StepNameRequest\020\023\022\024\n\020StepNameRes" +
-      "ponse\020\024\022\023\n\017RefactorRequest\020\025\022\024\n\020Refactor" +
-      "Response\020\026\022\036\n\032UnsupportedMessageResponse" +
-      "\020\027\022\024\n\020CacheFileRequest\020\030\022\030\n\024StepPosition" +
-      "sRequest\020\031\022\031\n\025StepPositionsResponse\020\032\022!\n" +
-      "\035ImplementationFileListRequest\020\033\022\"\n\036Impl" +
-      "ementationFileListResponse\020\034\022!\n\035StubImpl" +
-      "ementationCodeRequest\020\035\022\014\n\010FileDiff\020\036\022(\n" +
-      "$ImplementationFileGlobPatternRequest\020\037\022" +
-      ")\n%ImplementationFileGlobPatternResponse" +
-      "\020 \022\034\n\030SuiteExecutionResultItem\020!\022\r\n\tKeep" +
-      "Alive\020\"B!\n\016gauge.messages\252\002\016Gauge.Messag" +
-      "esb\006proto3"
+      "pluginId\030\001 \001(\t\"\251\001\n\013SpecDetails\0227\n\007detail" +
+      "s\030\001 \003(\0132&.gauge.messages.SpecDetails.Spe" +
+      "cDetail\032a\n\nSpecDetail\022\'\n\004spec\030\001 \001(\0132\031.ga" +
+      "uge.messages.ProtoSpec\022*\n\013parseErrors\030\002 " +
+      "\003(\0132\025.gauge.messages.Error\"\007\n\005Empty\"\375\033\n\007" +
+      "Message\0228\n\013messageType\030\001 \001(\0162#.gauge.mes" +
+      "sages.Message.MessageType\022\021\n\tmessageId\030\002" +
+      " \001(\003\022J\n\030executionStartingRequest\030\003 \001(\0132(" +
+      ".gauge.messages.ExecutionStartingRequest" +
+      "\022R\n\034specExecutionStartingRequest\030\004 \001(\0132," +
+      ".gauge.messages.SpecExecutionStartingReq" +
+      "uest\022N\n\032specExecutionEndingRequest\030\005 \001(\013" +
+      "2*.gauge.messages.SpecExecutionEndingReq" +
+      "uest\022Z\n scenarioExecutionStartingRequest" +
+      "\030\006 \001(\01320.gauge.messages.ScenarioExecutio" +
+      "nStartingRequest\022V\n\036scenarioExecutionEnd" +
+      "ingRequest\030\007 \001(\0132..gauge.messages.Scenar" +
+      "ioExecutionEndingRequest\022R\n\034stepExecutio" +
+      "nStartingRequest\030\010 \001(\0132,.gauge.messages." +
+      "StepExecutionStartingRequest\022N\n\032stepExec" +
+      "utionEndingRequest\030\t \001(\0132*.gauge.message" +
+      "s.StepExecutionEndingRequest\022>\n\022executeS" +
+      "tepRequest\030\n \001(\0132\".gauge.messages.Execut" +
+      "eStepRequest\022F\n\026executionEndingRequest\030\013" +
+      " \001(\0132&.gauge.messages.ExecutionEndingReq" +
+      "uest\022@\n\023stepValidateRequest\030\014 \001(\0132#.gaug" +
+      "e.messages.StepValidateRequest\022B\n\024stepVa" +
+      "lidateResponse\030\r \001(\0132$.gauge.messages.St" +
+      "epValidateResponse\022H\n\027executionStatusRes" +
+      "ponse\030\016 \001(\0132\'.gauge.messages.ExecutionSt" +
+      "atusResponse\022:\n\020stepNamesRequest\030\017 \001(\0132 " +
+      ".gauge.messages.StepNamesRequest\022<\n\021step" +
+      "NamesResponse\030\020 \001(\0132!.gauge.messages.Ste" +
+      "pNamesResponse\022B\n\024suiteExecutionResult\030\021" +
+      " \001(\0132$.gauge.messages.SuiteExecutionResu" +
+      "lt\022>\n\022killProcessRequest\030\022 \001(\0132\".gauge.m" +
+      "essages.KillProcessRequest\022R\n\034scenarioDa" +
+      "taStoreInitRequest\030\023 \001(\0132,.gauge.message" +
+      "s.ScenarioDataStoreInitRequest\022J\n\030specDa" +
+      "taStoreInitRequest\030\024 \001(\0132(.gauge.message" +
+      "s.SpecDataStoreInitRequest\022L\n\031suiteDataS" +
+      "toreInitRequest\030\025 \001(\0132).gauge.messages.S" +
+      "uiteDataStoreInitRequest\0228\n\017stepNameRequ" +
+      "est\030\026 \001(\0132\037.gauge.messages.StepNameReque" +
+      "st\022:\n\020stepNameResponse\030\027 \001(\0132 .gauge.mes" +
+      "sages.StepNameResponse\0228\n\017refactorReques" +
+      "t\030\030 \001(\0132\037.gauge.messages.RefactorRequest" +
+      "\022:\n\020refactorResponse\030\031 \001(\0132 .gauge.messa" +
+      "ges.RefactorResponse\022N\n\032unsupportedMessa" +
+      "geResponse\030\032 \001(\0132*.gauge.messages.Unsupp" +
+      "ortedMessageResponse\022:\n\020cacheFileRequest" +
+      "\030\033 \001(\0132 .gauge.messages.CacheFileRequest" +
+      "\022B\n\024stepPositionsRequest\030\034 \001(\0132$.gauge.m" +
+      "essages.StepPositionsRequest\022D\n\025stepPosi" +
+      "tionsResponse\030\035 \001(\0132%.gauge.messages.Ste" +
+      "pPositionsResponse\022T\n\035implementationFile" +
+      "ListRequest\030\036 \001(\0132-.gauge.messages.Imple" +
+      "mentationFileListRequest\022V\n\036implementati" +
+      "onFileListResponse\030\037 \001(\0132..gauge.message" +
+      "s.ImplementationFileListResponse\022T\n\035stub" +
+      "ImplementationCodeRequest\030  \001(\0132-.gauge." +
+      "messages.StubImplementationCodeRequest\022*" +
+      "\n\010fileDiff\030! \001(\0132\030.gauge.messages.FileDi" +
+      "ff\022b\n$implementationFileGlobPatternReque" +
+      "st\030\" \001(\01324.gauge.messages.Implementation" +
+      "FileGlobPatternRequest\022d\n%implementation" +
+      "FileGlobPatternResponse\030# \001(\01325.gauge.me" +
+      "ssages.ImplementationFileGlobPatternResp" +
+      "onse\022J\n\030suiteExecutionResultItem\030$ \001(\0132(" +
+      ".gauge.messages.SuiteExecutionResultItem" +
+      "\022,\n\tkeepAlive\030% \001(\0132\031.gauge.messages.Kee" +
+      "pAlive\"\242\007\n\013MessageType\022\025\n\021ExecutionStart" +
+      "ing\020\000\022\031\n\025SpecExecutionStarting\020\001\022\027\n\023Spec" +
+      "ExecutionEnding\020\002\022\035\n\031ScenarioExecutionSt" +
+      "arting\020\003\022\033\n\027ScenarioExecutionEnding\020\004\022\031\n" +
+      "\025StepExecutionStarting\020\005\022\027\n\023StepExecutio" +
+      "nEnding\020\006\022\017\n\013ExecuteStep\020\007\022\023\n\017ExecutionE" +
+      "nding\020\010\022\027\n\023StepValidateRequest\020\t\022\030\n\024Step" +
+      "ValidateResponse\020\n\022\033\n\027ExecutionStatusRes" +
+      "ponse\020\013\022\024\n\020StepNamesRequest\020\014\022\025\n\021StepNam" +
+      "esResponse\020\r\022\026\n\022KillProcessRequest\020\016\022\030\n\024" +
+      "SuiteExecutionResult\020\017\022\031\n\025ScenarioDataSt" +
+      "oreInit\020\020\022\025\n\021SpecDataStoreInit\020\021\022\026\n\022Suit" +
+      "eDataStoreInit\020\022\022\023\n\017StepNameRequest\020\023\022\024\n" +
+      "\020StepNameResponse\020\024\022\023\n\017RefactorRequest\020\025" +
+      "\022\024\n\020RefactorResponse\020\026\022\036\n\032UnsupportedMes" +
+      "sageResponse\020\027\022\024\n\020CacheFileRequest\020\030\022\030\n\024" +
+      "StepPositionsRequest\020\031\022\031\n\025StepPositionsR" +
+      "esponse\020\032\022!\n\035ImplementationFileListReque" +
+      "st\020\033\022\"\n\036ImplementationFileListResponse\020\034" +
+      "\022!\n\035StubImplementationCodeRequest\020\035\022\014\n\010F" +
+      "ileDiff\020\036\022(\n$ImplementationFileGlobPatte" +
+      "rnRequest\020\037\022)\n%ImplementationFileGlobPat" +
+      "ternResponse\020 \022\034\n\030SuiteExecutionResultIt" +
+      "em\020!\022\r\n\tKeepAlive\020\"B!\n\016gauge.messages\252\002\016" +
+      "Gauge.Messagesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -48818,14 +50877,26 @@ public final class Messages {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_KeepAlive_descriptor,
         new java.lang.String[] { "PluginId", });
-    internal_static_gauge_messages_Empty_descriptor =
+    internal_static_gauge_messages_SpecDetails_descriptor =
       getDescriptor().getMessageTypes().get(43);
+    internal_static_gauge_messages_SpecDetails_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_SpecDetails_descriptor,
+        new java.lang.String[] { "Details", });
+    internal_static_gauge_messages_SpecDetails_SpecDetail_descriptor =
+      internal_static_gauge_messages_SpecDetails_descriptor.getNestedTypes().get(0);
+    internal_static_gauge_messages_SpecDetails_SpecDetail_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_gauge_messages_SpecDetails_SpecDetail_descriptor,
+        new java.lang.String[] { "Spec", "ParseErrors", });
+    internal_static_gauge_messages_Empty_descriptor =
+      getDescriptor().getMessageTypes().get(44);
     internal_static_gauge_messages_Empty_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_Empty_descriptor,
         new java.lang.String[] { });
     internal_static_gauge_messages_Message_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_gauge_messages_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_Message_descriptor,
