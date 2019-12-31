@@ -23,7 +23,6 @@ import java.util.List;
 
 public class StepRegistryEntry {
     private StepValue stepValue;
-    private String className;
     private String fileName;
     private Range span;
     private Boolean hasAlias;
@@ -31,7 +30,6 @@ public class StepRegistryEntry {
     private Method methodInfo;
     private String stepText;
     private String name;
-    private Boolean continueOnFailure;
     private List<Parameter> parameters;
 
     public StepRegistryEntry(StepValue stepValue, Method method) {
@@ -44,10 +42,6 @@ public class StepRegistryEntry {
 
     public void setStepValue(StepValue stepValue) {
         this.stepValue = stepValue;
-    }
-
-    public void setClassName(String className) {
-        this.className = className;
     }
 
     public void setFileName(String fileName) {
@@ -66,10 +60,6 @@ public class StepRegistryEntry {
         this.aliases = aliases;
     }
 
-    public void setMethodInfo(Method methodInfo) {
-        this.methodInfo = methodInfo;
-    }
-
     public void setStepText(String stepText) {
         this.stepText = stepText;
     }
@@ -79,20 +69,12 @@ public class StepRegistryEntry {
     }
 
 
-    public void setContinueOnFailure(Boolean continueOnFailure) {
-        this.continueOnFailure = continueOnFailure;
-    }
-
     public String getFileName() {
         return fileName;
     }
 
     public Range getSpan() {
         return span;
-    }
-
-    public String getClassName() {
-        return className;
     }
 
     public void setParameters(List<Parameter> parameters) {
