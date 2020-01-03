@@ -39,7 +39,7 @@ public class StepPositionsRequestProcessorTest {
 
         assertEquals(response.getStepPositionsList().size(), 1);
         assertEquals(response.getStepPositionsList().get(0).getStepValue(), "new step");
-        assertEquals(response.getStepPositionsList().get(0).getSpan().getStart(), 6);
+        assertEquals(response.getStepPositionsList().get(0).getSpan().getStart(), 9);
     }
 
     @Test
@@ -50,12 +50,12 @@ public class StepPositionsRequestProcessorTest {
         staticScanner.addStepsFromFileContents(implFile, contents);
         StepPositionsRequestProcessor stepPositionsRequestProcessor = new StepPositionsRequestProcessor(staticScanner.getRegistry());
         Messages.StepPositionsRequest stepPositionRequest = Messages.StepPositionsRequest.newBuilder().setFilePath(implFile).build();
-        Messages.Message request = Messages.Message.newBuilder().setMessageType(Messages.Message.MessageType.StepPositionsRequest).setMessageId(1l).setStepPositionsRequest(stepPositionRequest).build();
+        Messages.Message request = Messages.Message.newBuilder().setMessageType(Messages.Message.MessageType.StepPositionsRequest).setMessageId(1L).setStepPositionsRequest(stepPositionRequest).build();
         Messages.StepPositionsResponse response = stepPositionsRequestProcessor.process(request).getStepPositionsResponse();
 
         assertEquals(response.getStepPositionsList().size(), 2);
         assertEquals(response.getStepPositionsList().get(0).getStepValue(), "another step");
         assertEquals(response.getStepPositionsList().get(1).getStepValue(), "new step");
-        assertEquals(response.getStepPositionsList().get(0).getSpan().getStart(), 6);
+        assertEquals(response.getStepPositionsList().get(0).getSpan().getStart(), 9);
     }
 }

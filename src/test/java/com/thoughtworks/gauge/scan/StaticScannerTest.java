@@ -55,7 +55,8 @@ public class StaticScannerTest {
 
     @Test
     public void ShouldAddStepsAliases() {
-        String contents = "public class StepTest {\n" +
+        String contents ="package foo;"+
+                "public class StepTest {\n" +
                 "   @Step({\"This is \" + \"a step\", \"new step\"})\n" +
                 "       public void newstep() {\n" +
                 "       assertThat(2).isEqualTo(2);\n" +
