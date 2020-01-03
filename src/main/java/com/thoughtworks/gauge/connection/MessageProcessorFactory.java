@@ -66,10 +66,6 @@ public class MessageProcessorFactory {
         messageProcessors = initializeMessageProcessor();
     }
 
-    public StepRegistry getStepRegistry() {
-        return this.stepRegistry;
-    }
-
     public IMessageProcessor getProcessor(Messages.Message.MessageType request) {
         if (request == Messages.Message.MessageType.SuiteDataStoreInit) {
             ClasspathScanner classpathScanner = new ClasspathScanner();

@@ -28,6 +28,11 @@ import java.io.StringReader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
 
 public class StaticScanner {
 
@@ -51,12 +56,24 @@ public class StaticScanner {
         try {
             StringReader reader = new StringReader(contents);
             CompilationUnit compilationUnit = JavaParser.parse(reader);
+            if (!this.shouldScan(compilationUnit)) {
+                return;
+            }
             RegistryMethodVisitor methodVisitor = new RegistryMethodVisitor(stepRegistry, file);
             methodVisitor.visit(compilationUnit, null);
         } catch (ParseException e) {
             Logger.error(String.format("Exception while adding steps from %s file:", file));
             Logger.error(String.format("%s\n%s", e.getMessage(), e.getStackTrace()));
         }
+    }
+
+    private boolean shouldScan(CompilationUnit unit) {
+        final String packagesToScan = System.getenv(PACKAGE_TO_SCAN);
+        if (packagesToScan == null || packagesToScan.isEmpty() || unit.getPackage() == null) {
+            return true;
+        }
+        List<String> packages = Arrays.stream(packagesToScan.split(",")).map(String::trim).collect(Collectors.toList());
+        return packages.contains(unit.getPackage().getPackageName());
     }
 
     public void addStepsToRegistry() {

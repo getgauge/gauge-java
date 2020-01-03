@@ -19,8 +19,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class PrimitiveParameterParserTest {
     @Mock
-    private ParameterParser nextParameterParserMock;
-    @Mock
     private PrimitivesConverter primitivesConverterMock;
     @InjectMocks
     private PrimitiveParameterParser primitiveParameterParser;

@@ -13,7 +13,6 @@ public class StartCommand implements GaugeJavaCommand {
 
     @Override
     public void execute() throws Exception {
-        Thread.setDefaultUncaughtExceptionHandler((t, e) -> Logger.fatal("Error in thread " + t.getId(), e));
         StaticScanner staticScanner = new StaticScanner();
         staticScanner.addStepsToRegistry();
         Server server;
