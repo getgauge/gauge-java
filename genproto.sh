@@ -1,3 +1,5 @@
+#!/bin/sh
+
 #Copyright 2015 ThoughtWorks, Inc.
 
 #This file is part of Gauge-Java.
@@ -12,8 +14,6 @@
 #
 # We would then provide copied of each license in a separate .txt file with the name of the license as the title of the file.
 
-#!/bin/sh
-
 #Using protoc version 2.6.1
 for filename in gauge-proto/*.proto; do
   newName="$filename-bkp"
@@ -23,5 +23,11 @@ for filename in gauge-proto/*.proto; do
   rm "$newName"
 done
 mvn protobuf:compile-custom protobuf:compile
-cp  target/generated-sources/protobuf/java/gauge/messages/*.java src/main/java/gauge/messages
-cp  target/generated-sources/protobuf/grpc-java/gauge/messages/*.java src/main/java/gauge/messages
+
+cd gauge-proto && git checkout . && cd ..
+
+cp  target/generated-sources/protobuf/java/gauge/messages/Messages.java src/main/java/gauge/messages
+cp  target/generated-sources/protobuf/java/gauge/messages/Spec.java src/main/java/gauge/messages
+cp  target/generated-sources/protobuf/java/gauge/messages/Services.java src/main/java/gauge/messages
+
+cp  target/generated-sources/protobuf/grpc-java/gauge/messages/RunnerGrpc.java src/main/java/gauge/messages

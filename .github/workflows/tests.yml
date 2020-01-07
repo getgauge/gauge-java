@@ -21,7 +21,7 @@ jobs:
       - name: Run test
         run: |
           java -version
-          mvn clean test
+          mvn -q clean test
 
   functional_tests:
     name: FTs - java v${{ matrix.java_version }} & ${{ matrix.os }}
@@ -77,7 +77,7 @@ jobs:
 
       - name: Install Gauge Java maven package locally
         run: |
-          mvn install -DskipTests -"Dgpg.skip" -D"maven.javadoc.skip=true"
+          mvn -q install -DskipTests -"Dgpg.skip" -D"maven.javadoc.skip=true"
 
       - name: Clone gauge-tests
         run: |
