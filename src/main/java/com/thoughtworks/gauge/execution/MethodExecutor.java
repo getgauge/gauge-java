@@ -17,6 +17,7 @@ package com.thoughtworks.gauge.execution;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ContinueOnFailure;
+import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.screenshot.ScreenshotFactory;
 import gauge.messages.Spec;
 
@@ -50,8 +51,10 @@ public class MethodExecutor {
 
     private Spec.ProtoExecutionResult createFailureExecResult(long execTime, Throwable e, boolean recoverable, Class[] continuableExceptions) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
-        String screenshotFileName = new ScreenshotFactory(instanceManager).getScreenshotBytes();
-        builder.setFailureScreenshotFile(screenshotFileName);
+        if (Util.shouldTakeFailureScreenshot()) {
+            String screenshotFileName = new ScreenshotFactory(instanceManager).getScreenshotBytes();
+            builder.setFailureScreenshotFile(screenshotFileName);
+        }
         if (e.getCause() != null) {
             builder.setRecoverableError(false);
             for (Class c : continuableExceptions) {

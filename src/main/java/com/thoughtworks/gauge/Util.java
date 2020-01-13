@@ -53,4 +53,10 @@ public class Util {
     public static String trimQuotes(String text) {
         return StringUtils.stripEnd(StringUtils.stripStart(text, "\""), "\"");
     }
+
+    public static boolean shouldTakeFailureScreenshot() {
+        String screenshotEnabled = System.getenv(GaugeConstant.SCREENSHOT_ENABLED);
+        return !(screenshotEnabled == null || screenshotEnabled.toLowerCase().equals("false"));
+    }
+
 }

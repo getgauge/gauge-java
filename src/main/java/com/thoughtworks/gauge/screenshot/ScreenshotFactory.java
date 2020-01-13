@@ -49,10 +49,7 @@ public class ScreenshotFactory {
     }
 
     public String getScreenshotBytes() {
-        if (shouldTakeScreenshot()) {
-            return takeScreenshot();
-        }
-        return "";
+        return takeScreenshot();
     }
 
     private String takeScreenshot() {
@@ -85,24 +82,18 @@ public class ScreenshotFactory {
 
     private String captureScreen() {
         File file = generateUniqueScreenshotFile();
-        if (shouldTakeScreenshot()) {
-            try {
-                // Union together all screen devices for 1 large screenshot
-                Rectangle screenRect = new Rectangle(0, 0, 0, 0);
-                for (GraphicsDevice gd : GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()) {
-                    screenRect = screenRect.union(gd.getDefaultConfiguration().getBounds());
-                }
-                BufferedImage image = new Robot().createScreenCapture(screenRect);
-                ImageIO.write(image, IMAGE_EXTENSION, file);
-            } catch (Throwable e) {
-                Logger.error("Failed to take regular screenshot: " + e.getMessage());
+        try {
+            // Union together all screen devices for 1 large screenshot
+            Rectangle screenRect = new Rectangle(0, 0, 0, 0);
+            for (GraphicsDevice gd : GraphicsEnvironment.getLocalGraphicsEnvironment().getScreenDevices()) {
+                screenRect = screenRect.union(gd.getDefaultConfiguration().getBounds());
             }
+            BufferedImage image = new Robot().createScreenCapture(screenRect);
+            ImageIO.write(image, IMAGE_EXTENSION, file);
+        } catch (Throwable e) {
+            Logger.error("Failed to take regular screenshot: " + e.getMessage());
         }
         return file.getName();
     }
 
-    private boolean shouldTakeScreenshot() {
-        String screenshotEnabled = System.getenv(GaugeConstant.SCREENSHOT_ENABLED);
-        return !(screenshotEnabled == null || screenshotEnabled.toLowerCase().equals("false"));
-    }
 }
