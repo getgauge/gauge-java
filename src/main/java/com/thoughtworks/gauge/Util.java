@@ -55,7 +55,7 @@ public class Util {
     }
 
     public static boolean shouldTakeFailureScreenshot() {
-        String screenshotEnabled = System.getenv(GaugeConstant.SCREENSHOT_ENABLED);
+        String screenshotEnabled = System.getenv(GaugeConstant.SCREENSHOT_ON_FAILURE_ENABLED);
         return !(screenshotEnabled == null || screenshotEnabled.toLowerCase().equals("false"));
     }
 
