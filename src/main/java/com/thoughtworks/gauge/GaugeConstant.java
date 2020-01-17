@@ -16,7 +16,7 @@
 package com.thoughtworks.gauge;
 
 public class GaugeConstant {
-    public static final String SCREENSHOT_ENABLED = "screenshot_on_failure";
+    public static final String SCREENSHOT_ON_FAILURE_ENABLED = "screenshot_on_failure";
     public static final String PACKAGE_TO_SCAN = "package_to_scan";
     public static final String GAUGE_PROJECT_ROOT = "GAUGE_PROJECT_ROOT";
     public static final String GAUGE_CUSTOM_COMPILE_DIR = "gauge_custom_compile_dir";
