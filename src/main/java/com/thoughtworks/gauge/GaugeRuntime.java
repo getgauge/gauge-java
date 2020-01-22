@@ -8,6 +8,7 @@ import com.thoughtworks.gauge.command.GaugeCommandFactory;
  */
 public class GaugeRuntime {
     public static void main(String[] args) throws Exception {
+        Thread.setDefaultUncaughtExceptionHandler((t, e) -> Logger.fatal("Error in thread " + t.getId(), e));
         if (args.length == 0) {
             System.out.println("usage: GaugeJava --<start|init>");
             System.exit(1);

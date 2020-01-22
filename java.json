@@ -36,10 +36,11 @@
         ]
     },
     "lib": "libs",
-    "multithreaded": true,
+    "multithreaded": false,
     "gaugeVersionSupport": {
         "minimum": "1.0.6",
         "maximum": ""
     },
-    "lspLangId": "java"
+    "lspLangId": "java",
+    "gRPCSupport": true
 }

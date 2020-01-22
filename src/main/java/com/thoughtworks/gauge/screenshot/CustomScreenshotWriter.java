@@ -20,7 +20,7 @@ package com.thoughtworks.gauge.screenshot;
  * The captured screenshots can be seen on the reports on failure.
  * If multiple implementations are found, one will be picked randomly to capture screenshots.
  * Implementation of this interface should capture screenshot and write them into a unique file
- * inside screenshots directory. Use "screenshots_dir" env to get screenshot directory path"
+ * inside screenshots directory. Use "gauge_screenshots_dir" env to get screenshot directory path"
  */
 public interface CustomScreenshotWriter extends CustomScreenshot {
 

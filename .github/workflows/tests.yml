@@ -21,7 +21,7 @@ jobs:
       - name: Run test
         run: |
           java -version
-          mvn clean test
+          mvn -q clean test
 
   functional_tests:
     name: FTs - java v${{ matrix.java_version }} & ${{ matrix.os }}
@@ -75,9 +75,13 @@ jobs:
         run: |
           ./build.ps1 forceinstall
 
+      - name: Install Gauge Java maven package locally
+        run: |
+          mvn -q install -DskipTests -"Dgpg.skip" -D"maven.javadoc.skip=true"
+
       - name: Clone gauge-tests
         run: |
-          git clone --depth=1 --branch=fileBasedScreenshot https://github.com/getgauge/gauge-tests
+          git clone --depth=1 https://github.com/getgauge/gauge-tests
 
       - name: Run FTs on linux
         if: matrix.os != 'windows-latest'

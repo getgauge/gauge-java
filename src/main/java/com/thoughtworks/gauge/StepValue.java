@@ -19,6 +19,7 @@ import gauge.messages.Spec;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class StepValue {
     private final String stepText;
@@ -49,10 +50,6 @@ public class StepValue {
         return parameters;
     }
 
-    public int getParamCount() {
-        return parameters.size();
-    }
-
     public String getStepAnnotationText() {
         return parameterizedStepText;
     }
@@ -68,9 +65,9 @@ public class StepValue {
         }
 
         StepValue stepValue = (StepValue) o;
-        return !(parameterizedStepText != null ? !parameterizedStepText.equals(stepValue.parameterizedStepText) : stepValue.parameterizedStepText != null)
-                && !(parameters != null ? !parameters.equals(stepValue.parameters) : stepValue.parameters != null)
-                && !(stepText != null ? !stepText.equals(stepValue.stepText) : stepValue.stepText != null);
+        return Objects.equals(parameterizedStepText, stepValue.parameterizedStepText)
+                && Objects.equals(parameters, stepValue.parameters)
+                && Objects.equals(stepText, stepValue.stepText);
     }
 
     @Override
