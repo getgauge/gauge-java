@@ -21,18 +21,18 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.FileHelper;
 import com.thoughtworks.gauge.Logger;
-import com.thoughtworks.gauge.Step;
-import com.thoughtworks.gauge.StepRegistryEntry;
-import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Set;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
 
 public class StaticScanner {
 
@@ -56,6 +56,9 @@ public class StaticScanner {
         try {
             StringReader reader = new StringReader(contents);
             CompilationUnit compilationUnit = JavaParser.parse(reader);
+            if (!this.shouldScan(compilationUnit)) {
+                return;
+            }
             RegistryMethodVisitor methodVisitor = new RegistryMethodVisitor(stepRegistry, file);
             methodVisitor.visit(compilationUnit, null);
         } catch (ParseException e) {
@@ -64,8 +67,13 @@ public class StaticScanner {
         }
     }
 
-    public void removeSteps(String fileName) {
-        stepRegistry.removeSteps(fileName);
+    private boolean shouldScan(CompilationUnit unit) {
+        final String packagesToScan = System.getenv(PACKAGE_TO_SCAN);
+        if (packagesToScan == null || packagesToScan.isEmpty() || unit.getPackage() == null) {
+            return true;
+        }
+        List<String> packages = Arrays.stream(packagesToScan.split(",")).map(String::trim).collect(Collectors.toList());
+        return packages.contains(unit.getPackage().getPackageName());
     }
 
     public void addStepsToRegistry() {
@@ -76,21 +84,8 @@ public class StaticScanner {
         }
     }
 
-    public StepRegistry getStepRegistry(ClasspathScanner classpathScanner) {
-        Set<Method> methods = classpathScanner.getAllMethods();
-        for (Method method : methods) {
-            Step annotation = method.getAnnotation(Step.class);
-            if (annotation != null) {
-                for (String stepName : annotation.value()) {
-                    String stepText = stepName.replaceAll("(<.*?>)", "{}");
-                    StepValue stepValue = new StepValue(stepText, stepName);
-                    StepRegistryEntry entry = stepRegistry.get(stepText);
-                    entry.setMethodInfo(method);
-                    stepRegistry.addStep(stepValue, entry);
-                }
-            }
-        }
-        return stepRegistry;
+    public void removeSteps(String fileName) {
+        stepRegistry.removeSteps(fileName);
     }
 
     public boolean isFileCached(String fileName) {

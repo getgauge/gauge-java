@@ -1,8 +1,14 @@
 package com.thoughtworks.gauge.execution.parameters.parsers.types;
 
+import com.thoughtworks.gauge.execution.parameters.parsers.converters.TableConverter;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
 import static com.thoughtworks.gauge.execution.ParameterTestHelpers.aSpecialTableParameter;
 import static com.thoughtworks.gauge.execution.ParameterTestHelpers.aTableParameter;
-import static com.thoughtworks.gauge.execution.ParameterTestHelpers.nonTableParameter;
 import static com.thoughtworks.gauge.test.TestValues.ANY_TYPE;
 import static com.thoughtworks.gauge.test.TestValues.SPECIFIC_VALUE;
 import static org.hamcrest.CoreMatchers.theInstance;
@@ -10,19 +16,8 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParser;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
-
-import com.thoughtworks.gauge.execution.parameters.parsers.converters.TableConverter;
-
 @RunWith(MockitoJUnitRunner.class)
 public class TableParameterParserTest {
-    @Mock
-    private ParameterParser parameterParserMock;
     @Mock
     private TableConverter tableConverterMock;
     @InjectMocks

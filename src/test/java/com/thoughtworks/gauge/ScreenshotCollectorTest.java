@@ -15,7 +15,6 @@
 
 package com.thoughtworks.gauge;
 
-import com.google.protobuf.ByteString;
 import gauge.messages.Spec;
 import junit.framework.TestCase;
 
@@ -25,15 +24,15 @@ import java.util.List;
 public class ScreenshotCollectorTest extends TestCase {
     public void testAddingScreenshotsToProtoResult() {
         Spec.ProtoExecutionResult executionResult = emptyExecResult();
-        byte a = Byte.valueOf("1");
-        byte b = Byte.valueOf("2");
-        byte[] bytes = {a,b};
-        List<byte[]> screenshots = new ArrayList<>();
-        screenshots.add(bytes);
+        String a = "1";
+        String b = "2";
+        List<String> screenshots = new ArrayList<>();
+        screenshots.add(a);
+        screenshots.add(b);
         Spec.ProtoExecutionResult protoExecutionResult = new ScreenshotCollector().addPendingScreenshot(executionResult, screenshots);
-        List<ByteString> actualScreenshotList = protoExecutionResult.getScreenshotsList();
-        for (byte[] screenshot : screenshots) {
-            assertTrue(actualScreenshotList.contains(ByteString.copyFrom(screenshot)));
+        List<String> actualScreenshotList = protoExecutionResult.getScreenshotFilesList();
+        for (String screenshot : screenshots) {
+            assertTrue(actualScreenshotList.contains(screenshot));
         }
     }
 

@@ -21,7 +21,7 @@ jobs:
       - name: Run test
         run: |
           java -version
-          mvn clean test
+          mvn -q clean test
 
   functional_tests:
     name: FTs - java v${{ matrix.java_version }} & ${{ matrix.os }}
@@ -43,7 +43,7 @@ jobs:
       - name: Install gauge on linux
         if: matrix.os != 'windows-latest'
         run: |
-          git clone https://github.com/getgauge/gauge
+          git clone --depth=1 https://github.com/getgauge/gauge
           cd gauge
           go run build/make.go --verbose
           go run build/make.go --install --prefix=/tmp/
@@ -52,11 +52,18 @@ jobs:
       - name: Install gauge (windows)
         if: matrix.os == 'windows-latest'
         run: |
-          git clone https://github.com/getgauge/gauge
+          git clone --depth=1 https://github.com/getgauge/gauge
           cd gauge
           go run build/make.go --verbose
           go run build/make.go --install
           echo "::add-path::C:\Program Files\gauge\bin"
+
+      - name: Install html report
+        run: |
+          git clone --depth=1 https://github.com/getgauge/html-report
+          cd html-report
+          go run build/make.go
+          go run build/make.go --install
 
       - name: Install Gauge Java plugin from source
         if: matrix.os != 'windows-latest'
@@ -67,6 +74,10 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: |
           ./build.ps1 forceinstall
+
+      - name: Install Gauge Java maven package locally
+        run: |
+          mvn -q install -DskipTests -"Dgpg.skip" -D"maven.javadoc.skip=true"
 
       - name: Clone gauge-tests
         run: |

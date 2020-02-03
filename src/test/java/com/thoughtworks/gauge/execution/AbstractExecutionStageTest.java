@@ -15,7 +15,6 @@
 
 package com.thoughtworks.gauge.execution;
 
-import com.google.protobuf.ByteString;
 import gauge.messages.Spec;
 import junit.framework.TestCase;
 
@@ -30,17 +29,14 @@ public class AbstractExecutionStageTest extends TestCase {
     }
 
     public void testMergingResultsPreviousFailing() throws Exception {
-
-        Byte b = Byte.valueOf("1");
-        byte[] bytes = {b};
-        ByteString screenShot = ByteString.copyFrom(bytes);
+        String screenShot = "1";
 
         Spec.ProtoExecutionResult previous = Spec.ProtoExecutionResult.newBuilder().setFailed(true).
                 setExecutionTime(100).
                 setRecoverableError(false).
                 setErrorMessage("Previous failed").
                 setStackTrace("Previous stacktrace").
-                setFailureScreenshot(screenShot).build();
+                setFailureScreenshotFile(screenShot).build();
         Spec.ProtoExecutionResult current = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(1100).build();
         Spec.ProtoExecutionResult result = new TestExecutionStage().mergeExecResults(previous, current);
 
@@ -49,13 +45,11 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals("Previous failed", result.getErrorMessage());
         assertEquals("Previous stacktrace", result.getStackTrace());
         assertFalse(result.getRecoverableError());
-        assertEquals(screenShot, result.getFailureScreenshot());
+        assertEquals(screenShot, result.getFailureScreenshotFile());
     }
 
     public void testMergingResultsCurrentFailing() throws Exception {
-        Byte b = Byte.valueOf("2");
-        byte[] bytes = {b};
-        ByteString screenShot = ByteString.copyFrom(bytes);
+        String screenShot = "2";
 
         Spec.ProtoExecutionResult previous = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(100).build();
         Spec.ProtoExecutionResult current = Spec.ProtoExecutionResult.newBuilder().setFailed(true).
@@ -63,7 +57,7 @@ public class AbstractExecutionStageTest extends TestCase {
                 setRecoverableError(false).
                 setErrorMessage("current failed").
                 setStackTrace("current stacktrace").
-                setFailureScreenshot(screenShot).build();
+                setFailureScreenshotFile(screenShot).build();
         Spec.ProtoExecutionResult result = new TestExecutionStage().mergeExecResults(previous, current);
 
         assertTrue(result.getFailed());
@@ -71,27 +65,25 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals("current failed", result.getErrorMessage());
         assertEquals("current stacktrace", result.getStackTrace());
         assertFalse(result.getRecoverableError());
-        assertEquals(screenShot, result.getFailureScreenshot());
+        assertEquals(screenShot, result.getFailureScreenshotFile());
     }
 
     public void testMergingResultsBothFailing() throws Exception {
-        Byte b = Byte.valueOf("2");
-        byte[] bytes = {b};
-        ByteString screenShotPrevious = ByteString.copyFrom(bytes);
-        ByteString screenShotCurrent = ByteString.copyFromUtf8("hello");
+        String screenShotPrevious = "2";
+        String screenShotCurrent = "hello";
 
         Spec.ProtoExecutionResult previous = Spec.ProtoExecutionResult.newBuilder().setFailed(true).
                 setExecutionTime(1001).
                 setRecoverableError(true).
                 setErrorMessage("previous failed").
                 setStackTrace("previous stacktrace").
-                setFailureScreenshot(screenShotPrevious).build();
+                setFailureScreenshotFile(screenShotPrevious).build();
         Spec.ProtoExecutionResult current = Spec.ProtoExecutionResult.newBuilder().setFailed(true).
                 setExecutionTime(1002).
                 setRecoverableError(false).
                 setErrorMessage("current failed").
                 setStackTrace("current stacktrace").
-                setFailureScreenshot(screenShotCurrent).build();
+                setFailureScreenshotFile(screenShotCurrent).build();
         Spec.ProtoExecutionResult result = new TestExecutionStage().mergeExecResults(previous, current);
 
         assertTrue(result.getFailed());
@@ -99,11 +91,11 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals("previous failed", result.getErrorMessage());
         assertEquals("previous stacktrace", result.getStackTrace());
         assertFalse(result.getRecoverableError());
-        assertEquals(screenShotPrevious, result.getFailureScreenshot());
+        assertEquals(screenShotPrevious, result.getFailureScreenshotFile());
     }
 
     public void testMergingResultsCurrentFailingAndIsRecoverable() throws Exception {
-        ByteString screenShotCurrent = ByteString.copyFromUtf8("hello");
+        String screenShotCurrent = "screenShotCurrent.png";
 
         Spec.ProtoExecutionResult previous = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(1001).build();
         Spec.ProtoExecutionResult current = Spec.ProtoExecutionResult.newBuilder().setFailed(true).
@@ -111,7 +103,7 @@ public class AbstractExecutionStageTest extends TestCase {
                 setRecoverableError(true).
                 setErrorMessage("current failed").
                 setStackTrace("current stacktrace").
-                setFailureScreenshot(screenShotCurrent).build();
+                setFailureScreenshotFile(screenShotCurrent).build();
         Spec.ProtoExecutionResult result = new TestExecutionStage().mergeExecResults(previous, current);
 
         assertTrue(result.getFailed());
@@ -119,7 +111,7 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals("current failed", result.getErrorMessage());
         assertEquals("current stacktrace", result.getStackTrace());
         assertTrue(result.getRecoverableError());
-        assertEquals(screenShotCurrent, result.getFailureScreenshot());
+        assertEquals(screenShotCurrent, result.getFailureScreenshotFile());
     }
 
     private class TestExecutionStage extends AbstractExecutionStage {

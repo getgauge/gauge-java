@@ -21,10 +21,6 @@ public class ParameterTestHelpers {
         return aParameterWith(ParameterType.Special_Table);
     }
 
-    public static Parameter nonTableParameter() {
-        return aParameterWith(ParameterType.Static);
-    }
-
     public static Parameter aTableParameter() {
         return aParameterWith(ParameterType.Table);
     }

@@ -71,17 +71,17 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>28.1-jre</version>
+            <version>28.2-jre</version>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty-shaded</artifactId>
-            <version>1.25.0</version>
+            <version>1.26.0</version>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-protobuf</artifactId>
-            <version>1.24.1</version>
+            <version>1.26.0</version>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
@@ -115,9 +115,11 @@
                     <pluginArtifact>
                         io.grpc:protoc-gen-grpc-java:1.13.1:exe:${os.detected.classifier}
                     </pluginArtifact>
+                    <protoSourceRoot>gauge-proto</protoSourceRoot>
                 </configuration>
                 <executions>
                     <execution>
+                        <phase>none</phase>
                         <goals>
                             <goal>compile</goal>
                             <goal>compile-custom</goal>
@@ -128,7 +130,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>

@@ -15,7 +15,6 @@
 
 package com.thoughtworks.gauge;
 
-import com.google.protobuf.ByteString;
 import gauge.messages.Spec;
 
 import java.util.ArrayList;
@@ -25,20 +24,18 @@ import static com.thoughtworks.gauge.Gauge.getScreenshots;
 
 public class ScreenshotCollector {
     public Spec.ProtoExecutionResult addPendingScreenshotTo(Spec.ProtoExecutionResult result) {
-        List<byte[]> screenshots = getAllPendingScreenshots();
+        ArrayList<String> screenshots = getAllPendingScreenshots();
         return addPendingScreenshot(result, screenshots);
     }
 
-    Spec.ProtoExecutionResult addPendingScreenshot(Spec.ProtoExecutionResult result, List<byte[]> screenshots) {
+    Spec.ProtoExecutionResult addPendingScreenshot(Spec.ProtoExecutionResult result, List<String> screenshotsFileName) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder(result);
-        for (byte[] screenshot : screenshots) {
-            builder.addScreenshots(ByteString.copyFrom(screenshot));
-        }
+        builder.addAllScreenshotFiles(screenshotsFileName);
         return builder.build();
     }
 
-    private List<byte[]> getAllPendingScreenshots() {
-        List<byte[]> pendingScreenshots = new ArrayList<>(getScreenshots());
+    private ArrayList<String> getAllPendingScreenshots() {
+        ArrayList<String> pendingScreenshots = new ArrayList<>(getScreenshots());
         clear();
         return pendingScreenshots;
     }

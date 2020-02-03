@@ -1,4 +1,4 @@
-// Copyright 2015 ThoughtWorks, Inc.
+// Copyright 2019 ThoughtWorks, Inc.
 
 // This file is part of Gauge-Java.
 
@@ -12,11 +12,7 @@
 //
 // You can redistribute it and/or modify it under the terms of either license.
 // We would then provide copied of each license in a separate .txt file with the name of the license as the title of the file.
+package com.thoughtworks.gauge.screenshot;
 
-package com.thoughtworks.gauge;
-
-public class PluginNotInstalledException extends Exception {
-    public PluginNotInstalledException(String error) {
-        super(error);
-    }
+interface CustomScreenshot {
 }

@@ -39,6 +39,7 @@ public class StepsScanner implements IScanner {
     public void scan(Reflections reflections) {
         Logger.debug("Scanning packages for steps");
         Set<Method> stepImplementations = reflections.getMethodsAnnotatedWith(Step.class);
+        registry.clear();
         buildStepRegistry(stepImplementations);
     }
 
