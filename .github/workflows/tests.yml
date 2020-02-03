@@ -100,7 +100,7 @@ jobs:
         shell: pwsh
         run: |
           cd gauge-tests
-          .\gradlew.bat clean javaFT -PspecsDir="specs\\advanced_topics"
+          .\gradlew.bat clean javaFT
 
       - uses: actions/upload-artifact@v1
         if: failure()
