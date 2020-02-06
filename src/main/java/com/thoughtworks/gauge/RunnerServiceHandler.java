@@ -33,10 +33,10 @@ public class RunnerServiceHandler extends RunnerImplBase {
     private Server server;
     private ExecutorPool pool;
 
-    public RunnerServiceHandler(MessageProcessorFactory messageProcessorFactory, boolean multithreading, int pool) {
+    public RunnerServiceHandler(MessageProcessorFactory messageProcessorFactory, boolean multithreading, int poolSize) {
         this.messageProcessorFactory = messageProcessorFactory;
         this.multithreading = multithreading;
-        this.pool = new ExecutorPool(pool);
+        this.pool = new ExecutorPool(poolSize);
     }
 
     public void addServer(Server lspServer) {
