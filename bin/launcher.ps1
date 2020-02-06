@@ -93,7 +93,7 @@ $tasks.Add('start', {
       $debugArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=$env:GAUGE_DEBUG_OPTS,timeout=25000"
       Write-Output "`nRunner Ready for Debugging"
     }
-    java  "-Dfile.encoding=UTF-8" $debugArgs $gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start
+    java  "-Dfile.encoding=UTF-8" $debugArgs $env:gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start
     exit
   })
 
