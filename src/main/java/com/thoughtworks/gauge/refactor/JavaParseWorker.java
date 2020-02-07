@@ -34,7 +34,7 @@ public class JavaParseWorker extends Thread {
 
     public void run() {
         try {
-            compilationUnit = JavaParser.parse(javaFile);
+            compilationUnit = JavaParser.parse(javaFile, ENCODING);
         } catch (Exception e) {
             Logger.error("Unable to parse file " + javaFile.getName());
         }

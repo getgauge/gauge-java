@@ -18,13 +18,12 @@ package com.thoughtworks.gauge.refactor;
 import com.github.javaparser.Range;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
-import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
+import com.github.javaparser.ast.body.VariableDeclaratorId;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.expr.ArrayInitializerExpr;
 import com.github.javaparser.ast.expr.BinaryExpr;
-import com.github.javaparser.ast.expr.SimpleName;
 import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
@@ -38,8 +37,8 @@ import org.apache.commons.lang.StringEscapeUtils;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class RefactoringMethodVisitor extends VoidVisitorAdapter {
     private StepValue oldStepValue;
@@ -47,7 +46,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
     private List<Messages.ParameterPosition> paramPositions;
     private boolean refactored;
     private JavaRefactoringElement javaElement;
-    private NodeList<Parameter> newParameters;
+    private List<Parameter> newParameters;
     private Range stepSpan;
 
 
@@ -98,8 +97,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
 
     private void refactor(MethodDeclaration methodDeclaration, StringLiteralExpr memberValue, SingleMemberAnnotationExpr annotation) {
         if (StringEscapeUtils.unescapeJava(memberValue.getValue()).trim().equals(oldStepValue.getStepAnnotationText().trim())) {
-            newParameters = NodeList.nodeList();
-            IntStream.range(0, paramPositions.size()).forEach(i -> newParameters.add(new Parameter()));
+            newParameters = Arrays.asList(new Parameter[paramPositions.size()]);
             memberValue.setValue(StringEscapeUtils.escapeJava(newStepValue.getStepAnnotationText()));
             List<Parameter> parameters = methodDeclaration.getParameters();
             for (int i = 0, paramPositionsSize = paramPositions.size(); i < paramPositionsSize; i++) {
@@ -108,8 +106,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
                     if (paramName.equals("arg")) {
                         paramName += i;
                     }
-                    Parameter p = new Parameter(new ClassOrInterfaceType(null, "Object"), new SimpleName(paramName));
-                    newParameters.set(paramPositions.get(i).getNewPosition(), p);
+                    newParameters.set(paramPositions.get(i).getNewPosition(), new Parameter(new ClassOrInterfaceType("Object"), new VariableDeclaratorId(paramName)));
                 } else {
                     newParameters.set(paramPositions.get(i).getNewPosition(), parameters.get(paramPositions.get(i).getOldPosition()));
                 }
@@ -117,14 +114,14 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
             for (int k = 0; k < newParameters.size(); k++) {
                 for (int l = k + 1; l < newParameters.size(); l++) {
                     if (newParameters.get(k).getName().equals(newParameters.get(l).getName())) {
-                        newParameters.set(l, new Parameter(new ClassOrInterfaceType(null, "Object"), new SimpleName(newParameters.get(l).getName().asString() + l)));
+                        newParameters.set(l, new Parameter(new ClassOrInterfaceType("Object"), new VariableDeclaratorId(newParameters.get(l).getName() + l)));
                     }
                 }
             }
             methodDeclaration.setParameters(newParameters);
             annotation.setMemberValue(memberValue);
             this.javaElement = new JavaRefactoringElement(getJavaFileText(methodDeclaration), null);
-            stepSpan = annotation.getChildNodes().get(1).getRange().get();
+            stepSpan = annotation.getChildrenNodes().get(1).getRange();
             this.refactored = true;
         }
     }
@@ -137,7 +134,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
         if (node instanceof CompilationUnit) {
             return node;
         }
-        return getFileElement(node.getParentNode().get());
+        return getFileElement(node.getParentNode());
     }
 
     public boolean refactored() {

@@ -341,8 +341,8 @@ public class JavaRefactoringTest extends TestCase {
         String newLineChar = System.getProperty("line.separator");
         assertTrue(element.getText().contains("    @Step(\"with comments\")" + newLineChar +
                 "    public void someStepWithComments() {" + newLineChar +
-                "        // comment1" + newLineChar +
-                "        // comment2" + newLineChar +
+                "        //comment1" + newLineChar +
+                "        //comment2" + newLineChar +
                 "        /*" + newLineChar +
                 "                    comment3" + newLineChar +
                 "                    comment4" + newLineChar +
@@ -370,8 +370,8 @@ public class JavaRefactoringTest extends TestCase {
         String newLineChar = System.getProperty("line.separator");
         String expectedValue = "    @Step(\"with comments\")" + newLineChar +
                 "    public void someStepWithComments() {" + newLineChar +
-                "        // comment1" + newLineChar +
-                "        // comment2" + newLineChar +
+                "        //comment1" + newLineChar +
+                "        //comment2" + newLineChar +
                 "        /*" + newLineChar +
                 "                    comment3" + newLineChar +
                 "                    comment4" + newLineChar +
@@ -382,8 +382,8 @@ public class JavaRefactoringTest extends TestCase {
                 "                        comment8" + newLineChar +
                 "         */" + newLineChar +
                 "        System.out.println(\"\");" + newLineChar +
-                "    // comment9" + newLineChar +
-                "    // comment10" + newLineChar +
+                "    //comment9" + newLineChar +
+                "    //comment10" + newLineChar +
                 "    /*" + newLineChar +
                 "                    comment11" + newLineChar +
                 "                    comment12" + newLineChar +

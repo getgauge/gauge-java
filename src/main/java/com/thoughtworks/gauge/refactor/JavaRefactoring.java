@@ -49,7 +49,7 @@ public class JavaRefactoring {
 
     public RefactoringResult performRefactoring() {
         String oldStepText = oldStepValue.getStepText();
-        String fileName = registry.get(oldStepText).getFileName();
+        String fileName  = registry.get(oldStepText).getFileName();
         Boolean hasAlias = registry.get(oldStepText).getHasAlias();
 
         if (fileName == null || fileName.isEmpty()) {
@@ -93,8 +93,8 @@ public class JavaRefactoring {
             int column = registry.get(oldStepValue.getStepText()).getName().length();
             return new Range(new Position(line, column), new Position(line, column));
         }
-        Range firstParam = parameters.get(0).getRange().get();
-        Range lastParam = parameters.get(parameters.size() - 1).getRange().get();
+        Range firstParam = parameters.get(0).getRange();
+        Range lastParam = parameters.get(parameters.size() - 1).getRange();
         return new Range(new Position(firstParam.begin.line, firstParam.begin.column - 1), new Position(lastParam.end.line, lastParam.end.column));
     }
 

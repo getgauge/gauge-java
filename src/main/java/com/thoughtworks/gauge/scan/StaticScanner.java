@@ -16,8 +16,8 @@
 package com.thoughtworks.gauge.scan;
 
 import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParseException;
 import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.PackageDeclaration;
 import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.FileHelper;
 import com.thoughtworks.gauge.Logger;
@@ -30,7 +30,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
@@ -54,23 +53,27 @@ public class StaticScanner {
     }
 
     public void addStepsFromFileContents(String file, String contents) {
-        StringReader reader = new StringReader(contents);
-        CompilationUnit compilationUnit = JavaParser.parse(reader);
-        if (!this.shouldScan(compilationUnit)) {
-            return;
+        try {
+            StringReader reader = new StringReader(contents);
+            CompilationUnit compilationUnit = JavaParser.parse(reader);
+            if (!this.shouldScan(compilationUnit)) {
+                return;
+            }
+            RegistryMethodVisitor methodVisitor = new RegistryMethodVisitor(stepRegistry, file);
+            methodVisitor.visit(compilationUnit, null);
+        } catch (ParseException e) {
+            Logger.error(String.format("Exception while adding steps from %s file:", file));
+            Logger.error(String.format("%s\n%s", e.getMessage(), e.getStackTrace()));
         }
-        RegistryMethodVisitor methodVisitor = new RegistryMethodVisitor(stepRegistry, file);
-        methodVisitor.visit(compilationUnit, null);
     }
 
     private boolean shouldScan(CompilationUnit unit) {
         final String packagesToScan = System.getenv(PACKAGE_TO_SCAN);
-        Optional<PackageDeclaration> pakage = unit.getPackageDeclaration();
-        if (packagesToScan == null || packagesToScan.isEmpty() || !pakage.isPresent()) {
+        if (packagesToScan == null || packagesToScan.isEmpty() || unit.getPackage() == null) {
             return true;
         }
         List<String> packages = Arrays.stream(packagesToScan.split(",")).map(String::trim).collect(Collectors.toList());
-        return packages.contains(pakage.get().getName().asString());
+        return packages.contains(unit.getPackage().getPackageName());
     }
 
     public void addStepsToRegistry() {
