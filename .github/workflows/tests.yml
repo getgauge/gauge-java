@@ -49,7 +49,7 @@ jobs:
       - name: Install gauge on linux
         if: matrix.os != 'windows-latest'
         run: |
-          git clone --branch=stream --depth=1 https://github.com/getgauge/gauge
+          git clone --depth=1 https://github.com/getgauge/gauge
           cd gauge
           go run build/make.go --verbose
           go run build/make.go --install --prefix=/tmp/
@@ -58,7 +58,7 @@ jobs:
       - name: Install gauge (windows)
         if: matrix.os == 'windows-latest'
         run: |
-          git clone --branch=stream --depth=1 https://github.com/getgauge/gauge
+          git clone --depth=1 https://github.com/getgauge/gauge
           cd gauge
           go run build/make.go --verbose
           go run build/make.go --install
@@ -132,7 +132,7 @@ jobs:
       - name: Install gauge on linux
         if: matrix.os != 'windows-latest'
         run: |
-          git clone --branch=stream https://github.com/getgauge/gauge
+          git clone https://github.com/getgauge/gauge
           cd gauge
           go run build/make.go --verbose
           go run build/make.go --install --prefix=/tmp/
@@ -141,7 +141,7 @@ jobs:
       - name: Install gauge (windows)
         if: matrix.os == 'windows-latest'
         run: |
-          git clone --branch=stream https://github.com/getgauge/gauge
+          git clone https://github.com/getgauge/gauge
           cd gauge
           go run build/make.go --verbose
           go run build/make.go --install
