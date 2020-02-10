@@ -22,21 +22,21 @@ import gauge.messages.Spec;
 
 import java.io.File;
 import java.lang.reflect.Method;
-import java.util.Map;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toList;
 
 public class StepRegistry {
-    private HashMap<String, CopyOnWriteArrayList<StepRegistryEntry>> registry;
+    private ConcurrentHashMap<String, CopyOnWriteArrayList<StepRegistryEntry>> registry;
 
     public StepRegistry() {
-        registry = new HashMap<>();
+        registry = new ConcurrentHashMap<>();
     }
 
     public void addStepImplementation(StepValue stepValue, Method method) {
@@ -52,7 +52,7 @@ public class StepRegistry {
     }
 
     public void clear() {
-        this.registry  = new HashMap<>();
+        this.registry = new ConcurrentHashMap<>();
     }
 
     public boolean contains(String stepTemplateText) {
@@ -90,7 +90,7 @@ public class StepRegistry {
     }
 
     public void removeSteps(String fileName) {
-        HashMap<String, CopyOnWriteArrayList<StepRegistryEntry>> newRegistry = new HashMap<>();
+        ConcurrentHashMap<String, CopyOnWriteArrayList<StepRegistryEntry>> newRegistry = new ConcurrentHashMap<>();
         for (String key : registry.keySet()) {
             CopyOnWriteArrayList<StepRegistryEntry> newEntryList = registry.get(key).stream().filter(entry -> !entry.getFileName().equals(fileName)).collect(toCollection(CopyOnWriteArrayList::new));
             if (newEntryList.size() > 0) {

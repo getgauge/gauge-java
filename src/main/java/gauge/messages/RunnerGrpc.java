@@ -54,23 +54,23 @@ public final class RunnerGrpc {
      return getValidateStepMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.Empty,
+  private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.SuiteDataStoreInitRequest,
       gauge.messages.Messages.ExecutionStatusResponse> getInitializeSuiteDataStoreMethod;
 
-  public static io.grpc.MethodDescriptor<gauge.messages.Messages.Empty,
+  public static io.grpc.MethodDescriptor<gauge.messages.Messages.SuiteDataStoreInitRequest,
       gauge.messages.Messages.ExecutionStatusResponse> getInitializeSuiteDataStoreMethod() {
-    io.grpc.MethodDescriptor<gauge.messages.Messages.Empty, gauge.messages.Messages.ExecutionStatusResponse> getInitializeSuiteDataStoreMethod;
+    io.grpc.MethodDescriptor<gauge.messages.Messages.SuiteDataStoreInitRequest, gauge.messages.Messages.ExecutionStatusResponse> getInitializeSuiteDataStoreMethod;
     if ((getInitializeSuiteDataStoreMethod = RunnerGrpc.getInitializeSuiteDataStoreMethod) == null) {
       synchronized (RunnerGrpc.class) {
         if ((getInitializeSuiteDataStoreMethod = RunnerGrpc.getInitializeSuiteDataStoreMethod) == null) {
           RunnerGrpc.getInitializeSuiteDataStoreMethod = getInitializeSuiteDataStoreMethod = 
-              io.grpc.MethodDescriptor.<gauge.messages.Messages.Empty, gauge.messages.Messages.ExecutionStatusResponse>newBuilder()
+              io.grpc.MethodDescriptor.<gauge.messages.Messages.SuiteDataStoreInitRequest, gauge.messages.Messages.ExecutionStatusResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "gauge.messages.Runner", "InitializeSuiteDataStore"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  gauge.messages.Messages.Empty.getDefaultInstance()))
+                  gauge.messages.Messages.SuiteDataStoreInitRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gauge.messages.Messages.ExecutionStatusResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new RunnerMethodDescriptorSupplier("InitializeSuiteDataStore"))
@@ -108,23 +108,23 @@ public final class RunnerGrpc {
      return getStartExecutionMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.Empty,
+  private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.SpecDataStoreInitRequest,
       gauge.messages.Messages.ExecutionStatusResponse> getInitializeSpecDataStoreMethod;
 
-  public static io.grpc.MethodDescriptor<gauge.messages.Messages.Empty,
+  public static io.grpc.MethodDescriptor<gauge.messages.Messages.SpecDataStoreInitRequest,
       gauge.messages.Messages.ExecutionStatusResponse> getInitializeSpecDataStoreMethod() {
-    io.grpc.MethodDescriptor<gauge.messages.Messages.Empty, gauge.messages.Messages.ExecutionStatusResponse> getInitializeSpecDataStoreMethod;
+    io.grpc.MethodDescriptor<gauge.messages.Messages.SpecDataStoreInitRequest, gauge.messages.Messages.ExecutionStatusResponse> getInitializeSpecDataStoreMethod;
     if ((getInitializeSpecDataStoreMethod = RunnerGrpc.getInitializeSpecDataStoreMethod) == null) {
       synchronized (RunnerGrpc.class) {
         if ((getInitializeSpecDataStoreMethod = RunnerGrpc.getInitializeSpecDataStoreMethod) == null) {
           RunnerGrpc.getInitializeSpecDataStoreMethod = getInitializeSpecDataStoreMethod = 
-              io.grpc.MethodDescriptor.<gauge.messages.Messages.Empty, gauge.messages.Messages.ExecutionStatusResponse>newBuilder()
+              io.grpc.MethodDescriptor.<gauge.messages.Messages.SpecDataStoreInitRequest, gauge.messages.Messages.ExecutionStatusResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "gauge.messages.Runner", "InitializeSpecDataStore"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  gauge.messages.Messages.Empty.getDefaultInstance()))
+                  gauge.messages.Messages.SpecDataStoreInitRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gauge.messages.Messages.ExecutionStatusResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new RunnerMethodDescriptorSupplier("InitializeSpecDataStore"))
@@ -162,23 +162,23 @@ public final class RunnerGrpc {
      return getStartSpecExecutionMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.Empty,
+  private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.ScenarioDataStoreInitRequest,
       gauge.messages.Messages.ExecutionStatusResponse> getInitializeScenarioDataStoreMethod;
 
-  public static io.grpc.MethodDescriptor<gauge.messages.Messages.Empty,
+  public static io.grpc.MethodDescriptor<gauge.messages.Messages.ScenarioDataStoreInitRequest,
       gauge.messages.Messages.ExecutionStatusResponse> getInitializeScenarioDataStoreMethod() {
-    io.grpc.MethodDescriptor<gauge.messages.Messages.Empty, gauge.messages.Messages.ExecutionStatusResponse> getInitializeScenarioDataStoreMethod;
+    io.grpc.MethodDescriptor<gauge.messages.Messages.ScenarioDataStoreInitRequest, gauge.messages.Messages.ExecutionStatusResponse> getInitializeScenarioDataStoreMethod;
     if ((getInitializeScenarioDataStoreMethod = RunnerGrpc.getInitializeScenarioDataStoreMethod) == null) {
       synchronized (RunnerGrpc.class) {
         if ((getInitializeScenarioDataStoreMethod = RunnerGrpc.getInitializeScenarioDataStoreMethod) == null) {
           RunnerGrpc.getInitializeScenarioDataStoreMethod = getInitializeScenarioDataStoreMethod = 
-              io.grpc.MethodDescriptor.<gauge.messages.Messages.Empty, gauge.messages.Messages.ExecutionStatusResponse>newBuilder()
+              io.grpc.MethodDescriptor.<gauge.messages.Messages.ScenarioDataStoreInitRequest, gauge.messages.Messages.ExecutionStatusResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "gauge.messages.Runner", "InitializeScenarioDataStore"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  gauge.messages.Messages.Empty.getDefaultInstance()))
+                  gauge.messages.Messages.ScenarioDataStoreInitRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   gauge.messages.Messages.ExecutionStatusResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new RunnerMethodDescriptorSupplier("InitializeScenarioDataStore"))
@@ -665,7 +665,7 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public void initializeSuiteDataStore(gauge.messages.Messages.Empty request,
+    public void initializeSuiteDataStore(gauge.messages.Messages.SuiteDataStoreInitRequest request,
         io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getInitializeSuiteDataStoreMethod(), responseObserver);
     }
@@ -687,7 +687,7 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public void initializeSpecDataStore(gauge.messages.Messages.Empty request,
+    public void initializeSpecDataStore(gauge.messages.Messages.SpecDataStoreInitRequest request,
         io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getInitializeSpecDataStoreMethod(), responseObserver);
     }
@@ -709,7 +709,7 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public void initializeScenarioDataStore(gauge.messages.Messages.Empty request,
+    public void initializeScenarioDataStore(gauge.messages.Messages.ScenarioDataStoreInitRequest request,
         io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getInitializeScenarioDataStoreMethod(), responseObserver);
     }
@@ -903,7 +903,7 @@ public final class RunnerGrpc {
             getInitializeSuiteDataStoreMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                gauge.messages.Messages.Empty,
+                gauge.messages.Messages.SuiteDataStoreInitRequest,
                 gauge.messages.Messages.ExecutionStatusResponse>(
                   this, METHODID_INITIALIZE_SUITE_DATA_STORE)))
           .addMethod(
@@ -917,7 +917,7 @@ public final class RunnerGrpc {
             getInitializeSpecDataStoreMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                gauge.messages.Messages.Empty,
+                gauge.messages.Messages.SpecDataStoreInitRequest,
                 gauge.messages.Messages.ExecutionStatusResponse>(
                   this, METHODID_INITIALIZE_SPEC_DATA_STORE)))
           .addMethod(
@@ -931,7 +931,7 @@ public final class RunnerGrpc {
             getInitializeScenarioDataStoreMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                gauge.messages.Messages.Empty,
+                gauge.messages.Messages.ScenarioDataStoreInitRequest,
                 gauge.messages.Messages.ExecutionStatusResponse>(
                   this, METHODID_INITIALIZE_SCENARIO_DATA_STORE)))
           .addMethod(
@@ -1086,7 +1086,7 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public void initializeSuiteDataStore(gauge.messages.Messages.Empty request,
+    public void initializeSuiteDataStore(gauge.messages.Messages.SuiteDataStoreInitRequest request,
         io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getInitializeSuiteDataStoreMethod(), getCallOptions()), request, responseObserver);
@@ -1110,7 +1110,7 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public void initializeSpecDataStore(gauge.messages.Messages.Empty request,
+    public void initializeSpecDataStore(gauge.messages.Messages.SpecDataStoreInitRequest request,
         io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getInitializeSpecDataStoreMethod(), getCallOptions()), request, responseObserver);
@@ -1134,7 +1134,7 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public void initializeScenarioDataStore(gauge.messages.Messages.Empty request,
+    public void initializeScenarioDataStore(gauge.messages.Messages.ScenarioDataStoreInitRequest request,
         io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getInitializeScenarioDataStoreMethod(), getCallOptions()), request, responseObserver);
@@ -1368,7 +1368,7 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse initializeSuiteDataStore(gauge.messages.Messages.Empty request) {
+    public gauge.messages.Messages.ExecutionStatusResponse initializeSuiteDataStore(gauge.messages.Messages.SuiteDataStoreInitRequest request) {
       return blockingUnaryCall(
           getChannel(), getInitializeSuiteDataStoreMethod(), getCallOptions(), request);
     }
@@ -1390,7 +1390,7 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse initializeSpecDataStore(gauge.messages.Messages.Empty request) {
+    public gauge.messages.Messages.ExecutionStatusResponse initializeSpecDataStore(gauge.messages.Messages.SpecDataStoreInitRequest request) {
       return blockingUnaryCall(
           getChannel(), getInitializeSpecDataStoreMethod(), getCallOptions(), request);
     }
@@ -1412,7 +1412,7 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse initializeScenarioDataStore(gauge.messages.Messages.Empty request) {
+    public gauge.messages.Messages.ExecutionStatusResponse initializeScenarioDataStore(gauge.messages.Messages.ScenarioDataStoreInitRequest request) {
       return blockingUnaryCall(
           getChannel(), getInitializeScenarioDataStoreMethod(), getCallOptions(), request);
     }
@@ -1631,7 +1631,7 @@ public final class RunnerGrpc {
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<gauge.messages.Messages.ExecutionStatusResponse> initializeSuiteDataStore(
-        gauge.messages.Messages.Empty request) {
+        gauge.messages.Messages.SuiteDataStoreInitRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getInitializeSuiteDataStoreMethod(), getCallOptions()), request);
     }
@@ -1655,7 +1655,7 @@ public final class RunnerGrpc {
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<gauge.messages.Messages.ExecutionStatusResponse> initializeSpecDataStore(
-        gauge.messages.Messages.Empty request) {
+        gauge.messages.Messages.SpecDataStoreInitRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getInitializeSpecDataStoreMethod(), getCallOptions()), request);
     }
@@ -1679,7 +1679,7 @@ public final class RunnerGrpc {
      * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<gauge.messages.Messages.ExecutionStatusResponse> initializeScenarioDataStore(
-        gauge.messages.Messages.Empty request) {
+        gauge.messages.Messages.ScenarioDataStoreInitRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getInitializeScenarioDataStoreMethod(), getCallOptions()), request);
     }
@@ -1922,7 +1922,7 @@ public final class RunnerGrpc {
               (io.grpc.stub.StreamObserver<gauge.messages.Messages.StepValidateResponse>) responseObserver);
           break;
         case METHODID_INITIALIZE_SUITE_DATA_STORE:
-          serviceImpl.initializeSuiteDataStore((gauge.messages.Messages.Empty) request,
+          serviceImpl.initializeSuiteDataStore((gauge.messages.Messages.SuiteDataStoreInitRequest) request,
               (io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse>) responseObserver);
           break;
         case METHODID_START_EXECUTION:
@@ -1930,7 +1930,7 @@ public final class RunnerGrpc {
               (io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse>) responseObserver);
           break;
         case METHODID_INITIALIZE_SPEC_DATA_STORE:
-          serviceImpl.initializeSpecDataStore((gauge.messages.Messages.Empty) request,
+          serviceImpl.initializeSpecDataStore((gauge.messages.Messages.SpecDataStoreInitRequest) request,
               (io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse>) responseObserver);
           break;
         case METHODID_START_SPEC_EXECUTION:
@@ -1938,7 +1938,7 @@ public final class RunnerGrpc {
               (io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse>) responseObserver);
           break;
         case METHODID_INITIALIZE_SCENARIO_DATA_STORE:
-          serviceImpl.initializeScenarioDataStore((gauge.messages.Messages.Empty) request,
+          serviceImpl.initializeScenarioDataStore((gauge.messages.Messages.ScenarioDataStoreInitRequest) request,
               (io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse>) responseObserver);
           break;
         case METHODID_START_SCENARIO_EXECUTION:

@@ -32,20 +32,20 @@ import com.thoughtworks.gauge.hook.Hook;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
 public class HooksRegistry {
     // Names of methods defined in each Hook annotation. Do not rename these methods in any Hook Class.
-    public static final String TAGS_METHOD = "tags";
-    public static final String TAG_AGGREGATION_METHOD = "tagAggregation";
+    private static final String TAGS_METHOD = "tags";
+    private static final String TAG_AGGREGATION_METHOD = "tagAggregation";
 
-    private static HashMap<Class, HashSet<Hook>> registryMap = new HashMap<>();
+    private static ConcurrentHashMap<Class, HashSet<Hook>> registryMap = new ConcurrentHashMap<>();
 
     public static List<Hook> getBeforeSpecHooks() {
         return sort(registryMap.get(BeforeSpec.class));

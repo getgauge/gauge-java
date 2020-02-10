@@ -1167,6 +1167,11 @@ public final class Messages {
      * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
      */
     gauge.messages.Spec.ProtoSuiteResultOrBuilder getSuiteResultOrBuilder();
+
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -1185,6 +1190,7 @@ public final class Messages {
       super(builder);
     }
     private ExecutionStartingRequest() {
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -1235,6 +1241,11 @@ public final class Messages {
                 suiteResult_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 24: {
+
+              stream_ = input.readInt32();
               break;
             }
             default: {
@@ -1338,6 +1349,15 @@ public final class Messages {
       return getSuiteResult();
     }
 
+    public static final int STREAM_FIELD_NUMBER = 3;
+    private int stream_;
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1358,6 +1378,9 @@ public final class Messages {
       if (suiteResult_ != null) {
         output.writeMessage(2, getSuiteResult());
       }
+      if (stream_ != 0) {
+        output.writeInt32(3, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1374,6 +1397,10 @@ public final class Messages {
       if (suiteResult_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getSuiteResult());
+      }
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, stream_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1401,6 +1428,8 @@ public final class Messages {
         result = result && getSuiteResult()
             .equals(other.getSuiteResult());
       }
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1420,6 +1449,8 @@ public final class Messages {
         hash = (37 * hash) + SUITERESULT_FIELD_NUMBER;
         hash = (53 * hash) + getSuiteResult().hashCode();
       }
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1569,6 +1600,8 @@ public final class Messages {
           suiteResult_ = null;
           suiteResultBuilder_ = null;
         }
+        stream_ = 0;
+
         return this;
       }
 
@@ -1605,6 +1638,7 @@ public final class Messages {
         } else {
           result.suiteResult_ = suiteResultBuilder_.build();
         }
+        result.stream_ = stream_;
         onBuilt();
         return result;
       }
@@ -1658,6 +1692,9 @@ public final class Messages {
         }
         if (other.hasSuiteResult()) {
           mergeSuiteResult(other.getSuiteResult());
+        }
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2002,6 +2039,32 @@ public final class Messages {
         }
         return suiteResultBuilder_;
       }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2108,6 +2171,11 @@ public final class Messages {
      * <code>.gauge.messages.ProtoSuiteResult suiteResult = 2;</code>
      */
     gauge.messages.Spec.ProtoSuiteResultOrBuilder getSuiteResultOrBuilder();
+
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -2126,6 +2194,7 @@ public final class Messages {
       super(builder);
     }
     private ExecutionEndingRequest() {
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -2176,6 +2245,11 @@ public final class Messages {
                 suiteResult_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 24: {
+
+              stream_ = input.readInt32();
               break;
             }
             default: {
@@ -2276,6 +2350,15 @@ public final class Messages {
       return getSuiteResult();
     }
 
+    public static final int STREAM_FIELD_NUMBER = 3;
+    private int stream_;
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2296,6 +2379,9 @@ public final class Messages {
       if (suiteResult_ != null) {
         output.writeMessage(2, getSuiteResult());
       }
+      if (stream_ != 0) {
+        output.writeInt32(3, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2312,6 +2398,10 @@ public final class Messages {
       if (suiteResult_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getSuiteResult());
+      }
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, stream_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2339,6 +2429,8 @@ public final class Messages {
         result = result && getSuiteResult()
             .equals(other.getSuiteResult());
       }
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2358,6 +2450,8 @@ public final class Messages {
         hash = (37 * hash) + SUITERESULT_FIELD_NUMBER;
         hash = (53 * hash) + getSuiteResult().hashCode();
       }
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2507,6 +2601,8 @@ public final class Messages {
           suiteResult_ = null;
           suiteResultBuilder_ = null;
         }
+        stream_ = 0;
+
         return this;
       }
 
@@ -2543,6 +2639,7 @@ public final class Messages {
         } else {
           result.suiteResult_ = suiteResultBuilder_.build();
         }
+        result.stream_ = stream_;
         onBuilt();
         return result;
       }
@@ -2596,6 +2693,9 @@ public final class Messages {
         }
         if (other.hasSuiteResult()) {
           mergeSuiteResult(other.getSuiteResult());
+        }
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2931,6 +3031,32 @@ public final class Messages {
         }
         return suiteResultBuilder_;
       }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3040,6 +3166,11 @@ public final class Messages {
      * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
      */
     gauge.messages.Spec.ProtoSpecResultOrBuilder getSpecResultOrBuilder();
+
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -3058,6 +3189,7 @@ public final class Messages {
       super(builder);
     }
     private SpecExecutionStartingRequest() {
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -3108,6 +3240,11 @@ public final class Messages {
                 specResult_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 24: {
+
+              stream_ = input.readInt32();
               break;
             }
             default: {
@@ -3211,6 +3348,15 @@ public final class Messages {
       return getSpecResult();
     }
 
+    public static final int STREAM_FIELD_NUMBER = 3;
+    private int stream_;
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3231,6 +3377,9 @@ public final class Messages {
       if (specResult_ != null) {
         output.writeMessage(2, getSpecResult());
       }
+      if (stream_ != 0) {
+        output.writeInt32(3, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3247,6 +3396,10 @@ public final class Messages {
       if (specResult_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getSpecResult());
+      }
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, stream_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3274,6 +3427,8 @@ public final class Messages {
         result = result && getSpecResult()
             .equals(other.getSpecResult());
       }
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3293,6 +3448,8 @@ public final class Messages {
         hash = (37 * hash) + SPECRESULT_FIELD_NUMBER;
         hash = (53 * hash) + getSpecResult().hashCode();
       }
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3442,6 +3599,8 @@ public final class Messages {
           specResult_ = null;
           specResultBuilder_ = null;
         }
+        stream_ = 0;
+
         return this;
       }
 
@@ -3478,6 +3637,7 @@ public final class Messages {
         } else {
           result.specResult_ = specResultBuilder_.build();
         }
+        result.stream_ = stream_;
         onBuilt();
         return result;
       }
@@ -3531,6 +3691,9 @@ public final class Messages {
         }
         if (other.hasSpecResult()) {
           mergeSpecResult(other.getSpecResult());
+        }
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3875,6 +4038,32 @@ public final class Messages {
         }
         return specResultBuilder_;
       }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3981,6 +4170,11 @@ public final class Messages {
      * <code>.gauge.messages.ProtoSpecResult specResult = 2;</code>
      */
     gauge.messages.Spec.ProtoSpecResultOrBuilder getSpecResultOrBuilder();
+
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -3999,6 +4193,7 @@ public final class Messages {
       super(builder);
     }
     private SpecExecutionEndingRequest() {
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -4049,6 +4244,11 @@ public final class Messages {
                 specResult_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 24: {
+
+              stream_ = input.readInt32();
               break;
             }
             default: {
@@ -4149,6 +4349,15 @@ public final class Messages {
       return getSpecResult();
     }
 
+    public static final int STREAM_FIELD_NUMBER = 3;
+    private int stream_;
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4169,6 +4378,9 @@ public final class Messages {
       if (specResult_ != null) {
         output.writeMessage(2, getSpecResult());
       }
+      if (stream_ != 0) {
+        output.writeInt32(3, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4185,6 +4397,10 @@ public final class Messages {
       if (specResult_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getSpecResult());
+      }
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, stream_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4212,6 +4428,8 @@ public final class Messages {
         result = result && getSpecResult()
             .equals(other.getSpecResult());
       }
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4231,6 +4449,8 @@ public final class Messages {
         hash = (37 * hash) + SPECRESULT_FIELD_NUMBER;
         hash = (53 * hash) + getSpecResult().hashCode();
       }
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4380,6 +4600,8 @@ public final class Messages {
           specResult_ = null;
           specResultBuilder_ = null;
         }
+        stream_ = 0;
+
         return this;
       }
 
@@ -4416,6 +4638,7 @@ public final class Messages {
         } else {
           result.specResult_ = specResultBuilder_.build();
         }
+        result.stream_ = stream_;
         onBuilt();
         return result;
       }
@@ -4469,6 +4692,9 @@ public final class Messages {
         }
         if (other.hasSpecResult()) {
           mergeSpecResult(other.getSpecResult());
+        }
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4804,6 +5030,32 @@ public final class Messages {
         }
         return specResultBuilder_;
       }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4913,6 +5165,11 @@ public final class Messages {
      * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
      */
     gauge.messages.Spec.ProtoScenarioResultOrBuilder getScenarioResultOrBuilder();
+
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -4931,6 +5188,7 @@ public final class Messages {
       super(builder);
     }
     private ScenarioExecutionStartingRequest() {
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -4981,6 +5239,11 @@ public final class Messages {
                 scenarioResult_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 24: {
+
+              stream_ = input.readInt32();
               break;
             }
             default: {
@@ -5084,6 +5347,15 @@ public final class Messages {
       return getScenarioResult();
     }
 
+    public static final int STREAM_FIELD_NUMBER = 3;
+    private int stream_;
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -5104,6 +5376,9 @@ public final class Messages {
       if (scenarioResult_ != null) {
         output.writeMessage(2, getScenarioResult());
       }
+      if (stream_ != 0) {
+        output.writeInt32(3, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -5120,6 +5395,10 @@ public final class Messages {
       if (scenarioResult_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getScenarioResult());
+      }
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, stream_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -5147,6 +5426,8 @@ public final class Messages {
         result = result && getScenarioResult()
             .equals(other.getScenarioResult());
       }
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -5166,6 +5447,8 @@ public final class Messages {
         hash = (37 * hash) + SCENARIORESULT_FIELD_NUMBER;
         hash = (53 * hash) + getScenarioResult().hashCode();
       }
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5315,6 +5598,8 @@ public final class Messages {
           scenarioResult_ = null;
           scenarioResultBuilder_ = null;
         }
+        stream_ = 0;
+
         return this;
       }
 
@@ -5351,6 +5636,7 @@ public final class Messages {
         } else {
           result.scenarioResult_ = scenarioResultBuilder_.build();
         }
+        result.stream_ = stream_;
         onBuilt();
         return result;
       }
@@ -5404,6 +5690,9 @@ public final class Messages {
         }
         if (other.hasScenarioResult()) {
           mergeScenarioResult(other.getScenarioResult());
+        }
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -5748,6 +6037,32 @@ public final class Messages {
         }
         return scenarioResultBuilder_;
       }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5842,6 +6157,11 @@ public final class Messages {
      * <code>.gauge.messages.ProtoScenarioResult scenarioResult = 2;</code>
      */
     gauge.messages.Spec.ProtoScenarioResultOrBuilder getScenarioResultOrBuilder();
+
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -5860,6 +6180,7 @@ public final class Messages {
       super(builder);
     }
     private ScenarioExecutionEndingRequest() {
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -5910,6 +6231,11 @@ public final class Messages {
                 scenarioResult_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 24: {
+
+              stream_ = input.readInt32();
               break;
             }
             default: {
@@ -5998,6 +6324,15 @@ public final class Messages {
       return getScenarioResult();
     }
 
+    public static final int STREAM_FIELD_NUMBER = 3;
+    private int stream_;
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6018,6 +6353,9 @@ public final class Messages {
       if (scenarioResult_ != null) {
         output.writeMessage(2, getScenarioResult());
       }
+      if (stream_ != 0) {
+        output.writeInt32(3, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6034,6 +6372,10 @@ public final class Messages {
       if (scenarioResult_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getScenarioResult());
+      }
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, stream_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6061,6 +6403,8 @@ public final class Messages {
         result = result && getScenarioResult()
             .equals(other.getScenarioResult());
       }
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6080,6 +6424,8 @@ public final class Messages {
         hash = (37 * hash) + SCENARIORESULT_FIELD_NUMBER;
         hash = (53 * hash) + getScenarioResult().hashCode();
       }
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6229,6 +6575,8 @@ public final class Messages {
           scenarioResult_ = null;
           scenarioResultBuilder_ = null;
         }
+        stream_ = 0;
+
         return this;
       }
 
@@ -6265,6 +6613,7 @@ public final class Messages {
         } else {
           result.scenarioResult_ = scenarioResultBuilder_.build();
         }
+        result.stream_ = stream_;
         onBuilt();
         return result;
       }
@@ -6318,6 +6667,9 @@ public final class Messages {
         }
         if (other.hasScenarioResult()) {
           mergeScenarioResult(other.getScenarioResult());
+        }
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6617,6 +6969,32 @@ public final class Messages {
         }
         return scenarioResultBuilder_;
       }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6726,6 +7104,11 @@ public final class Messages {
      * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
      */
     gauge.messages.Spec.ProtoStepResultOrBuilder getStepResultOrBuilder();
+
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -6744,6 +7127,7 @@ public final class Messages {
       super(builder);
     }
     private StepExecutionStartingRequest() {
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -6794,6 +7178,11 @@ public final class Messages {
                 stepResult_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 24: {
+
+              stream_ = input.readInt32();
               break;
             }
             default: {
@@ -6897,6 +7286,15 @@ public final class Messages {
       return getStepResult();
     }
 
+    public static final int STREAM_FIELD_NUMBER = 3;
+    private int stream_;
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -6917,6 +7315,9 @@ public final class Messages {
       if (stepResult_ != null) {
         output.writeMessage(2, getStepResult());
       }
+      if (stream_ != 0) {
+        output.writeInt32(3, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6933,6 +7334,10 @@ public final class Messages {
       if (stepResult_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getStepResult());
+      }
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, stream_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6960,6 +7365,8 @@ public final class Messages {
         result = result && getStepResult()
             .equals(other.getStepResult());
       }
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6979,6 +7386,8 @@ public final class Messages {
         hash = (37 * hash) + STEPRESULT_FIELD_NUMBER;
         hash = (53 * hash) + getStepResult().hashCode();
       }
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7128,6 +7537,8 @@ public final class Messages {
           stepResult_ = null;
           stepResultBuilder_ = null;
         }
+        stream_ = 0;
+
         return this;
       }
 
@@ -7164,6 +7575,7 @@ public final class Messages {
         } else {
           result.stepResult_ = stepResultBuilder_.build();
         }
+        result.stream_ = stream_;
         onBuilt();
         return result;
       }
@@ -7217,6 +7629,9 @@ public final class Messages {
         }
         if (other.hasStepResult()) {
           mergeStepResult(other.getStepResult());
+        }
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -7561,6 +7976,32 @@ public final class Messages {
         }
         return stepResultBuilder_;
       }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -7667,6 +8108,11 @@ public final class Messages {
      * <code>.gauge.messages.ProtoStepResult stepResult = 2;</code>
      */
     gauge.messages.Spec.ProtoStepResultOrBuilder getStepResultOrBuilder();
+
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -7685,6 +8131,7 @@ public final class Messages {
       super(builder);
     }
     private StepExecutionEndingRequest() {
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -7735,6 +8182,11 @@ public final class Messages {
                 stepResult_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 24: {
+
+              stream_ = input.readInt32();
               break;
             }
             default: {
@@ -7835,6 +8287,15 @@ public final class Messages {
       return getStepResult();
     }
 
+    public static final int STREAM_FIELD_NUMBER = 3;
+    private int stream_;
+    /**
+     * <code>int32 stream = 3;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7855,6 +8316,9 @@ public final class Messages {
       if (stepResult_ != null) {
         output.writeMessage(2, getStepResult());
       }
+      if (stream_ != 0) {
+        output.writeInt32(3, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -7871,6 +8335,10 @@ public final class Messages {
       if (stepResult_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getStepResult());
+      }
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, stream_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -7898,6 +8366,8 @@ public final class Messages {
         result = result && getStepResult()
             .equals(other.getStepResult());
       }
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -7917,6 +8387,8 @@ public final class Messages {
         hash = (37 * hash) + STEPRESULT_FIELD_NUMBER;
         hash = (53 * hash) + getStepResult().hashCode();
       }
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8066,6 +8538,8 @@ public final class Messages {
           stepResult_ = null;
           stepResultBuilder_ = null;
         }
+        stream_ = 0;
+
         return this;
       }
 
@@ -8102,6 +8576,7 @@ public final class Messages {
         } else {
           result.stepResult_ = stepResultBuilder_.build();
         }
+        result.stream_ = stream_;
         onBuilt();
         return result;
       }
@@ -8155,6 +8630,9 @@ public final class Messages {
         }
         if (other.hasStepResult()) {
           mergeStepResult(other.getStepResult());
+        }
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -8489,6 +8967,32 @@ public final class Messages {
           stepResult_ = null;
         }
         return stepResultBuilder_;
+      }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 3;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -14834,6 +15338,11 @@ public final class Messages {
      */
     gauge.messages.Spec.ParameterOrBuilder getParametersOrBuilder(
         int index);
+
+    /**
+     * <code>int32 stream = 5;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -14856,6 +15365,7 @@ public final class Messages {
       parsedStepText_ = "";
       scenarioFailing_ = false;
       parameters_ = java.util.Collections.emptyList();
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -14906,6 +15416,11 @@ public final class Messages {
               }
               parameters_.add(
                   input.readMessage(gauge.messages.Spec.Parameter.parser(), extensionRegistry));
+              break;
+            }
+            case 40: {
+
+              stream_ = input.readInt32();
               break;
             }
             default: {
@@ -15100,6 +15615,15 @@ public final class Messages {
       return parameters_.get(index);
     }
 
+    public static final int STREAM_FIELD_NUMBER = 5;
+    private int stream_;
+    /**
+     * <code>int32 stream = 5;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -15126,6 +15650,9 @@ public final class Messages {
       for (int i = 0; i < parameters_.size(); i++) {
         output.writeMessage(4, parameters_.get(i));
       }
+      if (stream_ != 0) {
+        output.writeInt32(5, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -15148,6 +15675,10 @@ public final class Messages {
       for (int i = 0; i < parameters_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, parameters_.get(i));
+      }
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, stream_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -15173,6 +15704,8 @@ public final class Messages {
           == other.getScenarioFailing());
       result = result && getParametersList()
           .equals(other.getParametersList());
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -15195,6 +15728,8 @@ public final class Messages {
         hash = (37 * hash) + PARAMETERS_FIELD_NUMBER;
         hash = (53 * hash) + getParametersList().hashCode();
       }
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -15345,6 +15880,8 @@ public final class Messages {
         } else {
           parametersBuilder_.clear();
         }
+        stream_ = 0;
+
         return this;
       }
 
@@ -15385,6 +15922,7 @@ public final class Messages {
         } else {
           result.parameters_ = parametersBuilder_.build();
         }
+        result.stream_ = stream_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -15470,6 +16008,9 @@ public final class Messages {
               parametersBuilder_.addAllMessages(other.parameters_);
             }
           }
+        }
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -16037,6 +16578,32 @@ public final class Messages {
           parameters_ = null;
         }
         return parametersBuilder_;
+      }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 5;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 5;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 5;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -20306,6 +20873,11 @@ public final class Messages {
   public interface ScenarioDataStoreInitRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:gauge.messages.ScenarioDataStoreInitRequest)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 stream = 1;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -20325,6 +20897,7 @@ public final class Messages {
       super(builder);
     }
     private ScenarioDataStoreInitRequest() {
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -20340,6 +20913,7 @@ public final class Messages {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -20350,6 +20924,11 @@ public final class Messages {
             case 0:
               done = true;
               break;
+            case 8: {
+
+              stream_ = input.readInt32();
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -20382,6 +20961,15 @@ public final class Messages {
               gauge.messages.Messages.ScenarioDataStoreInitRequest.class, gauge.messages.Messages.ScenarioDataStoreInitRequest.Builder.class);
     }
 
+    public static final int STREAM_FIELD_NUMBER = 1;
+    private int stream_;
+    /**
+     * <code>int32 stream = 1;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -20396,6 +20984,9 @@ public final class Messages {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (stream_ != 0) {
+        output.writeInt32(1, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -20405,6 +20996,10 @@ public final class Messages {
       if (size != -1) return size;
 
       size = 0;
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, stream_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -20421,6 +21016,8 @@ public final class Messages {
       gauge.messages.Messages.ScenarioDataStoreInitRequest other = (gauge.messages.Messages.ScenarioDataStoreInitRequest) obj;
 
       boolean result = true;
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -20432,6 +21029,8 @@ public final class Messages {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -20570,6 +21169,8 @@ public final class Messages {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        stream_ = 0;
+
         return this;
       }
 
@@ -20596,6 +21197,7 @@ public final class Messages {
       @java.lang.Override
       public gauge.messages.Messages.ScenarioDataStoreInitRequest buildPartial() {
         gauge.messages.Messages.ScenarioDataStoreInitRequest result = new gauge.messages.Messages.ScenarioDataStoreInitRequest(this);
+        result.stream_ = stream_;
         onBuilt();
         return result;
       }
@@ -20644,6 +21246,9 @@ public final class Messages {
 
       public Builder mergeFrom(gauge.messages.Messages.ScenarioDataStoreInitRequest other) {
         if (other == gauge.messages.Messages.ScenarioDataStoreInitRequest.getDefaultInstance()) return this;
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -20670,6 +21275,32 @@ public final class Messages {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 1;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 1;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 1;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -20728,6 +21359,11 @@ public final class Messages {
   public interface SpecDataStoreInitRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:gauge.messages.SpecDataStoreInitRequest)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 stream = 1;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -20747,6 +21383,7 @@ public final class Messages {
       super(builder);
     }
     private SpecDataStoreInitRequest() {
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -20762,6 +21399,7 @@ public final class Messages {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -20772,6 +21410,11 @@ public final class Messages {
             case 0:
               done = true;
               break;
+            case 8: {
+
+              stream_ = input.readInt32();
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -20804,6 +21447,15 @@ public final class Messages {
               gauge.messages.Messages.SpecDataStoreInitRequest.class, gauge.messages.Messages.SpecDataStoreInitRequest.Builder.class);
     }
 
+    public static final int STREAM_FIELD_NUMBER = 1;
+    private int stream_;
+    /**
+     * <code>int32 stream = 1;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -20818,6 +21470,9 @@ public final class Messages {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (stream_ != 0) {
+        output.writeInt32(1, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -20827,6 +21482,10 @@ public final class Messages {
       if (size != -1) return size;
 
       size = 0;
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, stream_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -20843,6 +21502,8 @@ public final class Messages {
       gauge.messages.Messages.SpecDataStoreInitRequest other = (gauge.messages.Messages.SpecDataStoreInitRequest) obj;
 
       boolean result = true;
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -20854,6 +21515,8 @@ public final class Messages {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -20992,6 +21655,8 @@ public final class Messages {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        stream_ = 0;
+
         return this;
       }
 
@@ -21018,6 +21683,7 @@ public final class Messages {
       @java.lang.Override
       public gauge.messages.Messages.SpecDataStoreInitRequest buildPartial() {
         gauge.messages.Messages.SpecDataStoreInitRequest result = new gauge.messages.Messages.SpecDataStoreInitRequest(this);
+        result.stream_ = stream_;
         onBuilt();
         return result;
       }
@@ -21066,6 +21732,9 @@ public final class Messages {
 
       public Builder mergeFrom(gauge.messages.Messages.SpecDataStoreInitRequest other) {
         if (other == gauge.messages.Messages.SpecDataStoreInitRequest.getDefaultInstance()) return this;
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -21092,6 +21761,32 @@ public final class Messages {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 1;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 1;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 1;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -21150,6 +21845,11 @@ public final class Messages {
   public interface SuiteDataStoreInitRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:gauge.messages.SuiteDataStoreInitRequest)
       com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 stream = 1;</code>
+     */
+    int getStream();
   }
   /**
    * <pre>
@@ -21169,6 +21869,7 @@ public final class Messages {
       super(builder);
     }
     private SuiteDataStoreInitRequest() {
+      stream_ = 0;
     }
 
     @java.lang.Override
@@ -21184,6 +21885,7 @@ public final class Messages {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -21194,6 +21896,11 @@ public final class Messages {
             case 0:
               done = true;
               break;
+            case 8: {
+
+              stream_ = input.readInt32();
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -21226,6 +21933,15 @@ public final class Messages {
               gauge.messages.Messages.SuiteDataStoreInitRequest.class, gauge.messages.Messages.SuiteDataStoreInitRequest.Builder.class);
     }
 
+    public static final int STREAM_FIELD_NUMBER = 1;
+    private int stream_;
+    /**
+     * <code>int32 stream = 1;</code>
+     */
+    public int getStream() {
+      return stream_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -21240,6 +21956,9 @@ public final class Messages {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (stream_ != 0) {
+        output.writeInt32(1, stream_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -21249,6 +21968,10 @@ public final class Messages {
       if (size != -1) return size;
 
       size = 0;
+      if (stream_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, stream_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -21265,6 +21988,8 @@ public final class Messages {
       gauge.messages.Messages.SuiteDataStoreInitRequest other = (gauge.messages.Messages.SuiteDataStoreInitRequest) obj;
 
       boolean result = true;
+      result = result && (getStream()
+          == other.getStream());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -21276,6 +22001,8 @@ public final class Messages {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + STREAM_FIELD_NUMBER;
+      hash = (53 * hash) + getStream();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -21414,6 +22141,8 @@ public final class Messages {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        stream_ = 0;
+
         return this;
       }
 
@@ -21440,6 +22169,7 @@ public final class Messages {
       @java.lang.Override
       public gauge.messages.Messages.SuiteDataStoreInitRequest buildPartial() {
         gauge.messages.Messages.SuiteDataStoreInitRequest result = new gauge.messages.Messages.SuiteDataStoreInitRequest(this);
+        result.stream_ = stream_;
         onBuilt();
         return result;
       }
@@ -21488,6 +22218,9 @@ public final class Messages {
 
       public Builder mergeFrom(gauge.messages.Messages.SuiteDataStoreInitRequest other) {
         if (other == gauge.messages.Messages.SuiteDataStoreInitRequest.getDefaultInstance()) return this;
+        if (other.getStream() != 0) {
+          setStream(other.getStream());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -21514,6 +22247,32 @@ public final class Messages {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private int stream_ ;
+      /**
+       * <code>int32 stream = 1;</code>
+       */
+      public int getStream() {
+        return stream_;
+      }
+      /**
+       * <code>int32 stream = 1;</code>
+       */
+      public Builder setStream(int value) {
+        
+        stream_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 stream = 1;</code>
+       */
+      public Builder clearStream() {
+        
+        stream_ = 0;
+        onChanged();
         return this;
       }
       @java.lang.Override
@@ -50397,208 +51156,213 @@ public final class Messages {
       "\n\016messages.proto\022\016gauge.messages\032\nspec.p" +
       "roto\"\024\n\022KillProcessRequest\"X\n\027ExecutionS" +
       "tatusResponse\022=\n\017executionResult\030\001 \001(\0132$" +
-      ".gauge.messages.ProtoExecutionResult\"\216\001\n" +
+      ".gauge.messages.ProtoExecutionResult\"\236\001\n" +
       "\030ExecutionStartingRequest\022;\n\024currentExec" +
       "utionInfo\030\001 \001(\0132\035.gauge.messages.Executi" +
       "onInfo\0225\n\013suiteResult\030\002 \001(\0132 .gauge.mess" +
-      "ages.ProtoSuiteResult\"\214\001\n\026ExecutionEndin" +
-      "gRequest\022;\n\024currentExecutionInfo\030\001 \001(\0132\035" +
-      ".gauge.messages.ExecutionInfo\0225\n\013suiteRe" +
-      "sult\030\002 \001(\0132 .gauge.messages.ProtoSuiteRe" +
-      "sult\"\220\001\n\034SpecExecutionStartingRequest\022;\n" +
+      "ages.ProtoSuiteResult\022\016\n\006stream\030\003 \001(\005\"\234\001" +
+      "\n\026ExecutionEndingRequest\022;\n\024currentExecu" +
+      "tionInfo\030\001 \001(\0132\035.gauge.messages.Executio" +
+      "nInfo\0225\n\013suiteResult\030\002 \001(\0132 .gauge.messa" +
+      "ges.ProtoSuiteResult\022\016\n\006stream\030\003 \001(\005\"\240\001\n" +
+      "\034SpecExecutionStartingRequest\022;\n\024current" +
+      "ExecutionInfo\030\001 \001(\0132\035.gauge.messages.Exe" +
+      "cutionInfo\0223\n\nspecResult\030\002 \001(\0132\037.gauge.m" +
+      "essages.ProtoSpecResult\022\016\n\006stream\030\003 \001(\005\"" +
+      "\236\001\n\032SpecExecutionEndingRequest\022;\n\024curren" +
+      "tExecutionInfo\030\001 \001(\0132\035.gauge.messages.Ex" +
+      "ecutionInfo\0223\n\nspecResult\030\002 \001(\0132\037.gauge." +
+      "messages.ProtoSpecResult\022\016\n\006stream\030\003 \001(\005" +
+      "\"\254\001\n ScenarioExecutionStartingRequest\022;\n" +
       "\024currentExecutionInfo\030\001 \001(\0132\035.gauge.mess" +
-      "ages.ExecutionInfo\0223\n\nspecResult\030\002 \001(\0132\037" +
-      ".gauge.messages.ProtoSpecResult\"\216\001\n\032Spec" +
-      "ExecutionEndingRequest\022;\n\024currentExecuti" +
-      "onInfo\030\001 \001(\0132\035.gauge.messages.ExecutionI" +
-      "nfo\0223\n\nspecResult\030\002 \001(\0132\037.gauge.messages" +
-      ".ProtoSpecResult\"\234\001\n ScenarioExecutionSt" +
-      "artingRequest\022;\n\024currentExecutionInfo\030\001 " +
-      "\001(\0132\035.gauge.messages.ExecutionInfo\022;\n\016sc" +
-      "enarioResult\030\002 \001(\0132#.gauge.messages.Prot" +
-      "oScenarioResult\"\232\001\n\036ScenarioExecutionEnd" +
+      "ages.ExecutionInfo\022;\n\016scenarioResult\030\002 \001" +
+      "(\0132#.gauge.messages.ProtoScenarioResult\022" +
+      "\016\n\006stream\030\003 \001(\005\"\252\001\n\036ScenarioExecutionEnd" +
       "ingRequest\022;\n\024currentExecutionInfo\030\001 \001(\013" +
       "2\035.gauge.messages.ExecutionInfo\022;\n\016scena" +
       "rioResult\030\002 \001(\0132#.gauge.messages.ProtoSc" +
-      "enarioResult\"\220\001\n\034StepExecutionStartingRe" +
-      "quest\022;\n\024currentExecutionInfo\030\001 \001(\0132\035.ga" +
-      "uge.messages.ExecutionInfo\0223\n\nstepResult" +
-      "\030\002 \001(\0132\037.gauge.messages.ProtoStepResult\"" +
-      "\216\001\n\032StepExecutionEndingRequest\022;\n\024curren" +
-      "tExecutionInfo\030\001 \001(\0132\035.gauge.messages.Ex" +
-      "ecutionInfo\0223\n\nstepResult\030\002 \001(\0132\037.gauge." +
-      "messages.ProtoStepResult\"3\n\014ExecutionArg" +
-      "\022\020\n\010flagName\030\001 \001(\t\022\021\n\tflagValue\030\002 \003(\t\"\266\002" +
-      "\n\rExecutionInfo\022-\n\013currentSpec\030\001 \001(\0132\030.g" +
-      "auge.messages.SpecInfo\0225\n\017currentScenari" +
-      "o\030\002 \001(\0132\034.gauge.messages.ScenarioInfo\022-\n" +
-      "\013currentStep\030\003 \001(\0132\030.gauge.messages.Step" +
-      "Info\022\022\n\nstacktrace\030\004 \001(\t\022\023\n\013projectName\030" +
-      "\005 \001(\t\0223\n\rExecutionArgs\030\006 \003(\0132\034.gauge.mes" +
-      "sages.ExecutionArg\022 \n\030numberOfExecutionS" +
-      "treams\030\007 \001(\005\022\020\n\010runnerId\030\010 \001(\005\"J\n\010SpecIn" +
-      "fo\022\014\n\004name\030\001 \001(\t\022\020\n\010fileName\030\002 \001(\t\022\020\n\010is" +
-      "Failed\030\003 \001(\010\022\014\n\004tags\030\004 \003(\t\"<\n\014ScenarioIn" +
-      "fo\022\014\n\004name\030\001 \001(\t\022\020\n\010isFailed\030\002 \001(\010\022\014\n\004ta" +
-      "gs\030\003 \003(\t\"x\n\010StepInfo\0220\n\004step\030\001 \001(\0132\".gau" +
-      "ge.messages.ExecuteStepRequest\022\020\n\010isFail" +
-      "ed\030\002 \001(\010\022\022\n\nstackTrace\030\003 \001(\t\022\024\n\014errorMes" +
-      "sage\030\004 \001(\t\"\214\001\n\022ExecuteStepRequest\022\026\n\016act" +
-      "ualStepText\030\001 \001(\t\022\026\n\016parsedStepText\030\002 \001(" +
-      "\t\022\027\n\017scenarioFailing\030\003 \001(\010\022-\n\nparameters" +
-      "\030\004 \003(\0132\031.gauge.messages.Parameter\"v\n\023Ste" +
-      "pValidateRequest\022\020\n\010stepText\030\001 \001(\t\022\032\n\022nu" +
-      "mberOfParameters\030\002 \001(\005\0221\n\tstepValue\030\003 \001(" +
-      "\0132\036.gauge.messages.ProtoStepValue\"\347\001\n\024St" +
-      "epValidateResponse\022\017\n\007isValid\030\001 \001(\010\022\024\n\014e" +
-      "rrorMessage\030\002 \001(\t\022A\n\terrorType\030\003 \001(\0162..g" +
-      "auge.messages.StepValidateResponse.Error" +
-      "Type\022\022\n\nsuggestion\030\004 \001(\t\"Q\n\tErrorType\022!\n" +
-      "\035STEP_IMPLEMENTATION_NOT_FOUND\020\000\022!\n\035DUPL" +
-      "ICATE_STEP_IMPLEMENTATION\020\001\"M\n\024SuiteExec" +
-      "utionResult\0225\n\013suiteResult\030\001 \001(\0132 .gauge" +
-      ".messages.ProtoSuiteResult\"I\n\030SuiteExecu" +
-      "tionResultItem\022-\n\nresultItem\030\001 \001(\0132\031.gau" +
-      "ge.messages.ProtoItem\"\022\n\020StepNamesReques" +
-      "t\"\"\n\021StepNamesResponse\022\r\n\005steps\030\001 \003(\t\"\036\n" +
-      "\034ScenarioDataStoreInitRequest\"\032\n\030SpecDat" +
-      "aStoreInitRequest\"\033\n\031SuiteDataStoreInitR" +
-      "equest\"=\n\021ParameterPosition\022\023\n\013oldPositi" +
-      "on\030\001 \001(\005\022\023\n\013newPosition\030\002 \001(\005\"\315\001\n\017Refact" +
-      "orRequest\0224\n\014oldStepValue\030\001 \001(\0132\036.gauge." +
-      "messages.ProtoStepValue\0224\n\014newStepValue\030" +
-      "\002 \001(\0132\036.gauge.messages.ProtoStepValue\0229\n" +
-      "\016paramPositions\030\003 \003(\0132!.gauge.messages.P" +
-      "arameterPosition\022\023\n\013saveChanges\030\004 \001(\010\"a\n" +
-      "\013FileChanges\022\020\n\010fileName\030\001 \001(\t\022\027\n\013fileCo" +
-      "ntent\030\002 \001(\tB\002\030\001\022\'\n\005diffs\030\003 \003(\0132\030.gauge.m" +
-      "essages.TextDiff\"z\n\020RefactorResponse\022\017\n\007" +
-      "success\030\001 \001(\010\022\r\n\005error\030\002 \001(\t\022\024\n\014filesCha" +
-      "nged\030\003 \003(\t\0220\n\013fileChanges\030\004 \003(\0132\033.gauge." +
-      "messages.FileChanges\"$\n\017StepNameRequest\022" +
-      "\021\n\tstepValue\030\001 \001(\t\"\203\001\n\020StepNameResponse\022" +
-      "\025\n\risStepPresent\030\001 \001(\010\022\020\n\010stepName\030\002 \003(\t" +
-      "\022\020\n\010hasAlias\030\003 \001(\010\022\020\n\010fileName\030\004 \001(\t\022\"\n\004" +
-      "span\030\005 \001(\0132\024.gauge.messages.Span\"-\n\032Unsu" +
-      "pportedMessageResponse\022\017\n\007message\030\001 \001(\t\"" +
-      "\321\001\n\020CacheFileRequest\022\017\n\007content\030\001 \001(\t\022\020\n" +
-      "\010filePath\030\002 \001(\t\022\020\n\010isClosed\030\003 \001(\010\022;\n\006sta" +
-      "tus\030\004 \001(\0162+.gauge.messages.CacheFileRequ" +
-      "est.FileStatus\"K\n\nFileStatus\022\013\n\007CHANGED\020" +
-      "\000\022\n\n\006CLOSED\020\001\022\013\n\007CREATED\020\002\022\013\n\007DELETED\020\003\022" +
-      "\n\n\006OPENED\020\004\"(\n\024StepPositionsRequest\022\020\n\010f" +
-      "ilePath\030\001 \001(\t\"\270\001\n\025StepPositionsResponse\022" +
-      "I\n\rstepPositions\030\001 \003(\01322.gauge.messages." +
-      "StepPositionsResponse.StepPosition\022\r\n\005er" +
-      "ror\030\002 \001(\t\032E\n\014StepPosition\022\021\n\tstepValue\030\001" +
-      " \001(\t\022\"\n\004span\030\002 \001(\0132\024.gauge.messages.Span" +
-      "\"&\n$ImplementationFileGlobPatternRequest" +
-      "\"=\n%ImplementationFileGlobPatternRespons" +
-      "e\022\024\n\014globPatterns\030\001 \003(\t\"\037\n\035Implementatio" +
-      "nFileListRequest\"A\n\036ImplementationFileLi" +
-      "stResponse\022\037\n\027implementationFilePaths\030\001 " +
-      "\003(\t\"N\n\035StubImplementationCodeRequest\022\036\n\026" +
-      "implementationFilePath\030\001 \001(\t\022\r\n\005codes\030\002 " +
-      "\003(\t\"?\n\010TextDiff\022\"\n\004span\030\001 \001(\0132\024.gauge.me" +
-      "ssages.Span\022\017\n\007content\030\002 \001(\t\"I\n\010FileDiff" +
-      "\022\020\n\010filePath\030\001 \001(\t\022+\n\ttextDiffs\030\002 \003(\0132\030." +
-      "gauge.messages.TextDiff\"\035\n\tKeepAlive\022\020\n\010" +
-      "pluginId\030\001 \001(\t\"\251\001\n\013SpecDetails\0227\n\007detail" +
-      "s\030\001 \003(\0132&.gauge.messages.SpecDetails.Spe" +
-      "cDetail\032a\n\nSpecDetail\022\'\n\004spec\030\001 \001(\0132\031.ga" +
-      "uge.messages.ProtoSpec\022*\n\013parseErrors\030\002 " +
-      "\003(\0132\025.gauge.messages.Error\"\007\n\005Empty\"\375\033\n\007" +
-      "Message\0228\n\013messageType\030\001 \001(\0162#.gauge.mes" +
-      "sages.Message.MessageType\022\021\n\tmessageId\030\002" +
-      " \001(\003\022J\n\030executionStartingRequest\030\003 \001(\0132(" +
-      ".gauge.messages.ExecutionStartingRequest" +
-      "\022R\n\034specExecutionStartingRequest\030\004 \001(\0132," +
-      ".gauge.messages.SpecExecutionStartingReq" +
-      "uest\022N\n\032specExecutionEndingRequest\030\005 \001(\013" +
-      "2*.gauge.messages.SpecExecutionEndingReq" +
-      "uest\022Z\n scenarioExecutionStartingRequest" +
-      "\030\006 \001(\01320.gauge.messages.ScenarioExecutio" +
-      "nStartingRequest\022V\n\036scenarioExecutionEnd" +
-      "ingRequest\030\007 \001(\0132..gauge.messages.Scenar" +
-      "ioExecutionEndingRequest\022R\n\034stepExecutio" +
-      "nStartingRequest\030\010 \001(\0132,.gauge.messages." +
-      "StepExecutionStartingRequest\022N\n\032stepExec" +
-      "utionEndingRequest\030\t \001(\0132*.gauge.message" +
-      "s.StepExecutionEndingRequest\022>\n\022executeS" +
-      "tepRequest\030\n \001(\0132\".gauge.messages.Execut" +
-      "eStepRequest\022F\n\026executionEndingRequest\030\013" +
-      " \001(\0132&.gauge.messages.ExecutionEndingReq" +
-      "uest\022@\n\023stepValidateRequest\030\014 \001(\0132#.gaug" +
-      "e.messages.StepValidateRequest\022B\n\024stepVa" +
-      "lidateResponse\030\r \001(\0132$.gauge.messages.St" +
-      "epValidateResponse\022H\n\027executionStatusRes" +
-      "ponse\030\016 \001(\0132\'.gauge.messages.ExecutionSt" +
-      "atusResponse\022:\n\020stepNamesRequest\030\017 \001(\0132 " +
-      ".gauge.messages.StepNamesRequest\022<\n\021step" +
-      "NamesResponse\030\020 \001(\0132!.gauge.messages.Ste" +
-      "pNamesResponse\022B\n\024suiteExecutionResult\030\021" +
-      " \001(\0132$.gauge.messages.SuiteExecutionResu" +
-      "lt\022>\n\022killProcessRequest\030\022 \001(\0132\".gauge.m" +
-      "essages.KillProcessRequest\022R\n\034scenarioDa" +
-      "taStoreInitRequest\030\023 \001(\0132,.gauge.message" +
-      "s.ScenarioDataStoreInitRequest\022J\n\030specDa" +
-      "taStoreInitRequest\030\024 \001(\0132(.gauge.message" +
-      "s.SpecDataStoreInitRequest\022L\n\031suiteDataS" +
-      "toreInitRequest\030\025 \001(\0132).gauge.messages.S" +
-      "uiteDataStoreInitRequest\0228\n\017stepNameRequ" +
-      "est\030\026 \001(\0132\037.gauge.messages.StepNameReque" +
-      "st\022:\n\020stepNameResponse\030\027 \001(\0132 .gauge.mes" +
-      "sages.StepNameResponse\0228\n\017refactorReques" +
-      "t\030\030 \001(\0132\037.gauge.messages.RefactorRequest" +
-      "\022:\n\020refactorResponse\030\031 \001(\0132 .gauge.messa" +
-      "ges.RefactorResponse\022N\n\032unsupportedMessa" +
-      "geResponse\030\032 \001(\0132*.gauge.messages.Unsupp" +
-      "ortedMessageResponse\022:\n\020cacheFileRequest" +
-      "\030\033 \001(\0132 .gauge.messages.CacheFileRequest" +
-      "\022B\n\024stepPositionsRequest\030\034 \001(\0132$.gauge.m" +
-      "essages.StepPositionsRequest\022D\n\025stepPosi" +
-      "tionsResponse\030\035 \001(\0132%.gauge.messages.Ste" +
-      "pPositionsResponse\022T\n\035implementationFile" +
-      "ListRequest\030\036 \001(\0132-.gauge.messages.Imple" +
-      "mentationFileListRequest\022V\n\036implementati" +
-      "onFileListResponse\030\037 \001(\0132..gauge.message" +
-      "s.ImplementationFileListResponse\022T\n\035stub" +
-      "ImplementationCodeRequest\030  \001(\0132-.gauge." +
-      "messages.StubImplementationCodeRequest\022*" +
-      "\n\010fileDiff\030! \001(\0132\030.gauge.messages.FileDi" +
-      "ff\022b\n$implementationFileGlobPatternReque" +
-      "st\030\" \001(\01324.gauge.messages.Implementation" +
-      "FileGlobPatternRequest\022d\n%implementation" +
-      "FileGlobPatternResponse\030# \001(\01325.gauge.me" +
-      "ssages.ImplementationFileGlobPatternResp" +
-      "onse\022J\n\030suiteExecutionResultItem\030$ \001(\0132(" +
-      ".gauge.messages.SuiteExecutionResultItem" +
-      "\022,\n\tkeepAlive\030% \001(\0132\031.gauge.messages.Kee" +
-      "pAlive\"\242\007\n\013MessageType\022\025\n\021ExecutionStart" +
-      "ing\020\000\022\031\n\025SpecExecutionStarting\020\001\022\027\n\023Spec" +
-      "ExecutionEnding\020\002\022\035\n\031ScenarioExecutionSt" +
-      "arting\020\003\022\033\n\027ScenarioExecutionEnding\020\004\022\031\n" +
-      "\025StepExecutionStarting\020\005\022\027\n\023StepExecutio" +
-      "nEnding\020\006\022\017\n\013ExecuteStep\020\007\022\023\n\017ExecutionE" +
-      "nding\020\010\022\027\n\023StepValidateRequest\020\t\022\030\n\024Step" +
-      "ValidateResponse\020\n\022\033\n\027ExecutionStatusRes" +
-      "ponse\020\013\022\024\n\020StepNamesRequest\020\014\022\025\n\021StepNam" +
-      "esResponse\020\r\022\026\n\022KillProcessRequest\020\016\022\030\n\024" +
-      "SuiteExecutionResult\020\017\022\031\n\025ScenarioDataSt" +
-      "oreInit\020\020\022\025\n\021SpecDataStoreInit\020\021\022\026\n\022Suit" +
-      "eDataStoreInit\020\022\022\023\n\017StepNameRequest\020\023\022\024\n" +
-      "\020StepNameResponse\020\024\022\023\n\017RefactorRequest\020\025" +
-      "\022\024\n\020RefactorResponse\020\026\022\036\n\032UnsupportedMes" +
-      "sageResponse\020\027\022\024\n\020CacheFileRequest\020\030\022\030\n\024" +
-      "StepPositionsRequest\020\031\022\031\n\025StepPositionsR" +
-      "esponse\020\032\022!\n\035ImplementationFileListReque" +
-      "st\020\033\022\"\n\036ImplementationFileListResponse\020\034" +
-      "\022!\n\035StubImplementationCodeRequest\020\035\022\014\n\010F" +
-      "ileDiff\020\036\022(\n$ImplementationFileGlobPatte" +
-      "rnRequest\020\037\022)\n%ImplementationFileGlobPat" +
-      "ternResponse\020 \022\034\n\030SuiteExecutionResultIt" +
-      "em\020!\022\r\n\tKeepAlive\020\"B!\n\016gauge.messages\252\002\016" +
-      "Gauge.Messagesb\006proto3"
+      "enarioResult\022\016\n\006stream\030\003 \001(\005\"\240\001\n\034StepExe" +
+      "cutionStartingRequest\022;\n\024currentExecutio" +
+      "nInfo\030\001 \001(\0132\035.gauge.messages.ExecutionIn" +
+      "fo\0223\n\nstepResult\030\002 \001(\0132\037.gauge.messages." +
+      "ProtoStepResult\022\016\n\006stream\030\003 \001(\005\"\236\001\n\032Step" +
+      "ExecutionEndingRequest\022;\n\024currentExecuti" +
+      "onInfo\030\001 \001(\0132\035.gauge.messages.ExecutionI" +
+      "nfo\0223\n\nstepResult\030\002 \001(\0132\037.gauge.messages" +
+      ".ProtoStepResult\022\016\n\006stream\030\003 \001(\005\"3\n\014Exec" +
+      "utionArg\022\020\n\010flagName\030\001 \001(\t\022\021\n\tflagValue\030" +
+      "\002 \003(\t\"\266\002\n\rExecutionInfo\022-\n\013currentSpec\030\001" +
+      " \001(\0132\030.gauge.messages.SpecInfo\0225\n\017curren" +
+      "tScenario\030\002 \001(\0132\034.gauge.messages.Scenari" +
+      "oInfo\022-\n\013currentStep\030\003 \001(\0132\030.gauge.messa" +
+      "ges.StepInfo\022\022\n\nstacktrace\030\004 \001(\t\022\023\n\013proj" +
+      "ectName\030\005 \001(\t\0223\n\rExecutionArgs\030\006 \003(\0132\034.g" +
+      "auge.messages.ExecutionArg\022 \n\030numberOfEx" +
+      "ecutionStreams\030\007 \001(\005\022\020\n\010runnerId\030\010 \001(\005\"J" +
+      "\n\010SpecInfo\022\014\n\004name\030\001 \001(\t\022\020\n\010fileName\030\002 \001" +
+      "(\t\022\020\n\010isFailed\030\003 \001(\010\022\014\n\004tags\030\004 \003(\t\"<\n\014Sc" +
+      "enarioInfo\022\014\n\004name\030\001 \001(\t\022\020\n\010isFailed\030\002 \001" +
+      "(\010\022\014\n\004tags\030\003 \003(\t\"x\n\010StepInfo\0220\n\004step\030\001 \001" +
+      "(\0132\".gauge.messages.ExecuteStepRequest\022\020" +
+      "\n\010isFailed\030\002 \001(\010\022\022\n\nstackTrace\030\003 \001(\t\022\024\n\014" +
+      "errorMessage\030\004 \001(\t\"\234\001\n\022ExecuteStepReques" +
+      "t\022\026\n\016actualStepText\030\001 \001(\t\022\026\n\016parsedStepT" +
+      "ext\030\002 \001(\t\022\027\n\017scenarioFailing\030\003 \001(\010\022-\n\npa" +
+      "rameters\030\004 \003(\0132\031.gauge.messages.Paramete" +
+      "r\022\016\n\006stream\030\005 \001(\005\"v\n\023StepValidateRequest" +
+      "\022\020\n\010stepText\030\001 \001(\t\022\032\n\022numberOfParameters" +
+      "\030\002 \001(\005\0221\n\tstepValue\030\003 \001(\0132\036.gauge.messag" +
+      "es.ProtoStepValue\"\347\001\n\024StepValidateRespon" +
+      "se\022\017\n\007isValid\030\001 \001(\010\022\024\n\014errorMessage\030\002 \001(" +
+      "\t\022A\n\terrorType\030\003 \001(\0162..gauge.messages.St" +
+      "epValidateResponse.ErrorType\022\022\n\nsuggesti" +
+      "on\030\004 \001(\t\"Q\n\tErrorType\022!\n\035STEP_IMPLEMENTA" +
+      "TION_NOT_FOUND\020\000\022!\n\035DUPLICATE_STEP_IMPLE" +
+      "MENTATION\020\001\"M\n\024SuiteExecutionResult\0225\n\013s" +
+      "uiteResult\030\001 \001(\0132 .gauge.messages.ProtoS" +
+      "uiteResult\"I\n\030SuiteExecutionResultItem\022-" +
+      "\n\nresultItem\030\001 \001(\0132\031.gauge.messages.Prot" +
+      "oItem\"\022\n\020StepNamesRequest\"\"\n\021StepNamesRe" +
+      "sponse\022\r\n\005steps\030\001 \003(\t\".\n\034ScenarioDataSto" +
+      "reInitRequest\022\016\n\006stream\030\001 \001(\005\"*\n\030SpecDat" +
+      "aStoreInitRequest\022\016\n\006stream\030\001 \001(\005\"+\n\031Sui" +
+      "teDataStoreInitRequest\022\016\n\006stream\030\001 \001(\005\"=" +
+      "\n\021ParameterPosition\022\023\n\013oldPosition\030\001 \001(\005" +
+      "\022\023\n\013newPosition\030\002 \001(\005\"\315\001\n\017RefactorReques" +
+      "t\0224\n\014oldStepValue\030\001 \001(\0132\036.gauge.messages" +
+      ".ProtoStepValue\0224\n\014newStepValue\030\002 \001(\0132\036." +
+      "gauge.messages.ProtoStepValue\0229\n\016paramPo" +
+      "sitions\030\003 \003(\0132!.gauge.messages.Parameter" +
+      "Position\022\023\n\013saveChanges\030\004 \001(\010\"a\n\013FileCha" +
+      "nges\022\020\n\010fileName\030\001 \001(\t\022\027\n\013fileContent\030\002 " +
+      "\001(\tB\002\030\001\022\'\n\005diffs\030\003 \003(\0132\030.gauge.messages." +
+      "TextDiff\"z\n\020RefactorResponse\022\017\n\007success\030" +
+      "\001 \001(\010\022\r\n\005error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003" +
+      "(\t\0220\n\013fileChanges\030\004 \003(\0132\033.gauge.messages" +
+      ".FileChanges\"$\n\017StepNameRequest\022\021\n\tstepV" +
+      "alue\030\001 \001(\t\"\203\001\n\020StepNameResponse\022\025\n\risSte" +
+      "pPresent\030\001 \001(\010\022\020\n\010stepName\030\002 \003(\t\022\020\n\010hasA" +
+      "lias\030\003 \001(\010\022\020\n\010fileName\030\004 \001(\t\022\"\n\004span\030\005 \001" +
+      "(\0132\024.gauge.messages.Span\"-\n\032UnsupportedM" +
+      "essageResponse\022\017\n\007message\030\001 \001(\t\"\321\001\n\020Cach" +
+      "eFileRequest\022\017\n\007content\030\001 \001(\t\022\020\n\010filePat" +
+      "h\030\002 \001(\t\022\020\n\010isClosed\030\003 \001(\010\022;\n\006status\030\004 \001(" +
+      "\0162+.gauge.messages.CacheFileRequest.File" +
+      "Status\"K\n\nFileStatus\022\013\n\007CHANGED\020\000\022\n\n\006CLO" +
+      "SED\020\001\022\013\n\007CREATED\020\002\022\013\n\007DELETED\020\003\022\n\n\006OPENE" +
+      "D\020\004\"(\n\024StepPositionsRequest\022\020\n\010filePath\030" +
+      "\001 \001(\t\"\270\001\n\025StepPositionsResponse\022I\n\rstepP" +
+      "ositions\030\001 \003(\01322.gauge.messages.StepPosi" +
+      "tionsResponse.StepPosition\022\r\n\005error\030\002 \001(" +
+      "\t\032E\n\014StepPosition\022\021\n\tstepValue\030\001 \001(\t\022\"\n\004" +
+      "span\030\002 \001(\0132\024.gauge.messages.Span\"&\n$Impl" +
+      "ementationFileGlobPatternRequest\"=\n%Impl" +
+      "ementationFileGlobPatternResponse\022\024\n\014glo" +
+      "bPatterns\030\001 \003(\t\"\037\n\035ImplementationFileLis" +
+      "tRequest\"A\n\036ImplementationFileListRespon" +
+      "se\022\037\n\027implementationFilePaths\030\001 \003(\t\"N\n\035S" +
+      "tubImplementationCodeRequest\022\036\n\026implemen" +
+      "tationFilePath\030\001 \001(\t\022\r\n\005codes\030\002 \003(\t\"?\n\010T" +
+      "extDiff\022\"\n\004span\030\001 \001(\0132\024.gauge.messages.S" +
+      "pan\022\017\n\007content\030\002 \001(\t\"I\n\010FileDiff\022\020\n\010file" +
+      "Path\030\001 \001(\t\022+\n\ttextDiffs\030\002 \003(\0132\030.gauge.me" +
+      "ssages.TextDiff\"\035\n\tKeepAlive\022\020\n\010pluginId" +
+      "\030\001 \001(\t\"\251\001\n\013SpecDetails\0227\n\007details\030\001 \003(\0132" +
+      "&.gauge.messages.SpecDetails.SpecDetail\032" +
+      "a\n\nSpecDetail\022\'\n\004spec\030\001 \001(\0132\031.gauge.mess" +
+      "ages.ProtoSpec\022*\n\013parseErrors\030\002 \003(\0132\025.ga" +
+      "uge.messages.Error\"\007\n\005Empty\"\375\033\n\007Message\022" +
+      "8\n\013messageType\030\001 \001(\0162#.gauge.messages.Me" +
+      "ssage.MessageType\022\021\n\tmessageId\030\002 \001(\003\022J\n\030" +
+      "executionStartingRequest\030\003 \001(\0132(.gauge.m" +
+      "essages.ExecutionStartingRequest\022R\n\034spec" +
+      "ExecutionStartingRequest\030\004 \001(\0132,.gauge.m" +
+      "essages.SpecExecutionStartingRequest\022N\n\032" +
+      "specExecutionEndingRequest\030\005 \001(\0132*.gauge" +
+      ".messages.SpecExecutionEndingRequest\022Z\n " +
+      "scenarioExecutionStartingRequest\030\006 \001(\01320" +
+      ".gauge.messages.ScenarioExecutionStartin" +
+      "gRequest\022V\n\036scenarioExecutionEndingReque" +
+      "st\030\007 \001(\0132..gauge.messages.ScenarioExecut" +
+      "ionEndingRequest\022R\n\034stepExecutionStartin" +
+      "gRequest\030\010 \001(\0132,.gauge.messages.StepExec" +
+      "utionStartingRequest\022N\n\032stepExecutionEnd" +
+      "ingRequest\030\t \001(\0132*.gauge.messages.StepEx" +
+      "ecutionEndingRequest\022>\n\022executeStepReque" +
+      "st\030\n \001(\0132\".gauge.messages.ExecuteStepReq" +
+      "uest\022F\n\026executionEndingRequest\030\013 \001(\0132&.g" +
+      "auge.messages.ExecutionEndingRequest\022@\n\023" +
+      "stepValidateRequest\030\014 \001(\0132#.gauge.messag" +
+      "es.StepValidateRequest\022B\n\024stepValidateRe" +
+      "sponse\030\r \001(\0132$.gauge.messages.StepValida" +
+      "teResponse\022H\n\027executionStatusResponse\030\016 " +
+      "\001(\0132\'.gauge.messages.ExecutionStatusResp" +
+      "onse\022:\n\020stepNamesRequest\030\017 \001(\0132 .gauge.m" +
+      "essages.StepNamesRequest\022<\n\021stepNamesRes" +
+      "ponse\030\020 \001(\0132!.gauge.messages.StepNamesRe" +
+      "sponse\022B\n\024suiteExecutionResult\030\021 \001(\0132$.g" +
+      "auge.messages.SuiteExecutionResult\022>\n\022ki" +
+      "llProcessRequest\030\022 \001(\0132\".gauge.messages." +
+      "KillProcessRequest\022R\n\034scenarioDataStoreI" +
+      "nitRequest\030\023 \001(\0132,.gauge.messages.Scenar" +
+      "ioDataStoreInitRequest\022J\n\030specDataStoreI" +
+      "nitRequest\030\024 \001(\0132(.gauge.messages.SpecDa" +
+      "taStoreInitRequest\022L\n\031suiteDataStoreInit" +
+      "Request\030\025 \001(\0132).gauge.messages.SuiteData" +
+      "StoreInitRequest\0228\n\017stepNameRequest\030\026 \001(" +
+      "\0132\037.gauge.messages.StepNameRequest\022:\n\020st" +
+      "epNameResponse\030\027 \001(\0132 .gauge.messages.St" +
+      "epNameResponse\0228\n\017refactorRequest\030\030 \001(\0132" +
+      "\037.gauge.messages.RefactorRequest\022:\n\020refa" +
+      "ctorResponse\030\031 \001(\0132 .gauge.messages.Refa" +
+      "ctorResponse\022N\n\032unsupportedMessageRespon" +
+      "se\030\032 \001(\0132*.gauge.messages.UnsupportedMes" +
+      "sageResponse\022:\n\020cacheFileRequest\030\033 \001(\0132 " +
+      ".gauge.messages.CacheFileRequest\022B\n\024step" +
+      "PositionsRequest\030\034 \001(\0132$.gauge.messages." +
+      "StepPositionsRequest\022D\n\025stepPositionsRes" +
+      "ponse\030\035 \001(\0132%.gauge.messages.StepPositio" +
+      "nsResponse\022T\n\035implementationFileListRequ" +
+      "est\030\036 \001(\0132-.gauge.messages.Implementatio" +
+      "nFileListRequest\022V\n\036implementationFileLi" +
+      "stResponse\030\037 \001(\0132..gauge.messages.Implem" +
+      "entationFileListResponse\022T\n\035stubImplemen" +
+      "tationCodeRequest\030  \001(\0132-.gauge.messages" +
+      ".StubImplementationCodeRequest\022*\n\010fileDi" +
+      "ff\030! \001(\0132\030.gauge.messages.FileDiff\022b\n$im" +
+      "plementationFileGlobPatternRequest\030\" \001(\013" +
+      "24.gauge.messages.ImplementationFileGlob" +
+      "PatternRequest\022d\n%implementationFileGlob" +
+      "PatternResponse\030# \001(\01325.gauge.messages.I" +
+      "mplementationFileGlobPatternResponse\022J\n\030" +
+      "suiteExecutionResultItem\030$ \001(\0132(.gauge.m" +
+      "essages.SuiteExecutionResultItem\022,\n\tkeep" +
+      "Alive\030% \001(\0132\031.gauge.messages.KeepAlive\"\242" +
+      "\007\n\013MessageType\022\025\n\021ExecutionStarting\020\000\022\031\n" +
+      "\025SpecExecutionStarting\020\001\022\027\n\023SpecExecutio" +
+      "nEnding\020\002\022\035\n\031ScenarioExecutionStarting\020\003" +
+      "\022\033\n\027ScenarioExecutionEnding\020\004\022\031\n\025StepExe" +
+      "cutionStarting\020\005\022\027\n\023StepExecutionEnding\020" +
+      "\006\022\017\n\013ExecuteStep\020\007\022\023\n\017ExecutionEnding\020\010\022" +
+      "\027\n\023StepValidateRequest\020\t\022\030\n\024StepValidate" +
+      "Response\020\n\022\033\n\027ExecutionStatusResponse\020\013\022" +
+      "\024\n\020StepNamesRequest\020\014\022\025\n\021StepNamesRespon" +
+      "se\020\r\022\026\n\022KillProcessRequest\020\016\022\030\n\024SuiteExe" +
+      "cutionResult\020\017\022\031\n\025ScenarioDataStoreInit\020" +
+      "\020\022\025\n\021SpecDataStoreInit\020\021\022\026\n\022SuiteDataSto" +
+      "reInit\020\022\022\023\n\017StepNameRequest\020\023\022\024\n\020StepNam" +
+      "eResponse\020\024\022\023\n\017RefactorRequest\020\025\022\024\n\020Refa" +
+      "ctorResponse\020\026\022\036\n\032UnsupportedMessageResp" +
+      "onse\020\027\022\024\n\020CacheFileRequest\020\030\022\030\n\024StepPosi" +
+      "tionsRequest\020\031\022\031\n\025StepPositionsResponse\020" +
+      "\032\022!\n\035ImplementationFileListRequest\020\033\022\"\n\036" +
+      "ImplementationFileListResponse\020\034\022!\n\035Stub" +
+      "ImplementationCodeRequest\020\035\022\014\n\010FileDiff\020" +
+      "\036\022(\n$ImplementationFileGlobPatternReques" +
+      "t\020\037\022)\n%ImplementationFileGlobPatternResp" +
+      "onse\020 \022\034\n\030SuiteExecutionResultItem\020!\022\r\n\t" +
+      "KeepAlive\020\"B!\n\016gauge.messages\252\002\016Gauge.Me" +
+      "ssagesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -50630,49 +51394,49 @@ public final class Messages {
     internal_static_gauge_messages_ExecutionStartingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ExecutionStartingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", "SuiteResult", });
+        new java.lang.String[] { "CurrentExecutionInfo", "SuiteResult", "Stream", });
     internal_static_gauge_messages_ExecutionEndingRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_gauge_messages_ExecutionEndingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ExecutionEndingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", "SuiteResult", });
+        new java.lang.String[] { "CurrentExecutionInfo", "SuiteResult", "Stream", });
     internal_static_gauge_messages_SpecExecutionStartingRequest_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_gauge_messages_SpecExecutionStartingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_SpecExecutionStartingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", "SpecResult", });
+        new java.lang.String[] { "CurrentExecutionInfo", "SpecResult", "Stream", });
     internal_static_gauge_messages_SpecExecutionEndingRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_gauge_messages_SpecExecutionEndingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_SpecExecutionEndingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", "SpecResult", });
+        new java.lang.String[] { "CurrentExecutionInfo", "SpecResult", "Stream", });
     internal_static_gauge_messages_ScenarioExecutionStartingRequest_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_gauge_messages_ScenarioExecutionStartingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ScenarioExecutionStartingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", "ScenarioResult", });
+        new java.lang.String[] { "CurrentExecutionInfo", "ScenarioResult", "Stream", });
     internal_static_gauge_messages_ScenarioExecutionEndingRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_gauge_messages_ScenarioExecutionEndingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ScenarioExecutionEndingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", "ScenarioResult", });
+        new java.lang.String[] { "CurrentExecutionInfo", "ScenarioResult", "Stream", });
     internal_static_gauge_messages_StepExecutionStartingRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_gauge_messages_StepExecutionStartingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepExecutionStartingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", "StepResult", });
+        new java.lang.String[] { "CurrentExecutionInfo", "StepResult", "Stream", });
     internal_static_gauge_messages_StepExecutionEndingRequest_descriptor =
       getDescriptor().getMessageTypes().get(9);
     internal_static_gauge_messages_StepExecutionEndingRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepExecutionEndingRequest_descriptor,
-        new java.lang.String[] { "CurrentExecutionInfo", "StepResult", });
+        new java.lang.String[] { "CurrentExecutionInfo", "StepResult", "Stream", });
     internal_static_gauge_messages_ExecutionArg_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_gauge_messages_ExecutionArg_fieldAccessorTable = new
@@ -50708,7 +51472,7 @@ public final class Messages {
     internal_static_gauge_messages_ExecuteStepRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ExecuteStepRequest_descriptor,
-        new java.lang.String[] { "ActualStepText", "ParsedStepText", "ScenarioFailing", "Parameters", });
+        new java.lang.String[] { "ActualStepText", "ParsedStepText", "ScenarioFailing", "Parameters", "Stream", });
     internal_static_gauge_messages_StepValidateRequest_descriptor =
       getDescriptor().getMessageTypes().get(16);
     internal_static_gauge_messages_StepValidateRequest_fieldAccessorTable = new
@@ -50750,19 +51514,19 @@ public final class Messages {
     internal_static_gauge_messages_ScenarioDataStoreInitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_ScenarioDataStoreInitRequest_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Stream", });
     internal_static_gauge_messages_SpecDataStoreInitRequest_descriptor =
       getDescriptor().getMessageTypes().get(23);
     internal_static_gauge_messages_SpecDataStoreInitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_SpecDataStoreInitRequest_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Stream", });
     internal_static_gauge_messages_SuiteDataStoreInitRequest_descriptor =
       getDescriptor().getMessageTypes().get(24);
     internal_static_gauge_messages_SuiteDataStoreInitRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_SuiteDataStoreInitRequest_descriptor,
-        new java.lang.String[] { });
+        new java.lang.String[] { "Stream", });
     internal_static_gauge_messages_ParameterPosition_descriptor =
       getDescriptor().getMessageTypes().get(25);
     internal_static_gauge_messages_ParameterPosition_fieldAccessorTable = new
