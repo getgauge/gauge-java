@@ -1,8 +1,10 @@
 name: release
 
-on:
-  release:
-    types: [published]
+# on:
+#   release:
+#     types: [published]
+
+on: repository_dispatch
 
 jobs:
   build:
