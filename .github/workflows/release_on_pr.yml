@@ -7,7 +7,7 @@ on:
 jobs:
   release-and-bump-version:
     if: github.eve  nt_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'ReleaseCandidate')
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     env:
       MAVEN_GPG_SIGN_KEY: '${{ secrets.MAVEN_GPG_SIGN_KEY }}'
       username: '${{ secrets.maven_deploy_username }}'
@@ -24,6 +24,9 @@ jobs:
         with:
           java-version: '12.x.x'
 
+      - name: Install hub
+        uses: geertvdc/setup-hub@master
+
       - name: Setup maven
         run: |
           echo -e "$MAVEN_GPG_SIGN_KEY" | gpg --import --batch -
@@ -31,10 +34,6 @@ jobs:
           rm -rf $HOME/.m2
           mkdir -p $HOME/.m2
           echo -e "<settings>\n<servers>\n<server>\n<id>ossrh</id>\n<username>$username</username>\n<password>$password</password>\n</server>\n</servers>\n</settings>" > $HOME/.m2/settings.xml
-
-      - name: Install hub
-        run: |
-          brew install hub
 
       - name: Setup git
         run: |
