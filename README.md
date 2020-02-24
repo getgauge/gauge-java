@@ -80,20 +80,7 @@ Note: Run after compiling
 
 ## Deployment
 
-Only contributors with push access can create a deployment.
-
-The deployment process is managed via Github Actions.
-
-Follow these steps to deploy gauge-java.
-
-* Create a Personal Access Token in Github with `repo:public_repo` scope (skip this step if you already have a PAT).
-* Run `GITHUB_TOKEN={Your token} sh release.sh` in `gauge-java` dir. This will trigger a deployment workflow on Github Actions. This workflow creates a release draft with all required assets and information.
-* Visit to the release draft, analyze and update the contents (remove unnecessary entries, mention Contributors, remove dependabot PR entries).
-* Publish the draft release.
-* Once the draft is published it will trigger another workflow on Github Actions, which will perform all the Post release tasks, In case of gauge-java it will upload the `gauge-java` maven artifact to maven central.
-* Once it's done please update the new release information in [gauge-repository](https://github.com/getgauge/gauge-repository/blob/master/java-install.json)
-
-* That's it. Now the release can be announced on the required community platforms (chat, google group etc.)
+The deployments are managed via Github Actions. Whenever a PR is merged and contains label `ReleaseCandidate`, A deployment will occur with the current version and then the version will be bumped up.
 
 
 ## License

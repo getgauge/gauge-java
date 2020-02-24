@@ -1,0 +1,99 @@
+name: Release on PR Merge
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  release-and-bump-version:
+    if: github.eve  nt_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'ReleaseCandidate')
+    runs-on: ubuntu-latest
+    env:
+      MAVEN_GPG_SIGN_KEY: '${{ secrets.MAVEN_GPG_SIGN_KEY }}'
+      username: '${{ secrets.maven_deploy_username }}'
+      password: '${{ secrets.maven_deploy_password }}'
+      passphrase: '${{ secrets.gpg_passphrase }}'
+      GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+      GAUGE_CI_TOKEN: '${{ secrets.GAUGE_CI_TOKEN }}'
+      CI: true
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '12.x.x'
+
+      - name: Install hub
+        uses: geertvdc/setup-hub@master
+
+      - name: Setup maven
+        run: |
+          echo -e "$MAVEN_GPG_SIGN_KEY" | gpg --import --batch -
+          gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys $gpgkey
+          rm -rf $HOME/.m2
+          mkdir -p $HOME/.m2
+          echo -e "<settings>\n<servers>\n<server>\n<id>ossrh</id>\n<username>$username</username>\n<password>$password</password>\n</server>\n</servers>\n</settings>" > $HOME/.m2/settings.xml
+
+      - name: Setup git
+        run: |
+          git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
+          git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
+
+      - name: Build artifacts
+        run: |
+          ./build.sh package
+
+      - name: Deploy on github
+        run: |
+          cd artifacts
+          if [ -z "$version" ]; then
+              version=$(ls gauge-java* | head -1 | sed "s/\.[^\.]*$//" | sed "s/gauge-java-//" | sed "s/-[a-z]*\.[a-z0-9_]*$//")
+          fi
+          echo "::set-env name=VERSION::$version"
+          artifacts=()
+          dir=$(pwd)
+          for i in $(ls); do
+              artifacts+="$dir/$i "
+          done
+          cd ..
+          echo "---------------------------"
+          echo "Updating release v$version"
+          echo "---------------------------"
+          echo -e "Gauge Java v$version\n\n" >desc.txt
+          release_description=$(ruby -e "$(curl -sSfL https://github.com/getgauge/gauge/raw/master/build/create_release_text.rb)" gauge-java getgauge)
+          echo "$release_description" >> desc.txt
+          echo "Creating new draft for release v$version"
+          hub release create -F ./desc.txt "v$version"
+          rm -rf desc.txt
+          echo "Start uploading assets..."
+          for i in $(ls $artifacts); do
+              echo $i
+              hub release edit -m "" -a $i "v$version"
+              if [ $? -ne 0 ]; then
+                  exit 1
+              fi
+          done
+
+      - name: Deploy on maven central
+        run: |
+          mvn -q clean deploy -Dgpg.passphrase=$passphrase
+
+
+      - name: Update metadata in gauge-repository
+        run: |
+          git clone https://github.com/getgauge/gauge-repository.git
+          cd gauge-repository
+          python update_metadata.py java $VERSION
+          commit_message=$(echo -e "Update java to v$VERSION")
+          git commit -am "$commit_message"
+          git push "https://$GITHUB_ACTOR:$GAUGE_CI_TOKEN@github.com/getgauge/gauge-repository.git" master
+
+
+      - name: Bump up version
+        run: |
+          git clean -dfx
+          git checkout master && git checkout . && git pull --rebase
+          version=$(python update_version.py)
+          git commit -am "Bumping up -> $version"
+          git push "https://$GITHUB_ACTOR:$GAUGE_CI_TOKEN@github.com/$GITHUB_REPOSITORY.git" master
