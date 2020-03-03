@@ -1,6 +1,6 @@
 {
     "id": "java",
-    "version": "0.7.4",
+    "version": "0.7.5",
     "description": "Java support for gauge",
     "install": {
         "windows": [],
@@ -36,9 +36,9 @@
         ]
     },
     "lib": "libs",
-    "multithreaded": false,
+    "multithreaded": true,
     "gaugeVersionSupport": {
-        "minimum": "1.0.6",
+        "minimum": "1.0.7",
         "maximum": ""
     },
     "lspLangId": "java",

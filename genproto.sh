@@ -24,10 +24,11 @@ for filename in gauge-proto/*.proto; do
 done
 mvn protobuf:compile-custom protobuf:compile
 
-cd gauge-proto && git checkout . && cd ..
 
 cp  target/generated-sources/protobuf/java/gauge/messages/Messages.java src/main/java/gauge/messages
 cp  target/generated-sources/protobuf/java/gauge/messages/Spec.java src/main/java/gauge/messages
 cp  target/generated-sources/protobuf/java/gauge/messages/Services.java src/main/java/gauge/messages
 
 cp  target/generated-sources/protobuf/grpc-java/gauge/messages/RunnerGrpc.java src/main/java/gauge/messages
+
+cd gauge-proto && git checkout . && cd ..
