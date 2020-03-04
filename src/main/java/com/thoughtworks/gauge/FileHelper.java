@@ -85,7 +85,7 @@ public class FileHelper {
     }
     private static List<String> getDefaultStepImplDirs() {
         List<String> dirs = new ArrayList<>();
-        for (String dir : DEFAULT_SRC_DIRS.split(",")) {
+        for (String dir : DEFAULT_SRC_DIRS) {
             Path dirAbsPath = getAbsolutePath(dir.trim());
             if (Files.exists(dirAbsPath)) {
                 dirs.add(dirAbsPath.toString());
