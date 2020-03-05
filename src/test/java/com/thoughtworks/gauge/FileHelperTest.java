@@ -32,4 +32,40 @@ public class FileHelperTest {
     }
 
 
+    @Test
+    public void testGetStepImplDirsWhenCustomCompileDirEnvIsSet() {
+        String gaugeProjRoot = Util.workingDir().getAbsolutePath();
+        environmentVariables.set(GAUGE_CUSTOM_COMPILE_DIR, String.format("files%sformatted, files%sunformatted", File.separator, File.separator));
+        environmentVariables.set(GAUGE_PROJECT_ROOT, gaugeProjRoot);
+
+        List<String> implFiles = FileHelper.getStepImplDirs();
+        assertEquals(2, implFiles.size());
+        List<String> expectedImplFiles = Arrays.asList(String.format("%s%sfiles%sformatted", gaugeProjRoot, File.separator, File.separator),
+            String.format("%s%sfiles%sunformatted", gaugeProjRoot, File.separator, File.separator)
+        );
+        assertTrue(expectedImplFiles.containsAll(implFiles));
+    }
+
+    @Test
+    public void testGetStepImplDirsWhenDefaultImplDirsDoesNotExists() {
+        String gaugeProjRoot = Util.workingDir().getAbsolutePath() + File.separator + String.format("src%stest%sresources%stest", File.separator, File.separator, File.separator);
+        environmentVariables.set(GAUGE_PROJECT_ROOT, gaugeProjRoot);
+
+        List<String> implFiles = FileHelper.getStepImplDirs();
+        assertEquals(0, implFiles.size());
+    }
+
+    @Test
+    public void testGetStepImplDirs() {
+        String gaugeProjRoot = Util.workingDir().getAbsolutePath();
+        environmentVariables.set(GAUGE_PROJECT_ROOT, gaugeProjRoot);
+
+        List<String> implFiles = FileHelper.getStepImplDirs();
+        assertEquals(2, implFiles.size());
+        List<String> expectedImplFiles = Arrays.asList(
+            String.format("%s%ssrc%stest%sjava", gaugeProjRoot, File.separator, File.separator, File.separator),
+            String.format("%s%ssrc%smain%sjava", gaugeProjRoot, File.separator, File.separator, File.separator)
+        );
+        assertTrue(expectedImplFiles.containsAll(implFiles));
+    }
 }

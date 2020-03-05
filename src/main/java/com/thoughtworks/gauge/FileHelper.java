@@ -29,6 +29,7 @@ import static com.google.common.io.Files.getNameWithoutExtension;
 import static com.thoughtworks.gauge.GaugeConstant.DEFAULT_SRC_DIR;
 import static com.thoughtworks.gauge.GaugeConstant.GAUGE_CUSTOM_COMPILE_DIR;
 import static com.thoughtworks.gauge.GaugeConstant.GAUGE_PROJECT_ROOT;
+import static com.thoughtworks.gauge.GaugeConstant.DEFAULT_SRC_DIRS;
 
 public class FileHelper {
     private static final String CUSTOM_COMPILE_DIR_SEPARATOR = ",";
@@ -62,7 +63,7 @@ public class FileHelper {
             Arrays.asList(customCompileDirs.split(CUSTOM_COMPILE_DIR_SEPARATOR))
                     .forEach(d -> srcDirs.add(getAbsolutePath(d.trim()).toString()));
         } else {
-            srcDirs.add(getDefaultStepImplDir());
+            srcDirs.addAll(getDefaultStepImplDirs());
         }
         return srcDirs;
     }
@@ -81,5 +82,15 @@ public class FileHelper {
 
     private static String getDefaultStepImplDir() {
         return getAbsolutePath(DEFAULT_SRC_DIR).toString();
+    }
+    private static List<String> getDefaultStepImplDirs() {
+        List<String> dirs = new ArrayList<>();
+        for (String dir : DEFAULT_SRC_DIRS) {
+            Path dirAbsPath = getAbsolutePath(dir.trim());
+            if (Files.exists(dirAbsPath)) {
+                dirs.add(dirAbsPath.toString());
+            }
+        }
+        return dirs;
     }
 }
