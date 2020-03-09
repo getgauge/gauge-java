@@ -16,7 +16,7 @@
 package com.thoughtworks.gauge.scan;
 
 import com.github.javaparser.JavaParser;
-import com.github.javaparser.ParseException;
+import com.github.javaparser.ParseResult;
 import com.github.javaparser.ast.CompilationUnit;
 import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.FileHelper;
@@ -53,27 +53,23 @@ public class StaticScanner {
     }
 
     public void addStepsFromFileContents(String file, String contents) {
-        try {
-            StringReader reader = new StringReader(contents);
-            CompilationUnit compilationUnit = JavaParser.parse(reader);
-            if (!this.shouldScan(compilationUnit)) {
-                return;
-            }
-            RegistryMethodVisitor methodVisitor = new RegistryMethodVisitor(stepRegistry, file);
-            methodVisitor.visit(compilationUnit, null);
-        } catch (ParseException e) {
-            Logger.error(String.format("Exception while adding steps from %s file:", file));
-            Logger.error(String.format("%s\n%s", e.getMessage(), e.getStackTrace()));
+        StringReader reader = new StringReader(contents);
+        ParseResult<CompilationUnit> result = new JavaParser().parse(reader);
+        boolean shouldScan = result.getResult().map(this::shouldScan).orElse(false);
+        if (!shouldScan) {
+            return;
         }
+        RegistryMethodVisitor methodVisitor = new RegistryMethodVisitor(stepRegistry, file);
+        methodVisitor.visit(result.getResult().get(), null);
     }
 
     private boolean shouldScan(CompilationUnit unit) {
         final String packagesToScan = System.getenv(PACKAGE_TO_SCAN);
-        if (packagesToScan == null || packagesToScan.isEmpty() || unit.getPackage() == null) {
+        if (packagesToScan == null || packagesToScan.isEmpty() || !unit.getPackageDeclaration().isPresent()) {
             return true;
         }
         List<String> packages = Arrays.stream(packagesToScan.split(",")).map(String::trim).collect(Collectors.toList());
-        return packages.contains(unit.getPackage().getPackageName());
+        return unit.getPackageDeclaration().map((p) -> packages.contains(p.getName().asString())).orElse(false);
     }
 
     public void addStepsToRegistry() {

@@ -75,7 +75,7 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
         entry.setStepText(parameterizedStep);
         entry.setStepValue(stepValue);
         entry.setParameters(methodDeclaration.getParameters());
-        entry.setSpan(methodDeclaration.getRange());
+        entry.setSpan(methodDeclaration.getRange().get());
         entry.setHasAlias(hasAlias(annotation));
         entry.setAliases(getAliases(annotation));
         entry.setFileName(file);
