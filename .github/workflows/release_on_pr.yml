@@ -58,7 +58,7 @@ jobs:
           echo "Updating release v$version"
           echo "---------------------------"
           echo -e "Gauge Java v$version\n\n" >desc.txt
-          release_description=$(ruby -e "$(curl -sSfL https://github.com/getgauge/gauge/raw/master/build/create_release_text.rb)" gauge-java getgauge)
+          release_description=$(ruby -e "$(curl -sSfL https://github.com/getgauge/gauge/raw/master/build/create_release_text.rb)" getgauge gauge-java)
           echo "$release_description" >> desc.txt
           echo "Creating new draft for release v$version"
           hub release create -F ./desc.txt "v$version"
