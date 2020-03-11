@@ -85,12 +85,3 @@ jobs:
           commit_message=$(echo -e "Update java to v$VERSION")
           git commit -am "$commit_message"
           git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/getgauge/gauge-repository.git" master
-
-
-      - name: Bump up version
-        run: |
-          git clean -dfx
-          git checkout master && git checkout . && git pull --rebase
-          version=$(python update_version.py)
-          git commit -am "Bumping up -> $version"
-          git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" master

@@ -24,3 +24,32 @@ Contributions can be of many forms:
 - Participate in design discussions on Google Groups
 
 If you need help in getting started with contribution, feel free to reach out on the [Google Groups](https://groups.google.com/forum/#!forum/getgauge) or [Gitter](https://gitter.im/getgauge/chat).
+
+
+## Bump up gauge-java version
+
+* Update the version in `java.json` file.
+
+Ex:
+```diff
+     "id": "java",
+-    "version": "0.7.5",
++    "version": "0.7.6",
+```
+
+* Update the productVersion property in `pom.xml`.
+
+Ex:
+
+
+* Update the productVersion property in `pom.xml`.
+
+Ex:
+
+```diff
+     <properties>
+         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+-        <projectVersion>0.7.5</projectVersion>
++        <projectVersion>0.7.6</projectVersion>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+```
