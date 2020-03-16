@@ -58,7 +58,7 @@ jobs:
           echo "Updating release v$version"
           echo "---------------------------"
           echo -e "Gauge Java v$version\n\n" >desc.txt
-          release_description=$(ruby -e "$(curl -sSfL https://github.com/getgauge/gauge/raw/master/build/create_release_text.rb)" gauge-java getgauge)
+          release_description=$(ruby -e "$(curl -sSfL https://github.com/getgauge/gauge/raw/master/build/create_release_text.rb)" getgauge gauge-java)
           echo "$release_description" >> desc.txt
           echo "Creating new draft for release v$version"
           hub release create -F ./desc.txt "v$version"
@@ -85,12 +85,3 @@ jobs:
           commit_message=$(echo -e "Update java to v$VERSION")
           git commit -am "$commit_message"
           git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/getgauge/gauge-repository.git" master
-
-
-      - name: Bump up version
-        run: |
-          git clean -dfx
-          git checkout master && git checkout . && git pull --rebase
-          version=$(python update_version.py)
-          git commit -am "Bumping up -> $version"
-          git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" master
