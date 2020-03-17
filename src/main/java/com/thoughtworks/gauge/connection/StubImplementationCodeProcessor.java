@@ -16,7 +16,7 @@
 package com.thoughtworks.gauge.connection;
 
 import com.github.javaparser.JavaParser;
-import com.github.javaparser.ParseException;
+import com.github.javaparser.ParseResult;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
@@ -98,12 +98,14 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
 
     private Messages.FileDiff implementInExistingClass(ProtocolStringList stubs, File file) {
         try {
-            CompilationUnit compilationUnit = JavaParser.parse(file);
+
+            JavaParser javaParser = new JavaParser();
+            ParseResult<CompilationUnit> compilationUnit = javaParser.parse(file);
             MethodVisitor methodVisitor = new MethodVisitor();
-            methodVisitor.visit(compilationUnit, null);
+            methodVisitor.visit(compilationUnit.getResult().get(), null);
             MethodDeclaration methodDeclaration = methodDeclarations.get(methodDeclarations.size() - 1);
-            int lastLine = methodDeclaration.getRange().end.line - 1;
-            int column = methodDeclaration.getRange().end.column + 1;
+            int lastLine = methodDeclaration.getRange().get().end.line - 1;
+            int column = methodDeclaration.getRange().get().end.column + 1;
             String contents = NEW_LINE + String.join(NEW_LINE, stubs);
             Spec.Span.Builder span = Spec.Span.newBuilder()
                     .setStart(lastLine)
@@ -113,7 +115,7 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
             Messages.TextDiff textDiff = Messages.TextDiff.newBuilder().setSpan(span).setContent(contents).build();
             return Messages.FileDiff.newBuilder().setFilePath(file.toString()).addTextDiffs(textDiff).build();
 
-        } catch (ParseException | IOException e) {
+        } catch (IOException e) {
             Logger.error("Unable to implement method", e);
         }
         return null;
