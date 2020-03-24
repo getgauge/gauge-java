@@ -77,9 +77,10 @@ function AddClassPathRequiredForExecution() {
 
 $tasks = @{ }
 $tasks.Add('init', {
-    if ("$global:classpath" -eq "" ) { AddRunnerInClassPath }
-    $env:CLASSPATH = $global:classpath
-    java com.thoughtworks.gauge.GaugeRuntime --init
+    if ("$global:classpath" -eq "" ) {
+      AddRunnerInClassPath
+    }
+    java -cp $global:classpath com.thoughtworks.gauge.GaugeRuntime --init
     exit
   })
 
@@ -88,12 +89,11 @@ $tasks.Add('start', {
       AddRunnerInClassPath
       AddClassPathRequiredForExecution
     }
-    $env:CLASSPATH = $global:classpath
     if ("$env:GAUGE_DEBUG_OPTS" -ne "" ) {
       $debugArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=$env:GAUGE_DEBUG_OPTS,timeout=25000"
       Write-Output "`nRunner Ready for Debugging"
     }
-    java  "-Dfile.encoding=UTF-8" $debugArgs $env:gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start
+    java -cp $global:classpath "-Dfile.encoding=UTF-8" $debugArgs $env:gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start
     exit
   })
 
