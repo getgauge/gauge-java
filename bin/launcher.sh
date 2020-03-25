@@ -8,6 +8,17 @@ plugin_dir=$(pwd)
 project_root="$GAUGE_PROJECT_ROOT"
 compile_dir="$gauge_custom_compile_dir"
 
+javaCommand=java
+javacCommand=javac
+
+if [ ! -z "${gauge_java_home}" ]; then
+    javaCommand="${gauge_java_home}/bin/${javaCommand}"
+    javacCommand="${gauge_java_home}/bin/${javacCommand}"
+elif [ ! -z "${JAVA_HOME}" ]; then
+    javaCommand="${JAVA_HOME}/bin/${javaCommand}"
+    javacCommand="${JAVA_HOME}/bin/${javacCommand}"
+fi
+
 cd "$project_root"
 
 function get_abs() {
@@ -42,7 +53,6 @@ function get_additional_path() {
     fi
 }
 
-
 function list_files() {
     dirs="src"
     if [ ! -z "$compile_dir" ]; then
@@ -53,7 +63,6 @@ function list_files() {
     done
 }
 
-
 function build_project() {
     rm -rf $default_build_dir
     mkdir -p $default_build_dir
@@ -61,7 +70,7 @@ function build_project() {
     echo $(list_files) > $target_file
     args="-encoding UTF-8 -d ${default_build_dir} @${target_file}"
     if [ ! -z  "$(sed '/^$/d' $target_file)" ]; then
-        javac -cp "$class_path" $args
+        $javacCommand -cp "$class_path" $args
     fi
     rm $target_file
 }
@@ -109,12 +118,12 @@ function start() {
         args="${args} -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=${GAUGE_DEBUG_OPTS},timeout=25000"
         echo -e "\nRunner Ready for Debugging"
     fi
-    CLASSPATH="${class_path}" java ${args} com.thoughtworks.gauge.GaugeRuntime --start
+    CLASSPATH="${class_path}" $javaCommand ${args} com.thoughtworks.gauge.GaugeRuntime --start
 }
 
 function init() {
     add_runner_in_classpath
-    CLASSPATH="${class_path}" java com.thoughtworks.gauge.GaugeRuntime --init
+    CLASSPATH="${class_path}" $javaCommands com.thoughtworks.gauge.GaugeRuntime --init
 }
 
 tasks=(init start)
