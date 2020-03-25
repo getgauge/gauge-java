@@ -7,6 +7,18 @@ $PluginDir = Get-Location
 $global:classpath = $env:gauge_custom_classpath
 Set-Location $env:GAUGE_PROJECT_ROOT
 
+$javaCommand = "java"
+$javacCommand = "javac"
+
+if ("$env:gauge_java_home" -ne "") {
+    $javaCommand = "$env:gauge_java_home\bin\$javaCommand"
+    $javacCommand = "$env:gauge_java_home\bin\$javacCommand"
+}
+elseif ("$env:JAVA_HOME" -ne "") {
+    $javaCommand = "$env:JAVA_HOME\bin\$javaCommand"
+    $javacCommand = "$env:JAVA_HOME\bin\$javacCommand"
+}
+
 function AddRunnerInClassPath {
   $global:classpath = $global:classpath + "$PluginDir\*" + ";" + "$PluginDir\libs\*"
 }
@@ -52,7 +64,7 @@ function BuildProject() {
   $random = (Get-Random)
   $targetFile = Join-Path "$env:TEMP" "$random.txt"
   ListFiles $targetFile
-  javac -cp `"$global:classpath`" -encoding UTF-8 -d $DefaultBuildDir "@$targetFile"
+  & $javacCommand -cp `"$global:classpath`" -encoding UTF-8 -d $DefaultBuildDir `"@$targetFile`"
   Remove-Item -Force $targetFile
 }
 
@@ -79,7 +91,7 @@ $tasks = @{ }
 $tasks.Add('init', {
     if ("$global:classpath" -eq "" ) { AddRunnerInClassPath }
     $env:CLASSPATH = $global:classpath
-    java com.thoughtworks.gauge.GaugeRuntime --init
+    & $javaCommand com.thoughtworks.gauge.GaugeRuntime --init
     exit
   })
 
@@ -93,7 +105,7 @@ $tasks.Add('start', {
       $debugArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=$env:GAUGE_DEBUG_OPTS,timeout=25000"
       Write-Output "`nRunner Ready for Debugging"
     }
-    java  "-Dfile.encoding=UTF-8" $debugArgs $env:gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start
+    & $javaCommand `"-Dfile.encoding=UTF-8`" $debugArgs $env:gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start
     exit
   })
 
