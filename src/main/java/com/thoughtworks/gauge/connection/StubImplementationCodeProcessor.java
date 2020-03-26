@@ -17,7 +17,9 @@ package com.thoughtworks.gauge.connection;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseResult;
+import com.github.javaparser.Range;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.google.protobuf.ProtocolStringList;
@@ -33,7 +35,8 @@ import java.util.ArrayList;
 
 public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.processor.IMessageProcessor {
     private static final String NEW_LINE = "\n";
-    private static ArrayList<MethodDeclaration> methodDeclarations = new ArrayList<MethodDeclaration>();
+    private static ArrayList<MethodDeclaration> methodDeclarations = new ArrayList<>();
+    private static Range classRange;
 
 
     @Override
@@ -101,12 +104,22 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
 
             JavaParser javaParser = new JavaParser();
             ParseResult<CompilationUnit> compilationUnit = javaParser.parse(file);
+            String contents = String.join(NEW_LINE, stubs);
+            int lastLine;
+            int column;
             MethodVisitor methodVisitor = new MethodVisitor();
             methodVisitor.visit(compilationUnit.getResult().get(), null);
-            MethodDeclaration methodDeclaration = methodDeclarations.get(methodDeclarations.size() - 1);
-            int lastLine = methodDeclaration.getRange().get().end.line - 1;
-            int column = methodDeclaration.getRange().get().end.column + 1;
-            String contents = NEW_LINE + String.join(NEW_LINE, stubs);
+            if (!methodDeclarations.isEmpty()) {
+                MethodDeclaration methodDeclaration = methodDeclarations.get(methodDeclarations.size() - 1);
+                lastLine = methodDeclaration.getRange().get().end.line - 1;
+                column = methodDeclaration.getRange().get().end.column + 1;
+                contents = NEW_LINE + contents;
+            } else {
+                new ClassVisitor().visit(compilationUnit.getResult().get(), null);
+                lastLine = classRange.end.line - 1;
+                column = 0;
+                contents = contents + NEW_LINE;
+            }
             Spec.Span.Builder span = Spec.Span.newBuilder()
                     .setStart(lastLine)
                     .setStartChar(column)
@@ -121,10 +134,17 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
         return null;
     }
 
-    private class MethodVisitor extends VoidVisitorAdapter {
+    private static class MethodVisitor extends VoidVisitorAdapter {
         @Override
         public void visit(MethodDeclaration methodDeclaration, Object arg) {
             methodDeclarations.add(methodDeclaration);
+        }
+    }
+
+    private static class ClassVisitor extends VoidVisitorAdapter {
+        @Override
+        public void visit(ClassOrInterfaceDeclaration node, Object arg) {
+            classRange = node.getRange().get();
         }
     }
 }
