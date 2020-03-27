@@ -19,6 +19,13 @@ elif [ ! -z "${JAVA_HOME}" ]; then
     javacCommand="${JAVA_HOME}/bin/${javacCommand}"
 fi
 
+if [[ "$version" < "1.9" ]]; then
+    echo -e "This version of the plugin does not support java version < 1.9";
+    echo -e "Please upgrade your java version or stick to an older version of gauge-java."
+    exit 1;
+fi
+
+
 cd "$project_root"
 
 function get_abs() {
@@ -118,9 +125,10 @@ function start() {
         args="${args} -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=${GAUGE_DEBUG_OPTS},timeout=25000"
         echo -e "\nRunner Ready for Debugging"
     fi
+    version=$("$javacCommand" -version 2>&1 | awk -F '"' '/version/ {print $2}')
     target_file="$TMPDIR$RANDOM-$RANDOM.txt"
-    echo "-cp ${class_path} ${args} com.thoughtworks.gauge.GaugeRuntime --start" > $target_file
-    java @$target_file
+    echo "-cp ${class_path} ${args} com.thoughtworks.gauge.GaugeRuntime --start" >$target_file
+    $javaCommand @$target_file
 }
 
 function init() {
