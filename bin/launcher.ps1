@@ -11,12 +11,12 @@ $javaCommand = "java"
 $javacCommand = "javac"
 
 if ("$env:gauge_java_home" -ne "") {
-    $javaCommand = "$env:gauge_java_home\bin\$javaCommand"
-    $javacCommand = "$env:gauge_java_home\bin\$javacCommand"
+  $javaCommand = "$env:gauge_java_home\bin\$javaCommand"
+  $javacCommand = "$env:gauge_java_home\bin\$javacCommand"
 }
 elseif ("$env:JAVA_HOME" -ne "") {
-    $javaCommand = "$env:JAVA_HOME\bin\$javaCommand"
-    $javacCommand = "$env:JAVA_HOME\bin\$javacCommand"
+  $javaCommand = "$env:JAVA_HOME\bin\$javaCommand"
+  $javacCommand = "$env:JAVA_HOME\bin\$javacCommand"
 }
 
 function AddRunnerInClassPath {
@@ -100,12 +100,15 @@ $tasks.Add('start', {
       AddRunnerInClassPath
       AddClassPathRequiredForExecution
     }
-    $env:CLASSPATH = $global:classpath
     if ("$env:GAUGE_DEBUG_OPTS" -ne "" ) {
       $debugArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=$env:GAUGE_DEBUG_OPTS,timeout=25000"
       Write-Output "`nRunner Ready for Debugging"
     }
-    & $javaCommand `"-Dfile.encoding=UTF-8`" $debugArgs $env:gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start
+    $random = (Get-Random)
+    $targetFile = Join-Path "$env:TEMP" "$random.txt"
+    Write-Output "-cp $global:classpath `"-Dfile.encoding=UTF-8`" $debugArgs $env:gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start" | Out-File $targetFile -Append -Encoding default
+    cp $targetFile ./
+    & $javaCommand "@$targetFile"
     exit
   })
 
