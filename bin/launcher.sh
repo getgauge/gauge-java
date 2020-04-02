@@ -20,8 +20,8 @@ elif [ ! -z "${JAVA_HOME}" ]; then
 fi
 
 if [[ "$version" < "1.9" ]]; then
-    echo -e "This version of the plugin does not support java version < 1.9";
-    echo -e "Please upgrade your java version or stick to an older version of gauge-java."
+    echo -e "This version of gauge-java plugin does not support Java versions < 1.9";
+    echo -e "Please upgrade your Java version or use a version of gauge-java <= v0.7.4"
     exit 1;
 fi
 

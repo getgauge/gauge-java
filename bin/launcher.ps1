@@ -21,14 +21,15 @@ elseif ("$env:JAVA_HOME" -ne "") {
 
 $verison = (Get-Command java | Select-Object -ExpandProperty Version).toString() | Out-String
 
-if ( "$verison" -lt "9" ) {
-  Write-Output "This version of the plugin does not support java version < 1.9";
-  Write-Output "Please upgrade your java version or stick to an older version of gauge-java."
+
+if ( "$verison" -as [int] -lt 9 ) {
+  Write-Output "This version of gauge-java plugin does not support Java versions < 1.9";
+  Write-Output "Please upgrade your Java version or use a version of gauge-java <= v0.7.4"
   exit 1;
 }
 
 function AddRunnerInClassPath {
-  $global:classpath = $global:classpath + "$PluginDir\*" + ";" + "$PluginDir\libs\*"
+  $global:classpath += ";" + "$PluginDir\libs\*"
 }
 
 function GetAdditionalPath() {
@@ -95,6 +96,17 @@ function AddClassPathRequiredForExecution() {
   }
 }
 
+function EscapeSpaceInClasspath {
+  $classpath = $global:classpath.Split(";")
+  $global:classpath = ""
+  foreach ($cp in $classpath.Split(";")) {
+      if ($cp.Contains(" ") ) {
+        $cp = "`"$cp`"" -replace '\\','\\'
+      }
+      $global:classpath+="$cp;"
+  }
+}
+
 $tasks = @{ }
 $tasks.Add('init', {
     if ("$global:classpath" -eq "" ) { AddRunnerInClassPath }
@@ -112,7 +124,8 @@ $tasks.Add('start', {
       $debugArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=$env:GAUGE_DEBUG_OPTS,timeout=25000"
       Write-Output "`nRunner Ready for Debugging"
     }
-
+    EscapeSpaceInClasspath
+    $random = (Get-Random)
     $targetFile = Join-Path "$env:TEMP" "$random.txt"
     Write-Output "-cp $global:classpath `"-Dfile.encoding=UTF-8`" $debugArgs $env:gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start" | Out-File $targetFile -Append -Encoding default
     & $javaCommand "@$targetFile"
