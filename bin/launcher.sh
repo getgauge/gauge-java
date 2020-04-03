@@ -126,7 +126,7 @@ function start() {
         echo -e "\nRunner Ready for Debugging"
     fi
     target_file="$TMPDIR$RANDOM-$RANDOM.txt"
-    echo "-cp ${class_path} ${args} com.thoughtworks.gauge.GaugeRuntime --start" >$target_file
+    echo "-cp \"${class_path}\" ${args} com.thoughtworks.gauge.GaugeRuntime --start" >$target_file
     $javaCommand @$target_file
 }
 
