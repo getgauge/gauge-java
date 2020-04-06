@@ -2,25 +2,34 @@ Param(
   [String]$TaskName # The name of the task to run
 )
 
+$javaCommand = "java"
+$javacCommand = "javac"
+
+if ("$env:gauge_java_home" -ne "") {
+  $javaCommand = "$env:gauge_java_home\bin\$javaCommand"
+  $javacCommand = "$env:gauge_java_home\bin\$javacCommand"
+}
+elseif ("$env:JAVA_HOME" -ne "") {
+  $javaCommand = "$env:JAVA_HOME\bin\$javaCommand"
+  $javacCommand = "$env:JAVA_HOME\bin\$javacCommand"
+}
+
+$verison = (Get-Command $javaCommand | Select-Object -ExpandProperty Version).Major | Out-String
+if ( "$verison" -as [int] -lt 9 ) {
+  Write-Output "This version of the plugin does not support java version < 1.9";
+  Write-Output "Please upgrade your java version or stick to an older version of gauge-java."
+  exit 1;
+}
+
+
 $DefaultBuildDir = "gauge_bin"
 $PluginDir = Get-Location
 $global:classpath = $env:gauge_custom_classpath
 Set-Location $env:GAUGE_PROJECT_ROOT
 
-$javaCommand = "java"
-$javacCommand = "javac"
-
-if ("$env:gauge_java_home" -ne "") {
-    $javaCommand = "$env:gauge_java_home\bin\$javaCommand"
-    $javacCommand = "$env:gauge_java_home\bin\$javacCommand"
-}
-elseif ("$env:JAVA_HOME" -ne "") {
-    $javaCommand = "$env:JAVA_HOME\bin\$javaCommand"
-    $javacCommand = "$env:JAVA_HOME\bin\$javacCommand"
-}
 
 function AddRunnerInClassPath {
-  $global:classpath = $global:classpath + "$PluginDir\*" + ";" + "$PluginDir\libs\*"
+  $global:classpath += "$PluginDir\libs\*"
 }
 
 function GetAdditionalPath() {
@@ -87,6 +96,17 @@ function AddClassPathRequiredForExecution() {
   }
 }
 
+function EscapeSpaceInClasspath {
+  $classpath = $global:classpath.Split(";")
+  $global:classpath = ""
+  foreach ($cp in $classpath.Split(";")) {
+      if ($cp.Contains(" ") ) {
+        $cp = "`"$cp`"" -replace '\\','\\'
+      }
+      $global:classpath+="$cp;"
+  }
+}
+
 $tasks = @{ }
 $tasks.Add('init', {
     if ("$global:classpath" -eq "" ) { AddRunnerInClassPath }
@@ -100,12 +120,15 @@ $tasks.Add('start', {
       AddRunnerInClassPath
       AddClassPathRequiredForExecution
     }
-    $env:CLASSPATH = $global:classpath
     if ("$env:GAUGE_DEBUG_OPTS" -ne "" ) {
       $debugArgs = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=$env:GAUGE_DEBUG_OPTS,timeout=25000"
       Write-Output "`nRunner Ready for Debugging"
     }
-    & $javaCommand `"-Dfile.encoding=UTF-8`" $debugArgs $env:gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start
+    EscapeSpaceInClasspath
+    $random = (Get-Random)
+    $targetFile = Join-Path "$env:TEMP" "$random.txt"
+    Write-Output "-cp $global:classpath `"-Dfile.encoding=UTF-8`" $debugArgs $env:gauge_jvm_args com.thoughtworks.gauge.GaugeRuntime --start" | Out-File $targetFile -Append -Encoding default
+    & $javaCommand "@$targetFile"
     exit
   })
 

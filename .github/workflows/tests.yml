@@ -44,30 +44,11 @@ jobs:
       - name: Setup java
         uses: actions/setup-java@v1
         with:
-          java-version: '1.8'
+          java-version: '12.x.x'
 
-      - name: Setup go 1.13.1
-        uses: actions/setup-go@v1
+      - uses: bugdiver/setup-gauge@master
         with:
-          go-version: 1.13.1
-
-      - name: Install gauge on linux
-        if: matrix.os != 'windows-latest'
-        run: |
-          git clone --depth=1 https://github.com/getgauge/gauge
-          cd gauge
-          go run build/make.go --verbose
-          go run build/make.go --install --prefix=/tmp/
-          echo "::add-path::/tmp/bin"
-
-      - name: Install gauge (windows)
-        if: matrix.os == 'windows-latest'
-        run: |
-          git clone --depth=1 https://github.com/getgauge/gauge
-          cd gauge
-          go run build/make.go --verbose
-          go run build/make.go --install
-          echo "::add-path::C:\Program Files\gauge\bin"
+          gauge-version: master
 
       - name: Install html report
         run: |
@@ -80,6 +61,7 @@ jobs:
         if: matrix.os != 'windows-latest'
         run: |
           ./build.sh forceinstall
+        shell: bash
 
       - name: Install Gauge Java plugin from source
         if: matrix.os == 'windows-latest'
@@ -94,18 +76,11 @@ jobs:
         run: |
           git clone --depth=1 https://github.com/getgauge/gauge-tests
 
-      - name: Run FTs on linux
-        if: matrix.os != 'windows-latest'
+      - name: Run FTs
         run: |
           cd gauge-tests
           ./gradlew clean javaFT
-
-      - name: Run FTs on windows
-        if: matrix.os == 'windows-latest'
-        shell: pwsh
-        run: |
-          cd gauge-tests
-          .\gradlew.bat clean javaFT
+        shell: bash
 
       - uses: actions/upload-artifact@v1
         if: failure()
@@ -132,25 +107,11 @@ jobs:
       - name: Setup java
         uses: actions/setup-java@v1
         with:
-          java-version: '1.8'
+          java-version: '12.x.x'
 
-      - name: Install gauge on linux
-        if: matrix.os != 'windows-latest'
-        run: |
-          git clone https://github.com/getgauge/gauge
-          cd gauge
-          go run build/make.go --verbose
-          go run build/make.go --install --prefix=/tmp/
-          echo "::add-path::/tmp/bin"
-
-      - name: Install gauge (windows)
-        if: matrix.os == 'windows-latest'
-        run: |
-          git clone https://github.com/getgauge/gauge
-          cd gauge
-          go run build/make.go --verbose
-          go run build/make.go --install
-          echo "::add-path::C:\Program Files\gauge\bin"
+      - uses: bugdiver/setup-gauge@master
+        with:
+          gauge-version: master
 
       - name: Install Gauge Java plugin from source
         if: matrix.os != 'windows-latest'
