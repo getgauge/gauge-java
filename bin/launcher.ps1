@@ -16,8 +16,8 @@ elseif ("$env:JAVA_HOME" -ne "") {
 
 $verison = (Get-Command $javaCommand | Select-Object -ExpandProperty Version).Major | Out-String
 if ( "$verison" -as [int] -lt 9 ) {
-  Write-Output "This version of the plugin does not support java version < 1.9";
-  Write-Output "Please upgrade your java version or stick to an older version of gauge-java."
+  Write-Output "This version of gauge-java plugin does not support Java versions < 1.9"
+  Write-Output "Please upgrade your Java version or use a version of gauge-java <= v0.7.4"
   exit 1;
 }
 
