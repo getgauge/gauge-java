@@ -8,19 +8,25 @@ plugin_dir=$(pwd)
 project_root="$GAUGE_PROJECT_ROOT"
 compile_dir="$gauge_custom_compile_dir"
 
-javaCommand=java
-javacCommand=javac
+JAVA_CMD=java
+JAVAC_CMD=javac
 
 if [ ! -z "${gauge_java_home}" ]; then
-    javaCommand="${gauge_java_home}/bin/${javaCommand}"
-    javacCommand="${gauge_java_home}/bin/${javacCommand}"
+    JAVA_CMD="${gauge_java_home}/bin/${JAVA_CMD}"
+    JAVAC_CMD="${gauge_java_home}/bin/${JAVAC_CMD}"
 elif [ ! -z "${JAVA_HOME}" ]; then
-    javaCommand="${JAVA_HOME}/bin/${javaCommand}"
-    javacCommand="${JAVA_HOME}/bin/${javacCommand}"
+    JAVA_CMD="${JAVA_HOME}/bin/${JAVA_CMD}"
+    JAVAC_CMD="${JAVA_HOME}/bin/${JAVAC_CMD}"
 fi
 
-version=$("$javaCommand" -version 2>&1 | awk -F '"' '/version/ {print $2}')
-if [[ "$version" < "1.9" ]]; then
+REQUIRED_MAJOR_VERSION=9 # minimum java version supported
+INSTALLED_JAVA_VERSION=$($JAVA_CMD -version 2>&1 | awk '/version [0-9]*/ {print $3;}')
+
+# Remove double quotes, remove leading "1." if it exists and remove everything apart from the major version number.
+INSTALLED_MAJOR_VERSION=$(echo $INSTALLED_JAVA_VERSION | sed -e 's/"//g' -e 's/^1\.//' -e 's/\..*//')
+
+if (( INSTALLED_MAJOR_VERSION < REQUIRED_MAJOR_VERSION ))
+then
     echo -e "This version of gauge-java plugin does not support Java versions < 1.9";
     echo -e "Please upgrade your Java version or use a version of gauge-java <= v0.7.4"
     exit 1;
@@ -77,7 +83,7 @@ function build_project() {
     echo $(list_files) > $target_file
     args="-encoding UTF-8 -d ${default_build_dir} @${target_file}"
     if [ ! -z  "$(sed '/^$/d' $target_file)" ]; then
-        $javacCommand -cp "$class_path" $args
+        $JAVAC_CMD -cp "$class_path" $args
     fi
     rm $target_file
 }
@@ -127,12 +133,12 @@ function start() {
     fi
     target_file="$TMPDIR$RANDOM-$RANDOM.txt"
     echo "-cp \"${class_path}\" ${args} com.thoughtworks.gauge.GaugeRuntime --start" >$target_file
-    $javaCommand @$target_file
+    $JAVA_CMD @$target_file
 }
 
 function init() {
     add_runner_in_classpath
-    CLASSPATH="${class_path}" $javaCommands com.thoughtworks.gauge.GaugeRuntime --init
+    CLASSPATH="${class_path}" $JAVA_CMDs com.thoughtworks.gauge.GaugeRuntime --init
 }
 
 tasks=(init start)
