@@ -2,10 +2,9 @@
 
 set -e
 
-default_build_dir="gauge_bin"
-class_path="$gauge_custom_classpath"
-plugin_dir=$(pwd)
 project_root="$GAUGE_PROJECT_ROOT"
+default_build_dir="gauge_bin"
+plugin_dir=$(pwd)
 compile_dir="$gauge_custom_compile_dir"
 
 JAVA_CMD=java
@@ -33,6 +32,23 @@ then
 fi
 
 cd "$project_root"
+
+if [ -z "${gauge_custom_classpath}" ]; then
+    GAUGE_MAVEN_POM_FILE="${GAUGE_MAVEN_POM_FILE:-pom.xml}"
+    GAUGE_GRADLE_BUILD_FILE="${GAUGE_GRADLE_BUILD_FILE:-build.gradle}"
+    if test -f $GAUGE_POM_XML; then
+        cp_tmp_file="$TMPDIR$RANDOM-$RANDOM-cp.txt"
+        mvn -q -f GAUGE_MAVEN_POM_FILE -DincludeScope=compile dependency:build-classpath -Dmdep.outputFile=$cp_tmp_file
+        class_path=$(cat $cp_tmp_file)
+    fi
+    if test -f $GAUGE_GRADLE_BUILD_FILE; then
+        ( cat $GAUGE_GRADLE_BUILD_FILE; echo "task printCP { println sourceSets.test.runtimeClasspath.asPath }" ) > build.gradle.temp
+        class_path=$(./gradlew -q -b build.gradle.temp printCP)
+        rm build.gradle.temp
+    fi
+else
+    class_path="$gauge_custom_classpath";
+fi
 
 function get_abs() {
     if [[ "$1" == /* ]]; then
@@ -142,7 +158,7 @@ function init() {
 }
 
 tasks=(init start)
-if [[ " ${tasks[@]} " =~ " $1 " ]]; then
+if [[ " ${tasks[*]} " =~ $1 ]]; then
     $1
     exit 0
 fi
