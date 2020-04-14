@@ -62,15 +62,13 @@ public class MessageProcessorFactory {
     public MessageProcessorFactory(StaticScanner staticScanner) {
         this.staticScanner = staticScanner;
         stepRegistry = staticScanner.getRegistry();
+        ClasspathScanner classpathScanner = new ClasspathScanner();
+        classpathScanner.scan(new StepsScanner(stepRegistry), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
         messageProcessors = initializeMessageProcessor();
+        this.initializeExecutionMessageProcessors();
     }
 
     public IMessageProcessor getProcessor(Messages.Message.MessageType request) {
-        if (request == Messages.Message.MessageType.SuiteDataStoreInit) {
-            ClasspathScanner classpathScanner = new ClasspathScanner();
-            classpathScanner.scan(new StepsScanner(staticScanner.getRegistry()), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
-            this.initializeExecutionMessageProcessors();
-        }
         if (messageProcessors.get().containsKey(request)) {
             return messageProcessors.get().get(request);
         }

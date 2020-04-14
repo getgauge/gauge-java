@@ -39,7 +39,6 @@ public class StepsScanner implements IScanner {
     public void scan(Reflections reflections) {
         Logger.debug("Scanning packages for steps");
         Set<Method> stepImplementations = reflections.getMethodsAnnotatedWith(Step.class);
-        registry.clear();
         buildStepRegistry(stepImplementations);
     }
 
@@ -51,9 +50,17 @@ public class StepsScanner implements IScanner {
                 for (String stepName : annotation.value()) {
                     String parameterizedStep = Util.trimQuotes(stepName);
                     String stepText = stepsUtil.getStepText(parameterizedStep);
+                    boolean isExternal = true;
+                    if (registry.contains(stepText)) {
+                        registry.remove(stepText);
+                        Logger.debug("Found " + stepText + "in current project scope.");
+                        isExternal = false;
+                    } else {
+                        Logger.debug("Loading " + stepText + "via reflected sources.");
+                    }
                     List<String> parameters = stepsUtil.getParameters(parameterizedStep);
                     StepValue stepValue = new StepValue(stepText, parameterizedStep, parameters);
-                    registry.addStepImplementation(stepValue, method);
+                    registry.addStepImplementation(stepValue, method, isExternal);
                 }
             }
         }

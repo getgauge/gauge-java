@@ -31,10 +31,12 @@ public class StepRegistryEntry {
     private String stepText;
     private String name;
     private List<Parameter> parameters;
+    private boolean isExternal;
 
-    public StepRegistryEntry(StepValue stepValue, Method method) {
+    public StepRegistryEntry(StepValue stepValue, Method method, boolean isExternal) {
         this.stepValue = stepValue;
         this.methodInfo = method;
+        this.isExternal = isExternal;
     }
 
     public StepRegistryEntry() {
@@ -68,6 +70,9 @@ public class StepRegistryEntry {
         this.name = name;
     }
 
+    public boolean getIsExternal() {
+        return isExternal;
+    }
 
     public String getFileName() {
         return fileName;

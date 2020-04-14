@@ -39,20 +39,14 @@ public class StepRegistry {
         registry = new ConcurrentHashMap<>();
     }
 
-    public void addStepImplementation(StepValue stepValue, Method method) {
+    public void addStepImplementation(StepValue stepValue, Method method, boolean isExternal) {
         String stepText = stepValue.getStepText();
         registry.putIfAbsent(stepText, new CopyOnWriteArrayList<>());
-        registry.get(stepText).add(new StepRegistryEntry(stepValue, method));
-    }
-
-    public List<String> getAllAliasAnnotationTextsFor(String stepTemplateText) {
-        return registry.values().stream().flatMap(Collection::stream)
-                .filter(registryEntry -> registryEntry.getStepValue().getStepText().equals(stepTemplateText))
-                .map(registryEntry -> registryEntry.getStepValue().getStepAnnotationText()).collect(toList());
+        registry.get(stepText).add(new StepRegistryEntry(stepValue, method, isExternal));
     }
 
     public void clear() {
-        this.registry = new ConcurrentHashMap<>();
+        this.registry.clear();
     }
 
     public boolean contains(String stepTemplateText) {

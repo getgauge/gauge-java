@@ -50,11 +50,11 @@ public class StepRegistryTest {
     @Before
     public void setUp() throws Exception {
         this.stepRegistry = new StepRegistry();
-        this.stepRegistry.addStepImplementation(stepValue1, method1);
-        this.stepRegistry.addStepImplementation(stepValue2, method2);
-        this.stepRegistry.addStepImplementation(stepValue3, method3);
-        this.stepRegistry.addStepImplementation(aliasStep1, aliasMethod);
-        this.stepRegistry.addStepImplementation(aliasStep2, aliasMethod);
+        this.stepRegistry.addStepImplementation(stepValue1, method1, false);
+        this.stepRegistry.addStepImplementation(stepValue2, method2, false);
+        this.stepRegistry.addStepImplementation(stepValue3, method3, false);
+        this.stepRegistry.addStepImplementation(aliasStep1, aliasMethod, false);
+        this.stepRegistry.addStepImplementation(aliasStep2, aliasMethod, false);
     }
 
     @Test
@@ -102,7 +102,7 @@ public class StepRegistryTest {
 
     @Test
     public void testAddedToRawRegistry() {
-        stepRegistry.addStepImplementation(stepValue1, method2);
+        stepRegistry.addStepImplementation(stepValue1, method2, false);
 
         List<StepRegistryEntry> entries = stepRegistry.getAllEntries(stepValue1.getStepText());
 
