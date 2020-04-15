@@ -38,6 +38,7 @@ public class StepRegistryEntry {
         this.stepValue = stepValue;
         this.methodInfo = method;
         this.isExternal = isExternal;
+        this.fullyQualifiedName = method.getDeclaringClass().getName() + "." + method.getName();
     }
 
     public StepRegistryEntry() {

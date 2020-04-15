@@ -53,7 +53,7 @@ public class StepsScanner implements IScanner {
                     String parameterizedStep = Util.trimQuotes(stepName);
                     String stepText = stepsUtil.getStepText(parameterizedStep);
                     if (scannedSteps.contains(stepText)) {
-                        Logger.debug("Found " + stepText + "in current project scope.");
+                        Logger.debug("Found " + stepText + " in current project scope.");
                         StepRegistryEntry entry = registry.get(stepText, method);
                         if (entry != null) {
                             entry.setMethodInfo(method);
