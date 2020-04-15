@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.scan;
 
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.expr.ArrayInitializerExpr;
@@ -29,6 +30,7 @@ import com.thoughtworks.gauge.registry.StepRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
@@ -72,6 +74,10 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
         entry = new StepRegistryEntry();
         entry.setName(methodDeclaration.getDeclarationAsString());
+        String className = getClassName(methodDeclaration);
+        String fullyQualifiedName = className == null
+                ? methodDeclaration.getNameAsString() : className + "." + methodDeclaration.getNameAsString();
+        entry.setFullyQualifiedName(fullyQualifiedName);
         entry.setStepText(parameterizedStep);
         entry.setStepValue(stepValue);
         entry.setParameters(methodDeclaration.getParameters());
@@ -81,6 +87,12 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
         entry.setFileName(file);
 
         stepRegistry.addStep(stepValue, entry);
+    }
+
+    private String getClassName(MethodDeclaration methodDeclaration) {
+        Optional<ClassOrInterfaceDeclaration> methodClass
+                = methodDeclaration.findAncestor(com.github.javaparser.ast.body.ClassOrInterfaceDeclaration.class);
+        return methodClass.isPresent() ? methodClass.get().getNameAsString() : null;
     }
 
     private String getParameterizedStep(Expression expression) {

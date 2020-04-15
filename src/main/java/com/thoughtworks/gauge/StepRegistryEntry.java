@@ -32,6 +32,7 @@ public class StepRegistryEntry {
     private String name;
     private List<Parameter> parameters;
     private boolean isExternal;
+    private String fullyQualifiedName;
 
     public StepRegistryEntry(StepValue stepValue, Method method, boolean isExternal) {
         this.stepValue = stepValue;
@@ -68,6 +69,10 @@ public class StepRegistryEntry {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setMethodInfo(Method method) {
+        this.methodInfo = method;
     }
 
     public boolean getIsExternal() {
@@ -112,5 +117,13 @@ public class StepRegistryEntry {
 
     public String getName() {
         return name;
+    }
+
+    public void setFullyQualifiedName(String fullyQualifiedName) {
+        this.fullyQualifiedName = fullyQualifiedName;
+    }
+
+    public String getFullyQualifiedName() {
+        return fullyQualifiedName;
     }
 }

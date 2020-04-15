@@ -15,6 +15,7 @@
 
 package com.thoughtworks.gauge.registry;
 
+import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import gauge.messages.Messages;
@@ -23,6 +24,7 @@ import gauge.messages.Spec;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -46,8 +48,12 @@ public class StepRegistry {
     }
 
     public void clear() {
-        this.registry.clear();
+        this.registry = new ConcurrentHashMap<>();
     }
+
+    public List<String> keys() {
+        return Collections.list(this.registry.keys());
+    };
 
     public boolean contains(String stepTemplateText) {
         return registry.containsKey(stepTemplateText);
@@ -55,6 +61,18 @@ public class StepRegistry {
 
     public StepRegistryEntry get(String stepTemplateText) {
         return getFirstEntry(stepTemplateText);
+    }
+
+    public StepRegistryEntry get(String stepTemplateText, Method method) {
+        return registry.get(stepTemplateText).stream()
+                .filter(e -> {
+                    String reflectedMethodName = method.getDeclaringClass().getName() + "." + method.getName();
+                    Logger.debug("Comparing '" + e.getFullyQualifiedName() + "' and '"
+                            + reflectedMethodName + "'");
+                    return e.getMethodInfo() == null || e.getFullyQualifiedName().equals(reflectedMethodName);
+                })
+                .findFirst()
+                .get();
     }
 
     private StepRegistryEntry getFirstEntry(String stepTemplateText) {
@@ -93,7 +111,6 @@ public class StepRegistry {
         }
         registry = newRegistry;
     }
-
 
     public void addStep(StepValue stepValue, StepRegistryEntry entry) {
         String stepText = stepValue.getStepText();
