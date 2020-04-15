@@ -71,8 +71,7 @@ public class StepRegistry {
                             + reflectedMethodName + "'");
                     return e.getMethodInfo() == null || e.getFullyQualifiedName().equals(reflectedMethodName);
                 })
-                .findFirst()
-                .get();
+                .findFirst().orElse(null);
     }
 
     private StepRegistryEntry getFirstEntry(String stepTemplateText) {
