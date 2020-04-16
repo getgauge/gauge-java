@@ -69,20 +69,15 @@ public class MessageProcessorFactory {
         for (String stepText : stepRegistry.keys()) {
             Logger.debug("\t" + stepText + " : " + stepRegistry.get(stepText).getName());
         }
-
         messageProcessors = initializeMessageProcessor();
         this.initializeExecutionMessageProcessors();
     }
 
     public IMessageProcessor getProcessor(Messages.Message.MessageType request) {
-        if (request == Messages.Message.MessageType.SuiteDataStoreInit) {
-                ClasspathScanner classpathScanner = new ClasspathScanner();
-                classpathScanner.scan(new StepsScanner(staticScanner.getRegistry()), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
-                this.initializeExecutionMessageProcessors();
-        }
         if (messageProcessors.get().containsKey(request)) {
             return messageProcessors.get().get(request);
         }
+        Logger.warning("MessageProcessor not found for: " + request);
         return new DefaultMessageProcessor();
     }
 

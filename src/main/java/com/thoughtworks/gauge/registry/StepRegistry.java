@@ -69,7 +69,7 @@ public class StepRegistry {
                     String reflectedMethodName = method.getDeclaringClass().getName() + "." + method.getName();
                     Logger.debug("Comparing '" + e.getFullyQualifiedName() + "' and '"
                             + reflectedMethodName + "'");
-                    return e.getMethodInfo() == null || e.getFullyQualifiedName().equals(reflectedMethodName);
+                    return !e.getIsExternal() && e.getFullyQualifiedName().equals(reflectedMethodName);
                 })
                 .findFirst().orElse(null);
     }
@@ -103,7 +103,8 @@ public class StepRegistry {
     public void removeSteps(String fileName) {
         ConcurrentHashMap<String, CopyOnWriteArrayList<StepRegistryEntry>> newRegistry = new ConcurrentHashMap<>();
         for (String key : registry.keySet()) {
-            CopyOnWriteArrayList<StepRegistryEntry> newEntryList = registry.get(key).stream().filter(entry -> !entry.getFileName().equals(fileName)).collect(toCollection(CopyOnWriteArrayList::new));
+            CopyOnWriteArrayList<StepRegistryEntry> newEntryList = registry.get(key).stream()
+                    .filter(entry -> entry.getFileName() != null && !entry.getFileName().equals(fileName)).collect(toCollection(CopyOnWriteArrayList::new));
             if (newEntryList.size() > 0) {
                 newRegistry.put(key, newEntryList);
             }

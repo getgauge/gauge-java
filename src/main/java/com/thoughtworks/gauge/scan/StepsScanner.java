@@ -45,17 +45,16 @@ public class StepsScanner implements IScanner {
 
     private void buildStepRegistry(Set<Method> stepImplementations) {
         StepsUtil stepsUtil = new StepsUtil();
-        List<String> scannedSteps = registry.keys();
         for (Method method : stepImplementations) {
             Step annotation = method.getAnnotation(Step.class);
             if (annotation != null) {
                 for (String stepName : annotation.value()) {
                     String parameterizedStep = Util.trimQuotes(stepName);
                     String stepText = stepsUtil.getStepText(parameterizedStep);
-                    if (scannedSteps.contains(stepText)) {
-                        Logger.debug("Found " + stepText + " in current project scope.");
+                    if (registry.contains(stepText)) {
                         StepRegistryEntry entry = registry.get(stepText, method);
                         if (entry != null) {
+                            Logger.debug("Found " + stepText + " in current project scope.");
                             entry.setMethodInfo(method);
                         } else {
                             addStepEntryToRegistry(stepsUtil, method, parameterizedStep, stepText);
