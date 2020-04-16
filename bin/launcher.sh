@@ -6,6 +6,7 @@ project_root="$GAUGE_PROJECT_ROOT"
 default_build_dir="gauge_bin"
 plugin_dir=$(pwd)
 compile_dir="$gauge_custom_compile_dir"
+TMP_DIR="$(dirname $(mktemp -u))/"
 
 JAVA_CMD=java
 JAVAC_CMD=javac
@@ -95,7 +96,7 @@ function list_files() {
 function build_project() {
     rm -rf $default_build_dir
     mkdir -p $default_build_dir
-    target_file="$TMPDIR$RANDOM-$RANDOM.txt"
+    target_file="$TMP_DIR$RANDOM-$RANDOM.txt"
     echo $(list_files) > $target_file
     args="-encoding UTF-8 -d ${default_build_dir} @${target_file}"
     if [ ! -z  "$(sed '/^$/d' $target_file)" ]; then
@@ -147,9 +148,10 @@ function start() {
         args="${args} -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=${GAUGE_DEBUG_OPTS},timeout=25000"
         echo -e "\nRunner Ready for Debugging"
     fi
-    target_file="$TMPDIR$RANDOM-$RANDOM.txt"
+    target_file="$TMP_DIR$RANDOM-$RANDOM.txt"
     echo "-cp \"${class_path}\" ${args} com.thoughtworks.gauge.GaugeRuntime --start" >$target_file
     $JAVA_CMD @$target_file
+    rm $target_file
 }
 
 function init() {
