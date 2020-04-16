@@ -70,10 +70,12 @@ public class MessageProcessorFactory {
             Logger.debug("\t" + stepText + " : " + stepRegistry.get(stepText).getName());
         }
         messageProcessors = initializeMessageProcessor();
-        this.initializeExecutionMessageProcessors();
     }
 
     public IMessageProcessor getProcessor(Messages.Message.MessageType request) {
+        if (request == Messages.Message.MessageType.SuiteDataStoreInit) {
+            initializeExecutionMessageProcessors();
+        }
         if (messageProcessors.get().containsKey(request)) {
             return messageProcessors.get().get(request);
         }
