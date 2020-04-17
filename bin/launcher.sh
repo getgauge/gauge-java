@@ -38,14 +38,10 @@ if [ -z "${gauge_custom_classpath}" ]; then
     GAUGE_MAVEN_POM_FILE="${GAUGE_MAVEN_POM_FILE:-pom.xml}"
     GAUGE_GRADLE_BUILD_FILE="${GAUGE_GRADLE_BUILD_FILE:-build.gradle}"
     if test -f $GAUGE_MAVEN_POM_FILE; then
-        cp_tmp_file="$TMPDIR$RANDOM-$RANDOM-cp.txt"
-        mvn -q -f $GAUGE_MAVEN_POM_FILE -DincludeScope=compile dependency:build-classpath -Dmdep.outputFile=$cp_tmp_file
-        class_path=$(cat $cp_tmp_file)
+        class_path=$(mvn -q test-compile gauge:classpath)
     fi
     if test -f $GAUGE_GRADLE_BUILD_FILE; then
-        ( cat $GAUGE_GRADLE_BUILD_FILE; echo "task printCP { println sourceSets.test.runtimeClasspath.asPath }" ) > build.gradle.temp
-        class_path=$(./gradlew -q -b build.gradle.temp printCP)
-        rm build.gradle.temp
+        class_path=$(./gradlew -q clean classpath)
     fi
 else
     class_path="$gauge_custom_classpath";
