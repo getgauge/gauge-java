@@ -28,16 +28,9 @@ Set-Location $env:GAUGE_PROJECT_ROOT
 
 if (-not (Test-Path env:gauge_custom_classpath)) {
   if (Test-Path "pom.xml" -PathType Leaf) {
-    $random = (Get-Random)
-    $cpFile = Join-Path "$env:TEMP" "$random-cp.txt"
-    & mvn -q -DincludeScope=compile dependency:build-classpath -Dmdep.outputFile=`"@$cpFile`"
-    $global:classpath = Get-Content $cpFile
-    Remove-Item -force $cpFile
+    $global:classpath = (mvn -q test-compile gauge:classpath)
   } elseif (Test-Path "build.gradle" -PathType Leaf) {
-    Copy-Item .\build.gradle .\build.gradle.temp
-    Add-Content -Path .\build.gradle.temp -Value 'task printCP { println sourceSets.test.runtimeClasspath.asPath }'
-    $global:classpath = (./gradlew -q -b build.gradle.temp printCP)
-    Remove-Item -force build.gradle.temp
+    $global:classpath = (./gradlew -q clean classpath)
   }
 } else {
   $global:classpath = $env:gauge_custom_classpath
