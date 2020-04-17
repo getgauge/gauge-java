@@ -16,14 +16,14 @@
 package com.thoughtworks.gauge.scan;
 
 import com.google.common.base.Charsets;
+import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import org.junit.Test;
 
 import java.io.File;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class StaticScannerTest {
 
@@ -51,6 +51,23 @@ public class StaticScannerTest {
         staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
         assertTrue(registry.contains("This is a step"));
+    }
+
+    @Test
+    public void ShouldAddStepsWithFullyQualifiedName() {
+        String contents = "package com.example.foo;\n" +
+                "public class StepTest {\n" +
+                "   @Step(\"This is \" + \"a step\")\n" +
+                "       public void newstep() {\n" +
+                "       assertThat(2).isEqualTo(2);\n" +
+                "   }\n" +
+                "}";
+        StaticScanner staticScanner = new StaticScanner();
+        staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
+        StepRegistry registry = staticScanner.getRegistry();
+        StepRegistryEntry entry = registry.get("This is a step");
+
+        assertEquals("com.example.foo.StepTest.newstep", entry.getFullyQualifiedName());
     }
 
     @Test

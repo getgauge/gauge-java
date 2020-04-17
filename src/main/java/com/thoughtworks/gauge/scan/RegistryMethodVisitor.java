@@ -15,12 +15,12 @@
 
 package com.thoughtworks.gauge.scan;
 
-import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.expr.ArrayInitializerExpr;
-import com.github.javaparser.ast.expr.BinaryExpr;
 import com.github.javaparser.ast.expr.Expression;
+import com.github.javaparser.ast.expr.BinaryExpr;
+import com.github.javaparser.ast.expr.Name;
 import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.StepRegistryEntry;
@@ -30,7 +30,7 @@ import com.thoughtworks.gauge.registry.StepRegistry;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
@@ -90,9 +90,25 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
     }
 
     private String getClassName(MethodDeclaration methodDeclaration) {
-        Optional<ClassOrInterfaceDeclaration> methodClass
-                = methodDeclaration.findAncestor(com.github.javaparser.ast.body.ClassOrInterfaceDeclaration.class);
-        return methodClass.isPresent() ? methodClass.get().getNameAsString() : null;
+        AtomicReference<String> className = new AtomicReference<>();
+        methodDeclaration.findAncestor(com.github.javaparser.ast.body.ClassOrInterfaceDeclaration.class)
+                .ifPresent(c -> className.set(c.getNameAsString()));
+        String classNameStr = className.get() == null ? null : className.get();
+        if (classNameStr == null) {
+            return null;
+        }
+
+        AtomicReference<Name> packageName = new AtomicReference<>();
+        methodDeclaration.findCompilationUnit()
+                .ifPresent(c -> c.getPackageDeclaration()
+                        .ifPresent(p -> packageName.set(p.getName()))
+                );
+        String packageNameStr = packageName.get() == null ? null : packageName.get().asString();
+
+        if (packageNameStr == null) {
+            return classNameStr;
+        }
+        return packageNameStr + "." + classNameStr;
     }
 
     private String getParameterizedStep(Expression expression) {
