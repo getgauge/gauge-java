@@ -14,8 +14,8 @@ elseif ("$env:JAVA_HOME" -ne "") {
   $javacCommand = "$env:JAVA_HOME\bin\$javacCommand"
 }
 
-$verison = (Get-Command $javaCommand | Select-Object -ExpandProperty Version).Major | Out-String
-if ( "$verison" -as [int] -lt 9 ) {
+$version = (Get-Command $javaCommand | Select-Object -ExpandProperty Version).Major | Out-String
+if ( "$version" -as [int] -lt 9 ) {
   Write-Output "This version of gauge-java plugin does not support Java versions < 1.9"
   Write-Output "Please upgrade your Java version or use a version of gauge-java <= v0.7.4"
   exit 1;
@@ -24,9 +24,17 @@ if ( "$verison" -as [int] -lt 9 ) {
 
 $DefaultBuildDir = "gauge_bin"
 $PluginDir = Get-Location
-$global:classpath = $env:gauge_custom_classpath
 Set-Location $env:GAUGE_PROJECT_ROOT
 
+if (-not (Test-Path env:gauge_custom_classpath)) {
+  if (Test-Path "pom.xml" -PathType Leaf) {
+    $global:classpath = (mvn -q test-compile gauge:classpath)
+  } elseif (Test-Path "build.gradle" -PathType Leaf) {
+    $global:classpath = (./gradlew -q clean classpath)
+  }
+} else {
+  $global:classpath = $env:gauge_custom_classpath
+}
 
 function AddRunnerInClassPath {
   $global:classpath += "$PluginDir\libs\*"
