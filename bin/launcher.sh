@@ -2,10 +2,9 @@
 
 set -e
 
-default_build_dir="gauge_bin"
-class_path="$gauge_custom_classpath"
-plugin_dir=$(pwd)
 project_root="$GAUGE_PROJECT_ROOT"
+default_build_dir="gauge_bin"
+plugin_dir=$(pwd)
 compile_dir="$gauge_custom_compile_dir"
 TMP_DIR="$(dirname $(mktemp -u))/"
 
@@ -34,6 +33,19 @@ then
 fi
 
 cd "$project_root"
+
+if [ -z "${gauge_custom_classpath}" ]; then
+    GAUGE_MAVEN_POM_FILE="${GAUGE_MAVEN_POM_FILE:-pom.xml}"
+    GAUGE_GRADLE_BUILD_FILE="${GAUGE_GRADLE_BUILD_FILE:-build.gradle}"
+    if test -f $GAUGE_MAVEN_POM_FILE; then
+        class_path=$(mvn -q test-compile gauge:classpath)
+    fi
+    if test -f $GAUGE_GRADLE_BUILD_FILE; then
+        class_path=$(./gradlew -q clean classpath)
+    fi
+else
+    class_path="$gauge_custom_classpath";
+fi
 
 function get_abs() {
     if [[ "$1" == /* ]]; then
@@ -144,7 +156,7 @@ function init() {
 }
 
 tasks=(init start)
-if [[ " ${tasks[@]} " =~ " $1 " ]]; then
+if [[ " ${tasks[*]} " =~ $1 ]]; then
     $1
     exit 0
 fi
