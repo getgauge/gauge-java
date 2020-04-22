@@ -7,7 +7,8 @@ default_build_dir="gauge_bin"
 plugin_dir=$(pwd)
 compile_dir="$gauge_custom_compile_dir"
 TMP_DIR="$(dirname $(mktemp -u))/"
-
+MINIUM_GAUGE_MVN_VERSION="1.4.3"
+MINIUM_GAUGE_GRADLE_VERSION="1.8.1"
 JAVA_CMD=java
 JAVAC_CMD=javac
 
@@ -152,15 +153,25 @@ function extract_gauge_plugin_version() {
 }
 
 function validate_plugins_version() {
-    pom_data=$(mvn help:effective-pom )
     installed_gauge_java=$(getInstalledGaugeJavaVersion)
-    gauge_java=$(extract_gauge_plugin_version "$pom_data" "gauge-java")
-    gauge_maven_plugin=$(extract_gauge_plugin_version "$pom_data" "gauge-maven-plugin")
-    if [[ "$installed_gauge_java" != "$gauge_java" ]]; then
-        echo "Installed version of gauge-java($installed_gauge_java) does not match with dependency gauge-java($gauge_java) specified in pom file."
+    if [[ "$1" == "maven" ]]; then
+        pom_data=$(mvn help:effective-pom )
+        gauge_java_version=$(extract_gauge_plugin_version "$pom_data" "gauge-java")
+        gauge_maven_plugin=$(extract_gauge_plugin_version "$pom_data" "gauge-maven-plugin")
+        if [[ "$gauge_maven_plugin" < "$MINIUM_GAUGE_MVN_VERSION" ]]; then
+            echo "Expected gauge-maven-plugin version to be $MINIUM_GAUGE_MVN_VERSION or greater."
+        fi
+    else
+        gradle_data=$(./gradlew -q dependencyInsight --dependency com.thoughtworks)
+        gauge_java_version=$(echo $gradle_data | sed -E -e 's/variant.*//' -e 's/[^0-9.]//g' -e 's/\.+//')
+        gauge_gradle_version=$(awk '!/org.gauge/{$0=""}1' build.gradle | sed -E -e 's/[^0-9.]//g' -e 's/\.+//')
+        if [[ "$gauge_maven_plugin" < "$MINIUM_GAUGE_GRADLE_VERSION" ]]; then
+            echo "Expected gauge-gradle-plugin version to be $MINIUM_GAUGE_GRADLE_VERSION or greater."
+        fi
     fi
-    if [[ "$gauge_maven_plugin" < "1.4.3" ]]; then
-        echo "Expected gauge-maven-plugin version to be 1.4.3 or greater."
+
+    if [[ "$installed_gauge_java" != "$gauge_java_version" ]]; then
+        echo "Installed version of gauge-java($installed_gauge_java) does not match with dependency gauge-java($gauge_java_version) specified in $2 file."
     fi
 }
 
@@ -169,10 +180,11 @@ function set_classpath() {
         GAUGE_MAVEN_POM_FILE="${GAUGE_MAVEN_POM_FILE:-pom.xml}"
         GAUGE_GRADLE_BUILD_FILE="${GAUGE_GRADLE_BUILD_FILE:-build.gradle}"
         if test -f $GAUGE_MAVEN_POM_FILE; then
-            validate_plugins_version
+            validate_plugins_version "maven" "$GAUGE_MAVEN_POM_FILE"
             class_path=$(mvn -q test-compile gauge:classpath)
         fi
         if test -f $GAUGE_GRADLE_BUILD_FILE; then
+            validate_plugins_version "gradle" "$GAUGE_GRADLE_BUILD_FILE"
             class_path=$(./gradlew -q clean classpath)
         fi
     else
@@ -202,7 +214,7 @@ function start() {
 
 function init() {
     add_runner_in_classpath
-    CLASSPATH="${class_path}" $JAVA_CMDs com.thoughtworks.gauge.GaugeRuntime --init
+    CLASSPATH="${class_path}" $JAVA_CMD com.thoughtworks.gauge.GaugeRuntime --init
 }
 
 tasks=(init start)
