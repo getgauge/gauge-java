@@ -34,19 +34,6 @@ fi
 
 cd "$project_root"
 
-if [ -z "${gauge_custom_classpath}" ]; then
-    GAUGE_MAVEN_POM_FILE="${GAUGE_MAVEN_POM_FILE:-pom.xml}"
-    GAUGE_GRADLE_BUILD_FILE="${GAUGE_GRADLE_BUILD_FILE:-build.gradle}"
-    if test -f $GAUGE_MAVEN_POM_FILE; then
-        class_path=$(mvn -q test-compile gauge:classpath)
-    fi
-    if test -f $GAUGE_GRADLE_BUILD_FILE; then
-        class_path=$(./gradlew -q clean classpath)
-    fi
-else
-    class_path="$gauge_custom_classpath";
-fi
-
 function get_abs() {
     if [[ "$1" == /* ]]; then
         echo "$1"
@@ -130,7 +117,24 @@ function add_runner_in_classpath() {
     class_path="${class_path}:${plugin_dir}/libs/*"
 }
 
+function set_classpath() {
+    if [ -z "${gauge_custom_classpath}" ]; then
+        GAUGE_MAVEN_POM_FILE="${GAUGE_MAVEN_POM_FILE:-pom.xml}"
+        GAUGE_GRADLE_BUILD_FILE="${GAUGE_GRADLE_BUILD_FILE:-build.gradle}"
+        if test -f $GAUGE_MAVEN_POM_FILE; then
+            echo "=========Gauge Maven============="
+            class_path=$(mvn -q test-compile gauge:classpath)
+        fi
+        if test -f $GAUGE_GRADLE_BUILD_FILE; then
+            echo "=========Gauge Gradle============="
+            class_path=$(./gradlew -q clean classpath)
+        fi
+    else
+        class_path="$gauge_custom_classpath";
+    fi
+}
 function start() {
+    set_classpath
     if [ -z "${class_path}" ]; then
         add_runner_in_classpath
         add_class_path_required_for_execution
