@@ -36,11 +36,29 @@ public class StepRegistryTest {
     private StepValue aliasStep1 = new StepValue("first step name with name <a>", "first step name with name {}");
     private StepValue aliasStep2 = new StepValue("second step name with <b>", "second step name with {}");
 
-    private Method method1 = TestStepImplClass.class.getMethods()[0];
-    private Method method2 = TestStepImplClass.class.getMethods()[1];
-    private Method method3 = TestStepImplClass.class.getMethods()[2];
-    private Method aliasMethod = TestStepImplClass.class.getMethods()[3];
-
+    private Method[] methods = TestStepImplClass.class.getMethods();
+    private Method method1;
+    private Method method2;
+    private Method method3;
+    private Method aliasMethod;
+    {
+        for (Method m : methods) {
+            switch (m.getName()){
+                case "helloWorld":
+                    method1 = m;
+                    break;
+                case "helloWorldWithOneParam":
+                    method2 = m;
+                    break;
+                case "helloWorldWithTwoParams":
+                    method3 = m;
+                    break;
+                case "aliasMethod":
+                    aliasMethod = m;
+                    break;
+            }
+        }
+    }
     private StepRegistry stepRegistry;
 
     @Before
