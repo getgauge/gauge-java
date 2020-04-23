@@ -52,22 +52,22 @@ public class StepsScanner implements IScanner {
                     String parameterizedStep = Util.trimQuotes(stepName);
                     String stepText = stepsUtil.getStepText(parameterizedStep);
                     if (registry.contains(stepText)) {
-                        StepRegistryEntry entry = registry.get(stepText, method);
+                        StepRegistryEntry entry = registry.getForCurrentProject(stepText, method);
                         if (entry != null) {
                             Logger.debug("Found " + stepText + " in current project scope.");
                             entry.setMethodInfo(method);
                         } else {
-                            addStepEntryToRegistry(stepsUtil, method, parameterizedStep, stepText);
+                            addExternalStepEntryToRegistry(stepsUtil, method, parameterizedStep, stepText);
                         }
                     } else {
-                        addStepEntryToRegistry(stepsUtil, method, parameterizedStep, stepText);
+                        addExternalStepEntryToRegistry(stepsUtil, method, parameterizedStep, stepText);
                     }
                 }
             }
         }
     }
 
-    private void addStepEntryToRegistry(StepsUtil stepsUtil, Method method, String parameterizedStep, String stepText) {
+    private void addExternalStepEntryToRegistry(StepsUtil stepsUtil, Method method, String parameterizedStep, String stepText) {
         Logger.debug("Loading " + stepText + "via reflected sources.");
         List<String> parameters = stepsUtil.getParameters(parameterizedStep);
         StepValue stepValue = new StepValue(stepText, parameterizedStep, parameters);

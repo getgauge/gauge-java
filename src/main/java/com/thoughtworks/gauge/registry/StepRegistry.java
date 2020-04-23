@@ -63,7 +63,7 @@ public class StepRegistry {
         return getFirstEntry(stepTemplateText);
     }
 
-    public StepRegistryEntry get(String stepTemplateText, Method method) {
+    public StepRegistryEntry getForCurrentProject(String stepTemplateText, Method method) {
         return registry.get(stepTemplateText).stream()
                 .filter(e -> {
                     String reflectedMethodName = method.getDeclaringClass().getName() + "." + method.getName();

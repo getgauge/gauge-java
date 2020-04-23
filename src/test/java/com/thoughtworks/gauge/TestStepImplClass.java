@@ -22,12 +22,12 @@ public class TestStepImplClass {
     }
 
     @Step("hello world <param0>")
-    public int helloWorld(int i) {
+    public int helloWorldWithOneParam(int i) {
         return 0;
     }
 
     @Step("a step with <param0> and <table>")
-    public Table helloWorld(String a, Table table) {
+    public Table helloWorldWithTwoParams(String a, Table table) {
         return null;
     }
 
