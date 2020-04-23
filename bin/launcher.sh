@@ -156,7 +156,7 @@ function validate_plugins_version() {
     installed_gauge_java=$(getInstalledGaugeJavaVersion)
     if [[ "$1" == "maven" ]]; then
         pom_data=$(mvn help:effective-pom )
-        gauge_java_version=$(extract_gauge_plugin_version "$pom_data" "gauge-java")
+        gauge_java_version=$(mvn dependency:tree -Dincludes=com.thoughtworks.gauge:gauge-java | awk '!/gauge-java/{$0=""}1' | sed -e '/^$/d' -e 's/[^0-9.]//g' -e 's/\.*//')
         gauge_maven_plugin=$(extract_gauge_plugin_version "$pom_data" "gauge-maven-plugin")
         if [[ "$gauge_maven_plugin" < "$MINIUM_GAUGE_MVN_VERSION" ]]; then
             echo "Expected gauge-maven-plugin version to be $MINIUM_GAUGE_MVN_VERSION or greater."

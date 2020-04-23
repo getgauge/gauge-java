@@ -52,7 +52,7 @@ function ValidatePluginsVersion() {
   $installed_gauge_java_version=((gauge -v -m | ConvertFrom-Json).plugins | Where-Object { $_.name -eq "java" }).version
   if ( $BuildToolName -match "maven" ) {
       $pom_data=mvn help:effective-pom
-      $gauge_java_version=ExtractGaugePluginVersion -PomData $pom_data -GaugePluginName "gauge-java"
+      $gauge_java_version=(mvn dependency:tree -Dincludes="com.thoughtworks.gauge:gauge-java" | Where-Object { $_ -match "gauge:gauge-java" }) -replace '[a-zA-Z]+.|[^0-9.]', ''
       $gauge_mvn_version=ExtractGaugePluginVersion -PomData $pom_data -GaugePluginName "gauge-maven-plugin"
       if ( $gauge_mvn_version -lt $MINIUM_GAUGE_MVN_VERSION ) {
         Write-Output "Expected gauge-maven-plugin version to be $MINIUM_GAUGE_MVN_VERSION or greater. $gauge_mvn_version"
