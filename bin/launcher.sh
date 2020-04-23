@@ -11,6 +11,8 @@ MINIUM_GAUGE_MVN_VERSION="1.4.3"
 MINIUM_GAUGE_GRADLE_VERSION="1.8.1"
 JAVA_CMD=java
 JAVAC_CMD=javac
+GAUGE_MAVEN_POM_FILE="${GAUGE_MAVEN_POM_FILE:-pom.xml}"
+GAUGE_GRADLE_BUILD_FILE="${GAUGE_GRADLE_BUILD_FILE:-build.gradle}"
 
 if [ ! -z "${gauge_java_home}" ]; then
     JAVA_CMD="${gauge_java_home}/bin/${JAVA_CMD}"
@@ -177,14 +179,10 @@ function validate_plugins_version() {
 
 function set_classpath() {
     if [ -z "${gauge_custom_classpath}" ]; then
-        GAUGE_MAVEN_POM_FILE="${GAUGE_MAVEN_POM_FILE:-pom.xml}"
-        GAUGE_GRADLE_BUILD_FILE="${GAUGE_GRADLE_BUILD_FILE:-build.gradle}"
         if test -f $GAUGE_MAVEN_POM_FILE; then
-            validate_plugins_version "maven" "$GAUGE_MAVEN_POM_FILE"
             class_path=$(mvn -q test-compile gauge:classpath)
         fi
         if test -f $GAUGE_GRADLE_BUILD_FILE; then
-            validate_plugins_version "gradle" "$GAUGE_GRADLE_BUILD_FILE"
             class_path=$(./gradlew -q clean classpath)
         fi
     else
@@ -192,6 +190,11 @@ function set_classpath() {
     fi
 }
 function start() {
+     if test -f $GAUGE_MAVEN_POM_FILE; then
+        validate_plugins_version "maven" "$GAUGE_MAVEN_POM_FILE"
+    elif test -f $GAUGE_GRADLE_BUILD_FILE; then
+        validate_plugins_version "gradle" "$GAUGE_GRADLE_BUILD_FILE"
+    fi
     set_classpath
     if [ -z "${class_path}" ]; then
         add_runner_in_classpath
