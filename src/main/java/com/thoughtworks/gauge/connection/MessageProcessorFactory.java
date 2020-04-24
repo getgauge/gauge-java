@@ -17,6 +17,7 @@ package com.thoughtworks.gauge.connection;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.Gauge;
+import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.processor.CacheFileRequestProcessor;
@@ -62,18 +63,23 @@ public class MessageProcessorFactory {
     public MessageProcessorFactory(StaticScanner staticScanner) {
         this.staticScanner = staticScanner;
         stepRegistry = staticScanner.getRegistry();
+        ClasspathScanner classpathScanner = new ClasspathScanner();
+        classpathScanner.scan(new StepsScanner(stepRegistry), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
+        Logger.debug("Scanned steps: ");
+        for (String stepText : stepRegistry.keys()) {
+            Logger.debug("\t" + stepText + " : " + stepRegistry.get(stepText).getName());
+        }
         messageProcessors = initializeMessageProcessor();
     }
 
     public IMessageProcessor getProcessor(Messages.Message.MessageType request) {
         if (request == Messages.Message.MessageType.SuiteDataStoreInit) {
-            ClasspathScanner classpathScanner = new ClasspathScanner();
-            classpathScanner.scan(new StepsScanner(staticScanner.getRegistry()), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
-            this.initializeExecutionMessageProcessors();
+            initializeExecutionMessageProcessors();
         }
         if (messageProcessors.get().containsKey(request)) {
             return messageProcessors.get().get(request);
         }
+        Logger.warning("MessageProcessor not found for: " + request);
         return new DefaultMessageProcessor();
     }
 
@@ -105,7 +111,7 @@ public class MessageProcessorFactory {
         mps.put(Messages.Message.MessageType.ScenarioExecutionEnding, new ScenarioExecutionEndingProcessor(instanceManager.get()));
         mps.put(Messages.Message.MessageType.StepExecutionStarting, new StepExecutionStartingProcessor(instanceManager.get()));
         mps.put(Messages.Message.MessageType.StepExecutionEnding, new StepExecutionEndingProcessor(instanceManager.get()));
-        mps.put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager.get(), chain, staticScanner.getRegistry()));
+        mps.put(Messages.Message.MessageType.ExecuteStep, new ExecuteStepProcessor(instanceManager.get(), chain, stepRegistry));
         mps.put(Messages.Message.MessageType.SuiteDataStoreInit, new DataStoreInitializer());
         mps.put(Messages.Message.MessageType.SpecDataStoreInit, new DataStoreInitializer());
         mps.put(Messages.Message.MessageType.ScenarioDataStoreInit, new DataStoreInitializer());
