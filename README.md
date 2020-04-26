@@ -85,10 +85,9 @@ The deployments are managed via Github Actions. Whenever a PR is merged and cont
 
 ## License
 
-This program is dual-licensed under:
-1. the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version;
-or
-2. the Eclipse Public License v1.0. You can redistribute it and/or modify it under the terms of either license.
+This program is licensed under:
+
+Apache License, Version 2.0
 
 ## Copyright
 
