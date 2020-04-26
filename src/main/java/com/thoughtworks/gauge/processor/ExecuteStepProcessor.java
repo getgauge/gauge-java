@@ -6,6 +6,7 @@
 package com.thoughtworks.gauge.processor;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
+import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.MessageCollector;
 import com.thoughtworks.gauge.ScreenshotCollector;
 import com.thoughtworks.gauge.execution.ExecutionPipeline;
@@ -31,7 +32,9 @@ public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implem
     }
 
     public Messages.Message process(Messages.Message message) {
-        Method method = registry.get(message.getExecuteStepRequest().getParsedStepText()).getMethodInfo();
+        String stepText = message.getExecuteStepRequest().getParsedStepText();
+        Method method = registry.get(stepText).getMethodInfo();
+        Logger.debug("Executing '" + stepText + "' using '" + method.getDeclaringClass() + "." + method.getName());
         ExecutionPipeline pipeline = new ExecutionPipeline(new HookExecutionStage(HooksRegistry.getBeforeClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));
         pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest(), getInstanceManager(), chain, registry),
                 new HookExecutionStage(HooksRegistry.getAfterClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));

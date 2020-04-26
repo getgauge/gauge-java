@@ -8,12 +8,6 @@ package com.thoughtworks.gauge.registry;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.TestStepImplClass;
-import junit.framework.TestCase;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -21,6 +15,8 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class StepRegistryTest {
 
@@ -30,25 +26,43 @@ public class StepRegistryTest {
     private StepValue aliasStep1 = new StepValue("first step name with name <a>", "first step name with name {}");
     private StepValue aliasStep2 = new StepValue("second step name with <b>", "second step name with {}");
 
-    private Method method1 = TestStepImplClass.class.getMethods()[0];
-    private Method method2 = TestStepImplClass.class.getMethods()[1];
-    private Method method3 = TestStepImplClass.class.getMethods()[2];
-    private Method aliasMethod = TestStepImplClass.class.getMethods()[3];
-
+    private Method[] methods = TestStepImplClass.class.getMethods();
+    private Method method1;
+    private Method method2;
+    private Method method3;
+    private Method aliasMethod;
+    {
+        for (Method m : methods) {
+            switch (m.getName()){
+                case "helloWorld":
+                    method1 = m;
+                    break;
+                case "helloWorldWithOneParam":
+                    method2 = m;
+                    break;
+                case "helloWorldWithTwoParams":
+                    method3 = m;
+                    break;
+                case "aliasMethod":
+                    aliasMethod = m;
+                    break;
+            }
+        }
+    }
     private StepRegistry stepRegistry;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         this.stepRegistry = new StepRegistry();
-        this.stepRegistry.addStepImplementation(stepValue1, method1);
-        this.stepRegistry.addStepImplementation(stepValue2, method2);
-        this.stepRegistry.addStepImplementation(stepValue3, method3);
-        this.stepRegistry.addStepImplementation(aliasStep1, aliasMethod);
-        this.stepRegistry.addStepImplementation(aliasStep2, aliasMethod);
+        this.stepRegistry.addStepImplementation(stepValue1, method1, false);
+        this.stepRegistry.addStepImplementation(stepValue2, method2, false);
+        this.stepRegistry.addStepImplementation(stepValue3, method3, false);
+        this.stepRegistry.addStepImplementation(aliasStep1, aliasMethod, false);
+        this.stepRegistry.addStepImplementation(aliasStep2, aliasMethod, false);
     }
 
     @Test
-    public void testAddingStepImplementationToRegistry() throws Exception {
+    public void testAddingStepImplementationToRegistry() {
         assertTrue(stepRegistry.contains(stepValue1.getStepText()));
         assertTrue(stepRegistry.contains(stepValue2.getStepText()));
         assertTrue(stepRegistry.contains(stepValue3.getStepText()));
@@ -62,7 +76,7 @@ public class StepRegistryTest {
     }
 
     @Test
-    public void testGetAllStepTexts() throws Exception {
+    public void testGetAllStepTexts() {
         List<String> stepTexts = stepRegistry.getAllStepAnnotationTexts();
         assertEquals(5, stepTexts.size());
         assertTrue(stepTexts.contains(stepValue1.getStepText()));
@@ -73,7 +87,7 @@ public class StepRegistryTest {
     }
 
     @Test
-    public void testGetStepAnnotationFor() throws Exception {
+    public void testGetStepAnnotationFor() {
         assertEquals(stepValue1.getStepAnnotationText(), stepRegistry.getStepAnnotationFor(stepValue1.getStepText()));
         assertEquals(stepValue2.getStepAnnotationText(), stepRegistry.getStepAnnotationFor(stepValue2.getStepText()));
         assertEquals(stepValue3.getStepAnnotationText(), stepRegistry.getStepAnnotationFor(stepValue3.getStepText()));
@@ -83,7 +97,7 @@ public class StepRegistryTest {
     }
 
     @Test
-    public void testRemoveEntry() throws Exception {
+    public void testRemoveEntry() {
         stepRegistry.remove(stepValue1.getStepText());
         assertFalse(stepRegistry.contains(stepValue1.getStepText()));
         assertNull(stepRegistry.get(stepValue1.getStepText()).getMethodInfo());
@@ -92,7 +106,7 @@ public class StepRegistryTest {
 
     @Test
     public void testAddedToRawRegistry() {
-        stepRegistry.addStepImplementation(stepValue1, method2);
+        stepRegistry.addStepImplementation(stepValue1, method2, false);
 
         List<StepRegistryEntry> entries = stepRegistry.getAllEntries(stepValue1.getStepText());
 
@@ -101,7 +115,7 @@ public class StepRegistryTest {
     }
 
     @Test
-    public void TestIsFileCached() {
+    public void testIsFileCached() {
         stepRegistry.get(stepValue1.getStepText()).setFileName("/somepath/file1.java");
         stepRegistry.get(stepValue2.getStepText()).setFileName("/somepath/file2.java");
         stepRegistry.get(stepValue3.getStepText()).setFileName("/somepath/file1.java");
@@ -112,8 +126,27 @@ public class StepRegistryTest {
         assertFalse(stepRegistry.isFileCached("/someotherpath/file2.java"));
     }
 
+    @Test
+    public void testGetForCurrentProject() {
+        stepRegistry.addStepImplementation(stepValue1, method2, false);
+
+        StepRegistryEntry entry = stepRegistry.getForCurrentProject(stepValue1.getStepText(), method2);
+
+        assertNotNull(entry);
+        assertEquals("com.thoughtworks.gauge.TestStepImplClass.helloWorldWithOneParam", entry.getFullyQualifiedName());
+    }
+
+    @Test
+    public void testGetForCurrentProjectIgnoresExternal() {
+        stepRegistry.addStepImplementation(stepValue1, method1, true);
+
+        StepRegistryEntry entry = stepRegistry.getForCurrentProject(stepValue1.getStepText(), method2);
+
+        assertNull(entry);
+    }
+
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         stepRegistry.remove(stepValue1.getStepText());
         stepRegistry.remove(stepValue2.getStepText());
         stepRegistry.remove(stepValue3.getStepText());
