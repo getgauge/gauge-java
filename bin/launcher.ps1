@@ -58,7 +58,7 @@ function ValidatePluginsVersion() {
         Write-Output "Expected gauge-maven-plugin version to be $MINIUM_GAUGE_MVN_VERSION or greater. $gauge_mvn_version"
       }
   } else {
-      $gauge_java_version=(./gradlew -q dependencyInsight --dependency com.thoughtworks | Select-Object -First 1) -replace "[a-zA-Z]+.", ""
+      $gauge_java_version=(./gradlew -q dependencyInsight --dependency com.thoughtworks.gauge  --configuration testCompileClasspath | Select-Object -First 1) -replace "[a-zA-Z]+.", ""
       $gauge_gradle_version=(Get-Content .\build.gradle | Where-Object { $_  -match ".*org.gauge.*[0-9.]+" } ) -replace '[a-zA-Z]+.|[^0-9.]', ''
       if ( $gauge_gradle_version -lt $MINIUM_GAUGE_GRADLE_VERSION ) {
         Write-Output "Expected gauge-gradle-plugin version to be $MINIUM_GAUGE_GRADLE_VERSION or greater."

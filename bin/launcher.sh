@@ -164,7 +164,7 @@ function validate_plugins_version() {
             echo "Expected gauge-maven-plugin version to be $MINIUM_GAUGE_MVN_VERSION or greater."
         fi
     else
-        gradle_data=$(./gradlew -q dependencyInsight --dependency com.thoughtworks)
+        gradle_data=$(./gradlew -q dependencyInsight --dependency com.thoughtworks.gauge --configuration testCompileClasspath)
         gauge_java_version=$(echo $gradle_data | sed -E -e 's/variant.*//' -e 's/[^0-9.]//g' -e 's/\.+//')
         gauge_gradle_version=$(awk '!/org.gauge/{$0=""}1' build.gradle | sed -E -e 's/[^0-9.]//g' -e 's/\.+//')
         if [[ "$gauge_maven_plugin" < "$MINIUM_GAUGE_GRADLE_VERSION" ]]; then
