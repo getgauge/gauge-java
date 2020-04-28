@@ -1,6 +1,7 @@
 #! /bin/bash
 
 set -e
+set -f
 
 project_root="$GAUGE_PROJECT_ROOT"
 default_build_dir="gauge_bin"
