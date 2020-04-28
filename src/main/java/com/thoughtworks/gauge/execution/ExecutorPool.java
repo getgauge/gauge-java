@@ -8,16 +8,15 @@ package com.thoughtworks.gauge.execution;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ExecutorPool {
-    private Map<String, TaskExecutor> executors = new HashMap<>();
+    private Map<String, ExecutorService> executors = new HashMap<>();
 
     public ExecutorPool(int size) {
         for (int count = 1; count <= size; count++) {
-            String threadName = getName(count);
-            TaskExecutor executor = new TaskExecutor(threadName);
-            executors.put(threadName, executor);
-            executor.start();
+            executors.put(getName(count), Executors.newSingleThreadExecutor());
         }
     }
 
@@ -25,15 +24,13 @@ public class ExecutorPool {
         return "Executor-" + count;
     }
 
-    public void execute(int stream, Runnable task) throws Exception {
-        executors.get(getName(stream)).submitTask(task);
+    public void execute(int stream, Runnable task) {
+        executors.get(getName(stream)).execute(task);
     }
 
-    public void stopAfterCompletion() throws InterruptedException {
-        for (Map.Entry<String, TaskExecutor> entry : executors.entrySet()) {
-            TaskExecutor value = entry.getValue();
-            value.stopThread();
-            value.join();
+    public void stopAfterCompletion() {
+        for (Map.Entry<String, ExecutorService> entry : executors.entrySet()) {
+            entry.getValue().shutdown();
         }
     }
 }
