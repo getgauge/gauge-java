@@ -4,6 +4,8 @@ Param(
 
 $javaCommand = "java"
 $javacCommand = "javac"
+$MINIUM_GAUGE_MVN_VERSION="1.4.3"
+$MINIUM_GAUGE_GRADLE_VERSION="1.8.1"
 
 if ("$env:gauge_java_home" -ne "") {
   $javaCommand = "$env:gauge_java_home\bin\$javaCommand"
@@ -26,14 +28,66 @@ $DefaultBuildDir = "gauge_bin"
 $PluginDir = Get-Location
 Set-Location $env:GAUGE_PROJECT_ROOT
 
-if (-not (Test-Path env:gauge_custom_classpath)) {
-  if (Test-Path "pom.xml" -PathType Leaf) {
-    $global:classpath = (mvn -q test-compile gauge:classpath)
-  } elseif (Test-Path "build.gradle" -PathType Leaf) {
-    $global:classpath = (./gradlew -q clean classpath)
+function ExtractGaugePluginVersion() {
+  param(
+      $PomData,
+      $GaugePluginName
+  )
+  foreach ($line in $PomData) {
+      if($line -match "$GaugePluginName"){
+          $is_gauge_plugin_version_entry="true"
+      }
+      elseif ($is_gauge_plugin_version_entry -match "true")  {
+          $gaugeplugin_version=$line  -replace "[^0-9.]", ""
+          return $gaugeplugin_version
+      }
   }
-} else {
-  $global:classpath = $env:gauge_custom_classpath
+}
+
+function ValidatePluginsVersion() {
+  param(
+    $BuildToolName,
+    $BuildFileName
+  )
+  $installed_gauge_java_version=((gauge -v -m | ConvertFrom-Json).plugins | Where-Object { $_.name -eq "java" }).version
+  if ( $BuildToolName -match "maven" ) {
+      $pom_data=mvn help:effective-pom
+      $gauge_java_version=(mvn dependency:tree -Dincludes="com.thoughtworks.gauge:gauge-java" | Where-Object { $_ -match "gauge:gauge-java" }) -replace '[a-zA-Z]+.|[^0-9.]', ''
+      $gauge_mvn_version=ExtractGaugePluginVersion -PomData $pom_data -GaugePluginName "gauge-maven-plugin"
+      if ( $gauge_mvn_version -lt $MINIUM_GAUGE_MVN_VERSION ) {
+        Write-Output "Expected gauge-maven-plugin version to be $MINIUM_GAUGE_MVN_VERSION or greater. $gauge_mvn_version"
+      }
+  } else {
+      $gauge_java_version=(./gradlew -q dependencyInsight --dependency com.thoughtworks.gauge  --configuration testCompileClasspath | Select-Object -First 1) -replace "[a-zA-Z]+.", ""
+      $gauge_gradle_version=(Get-Content .\build.gradle | Where-Object { $_  -match ".*org.gauge.*[0-9.]+" } ) -replace '[a-zA-Z]+.|[^0-9.]', ''
+      if ( $gauge_gradle_version -lt $MINIUM_GAUGE_GRADLE_VERSION ) {
+        Write-Output "Expected gauge-gradle-plugin version to be $MINIUM_GAUGE_GRADLE_VERSION or greater."
+      }
+  }
+
+  if ( $installed_gauge_java_version -notmatch $gauge_java_version ) {
+    Write-Output "Installed version of gauge-java($installed_gauge_java_version) does not match with dependency gauge-java($gauge_java_version) specified in $BuildFileName file."
+  }
+ }
+
+function IsMavenProject(){
+  Test-Path "pom.xml" -PathType Leaf
+}
+
+function IsGradleProject(){
+  Test-Path "build.gradle" -PathType Leaf
+}
+
+function SetClasspath() {
+  if (-not (Test-Path env:gauge_custom_classpath)) {
+    if (IsMavenProject) {
+      $global:classpath = (mvn -q test-compile gauge:classpath)
+    } elseif (IsGradleProject) {
+      $global:classpath = (./gradlew -q clean classpath)
+    }
+  } else {
+    $global:classpath = $env:gauge_custom_classpath
+  }
 }
 
 function AddRunnerInClassPath {
@@ -124,6 +178,12 @@ $tasks.Add('init', {
   })
 
 $tasks.Add('start', {
+    if (IsMavenProject) {
+      ValidatePluginsVersion -BuildToolName "maven" -BuildFileName "pom.xml"
+    } elseif (IsGradleProject) {
+      ValidatePluginsVersion -BuildToolName "gradle" -BuildFileName "build.gradle"
+    }
+    SetClasspath
     if ("$global:classpath" -eq "") {
       AddRunnerInClassPath
       AddClassPathRequiredForExecution
