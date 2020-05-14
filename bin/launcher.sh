@@ -6,9 +6,8 @@ project_root="$GAUGE_PROJECT_ROOT"
 default_build_dir="gauge_bin"
 plugin_dir=$(pwd)
 compile_dir="$gauge_custom_compile_dir"
-TMP_DIR="$(dirname $(mktemp -u))/"
-MINIUM_GAUGE_MVN_VERSION="1.4.3"
-MINIUM_GAUGE_GRADLE_VERSION="1.8.1"
+TMP_DIR="$(dirname $(mktemp -u))"
+
 JAVA_CMD=java
 JAVAC_CMD=javac
 GAUGE_MAVEN_POM_FILE="${GAUGE_MAVEN_POM_FILE:-pom.xml}"
@@ -81,7 +80,7 @@ list_files() {
 build_project() {
     rm -rf $default_build_dir
     mkdir -p $default_build_dir
-    target_file="$TMP_DIR$RANDOM-$RANDOM.txt"
+    target_file=$(create_temp_file)
     echo $(list_files) > $target_file
     args="-encoding UTF-8 -d ${default_build_dir} @${target_file}"
     if [ ! -z  "$(sed '/^$/d' $target_file)" ]; then
@@ -112,6 +111,10 @@ add_class_path_required_for_execution() {
         fi
         class_path="${class_path}:$(get_abs ${default_build_dir})"
     fi
+}
+
+create_temp_file() {
+    echo `mktemp $TMP_DIR/gauge-java-args-file.XXXXX`
 }
 
 add_runner_in_classpath() {
@@ -209,7 +212,7 @@ function start() {
         args="${args} -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=${GAUGE_DEBUG_OPTS},timeout=25000"
         echo -e "\nRunner Ready for Debugging"
     fi
-    target_file="$TMP_DIR$RANDOM-$RANDOM.txt"
+    target_file=$(create_temp_file)
     echo "-cp \"${class_path}\" ${args} com.thoughtworks.gauge.GaugeRuntime --start" >$target_file
     $JAVA_CMD @$target_file
     rm $target_file
