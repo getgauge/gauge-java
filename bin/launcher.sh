@@ -28,7 +28,7 @@ INSTALLED_JAVA_VERSION=$($JAVA_CMD -version 2>&1 | awk '/version [0-9]*/ {print 
 # Remove double quotes, remove leading "1." if it exists and remove everything apart from the major version number.
 INSTALLED_MAJOR_VERSION=$(echo $INSTALLED_JAVA_VERSION | sed -e 's/"//g' -e 's/^1\.//' -e 's/\..*//')
 
-if (( INSTALLED_MAJOR_VERSION < REQUIRED_MAJOR_VERSION ))
+if [ $INSTALLED_MAJOR_VERSION -lt $REQUIRED_MAJOR_VERSION ]
 then
     echo -e "This version of gauge-java plugin does not support Java versions < 1.9";
     echo -e "Please upgrade your Java version or use a version of gauge-java <= v0.7.4"
@@ -37,23 +37,22 @@ fi
 
 cd "$project_root"
 
-function get_abs() {
-    if [[ "$1" == /* ]]; then
-        echo "$1"
-    else
+get_abs() {
+    if [ $( expr $1 : "/*" ) -eq 0 ]; then
         echo "$(pwd)/$1"
+    else
+        echo "$1"
     fi
 }
 
-function split_on_commas() {
+split_on_commas() {
     local IFS=,
-    local LIST=($1)
-    for word in "${LIST[@]}"; do
+    for word in $1; do
         echo "$word"
     done
 }
 
-function get_additional_path() {
+get_additional_path() {
     if [ ! -z "$1" ]; then
         cp=""
         for p in $(split_on_commas $1); do
@@ -69,7 +68,7 @@ function get_additional_path() {
     fi
 }
 
-function list_files() {
+list_files() {
     dirs="src"
     if [ ! -z "$compile_dir" ]; then
         dirs="$compile_dir"
@@ -79,7 +78,7 @@ function list_files() {
     done
 }
 
-function build_project() {
+build_project() {
     rm -rf $default_build_dir
     mkdir -p $default_build_dir
     target_file="$TMP_DIR$RANDOM-$RANDOM.txt"
@@ -91,7 +90,7 @@ function build_project() {
     rm $target_file
 }
 
-function add_class_path_required_for_execution() {
+add_class_path_required_for_execution() {
     # Add addlitional libs
     additional_path=$(get_additional_path "${gauge_additional_libs}")
     if [ ! -z "$additional_path" ]; then
@@ -115,10 +114,11 @@ function add_class_path_required_for_execution() {
     fi
 }
 
-function add_runner_in_classpath() {
+add_runner_in_classpath() {
     class_path="${plugin_dir}/*"
     class_path="${class_path}:${plugin_dir}/libs/*"
 }
+
 function remove_substr_from_string() {
     string=$1
     substr=$2
@@ -127,7 +127,7 @@ function remove_substr_from_string() {
 function getInstalledGaugeJavaVersion() {
     versionInfo=$(gauge -v)
     for f in ${versionInfo/java /java}; do
-        if [[ "$f" == *"java"* ]]; then
+        if [ "$f" == *"java"* ]; then
             java_version=$(remove_substr_from_string "$f" java )
             java_version=$(remove_substr_from_string "$java_version" "(" )
             java_version=$(remove_substr_from_string "$java_version" ")" )
@@ -142,9 +142,9 @@ function extract_gauge_plugin_version() {
     plugin_name=$2
     echo $pom_data |
     while read -r line; do
-        if [[ "$line" == *"$plugin_name"* ]]; then
+        if [ "$line" == *"$plugin_name"* ]; then
             is_gauge_plugin_version="true"
-        elif [[ "$is_gauge_plugin_version" == "true" ]]; then
+        elif [ "$is_gauge_plugin_version" == "true" ]; then
             line=$(remove_substr_from_string "$line" "<version>")
             line=$(remove_substr_from_string "$line" "</version>")
             echo ${line//[ ]/}
@@ -156,7 +156,7 @@ function extract_gauge_plugin_version() {
 
 function validate_plugins_version() {
     installed_gauge_java=$(getInstalledGaugeJavaVersion)
-    if [[ "$1" == "maven" ]]; then
+    if [ "$1" = "maven" ]; then
         pom_data=$(mvn help:effective-pom )
         gauge_java_version=$(mvn dependency:tree -Dincludes=com.thoughtworks.gauge:gauge-java | awk '!/gauge-java/{$0=""}1' | sed -e '/^$/d' -e 's/[^0-9.]//g' -e 's/\.*//')
         gauge_maven_plugin=$(extract_gauge_plugin_version "$pom_data" "gauge-maven-plugin")
@@ -172,7 +172,7 @@ function validate_plugins_version() {
         fi
     fi
 
-    if [[ "$installed_gauge_java" != "$gauge_java_version" ]]; then
+    if [ "$installed_gauge_java" != "$gauge_java_version" ]; then
         echo "Installed version of gauge-java($installed_gauge_java) does not match with dependency gauge-java($gauge_java_version) specified in $2 file."
     fi
 }
@@ -215,15 +215,17 @@ function start() {
     rm $target_file
 }
 
-function init() {
+init() {
     add_runner_in_classpath
     CLASSPATH="${class_path}" $JAVA_CMD com.thoughtworks.gauge.GaugeRuntime --init
 }
 
-tasks=(init start)
-if [[ " ${tasks[*]} " =~ $1 ]]; then
-    $1
+if [ "init" = $1 ]; then
+    init
+    exit 0
+elif [ "start" = $1 ]; then
+    start
     exit 0
 fi
 
-echo Options: [init \| start]
+echo "Options: [init | start]"
