@@ -63,7 +63,7 @@ public class MessageProcessorFactory {
     }
 
     public IMessageProcessor getProcessor(Messages.Message.MessageType request) {
-        if (request == Messages.Message.MessageType.SuiteDataStoreInit) {
+        if (!messageProcessors.get().containsKey(Messages.Message.MessageType.SuiteDataStoreInit)) {
             initializeExecutionMessageProcessors();
         }
         if (messageProcessors.get().containsKey(request)) {
