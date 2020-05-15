@@ -131,40 +131,24 @@ remove_substr_from_string() {
 }
 getInstalledGaugeJavaVersion() {
     versionInfo=$(gauge -v)
-    for f in ${versionInfo/java /java}; do
-        if [ $( expr $f : "java*" ) -ne 0 ]; then
-            java_version=$(remove_substr_from_string "$f" java )
-            java_version=$(remove_substr_from_string "$java_version" "(" )
-            java_version=$(remove_substr_from_string "$java_version" ")" )
-            echo "$java_version"
-        fi
-    done
+    echo $versionInfo | sed 's/.*\(java\) (\([^()]*\)).*/\2/'
 }
 
-extract_gauge_plugin_version() {
-    IFS=' '
-    pom_data=$1
-    plugin_name=$2
-    echo $pom_data |
-    while read -r line; do
-        if [ $( expr "$line" : "<artifactId>$plugin_name</artifactId>" ) -gt 0 ]; then
-            is_gauge_plugin_version="true"
-        elif [ "$is_gauge_plugin_version" = "true" ]; then
-            line=$(remove_substr_from_string "$line" "<version>")
-            line=$(remove_substr_from_string "$line" "</version>")
-            echo ${line//[ ]/}
-            is_gauge_plugin_version="false"
-        fi
-    done
-    unset IFS
+extract_gauge_maven_plugin_version() {
+    pom_data=$(mvn help:effective-pom )
+    echo $pom_data | sed 's/.*<artifactId>gauge-maven-plugin<\/artifactId> <version>\([0-9]*.[0-9]*.[0-9]*\).*/\1/'
+}
+
+extract_gauge_java_version() {
+    mvn_dependency_data=$(mvn dependency:tree -Dincludes=com.thoughtworks.gauge:gauge-java)
+    echo $mvn_dependency_data | sed 's/.*com.thoughtworks.gauge:gauge-java:jar:\([0-9.]*\).*/\1/'
 }
 
 validate_plugins_version() {
     installed_gauge_java=$(getInstalledGaugeJavaVersion)
     if [ "$1" = "maven" ]; then
-        pom_data=$(mvn help:effective-pom )
-        gauge_java_version=$(mvn dependency:tree -Dincludes=com.thoughtworks.gauge:gauge-java | awk '!/gauge-java/{$0=""}1' | sed -e '/^$/d' -e 's/[^0-9.]//g' -e 's/\.*//')
-        gauge_maven_plugin=$(extract_gauge_plugin_version "$pom_data" "gauge-maven-plugin")
+        gauge_java_version=$(extract_gauge_java_version)
+        gauge_maven_plugin=$(extract_gauge_maven_plugin_version)
         if [ $gauge_maven_plugin \< $MINIUM_GAUGE_MVN_VERSION ]; then
             echo "Expected gauge-maven-plugin version to be $MINIUM_GAUGE_MVN_VERSION or greater."
         fi
