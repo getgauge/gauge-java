@@ -145,6 +145,9 @@ extract_gauge_java_version() {
 }
 
 validate_plugins_version() {
+    if [ "$GAUGE_LSP_GRPC" = "true" ]; then
+        return
+    fi
     installed_gauge_java=$(getInstalledGaugeJavaVersion)
     if [ "$1" = "maven" ]; then
         gauge_java_version=$(extract_gauge_java_version)

@@ -49,6 +49,9 @@ function ValidatePluginsVersion() {
     $BuildToolName,
     $BuildFileName
   )
+  if ( $env:GAUGE_LSP_GRPC -match "true") {
+      return
+  }
   $installed_gauge_java_version=((gauge -v -m | ConvertFrom-Json).plugins | Where-Object { $_.name -eq "java" }).version
   if ( $BuildToolName -match "maven" ) {
       $pom_data=mvn help:effective-pom
