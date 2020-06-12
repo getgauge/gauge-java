@@ -43,7 +43,7 @@ jobs:
 
       - name: Deploy on github
         run: |
-          cd artifacts
+          cd deploy
           if [ -z "$version" ]; then
               version=$(ls gauge-java* | head -1 | sed "s/\.[^\.]*$//" | sed "s/gauge-java-//" | sed "s/-[a-z]*\.[a-z0-9_]*$//")
           fi
