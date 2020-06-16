@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - fix-launcher
   pull_request:
     branches:
       - master
@@ -75,6 +74,11 @@ jobs:
           ./gradlew clean javaFT
         shell: bash
 
+      - name: Log
+        if: failure()
+        run: |
+          cat logs/gauge.log
+
       - uses: actions/upload-artifact@v1
         if: failure()
         with:
@@ -139,7 +143,6 @@ jobs:
         run: |
           cd gauge-lsp-tests
           gauge run --tags="!knownIssue & (actions_on_project_load | actions_on_file_edit)" --env=java-wd
-
       - uses: actions/upload-artifact@v1
         if: failure()
         with:

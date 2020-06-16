@@ -11,7 +11,9 @@ import (
 	"os/exec"
 	"os/signal"
 	"path/filepath"
+	"regexp"
 	"runtime"
+	"strconv"
 	"strings"
 	"syscall"
 	"time"
@@ -32,10 +34,41 @@ const (
 	javaExt                  = ".java"
 	defaultSrcDir            = "src"
 	windows                  = "windows"
+	mavenPomFile             = "pom.xml"
+	mavenCommand             = "mvn"
+	gradleBuildFile          = "build.gradle"
+	gradleCommadUnix         = "gradlew"
+	gradleCommadWindows      = "gradlew.bat"
+	gauge                    = "gauge"
+	default_path             = "PATH"
 )
 
 var pluginDir = ""
 var projectRoot = ""
+
+func isVersionEqual(vs1 string, vs2 string) bool {
+	va1 := strings.Split(strings.TrimSpace(vs1), ".")
+	va2 := strings.Split(strings.TrimSpace(vs2), ".")
+	if len(va1) != len(va2) {
+		return false
+	}
+	for i, _v := range va1 {
+		k1, e := strconv.Atoi(_v)
+		if e != nil {
+			logMessage("debug", fmt.Sprintf("failed to compare version '%s' and '%s'. %s", vs1, vs2, e.Error()))
+			return false
+		}
+		k2, e := strconv.Atoi(va2[i])
+		if e != nil {
+			logMessage("debug", fmt.Sprintf("failed to compare version '%s' and '%s'. %s", vs1, vs2, e.Error()))
+			return false
+		}
+		if k1 != k2 {
+			return false
+		}
+	}
+	return true
+}
 
 func main() {
 	setPluginAndProjectRoots()
@@ -56,7 +89,110 @@ func logMessage(level, text string) {
 	}
 }
 
+func fileExists(file string) bool {
+	_, err := os.Stat(file)
+	return err == nil
+}
+
+func getGaugeJavaDepFromMavenPom() (string, string, error) {
+	args := []string{"dependency:tree", "-Dincludes=com.thoughtworks.gauge:gauge-java"}
+	cmd := exec.Command(getExecPathFrom(default_path, "", mavenCommand), args...)
+	cmd.Stderr = os.Stderr
+	cmd.Dir = projectRoot
+	out, err := cmd.Output()
+	if err != nil {
+		return "", mavenPomFile, err
+	}
+
+	re, err := regexp.Compile(`.*com\.thoughtworks\.gauge:gauge-java:jar:(.*):.*`)
+	if err != nil {
+		return "", mavenPomFile, fmt.Errorf("failed to compile regex. %w", err)
+	}
+	matches := re.FindStringSubmatch(string(out))
+	if len(matches) < 2 {
+		return "", mavenPomFile, fmt.Errorf("failed to get gauge-java dep version")
+	}
+	return matches[1], mavenPomFile, nil
+}
+
+func getGradleCommnad() string {
+	windowsGradleW := filepath.Join(projectRoot, gradleCommadWindows)
+	unixGradleW := filepath.Join(projectRoot, gradleCommadUnix)
+	if runtime.GOOS == "windows" && fileExists(windowsGradleW) {
+		return windowsGradleW
+	} else if fileExists(unixGradleW) {
+		return unixGradleW
+	}
+	return "gradle"
+}
+
+func getGaugeJavaDepFromGradleBuild() (string, string, error) {
+	args := []string{"-q", "dependencyInsight", "--dependency", "com.thoughtworks.gauge", "--configuration", "testCompileClasspath"}
+	cmd := exec.Command(getGradleCommnad(), args...)
+	cmd.Stderr = os.Stderr
+	cmd.Dir = projectRoot
+	out, err := cmd.Output()
+	if err != nil {
+		return "", gradleBuildFile, err
+	}
+	re, err := regexp.Compile(`.*com\.thoughtworks\.gauge:gauge-java:(.*)`)
+	if err != nil {
+		return "", gradleBuildFile, fmt.Errorf("failed to compile regex. %w", err)
+	}
+	matches := re.FindStringSubmatch(string(out))
+	if len(matches) < 2 {
+		return "", mavenPomFile, fmt.Errorf("failed to get gauge-java dep version.")
+	}
+	return matches[1], gradleBuildFile, nil
+}
+
+func getDepVersionFromBuildFile() (string, string, error) {
+	if fileExists(filepath.Join(projectRoot, mavenPomFile)) {
+		return getGaugeJavaDepFromMavenPom()
+	} else if fileExists(filepath.Join(projectRoot, gradleBuildFile)) {
+		return getGaugeJavaDepFromGradleBuild()
+	} else {
+		return "", "", nil
+	}
+
+}
+
+func getInstalledGaugeJavaVersion() (string, error) {
+	args := []string{"--version"}
+	cmd := exec.Command(getExecPathFrom(default_path, "", execName(gauge)), args...)
+	cmd.Stderr = os.Stderr
+	out, err := cmd.Output()
+	if err != nil {
+		return "", fmt.Errorf("failed to get plugin version. %w", err)
+	}
+	re, err := regexp.Compile(`.*java\s\((.*)\)`)
+	if err != nil {
+		return "", fmt.Errorf("failed to get plugin version. %w", err)
+	}
+	return re.FindStringSubmatch(string(out))[1], nil
+
+}
+
+func validateGaugeJavaVersion() {
+	depVersion, file, err := getDepVersionFromBuildFile()
+	if err != nil {
+		logMessage("error", err.Error())
+	}
+	if file == "" {
+		return
+	}
+	installVersion, err := getInstalledGaugeJavaVersion()
+	if err != nil {
+		logMessage("error", err.Error())
+	}
+	if !isVersionEqual(depVersion, installVersion) {
+		t := "Installed version of gauge-java (%s) does not match with dependency gauge-java (%s) specified in %s file"
+		logMessage("error", fmt.Sprintf(t, installVersion, depVersion, file))
+	}
+}
+
 func startJava() {
+	validateGaugeJavaVersion()
 	err := os.Chdir(projectRoot)
 	if err != nil {
 		logMessage("fatal", "failed to set gauge project root. "+err.Error())
