@@ -5,6 +5,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"math/rand"
 	"os"
@@ -39,10 +40,26 @@ const (
 	gradleBuildFile          = "build.gradle"
 	gradleCommadUnix         = "gradlew"
 	gradleCommadWindows      = "gradlew.bat"
-	gauge                    = "gauge"
-	default_path             = "PATH"
 )
 
+var propertiesToPrint = []string{
+	"PATH",
+	"JAVA_HOME",
+	"gauge_project_root",
+	"gauge_parallel_streams_count",
+	"gauge_reports_dir",
+	"overwrite_reports",
+	"logs_directory",
+	"enable_multithreading",
+	"gauge_specs_dir",
+	"csv_delimiter",
+	"gauge_java_home",
+	"gauge_custom_build_path",
+	"gauge_additional_libs",
+	"gauge_jvm_args",
+	"gauge_custom_compile_dir",
+	"gauge_clear_state_level",
+}
 var pluginDir = ""
 var projectRoot = ""
 
@@ -71,8 +88,17 @@ func isVersionEqual(vs1 string, vs2 string) bool {
 }
 
 func main() {
+	logRelevantEnv()
 	setPluginAndProjectRoots()
 	startJava()
+}
+
+func logRelevantEnv() {
+	logMessage("debug", "***** Printing Properties/Env Values *****")
+	for _, e := range propertiesToPrint {
+		logMessage("debug", fmt.Sprintf("%s: %s", e, os.Getenv(e)))
+	}
+	logMessage("debug", "***** END *****")
 }
 
 type logger struct {
@@ -96,7 +122,7 @@ func fileExists(file string) bool {
 
 func getGaugeJavaDepFromMavenPom() (string, string, error) {
 	args := []string{"dependency:tree", "-Dincludes=com.thoughtworks.gauge:gauge-java"}
-	cmd := exec.Command(getExecPathFrom(default_path, "", mavenCommand), args...)
+	cmd := exec.Command(mavenCommand, args...)
 	cmd.Stderr = os.Stderr
 	cmd.Dir = projectRoot
 	out, err := cmd.Output()
@@ -154,23 +180,25 @@ func getDepVersionFromBuildFile() (string, string, error) {
 	} else {
 		return "", "", nil
 	}
-
 }
 
 func getInstalledGaugeJavaVersion() (string, error) {
-	args := []string{"--version"}
-	cmd := exec.Command(getExecPathFrom(default_path, "", execName(gauge)), args...)
-	cmd.Stderr = os.Stderr
-	out, err := cmd.Output()
+	exPath, err := os.Executable()
 	if err != nil {
-		return "", fmt.Errorf("failed to get plugin version. %w", err)
+		return "", fmt.Errorf("failed to get executable path. %w", err)
 	}
-	re, err := regexp.Compile(`.*java\s\((.*)\)`)
+	j, err := ioutil.ReadFile(filepath.Join(filepath.Dir(exPath), "java.json"))
 	if err != nil {
-		return "", fmt.Errorf("failed to get plugin version. %w", err)
+		return "", fmt.Errorf("Unable to read java.json. %w", err)
 	}
-	return re.FindStringSubmatch(string(out))[1], nil
-
+	var v struct {
+		Version string `json:"version"`
+	}
+	err = json.Unmarshal(j, &v)
+	if err != nil {
+		return "", fmt.Errorf("Unable to unmarshal java.json. %w", err)
+	}
+	return v.Version, nil
 }
 
 func validateGaugeJavaVersion() {
@@ -203,6 +231,7 @@ func startJava() {
 	}
 	logMessage("debug", fmt.Sprintf("classpath set to %s", cp))
 	javaPath := getExecPathFrom(java_home, alternate_java_home, execName(java))
+	logMessage("debug", fmt.Sprintf("found java executable in %s", javaPath))
 	args := createCommandArgs()
 	cmd := runJavaCommandAsync(javaPath, args, cp)
 	listenForKillSignal(cmd)
@@ -266,7 +295,7 @@ func createCommandArgs() []string {
 	args := []string{}
 	javaDebugPort := os.Getenv("GAUGE_DEBUG_OPTS")
 	if javaDebugPort != "" {
-		logMessage("info", fmt.Sprintf("\nRunner Ready for Debugging"))
+		logMessage("info", "\nRunner Ready for Debugging")
 		value := fmt.Sprintf(JavaDebugOptsTemplate, javaDebugPort)
 		args = append(args, value)
 	}
@@ -341,11 +370,25 @@ func runJavaCommand(cmdName string, args []string, classpath string, printErrors
 
 func runJavaCommandAsync(cmdName string, args []string, classpath string) *exec.Cmd {
 	cmd := exec.Command(cmdName, args...)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
+	logMessage("debug", fmt.Sprintf("running - %s %s", cmdName, args))
+	outFile := filepath.Join(os.Getenv("logs_directory"), fmt.Sprintf("%d-%s.out", os.Getpid(), filepath.Base(cmdName)))
+	logMessage("debug", fmt.Sprintf("stdout/stderr is logged to %s", outFile))
+	var stdout io.Writer
+	var stderr io.Writer
+	f, err := os.Create(outFile)
+	if err != nil {
+		logMessage("info", fmt.Sprintf("unable to create %s to log process output. Execution will continue without this log. %s", outFile, err.Error()))
+		stdout = os.Stdout
+		stderr = os.Stderr
+	} else {
+		stdout = io.MultiWriter(os.Stdout, f)
+		stderr = io.MultiWriter(os.Stderr, f)
+	}
+	cmd.Stdout = stdout
+	cmd.Stderr = stderr
 	cmd.Stdin = os.Stdin
 	os.Setenv("CLASSPATH", classpath)
-	err := cmd.Start()
+	err = cmd.Start()
 	if err != nil {
 		logMessage("fatal", fmt.Sprintf("Failed to start %s. %s\n", cmd.Path, err.Error()))
 		os.Exit(1)

@@ -29,13 +29,17 @@ public class StartCommand implements GaugeJavaCommand {
         if (streamValue != null && !streamValue.isEmpty()) {
             stream = Integer.parseInt(streamValue);
             multithreading = true;
+            Logger.debug("assuming enable_multithreading=true, because " + STREAMS_COUNT_ENV + " is set to " + streamValue);
         }
+
         MessageProcessorFactory messageProcessorFactory = new MessageProcessorFactory(staticScanner);
         RunnerServiceHandler runnerServiceHandler = new RunnerServiceHandler(messageProcessorFactory, multithreading, stream);
         server = ServerBuilder.forPort(0).addService(runnerServiceHandler).executor((Executor) Runnable::run).build();
         runnerServiceHandler.addServer(server);
+        Logger.debug("starting gRPC server...");
         server.start();
         int port = server.getPort();
+        Logger.debug("started gRPC server on port " + port);
         Logger.info("Listening on port:" + port);
         server.awaitTermination();
         System.exit(0);
