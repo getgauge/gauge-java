@@ -76,17 +76,17 @@
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty-shaded</artifactId>
-            <version>1.29.0</version>
+            <version>1.30.2</version>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-protobuf</artifactId>
-            <version>1.29.0</version>
+            <version>1.30.2</version>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-stub</artifactId>
-            <version>1.29.0</version>
+            <version>1.30.2</version>
         </dependency>
         <dependency>
             <groupId>javax.annotation</groupId>
@@ -209,7 +209,7 @@
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
                         <artifactId>checkstyle</artifactId>
-                        <version>8.33</version>
+                        <version>8.34</version>
                     </dependency>
                 </dependencies>
                 <executions>
