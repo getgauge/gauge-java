@@ -14,7 +14,8 @@ import io.grpc.ServerBuilder;
 
 import java.util.concurrent.Executor;
 
-import static com.thoughtworks.gauge.GaugeConstant.*;
+import static com.thoughtworks.gauge.GaugeConstant.STREAMS_COUNT_ENV;
+import static com.thoughtworks.gauge.GaugeConstant.ENABLE_MULTITHREADING_ENV;
 
 public class StartCommand implements GaugeJavaCommand {
 
