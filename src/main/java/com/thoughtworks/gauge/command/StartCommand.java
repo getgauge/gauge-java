@@ -14,7 +14,7 @@ import io.grpc.ServerBuilder;
 
 import java.util.concurrent.Executor;
 
-import static com.thoughtworks.gauge.GaugeConstant.STREAMS_COUNT_ENV;
+import static com.thoughtworks.gauge.GaugeConstant.*;
 
 public class StartCommand implements GaugeJavaCommand {
 
@@ -23,17 +23,20 @@ public class StartCommand implements GaugeJavaCommand {
         StaticScanner staticScanner = new StaticScanner();
         staticScanner.addStepsToRegistry();
         Server server;
-        boolean multithreading = false;
-        int stream = 1;
-        String streamValue = System.getenv(STREAMS_COUNT_ENV);
-        if (streamValue != null && !streamValue.isEmpty()) {
-            stream = Integer.parseInt(streamValue);
-            multithreading = true;
-            Logger.debug("assuming enable_multithreading=true, because " + STREAMS_COUNT_ENV + " is set to " + streamValue);
+        boolean multithreading = System.getenv(ENABLE_MULTITHREADING_ENV).toLowerCase() == "true";
+        Logger.debug("multithreading is set to " + multithreading);
+        int numberOfStreams = 1;
+
+        if (multithreading) {
+            String streamValue = System.getenv(STREAMS_COUNT_ENV);
+            if (streamValue != null && !streamValue.isEmpty()) {
+                numberOfStreams = Integer.parseInt(streamValue);
+            }
+            Logger.debug("multithreading enabled, number of threads=" + numberOfStreams);
         }
 
         MessageProcessorFactory messageProcessorFactory = new MessageProcessorFactory(staticScanner);
-        RunnerServiceHandler runnerServiceHandler = new RunnerServiceHandler(messageProcessorFactory, multithreading, stream);
+        RunnerServiceHandler runnerServiceHandler = new RunnerServiceHandler(messageProcessorFactory, multithreading, numberOfStreams);
         server = ServerBuilder.forPort(0).addService(runnerServiceHandler).executor((Executor) Runnable::run).build();
         runnerServiceHandler.addServer(server);
         Logger.debug("starting gRPC server...");
@@ -42,6 +45,5 @@ public class StartCommand implements GaugeJavaCommand {
         Logger.debug("started gRPC server on port " + port);
         Logger.info("Listening on port:" + port);
         server.awaitTermination();
-        System.exit(0);
     }
 }

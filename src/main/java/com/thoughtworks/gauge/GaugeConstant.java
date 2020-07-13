@@ -14,4 +14,5 @@ public class GaugeConstant {
     public static final String[] DEFAULT_SRC_DIRS = {"src/main/java", DEFAULT_SRC_DIR};
     public static final String SCREENSHOTS_DIR_ENV = "gauge_screenshots_dir";
     public static final String STREAMS_COUNT_ENV = "GAUGE_PARALLEL_STREAMS_COUNT";
+    public static final String ENABLE_MULTITHREADING_ENV = "enable_multithreading";
 }
