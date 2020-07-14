@@ -24,16 +24,19 @@ public class StartCommand implements GaugeJavaCommand {
         StaticScanner staticScanner = new StaticScanner();
         staticScanner.addStepsToRegistry();
         Server server;
-        boolean multithreading = System.getenv(ENABLE_MULTITHREADING_ENV).toLowerCase() == "true";
+        boolean multithreading = Boolean.valueOf(System.getenv(ENABLE_MULTITHREADING_ENV));
         Logger.debug("multithreading is set to " + multithreading);
         int numberOfStreams = 1;
 
         if (multithreading) {
-            String streamValue = System.getenv(STREAMS_COUNT_ENV);
-            if (streamValue != null && !streamValue.isEmpty()) {
-                numberOfStreams = Integer.parseInt(streamValue);
+            String streamsCount = System.getenv(STREAMS_COUNT_ENV);
+            try {
+                numberOfStreams = Integer.valueOf(streamsCount);
+                Logger.debug("multithreading enabled, number of threads=" + numberOfStreams);
+            } catch (NumberFormatException e) {
+                Logger.debug("multithreading enabled, but could not read " + STREAMS_COUNT_ENV + " as int. Got " + STREAMS_COUNT_ENV + "=" + streamsCount);
+                Logger.debug("using numberOfStreams=1, err: " + e.getMessage());
             }
-            Logger.debug("multithreading enabled, number of threads=" + numberOfStreams);
         }
 
         MessageProcessorFactory messageProcessorFactory = new MessageProcessorFactory(staticScanner);

@@ -6,13 +6,13 @@
 package com.thoughtworks.gauge.execution;
 
 
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ExecutorPool {
-    private Map<String, ExecutorService> executors = new HashMap<>();
+    private Map<String, ExecutorService> executors = new ConcurrentHashMap<>();
 
     public ExecutorPool(int size) {
         for (int count = 1; count <= size; count++) {

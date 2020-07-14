@@ -410,6 +410,4 @@ public class RunnerServiceHandler extends RunnerImplBase {
         }
         return Math.max(stream, 1);
     }
-
-
 }
