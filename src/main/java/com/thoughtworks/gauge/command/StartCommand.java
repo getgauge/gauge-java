@@ -21,9 +21,6 @@ public class StartCommand implements GaugeJavaCommand {
 
     @Override
     public void execute() throws Exception {
-        StaticScanner staticScanner = new StaticScanner();
-        staticScanner.addStepsToRegistry();
-        Server server;
         boolean multithreading = Boolean.valueOf(System.getenv(ENABLE_MULTITHREADING_ENV));
         Logger.debug("multithreading is set to " + multithreading);
         int numberOfStreams = 1;
@@ -39,10 +36,17 @@ public class StartCommand implements GaugeJavaCommand {
             }
         }
 
+        long start = System.currentTimeMillis();
+        StaticScanner staticScanner = new StaticScanner();
+        staticScanner.addStepsToRegistry();
+        Server server;
         MessageProcessorFactory messageProcessorFactory = new MessageProcessorFactory(staticScanner);
         RunnerServiceHandler runnerServiceHandler = new RunnerServiceHandler(messageProcessorFactory, multithreading, numberOfStreams);
         server = ServerBuilder.forPort(0).addService(runnerServiceHandler).executor((Executor) Runnable::run).build();
         runnerServiceHandler.addServer(server);
+        long elapsed = System.currentTimeMillis() - start;
+        Logger.debug("gauge-java took " + elapsed + "milliseconds to load and scan. This should be less than 'runner_connection_timeout' config value.");
+        Logger.debug("run 'gauge config runner_connection_timeout' and verify that it is < " + elapsed);
         Logger.debug("starting gRPC server...");
         server.start();
         int port = server.getPort();
