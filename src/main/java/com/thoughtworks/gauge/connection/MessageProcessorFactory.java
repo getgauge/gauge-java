@@ -7,6 +7,7 @@ package com.thoughtworks.gauge.connection;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.Gauge;
+import com.thoughtworks.gauge.GaugeConstant;
 import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
@@ -53,8 +54,16 @@ public class MessageProcessorFactory {
     public MessageProcessorFactory(StaticScanner staticScanner) {
         this.staticScanner = staticScanner;
         stepRegistry = staticScanner.getRegistry();
-        ClasspathScanner classpathScanner = new ClasspathScanner();
-        classpathScanner.scan(new StepsScanner(stepRegistry), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
+        if (Boolean.valueOf(System.getenv(GaugeConstant.SCAN_EXTERNAL_LIBS))) {
+            if (String.valueOf(System.getenv(GaugeConstant.PACKAGE_TO_SCAN)).isEmpty()) {
+                Logger.warning(GaugeConstant.SCAN_EXTERNAL_LIBS + " is true. But " + GaugeConstant.PACKAGE_TO_SCAN + "is not set. "
+                        + "This may impact the start up time of gauge-java, and possibly cause a timeout error. "
+                        + "Consider setting '" + GaugeConstant.PACKAGE_TO_SCAN + "' property to the packages that contain Gauge implementations.");
+            }
+            Logger.debug(GaugeConstant.SCAN_EXTERNAL_LIBS + " is true. Scanning dependencies in CLASSPATH");
+            ClasspathScanner classpathScanner = new ClasspathScanner();
+            classpathScanner.scan(new StepsScanner(stepRegistry), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
+        }
         Logger.debug("Scanned steps: ");
         for (String stepText : stepRegistry.keys()) {
             Logger.debug("\t" + stepText + " : " + stepRegistry.get(stepText).getName());
