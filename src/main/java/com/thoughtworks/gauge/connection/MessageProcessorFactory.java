@@ -40,6 +40,8 @@ import com.thoughtworks.gauge.screenshot.CustomScreenshotScanner;
 import gauge.messages.Messages;
 
 import java.util.HashMap;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Executors;
 
 /**
  * Receives messages from gauge core and processes them using the relevant MessageProcessor and returns a
@@ -50,28 +52,37 @@ public class MessageProcessorFactory {
     private ThreadLocal<HashMap<Messages.Message.MessageType, IMessageProcessor>> messageProcessors;
     private StepRegistry stepRegistry;
     private StaticScanner staticScanner;
+    private CountDownLatch scanLatch;
+    private static final int SCAN_POLL_INTERVAL = 500;
 
     public MessageProcessorFactory(StaticScanner staticScanner) {
         this.staticScanner = staticScanner;
         stepRegistry = staticScanner.getRegistry();
-        if (Boolean.valueOf(System.getenv(GaugeConstant.SCAN_EXTERNAL_LIBS))) {
+        scanLatch = new CountDownLatch(1);
+        Executors.newSingleThreadExecutor().submit(() -> {
+            Logger.debug("Using reflection to scan dependencies for gauge implementations...");
             if (String.valueOf(System.getenv(GaugeConstant.PACKAGE_TO_SCAN)).isEmpty()) {
-                Logger.warning(GaugeConstant.SCAN_EXTERNAL_LIBS + " is true. But " + GaugeConstant.PACKAGE_TO_SCAN + "is not set. "
+                Logger.warning("'" + GaugeConstant.PACKAGE_TO_SCAN + "' is not set. "
                         + "This may impact the start up time of gauge-java, and possibly cause a timeout error. "
                         + "Consider setting '" + GaugeConstant.PACKAGE_TO_SCAN + "' property to the packages that contain Gauge implementations.");
             }
-            Logger.debug(GaugeConstant.SCAN_EXTERNAL_LIBS + " is true. Scanning dependencies in CLASSPATH");
             ClasspathScanner classpathScanner = new ClasspathScanner();
             classpathScanner.scan(new StepsScanner(stepRegistry), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
-        }
-        Logger.debug("Scanned steps: ");
-        for (String stepText : stepRegistry.keys()) {
-            Logger.debug("\t" + stepText + " : " + stepRegistry.get(stepText).getName());
-        }
+            Logger.debug("Scanned steps (using static parsing + reflections): ");
+            for (String stepText : stepRegistry.keys()) {
+                Logger.debug("\t" + stepText + " : " + stepRegistry.get(stepText).getName());
+            }
+            scanLatch.countDown();
+        });
         messageProcessors = initializeMessageProcessor();
     }
 
     public IMessageProcessor getProcessor(Messages.Message.MessageType request) {
+        try {
+            scanLatch.await();
+        } catch (InterruptedException e) {
+            Logger.error("Reflection scan could not be completed in a separate thread.", e);
+        }
         if (!messageProcessors.get().containsKey(Messages.Message.MessageType.SuiteDataStoreInit)) {
             initializeExecutionMessageProcessors();
         }
