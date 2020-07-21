@@ -14,9 +14,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        java_version: [ '11', '12' ]
+        java_version: ['11', '12']
     steps:
-
       - uses: actions/checkout@v2
 
       - name: Setup java
@@ -35,10 +34,9 @@ jobs:
     needs: test
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest ]
+        os: [windows-latest, ubuntu-latest]
 
     steps:
-
       - uses: actions/checkout@v2
 
       - name: Setup java
@@ -58,15 +56,9 @@ jobs:
           go run build/make.go --install
 
       - name: Install Gauge Java plugin from source
-        if: matrix.os != 'windows-latest'
         run: |
-          ./build.sh forceinstall
-        shell: bash
-
-      - name: Install Gauge Java plugin from source
-        if: matrix.os == 'windows-latest'
-        run: |
-          ./build.ps1 forceinstall
+          go run build/make.go
+          go run build/make.go --install
 
       - name: Install Gauge Java maven package locally
         run: |
@@ -81,6 +73,11 @@ jobs:
           cd gauge-tests
           ./gradlew clean javaFT
         shell: bash
+
+      - name: Log
+        if: failure()
+        run: |
+          cat logs/gauge.log
 
       - uses: actions/upload-artifact@v1
         if: failure()
@@ -114,14 +111,9 @@ jobs:
           gauge-version: master
 
       - name: Install Gauge Java plugin from source
-        if: matrix.os != 'windows-latest'
         run: |
-          ./build.sh forceinstall
-
-      - name: Install Gauge Java plugin from source
-        if: matrix.os == 'windows-latest'
-        run: |
-          ./build.ps1 forceinstall
+          go run build/make.go
+          go run build/make.go --install
 
       - name: Use Node.js
         uses: actions/setup-node@v1
@@ -151,9 +143,31 @@ jobs:
         run: |
           cd gauge-lsp-tests
           gauge run --tags="!knownIssue & (actions_on_project_load | actions_on_file_edit)" --env=java-wd
-
       - uses: actions/upload-artifact@v1
         if: failure()
         with:
           name: lsp-logs-${{ matrix.os }}-${{ matrix.java_version }}
           path: gauge-lsp-tests/logs
+
+  build:
+    name: Build artifacts
+    runs-on: ubuntu-latest
+    needs: [functional_tests, lsp-tests]
+    steps:
+      - name: Set up Go 1.13
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.13
+        id: go
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v2
+
+      - name: Build distro for ${{ matrix.os }}
+        run: go run build/make.go --all-platforms && go run build/make.go --all-platforms --distro
+        shell: bash
+
+      - name: Upload artifacts for ${{ matrix.os }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: gauge-java-artifacts
+          path: deploy/*

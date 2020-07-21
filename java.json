@@ -1,6 +1,6 @@
 {
     "id": "java",
-    "version": "0.7.8",
+    "version": "0.7.9",
     "description": "Java support for gauge",
     "install": {
         "windows": [],
@@ -9,30 +9,30 @@
     },
     "run": {
         "windows": [
-            "launcher.cmd",
-            "start"
+            "gauge-java",
+            "--start"
         ],
         "linux": [
-            "launcher.sh",
-            "start"
+            "gauge-java",
+            "--start"
         ],
         "darwin": [
-            "launcher.sh",
-            "start"
+            "gauge-java",
+            "--start"
         ]
     },
     "init": {
         "windows": [
-            "launcher.cmd",
-            "init"
+            "gauge-java",
+            "--init"
         ],
         "linux": [
-            "launcher.sh",
-            "init"
+            "gauge-java",
+            "--init"
         ],
         "darwin": [
-            "launcher.sh",
-            "init"
+            "gauge-java",
+            "--init"
         ]
     },
     "lib": "libs",

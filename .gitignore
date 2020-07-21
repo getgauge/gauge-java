@@ -22,7 +22,8 @@ tmp
 deploy
 artifacts
 *.iml
-build/
+
+bin
 
 .DS_Store
 .classpath

@@ -15,29 +15,43 @@ import io.grpc.ServerBuilder;
 import java.util.concurrent.Executor;
 
 import static com.thoughtworks.gauge.GaugeConstant.STREAMS_COUNT_ENV;
+import static com.thoughtworks.gauge.GaugeConstant.ENABLE_MULTITHREADING_ENV;
 
 public class StartCommand implements GaugeJavaCommand {
 
     @Override
     public void execute() throws Exception {
+        boolean multithreading = Boolean.valueOf(System.getenv(ENABLE_MULTITHREADING_ENV));
+        Logger.debug("multithreading is set to " + multithreading);
+        int numberOfStreams = 1;
+
+        if (multithreading) {
+            String streamsCount = System.getenv(STREAMS_COUNT_ENV);
+            try {
+                numberOfStreams = Integer.valueOf(streamsCount);
+                Logger.debug("multithreading enabled, number of threads=" + numberOfStreams);
+            } catch (NumberFormatException e) {
+                Logger.debug("multithreading enabled, but could not read " + STREAMS_COUNT_ENV + " as int. Got " + STREAMS_COUNT_ENV + "=" + streamsCount);
+                Logger.debug("using numberOfStreams=1, err: " + e.getMessage());
+            }
+        }
+
+        long start = System.currentTimeMillis();
         StaticScanner staticScanner = new StaticScanner();
         staticScanner.addStepsToRegistry();
         Server server;
-        boolean multithreading = false;
-        int stream = 1;
-        String streamValue = System.getenv(STREAMS_COUNT_ENV);
-        if (streamValue != null && !streamValue.isEmpty()) {
-            stream = Integer.parseInt(streamValue);
-            multithreading = true;
-        }
         MessageProcessorFactory messageProcessorFactory = new MessageProcessorFactory(staticScanner);
-        RunnerServiceHandler runnerServiceHandler = new RunnerServiceHandler(messageProcessorFactory, multithreading, stream);
+        RunnerServiceHandler runnerServiceHandler = new RunnerServiceHandler(messageProcessorFactory, multithreading, numberOfStreams);
         server = ServerBuilder.forPort(0).addService(runnerServiceHandler).executor((Executor) Runnable::run).build();
         runnerServiceHandler.addServer(server);
+        long elapsed = System.currentTimeMillis() - start;
+        Logger.debug("gauge-java took " + elapsed + "milliseconds to load and scan. This should be less than 'runner_connection_timeout' config value.");
+        Logger.debug("run 'gauge config runner_connection_timeout' and verify that it is < " + elapsed);
+        Logger.debug("starting gRPC server...");
         server.start();
         int port = server.getPort();
+        Logger.debug("started gRPC server on port " + port);
         Logger.info("Listening on port:" + port);
         server.awaitTermination();
-        System.exit(0);
     }
 }
