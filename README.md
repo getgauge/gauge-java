@@ -58,23 +58,42 @@ Apart from [Gauge](https://gauge.org/index.html) and [Java](https://www.java.com
 ##### Compiling
 
 ````
-./build.sh | .\build.ps1 build
+go run make.go
+````	
+
+For cross platform compilation (launcher)	
+
+````	
+go run make.go --all-platforms
 ````
 
 ##### Installing
 
 After compilation
 
+````	
+go run make.go --install	
+````	
+
+Installing to a CUSTOM_LOCATION	
+
+
 ````
-./build.sh | .\build.ps1 forceinstall
+go run make.go --install --plugin-prefix CUSTOM_LOCATION
 ````
 
 ##### Creating distributable
 
 Note: Run after compiling
+````	
+go run make.go --distro	
+````	
 
-````
-./build.sh | .\build.ps1 package
+
+For distributable across platforms os, windows and linux for bith x86 and x86_64	
+
+````	
+go run make.go --distro --all-platforms	
 ````
 
 
