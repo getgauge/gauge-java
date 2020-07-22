@@ -21,25 +21,28 @@ import (
 )
 
 const (
-	alternate_java_home      = "gauge_java_home"
-	java_home                = "JAVA_HOME"
-	additional_libs_env_name = "gauge_additional_libs"
-	custom_build_path        = "gauge_custom_build_path"
-	custom_compile_dir       = "gauge_custom_compile_dir"
-	custom_classpath         = "gauge_custom_classpath"
-	jvm_args_env_name        = "gauge_jvm_args"
-	default_build_dir        = "gauge_bin"
-	main_class_name          = "com.thoughtworks.gauge.GaugeRuntime"
-	JavaDebugOptsTemplate    = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=%s,timeout=25000"
-	java                     = "java"
-	javaExt                  = ".java"
-	defaultSrcDir            = "src"
-	windows                  = "windows"
-	mavenPomFile             = "pom.xml"
-	mavenCommand             = "mvn"
-	gradleBuildFile          = "build.gradle"
-	gradleCommadUnix         = "gradlew"
-	gradleCommadWindows      = "gradlew.bat"
+	alternate_java_home                = "gauge_java_home"
+	gaugeDebugOptsEnv                  = "GAUGE_DEBUG_OPTS"
+	gaugeDebugConnectionTimeoutEnv     = "GAUGE_DEBUG_CONNECTION_TIMEOUT"
+	gaugeDefaultDebugConnectionTimeout = "25000"
+	javaHome                           = "JAVA_HOME"
+	additionalLibsEnv                  = "gauge_additional_libs"
+	customBuildPathEnv                 = "gauge_custom_build_path"
+	customCompileDirEnv                = "gauge_custom_compile_dir"
+	customClasspathEnv                 = "gauge_custom_classpath"
+	jvmArgsEnv                         = "gauge_jvm_args"
+	defaultBuildDir                    = "gauge_bin"
+	mainClassName                      = "com.thoughtworks.gauge.GaugeRuntime"
+	JavaDebugOptsTemplate              = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=%s,timeout=%s"
+	java                               = "java"
+	javaExt                            = ".java"
+	defaultSrcDir                      = "src"
+	windows                            = "windows"
+	mavenPomFile                       = "pom.xml"
+	mavenCommand                       = "mvn"
+	gradleBuildFile                    = "build.gradle"
+	gradleCommadUnix                   = "gradlew"
+	gradleCommadWindows                = "gradlew.bat"
 )
 
 var propertiesToPrint = []string{
@@ -230,7 +233,7 @@ func startJava() {
 		cp = createClasspath()
 	}
 	logMessage("debug", fmt.Sprintf("classpath set to %s", cp))
-	javaPath := getExecPathFrom(java_home, alternate_java_home, execName(java))
+	javaPath := getExecPathFrom(javaHome, alternate_java_home, execName(java))
 	logMessage("debug", fmt.Sprintf("found java executable in %s", javaPath))
 	args := createCommandArgs()
 	cmd := runJavaCommandAsync(javaPath, args, cp)
@@ -293,18 +296,22 @@ func isProcessRunning(pid int) bool {
 
 func createCommandArgs() []string {
 	args := []string{}
-	javaDebugPort := os.Getenv("GAUGE_DEBUG_OPTS")
+	javaDebugPort := os.Getenv(gaugeDebugOptsEnv)
+	debugTimeout := os.Getenv(gaugeDebugConnectionTimeoutEnv)
+	if debugTimeout == "" {
+		debugTimeout = gaugeDefaultDebugConnectionTimeout
+	}
 	if javaDebugPort != "" {
 		logMessage("info", "\nRunner Ready for Debugging")
-		value := fmt.Sprintf(JavaDebugOptsTemplate, javaDebugPort)
+		value := fmt.Sprintf(JavaDebugOptsTemplate, javaDebugPort, debugTimeout)
 		args = append(args, value)
 	}
-	if os.Getenv(jvm_args_env_name) != "" {
-		jvmArgs := splitByComma(os.Getenv(jvm_args_env_name))
+	if os.Getenv(jvmArgsEnv) != "" {
+		jvmArgs := splitByComma(os.Getenv(jvmArgsEnv))
 		args = append(args, jvmArgs...)
 	}
 	args = append(args, "-Dfile.encoding=UTF-8")
-	args = append(args, main_class_name)
+	args = append(args, mainClassName)
 	args = append(args, os.Args[1])
 	return args
 }
@@ -397,7 +404,7 @@ func runJavaCommandAsync(cmdName string, args []string, classpath string) *exec.
 }
 
 func customClasspath() string {
-	return os.Getenv(custom_classpath)
+	return os.Getenv(customClasspathEnv)
 }
 
 func createClasspath() string {
@@ -405,18 +412,18 @@ func createClasspath() string {
 	appendClasspath(&cp, filepath.Join(pluginDir, "*"))
 	appendClasspath(&cp, filepath.Join(pluginDir, "libs", "*"))
 
-	additionalLibs := getClassPathForVariable(additional_libs_env_name)
+	additionalLibs := getClassPathForVariable(additionalLibsEnv)
 	appendClasspath(&cp, additionalLibs)
 
 	// If user has specified classpath, that will be taken. If not search for IntelliJ and Eclipse out directories before giving up
-	userSpecifiedClasspath := getClassPathForVariable(custom_build_path)
+	userSpecifiedClasspath := getClassPathForVariable(customBuildPathEnv)
 	if userSpecifiedClasspath != "" {
 		appendClasspath(&cp, userSpecifiedClasspath)
 	} else {
 		if os.Getenv("SHOULD_BUILD_PROJECT") != "false" {
-			build(default_build_dir, cp)
+			build(defaultBuildDir, cp)
 		}
-		appendClasspath(&cp, default_build_dir)
+		appendClasspath(&cp, defaultBuildDir)
 	}
 	return cp
 }
@@ -463,7 +470,7 @@ func build(destination string, classpath string) {
 
 	srcDirs := make([]string, 0)
 
-	value := os.Getenv(custom_compile_dir)
+	value := os.Getenv(customCompileDirEnv)
 	if len(value) > 0 {
 		paths := splitByComma(value)
 		srcDirs = append(srcDirs, paths...)
@@ -509,7 +516,7 @@ func build(destination string, classpath string) {
 		panic("Unable to write file: " + err.Error())
 	}
 	args = append(args, "@"+sourcesFile)
-	javac := getExecPathFrom(java_home, alternate_java_home, execName("javac"))
+	javac := getExecPathFrom(javaHome, alternate_java_home, execName("javac"))
 
 	runJavaCommand(javac, args, classpath, false)
 }
