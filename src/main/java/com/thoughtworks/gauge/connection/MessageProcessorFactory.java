@@ -69,12 +69,8 @@ public class MessageProcessorFactory {
 
     private ThreadLocal<HashMap<Messages.Message.MessageType, IMessageProcessor>> initializeMessageProcessor() {
         return ThreadLocal.withInitial(() -> new HashMap<Messages.Message.MessageType, IMessageProcessor>() {
-            /**
-			 *
-			 */
-			private static final long serialVersionUID = 1003696053385963757L;
-
-			{
+            private static final long serialVersionUID = 1003696053385963757L;
+            {
                 put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(stepRegistry));
                 put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor(stepRegistry));
                 put(Messages.Message.MessageType.RefactorRequest, new RefactorRequestProcessor(stepRegistry));
