@@ -7,7 +7,6 @@ package com.thoughtworks.gauge.scan;
 
 import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.Step;
-import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
@@ -30,6 +29,7 @@ public class StepsScanner implements IScanner {
     public void scan(Reflections reflections) {
         Logger.debug("Scanning packages for steps");
         Set<Method> stepImplementations = reflections.getMethodsAnnotatedWith(Step.class);
+        registry.clear();
         buildStepRegistry(stepImplementations);
     }
 
@@ -41,26 +41,11 @@ public class StepsScanner implements IScanner {
                 for (String stepName : annotation.value()) {
                     String parameterizedStep = Util.trimQuotes(stepName);
                     String stepText = stepsUtil.getStepText(parameterizedStep);
-                    if (registry.contains(stepText)) {
-                        StepRegistryEntry entry = registry.getForCurrentProject(stepText, method);
-                        if (entry != null) {
-                            Logger.debug("Found " + stepText + " in current project scope.");
-                            entry.setMethodInfo(method);
-                        } else {
-                            addExternalStepEntryToRegistry(stepsUtil, method, parameterizedStep, stepText);
-                        }
-                    } else {
-                        addExternalStepEntryToRegistry(stepsUtil, method, parameterizedStep, stepText);
-                    }
+                    List<String> parameters = stepsUtil.getParameters(parameterizedStep);
+                    StepValue stepValue = new StepValue(stepText, parameterizedStep, parameters);
+                    registry.addStepImplementation(stepValue, method);
                 }
             }
         }
-    }
-
-    private void addExternalStepEntryToRegistry(StepsUtil stepsUtil, Method method, String parameterizedStep, String stepText) {
-        Logger.debug("Loading " + stepText + "via reflected sources.");
-        List<String> parameters = stepsUtil.getParameters(parameterizedStep);
-        StepValue stepValue = new StepValue(stepText, parameterizedStep, parameters);
-        registry.addStepImplementation(stepValue, method, true);
     }
 }

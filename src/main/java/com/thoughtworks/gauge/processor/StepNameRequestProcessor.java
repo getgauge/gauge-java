@@ -30,16 +30,6 @@ public class StepNameRequestProcessor implements IMessageProcessor {
                     .build();
         }
         StepRegistryEntry entry = registry.get(message.getStepNameRequest().getStepValue());
-
-        if (entry.getIsExternal()) {
-            return Messages.Message.newBuilder()
-                    .setMessageId(message.getMessageId())
-                    .setMessageType(Messages.Message.MessageType.StepNameResponse)
-                    .setStepNameResponse(Messages.StepNameResponse.newBuilder()
-                            .setIsStepPresent(true)
-                            .setIsExternal(true))
-                    .build();
-        }
         List<String> stepTexts = entry.getAliases();
         Range range = entry.getSpan();
         String stepText = entry.getStepText();

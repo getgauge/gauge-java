@@ -27562,15 +27562,6 @@ public final class Messages {
      * <code>.gauge.messages.Span span = 5;</code>
      */
     gauge.messages.Spec.SpanOrBuilder getSpanOrBuilder();
-
-    /**
-     * <pre>
-     *&#47; Flag indicating if the given Step defined in some external library and the source code can not be accessed.
-     * </pre>
-     *
-     * <code>bool isExternal = 6;</code>
-     */
-    boolean getIsExternal();
   }
   /**
    * <pre>
@@ -27593,7 +27584,6 @@ public final class Messages {
       stepName_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       hasAlias_ = false;
       fileName_ = "";
-      isExternal_ = false;
     }
 
     @java.lang.Override
@@ -27656,11 +27646,6 @@ public final class Messages {
                 span_ = subBuilder.buildPartial();
               }
 
-              break;
-            }
-            case 48: {
-
-              isExternal_ = input.readBool();
               break;
             }
             default: {
@@ -27845,19 +27830,6 @@ public final class Messages {
       return getSpan();
     }
 
-    public static final int ISEXTERNAL_FIELD_NUMBER = 6;
-    private boolean isExternal_;
-    /**
-     * <pre>
-     *&#47; Flag indicating if the given Step defined in some external library and the source code can not be accessed.
-     * </pre>
-     *
-     * <code>bool isExternal = 6;</code>
-     */
-    public boolean getIsExternal() {
-      return isExternal_;
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -27886,9 +27858,6 @@ public final class Messages {
       }
       if (span_ != null) {
         output.writeMessage(5, getSpan());
-      }
-      if (isExternal_ != false) {
-        output.writeBool(6, isExternal_);
       }
       unknownFields.writeTo(output);
     }
@@ -27922,10 +27891,6 @@ public final class Messages {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getSpan());
       }
-      if (isExternal_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(6, isExternal_);
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -27955,8 +27920,6 @@ public final class Messages {
         result = result && getSpan()
             .equals(other.getSpan());
       }
-      result = result && (getIsExternal()
-          == other.getIsExternal());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -27984,9 +27947,6 @@ public final class Messages {
         hash = (37 * hash) + SPAN_FIELD_NUMBER;
         hash = (53 * hash) + getSpan().hashCode();
       }
-      hash = (37 * hash) + ISEXTERNAL_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getIsExternal());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -28138,8 +28098,6 @@ public final class Messages {
           span_ = null;
           spanBuilder_ = null;
         }
-        isExternal_ = false;
-
         return this;
       }
 
@@ -28181,7 +28139,6 @@ public final class Messages {
         } else {
           result.span_ = spanBuilder_.build();
         }
-        result.isExternal_ = isExternal_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -28253,9 +28210,6 @@ public final class Messages {
         }
         if (other.hasSpan()) {
           mergeSpan(other.getSpan());
-        }
-        if (other.getIsExternal() != false) {
-          setIsExternal(other.getIsExternal());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -28733,44 +28687,6 @@ public final class Messages {
           span_ = null;
         }
         return spanBuilder_;
-      }
-
-      private boolean isExternal_ ;
-      /**
-       * <pre>
-       *&#47; Flag indicating if the given Step defined in some external library and the source code can not be accessed.
-       * </pre>
-       *
-       * <code>bool isExternal = 6;</code>
-       */
-      public boolean getIsExternal() {
-        return isExternal_;
-      }
-      /**
-       * <pre>
-       *&#47; Flag indicating if the given Step defined in some external library and the source code can not be accessed.
-       * </pre>
-       *
-       * <code>bool isExternal = 6;</code>
-       */
-      public Builder setIsExternal(boolean value) {
-        
-        isExternal_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *&#47; Flag indicating if the given Step defined in some external library and the source code can not be accessed.
-       * </pre>
-       *
-       * <code>bool isExternal = 6;</code>
-       */
-      public Builder clearIsExternal() {
-        
-        isExternal_ = false;
-        onChanged();
-        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -51324,129 +51240,129 @@ public final class Messages {
       "\001 \001(\010\022\r\n\005error\030\002 \001(\t\022\024\n\014filesChanged\030\003 \003" +
       "(\t\0220\n\013fileChanges\030\004 \003(\0132\033.gauge.messages" +
       ".FileChanges\"$\n\017StepNameRequest\022\021\n\tstepV" +
-      "alue\030\001 \001(\t\"\227\001\n\020StepNameResponse\022\025\n\risSte" +
+      "alue\030\001 \001(\t\"\203\001\n\020StepNameResponse\022\025\n\risSte" +
       "pPresent\030\001 \001(\010\022\020\n\010stepName\030\002 \003(\t\022\020\n\010hasA" +
       "lias\030\003 \001(\010\022\020\n\010fileName\030\004 \001(\t\022\"\n\004span\030\005 \001" +
-      "(\0132\024.gauge.messages.Span\022\022\n\nisExternal\030\006" +
-      " \001(\010\"-\n\032UnsupportedMessageResponse\022\017\n\007me" +
-      "ssage\030\001 \001(\t\"\321\001\n\020CacheFileRequest\022\017\n\007cont" +
-      "ent\030\001 \001(\t\022\020\n\010filePath\030\002 \001(\t\022\020\n\010isClosed\030" +
-      "\003 \001(\010\022;\n\006status\030\004 \001(\0162+.gauge.messages.C" +
-      "acheFileRequest.FileStatus\"K\n\nFileStatus" +
-      "\022\013\n\007CHANGED\020\000\022\n\n\006CLOSED\020\001\022\013\n\007CREATED\020\002\022\013" +
-      "\n\007DELETED\020\003\022\n\n\006OPENED\020\004\"(\n\024StepPositions" +
-      "Request\022\020\n\010filePath\030\001 \001(\t\"\270\001\n\025StepPositi" +
-      "onsResponse\022I\n\rstepPositions\030\001 \003(\01322.gau" +
-      "ge.messages.StepPositionsResponse.StepPo" +
-      "sition\022\r\n\005error\030\002 \001(\t\032E\n\014StepPosition\022\021\n" +
-      "\tstepValue\030\001 \001(\t\022\"\n\004span\030\002 \001(\0132\024.gauge.m" +
-      "essages.Span\"&\n$ImplementationFileGlobPa" +
-      "tternRequest\"=\n%ImplementationFileGlobPa" +
-      "tternResponse\022\024\n\014globPatterns\030\001 \003(\t\"\037\n\035I" +
-      "mplementationFileListRequest\"A\n\036Implemen" +
-      "tationFileListResponse\022\037\n\027implementation" +
-      "FilePaths\030\001 \003(\t\"N\n\035StubImplementationCod" +
-      "eRequest\022\036\n\026implementationFilePath\030\001 \001(\t" +
-      "\022\r\n\005codes\030\002 \003(\t\"?\n\010TextDiff\022\"\n\004span\030\001 \001(" +
-      "\0132\024.gauge.messages.Span\022\017\n\007content\030\002 \001(\t" +
-      "\"I\n\010FileDiff\022\020\n\010filePath\030\001 \001(\t\022+\n\ttextDi" +
-      "ffs\030\002 \003(\0132\030.gauge.messages.TextDiff\"\035\n\tK" +
-      "eepAlive\022\020\n\010pluginId\030\001 \001(\t\"\251\001\n\013SpecDetai" +
-      "ls\0227\n\007details\030\001 \003(\0132&.gauge.messages.Spe" +
-      "cDetails.SpecDetail\032a\n\nSpecDetail\022\'\n\004spe" +
-      "c\030\001 \001(\0132\031.gauge.messages.ProtoSpec\022*\n\013pa" +
-      "rseErrors\030\002 \003(\0132\025.gauge.messages.Error\"\007" +
-      "\n\005Empty\"\375\033\n\007Message\0228\n\013messageType\030\001 \001(\016" +
-      "2#.gauge.messages.Message.MessageType\022\021\n" +
-      "\tmessageId\030\002 \001(\003\022J\n\030executionStartingReq" +
-      "uest\030\003 \001(\0132(.gauge.messages.ExecutionSta" +
-      "rtingRequest\022R\n\034specExecutionStartingReq" +
-      "uest\030\004 \001(\0132,.gauge.messages.SpecExecutio" +
-      "nStartingRequest\022N\n\032specExecutionEndingR" +
-      "equest\030\005 \001(\0132*.gauge.messages.SpecExecut" +
-      "ionEndingRequest\022Z\n scenarioExecutionSta" +
-      "rtingRequest\030\006 \001(\01320.gauge.messages.Scen" +
-      "arioExecutionStartingRequest\022V\n\036scenario" +
-      "ExecutionEndingRequest\030\007 \001(\0132..gauge.mes" +
-      "sages.ScenarioExecutionEndingRequest\022R\n\034" +
-      "stepExecutionStartingRequest\030\010 \001(\0132,.gau" +
-      "ge.messages.StepExecutionStartingRequest" +
-      "\022N\n\032stepExecutionEndingRequest\030\t \001(\0132*.g" +
-      "auge.messages.StepExecutionEndingRequest" +
-      "\022>\n\022executeStepRequest\030\n \001(\0132\".gauge.mes" +
-      "sages.ExecuteStepRequest\022F\n\026executionEnd" +
-      "ingRequest\030\013 \001(\0132&.gauge.messages.Execut" +
-      "ionEndingRequest\022@\n\023stepValidateRequest\030" +
-      "\014 \001(\0132#.gauge.messages.StepValidateReque" +
-      "st\022B\n\024stepValidateResponse\030\r \001(\0132$.gauge" +
-      ".messages.StepValidateResponse\022H\n\027execut" +
-      "ionStatusResponse\030\016 \001(\0132\'.gauge.messages" +
-      ".ExecutionStatusResponse\022:\n\020stepNamesReq" +
-      "uest\030\017 \001(\0132 .gauge.messages.StepNamesReq" +
-      "uest\022<\n\021stepNamesResponse\030\020 \001(\0132!.gauge." +
-      "messages.StepNamesResponse\022B\n\024suiteExecu" +
-      "tionResult\030\021 \001(\0132$.gauge.messages.SuiteE" +
-      "xecutionResult\022>\n\022killProcessRequest\030\022 \001" +
-      "(\0132\".gauge.messages.KillProcessRequest\022R" +
-      "\n\034scenarioDataStoreInitRequest\030\023 \001(\0132,.g" +
-      "auge.messages.ScenarioDataStoreInitReque" +
-      "st\022J\n\030specDataStoreInitRequest\030\024 \001(\0132(.g" +
-      "auge.messages.SpecDataStoreInitRequest\022L" +
-      "\n\031suiteDataStoreInitRequest\030\025 \001(\0132).gaug" +
-      "e.messages.SuiteDataStoreInitRequest\0228\n\017" +
-      "stepNameRequest\030\026 \001(\0132\037.gauge.messages.S" +
-      "tepNameRequest\022:\n\020stepNameResponse\030\027 \001(\013" +
-      "2 .gauge.messages.StepNameResponse\0228\n\017re" +
-      "factorRequest\030\030 \001(\0132\037.gauge.messages.Ref" +
-      "actorRequest\022:\n\020refactorResponse\030\031 \001(\0132 " +
-      ".gauge.messages.RefactorResponse\022N\n\032unsu" +
-      "pportedMessageResponse\030\032 \001(\0132*.gauge.mes" +
-      "sages.UnsupportedMessageResponse\022:\n\020cach" +
-      "eFileRequest\030\033 \001(\0132 .gauge.messages.Cach" +
-      "eFileRequest\022B\n\024stepPositionsRequest\030\034 \001" +
-      "(\0132$.gauge.messages.StepPositionsRequest" +
-      "\022D\n\025stepPositionsResponse\030\035 \001(\0132%.gauge." +
-      "messages.StepPositionsResponse\022T\n\035implem" +
-      "entationFileListRequest\030\036 \001(\0132-.gauge.me" +
-      "ssages.ImplementationFileListRequest\022V\n\036" +
-      "implementationFileListResponse\030\037 \001(\0132..g" +
-      "auge.messages.ImplementationFileListResp" +
-      "onse\022T\n\035stubImplementationCodeRequest\030  " +
-      "\001(\0132-.gauge.messages.StubImplementationC" +
-      "odeRequest\022*\n\010fileDiff\030! \001(\0132\030.gauge.mes" +
-      "sages.FileDiff\022b\n$implementationFileGlob" +
-      "PatternRequest\030\" \001(\01324.gauge.messages.Im" +
-      "plementationFileGlobPatternRequest\022d\n%im" +
-      "plementationFileGlobPatternResponse\030# \001(" +
-      "\01325.gauge.messages.ImplementationFileGlo" +
-      "bPatternResponse\022J\n\030suiteExecutionResult" +
-      "Item\030$ \001(\0132(.gauge.messages.SuiteExecuti" +
-      "onResultItem\022,\n\tkeepAlive\030% \001(\0132\031.gauge." +
-      "messages.KeepAlive\"\242\007\n\013MessageType\022\025\n\021Ex" +
-      "ecutionStarting\020\000\022\031\n\025SpecExecutionStarti" +
-      "ng\020\001\022\027\n\023SpecExecutionEnding\020\002\022\035\n\031Scenari" +
-      "oExecutionStarting\020\003\022\033\n\027ScenarioExecutio" +
-      "nEnding\020\004\022\031\n\025StepExecutionStarting\020\005\022\027\n\023" +
-      "StepExecutionEnding\020\006\022\017\n\013ExecuteStep\020\007\022\023" +
-      "\n\017ExecutionEnding\020\010\022\027\n\023StepValidateReque" +
-      "st\020\t\022\030\n\024StepValidateResponse\020\n\022\033\n\027Execut" +
-      "ionStatusResponse\020\013\022\024\n\020StepNamesRequest\020" +
-      "\014\022\025\n\021StepNamesResponse\020\r\022\026\n\022KillProcessR" +
-      "equest\020\016\022\030\n\024SuiteExecutionResult\020\017\022\031\n\025Sc" +
-      "enarioDataStoreInit\020\020\022\025\n\021SpecDataStoreIn" +
-      "it\020\021\022\026\n\022SuiteDataStoreInit\020\022\022\023\n\017StepName" +
-      "Request\020\023\022\024\n\020StepNameResponse\020\024\022\023\n\017Refac" +
-      "torRequest\020\025\022\024\n\020RefactorResponse\020\026\022\036\n\032Un" +
-      "supportedMessageResponse\020\027\022\024\n\020CacheFileR" +
-      "equest\020\030\022\030\n\024StepPositionsRequest\020\031\022\031\n\025St" +
-      "epPositionsResponse\020\032\022!\n\035ImplementationF" +
-      "ileListRequest\020\033\022\"\n\036ImplementationFileLi" +
-      "stResponse\020\034\022!\n\035StubImplementationCodeRe" +
-      "quest\020\035\022\014\n\010FileDiff\020\036\022(\n$ImplementationF" +
-      "ileGlobPatternRequest\020\037\022)\n%Implementatio" +
-      "nFileGlobPatternResponse\020 \022\034\n\030SuiteExecu" +
-      "tionResultItem\020!\022\r\n\tKeepAlive\020\"B!\n\016gauge" +
-      ".messages\252\002\016Gauge.Messagesb\006proto3"
+      "(\0132\024.gauge.messages.Span\"-\n\032UnsupportedM" +
+      "essageResponse\022\017\n\007message\030\001 \001(\t\"\321\001\n\020Cach" +
+      "eFileRequest\022\017\n\007content\030\001 \001(\t\022\020\n\010filePat" +
+      "h\030\002 \001(\t\022\020\n\010isClosed\030\003 \001(\010\022;\n\006status\030\004 \001(" +
+      "\0162+.gauge.messages.CacheFileRequest.File" +
+      "Status\"K\n\nFileStatus\022\013\n\007CHANGED\020\000\022\n\n\006CLO" +
+      "SED\020\001\022\013\n\007CREATED\020\002\022\013\n\007DELETED\020\003\022\n\n\006OPENE" +
+      "D\020\004\"(\n\024StepPositionsRequest\022\020\n\010filePath\030" +
+      "\001 \001(\t\"\270\001\n\025StepPositionsResponse\022I\n\rstepP" +
+      "ositions\030\001 \003(\01322.gauge.messages.StepPosi" +
+      "tionsResponse.StepPosition\022\r\n\005error\030\002 \001(" +
+      "\t\032E\n\014StepPosition\022\021\n\tstepValue\030\001 \001(\t\022\"\n\004" +
+      "span\030\002 \001(\0132\024.gauge.messages.Span\"&\n$Impl" +
+      "ementationFileGlobPatternRequest\"=\n%Impl" +
+      "ementationFileGlobPatternResponse\022\024\n\014glo" +
+      "bPatterns\030\001 \003(\t\"\037\n\035ImplementationFileLis" +
+      "tRequest\"A\n\036ImplementationFileListRespon" +
+      "se\022\037\n\027implementationFilePaths\030\001 \003(\t\"N\n\035S" +
+      "tubImplementationCodeRequest\022\036\n\026implemen" +
+      "tationFilePath\030\001 \001(\t\022\r\n\005codes\030\002 \003(\t\"?\n\010T" +
+      "extDiff\022\"\n\004span\030\001 \001(\0132\024.gauge.messages.S" +
+      "pan\022\017\n\007content\030\002 \001(\t\"I\n\010FileDiff\022\020\n\010file" +
+      "Path\030\001 \001(\t\022+\n\ttextDiffs\030\002 \003(\0132\030.gauge.me" +
+      "ssages.TextDiff\"\035\n\tKeepAlive\022\020\n\010pluginId" +
+      "\030\001 \001(\t\"\251\001\n\013SpecDetails\0227\n\007details\030\001 \003(\0132" +
+      "&.gauge.messages.SpecDetails.SpecDetail\032" +
+      "a\n\nSpecDetail\022\'\n\004spec\030\001 \001(\0132\031.gauge.mess" +
+      "ages.ProtoSpec\022*\n\013parseErrors\030\002 \003(\0132\025.ga" +
+      "uge.messages.Error\"\007\n\005Empty\"\375\033\n\007Message\022" +
+      "8\n\013messageType\030\001 \001(\0162#.gauge.messages.Me" +
+      "ssage.MessageType\022\021\n\tmessageId\030\002 \001(\003\022J\n\030" +
+      "executionStartingRequest\030\003 \001(\0132(.gauge.m" +
+      "essages.ExecutionStartingRequest\022R\n\034spec" +
+      "ExecutionStartingRequest\030\004 \001(\0132,.gauge.m" +
+      "essages.SpecExecutionStartingRequest\022N\n\032" +
+      "specExecutionEndingRequest\030\005 \001(\0132*.gauge" +
+      ".messages.SpecExecutionEndingRequest\022Z\n " +
+      "scenarioExecutionStartingRequest\030\006 \001(\01320" +
+      ".gauge.messages.ScenarioExecutionStartin" +
+      "gRequest\022V\n\036scenarioExecutionEndingReque" +
+      "st\030\007 \001(\0132..gauge.messages.ScenarioExecut" +
+      "ionEndingRequest\022R\n\034stepExecutionStartin" +
+      "gRequest\030\010 \001(\0132,.gauge.messages.StepExec" +
+      "utionStartingRequest\022N\n\032stepExecutionEnd" +
+      "ingRequest\030\t \001(\0132*.gauge.messages.StepEx" +
+      "ecutionEndingRequest\022>\n\022executeStepReque" +
+      "st\030\n \001(\0132\".gauge.messages.ExecuteStepReq" +
+      "uest\022F\n\026executionEndingRequest\030\013 \001(\0132&.g" +
+      "auge.messages.ExecutionEndingRequest\022@\n\023" +
+      "stepValidateRequest\030\014 \001(\0132#.gauge.messag" +
+      "es.StepValidateRequest\022B\n\024stepValidateRe" +
+      "sponse\030\r \001(\0132$.gauge.messages.StepValida" +
+      "teResponse\022H\n\027executionStatusResponse\030\016 " +
+      "\001(\0132\'.gauge.messages.ExecutionStatusResp" +
+      "onse\022:\n\020stepNamesRequest\030\017 \001(\0132 .gauge.m" +
+      "essages.StepNamesRequest\022<\n\021stepNamesRes" +
+      "ponse\030\020 \001(\0132!.gauge.messages.StepNamesRe" +
+      "sponse\022B\n\024suiteExecutionResult\030\021 \001(\0132$.g" +
+      "auge.messages.SuiteExecutionResult\022>\n\022ki" +
+      "llProcessRequest\030\022 \001(\0132\".gauge.messages." +
+      "KillProcessRequest\022R\n\034scenarioDataStoreI" +
+      "nitRequest\030\023 \001(\0132,.gauge.messages.Scenar" +
+      "ioDataStoreInitRequest\022J\n\030specDataStoreI" +
+      "nitRequest\030\024 \001(\0132(.gauge.messages.SpecDa" +
+      "taStoreInitRequest\022L\n\031suiteDataStoreInit" +
+      "Request\030\025 \001(\0132).gauge.messages.SuiteData" +
+      "StoreInitRequest\0228\n\017stepNameRequest\030\026 \001(" +
+      "\0132\037.gauge.messages.StepNameRequest\022:\n\020st" +
+      "epNameResponse\030\027 \001(\0132 .gauge.messages.St" +
+      "epNameResponse\0228\n\017refactorRequest\030\030 \001(\0132" +
+      "\037.gauge.messages.RefactorRequest\022:\n\020refa" +
+      "ctorResponse\030\031 \001(\0132 .gauge.messages.Refa" +
+      "ctorResponse\022N\n\032unsupportedMessageRespon" +
+      "se\030\032 \001(\0132*.gauge.messages.UnsupportedMes" +
+      "sageResponse\022:\n\020cacheFileRequest\030\033 \001(\0132 " +
+      ".gauge.messages.CacheFileRequest\022B\n\024step" +
+      "PositionsRequest\030\034 \001(\0132$.gauge.messages." +
+      "StepPositionsRequest\022D\n\025stepPositionsRes" +
+      "ponse\030\035 \001(\0132%.gauge.messages.StepPositio" +
+      "nsResponse\022T\n\035implementationFileListRequ" +
+      "est\030\036 \001(\0132-.gauge.messages.Implementatio" +
+      "nFileListRequest\022V\n\036implementationFileLi" +
+      "stResponse\030\037 \001(\0132..gauge.messages.Implem" +
+      "entationFileListResponse\022T\n\035stubImplemen" +
+      "tationCodeRequest\030  \001(\0132-.gauge.messages" +
+      ".StubImplementationCodeRequest\022*\n\010fileDi" +
+      "ff\030! \001(\0132\030.gauge.messages.FileDiff\022b\n$im" +
+      "plementationFileGlobPatternRequest\030\" \001(\013" +
+      "24.gauge.messages.ImplementationFileGlob" +
+      "PatternRequest\022d\n%implementationFileGlob" +
+      "PatternResponse\030# \001(\01325.gauge.messages.I" +
+      "mplementationFileGlobPatternResponse\022J\n\030" +
+      "suiteExecutionResultItem\030$ \001(\0132(.gauge.m" +
+      "essages.SuiteExecutionResultItem\022,\n\tkeep" +
+      "Alive\030% \001(\0132\031.gauge.messages.KeepAlive\"\242" +
+      "\007\n\013MessageType\022\025\n\021ExecutionStarting\020\000\022\031\n" +
+      "\025SpecExecutionStarting\020\001\022\027\n\023SpecExecutio" +
+      "nEnding\020\002\022\035\n\031ScenarioExecutionStarting\020\003" +
+      "\022\033\n\027ScenarioExecutionEnding\020\004\022\031\n\025StepExe" +
+      "cutionStarting\020\005\022\027\n\023StepExecutionEnding\020" +
+      "\006\022\017\n\013ExecuteStep\020\007\022\023\n\017ExecutionEnding\020\010\022" +
+      "\027\n\023StepValidateRequest\020\t\022\030\n\024StepValidate" +
+      "Response\020\n\022\033\n\027ExecutionStatusResponse\020\013\022" +
+      "\024\n\020StepNamesRequest\020\014\022\025\n\021StepNamesRespon" +
+      "se\020\r\022\026\n\022KillProcessRequest\020\016\022\030\n\024SuiteExe" +
+      "cutionResult\020\017\022\031\n\025ScenarioDataStoreInit\020" +
+      "\020\022\025\n\021SpecDataStoreInit\020\021\022\026\n\022SuiteDataSto" +
+      "reInit\020\022\022\023\n\017StepNameRequest\020\023\022\024\n\020StepNam" +
+      "eResponse\020\024\022\023\n\017RefactorRequest\020\025\022\024\n\020Refa" +
+      "ctorResponse\020\026\022\036\n\032UnsupportedMessageResp" +
+      "onse\020\027\022\024\n\020CacheFileRequest\020\030\022\030\n\024StepPosi" +
+      "tionsRequest\020\031\022\031\n\025StepPositionsResponse\020" +
+      "\032\022!\n\035ImplementationFileListRequest\020\033\022\"\n\036" +
+      "ImplementationFileListResponse\020\034\022!\n\035Stub" +
+      "ImplementationCodeRequest\020\035\022\014\n\010FileDiff\020" +
+      "\036\022(\n$ImplementationFileGlobPatternReques" +
+      "t\020\037\022)\n%ImplementationFileGlobPatternResp" +
+      "onse\020 \022\034\n\030SuiteExecutionResultItem\020!\022\r\n\t" +
+      "KeepAlive\020\"B!\n\016gauge.messages\252\002\016Gauge.Me" +
+      "ssagesb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -51646,7 +51562,7 @@ public final class Messages {
     internal_static_gauge_messages_StepNameResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_gauge_messages_StepNameResponse_descriptor,
-        new java.lang.String[] { "IsStepPresent", "StepName", "HasAlias", "FileName", "Span", "IsExternal", });
+        new java.lang.String[] { "IsStepPresent", "StepName", "HasAlias", "FileName", "Span", });
     internal_static_gauge_messages_UnsupportedMessageResponse_descriptor =
       getDescriptor().getMessageTypes().get(31);
     internal_static_gauge_messages_UnsupportedMessageResponse_fieldAccessorTable = new

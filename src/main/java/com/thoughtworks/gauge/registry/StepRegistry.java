@@ -5,7 +5,6 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.registry;
 
-import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import gauge.messages.Messages;
@@ -14,7 +13,6 @@ import gauge.messages.Spec;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -31,19 +29,21 @@ public class StepRegistry {
         registry = new ConcurrentHashMap<>();
     }
 
-    public void addStepImplementation(StepValue stepValue, Method method, boolean isExternal) {
+    public void addStepImplementation(StepValue stepValue, Method method) {
         String stepText = stepValue.getStepText();
         registry.putIfAbsent(stepText, new CopyOnWriteArrayList<>());
-        registry.get(stepText).add(new StepRegistryEntry(stepValue, method, isExternal));
+        registry.get(stepText).add(new StepRegistryEntry(stepValue, method));
+    }
+
+    public List<String> getAllAliasAnnotationTextsFor(String stepTemplateText) {
+        return registry.values().stream().flatMap(Collection::stream)
+                .filter(registryEntry -> registryEntry.getStepValue().getStepText().equals(stepTemplateText))
+                .map(registryEntry -> registryEntry.getStepValue().getStepAnnotationText()).collect(toList());
     }
 
     public void clear() {
         this.registry = new ConcurrentHashMap<>();
     }
-
-    public List<String> keys() {
-        return Collections.list(this.registry.keys());
-    };
 
     public boolean contains(String stepTemplateText) {
         return registry.containsKey(stepTemplateText);
@@ -51,17 +51,6 @@ public class StepRegistry {
 
     public StepRegistryEntry get(String stepTemplateText) {
         return getFirstEntry(stepTemplateText);
-    }
-
-    public StepRegistryEntry getForCurrentProject(String stepTemplateText, Method method) {
-        return registry.get(stepTemplateText).stream()
-                .filter(e -> {
-                    String reflectedMethodName = method.getDeclaringClass().getName() + "." + method.getName();
-                    Logger.debug("Comparing '" + e.getFullyQualifiedName() + "' and '"
-                            + reflectedMethodName + "'");
-                    return !e.getIsExternal() && e.getFullyQualifiedName().equals(reflectedMethodName);
-                })
-                .findFirst().orElse(null);
     }
 
     private StepRegistryEntry getFirstEntry(String stepTemplateText) {
@@ -93,14 +82,14 @@ public class StepRegistry {
     public void removeSteps(String fileName) {
         ConcurrentHashMap<String, CopyOnWriteArrayList<StepRegistryEntry>> newRegistry = new ConcurrentHashMap<>();
         for (String key : registry.keySet()) {
-            CopyOnWriteArrayList<StepRegistryEntry> newEntryList = registry.get(key).stream()
-                    .filter(entry -> entry.getFileName() != null && !entry.getFileName().equals(fileName)).collect(toCollection(CopyOnWriteArrayList::new));
+            CopyOnWriteArrayList<StepRegistryEntry> newEntryList = registry.get(key).stream().filter(entry -> !entry.getFileName().equals(fileName)).collect(toCollection(CopyOnWriteArrayList::new));
             if (newEntryList.size() > 0) {
                 newRegistry.put(key, newEntryList);
             }
         }
         registry = newRegistry;
     }
+
 
     public void addStep(StepValue stepValue, StepRegistryEntry entry) {
         String stepText = stepValue.getStepText();
