@@ -423,7 +423,8 @@ func createClasspath() string {
 		if os.Getenv("SHOULD_BUILD_PROJECT") != "false" {
 			build(defaultBuildDir, cp)
 		}
-		appendClasspath(&cp, defaultBuildDir)
+		abs, _ := filepath.Abs(defaultBuildDir)
+		appendClasspath(&cp, filepath.Join(abs, "*"))
 	}
 	return cp
 }

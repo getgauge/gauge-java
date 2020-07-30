@@ -6,6 +6,7 @@
 package com.thoughtworks.gauge.scan;
 
 import com.thoughtworks.gauge.ClasspathHelper;
+import com.thoughtworks.gauge.Logger;
 import org.reflections.Configuration;
 import org.reflections.Reflections;
 import org.reflections.scanners.MethodAnnotationsScanner;
@@ -18,6 +19,8 @@ import org.reflections.vfs.ZipDir;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Collection;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.jar.JarFile;
 
 import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
@@ -27,16 +30,20 @@ import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
  */
 public class ClasspathScanner {
 
-    private Reflections reflections;
+    private static AtomicBoolean done = new AtomicBoolean();
 
-    public void scan(IScanner... scanners) {
-        reflections = createReflections();
-        for (IScanner scanner : scanners) {
-            scanner.scan(reflections);
+    public static void scanOnce(IScanner... scanners) {
+        if (!done.get()) {
+            Logger.debug("Creating reflections to scan...");
+            Reflections reflections = createReflections();
+            for (IScanner scanner : scanners) {
+                scanner.scan(reflections);
+            }
+            done.set(true);
         }
     }
 
-    private Reflections createReflections() {
+    private static Reflections createReflections() {
         Vfs.addDefaultURLTypes(new Vfs.UrlType() {
             @Override
             public boolean matches(URL url) {
@@ -50,26 +57,27 @@ public class ClasspathScanner {
             }
         });
 
+        Collection<URL> urls = ClasspathHelper.getUrls();
+        Logger.debug("CLASSPATH resolved these URLs: " + urls);
         Configuration config = new ConfigurationBuilder()
                 .setScanners(new MethodAnnotationsScanner(), new SubTypesScanner())
-                .addUrls(ClasspathHelper.getUrls())
-                .filterInputsBy(this::shouldScan);
+                .addUrls(urls)
+                .filterInputsBy(s -> {
+                    final String packagesToScan = System.getenv(PACKAGE_TO_SCAN);
+                    if (packagesToScan == null || packagesToScan.isEmpty()) {
+                        return new FilterBuilder().include(".+\\.class").apply(s);
+                    }
+                    final String[] packages = packagesToScan.split(",");
+                    for (String packageToScan : packages) {
+                        String regex = String.format(".?\\.??%s\\..+\\.class", packageToScan);
+                        if (new FilterBuilder().include(regex).apply(s)) {
+                            return true;
+                        }
+                    }
+                    return false;
+
+                });
 
         return new Reflections(config);
-    }
-
-    private boolean shouldScan(String s) {
-        final String packagesToScan = System.getenv(PACKAGE_TO_SCAN);
-        if (packagesToScan == null || packagesToScan.isEmpty()) {
-            return new FilterBuilder().include(".+\\.class").apply(s);
-        }
-        final String[] packages = packagesToScan.split(",");
-        for (String packageToScan : packages) {
-            String regex = String.format(".?\\.??%s\\..+\\.class", packageToScan);
-            if (new FilterBuilder().include(regex).apply(s)) {
-                return true;
-            }
-        }
-        return false;
     }
 }
