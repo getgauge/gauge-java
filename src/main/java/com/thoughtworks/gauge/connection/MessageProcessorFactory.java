@@ -59,7 +59,7 @@ public class MessageProcessorFactory {
 
     public IMessageProcessor getProcessor(Messages.Message.MessageType request) {
         classpathScanner.scanOncePerThread(new StepsScanner(staticScanner.getRegistry()), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
-        if (request == Messages.Message.MessageType.SuiteDataStoreInit) {
+        if (!messageProcessors.get().containsKey(Messages.Message.MessageType.SuiteDataStoreInit)) {
             this.initializeExecutionMessageProcessors();
         }
         if (messageProcessors.get().containsKey(request)) {
