@@ -27,12 +27,18 @@ import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
  */
 public class ClasspathScanner {
 
-    private Reflections reflections;
+    private volatile Reflections reflections;
+    private ThreadLocal<Boolean> done = ThreadLocal.withInitial(() -> false);
 
-    public void scan(IScanner... scanners) {
-        reflections = createReflections();
-        for (IScanner scanner : scanners) {
-            scanner.scan(reflections);
+    public void scanOncePerThread(IScanner... scanners) {
+        if (reflections == null) {
+            reflections = createReflections();
+        }
+        if (!done.get()) {
+            for (IScanner scanner : scanners) {
+                scanner.scan(reflections);
+            }
+            done.set(true);
         }
     }
 
