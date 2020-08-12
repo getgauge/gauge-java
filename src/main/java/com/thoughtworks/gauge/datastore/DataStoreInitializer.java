@@ -16,13 +16,16 @@ public class DataStoreInitializer implements IMessageProcessor {
     public Messages.Message process(Messages.Message message) {
         switch (message.getMessageType()) { // SUPPRESS CHECKSTYLE
             case SuiteDataStoreInit:
-                DataStoreFactory.getSuiteDataStore().clear();
+                DataStoreFactory.clearSuiteDataStore();
+                SuiteDataStore.clear();
                 break;
             case SpecDataStoreInit:
-                DataStoreFactory.getSpecDataStore().clear();
+                DataStoreFactory.clearSpecDataStore();
+                SpecDataStore.clear();
                 break;
             case ScenarioDataStoreInit:
-                DataStoreFactory.getScenarioDataStore().clear();
+                DataStoreFactory.clearScenarioDataStore();
+                ScenarioDataStore.clear();
                 break;
         }
         return createMessageWithExecutionStatusResponse(message, Spec.ProtoExecutionResult.newBuilder().setExecutionTime(0).setFailed(false).build());
