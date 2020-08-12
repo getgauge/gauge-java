@@ -9,7 +9,7 @@ import static com.thoughtworks.gauge.GaugeConstant.ENABLE_MULTITHREADING_ENV;
 
 
 /**
- * @deprecated DataStoreFactory is no longer valid. In multithreading execution it strictly throw Exception.
+ * @deprecated DataStoreFactory is no longer valid. This API will throw an Exception in multithreaded execution.
  * <p>Use specific data stores {@link SuiteDataStore, SpecDataStore or ScenarioDataStore } instead </p>
  */
 @Deprecated
@@ -39,7 +39,7 @@ public class DataStoreFactory {
      */
     public static DataStore getSuiteDataStore() {
         if (isMultithreadingExecution()) {
-            throw new RuntimeException("DataStoreFactory should not be used for multithreading execution. Use SuiteDataStore class.");
+            throw new RuntimeException("DataStoreFactory cannot be used for multithreaded execution. Use SuiteDataStore.");
         }
         return suiteDataStore.get();
     }
@@ -49,7 +49,7 @@ public class DataStoreFactory {
      */
     public static DataStore getSpecDataStore() {
         if (isMultithreadingExecution()) {
-            throw new RuntimeException("DataStoreFactory should not be used for multithreading execution. Use SpecDataStore class.");
+            throw new RuntimeException("DataStoreFactory cannot be used for multithreaded execution. Use SpecDataStore.");
         }
         return specDataStore.get();
     }
@@ -60,7 +60,7 @@ public class DataStoreFactory {
      */
     public static DataStore getScenarioDataStore() {
         if (isMultithreadingExecution()) {
-            throw new RuntimeException("DataStoreFactory should not be used for multithreading execution. Use ScenarioDataStore class.");
+            throw new RuntimeException("DataStoreFactory cannot be used for multithreaded execution. Use ScenarioDataStore.");
         }
         return scenarioDataStore.get();
     }

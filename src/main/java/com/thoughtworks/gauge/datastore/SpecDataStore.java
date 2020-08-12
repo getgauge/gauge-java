@@ -1,3 +1,9 @@
+/*----------------------------------------------------------------
+ *  Copyright (c) ThoughtWorks, Inc.
+ *  Licensed under the Apache License, Version 2.0
+ *  See LICENSE.txt in the project root for license information.
+ *----------------------------------------------------------------*/
+
 package com.thoughtworks.gauge.datastore;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -29,7 +35,7 @@ public class SpecDataStore {
         return map.get().get(key);
     }
 
-    static synchronized void  clear() {
+    static synchronized void clear() {
         map.get().clear();
     }
 }
