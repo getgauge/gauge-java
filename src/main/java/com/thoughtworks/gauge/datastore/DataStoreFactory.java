@@ -10,7 +10,10 @@ import static com.thoughtworks.gauge.GaugeConstant.ENABLE_MULTITHREADING_ENV;
 
 /**
  * @deprecated DataStoreFactory is no longer valid. This API will throw an Exception in multithreaded execution.
- * <p>Use specific data stores {@link SuiteDataStore, SpecDataStore or ScenarioDataStore } instead </p>
+ * <p>Use specific data stores instead.</p>
+ * @see com.thoughtworks.gauge.datastore.SuiteDataStore
+ * @see com.thoughtworks.gauge.datastore.SpecDataStore
+ * @see com.thoughtworks.gauge.datastore.ScenarioDataStore
  */
 @Deprecated
 public class DataStoreFactory {

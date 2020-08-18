@@ -16,7 +16,9 @@ public class ScenarioDataStore {
      * @param value - value of the Data entry
      */
     public static synchronized void put(Object key, Object value) {
-        map.get().put(key, value);
+        if (key != null && value != null)  {
+            map.get().put(key, value);
+        }
     }
 
     /**
@@ -24,7 +26,10 @@ public class ScenarioDataStore {
      * @return The value of the entry removed. Null if no entry.
      */
     public static synchronized Object remove(Object key) {
-        return map.get().remove(key);
+        if (key != null) {
+            return map.get().remove(key);
+        }
+        return null;
     }
 
     /**
@@ -32,7 +37,10 @@ public class ScenarioDataStore {
      * @return The value corresponding to the key. null if there is no value stored
      */
     public static synchronized Object get(Object key) {
-        return map.get().get(key);
+        if (key != null) {
+            return map.get().get(key);
+        }
+        return null;
     }
 
     static synchronized void clear() {
