@@ -34,6 +34,9 @@ public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implem
     public Messages.Message process(Messages.Message message) {
         String stepText = message.getExecuteStepRequest().getParsedStepText();
         Method method = registry.get(stepText).getMethodInfo();
+        if (method == null) {
+            Logger.fatal("No step definition found. Try compiling the source before execution.");
+        }
         Logger.debug("Executing '" + stepText + "' using '" + method.getDeclaringClass() + "." + method.getName());
         ExecutionPipeline pipeline = new ExecutionPipeline(new HookExecutionStage(HooksRegistry.getBeforeClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));
         pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest(), getInstanceManager(), chain, registry),
