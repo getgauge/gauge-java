@@ -18,7 +18,7 @@ public class Gauge {
             return new ArrayList<>();
         }
     };
-    private static ClassInstanceManager instanceManager;
+    private static ThreadLocal<ClassInstanceManager> instanceManager = new InheritableThreadLocal<>();
     private static ThreadLocal<List<String>> screenshots = new InheritableThreadLocal<List<String>>() {
         @Override
         protected List<String> initialValue() {
@@ -27,7 +27,7 @@ public class Gauge {
     };
 
     public static void setInstanceManager(ClassInstanceManager instanceManager) {
-        Gauge.instanceManager = instanceManager;
+        Gauge.instanceManager.set(instanceManager);
     }
 
     /**
@@ -51,7 +51,7 @@ public class Gauge {
     }
 
     public static void captureScreenshot() {
-        String screenshotFileName = new ScreenshotFactory(instanceManager).getScreenshotBytes();
+        String screenshotFileName = new ScreenshotFactory(instanceManager.get()).getScreenshotBytes();
         getScreenshots().add(screenshotFileName);
     }
 
