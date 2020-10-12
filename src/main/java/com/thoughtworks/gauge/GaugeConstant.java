@@ -16,4 +16,5 @@ public class GaugeConstant {
     public static final String STREAMS_COUNT_ENV = "GAUGE_PARALLEL_STREAMS_COUNT";
     public static final String ENABLE_MULTITHREADING_ENV = "enable_multithreading";
     public static final String SCAN_EXTERNAL_LIBS = "scan_external_dependencies";
+    public static final String LOCALHOST = "127.0.0.1";
 }

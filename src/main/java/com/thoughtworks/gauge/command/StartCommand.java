@@ -10,12 +10,14 @@ import com.thoughtworks.gauge.RunnerServiceHandler;
 import com.thoughtworks.gauge.connection.MessageProcessorFactory;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import io.grpc.Server;
-import io.grpc.ServerBuilder;
+import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
 
+import java.net.InetSocketAddress;
 import java.util.concurrent.Executor;
 
 import static com.thoughtworks.gauge.GaugeConstant.STREAMS_COUNT_ENV;
 import static com.thoughtworks.gauge.GaugeConstant.ENABLE_MULTITHREADING_ENV;
+import static com.thoughtworks.gauge.GaugeConstant.LOCALHOST;;
 
 public class StartCommand implements GaugeJavaCommand {
 
@@ -42,7 +44,11 @@ public class StartCommand implements GaugeJavaCommand {
         Server server;
         MessageProcessorFactory messageProcessorFactory = new MessageProcessorFactory(staticScanner);
         RunnerServiceHandler runnerServiceHandler = new RunnerServiceHandler(messageProcessorFactory, multithreading, numberOfStreams);
-        server = ServerBuilder.forPort(0).addService(runnerServiceHandler).executor((Executor) Runnable::run).build();
+        server = NettyServerBuilder
+            .forAddress(new InetSocketAddress(LOCALHOST, 0))
+            .addService(runnerServiceHandler)
+            .executor((Executor) Runnable::run)
+            .build();
         runnerServiceHandler.addServer(server);
         long elapsed = System.currentTimeMillis() - start;
         Logger.debug("gauge-java took " + elapsed + "milliseconds to load and scan. This should be less than 'runner_connection_timeout' config value.");
