@@ -8,7 +8,6 @@ package com.thoughtworks.gauge.datastore;
 
 import java.util.Collections;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class SpecDataStore {
@@ -20,7 +19,7 @@ public class SpecDataStore {
      */
     public static synchronized void put(Object key, Object value) {
         if (key != null && value != null)  {
-            getMap().put(key, value);
+            map.get().put(key, value);
         }
     }
 
@@ -30,7 +29,7 @@ public class SpecDataStore {
      */
     public static synchronized Object remove(Object key) {
         if (key != null) {
-            return getMap().remove(key);
+            return map.get().remove(key);
         }
         return null;
     }
@@ -41,20 +40,16 @@ public class SpecDataStore {
      */
     public static synchronized Object get(Object key) {
         if (key != null) {
-            return getMap().get(key);
+            return map.get().get(key);
         }
         return null;
     }
 
-    private static synchronized ConcurrentHashMap<Object, Object> getMap() {
-        return map.get();
-    }
-
     public static synchronized Map<Object, Object> items() {
-        return Collections.unmodifiableMap(getMap());
+        return Collections.unmodifiableMap(map.get());
     }
 
     static synchronized void clear() {
-        getMap().clear();
+        map.get().clear();
     }
 }

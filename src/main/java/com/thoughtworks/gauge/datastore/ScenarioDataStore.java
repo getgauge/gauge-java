@@ -14,12 +14,22 @@ public class ScenarioDataStore {
     private static ThreadLocal<ConcurrentHashMap<Object, Object>> map = ThreadLocal.withInitial(ConcurrentHashMap::new);
 
     /**
+     * @param key   - Key of the data entry
+     * @param value - value of the Data entry
+     */
+    public static synchronized void put(Object key, Object value) {
+        if (key != null && value != null)  {
+            map.get().put(key, value);
+        }
+    }
+
+    /**
      * @param key - Key of the data entry to remove
      * @return The value of the entry removed. Null if no entry.
      */
     public static synchronized Object remove(Object key) {
         if (key != null) {
-            return getMap().remove(key);
+            return map.get().remove(key);
         }
         return null;
     }
@@ -30,20 +40,16 @@ public class ScenarioDataStore {
      */
     public static synchronized Object get(Object key) {
         if (key != null) {
-            return getMap().get(key);
+            return map.get().get(key);
         }
         return null;
     }
 
-    private static synchronized ConcurrentHashMap<Object, Object> getMap() {
-        return map.get();
-    }
-
     public static synchronized Map<Object, Object> items() {
-        return Collections.unmodifiableMap(getMap());
+        return Collections.unmodifiableMap(map.get());
     }
 
     static synchronized void clear() {
-        getMap().clear();
+        map.get().clear();
     }
 }
