@@ -6,6 +6,8 @@
 
 package com.thoughtworks.gauge.datastore;
 
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class SpecDataStore {
@@ -43,8 +45,12 @@ public class SpecDataStore {
         return null;
     }
 
-    public static synchronized ConcurrentHashMap<Object, Object> getMap() {
+    private static synchronized ConcurrentHashMap<Object, Object> getMap() {
         return map.get();
+    }
+
+    public static synchronized Set<Map.Entry<Object, Object>> entrySet() {
+        return getMap().entrySet();
     }
 
     static synchronized void clear() {
