@@ -17,7 +17,7 @@ public class SpecDataStore {
      */
     public static synchronized void put(Object key, Object value) {
         if (key != null && value != null)  {
-            map.get().put(key, value);
+            getMap().put(key, value);
         }
     }
 
@@ -27,7 +27,7 @@ public class SpecDataStore {
      */
     public static synchronized Object remove(Object key) {
         if (key != null) {
-            return map.get().remove(key);
+            return getMap().remove(key);
         }
         return null;
     }
@@ -38,13 +38,16 @@ public class SpecDataStore {
      */
     public static synchronized Object get(Object key) {
         if (key != null) {
-            return map.get().get(key);
+            return getMap().get(key);
         }
         return null;
     }
 
+    public static synchronized ConcurrentHashMap<Object, Object> getMap() {
+        return map.get();
+    }
 
     static synchronized void clear() {
-        map.get().clear();
+        getMap().clear();
     }
 }
