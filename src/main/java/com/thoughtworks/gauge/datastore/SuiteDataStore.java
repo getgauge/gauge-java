@@ -6,6 +6,7 @@
 
 package com.thoughtworks.gauge.datastore;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -49,8 +50,8 @@ public class SuiteDataStore {
         return map.get();
     }
 
-    public static synchronized Set<Map.Entry<Object, Object>> entrySet() {
-        return getMap().entrySet();
+    public static synchronized Map<Object, Object> items() {
+        return Collections.unmodifiableMap(getMap());
     }
 
     static synchronized void clear() {

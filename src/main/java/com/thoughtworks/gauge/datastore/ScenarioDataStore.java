@@ -6,22 +6,12 @@
 
 package com.thoughtworks.gauge.datastore;
 
+import java.util.Collections;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ScenarioDataStore {
     private static ThreadLocal<ConcurrentHashMap<Object, Object>> map = ThreadLocal.withInitial(ConcurrentHashMap::new);
-
-    /**
-     * @param key   - Key of the data entry
-     * @param value - value of the Data entry
-     */
-    public static synchronized void put(Object key, Object value) {
-        if (key != null && value != null)  {
-            getMap().put(key, value);
-        }
-    }
 
     /**
      * @param key - Key of the data entry to remove
@@ -49,8 +39,8 @@ public class ScenarioDataStore {
         return map.get();
     }
 
-    public static synchronized Set<Map.Entry<Object, Object>> entrySet() {
-        return getMap().entrySet();
+    public static synchronized Map<Object, Object> items() {
+        return Collections.unmodifiableMap(getMap());
     }
 
     static synchronized void clear() {
