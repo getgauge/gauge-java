@@ -7,7 +7,7 @@
 package com.thoughtworks.gauge.datastore;
 
 import java.util.Collections;
-import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class SpecDataStore {
@@ -45,8 +45,12 @@ public class SpecDataStore {
         return null;
     }
 
-    public static synchronized Map<Object, Object> items() {
-        return Collections.unmodifiableMap(map.get());
+    /**
+     * Returns a {@link Set} view of the keys in datastore.
+     * @return A set of keys stored in datastore
+     */
+    public static synchronized Set<Object> items() {
+        return Collections.unmodifiableSet(map.get().keySet());
     }
 
     static synchronized void clear() {
