@@ -6,6 +6,8 @@
 
 package com.thoughtworks.gauge.datastore;
 
+import java.util.Collections;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ScenarioDataStore {
@@ -43,7 +45,16 @@ public class ScenarioDataStore {
         return null;
     }
 
+    /**
+     * Returns a {@link Set} view of the keys in datastore.
+     * @return A set of keys stored in datastore
+     */
+    public static synchronized Set<Object> items() {
+        return Collections.unmodifiableSet(map.get().keySet());
+    }
+
     static synchronized void clear() {
         map.get().clear();
     }
+
 }
