@@ -48,13 +48,6 @@ jobs:
         with:
           gauge-version: master
 
-      - name: Install html report
-        run: |
-          git clone --depth=1 https://github.com/getgauge/html-report
-          cd html-report
-          go run build/make.go
-          go run build/make.go --install
-
       - name: Install Gauge Java plugin from source
         run: |
           go run build/make.go
@@ -117,18 +110,6 @@ jobs:
 
       - name: Use Node.js
         uses: actions/setup-node@v1
-
-      - name: Prep gauge-js
-        run: |
-          git clone https://github.com/getgauge/gauge-js.git
-          cd gauge-js
-          npm install
-        shell: bash
-
-      - name: Install gauge-js
-        run: |
-          cd gauge-js
-          npm run installPlugin
 
       - name: Prep LSP tests
         run: |
