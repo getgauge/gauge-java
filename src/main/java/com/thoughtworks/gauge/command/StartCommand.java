@@ -59,5 +59,7 @@ public class StartCommand implements GaugeJavaCommand {
         Logger.debug("started gRPC server on port " + port);
         Logger.info("Listening on port:" + port);
         server.awaitTermination();
+        Logger.debug("Runner killed gracefully.");
+        System.exit(0);
     }
 }
