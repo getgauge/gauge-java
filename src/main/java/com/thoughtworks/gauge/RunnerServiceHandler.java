@@ -394,9 +394,12 @@ public class RunnerServiceHandler extends RunnerImplBase {
     @Override
     public void kill(Messages.KillProcessRequest request, StreamObserver<Messages.Empty> responseObserver) {
         try {
+            Logger.debug("Killing Java runner...");
             responseObserver.onNext(Messages.Empty.newBuilder().build());
             responseObserver.onCompleted();
+            Logger.debug("Stopping execution pool...");
             pool.stopAfterCompletion();
+            Logger.debug("Shutting down grpc server...");
             server.shutdownNow();
         } catch (Throwable e) {
             Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.KillProcessRequest, e.toString()));
