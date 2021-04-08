@@ -15,14 +15,11 @@ jobs:
       CI: true
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Set up JDK
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
           java-version: '12.x.x'
-
-      - name: Install hub
-        uses: geertvdc/setup-hub@master
 
       - name: Setup maven
         run: |
@@ -38,7 +35,7 @@ jobs:
           git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
 
       - name: Set up Go 1.13
-        uses: actions/setup-go@v1
+        uses: actions/setup-go@v2
         with:
           go-version: 1.13
         id: go    
