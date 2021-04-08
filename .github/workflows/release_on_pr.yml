@@ -51,7 +51,7 @@ jobs:
           if [ -z "$version" ]; then
               version=$(ls gauge-java* | head -1 | sed "s/\.[^\.]*$//" | sed "s/gauge-java-//" | sed "s/-[a-z]*\.[a-z0-9_]*$//")
           fi
-          echo "::set-env name=VERSION::$version"
+          echo "VERSION=$version" >> $GITHUB_ENV
           artifacts=()
           dir=$(pwd)
           for i in $(ls); do
