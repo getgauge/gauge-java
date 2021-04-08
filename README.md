@@ -36,13 +36,13 @@ gauge run specs
 #### Install specific version
 * Installing specific version
 ```
-gauge install java --version 0.6.5
+gauge install java --version 0.7.14
 ```
 
 #### Offline installation
 * Download the plugin from [Releases](https://github.com/getgauge/gauge-java/releases)
 ```
-gauge install java --file gauge-java-0.6.5-windows.x86_64.zip
+gauge install java --file gauge-java-0.7.14-windows.x86_64.zip
 ```
 
 #### Build from source
@@ -110,7 +110,7 @@ Apache License, Version 2.0
 
 ## Copyright
 
-Copyright 2016 ThoughtWorks, Inc.
+Copyright ThoughtWorks, Inc.
 
 ## Acknowledgements
 
