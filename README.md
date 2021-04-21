@@ -4,13 +4,13 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
-This project adds java [language plugin](https://docs.gauge.org/plugins.html#language-reporting-plugins) for [gauge](http://getgauge.io).
+This project adds java [language plugin](https://gauge.org/plugins/) for [gauge](https://gauge.org/).
 
 ## Getting started
 
 ### Pre-requisite
 
-- [Install Gauge](https://docs.gauge.org/installing.html#installation)
+- [Install Gauge](https://docs.gauge.org/getting_started/installing-gauge.html)
 - [Java](https://www.java.com/en/download/)
 
 ### Installation
