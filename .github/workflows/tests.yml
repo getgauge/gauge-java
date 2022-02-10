@@ -109,8 +109,9 @@ jobs:
           go run build/make.go --install
 
       - name: Use Node.js
-        uses: actions/setup-node@v1
-
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
       - name: Prep LSP tests
         run: |
           git clone https://github.com/getgauge/gauge-lsp-tests
