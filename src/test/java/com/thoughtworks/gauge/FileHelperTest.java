@@ -37,7 +37,7 @@ public class FileHelperTest {
         List<String> expectedImplFiles = Arrays.asList(String.format("%s%sfiles%sformatted%sStepImpl.java", gaugeProjRoot, File.separator, File.separator, File.separator),
                 String.format("%s%sfiles%sformatted%sStepImplWithComments.java", gaugeProjRoot, File.separator, File.separator, File.separator),
                 String.format("%s%sfiles%sunformatted%sUnFormattedStepImpl.java", gaugeProjRoot, File.separator, File.separator, File.separator));
-        assertIterableEquals(expectedImplFiles, implFiles);
+        assertTrue(expectedImplFiles.containsAll(implFiles));
     }
 
 
@@ -53,7 +53,7 @@ public class FileHelperTest {
         List<String> expectedImplDirs = Arrays.asList(String.format("%s%sfiles%sformatted", gaugeProjRoot, File.separator, File.separator),
             String.format("%s%sfiles%sunformatted", gaugeProjRoot, File.separator, File.separator)
         );
-        assertIterableEquals(expectedImplDirs, stepImplDirs);
+        assertTrue(expectedImplDirs.containsAll(stepImplDirs));
     }
 
     @Test
@@ -78,6 +78,6 @@ public class FileHelperTest {
             String.format("%s%ssrc%smain%sjava", gaugeProjRoot, File.separator, File.separator, File.separator),
             String.format("%s%ssrc%stest%sjava", gaugeProjRoot, File.separator, File.separator, File.separator)
         );
-        assertIterableEquals(expectedImplDirs, stepImplDirs);
+        assertTrue(expectedImplDirs.containsAll(stepImplDirs));
     }
 }
