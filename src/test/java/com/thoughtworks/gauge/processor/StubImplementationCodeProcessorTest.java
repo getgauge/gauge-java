@@ -10,7 +10,6 @@ import gauge.messages.Messages;
 import gauge.messages.Spec;
 import org.junit.Test;
 
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;

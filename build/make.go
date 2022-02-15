@@ -23,6 +23,7 @@ const (
 	GOARCH            = "GOARCH"
 	GOOS              = "GOOS"
 	X86               = "386"
+	ARM64             = "arm64"
 	X86_64            = "amd64"
 	DARWIN            = "darwin"
 	LINUX             = "linux"
@@ -196,10 +197,11 @@ var profile = flag.String("profile", "", "Specify profile to use while building"
 
 var (
 	platformEnvs = []map[string]string{
-		{GOARCH: X86, GOOS: DARWIN, CGO_ENABLED: "0"},
+		{GOARCH: ARM64, GOOS: DARWIN, CGO_ENABLED: "0"},
 		{GOARCH: X86_64, GOOS: DARWIN, CGO_ENABLED: "0"},
 		{GOARCH: X86, GOOS: LINUX, CGO_ENABLED: "0"},
 		{GOARCH: X86_64, GOOS: LINUX, CGO_ENABLED: "0"},
+		{GOARCH: ARM64, GOOS: LINUX, CGO_ENABLED: "0"},
 		{GOARCH: X86, GOOS: WINDOWS, CGO_ENABLED: "0"},
 		{GOARCH: X86_64, GOOS: WINDOWS, CGO_ENABLED: "0"},
 	}
