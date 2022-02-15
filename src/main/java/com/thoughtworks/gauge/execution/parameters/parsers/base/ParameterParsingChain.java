@@ -16,11 +16,12 @@ import com.thoughtworks.gauge.execution.parameters.parsers.types.TableParameterP
 import gauge.messages.Spec.Parameter;
 import org.reflections.Configuration;
 import org.reflections.Reflections;
-import org.reflections.scanners.SubTypesScanner;
+import org.reflections.scanners.Scanners;
 import org.reflections.util.ConfigurationBuilder;
 import org.reflections.util.FilterBuilder;
 
 import javax.annotation.Nullable;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
@@ -41,9 +42,9 @@ public class ParameterParsingChain implements ParameterParser {
 
     private Reflections createReflections() {
         Configuration config = new ConfigurationBuilder()
-                .setScanners(new SubTypesScanner())
+                .setScanners(Scanners.SubTypes)
                 .addUrls(ClasspathHelper.getUrls())
-                .filterInputsBy(new FilterBuilder().include(".+\\.class"));
+                .filterInputsBy(new FilterBuilder().includePattern(".+\\.class"));
         return new Reflections(config);
     }
 

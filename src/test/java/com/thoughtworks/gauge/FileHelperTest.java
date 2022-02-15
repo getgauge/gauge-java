@@ -5,9 +5,11 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.contrib.java.lang.system.EnvironmentVariables;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+import static uk.org.webcompere.systemstubs.SystemStubs.*;
+import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
 
 import java.io.File;
 import java.util.Arrays;
@@ -17,18 +19,20 @@ import static com.thoughtworks.gauge.GaugeConstant.GAUGE_CUSTOM_COMPILE_DIR;
 import static com.thoughtworks.gauge.GaugeConstant.GAUGE_PROJECT_ROOT;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
 
-public class FileHelperTest {
-    @Rule
-    public EnvironmentVariables environmentVariables = new EnvironmentVariables();
+@ExtendWith(SystemStubsExtension.class)
+public class FileHelperTest {   
+
+    String gaugeProjRoot = Util.workingDir().getAbsolutePath() + File.separator + String.format("src%stest%sresources%stest", File.separator, File.separator, File.separator);
 
     @Test
-    public void testGetAllImplementationFiles() {
+    public void testGetAllImplementationFiles() throws Exception {
         String gaugeProjRoot = Util.workingDir().getAbsolutePath() + File.separator + String.format("src%stest%sresources%stest", File.separator, File.separator, File.separator);
-        environmentVariables.set(GAUGE_CUSTOM_COMPILE_DIR, String.format("files%sformatted, files%sunformatted", File.separator, File.separator));
-        environmentVariables.set(GAUGE_PROJECT_ROOT, gaugeProjRoot);
 
-        List<String> implFiles = FileHelper.getAllImplementationFiles();
+        List<String> implFiles = withEnvironmentVariable(GAUGE_CUSTOM_COMPILE_DIR, String.format("files%sformatted, files%sunformatted", File.separator, File.separator))
+            .and(GAUGE_PROJECT_ROOT, gaugeProjRoot)
+            .execute(() -> FileHelper.getAllImplementationFiles());
         assertEquals(3, implFiles.size());
         List<String> expectedImplFiles = Arrays.asList(String.format("%s%sfiles%sformatted%sStepImpl.java", gaugeProjRoot, File.separator, File.separator, File.separator),
                 String.format("%s%sfiles%sformatted%sStepImplWithComments.java", gaugeProjRoot, File.separator, File.separator, File.separator),
@@ -38,39 +42,42 @@ public class FileHelperTest {
 
 
     @Test
-    public void testGetStepImplDirsWhenCustomCompileDirEnvIsSet() {
+    public void testGetStepImplDirsWhenCustomCompileDirEnvIsSet() throws Exception {
         String gaugeProjRoot = Util.workingDir().getAbsolutePath();
-        environmentVariables.set(GAUGE_CUSTOM_COMPILE_DIR, String.format("files%sformatted, files%sunformatted", File.separator, File.separator));
-        environmentVariables.set(GAUGE_PROJECT_ROOT, gaugeProjRoot);
 
-        List<String> implFiles = FileHelper.getStepImplDirs();
-        assertEquals(2, implFiles.size());
-        List<String> expectedImplFiles = Arrays.asList(String.format("%s%sfiles%sformatted", gaugeProjRoot, File.separator, File.separator),
+        List<String> stepImplDirs = withEnvironmentVariable(GAUGE_CUSTOM_COMPILE_DIR, String.format("files%sformatted, files%sunformatted", File.separator, File.separator))
+            .and(GAUGE_PROJECT_ROOT, gaugeProjRoot)
+            .execute(() -> FileHelper.getStepImplDirs());
+
+        assertEquals(2, stepImplDirs.size());
+        List<String> expectedImplDirs = Arrays.asList(String.format("%s%sfiles%sformatted", gaugeProjRoot, File.separator, File.separator),
             String.format("%s%sfiles%sunformatted", gaugeProjRoot, File.separator, File.separator)
         );
-        assertTrue(expectedImplFiles.containsAll(implFiles));
+        assertTrue(expectedImplDirs.containsAll(stepImplDirs));
     }
 
     @Test
-    public void testGetStepImplDirsWhenDefaultImplDirsDoesNotExists() {
+    public void testGetStepImplDirsWhenDefaultImplDirsDoesNotExists() throws Exception {
         String gaugeProjRoot = Util.workingDir().getAbsolutePath() + File.separator + String.format("src%stest%sresources%stest", File.separator, File.separator, File.separator);
-        environmentVariables.set(GAUGE_PROJECT_ROOT, gaugeProjRoot);
 
-        List<String> implFiles = FileHelper.getStepImplDirs();
-        assertEquals(0, implFiles.size());
+        List<String> stepImplDirs = withEnvironmentVariable(GAUGE_PROJECT_ROOT, gaugeProjRoot)
+            .execute(() -> FileHelper.getStepImplDirs());
+
+        assertEquals(0, stepImplDirs.size());
     }
 
     @Test
-    public void testGetStepImplDirs() {
+    public void testGetStepImplDirs() throws Exception {
         String gaugeProjRoot = Util.workingDir().getAbsolutePath();
-        environmentVariables.set(GAUGE_PROJECT_ROOT, gaugeProjRoot);
 
-        List<String> implFiles = FileHelper.getStepImplDirs();
-        assertEquals(2, implFiles.size());
-        List<String> expectedImplFiles = Arrays.asList(
-            String.format("%s%ssrc%stest%sjava", gaugeProjRoot, File.separator, File.separator, File.separator),
-            String.format("%s%ssrc%smain%sjava", gaugeProjRoot, File.separator, File.separator, File.separator)
+        List<String> stepImplDirs = withEnvironmentVariable(GAUGE_PROJECT_ROOT, gaugeProjRoot)
+            .execute(() -> FileHelper.getStepImplDirs());
+
+        assertEquals(2, stepImplDirs.size());
+        List<String> expectedImplDirs = Arrays.asList(
+            String.format("%s%ssrc%smain%sjava", gaugeProjRoot, File.separator, File.separator, File.separator),
+            String.format("%s%ssrc%stest%sjava", gaugeProjRoot, File.separator, File.separator, File.separator)
         );
-        assertTrue(expectedImplFiles.containsAll(implFiles));
+        assertTrue(expectedImplDirs.containsAll(stepImplDirs));
     }
 }

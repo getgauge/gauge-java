@@ -8,8 +8,7 @@ package com.thoughtworks.gauge.scan;
 import com.thoughtworks.gauge.ClasspathHelper;
 import org.reflections.Configuration;
 import org.reflections.Reflections;
-import org.reflections.scanners.MethodAnnotationsScanner;
-import org.reflections.scanners.SubTypesScanner;
+import org.reflections.scanners.Scanners;
 import org.reflections.util.ConfigurationBuilder;
 import org.reflections.util.FilterBuilder;
 import org.reflections.vfs.SystemDir;
@@ -51,7 +50,7 @@ public class ClasspathScanner {
         });
 
         Configuration config = new ConfigurationBuilder()
-                .setScanners(new MethodAnnotationsScanner(), new SubTypesScanner())
+                .setScanners(Scanners.MethodsAnnotated, Scanners.SubTypes)
                 .addUrls(ClasspathHelper.getUrls())
                 .filterInputsBy(this::shouldScan);
 
@@ -61,12 +60,12 @@ public class ClasspathScanner {
     private boolean shouldScan(String s) {
         final String packagesToScan = System.getenv(PACKAGE_TO_SCAN);
         if (packagesToScan == null || packagesToScan.isEmpty()) {
-            return new FilterBuilder().include(".+\\.class").apply(s);
+            return new FilterBuilder().includePattern(".+\\.class").test(s);
         }
         final String[] packages = packagesToScan.split(",");
         for (String packageToScan : packages) {
             String regex = String.format(".?\\.??%s\\..+\\.class", packageToScan);
-            if (new FilterBuilder().include(regex).apply(s)) {
+            if (new FilterBuilder().includePattern(regex).test(s)) {
                 return true;
             }
         }

@@ -6,8 +6,6 @@
 package com.thoughtworks.gauge.execution.parameters;
 
 import static com.thoughtworks.gauge.execution.ParameterTestHelpers.aParameter;
-import static com.thoughtworks.gauge.test.Matchers.asList;
-import static com.thoughtworks.gauge.test.Matchers.containsOnly;
 import static com.thoughtworks.gauge.test.TestHelpers.array;
 import static com.thoughtworks.gauge.test.TestValues.ANY_TYPE;
 import static com.thoughtworks.gauge.test.TestValues.SPECIFIC_VALUE;
@@ -16,21 +14,19 @@ import static java.util.Arrays.stream;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.sameInstance;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.same;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.util.Arrays;
 import java.util.List;
 
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParser;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import gauge.messages.Spec.Parameter;
 
