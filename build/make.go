@@ -339,10 +339,10 @@ func getUserHome() string {
 
 func getArch() string {
 	arch := getGOARCH()
-	if arch == X86 {
-		return "x86"
+	if arch == X86_64 {
+		return "x86_64"
 	}
-	return "x86_64"
+	return arch
 }
 
 func getGOARCH() string {
