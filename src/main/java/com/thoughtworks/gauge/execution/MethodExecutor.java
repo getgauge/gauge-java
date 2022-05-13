@@ -11,6 +11,8 @@ import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.screenshot.ScreenshotFactory;
 import gauge.messages.Spec;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.lang.reflect.Method;
 import java.util.Set;
 
@@ -54,28 +56,23 @@ public class MethodExecutor {
                 }
             }
             builder.setErrorMessage(e.getCause().toString());
-            builder.setStackTrace(formatStackTrace(e.getCause().getStackTrace()));
+            builder.setStackTrace(formatStackTrace(e.getCause()));
         } else {
             builder.setRecoverableError(recoverable);
             builder.setErrorMessage(e.toString());
-            builder.setStackTrace(formatStackTrace(e.getStackTrace()));
+            builder.setStackTrace(formatStackTrace(e));
         }
         builder.setExecutionTime(execTime);
         return builder.build();
     }
 
-    private String formatStackTrace(StackTraceElement[] stackTrace) {
-        if (stackTrace == null) {
+    private String formatStackTrace(Throwable t) {
+        if (t == null) {
             return "";
         }
-        StringBuilder output = new StringBuilder();
-        for (StackTraceElement element : stackTrace) {
-            if (element.getClassName().equals("sun.reflect.NativeMethodAccessorImpl")) {
-                break;
-            }
-            output.append(element.toString()).append("\n");
-        }
-        return output.toString();
+        StringWriter out = new StringWriter();
+        t.printStackTrace(new PrintWriter(out));
+        return out.toString();
     }
 
     public Spec.ProtoExecutionResult executeMethods(Set<Method> methods, Object... args) {

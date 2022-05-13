@@ -35,10 +35,10 @@ jobs:
           git config --global user.name "$(git --no-pager log --format=format:'%an' -n 1)"
           git config --global user.email "$(git --no-pager log --format=format:'%ae' -n 1)"
 
-      - name: Set up Go 1.13
+      - name: Set up Go 1.17
         uses: actions/setup-go@v2
         with:
-          go-version: 1.13
+          go-version: 1.17
         id: go    
 
       - name: Build artifacts
@@ -67,6 +67,9 @@ jobs:
           echo "Creating new draft for release v$version"
           hub release create -F ./desc.txt "v$version"
           rm -rf desc.txt
+
+          sleep 10
+
           echo "Start uploading assets..."
           for i in $(ls $artifacts); do
               echo $i
