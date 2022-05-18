@@ -82,17 +82,17 @@
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-netty-shaded</artifactId>
-            <version>1.45.0</version>
+            <version>1.41.2</version>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-protobuf</artifactId>
-            <version>1.45.0</version>
+            <version>1.41.2</version>
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-stub</artifactId>
-            <version>1.45.0</version>
+            <version>1.41.2</version>
         </dependency>
         <dependency>
             <groupId>javax.annotation</groupId>
@@ -303,7 +303,7 @@
 
     <properties>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
-        <projectVersion>0.9.0</projectVersion>
+        <projectVersion>0.9.1</projectVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
