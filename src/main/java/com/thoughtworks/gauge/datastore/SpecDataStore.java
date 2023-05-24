@@ -11,15 +11,19 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class SpecDataStore {
-    private static ThreadLocal<ConcurrentHashMap<Object, Object>> map = ThreadLocal.withInitial(ConcurrentHashMap::new);
-
+    private static final InheritableThreadLocal<ConcurrentHashMap<Object, Object>> MAP = new InheritableThreadLocal<ConcurrentHashMap<Object, Object>>() {
+        @Override
+        protected ConcurrentHashMap<Object, Object> initialValue() {
+            return new ConcurrentHashMap<>();
+        }
+    };
     /**
      * @param key   - Key of the data entry
      * @param value - value of the Data entry
      */
     public static synchronized void put(Object key, Object value) {
         if (key != null && value != null)  {
-            map.get().put(key, value);
+            MAP.get().put(key, value);
         }
     }
 
@@ -29,7 +33,7 @@ public class SpecDataStore {
      */
     public static synchronized Object remove(Object key) {
         if (key != null) {
-            return map.get().remove(key);
+            return MAP.get().remove(key);
         }
         return null;
     }
@@ -40,7 +44,7 @@ public class SpecDataStore {
      */
     public static synchronized Object get(Object key) {
         if (key != null) {
-            return map.get().get(key);
+            return MAP.get().get(key);
         }
         return null;
     }
@@ -50,10 +54,10 @@ public class SpecDataStore {
      * @return A set of keys stored in datastore
      */
     public static synchronized Set<Object> items() {
-        return Collections.unmodifiableSet(map.get().keySet());
+        return Collections.unmodifiableSet(MAP.get().keySet());
     }
 
     static synchronized void clear() {
-        map.get().clear();
+        MAP.get().clear();
     }
 }
