@@ -8,7 +8,14 @@ package com.thoughtworks.gauge.datastore;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+/**
+ * @deprecated DataStore is no longer valid. The usage together with DataStoreFactory API will throw an Exception in multithreaded execution.
+ * <p>Use specific data stores instead.</p>
+ * @see com.thoughtworks.gauge.datastore.SuiteDataStore
+ * @see com.thoughtworks.gauge.datastore.SpecDataStore
+ * @see com.thoughtworks.gauge.datastore.ScenarioDataStore
+ */
+@Deprecated
 public class DataStore {
 
     private HashMap<Object, Object> map = new HashMap<>();
