@@ -144,7 +144,7 @@ func getGaugeJavaDepFromMavenPom() (string, string, error) {
 	return matches[1], mavenPomFile, nil
 }
 
-func getGradleCommnad() string {
+func getGradleCommand() string {
 	windowsGradleW := filepath.Join(projectRoot, gradleCommadWindows)
 	unixGradleW := filepath.Join(projectRoot, gradleCommadUnix)
 	if runtime.GOOS == "windows" && fileExists(windowsGradleW) {
@@ -157,14 +157,14 @@ func getGradleCommnad() string {
 
 func getGaugeJavaDepFromGradleBuild() (string, string, error) {
 	args := []string{"-q", "dependencyInsight", "--dependency", "com.thoughtworks.gauge", "--configuration", "testCompileClasspath"}
-	cmd := exec.Command(getGradleCommnad(), args...)
+	cmd := exec.Command(getGradleCommand(), args...)
 	cmd.Stderr = os.Stderr
 	cmd.Dir = projectRoot
 	out, err := cmd.Output()
 	if err != nil {
 		return "", gradleBuildFile, err
 	}
-	re, err := regexp.Compile(`.*com\.thoughtworks\.gauge:gauge-java:(.*)`)
+	re, err := regexp.Compile(`.*com\.thoughtworks\.gauge:gauge-java:([^\s]+)`)
 	if err != nil {
 		return "", gradleBuildFile, fmt.Errorf("failed to compile regex. %w", err)
 	}
