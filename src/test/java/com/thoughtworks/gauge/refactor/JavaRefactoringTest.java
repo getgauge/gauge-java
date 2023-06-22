@@ -11,12 +11,14 @@ import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import junit.framework.TestCase;
 import org.assertj.core.util.Lists;
+import org.hamcrest.Matchers;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -320,8 +322,10 @@ public class JavaRefactoringTest extends TestCase {
 
     public void testJavaElementForRefactoringWithMethodWithComments() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
-        StepValue oldStepValue = new StepValue("A step with comments", "A step with comments", new ArrayList<>());
-        StepValue newStepValue = new StepValue("with comments", "with comments", new ArrayList<>());
+        String oldStepText = "A step with comments";
+        String newStepText = "with comments";
+        StepValue oldStepValue = new StepValue(oldStepText, oldStepText, new ArrayList<>());
+        StepValue newStepValue = new StepValue(newStepText, newStepText, new ArrayList<>());
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
         String parameterizedStepValue = "with comments";
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry, parameterizedStepValue, saveChanges);
@@ -329,7 +333,8 @@ public class JavaRefactoringTest extends TestCase {
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
         String newLineChar = System.getProperty("line.separator");
-        assertTrue(element.getText().contains("    @Step(\"with comments\")" + newLineChar +
+        String actual = element.getText();
+        assertThat(actual, Matchers.containsString("    @Step(\"" + newStepText + "\")" + newLineChar +
                 "    public void someStepWithComments() {" + newLineChar +
                 "        // comment1" + newLineChar +
                 "        // comment2" + newLineChar +
@@ -344,7 +349,7 @@ public class JavaRefactoringTest extends TestCase {
                 "         */" + newLineChar +
                 "        System.out.println(\"\");" + newLineChar +
                 "    }"));
-        assertFalse(element.getText().contains("A step with comments"));
+        assertFalse(actual.contains(oldStepText));
     }
 
     public void testRefactoringWithOrphanComments() throws RefactoringException {
@@ -372,13 +377,13 @@ public class JavaRefactoringTest extends TestCase {
                 "                        comment8" + newLineChar +
                 "         */" + newLineChar +
                 "        System.out.println(\"\");" + newLineChar +
-                "    // comment9" + newLineChar +
-                "    // comment10" + newLineChar +
-                "    /*" + newLineChar +
+                "        // comment9" + newLineChar +
+                "        // comment10" + newLineChar +
+                "        /*" + newLineChar +
                 "                    comment11" + newLineChar +
                 "                    comment12" + newLineChar +
                 "         */" + newLineChar +
-                "    /*" + newLineChar +
+                "        /*" + newLineChar +
                 "                comment13" + newLineChar +
                 "                    comment14" + newLineChar +
                 "                        comment15" + newLineChar +
@@ -387,7 +392,7 @@ public class JavaRefactoringTest extends TestCase {
         String actualValue = element.getText();
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(actualValue.contains(expectedValue));
+        assertThat(actualValue, Matchers.containsString(expectedValue));
         assertFalse(actualValue.contains("A step with comments"));
     }
 

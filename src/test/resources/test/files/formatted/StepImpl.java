@@ -31,8 +31,8 @@ public class StepImpl {
 
     @Step("A step with comments")
     public void someStepWithComments() {
-        //comment1
-        //comment2
+        // comment1
+        // comment2
         /*
                     comment3
                     comment4

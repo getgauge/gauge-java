@@ -11,7 +11,7 @@ This project adds java [language plugin](https://gauge.org/plugins/) for [gauge]
 ### Pre-requisite
 
 - [Install Gauge](https://docs.gauge.org/getting_started/installing-gauge.html)
-- [Java](https://www.java.com/en/download/)
+- [Java](https://www.java.com/en/download/) (Minimum required version is 11)
 
 ### Installation
 
@@ -36,13 +36,13 @@ gauge run specs
 #### Install specific version
 * Installing specific version
 ```
-gauge install java --version 0.9.2
+gauge install java --version 0.10.0
 ```
 
 #### Offline installation
 * Download the plugin from [Releases](https://github.com/getgauge/gauge-java/releases)
 ```
-gauge install java --file gauge-java-0.9.2-windows.x86_64.zip
+gauge install java --file gauge-java-0.10.0-windows.x86_64.zip
 ```
 
 #### Build from source
