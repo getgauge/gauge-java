@@ -5,7 +5,7 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.json.JSONObject;
 
 public class Logger {

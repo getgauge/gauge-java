@@ -7,7 +7,7 @@ package com.thoughtworks.gauge;
 
 import java.io.File;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class Util {
     public static File workingDir() {
