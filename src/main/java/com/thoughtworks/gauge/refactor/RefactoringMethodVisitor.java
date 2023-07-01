@@ -23,7 +23,7 @@ import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.Util;
 import gauge.messages.Messages;
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;

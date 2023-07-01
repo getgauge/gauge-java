@@ -13,7 +13,7 @@ import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;

@@ -6,7 +6,7 @@
 package com.thoughtworks.gauge.execution.parameters;
 
 import gauge.messages.Spec;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 import java.util.regex.Matcher;
