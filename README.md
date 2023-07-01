@@ -36,13 +36,13 @@ gauge run specs
 #### Install specific version
 * Installing specific version
 ```
-gauge install java --version 0.10.0
+gauge install java --version 0.10.1
 ```
 
 #### Offline installation
 * Download the plugin from [Releases](https://github.com/getgauge/gauge-java/releases)
 ```
-gauge install java --file gauge-java-0.10.0-windows.x86_64.zip
+gauge install java --file gauge-java-0.10.1-windows.x86_64.zip
 ```
 
 #### Build from source
@@ -58,13 +58,13 @@ Apart from [Gauge](https://gauge.org/index.html) and [Java](https://www.java.com
 ##### Compiling
 
 ````
-go run make.go
+go run build/make.go
 ````	
 
 For cross platform compilation (launcher)	
 
 ````	
-go run make.go --all-platforms
+go run build/make.go --all-platforms
 ````
 
 ##### Installing
@@ -72,28 +72,28 @@ go run make.go --all-platforms
 After compilation
 
 ````	
-go run make.go --install	
+go run build/make.go --install	
 ````	
 
 Installing to a CUSTOM_LOCATION	
 
 
 ````
-go run make.go --install --plugin-prefix CUSTOM_LOCATION
+go run build/make.go --install --plugin-prefix CUSTOM_LOCATION
 ````
 
 ##### Creating distributable
 
 Note: Run after compiling
 ````	
-go run make.go --distro	
+go run build/make.go --distro	
 ````	
 
 
 For distributable across platforms os, windows and linux for bith x86 and x86_64	
 
 ````	
-go run make.go --distro --all-platforms	
+go run build/make.go --distro --all-platforms	
 ````
 
 
