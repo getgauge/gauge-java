@@ -144,20 +144,29 @@ func getGaugeJavaDepFromMavenPom() (string, string, error) {
 	return matches[1], mavenPomFile, nil
 }
 
-func getGradleCommand() string {
-	windowsGradleW := filepath.Join(projectRoot, gradleCommadWindows)
-	unixGradleW := filepath.Join(projectRoot, gradleCommadUnix)
-	if runtime.GOOS == "windows" && fileExists(windowsGradleW) {
-		return windowsGradleW
-	} else if fileExists(unixGradleW) {
-		return unixGradleW
+func getGradleWrapperCommand(command string) string {
+	commandGradleW := filepath.Join(projectRoot, command)
+	gradleProjectRootDir := os.Getenv("PWD")
+	commandProjectRootGradleW := filepath.Join(gradleProjectRootDir, command)
+	if fileExists(commandGradleW) {
+		return commandGradleW
+	} else if gradleProjectRootDir != "" && fileExists(commandProjectRootGradleW) {
+		return commandProjectRootGradleW
 	}
 	return "gradle"
+}
+
+func getGradleCommand() string {
+	if runtime.GOOS == "windows" {
+		return getGradleWrapperCommand(gradleCommadWindows)
+	}
+	return getGradleWrapperCommand(gradleCommadUnix)
 }
 
 func getGaugeJavaDepFromGradleBuild() (string, string, error) {
 	args := []string{"-q", "dependencyInsight", "--dependency", "com.thoughtworks.gauge", "--configuration", "testCompileClasspath"}
 	cmd := exec.Command(getGradleCommand(), args...)
+	fmt.Println(cmd.String())
 	cmd.Stderr = os.Stderr
 	cmd.Dir = projectRoot
 	out, err := cmd.Output()
@@ -205,6 +214,7 @@ func getInstalledGaugeJavaVersion() (string, error) {
 }
 
 func validateGaugeJavaVersion() {
+	os.Getenv("gauge_validate_dependency")
 	depVersion, file, err := getDepVersionFromBuildFile()
 	if err != nil {
 		logMessage("error", err.Error())
