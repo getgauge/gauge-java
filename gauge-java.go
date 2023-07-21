@@ -43,6 +43,7 @@ const (
 	gradleBuildFile                    = "build.gradle"
 	gradleCommadUnix                   = "gradlew"
 	gradleCommadWindows                = "gradlew.bat"
+	gaugeDependencyValidation          = "gauge_dependency_validation"
 )
 
 var propertiesToPrint = []string{
@@ -166,7 +167,6 @@ func getGradleCommand() string {
 func getGaugeJavaDepFromGradleBuild() (string, string, error) {
 	args := []string{"-q", "dependencyInsight", "--dependency", "com.thoughtworks.gauge", "--configuration", "testCompileClasspath"}
 	cmd := exec.Command(getGradleCommand(), args...)
-	fmt.Println(cmd.String())
 	cmd.Stderr = os.Stderr
 	cmd.Dir = projectRoot
 	out, err := cmd.Output()
@@ -213,8 +213,16 @@ func getInstalledGaugeJavaVersion() (string, error) {
 	return v.Version, nil
 }
 
+func shouldValidateDependency() bool {
+	validateDependency := os.Getenv(gaugeDependencyValidation)
+	validate, err := strconv.ParseBool(strings.TrimSpace(validateDependency))
+	if err != nil {
+		return true
+	}
+	return validate
+}
+
 func validateGaugeJavaVersion() {
-	os.Getenv("gauge_validate_dependency")
 	depVersion, file, err := getDepVersionFromBuildFile()
 	if err != nil {
 		logMessage("error", err.Error())
@@ -233,7 +241,9 @@ func validateGaugeJavaVersion() {
 }
 
 func startJava() {
-	validateGaugeJavaVersion()
+	if shouldValidateDependency() {
+		validateGaugeJavaVersion()
+	}
 	err := os.Chdir(projectRoot)
 	if err != nil {
 		logMessage("fatal", "failed to set gauge project root. "+err.Error())
