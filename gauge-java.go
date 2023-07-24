@@ -43,6 +43,7 @@ const (
 	gradleBuildFile                    = "build.gradle"
 	gradleCommadUnix                   = "gradlew"
 	gradleCommadWindows                = "gradlew.bat"
+	gaugeDependencyValidation          = "gauge_dependency_validation"
 )
 
 var propertiesToPrint = []string{
@@ -144,15 +145,23 @@ func getGaugeJavaDepFromMavenPom() (string, string, error) {
 	return matches[1], mavenPomFile, nil
 }
 
-func getGradleCommand() string {
-	windowsGradleW := filepath.Join(projectRoot, gradleCommadWindows)
-	unixGradleW := filepath.Join(projectRoot, gradleCommadUnix)
-	if runtime.GOOS == "windows" && fileExists(windowsGradleW) {
-		return windowsGradleW
-	} else if fileExists(unixGradleW) {
-		return unixGradleW
+func getGradleWrapperCommand(command string) string {
+	commandGradleW := filepath.Join(projectRoot, command)
+	gradleProjectRootDir := os.Getenv("PWD")
+	commandProjectRootGradleW := filepath.Join(gradleProjectRootDir, command)
+	if fileExists(commandGradleW) {
+		return commandGradleW
+	} else if gradleProjectRootDir != "" && fileExists(commandProjectRootGradleW) {
+		return commandProjectRootGradleW
 	}
 	return "gradle"
+}
+
+func getGradleCommand() string {
+	if runtime.GOOS == "windows" {
+		return getGradleWrapperCommand(gradleCommadWindows)
+	}
+	return getGradleWrapperCommand(gradleCommadUnix)
 }
 
 func getGaugeJavaDepFromGradleBuild() (string, string, error) {
@@ -204,6 +213,15 @@ func getInstalledGaugeJavaVersion() (string, error) {
 	return v.Version, nil
 }
 
+func shouldValidateDependency() bool {
+	validateDependency := os.Getenv(gaugeDependencyValidation)
+	validate, err := strconv.ParseBool(strings.TrimSpace(validateDependency))
+	if err != nil {
+		return true
+	}
+	return validate
+}
+
 func validateGaugeJavaVersion() {
 	depVersion, file, err := getDepVersionFromBuildFile()
 	if err != nil {
@@ -223,7 +241,9 @@ func validateGaugeJavaVersion() {
 }
 
 func startJava() {
-	validateGaugeJavaVersion()
+	if shouldValidateDependency() {
+		validateGaugeJavaVersion()
+	}
 	err := os.Chdir(projectRoot)
 	if err != nil {
 		logMessage("fatal", "failed to set gauge project root. "+err.Error())
