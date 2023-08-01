@@ -124,14 +124,14 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
         return null;
     }
 
-    private static class MethodVisitor extends VoidVisitorAdapter {
+    private static final class MethodVisitor extends VoidVisitorAdapter {
         @Override
         public void visit(MethodDeclaration methodDeclaration, Object arg) {
             methodDeclarations.add(methodDeclaration);
         }
     }
 
-    private static class ClassVisitor extends VoidVisitorAdapter {
+    private static final class ClassVisitor extends VoidVisitorAdapter {
         @Override
         public void visit(ClassOrInterfaceDeclaration node, Object arg) {
             classRange = node.getRange().get();

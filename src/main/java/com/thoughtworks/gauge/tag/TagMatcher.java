@@ -14,7 +14,7 @@ public class TagMatcher {
         return new TagMatcherFactory().matcherFor(operator).isMatch(tags, allTags);
     }
 
-    private class TagMatcherFactory {
+    private static final class TagMatcherFactory {
         public SimpleTagMatcher matcherFor(Operator operator) {
             switch (operator) {
                 case OR:
