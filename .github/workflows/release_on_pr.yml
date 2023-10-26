@@ -47,37 +47,18 @@ jobs:
 
       - name: Deploy on github
         run: |
-          cd deploy
           if [ -z "$version" ]; then
-              version=$(ls gauge-java* | head -1 | sed "s/\.[^\.]*$//" | sed "s/gauge-java-//" | sed "s/-[a-z]*\.[a-z0-9_]*$//")
+              version=$(cd deploy && ls gauge-java* | head -1 | sed "s/\.[^\.]*$//" | sed "s/gauge-java-//" | sed "s/-[a-z]*\.[a-z0-9_]*$//")
           fi
           echo "VERSION=$version" >> $GITHUB_ENV
-          artifacts=()
-          dir=$(pwd)
-          for i in $(ls); do
-              artifacts+="$dir/$i "
-          done
-          cd ..
+
           echo "---------------------------"
           echo "Updating release v$version"
           echo "---------------------------"
           echo -e "Gauge Java v$version\n\n" >desc.txt
           release_description=$(ruby -e "$(curl -sSfL https://github.com/getgauge/gauge/raw/master/build/create_release_text.rb)" getgauge gauge-java)
           echo "$release_description" >> desc.txt
-          echo "Creating new draft for release v$version"
-          hub release create -F ./desc.txt "v$version"
-          rm -rf desc.txt
-
-          sleep 10
-
-          echo "Start uploading assets..."
-          for i in $(ls $artifacts); do
-              echo $i
-              hub release edit -m "" -a $i "v$version"
-              if [ $? -ne 0 ]; then
-                  exit 1
-              fi
-          done
+          gh release create --title "Gauge Java v${version}" --notes-file ./desc.txt "v${version}" deploy/gauge-java*
 
       - name: Deploy on maven central
         run: |
