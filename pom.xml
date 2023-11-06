@@ -52,7 +52,7 @@
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>3.24.4</version>
+            <version>3.25.0</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -302,7 +302,7 @@
 
     <properties>
         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
-        <projectVersion>0.10.2</projectVersion>
+        <projectVersion>0.10.3</projectVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
