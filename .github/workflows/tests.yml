@@ -75,7 +75,7 @@ jobs:
         run: |
           cat logs/gauge.log
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: ft-logs-${{ matrix.os }}-${{ matrix.java_version }}
@@ -130,7 +130,7 @@ jobs:
         run: |
           cd gauge-lsp-tests
           gauge run --tags="!knownIssue & (actions_on_project_load | actions_on_file_edit)" --env=java-wd
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: failure()
         with:
           name: lsp-logs-${{ matrix.os }}-${{ matrix.java_version }}
@@ -154,7 +154,7 @@ jobs:
         shell: bash
 
       - name: Upload artifacts for ${{ matrix.os }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: gauge-java-artifacts
           path: deploy/*
