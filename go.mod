@@ -1,3 +1,3 @@
 module github.com/getgauge/gauge-java
 
-go 1.21
+go 1.22
