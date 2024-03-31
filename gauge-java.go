@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"math/rand"
 	"os"
 	"os/exec"
@@ -199,7 +198,7 @@ func getInstalledGaugeJavaVersion() (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("failed to get executable path. %w", err)
 	}
-	j, err := ioutil.ReadFile(filepath.Join(filepath.Dir(exPath), "java.json"))
+	j, err := os.ReadFile(filepath.Join(filepath.Dir(exPath), "java.json"))
 	if err != nil {
 		return "", fmt.Errorf("Unable to read java.json. %w", err)
 	}
@@ -524,7 +523,7 @@ func build(destination string, classpath string) {
 
 	// Writing all java src file names to a file and using it as a @filename parameter to javac. Eg: javac -cp jar1:jar2 @sources.txt
 	// This needs to be done because if the number of java files is too high the command length will be more than that permitted by the os.
-	tempDir, err := ioutil.TempDir("", "gauge_temp")
+	tempDir, err := os.MkdirTemp("", "gauge_temp")
 	if err != nil {
 		logMessage("error", fmt.Sprint(err.Error()))
 		return
