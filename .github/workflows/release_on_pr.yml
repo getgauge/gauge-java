@@ -38,8 +38,8 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
+          check-latest: true
           go-version-file: 'go.mod'
-        id: go
 
       - name: Build artifacts
         run: go run build/make.go --all-platforms && go run build/make.go --all-platforms --distro
