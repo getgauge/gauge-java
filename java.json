@@ -1,46 +1,46 @@
 {
-    "id": "java",
-    "version": "0.10.3",
-    "description": "Java support for gauge",
-    "install": {
-        "windows": [],
-        "linux": [],
-        "darwin": []
-    },
-    "run": {
-        "windows": [
-            "gauge-java",
-            "--start"
-        ],
-        "linux": [
-            "gauge-java",
-            "--start"
-        ],
-        "darwin": [
-            "gauge-java",
-            "--start"
-        ]
-    },
-    "init": {
-        "windows": [
-            "gauge-java",
-            "--init"
-        ],
-        "linux": [
-            "gauge-java",
-            "--init"
-        ],
-        "darwin": [
-            "gauge-java",
-            "--init"
-        ]
-    },
-    "lib": "libs",
-    "multithreaded": true,
-    "gaugeVersionSupport": {
-        "minimum": "1.0.7",
-        "maximum": ""
-    },
-    "lspLangId": "java",
-    "gRPCSupport": true
+  "id": "java",
+  "version": "0.11.0",
+  "description": "Java support for gauge",
+  "install": {
+    "windows": [],
+    "linux": [],
+    "darwin": []
+  },
+  "run": {
+    "windows": [
+      "gauge-java",
+      "--start"
+    ],
+    "linux": [
+      "gauge-java",
+      "--start"
+    ],
+    "darwin": [
+      "gauge-java",
+      "--start"
+    ]
+  },
+  "init": {
+    "windows": [
+      "gauge-java",
+      "--init"
+    ],
+    "linux": [
+      "gauge-java",
+      "--init"
+    ],
+    "darwin": [
+      "gauge-java",
+      "--init"
+    ]
+  },
+  "lib": "libs",
+  "multithreaded": true,
+  "gaugeVersionSupport": {
+    "minimum": "1.6.7",
+    "maximum": ""
+  },
+  "lspLangId": "java",
+  "gRPCSupport": true
 }
