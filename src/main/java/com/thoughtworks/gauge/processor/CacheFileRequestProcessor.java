@@ -5,11 +5,11 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.processor;
 
-import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import gauge.messages.Messages;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 
 public class CacheFileRequestProcessor implements IMessageProcessor {
     private StaticScanner staticScanner;
@@ -47,7 +47,7 @@ public class CacheFileRequestProcessor implements IMessageProcessor {
 
     private void loadFromDisk(String fileName) {
         if ((new File(fileName).exists())) {
-            staticScanner.reloadSteps(fileName, staticScanner.readFile(fileName, Charsets.UTF_8));
+            staticScanner.reloadSteps(fileName, staticScanner.readFile(fileName, StandardCharsets.UTF_8));
         }
     }
 }

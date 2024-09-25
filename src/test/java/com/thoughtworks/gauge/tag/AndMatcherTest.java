@@ -5,13 +5,18 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.tag;
 
-import junit.framework.TestCase;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class AndMatcherTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+public class AndMatcherTest {
+
+    @Test
     public void testIsMatch() throws Exception {
         SimpleTagMatcher matcher = new AndMatcher();
         assertTrue(matcher.isMatch(Arrays.asList("tag1", "tag2"), Arrays.asList("tag1", "tag3", "tag4", "tag2")));

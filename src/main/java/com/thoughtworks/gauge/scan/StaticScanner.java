@@ -8,7 +8,6 @@ package com.thoughtworks.gauge.scan;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseResult;
 import com.github.javaparser.ast.CompilationUnit;
-import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.FileHelper;
 import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.registry.StepRegistry;
@@ -16,6 +15,7 @@ import com.thoughtworks.gauge.registry.StepRegistry;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -65,7 +65,7 @@ public class StaticScanner {
     public void addStepsToRegistry() {
         Iterable<String> files = FileHelper.getAllImplementationFiles();
         for (String file : files) {
-            String contents = readFile(file, Charsets.UTF_8);
+            String contents = readFile(file, StandardCharsets.UTF_8);
             addStepsFromFileContents(file, contents);
         }
     }

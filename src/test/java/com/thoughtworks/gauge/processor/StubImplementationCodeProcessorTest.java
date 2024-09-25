@@ -8,11 +8,11 @@ package com.thoughtworks.gauge.processor;
 import com.thoughtworks.gauge.connection.StubImplementationCodeProcessor;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StubImplementationCodeProcessorTest {
     @Test

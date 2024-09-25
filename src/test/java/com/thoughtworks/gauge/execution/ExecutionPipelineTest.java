@@ -6,15 +6,17 @@
 package com.thoughtworks.gauge.execution;
 
 import gauge.messages.Spec;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 
-public class ExecutionPipelineTest extends TestCase {
+public class ExecutionPipelineTest {
 
+    @Test
     public void testOrderOfPipelineStages() throws Exception {
         TestExecutionStage first = createStage();
         TestExecutionStage second = createStage();
@@ -30,6 +32,7 @@ public class ExecutionPipelineTest extends TestCase {
         assertEquals(fourth.next(), null);
     }
 
+    @Test
     public void testOrderOfPipelineStagesExecution() throws Exception {
         TestExecutionStage first = mock(TestExecutionStage.class);
         TestExecutionStage second = mock(TestExecutionStage.class);
@@ -73,7 +76,7 @@ public class ExecutionPipelineTest extends TestCase {
         return new TestExecutionStage();
     }
 
-    private class TestExecutionStage extends AbstractExecutionStage {
+    private static class TestExecutionStage extends AbstractExecutionStage {
         public ExecutionStage next;
 
         public void setNextStage(ExecutionStage stage) {

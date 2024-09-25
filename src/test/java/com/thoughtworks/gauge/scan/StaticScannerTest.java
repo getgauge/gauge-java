@@ -5,15 +5,16 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.scan;
 
-import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class StaticScannerTest {
 
@@ -23,7 +24,7 @@ public class StaticScannerTest {
     @Test
     public void ShouldAddStepsFromFile() {
         StaticScanner staticScanner = new StaticScanner();
-        String contents = staticScanner.readFile(IMPL_FILE, Charsets.UTF_8);
+        String contents = staticScanner.readFile(IMPL_FILE, StandardCharsets.UTF_8);
         staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
         assertTrue(registry.contains(STEP_TEXT));
@@ -81,7 +82,7 @@ public class StaticScannerTest {
     @Test
     public void ShouldRemoveStepsFromFile() {
         StaticScanner staticScanner = new StaticScanner();
-        String contents = staticScanner.readFile(IMPL_FILE, Charsets.UTF_8);
+        String contents = staticScanner.readFile(IMPL_FILE, StandardCharsets.UTF_8);
         staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
 
@@ -93,7 +94,7 @@ public class StaticScannerTest {
     @Test
     public void ShouldReloadStepsFromFile() {
         StaticScanner staticScanner = new StaticScanner();
-        String contents = staticScanner.readFile(IMPL_FILE, Charsets.UTF_8);
+        String contents = staticScanner.readFile(IMPL_FILE, StandardCharsets.UTF_8);
         staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
         registry.get(STEP_TEXT).setHasAlias(true);

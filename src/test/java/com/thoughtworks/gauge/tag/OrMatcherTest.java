@@ -5,13 +5,18 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.tag;
 
-import junit.framework.TestCase;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class OrMatcherTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+public class OrMatcherTest {
+
+    @Test
     public void testMatching() throws Exception {
         OrMatcher matcher = new OrMatcher();
         assertTrue(matcher.isMatch(Arrays.asList("tag1", "tag2"), Arrays.asList("tag1", "tag3", "tag4")));

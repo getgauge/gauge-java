@@ -7,12 +7,15 @@ package com.thoughtworks.gauge;
 
 import com.google.protobuf.ProtocolStringList;
 import gauge.messages.Spec;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-public class MessageCollectorTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
 
+public class MessageCollectorTest {
+
+    @Test
     public void testAddingMessagesToProtoResult() {
         Spec.ProtoExecutionResult executionResult = emptyExecResult();
         String[] messages = {"first message", "second message"};
@@ -23,6 +26,7 @@ public class MessageCollectorTest extends TestCase {
         }
     }
 
+    @Test
     public void testAddingNullMessagesToProtoResult() {
         Spec.ProtoExecutionResult executionResult = emptyExecResult();
         String[] messages = {"first message", "second message", null};

@@ -5,10 +5,14 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import junit.framework.TestCase;
 
-public class UtilTest extends TestCase {
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class UtilTest {
+
+    @Test
     public void testGetCamelCase() throws Exception {
         assertEquals("helloWorld", Util.convertToCamelCase("Hello world"));
         assertEquals("gaugeJavaProject", Util.convertToCamelCase("gauge Java  project "));
@@ -17,6 +21,7 @@ public class UtilTest extends TestCase {
 
     }
 
+    @Test
     public void testGetValidJavaIdentifier() {
         assertEquals("", Util.getValidJavaIdentifier("%"));
         assertEquals("", Util.getValidJavaIdentifier("^%@!*^&|()"));

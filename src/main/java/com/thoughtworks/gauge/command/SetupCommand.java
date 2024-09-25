@@ -6,12 +6,12 @@
 package com.thoughtworks.gauge.command;
 
 import com.thoughtworks.gauge.Logger;
-import org.apache.commons.io.FileUtils;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 public class SetupCommand implements GaugeJavaCommand {
 
@@ -105,8 +105,7 @@ public class SetupCommand implements GaugeJavaCommand {
 
     private void writeContent(Path templateFilePath, String content) throws IOException {
         Logger.info(String.format("create %s", templateFilePath.toString()));
-        FileOutputStream fileOutputStream = FileUtils.openOutputStream(templateFilePath.toFile(), true);
-        fileOutputStream.write(content.getBytes());
+        Files.writeString(templateFilePath, content, StandardOpenOption.APPEND);
     }
 
 }

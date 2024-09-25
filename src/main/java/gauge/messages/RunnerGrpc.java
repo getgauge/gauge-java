@@ -4,9 +4,6 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
  */
-@javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.64.0)",
-    comments = "Source: services.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class RunnerGrpc {
 
@@ -697,6 +694,68 @@ public final class RunnerGrpc {
     return getKillMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.ConceptExecutionStartingRequest,
+      gauge.messages.Messages.ExecutionStatusResponse> getNotifyConceptExecutionStartingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "NotifyConceptExecutionStarting",
+      requestType = gauge.messages.Messages.ConceptExecutionStartingRequest.class,
+      responseType = gauge.messages.Messages.ExecutionStatusResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<gauge.messages.Messages.ConceptExecutionStartingRequest,
+      gauge.messages.Messages.ExecutionStatusResponse> getNotifyConceptExecutionStartingMethod() {
+    io.grpc.MethodDescriptor<gauge.messages.Messages.ConceptExecutionStartingRequest, gauge.messages.Messages.ExecutionStatusResponse> getNotifyConceptExecutionStartingMethod;
+    if ((getNotifyConceptExecutionStartingMethod = RunnerGrpc.getNotifyConceptExecutionStartingMethod) == null) {
+      synchronized (RunnerGrpc.class) {
+        if ((getNotifyConceptExecutionStartingMethod = RunnerGrpc.getNotifyConceptExecutionStartingMethod) == null) {
+          RunnerGrpc.getNotifyConceptExecutionStartingMethod = getNotifyConceptExecutionStartingMethod =
+              io.grpc.MethodDescriptor.<gauge.messages.Messages.ConceptExecutionStartingRequest, gauge.messages.Messages.ExecutionStatusResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "NotifyConceptExecutionStarting"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  gauge.messages.Messages.ConceptExecutionStartingRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  gauge.messages.Messages.ExecutionStatusResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new RunnerMethodDescriptorSupplier("NotifyConceptExecutionStarting"))
+              .build();
+        }
+      }
+    }
+    return getNotifyConceptExecutionStartingMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<gauge.messages.Messages.ConceptExecutionEndingRequest,
+      gauge.messages.Messages.ExecutionStatusResponse> getNotifyConceptExecutionEndingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "NotifyConceptExecutionEnding",
+      requestType = gauge.messages.Messages.ConceptExecutionEndingRequest.class,
+      responseType = gauge.messages.Messages.ExecutionStatusResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<gauge.messages.Messages.ConceptExecutionEndingRequest,
+      gauge.messages.Messages.ExecutionStatusResponse> getNotifyConceptExecutionEndingMethod() {
+    io.grpc.MethodDescriptor<gauge.messages.Messages.ConceptExecutionEndingRequest, gauge.messages.Messages.ExecutionStatusResponse> getNotifyConceptExecutionEndingMethod;
+    if ((getNotifyConceptExecutionEndingMethod = RunnerGrpc.getNotifyConceptExecutionEndingMethod) == null) {
+      synchronized (RunnerGrpc.class) {
+        if ((getNotifyConceptExecutionEndingMethod = RunnerGrpc.getNotifyConceptExecutionEndingMethod) == null) {
+          RunnerGrpc.getNotifyConceptExecutionEndingMethod = getNotifyConceptExecutionEndingMethod =
+              io.grpc.MethodDescriptor.<gauge.messages.Messages.ConceptExecutionEndingRequest, gauge.messages.Messages.ExecutionStatusResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "NotifyConceptExecutionEnding"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  gauge.messages.Messages.ConceptExecutionEndingRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  gauge.messages.Messages.ExecutionStatusResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new RunnerMethodDescriptorSupplier("NotifyConceptExecutionEnding"))
+              .build();
+        }
+      }
+    }
+    return getNotifyConceptExecutionEndingMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -985,6 +1044,28 @@ public final class RunnerGrpc {
     default void kill(gauge.messages.Messages.KillProcessRequest request,
         io.grpc.stub.StreamObserver<gauge.messages.Messages.Empty> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getKillMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * NotifyConceptExecutionStarting is a RPC to tell plugins that the concept execution has started.
+     * Accepts a ConceptExecutionStartingRequest message and returns an ExecutionStatusResponse message
+     * </pre>
+     */
+    default void notifyConceptExecutionStarting(gauge.messages.Messages.ConceptExecutionStartingRequest request,
+        io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getNotifyConceptExecutionStartingMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     * NotifyConceptExecutionEnding is a RPC to tell plugins that the concept execution has finished.
+     * Accepts a ConceptExecutionEndingRequest message and returns an ExecutionStatusResponse message
+     * </pre>
+     */
+    default void notifyConceptExecutionEnding(gauge.messages.Messages.ConceptExecutionEndingRequest request,
+        io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getNotifyConceptExecutionEndingMethod(), responseObserver);
     }
   }
 
@@ -1278,6 +1359,30 @@ public final class RunnerGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getKillMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * NotifyConceptExecutionStarting is a RPC to tell plugins that the concept execution has started.
+     * Accepts a ConceptExecutionStartingRequest message and returns an ExecutionStatusResponse message
+     * </pre>
+     */
+    public void notifyConceptExecutionStarting(gauge.messages.Messages.ConceptExecutionStartingRequest request,
+        io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getNotifyConceptExecutionStartingMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     * NotifyConceptExecutionEnding is a RPC to tell plugins that the concept execution has finished.
+     * Accepts a ConceptExecutionEndingRequest message and returns an ExecutionStatusResponse message
+     * </pre>
+     */
+    public void notifyConceptExecutionEnding(gauge.messages.Messages.ConceptExecutionEndingRequest request,
+        io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getNotifyConceptExecutionEndingMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -1536,6 +1641,28 @@ public final class RunnerGrpc {
     public gauge.messages.Messages.Empty kill(gauge.messages.Messages.KillProcessRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getKillMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * NotifyConceptExecutionStarting is a RPC to tell plugins that the concept execution has started.
+     * Accepts a ConceptExecutionStartingRequest message and returns an ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse notifyConceptExecutionStarting(gauge.messages.Messages.ConceptExecutionStartingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getNotifyConceptExecutionStartingMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * NotifyConceptExecutionEnding is a RPC to tell plugins that the concept execution has finished.
+     * Accepts a ConceptExecutionEndingRequest message and returns an ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse notifyConceptExecutionEnding(gauge.messages.Messages.ConceptExecutionEndingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getNotifyConceptExecutionEndingMethod(), getCallOptions(), request);
     }
   }
 
@@ -1818,6 +1945,30 @@ public final class RunnerGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getKillMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * NotifyConceptExecutionStarting is a RPC to tell plugins that the concept execution has started.
+     * Accepts a ConceptExecutionStartingRequest message and returns an ExecutionStatusResponse message
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<gauge.messages.Messages.ExecutionStatusResponse> notifyConceptExecutionStarting(
+        gauge.messages.Messages.ConceptExecutionStartingRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getNotifyConceptExecutionStartingMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     * NotifyConceptExecutionEnding is a RPC to tell plugins that the concept execution has finished.
+     * Accepts a ConceptExecutionEndingRequest message and returns an ExecutionStatusResponse message
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<gauge.messages.Messages.ExecutionStatusResponse> notifyConceptExecutionEnding(
+        gauge.messages.Messages.ConceptExecutionEndingRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getNotifyConceptExecutionEndingMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_VALIDATE_STEP = 0;
@@ -1842,6 +1993,8 @@ public final class RunnerGrpc {
   private static final int METHODID_IMPLEMENT_STUB = 19;
   private static final int METHODID_REFACTOR = 20;
   private static final int METHODID_KILL = 21;
+  private static final int METHODID_NOTIFY_CONCEPT_EXECUTION_STARTING = 22;
+  private static final int METHODID_NOTIFY_CONCEPT_EXECUTION_ENDING = 23;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1947,6 +2100,14 @@ public final class RunnerGrpc {
         case METHODID_KILL:
           serviceImpl.kill((gauge.messages.Messages.KillProcessRequest) request,
               (io.grpc.stub.StreamObserver<gauge.messages.Messages.Empty>) responseObserver);
+          break;
+        case METHODID_NOTIFY_CONCEPT_EXECUTION_STARTING:
+          serviceImpl.notifyConceptExecutionStarting((gauge.messages.Messages.ConceptExecutionStartingRequest) request,
+              (io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse>) responseObserver);
+          break;
+        case METHODID_NOTIFY_CONCEPT_EXECUTION_ENDING:
+          serviceImpl.notifyConceptExecutionEnding((gauge.messages.Messages.ConceptExecutionEndingRequest) request,
+              (io.grpc.stub.StreamObserver<gauge.messages.Messages.ExecutionStatusResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -2120,6 +2281,20 @@ public final class RunnerGrpc {
               gauge.messages.Messages.KillProcessRequest,
               gauge.messages.Messages.Empty>(
                 service, METHODID_KILL)))
+        .addMethod(
+          getNotifyConceptExecutionStartingMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              gauge.messages.Messages.ConceptExecutionStartingRequest,
+              gauge.messages.Messages.ExecutionStatusResponse>(
+                service, METHODID_NOTIFY_CONCEPT_EXECUTION_STARTING)))
+        .addMethod(
+          getNotifyConceptExecutionEndingMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              gauge.messages.Messages.ConceptExecutionEndingRequest,
+              gauge.messages.Messages.ExecutionStatusResponse>(
+                service, METHODID_NOTIFY_CONCEPT_EXECUTION_ENDING)))
         .build();
   }
 
@@ -2190,6 +2365,8 @@ public final class RunnerGrpc {
               .addMethod(getImplementStubMethod())
               .addMethod(getRefactorMethod())
               .addMethod(getKillMethod())
+              .addMethod(getNotifyConceptExecutionStartingMethod())
+              .addMethod(getNotifyConceptExecutionEndingMethod())
               .build();
         }
       }

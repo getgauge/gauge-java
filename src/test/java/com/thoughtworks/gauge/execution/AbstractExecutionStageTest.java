@@ -6,10 +6,13 @@
 package com.thoughtworks.gauge.execution;
 
 import gauge.messages.Spec;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
-public class AbstractExecutionStageTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
 
+public class AbstractExecutionStageTest {
+
+    @Test
     public void testMergingSimpleResultsBothPassing() throws Exception {
         Spec.ProtoExecutionResult previous = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(1000).build();
         Spec.ProtoExecutionResult current = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(1100).build();
@@ -18,6 +21,7 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals(2100, result.getExecutionTime());
     }
 
+    @Test
     public void testMergingResultsPreviousFailing() throws Exception {
         String screenShot = "1";
 
@@ -38,6 +42,7 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals(screenShot, result.getFailureScreenshotFile());
     }
 
+    @Test
     public void testMergingResultsCurrentFailing() throws Exception {
         String screenShot = "2";
 
@@ -58,6 +63,7 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals(screenShot, result.getFailureScreenshotFile());
     }
 
+    @Test
     public void testMergingResultsBothFailing() throws Exception {
         String screenShotPrevious = "2";
         String screenShotCurrent = "hello";
@@ -84,6 +90,7 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals(screenShotPrevious, result.getFailureScreenshotFile());
     }
 
+    @Test
     public void testMergingResultsCurrentFailingAndIsRecoverable() throws Exception {
         String screenShotCurrent = "screenShotCurrent.png";
 
@@ -104,7 +111,7 @@ public class AbstractExecutionStageTest extends TestCase {
         assertEquals(screenShotCurrent, result.getFailureScreenshotFile());
     }
 
-    private class TestExecutionStage extends AbstractExecutionStage {
+    private static class TestExecutionStage extends AbstractExecutionStage {
         protected ExecutionStage next() {
             return null;
         }

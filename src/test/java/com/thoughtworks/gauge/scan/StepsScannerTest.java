@@ -20,14 +20,14 @@ import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.TestStepImplClass;
 import com.thoughtworks.gauge.registry.StepRegistry;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.reflections.Reflections;
 
 import java.lang.reflect.Method;
 import java.util.HashSet;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class StepsScannerTest {

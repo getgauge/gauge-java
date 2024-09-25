@@ -6,12 +6,15 @@
 package com.thoughtworks.gauge;
 
 import gauge.messages.Spec;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScreenshotCollectorTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class ScreenshotCollectorTest {
+    @Test
     public void testAddingScreenshotsToProtoResult() {
         Spec.ProtoExecutionResult executionResult = emptyExecResult();
         String a = "1";

@@ -5,13 +5,18 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import junit.framework.TestCase;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class ExecutionContextTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+public class ExecutionContextTest {
+
+    @Test
     public void testGettingAllScenarioAndSpecTags() throws Exception {
         String tag1 = "tag1";
         String tag2 = "tag2";
@@ -29,6 +34,7 @@ public class ExecutionContextTest extends TestCase {
         assertTrue(allTags.contains(tag5));
     }
 
+    @Test
     public void testGettingAllScenarioAndSpecTagsWhenOnlySpecTagsPresent() throws Exception {
         String tag1 = "tag1";
         String tag2 = "tag2";
@@ -42,6 +48,7 @@ public class ExecutionContextTest extends TestCase {
         assertTrue(allTags.contains(tag3));
     }
 
+    @Test
     public void testGettingAllScenarioAndSpecTagsWhenOnlyScenarioTagsPresent() throws Exception {
         String tag2 = "tag2";
         String tag3 = "tag3";

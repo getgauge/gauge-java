@@ -15,20 +15,22 @@ import com.thoughtworks.gauge.test.AnEnum;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 import gauge.messages.Spec.ProtoExecutionResult;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.internal.verification.VerificationModeFactory.times;
 
-public class StepExecutionStageTest extends TestCase {
+public class StepExecutionStageTest {
     private static final boolean STEP_FAILED = true;
     private static final String NON_EXISTING_VALUE = "nonExistingValue";
 
+    @Test
     public void testStepMethodExecutionIsCalledWithoutParameters() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("foo bar").setActualStepText("foo bar").build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain(), mock(StepRegistry.class));
@@ -40,6 +42,7 @@ public class StepExecutionStageTest extends TestCase {
 
     }
 
+    @Test
     public void testStepMethodExecutionIsCalledWithParameters() throws Exception {
         Spec.Parameter param1 = Spec.Parameter.newBuilder().setValue("1").setName("number").setParameterType(Spec.Parameter.ParameterType.Static).build();
         Spec.Parameter param2 = Spec.Parameter.newBuilder().setValue("foo").setName("string").setParameterType(Spec.Parameter.ParameterType.Special_String).build();
@@ -53,6 +56,7 @@ public class StepExecutionStageTest extends TestCase {
 
     }
 
+    @Test
     public void testStepMethodExecutionCanBeCalledAsObjectForSpecialTable() throws Exception {
         Spec.Parameter tableParameter = Spec.Parameter.newBuilder().setValue("table { headers {cells: \"Id\"}rows {cells: \"1\"}}").setName("table").setParameterType(Spec.Parameter.ParameterType.Special_Table).build();
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello {}").setActualStepText("hello <table>").addParameters(tableParameter).build();
@@ -65,6 +69,7 @@ public class StepExecutionStageTest extends TestCase {
 
     }
 
+    @Test
     public void testStepMethodExecutionWithMethodHavingInvalidParamTypeConversion() throws Exception {
         Spec.Parameter param1 = Spec.Parameter.newBuilder().setValue("a").setName("number").setParameterType(Spec.Parameter.ParameterType.Static).build();
         Spec.Parameter param2 = Spec.Parameter.newBuilder().setValue("foo").setName("string").setParameterType(Spec.Parameter.ParameterType.Static).build();
@@ -78,6 +83,7 @@ public class StepExecutionStageTest extends TestCase {
         assertEquals(result.getErrorMessage(), "Failed to convert argument from type String to type int. For input string: \"a\"");
     }
 
+    @Test
     public void testStepMethodExecutionWithCOFOnRuntimeException() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain(), mock(StepRegistry.class));
@@ -90,6 +96,7 @@ public class StepExecutionStageTest extends TestCase {
         assertEquals(result.getErrorMessage(), "java.lang.RuntimeException: my exception");
     }
 
+    @Test
     public void testStepMethodExecutionWithCOFOnAssertionFailure() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain(), mock(StepRegistry.class));
@@ -102,6 +109,7 @@ public class StepExecutionStageTest extends TestCase {
         assertEquals("java.lang.AssertionError: assertion failed", result.getErrorMessage());
     }
 
+    @Test
     public void testStepMethodExecutionWithCOFOnErrorNotWhitelisted() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain(), mock(StepRegistry.class));
@@ -114,6 +122,7 @@ public class StepExecutionStageTest extends TestCase {
         assertEquals("java.lang.RuntimeException: not recoverable!", result.getErrorMessage());
     }
 
+    @Test
     public void testStepMethodExecutionWithWrongInputToAnEnumParamIsFailingCorrectly()
             throws Exception {
         Spec.Parameter anEnumParam = Spec.Parameter.newBuilder().setValue(NON_EXISTING_VALUE)
@@ -134,6 +143,7 @@ public class StepExecutionStageTest extends TestCase {
                 NON_EXISTING_VALUE, AnEnum.class.getSimpleName()), result.getErrorMessage());
     }
 
+    @Test
     public void testStepMethodExecutionWithEnumParamIsExecutingTheStep() throws Exception {
         Spec.Parameter anEnumParam = Spec.Parameter.newBuilder().setValue(AnEnum.FIRST.name()).setName("enum").setParameterType(Spec.Parameter.ParameterType.Static).build();
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("Test an enum parameter: {}").setActualStepText("Test an enum parameter: <anEnumValue>").addParameters(anEnumParam).build();
@@ -145,6 +155,7 @@ public class StepExecutionStageTest extends TestCase {
         verify(methodExecutor, times(1)).execute(fooBarWithEnumMethod, AnEnum.FIRST);
     }
 
+    @Test
     public void testStepMethodExecutionWithCOFOnErrorWhitelisted() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain(), mock(StepRegistry.class));
@@ -157,6 +168,7 @@ public class StepExecutionStageTest extends TestCase {
         assertEquals("java.lang.RuntimeException: recoverable!", result.getErrorMessage());
     }
 
+    @Test
     public void testFailingStepMethodExecutionWithNoCOF() throws Exception {
         Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder().setParsedStepText("hello").setActualStepText("hello").build();
         StepExecutionStage executionStage = new StepExecutionStage(executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain(), mock(StepRegistry.class));

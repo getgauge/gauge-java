@@ -7,7 +7,8 @@ package com.thoughtworks.gauge.registry;
 
 import com.thoughtworks.gauge.*;
 import com.thoughtworks.gauge.hook.Hook;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -15,8 +16,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class HooksRegistryTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+public class HooksRegistryTest {
+
+    @Test
     public void testAddingHooksBeforeAndAfterSuite() throws Exception {
         Method beforeSuite = TestHooksImplClass.class.getMethod("beforeSuite");
         Method afterSuite = TestHooksImplClass.class.getMethod("afterSuite");
@@ -35,6 +40,7 @@ public class HooksRegistryTest extends TestCase {
         assertEquals(0, afterSuiteHooks.get(0).getTags().size());
     }
 
+    @Test
     public void testAddingHooksBeforeAndAfterSpecAndScenario() throws Exception {
         Method beforeSpec = TestHooksImplClass.class.getMethod("beforeSpec");
         Method afterSpec = TestHooksImplClass.class.getMethod("afterSpec", ExecutionContext.class);
@@ -74,6 +80,7 @@ public class HooksRegistryTest extends TestCase {
         assertEquals(Operator.OR, ((Hook) afterScenarioHooks.toArray()[0]).getTagsAggregation());
     }
 
+    @Test
     public void testAddingBeforeAndAfterStepHooks() throws Exception {
         Method beforeStep1 = TestHooksImplClass.class.getMethod("beforeStep1");
         Method beforeStep2 = TestHooksImplClass.class.getMethod("beforeStep2");
@@ -93,6 +100,7 @@ public class HooksRegistryTest extends TestCase {
         assertEquals(Operator.OR, ((Hook) afterStepHooks.toArray()[0]).getTagsAggregation());
     }
 
+    @Test
     public void testAddingBeforeAndAfterClassStepHooks() throws Exception {
         Method beforeClassSteps1 = TestHooksImplClass.class.getMethod("beforeClassSteps1");
         Method beforeClassSteps2 = TestHooksImplClass.class.getMethod("beforeClassSteps2");
@@ -112,6 +120,7 @@ public class HooksRegistryTest extends TestCase {
         assertTrue(afterHookMethods.contains(afterClassSteps));
     }
 
+    @Test
     public void testSortingOfPreHooks() throws NoSuchMethodException {
         Method beforeScenario = TestHooksImplClass.class.getMethod("beforeScenario");
         Method aBeforeScenario = TestHooksImplClass.class.getMethod("aBeforeScenario");
@@ -125,6 +134,7 @@ public class HooksRegistryTest extends TestCase {
         assertEquals("taggedBeforeScenario", sortedPreHooks.get(2).getMethod().getName());
     }
 
+    @Test
     public void testSortingOfPostHooks() throws NoSuchMethodException {
         Method afterScenario = TestHooksImplClass.class.getMethod("afterScenario");
         Method taggedAfterScenario = TestHooksImplClass.class.getMethod("taggedAfterScenario");
@@ -146,6 +156,7 @@ public class HooksRegistryTest extends TestCase {
         return methods;
     }
 
+    @AfterEach
     protected void tearDown() throws Exception {
         HooksRegistry.remove(BeforeStep.class);
         HooksRegistry.remove(AfterStep.class);

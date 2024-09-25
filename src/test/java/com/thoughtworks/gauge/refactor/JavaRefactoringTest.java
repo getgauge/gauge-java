@@ -9,9 +9,9 @@ import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
-import junit.framework.TestCase;
 import org.assertj.core.util.Lists;
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -19,14 +19,16 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 
-public class JavaRefactoringTest extends TestCase {
+public class JavaRefactoringTest {
 
     private boolean saveChanges = true;
 
+    @Test
     public void testRefactoringWithAlias() {
         ArrayList<String> stringSet = Lists.newArrayList("anyString", "anyOtherString");
 
@@ -44,6 +46,7 @@ public class JavaRefactoringTest extends TestCase {
         assertEquals("Refactoring for steps having aliases are not supported.", result.errorMessage());
     }
 
+    @Test
     public void testRefactoringWithDuplicateImplementations() {
         StepRegistryEntry entry = mock(StepRegistryEntry.class);
         StepRegistry registry = mock(StepRegistry.class);
@@ -60,6 +63,7 @@ public class JavaRefactoringTest extends TestCase {
         assertEquals("Duplicate step implementation found.", result.errorMessage());
     }
 
+    @Test
     public void testJavaElementForSimpleRefactoring() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
 
@@ -79,6 +83,7 @@ public class JavaRefactoringTest extends TestCase {
 
     }
 
+    @Test
     public void testJavaElementForRefactoringWithNewParameter() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
 
@@ -100,6 +105,7 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(element.getText().contains("A step with no params"));
     }
 
+    @Test
     public void testJavaElementForRefactoringWithNewParametersWithSameName() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<>());
@@ -122,6 +128,7 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(element.getText().contains("A step with no params"));
     }
 
+    @Test
     public void testJavaElementForRefactoringWithNewParameterWithSameNameAsExisting() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("Tell {} {}", "Tell <greeting> <name>", Arrays.asList("greeting", "name"));
@@ -147,6 +154,7 @@ public class JavaRefactoringTest extends TestCase {
 
     }
 
+    @Test
     public void testJavaElementForRefactoringWithNewParameterWhenParametersPresent() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("Tell {} to {}", "Tell <greeting> to <name>", Arrays.asList("greeting", "name"));
@@ -177,6 +185,7 @@ public class JavaRefactoringTest extends TestCase {
         return new File(String.format("src%stest%sresources", File.separator, File.separator), fileName);
     }
 
+    @Test
     public void testJavaElementForRefactoringWithParametersAdded() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", Arrays.asList("a", "b"));
@@ -203,6 +212,7 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(element.getText().contains("step <a> and a table <table>"));
     }
 
+    @Test
     public void testJavaElementForRefactoringForStepWithUnicodeCharacters() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("† ‡ µ ¢ step with {} and {}", "† ‡ µ ¢ step with <Û> and <į>", Arrays.asList("Û", "į"));
@@ -224,6 +234,7 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(element.getText().contains("† ‡ µ ¢ step with <Û> and <į>"));
     }
 
+    @Test
     public void testJavaElementForRefactoringWithDualBackSlashes() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("A step with \\", "A step with \\", new ArrayList<>());
@@ -241,6 +252,7 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(element.getText().contains("A step with \\"));
     }
 
+    @Test
     public void testJavaElementForRefactoringWithTab() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("A step 123", "A step 123", new ArrayList<>());
@@ -258,6 +270,7 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(element.getText().contains("A step 123"));
     }
 
+    @Test
     public void testJavaElementForRefactoringWithParametersRemovedAndAdded() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<>());
@@ -285,6 +298,7 @@ public class JavaRefactoringTest extends TestCase {
 
     }
 
+    @Test
     public void testResultForRefactoringWhenFileNotFound() {
         StepRegistry registry = mock(StepRegistry.class);
         StepRegistryEntry entry = mock(StepRegistryEntry.class);
@@ -301,6 +315,7 @@ public class JavaRefactoringTest extends TestCase {
         assertEquals(result.fileChanged(), "");
     }
 
+    @Test
     public void testResultForRefactoringWhenFileDoesNotExist() {
 
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<>());
@@ -320,6 +335,7 @@ public class JavaRefactoringTest extends TestCase {
         assertEquals(result.fileChanged(), "");
     }
 
+    @Test
     public void testJavaElementForRefactoringWithMethodWithComments() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         String oldStepText = "A step with comments";
@@ -352,6 +368,7 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(actual.contains(oldStepText));
     }
 
+    @Test
     public void testRefactoringWithOrphanComments() throws RefactoringException {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("A step with comments", "A step with comments", new ArrayList<>());
@@ -396,6 +413,7 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(actualValue.contains("A step with comments"));
     }
 
+    @Test
     public void testJavaElementForRefactoringWithUnFormattedMethod() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<>());
@@ -414,6 +432,7 @@ public class JavaRefactoringTest extends TestCase {
                 "}" + System.getProperty("line.separator")));
     }
 
+    @Test
     public void testJavaElementForRefactoringWithMethodHavingNewLineCharInString() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("A step with newLine", "A step with newLine", new ArrayList<>());
@@ -431,6 +450,7 @@ public class JavaRefactoringTest extends TestCase {
         assertFalse(element.getText().contains("A step with newLine"));
     }
 
+    @Test
     public void testJavaElementForRefactoringWithStepHavingOneAlias() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("A step defined with alias syntax", "A step defined with alias syntax", new ArrayList<>());

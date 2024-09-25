@@ -10,12 +10,13 @@ import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import org.assertj.core.util.Lists;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -28,7 +29,7 @@ public class StepNameRequestProcessorTest {
     private Range range = Range.range(1,5,4,5);
     private Messages.Message message;
 
-    @Before
+    @BeforeEach
     public void setupMessage() {
         Messages.Message.Builder messageBuilder = Messages.Message.newBuilder().setMessageType(Messages.Message.MessageType.StepNameRequest).setMessageId(1l);
         Messages.StepNameRequest stepNameRequest = Messages.StepNameRequest.newBuilder().setStepValue(STEP_TEXT).build();

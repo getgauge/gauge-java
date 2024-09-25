@@ -15,6 +15,8 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         java_version: ['11', '17']
+      fail-fast: false
+
     steps:
       - uses: actions/checkout@v4
 
@@ -24,11 +26,13 @@ jobs:
           distribution: 'temurin'
           java-version: ${{ matrix.java_version }}
 
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
 
       - name: Run test
-        run: |
-          java -version
-          mvn -q clean test
+        run: mvn -q clean test
 
   functional_tests:
     name: FTs - java 17 ${{ matrix.os }}
@@ -37,6 +41,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
+      fail-fast: false
 
     steps:
       - uses: actions/checkout@v4
@@ -52,6 +57,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
 
       - uses: getgauge/setup-gauge@master
         with:
@@ -94,6 +104,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
+      fail-fast: false
 
     steps:
       - uses: actions/checkout@v4
@@ -109,6 +120,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
 
       - uses: getgauge/setup-gauge@master
         with:

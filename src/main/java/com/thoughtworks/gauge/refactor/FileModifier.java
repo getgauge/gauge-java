@@ -5,9 +5,8 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.refactor;
 
-import org.apache.commons.io.FileUtils;
-
 import java.io.IOException;
+import java.nio.file.Files;
 
 public class FileModifier {
     private JavaRefactoringElement javaElement;
@@ -21,7 +20,7 @@ public class FileModifier {
     }
 
     private void write() throws IOException {
-        FileUtils.write(javaElement.getFile(), javaElement.getText(), JavaParseWorker.ENCODING);
+        Files.writeString(javaElement.getFile().toPath(), javaElement.getText(), JavaParseWorker.CHARSET);
     }
 
 }

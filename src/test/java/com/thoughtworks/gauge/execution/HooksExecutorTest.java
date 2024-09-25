@@ -11,12 +11,15 @@ import com.thoughtworks.gauge.ContinueOnFailure;
 import com.thoughtworks.gauge.Operator;
 import com.thoughtworks.gauge.hook.Hook;
 import gauge.messages.Spec;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class HooksExecutorTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
+public class HooksExecutorTest {
+
+    @Test
     public void testHookExecutor() throws Exception {
         final Hook hook1 = new Hook(HooksExecutorTest.TestHook.class.getMethod("foo"), new String[0], Operator.AND);
         HookExecutionStage hookExecutionStage = new HookExecutionStage(new ArrayList<Hook>() {{

@@ -5,22 +5,23 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.processor;
 
-import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import gauge.messages.Messages;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class StepPositionsRequestProcessorTest {
     @Test
     public void ShouldProcessRequest() {
         StaticScanner staticScanner = new StaticScanner();
         String implFile = Util.workingDir() + File.separator + String.format("src%stest%sresources%stest%sfiles%sfoo.java", File.separator, File.separator, File.separator, File.separator, File.separator);
-        String contents = staticScanner.readFile(implFile, Charsets.UTF_8);
+        String contents = staticScanner.readFile(implFile, StandardCharsets.UTF_8);
         staticScanner.addStepsFromFileContents(implFile, contents);
         StepPositionsRequestProcessor stepPositionsRequestProcessor = new StepPositionsRequestProcessor(staticScanner.getRegistry());
         Messages.StepPositionsRequest stepPositionRequest = Messages.StepPositionsRequest.newBuilder().setFilePath(implFile).build();
@@ -36,7 +37,7 @@ public class StepPositionsRequestProcessorTest {
     public void ShouldProcessRequestForAliases() {
         StaticScanner staticScanner = new StaticScanner();
         String implFile = Util.workingDir() + File.separator + String.format("src%stest%sresources%stest%sfiles%sfooAliases.java", File.separator, File.separator, File.separator, File.separator, File.separator);
-        String contents = staticScanner.readFile(implFile, Charsets.UTF_8);
+        String contents = staticScanner.readFile(implFile, StandardCharsets.UTF_8);
         staticScanner.addStepsFromFileContents(implFile, contents);
         StepPositionsRequestProcessor stepPositionsRequestProcessor = new StepPositionsRequestProcessor(staticScanner.getRegistry());
         Messages.StepPositionsRequest stepPositionRequest = Messages.StepPositionsRequest.newBuilder().setFilePath(implFile).build();
