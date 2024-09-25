@@ -5,10 +5,8 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-
-import static uk.org.webcompere.systemstubs.SystemStubs.*;
 import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
 
 import java.io.File;
@@ -17,9 +15,9 @@ import java.util.List;
 
 import static com.thoughtworks.gauge.GaugeConstant.GAUGE_CUSTOM_COMPILE_DIR;
 import static com.thoughtworks.gauge.GaugeConstant.GAUGE_PROJECT_ROOT;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static uk.org.webcompere.systemstubs.SystemStubs.withEnvironmentVariable;
 
 @ExtendWith(SystemStubsExtension.class)
 public class FileHelperTest {   

@@ -5,6 +5,12 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.execution.parameters.parsers.types;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
 import static com.thoughtworks.gauge.execution.ParameterTestHelpers.aParameter;
 import static com.thoughtworks.gauge.test.TestHelpers.asObject;
 import static com.thoughtworks.gauge.test.TestValues.A_PRIMITIVE;
@@ -14,13 +20,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class PrimitiveParameterParserTest {
     @Mock
     private PrimitivesConverter primitivesConverterMock;

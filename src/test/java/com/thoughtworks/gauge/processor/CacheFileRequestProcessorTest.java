@@ -9,12 +9,13 @@ import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import gauge.messages.Messages;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class CacheFileRequestProcessorTest {
 
@@ -25,7 +26,7 @@ public class CacheFileRequestProcessorTest {
     private String fooAliasesContents;
     private StaticScanner staticScanner;
 
-    @Before
+    @BeforeEach
     public void setUp(){
         staticScanner = new StaticScanner();
         String implFileRelativePath = String.format("src%stest%sresources%stest%sfiles%sfoo.java", File.separator, File.separator, File.separator, File.separator, File.separator);

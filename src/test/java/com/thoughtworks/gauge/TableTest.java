@@ -5,29 +5,22 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import com.google.common.base.Joiner;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-
-import com.google.common.base.Joiner;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TableTest {
 
     private Table table;
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         List<String> headers = new ArrayList<String>();
         headers.add("col1");
@@ -66,10 +59,10 @@ public class TableTest {
     @Test
     public void shouldThrowAnExceptionWhenInvalidColumnIndex() {
         int invalidColumnIndex = 3;
-        thrown.expect(IndexOutOfBoundsException.class);
-        thrown.expectMessage(String.format("Column with index %d not found. Actual column size: %d.", invalidColumnIndex, table.getColumnNames().size()));
 
-        table.getColumnName(invalidColumnIndex);
+        assertThatThrownBy(() -> table.getColumnName(invalidColumnIndex))
+                .isInstanceOf(IndexOutOfBoundsException.class)
+                .hasMessageContaining(String.format("Column with index %d not found. Actual column size: %d.", invalidColumnIndex, table.getColumnNames().size()));
     }
 
     @Test

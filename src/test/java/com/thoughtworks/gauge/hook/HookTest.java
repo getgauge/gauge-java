@@ -7,15 +7,18 @@ package com.thoughtworks.gauge.hook;
 
 import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.Operator;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class HookTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+public class HookTest {
+
+    @Test
     public void testSortingOfHookCollection() throws NoSuchMethodException {
         final Hook hook1 = new Hook(TestHook.class.getMethod("foo"), new String[0], Operator.AND);
         final Hook hook2 = new Hook(TestHook.class.getMethod("barfoo"), new String[]{"hello"}, Operator.AND);

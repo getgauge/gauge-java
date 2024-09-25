@@ -10,14 +10,12 @@ import com.thoughtworks.gauge.Scenario;
 import com.thoughtworks.gauge.Specification;
 import com.thoughtworks.gauge.StepDetails;
 import gauge.messages.Messages;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ExecutionInfoMapperTest {
 

@@ -5,10 +5,14 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import junit.framework.TestCase;
 
-public class ClassInstanceManagerTest extends TestCase {
+import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ClassInstanceManagerTest {
+
+    @Test
     public void testObjectsAreCachedInClassInstanceManager() throws Exception {
         ClassInstanceManager manager = new ClassInstanceManager();
         Object object = manager.get(TestStepImplClass.class);
@@ -19,6 +23,7 @@ public class ClassInstanceManagerTest extends TestCase {
         assertEquals(object, object2);
     }
 
+    @Test
     public void testSettingClassInitializer() throws Exception {
         final TestStepImplClass expectedObject = new TestStepImplClass();
         ClassInstanceManager manager = new ClassInstanceManager();
@@ -35,6 +40,7 @@ public class ClassInstanceManagerTest extends TestCase {
         assertEquals(expectedObject, object2);
     }
 
+    @Test
     public void testClearingCache() throws Exception {
         ClassInstanceManager manager = new ClassInstanceManager();
         Object object1 = manager.get(TestStepImplClass.class);

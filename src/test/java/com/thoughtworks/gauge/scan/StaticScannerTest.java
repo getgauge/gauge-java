@@ -9,11 +9,12 @@ import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class StaticScannerTest {
 

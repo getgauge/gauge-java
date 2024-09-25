@@ -42,14 +42,13 @@ Ex:
 Ex:
 
 
-* Update the productVersion property in `pom.xml`.
+* Update the version in `pom.xml`.
 
 Ex:
 
 ```diff
-     <properties>
-         <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
--        <projectVersion>0.7.5</projectVersion>
-+        <projectVersion>0.7.6</projectVersion>
-         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <artifactId>gauge-java</artifactId>
+-    <version>0.11.0</version>
++    <version>0.11.1</version>
+     <description>Java plugin for Gauge</description>
 ```

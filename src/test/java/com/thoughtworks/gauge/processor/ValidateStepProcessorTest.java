@@ -13,15 +13,13 @@ import gauge.messages.Messages.Message.MessageType;
 import gauge.messages.Messages.StepValidateRequest;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
 import gauge.messages.Spec;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -31,7 +29,7 @@ public class ValidateStepProcessorTest {
 
     private Message message;
 
-    @Before
+    @BeforeEach
     public void setupMessage() {
         Builder messageBuilder = Messages.Message.newBuilder().setMessageType(MessageType.StepValidateRequest).setMessageId(1l);
         Spec.ProtoStepValue.Builder protoStep = Spec.ProtoStepValue.newBuilder().setStepValue(STEP_TEXT).setParameterizedStepValue(STEP_TEXT).addAllParameters(new ArrayList<String>());

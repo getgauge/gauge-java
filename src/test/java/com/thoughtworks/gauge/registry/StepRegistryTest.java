@@ -8,15 +8,14 @@ package com.thoughtworks.gauge.registry;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.TestStepImplClass;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class StepRegistryTest {
 
@@ -51,7 +50,7 @@ public class StepRegistryTest {
     }
     private StepRegistry stepRegistry;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         this.stepRegistry = new StepRegistry();
         this.stepRegistry.addStepImplementation(stepValue1, method1, false);
@@ -145,7 +144,7 @@ public class StepRegistryTest {
         assertNull(entry);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         stepRegistry.remove(stepValue1.getStepText());
         stepRegistry.remove(stepValue2.getStepText());

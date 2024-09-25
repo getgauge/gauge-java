@@ -6,17 +6,17 @@
 package com.thoughtworks.gauge.execution.parameters.parsers.types;
 
 import com.thoughtworks.gauge.test.AnEnum;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static com.thoughtworks.gauge.execution.ParameterTestHelpers.parameter;
 import static com.thoughtworks.gauge.test.TestHelpers.asObject;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class EnumParameterParserTest {
     @InjectMocks
     private EnumParameterParser enumParameterParser;

@@ -8,7 +8,7 @@ package com.thoughtworks.gauge.execution.parameters;
 import com.thoughtworks.gauge.execution.ExecutionInfoMapper;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static com.thoughtworks.gauge.execution.parameters.DynamicParametersReplacer.replacePlaceholders;
 import static java.util.Arrays.asList;
