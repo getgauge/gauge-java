@@ -5,7 +5,6 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.processor;
 
-import com.google.common.base.Charsets;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import gauge.messages.Messages;
@@ -13,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,11 +31,11 @@ public class CacheFileRequestProcessorTest {
         staticScanner = new StaticScanner();
         String implFileRelativePath = String.format("src%stest%sresources%stest%sfiles%sfoo.java", File.separator, File.separator, File.separator, File.separator, File.separator);
         implFile = Util.workingDir() + File.separator + implFileRelativePath;
-        contents = staticScanner.readFile(implFile, Charsets.UTF_8);
+        contents = staticScanner.readFile(implFile, StandardCharsets.UTF_8);
 
         String fooAliasesImplFileRelativePath = String.format("src%stest%sresources%stest%sfiles%sfooAliases.java", File.separator, File.separator, File.separator, File.separator, File.separator);
         fooAliasesFilePath = Util.workingDir() + File.separator + fooAliasesImplFileRelativePath;
-        fooAliasesContents = staticScanner.readFile(fooAliasesFilePath, Charsets.UTF_8);
+        fooAliasesContents = staticScanner.readFile(fooAliasesFilePath, StandardCharsets.UTF_8);
     }
 
     @Test

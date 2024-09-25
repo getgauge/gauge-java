@@ -11,11 +11,13 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.thoughtworks.gauge.Logger;
 
 import java.io.File;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
 public class JavaParseWorker extends Thread {
 
-    public static final String ENCODING = "UTF-8";
+    public static final Charset CHARSET = StandardCharsets.UTF_8;
     private File javaFile;
     private CompilationUnit compilationUnit;
 
