@@ -26,11 +26,13 @@ jobs:
           distribution: 'temurin'
           java-version: ${{ matrix.java_version }}
 
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
 
       - name: Run test
-        run: |
-          java -version
-          mvn -q clean test
+        run: mvn -q clean test
 
   functional_tests:
     name: FTs - java 17 ${{ matrix.os }}
@@ -55,6 +57,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
 
       - uses: getgauge/setup-gauge@master
         with:
@@ -113,6 +120,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: 3.9.9
 
       - uses: getgauge/setup-gauge@master
         with:
