@@ -9,8 +9,6 @@ import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
-import org.assertj.core.util.Lists;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -18,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -26,12 +24,10 @@ import static org.mockito.Mockito.when;
 
 public class JavaRefactoringTest {
 
-    private boolean saveChanges = true;
+    private final boolean saveChanges = true;
 
     @Test
     public void testRefactoringWithAlias() {
-        ArrayList<String> stringSet = Lists.newArrayList("anyString", "anyOtherString");
-
         StepRegistry registry = mock(StepRegistry.class);
         StepRegistryEntry entry = mock(StepRegistryEntry.class);
         when(registry.get("old step")).thenReturn(entry);
@@ -76,8 +72,8 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"step changed\")" + System.getProperty("line.separator") +
-                "    public void someStepStep() {" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"step changed\")" + System.lineSeparator() +
+                "    public void someStepStep() {" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("A step with no params"));
 
@@ -99,8 +95,8 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"step with <param 1>\")" + System.getProperty("line.separator") +
-                "    public void someStepStep(Object argParam1) {" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"step with <param 1>\")" + System.lineSeparator() +
+                "    public void someStepStep(Object argParam1) {" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("A step with no params"));
     }
@@ -122,8 +118,8 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"step with <n> <n>\")" + System.getProperty("line.separator") +
-                "    public void someStepStep(Object argN, Object argN1) {" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"step with <n> <n>\")" + System.lineSeparator() +
+                "    public void someStepStep(Object argN, Object argN1) {" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("A step with no params"));
     }
@@ -147,8 +143,8 @@ public class JavaRefactoringTest {
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions, registry, parameterizedStepValue, saveChanges);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"Tell <greeting> <name> <name>\")" + System.getProperty("line.separator") +
-                "    public void helloWorld(String greeting, String argName, Object argName2) {" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"Tell <greeting> <name> <name>\")" + System.lineSeparator() +
+                "    public void helloWorld(String greeting, String argName, Object argName2) {" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("\"Tell <greeting> <name>\""));
 
@@ -173,9 +169,9 @@ public class JavaRefactoringTest {
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, parameterPositions, registry, parameterizedStepValue, saveChanges);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"Tell <greeting> to <name> <DD>\")" + System.getProperty("line.separator") +
-                "    public void helloWorld(String greeting, String name, Object argDd) {" + System.getProperty("line.separator") +
-                "        System.out.println(greeting + \", \" + name);" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"Tell <greeting> to <name> <DD>\")" + System.lineSeparator() +
+                "    public void helloWorld(String greeting, String name, Object argDd) {" + System.lineSeparator() +
+                "        System.out.println(greeting + \", \" + name);" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("\"Tell <greeting> to <name>\""));
 
@@ -206,8 +202,8 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"<table> changed <c> and added <a>\")" + System.getProperty("line.separator") +
-                "    public void stepWithTable(Table table, Object argC, float a) {" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"<table> changed <c> and added <a>\")" + System.lineSeparator() +
+                "    public void stepWithTable(Table table, Object argC, float a) {" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("step <a> and a table <table>"));
     }
@@ -228,8 +224,8 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"\\u2020 \\u2021 \\u00B5 \\u00A2 step with <\\u00DB>\")" + System.getProperty("line.separator") +
-                "    public void stepWith(String a) {" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"\\u2020 \\u2021 \\u00B5 \\u00A2 step with <\\u00DB>\")" + System.lineSeparator() +
+                "    public void stepWith(String a) {" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("† ‡ µ ¢ step with <Û> and <į>"));
     }
@@ -246,8 +242,8 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"step changed to \\\\\")" + System.getProperty("line.separator") +
-                "    public void stepWithDualBackSlashes() {" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"step changed to \\\\\")" + System.lineSeparator() +
+                "    public void stepWithDualBackSlashes() {" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("A step with \\"));
     }
@@ -264,8 +260,8 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"step changed to \\t\")" + System.getProperty("line.separator") +
-                "    public void stepWithTab() {" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"step changed to \\t\")" + System.lineSeparator() +
+                "    public void stepWithTab() {" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("A step 123"));
     }
@@ -291,8 +287,8 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"<b> changed <a> and added <c>\")" + System.getProperty("line.separator") +
-                "    public void stepWithTable(Object argB, float a, Object argC) {" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"<b> changed <a> and added <c>\")" + System.lineSeparator() +
+                "    public void stepWithTable(Object argB, float a, Object argC) {" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("step <a> and a table <table>"));
 
@@ -348,9 +344,9 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        String newLineChar = System.getProperty("line.separator");
+        String newLineChar = System.lineSeparator();
         String actual = element.getText();
-        assertThat(actual, Matchers.containsString("    @Step(\"" + newStepText + "\")" + newLineChar +
+        assertThat(actual).contains("    @Step(\"" + newStepText + "\")" + newLineChar +
                 "    public void someStepWithComments() {" + newLineChar +
                 "        // comment1" + newLineChar +
                 "        // comment2" + newLineChar +
@@ -364,8 +360,8 @@ public class JavaRefactoringTest {
                 "                        comment8" + newLineChar +
                 "         */" + newLineChar +
                 "        System.out.println(\"\");" + newLineChar +
-                "    }"));
-        assertFalse(actual.contains(oldStepText));
+                "    }");
+        assertThat(actual).doesNotContain(oldStepText);
     }
 
     @Test
@@ -379,7 +375,7 @@ public class JavaRefactoringTest {
         JavaRefactoring refactoring = new JavaRefactoring(oldStepValue, newStepValue, new ArrayList<>(), registry, parameterizedStepValue, saveChanges);
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
-        String newLineChar = System.getProperty("line.separator");
+        String newLineChar = System.lineSeparator();
         String expectedValue = "    @Step(\"with comments\")" + newLineChar +
                 "    public void someStepWithComments() {" + newLineChar +
                 "        // comment1" + newLineChar +
@@ -409,7 +405,7 @@ public class JavaRefactoringTest {
         String actualValue = element.getText();
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertThat(actualValue, Matchers.containsString(expectedValue));
+        assertThat(actualValue).contains(expectedValue);
         assertFalse(actualValue.contains("A step with comments"));
     }
 
@@ -424,12 +420,12 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("public class StepImpl {" + System.getProperty("line.separator") +
-                "" + System.getProperty("line.separator") +
-                "    @Step(\"A step with no paramss\")" + System.getProperty("line.separator") +
-                "    public void someStepStep() {" + System.getProperty("line.separator") +
-                "    }" + System.getProperty("line.separator") +
-                "}" + System.getProperty("line.separator")));
+        assertTrue(element.getText().contains("public class StepImpl {" + System.lineSeparator() +
+                "" + System.lineSeparator() +
+                "    @Step(\"A step with no paramss\")" + System.lineSeparator() +
+                "    public void someStepStep() {" + System.lineSeparator() +
+                "    }" + System.lineSeparator() +
+                "}" + System.lineSeparator()));
     }
 
     @Test
@@ -443,9 +439,9 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"step changed\")" + System.getProperty("line.separator") +
-                "    public void someStepStep() {" + System.getProperty("line.separator") +
-                "        System.out.println(\"\\n\");" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"step changed\")" + System.lineSeparator() +
+                "    public void someStepStep() {" + System.lineSeparator() +
+                "        System.out.println(\"\\n\");" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("A step with newLine"));
     }
@@ -462,8 +458,8 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"step changed\")" + System.getProperty("line.separator") +
-                "    public void stepDefinedWithAliasSyntax() {" + System.getProperty("line.separator") +
+        assertTrue(element.getText().contains("    @Step(\"step changed\")" + System.lineSeparator() +
+                "    public void stepDefinedWithAliasSyntax() {" + System.lineSeparator() +
                 "    }"));
         assertFalse(element.getText().contains("A step defined with alias syntax" +
                 ""));

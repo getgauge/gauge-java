@@ -11,7 +11,7 @@ import gauge.messages.Messages;
 import java.util.List;
 
 public class StepPositionsRequestProcessor implements IMessageProcessor {
-    private StepRegistry stepRegistry;
+    private final StepRegistry stepRegistry;
 
     public StepPositionsRequestProcessor(StepRegistry stepRegistry) {
         this.stepRegistry = stepRegistry;

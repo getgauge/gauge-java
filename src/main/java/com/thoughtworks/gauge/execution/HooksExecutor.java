@@ -19,7 +19,7 @@ import java.util.List;
 public class HooksExecutor {
     private final List<Hook> hooks;
     private final ExecutionContext info;
-    private ClassInstanceManager manager;
+    private final ClassInstanceManager manager;
 
     public HooksExecutor(List<Hook> hooks, ExecutionContext executionInfo, ClassInstanceManager manager) {
         this.hooks = hooks;
@@ -57,7 +57,7 @@ public class HooksExecutor {
     }
 
     private List<Class> createClassList(Object[] objects) {
-        ArrayList<Class> classes = new ArrayList<Class>();
+        ArrayList<Class> classes = new ArrayList<>();
         for (Object obj : objects) {
             classes.add(obj.getClass());
         }

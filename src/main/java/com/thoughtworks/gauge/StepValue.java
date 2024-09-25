@@ -25,7 +25,7 @@ public class StepValue {
     public StepValue(String stepTemplateText, String parameterizedStepText) {
         this.stepText = stepTemplateText;
         this.parameterizedStepText = parameterizedStepText;
-        this.parameters = new ArrayList<String>();
+        this.parameters = new ArrayList<>();
     }
 
     public static StepValue from(Spec.ProtoStepValue protoStepValue) {

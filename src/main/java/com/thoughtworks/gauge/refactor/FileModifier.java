@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 public class FileModifier {
-    private JavaRefactoringElement javaElement;
+    private final JavaRefactoringElement javaElement;
 
     public FileModifier(JavaRefactoringElement javaElement) {
         this.javaElement = javaElement;

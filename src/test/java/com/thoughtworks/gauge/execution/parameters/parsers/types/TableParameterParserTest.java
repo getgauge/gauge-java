@@ -16,8 +16,7 @@ import static com.thoughtworks.gauge.execution.ParameterTestHelpers.aSpecialTabl
 import static com.thoughtworks.gauge.execution.ParameterTestHelpers.aTableParameter;
 import static com.thoughtworks.gauge.test.TestValues.ANY_TYPE;
 import static com.thoughtworks.gauge.test.TestValues.SPECIFIC_VALUE;
-import static org.hamcrest.CoreMatchers.theInstance;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -46,6 +45,6 @@ public class TableParameterParserTest {
     public void whenATableParameterParsedThenTheTheConvertedTableIsReturned() throws Exception {
         when(tableConverterMock.convert(aTableParameter())).thenReturn(SPECIFIC_VALUE);
 
-        assertThat(tableParameterParser.parse(ANY_TYPE, aTableParameter()), theInstance(SPECIFIC_VALUE));
+        assertThat(tableParameterParser.parse(ANY_TYPE, aTableParameter())).isSameAs(SPECIFIC_VALUE);
     }
 }

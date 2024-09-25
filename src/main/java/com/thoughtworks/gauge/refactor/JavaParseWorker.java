@@ -18,7 +18,7 @@ import java.util.Optional;
 public class JavaParseWorker extends Thread {
 
     public static final Charset CHARSET = StandardCharsets.UTF_8;
-    private File javaFile;
+    private final File javaFile;
     private CompilationUnit compilationUnit;
 
     JavaParseWorker(File javaFile) {
@@ -42,7 +42,7 @@ public class JavaParseWorker extends Thread {
         try {
             join();
         } catch (InterruptedException e) {
-
+            Thread.currentThread().interrupt();
         }
         return compilationUnit;
     }

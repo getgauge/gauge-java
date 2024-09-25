@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ParametersExtractor {
 
-    private ParameterParser parameterParser;
+    private final ParameterParser parameterParser;
 
     public ParametersExtractor(ParameterParser parameterParser) {
         this.parameterParser = parameterParser;

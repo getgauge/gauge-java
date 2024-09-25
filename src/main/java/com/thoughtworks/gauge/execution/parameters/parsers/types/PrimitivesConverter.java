@@ -5,14 +5,14 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.execution.parameters.parsers.types;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.thoughtworks.gauge.execution.parameters.parsers.converters.StringToPrimitiveConverter;
 import gauge.messages.Spec.Parameter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PrimitivesConverter {
-    private Map<Class<?>, StringToPrimitiveConverter> primitiveConverters = new HashMap<>();
+    private final Map<Class<?>, StringToPrimitiveConverter> primitiveConverters = new HashMap<>();
 
     public PrimitivesConverter() {
         primitiveConverters.put(int.class, source -> Integer.parseInt(source.getValue()));

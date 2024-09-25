@@ -18,7 +18,7 @@ import java.util.Set;
 @Deprecated
 public class DataStore {
 
-    private HashMap<Object, Object> map = new HashMap<>();
+    private final HashMap<Object, Object> map = new HashMap<>();
 
     /**
      * @param key - Key of the data entry

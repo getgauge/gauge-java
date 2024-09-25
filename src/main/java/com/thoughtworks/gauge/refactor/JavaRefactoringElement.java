@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class JavaRefactoringElement {
     private final ArrayList<Diff> diffs;
-    private String text;
+    private final String text;
     private File file;
 
     public JavaRefactoringElement(String text, File file) {

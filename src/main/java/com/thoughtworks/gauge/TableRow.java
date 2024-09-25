@@ -5,16 +5,13 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Represents a Row of Data in a Table.
  */
 public class TableRow {
-    private LinkedHashMap<String, String> cells = new LinkedHashMap<String, String>();
+    private final Map<String, String> cells = new LinkedHashMap<>();
 
     /**
      * Get the value of cell corresponding to a column name.
@@ -72,7 +69,7 @@ public class TableRow {
      * @return a list of TableCells.
      */
     public List<TableCell> getTableCells() {
-        List<TableCell> listOfCells = new ArrayList<TableCell>();
+        List<TableCell> listOfCells = new ArrayList<>();
 
         // Since we have a LinkedHashMap, the order of entrySet() is guaranteed.
         for (Map.Entry<String, String> mapEntry : cells.entrySet()) {
@@ -87,7 +84,7 @@ public class TableRow {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((cells == null) ? 0 : cells.hashCode());
+        result = prime * result + cells.hashCode();
         return result;
     }
 
@@ -103,6 +100,6 @@ public class TableRow {
             return false;
         }
         TableRow other = (TableRow) obj;
-        return cells == null ? other.cells == null : cells.equals(other.cells);
+        return Objects.equals(cells, other.cells);
     }
 }

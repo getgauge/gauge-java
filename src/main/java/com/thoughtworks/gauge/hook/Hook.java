@@ -13,8 +13,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Hook implements Comparable<Hook> {
-    private Method method;
-    private List<String> tags = new ArrayList<String>();
+    private final Method method;
+    private List<String> tags = new ArrayList<>();
     private Operator operator = Operator.AND;
 
     public Hook(Method method, String[] tags, Operator operator) {

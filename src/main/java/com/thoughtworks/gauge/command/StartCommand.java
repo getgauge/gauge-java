@@ -13,24 +13,21 @@ import io.grpc.Server;
 import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
 
 import java.net.InetSocketAddress;
-import java.util.concurrent.Executor;
 
-import static com.thoughtworks.gauge.GaugeConstant.STREAMS_COUNT_ENV;
-import static com.thoughtworks.gauge.GaugeConstant.ENABLE_MULTITHREADING_ENV;
-import static com.thoughtworks.gauge.GaugeConstant.LOCALHOST;;
+import static com.thoughtworks.gauge.GaugeConstant.*;
 
 public class StartCommand implements GaugeJavaCommand {
 
     @Override
     public void execute() throws Exception {
-        boolean multithreading = Boolean.valueOf(System.getenv(ENABLE_MULTITHREADING_ENV));
+        boolean multithreading = Boolean.parseBoolean(System.getenv(ENABLE_MULTITHREADING_ENV));
         Logger.debug("multithreading is set to " + multithreading);
         int numberOfStreams = 1;
 
         if (multithreading) {
             String streamsCount = System.getenv(STREAMS_COUNT_ENV);
             try {
-                numberOfStreams = Integer.valueOf(streamsCount);
+                numberOfStreams = Integer.parseInt(streamsCount);
                 Logger.debug("multithreading enabled, number of threads=" + numberOfStreams);
             } catch (NumberFormatException e) {
                 Logger.debug("multithreading enabled, but could not read " + STREAMS_COUNT_ENV + " as int. Got " + STREAMS_COUNT_ENV + "=" + streamsCount);
@@ -47,7 +44,7 @@ public class StartCommand implements GaugeJavaCommand {
         server = NettyServerBuilder
             .forAddress(new InetSocketAddress(LOCALHOST, 0))
             .addService(runnerServiceHandler)
-            .executor((Executor) Runnable::run)
+            .executor(Runnable::run)
             .build();
         runnerServiceHandler.addServer(server);
         long elapsed = System.currentTimeMillis() - start;

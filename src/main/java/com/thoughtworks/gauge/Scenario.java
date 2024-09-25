@@ -14,7 +14,7 @@ import java.util.List;
 public class Scenario {
     private String name = "";
     private Boolean isFailing = false;
-    private List<String> tags = new ArrayList<String>();
+    private List<String> tags = new ArrayList<>();
 
     public Scenario(String name, boolean isFailing, List<String> tags) {
         this.name = name;

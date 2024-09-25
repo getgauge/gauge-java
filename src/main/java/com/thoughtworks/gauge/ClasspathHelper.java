@@ -7,9 +7,7 @@ package com.thoughtworks.gauge;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 public class ClasspathHelper {
 
@@ -17,8 +15,7 @@ public class ClasspathHelper {
         final String packagesToScan = System.getenv(GaugeConstant.PACKAGE_TO_SCAN);
         if (packagesToScan != null) {
             Collection<URL> urls = new ArrayList<>();
-            final List<String> packages = Arrays.asList(packagesToScan.split(","));
-            for (String packageToScan : packages) {
+            for (String packageToScan : packagesToScan.split(",")) {
                 urls.addAll(org.reflections.util.ClasspathHelper.forPackage(packageToScan.trim()));
             }
             return urls;

@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ScenarioDataStore {
-    private static final InheritableThreadLocal<ConcurrentHashMap<Object, Object>> MAP = new InheritableThreadLocal<ConcurrentHashMap<Object, Object>>() {
+    private static final InheritableThreadLocal<ConcurrentHashMap<Object, Object>> MAP = new InheritableThreadLocal<>() {
         @Override
         protected ConcurrentHashMap<Object, Object> initialValue() {
             return new ConcurrentHashMap<>();

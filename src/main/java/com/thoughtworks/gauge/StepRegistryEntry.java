@@ -38,7 +38,7 @@ public class StepRegistryEntry {
         String[] stepTexts = method.getAnnotation(Step.class).value();
         this.hasAlias = stepTexts.length > 1;
         this.aliases = this.hasAlias
-                ? Arrays.stream(stepTexts).skip(1).map(t -> getStepText(t)).collect(Collectors.toList()) : new ArrayList<>();
+                ? Arrays.stream(stepTexts).skip(1).map(this::getStepText).collect(Collectors.toList()) : new ArrayList<>();
     }
 
     public StepRegistryEntry() {

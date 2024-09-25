@@ -16,10 +16,10 @@ public class ClassInstanceManagerTest {
     public void testObjectsAreCachedInClassInstanceManager() throws Exception {
         ClassInstanceManager manager = new ClassInstanceManager();
         Object object = manager.get(TestStepImplClass.class);
-        assertTrue(object instanceof TestStepImplClass);
+        assertInstanceOf(TestStepImplClass.class, object);
 
         Object object2 = manager.get(TestStepImplClass.class);
-        assertTrue(object2 instanceof TestStepImplClass);
+        assertInstanceOf(TestStepImplClass.class, object2);
         assertEquals(object, object2);
     }
 
@@ -27,11 +27,7 @@ public class ClassInstanceManagerTest {
     public void testSettingClassInitializer() throws Exception {
         final TestStepImplClass expectedObject = new TestStepImplClass();
         ClassInstanceManager manager = new ClassInstanceManager();
-        ClassInstanceManager.setClassInitializer(new ClassInitializer() {
-            public Object initialize(Class<?> classToInitialize) throws Exception {
-                return expectedObject;
-            }
-        });
+        ClassInstanceManager.setClassInitializer(classToInitialize -> expectedObject);
         Object object1 = manager.get(TestStepImplClass.class);
         Object object2 = manager.get(String.class);
         ClassInstanceManager.setClassInitializer(null);
@@ -46,8 +42,8 @@ public class ClassInstanceManagerTest {
         Object object1 = manager.get(TestStepImplClass.class);
         manager.clearCache();
         Object object2 = manager.get(TestStepImplClass.class);
-        assertTrue(object1 instanceof TestStepImplClass);
-        assertTrue(object2 instanceof TestStepImplClass);
-        assertFalse(object1.equals(object2));
+        assertInstanceOf(TestStepImplClass.class, object1);
+        assertInstanceOf(TestStepImplClass.class, object2);
+        assertNotEquals(object1, object2);
     }
 }

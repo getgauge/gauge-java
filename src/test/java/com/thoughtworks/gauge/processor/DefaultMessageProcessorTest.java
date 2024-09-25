@@ -15,10 +15,10 @@ public class DefaultMessageProcessorTest {
 
     @Test
     public void shouldProcessMessage() {
-        Messages.Message request = Messages.Message.newBuilder().setMessageId(1l).setMessageType(Messages.Message.MessageType.ExecutionStatusResponse).build();
+        Messages.Message request = Messages.Message.newBuilder().setMessageId(1L).setMessageType(Messages.Message.MessageType.ExecutionStatusResponse).build();
         Messages.Message response = new DefaultMessageProcessor().process(request);
 
-        assertEquals(response.getMessageId(), 1l);
+        assertEquals(response.getMessageId(), 1L);
         assertEquals(response.getMessageType(), Messages.Message.MessageType.ExecutionStatusResponse);
         assertFalse(response.getExecutionStatusResponse().getExecutionResult().getFailed());
     }

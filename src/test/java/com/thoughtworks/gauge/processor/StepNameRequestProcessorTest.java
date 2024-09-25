@@ -24,14 +24,14 @@ public class StepNameRequestProcessorTest {
 
     private static final String STEP_TEXT = "stepText \\ text";
 
-    private String anyString = "stepText \\ text";
-    private String anyOtherString = "stepText \\ name";
-    private Range range = Range.range(1,5,4,5);
+    private final String anyString = "stepText \\ text";
+    private final String anyOtherString = "stepText \\ name";
+    private final Range range = Range.range(1,5,4,5);
     private Messages.Message message;
 
     @BeforeEach
     public void setupMessage() {
-        Messages.Message.Builder messageBuilder = Messages.Message.newBuilder().setMessageType(Messages.Message.MessageType.StepNameRequest).setMessageId(1l);
+        Messages.Message.Builder messageBuilder = Messages.Message.newBuilder().setMessageType(Messages.Message.MessageType.StepNameRequest).setMessageId(1L);
         Messages.StepNameRequest stepNameRequest = Messages.StepNameRequest.newBuilder().setStepValue(STEP_TEXT).build();
         messageBuilder.setStepNameRequest(stepNameRequest);
         this.message = messageBuilder.build();

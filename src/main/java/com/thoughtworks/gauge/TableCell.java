@@ -10,8 +10,8 @@ package com.thoughtworks.gauge;
  * the cell's column name and its associated value.
  */
 public class TableCell {
-    private String columnName;
-    private String value;
+    private final String columnName;
+    private final String value;
 
     public TableCell(String columnName, String value) {
         this.columnName = columnName;

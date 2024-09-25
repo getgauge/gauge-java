@@ -18,10 +18,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class RunnerServiceHandler extends RunnerImplBase {
-    private MessageProcessorFactory messageProcessorFactory;
-    private boolean multithreading;
+    private final MessageProcessorFactory messageProcessorFactory;
+    private final boolean multithreading;
     private Server server;
-    private ExecutorPool pool;
+    private final ExecutorPool pool;
 
     public RunnerServiceHandler(MessageProcessorFactory messageProcessorFactory, boolean multithreading, int poolSize) {
         this.messageProcessorFactory = messageProcessorFactory;

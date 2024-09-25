@@ -8,7 +8,7 @@ package com.thoughtworks.gauge.execution;
 import gauge.messages.Spec;
 
 public class ExecutionPipeline {
-    private ExecutionStage firstStage;
+    private final ExecutionStage firstStage;
 
     public ExecutionPipeline(ExecutionStage firstStage) {
         this.firstStage = firstStage;

@@ -21,11 +21,13 @@ import gauge.messages.Spec;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.processor.IMessageProcessor {
     private static final String NEW_LINE = "\n";
-    private static ArrayList<MethodDeclaration> methodDeclarations = new ArrayList<>();
+    private static final List<MethodDeclaration> METHOD_DECLARATIONS = new ArrayList<>();
     private static Range classRange;
 
 
@@ -54,8 +56,8 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
 
 
     private Messages.FileDiff implementInExistingFile(ProtocolStringList stubs, File file) {
-        try {
-            if (new FileReader(file).read() != -1) {
+        try (Reader reader = new FileReader(file)) {
+            if (reader.read() != -1) {
                 return implementInExistingClass(stubs, file);
             }
             return implementInNewClass(stubs, file);
@@ -99,8 +101,8 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
             int column;
             MethodVisitor methodVisitor = new MethodVisitor();
             methodVisitor.visit(compilationUnit.getResult().get(), null);
-            if (!methodDeclarations.isEmpty()) {
-                MethodDeclaration methodDeclaration = methodDeclarations.get(methodDeclarations.size() - 1);
+            if (!METHOD_DECLARATIONS.isEmpty()) {
+                MethodDeclaration methodDeclaration = METHOD_DECLARATIONS.get(METHOD_DECLARATIONS.size() - 1);
                 lastLine = methodDeclaration.getRange().get().end.line - 1;
                 column = methodDeclaration.getRange().get().end.column + 1;
                 contents = NEW_LINE + contents;
@@ -127,7 +129,7 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
     private static final class MethodVisitor extends VoidVisitorAdapter {
         @Override
         public void visit(MethodDeclaration methodDeclaration, Object arg) {
-            methodDeclarations.add(methodDeclaration);
+            METHOD_DECLARATIONS.add(methodDeclaration);
         }
     }
 

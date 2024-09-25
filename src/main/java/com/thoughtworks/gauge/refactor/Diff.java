@@ -8,8 +8,8 @@ package com.thoughtworks.gauge.refactor;
 import com.github.javaparser.Range;
 
 public class Diff {
-    private String text;
-    private Range range;
+    private final String text;
+    private final Range range;
 
     public Diff(String text, Range range) {
         this.text = text;

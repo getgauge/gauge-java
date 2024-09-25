@@ -31,8 +31,8 @@ public class ValidateStepProcessorTest {
 
     @BeforeEach
     public void setupMessage() {
-        Builder messageBuilder = Messages.Message.newBuilder().setMessageType(MessageType.StepValidateRequest).setMessageId(1l);
-        Spec.ProtoStepValue.Builder protoStep = Spec.ProtoStepValue.newBuilder().setStepValue(STEP_TEXT).setParameterizedStepValue(STEP_TEXT).addAllParameters(new ArrayList<String>());
+        Builder messageBuilder = Messages.Message.newBuilder().setMessageType(MessageType.StepValidateRequest).setMessageId(1L);
+        Spec.ProtoStepValue.Builder protoStep = Spec.ProtoStepValue.newBuilder().setStepValue(STEP_TEXT).setParameterizedStepValue(STEP_TEXT).addAllParameters(new ArrayList<>());
         StepValidateRequest stepValidationRequest = StepValidateRequest.newBuilder().setStepText(STEP_TEXT).setNumberOfParameters(1).setStepValue(protoStep).build();
         messageBuilder.setStepValidateRequest(stepValidationRequest);
         this.message = messageBuilder.build();
@@ -55,7 +55,7 @@ public class ValidateStepProcessorTest {
 
     @Test
     public void ShouldGiveSuggestionWithMethodNameimplementation1() {
-        Builder messageBuilder = Messages.Message.newBuilder().setMessageType(MessageType.StepValidateRequest).setMessageId(1l);
+        Builder messageBuilder = Messages.Message.newBuilder().setMessageType(MessageType.StepValidateRequest).setMessageId(1L);
         Spec.ProtoStepValue.Builder protoStep = Spec.ProtoStepValue.newBuilder()
                 .setStepValue("<abc> <xyz>")
                 .setParameterizedStepValue("<abc> <xyz>")

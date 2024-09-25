@@ -149,7 +149,7 @@ public class HooksRegistryTest {
     }
 
     private Set<Method> hooksMethodList(List<Hook> hooks) {
-        HashSet<Method> methods = new HashSet<Method>();
+        HashSet<Method> methods = new HashSet<>();
         for (Hook hook : hooks) {
             methods.add(hook.getMethod());
         }
@@ -171,12 +171,10 @@ public class HooksRegistryTest {
     }
 
     private HashSet<Method> createSet(Method... methods) {
-        HashSet<Method> methodSet = new HashSet<Method>();
-        methodSet.addAll(Arrays.asList(methods));
-        return methodSet;
+        return new HashSet<>(Arrays.asList(methods));
     }
 
-    public class TestHooksImplClass {
+    public static class TestHooksImplClass {
 
         @BeforeStep
         public void beforeStep1() {

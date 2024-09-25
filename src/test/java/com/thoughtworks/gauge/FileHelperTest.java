@@ -30,7 +30,7 @@ public class FileHelperTest {
 
         List<String> implFiles = withEnvironmentVariable(GAUGE_CUSTOM_COMPILE_DIR, String.format("files%sformatted, files%sunformatted", File.separator, File.separator))
             .and(GAUGE_PROJECT_ROOT, gaugeProjRoot)
-            .execute(() -> FileHelper.getAllImplementationFiles());
+            .execute(FileHelper::getAllImplementationFiles);
         assertEquals(3, implFiles.size());
         List<String> expectedImplFiles = Arrays.asList(String.format("%s%sfiles%sformatted%sStepImpl.java", gaugeProjRoot, File.separator, File.separator, File.separator),
                 String.format("%s%sfiles%sformatted%sStepImplWithComments.java", gaugeProjRoot, File.separator, File.separator, File.separator),
@@ -45,7 +45,7 @@ public class FileHelperTest {
 
         List<String> stepImplDirs = withEnvironmentVariable(GAUGE_CUSTOM_COMPILE_DIR, String.format("files%sformatted, files%sunformatted", File.separator, File.separator))
             .and(GAUGE_PROJECT_ROOT, gaugeProjRoot)
-            .execute(() -> FileHelper.getStepImplDirs());
+            .execute(FileHelper::getStepImplDirs);
 
         assertEquals(2, stepImplDirs.size());
         List<String> expectedImplDirs = Arrays.asList(String.format("%s%sfiles%sformatted", gaugeProjRoot, File.separator, File.separator),
@@ -59,7 +59,7 @@ public class FileHelperTest {
         String gaugeProjRoot = Util.workingDir().getAbsolutePath() + File.separator + String.format("src%stest%sresources%stest", File.separator, File.separator, File.separator);
 
         List<String> stepImplDirs = withEnvironmentVariable(GAUGE_PROJECT_ROOT, gaugeProjRoot)
-            .execute(() -> FileHelper.getStepImplDirs());
+            .execute(FileHelper::getStepImplDirs);
 
         assertEquals(0, stepImplDirs.size());
     }
@@ -69,7 +69,7 @@ public class FileHelperTest {
         String gaugeProjRoot = Util.workingDir().getAbsolutePath();
 
         List<String> stepImplDirs = withEnvironmentVariable(GAUGE_PROJECT_ROOT, gaugeProjRoot)
-            .execute(() -> FileHelper.getStepImplDirs());
+            .execute(FileHelper::getStepImplDirs);
 
         assertEquals(2, stepImplDirs.size());
         List<String> expectedImplDirs = Arrays.asList(

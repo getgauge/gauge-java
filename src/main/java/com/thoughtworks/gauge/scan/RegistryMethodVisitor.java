@@ -5,13 +5,9 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.scan;
 
+import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.expr.AnnotationExpr;
-import com.github.javaparser.ast.expr.ArrayInitializerExpr;
-import com.github.javaparser.ast.expr.Expression;
-import com.github.javaparser.ast.expr.BinaryExpr;
-import com.github.javaparser.ast.expr.Name;
-import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
+import com.github.javaparser.ast.expr.*;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
@@ -26,8 +22,8 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
     private StepValue stepValue;
     private StepRegistryEntry entry;
-    private StepRegistry stepRegistry;
-    private String file;
+    private final StepRegistry stepRegistry;
+    private final String file;
 
     public RegistryMethodVisitor(StepRegistry stepRegistry, String file) {
         this.stepRegistry = stepRegistry;
@@ -89,10 +85,7 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
         }
 
         AtomicReference<Name> packageName = new AtomicReference<>();
-        methodDeclaration.findCompilationUnit()
-                .ifPresent(c -> c.getPackageDeclaration()
-                        .ifPresent(p -> packageName.set(p.getName()))
-                );
+        methodDeclaration.findCompilationUnit().flatMap(CompilationUnit::getPackageDeclaration).ifPresent(p -> packageName.set(p.getName()));
         String packageNameStr = packageName.get() == null ? null : packageName.get().asString();
 
         if (packageNameStr == null) {

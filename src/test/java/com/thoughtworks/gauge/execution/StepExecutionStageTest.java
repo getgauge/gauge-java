@@ -19,7 +19,7 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
 import static org.mockito.Mockito.mock;
@@ -91,8 +91,8 @@ public class StepExecutionStageTest {
         Method fooMethod = this.getClass().getMethod("foo");
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
 
-        assertEquals(result.getFailed(), true);
-        assertEquals(result.getRecoverableError(), true);
+        assertTrue(result.getFailed());
+        assertTrue(result.getRecoverableError());
         assertEquals(result.getErrorMessage(), "java.lang.RuntimeException: my exception");
     }
 
@@ -104,8 +104,8 @@ public class StepExecutionStageTest {
         Method fooMethod = this.getClass().getMethod("bar");
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
 
-        assertEquals(true, result.getFailed());
-        assertEquals(true, result.getRecoverableError());
+        assertTrue(result.getFailed());
+        assertTrue(result.getRecoverableError());
         assertEquals("java.lang.AssertionError: assertion failed", result.getErrorMessage());
     }
 
@@ -117,8 +117,8 @@ public class StepExecutionStageTest {
         Method fooMethod = this.getClass().getMethod("barfoo");
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
 
-        assertEquals(true, result.getFailed());
-        assertEquals(false, result.getRecoverableError());
+        assertTrue(result.getFailed());
+        assertFalse(result.getRecoverableError());
         assertEquals("java.lang.RuntimeException: not recoverable!", result.getErrorMessage());
     }
 
@@ -163,8 +163,8 @@ public class StepExecutionStageTest {
         Method fooMethod = this.getClass().getMethod("ding");
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
 
-        assertEquals(true, result.getFailed());
-        assertEquals(true, result.getRecoverableError());
+        assertTrue(result.getFailed());
+        assertTrue(result.getRecoverableError());
         assertEquals("java.lang.RuntimeException: recoverable!", result.getErrorMessage());
     }
 
@@ -176,8 +176,8 @@ public class StepExecutionStageTest {
         Method fooMethod = this.getClass().getMethod("noCOF");
         Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, fooMethod);
 
-        assertEquals(true, result.getFailed());
-        assertEquals(false, result.getRecoverableError());
+        assertTrue(result.getFailed());
+        assertFalse(result.getRecoverableError());
         assertEquals("java.lang.RuntimeException: my exception", result.getErrorMessage());
     }
 

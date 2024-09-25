@@ -12,15 +12,15 @@ import java.util.Map;
  * Manages class instance creation, lifetime and caching.
  */
 public class ClassInstanceManager {
-    private Map<Class<?>, Object> classInstanceMap = new HashMap<Class<?>, Object>();
-    private static ThreadLocal<ClassInitializer> initializer = new InheritableThreadLocal<>();
+    private final Map<Class<?>, Object> classInstanceMap = new HashMap<>();
+    private static final ThreadLocal<ClassInitializer> INITIALIZER = new InheritableThreadLocal<>();
 
     public ClassInstanceManager() {
-        initializer.set(new DefaultClassInitializer());
+        INITIALIZER.set(new DefaultClassInitializer());
     }
 
     public ClassInstanceManager(ClassInitializer classInitializer) {
-        initializer.set(classInitializer);
+        INITIALIZER.set(classInitializer);
     }
 
     public Object get(Class<?> declaringClass) throws Exception {
@@ -33,7 +33,7 @@ public class ClassInstanceManager {
     }
 
     public static void setClassInitializer(ClassInitializer classInitializer) {
-        initializer.set(classInitializer);
+        INITIALIZER.set(classInitializer);
     }
 
     public void clearCache() {
@@ -41,6 +41,6 @@ public class ClassInstanceManager {
     }
 
     private static ClassInitializer getInitializer() {
-        return initializer.get();
+        return INITIALIZER.get();
     }
 }

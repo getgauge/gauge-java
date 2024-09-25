@@ -19,7 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class DynamicParametersReplacerTest {
 
-    private ExecutionInfoMapper executionInfoMapper = new ExecutionInfoMapper();
+    private final ExecutionInfoMapper executionInfoMapper = new ExecutionInfoMapper();
 
     @Test
     public void shouldReplacePlaceholdersWhenMethodParametersAreIncorrect() {

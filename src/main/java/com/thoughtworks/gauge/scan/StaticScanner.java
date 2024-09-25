@@ -26,7 +26,7 @@ import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
 
 public class StaticScanner {
 
-    private StepRegistry stepRegistry;
+    private final StepRegistry stepRegistry;
 
     public StaticScanner() {
         this.stepRegistry = new StepRegistry();
@@ -55,7 +55,7 @@ public class StaticScanner {
 
     private boolean shouldScan(CompilationUnit unit) {
         final String packagesToScan = System.getenv(PACKAGE_TO_SCAN);
-        if (packagesToScan == null || packagesToScan.isEmpty() || !unit.getPackageDeclaration().isPresent()) {
+        if (packagesToScan == null || packagesToScan.isEmpty() || unit.getPackageDeclaration().isEmpty()) {
             return true;
         }
         List<String> packages = Arrays.stream(packagesToScan.split(",")).map(String::trim).collect(Collectors.toList());

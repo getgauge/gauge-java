@@ -19,8 +19,6 @@ public class TagMatcher {
             switch (operator) {
                 case OR:
                     return new OrMatcher();
-                case AND:
-                    return new AndMatcher();
                 default:
                     return new AndMatcher();
             }

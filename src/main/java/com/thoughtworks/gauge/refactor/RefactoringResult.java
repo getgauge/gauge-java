@@ -12,10 +12,10 @@ import gauge.messages.Spec;
 import java.util.ArrayList;
 
 public class RefactoringResult {
-    private boolean passed;
-    private String errorMessage;
-    private String fileChanged;
-    private Messages.FileChanges fileChanges;
+    private final boolean passed;
+    private final String errorMessage;
+    private final String fileChanged;
+    private final Messages.FileChanges fileChanges;
 
     public RefactoringResult(boolean passed, String errorMessage) {
         this.passed = passed;

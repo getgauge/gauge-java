@@ -22,7 +22,7 @@ public class HooksExecutorTest {
     @Test
     public void testHookExecutor() throws Exception {
         final Hook hook1 = new Hook(HooksExecutorTest.TestHook.class.getMethod("foo"), new String[0], Operator.AND);
-        HookExecutionStage hookExecutionStage = new HookExecutionStage(new ArrayList<Hook>() {{
+        HookExecutionStage hookExecutionStage = new HookExecutionStage(new ArrayList<>() {{
             add(hook1);
         }}, new ClassInstanceManager());
         Spec.ProtoExecutionResult prevResult = Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(0).build();
@@ -30,7 +30,7 @@ public class HooksExecutorTest {
         assertFalse(result.getRecoverableError());
     }
 
-    private class TestHook {
+    private static class TestHook {
         @ContinueOnFailure
         @BeforeScenario
         public void foo() {

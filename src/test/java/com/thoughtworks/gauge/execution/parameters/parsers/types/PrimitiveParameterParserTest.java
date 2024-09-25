@@ -12,11 +12,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static com.thoughtworks.gauge.execution.ParameterTestHelpers.aParameter;
-import static com.thoughtworks.gauge.test.TestHelpers.asObject;
 import static com.thoughtworks.gauge.test.TestValues.A_PRIMITIVE;
 import static com.thoughtworks.gauge.test.TestValues.PRIMITIVE_TYPE;
-import static org.hamcrest.CoreMatchers.sameInstance;
-import static org.hamcrest.MatcherAssert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -39,6 +37,6 @@ public class PrimitiveParameterParserTest {
             throws Exception {
         when(primitivesConverterMock.convert(PRIMITIVE_TYPE, aParameter())).thenReturn(A_PRIMITIVE);
 
-        assertThat(primitiveParameterParser.parse(PRIMITIVE_TYPE, aParameter()), sameInstance(asObject(A_PRIMITIVE)));
+        assertThat(primitiveParameterParser.parse(PRIMITIVE_TYPE, aParameter())).isSameAs(A_PRIMITIVE);
     }
 }

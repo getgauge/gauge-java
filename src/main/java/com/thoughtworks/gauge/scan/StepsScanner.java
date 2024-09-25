@@ -5,11 +5,7 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.scan;
 
-import com.thoughtworks.gauge.Logger;
-import com.thoughtworks.gauge.Step;
-import com.thoughtworks.gauge.StepRegistryEntry;
-import com.thoughtworks.gauge.StepValue;
-import com.thoughtworks.gauge.Util;
+import com.thoughtworks.gauge.*;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import org.reflections.Reflections;
 
@@ -21,7 +17,7 @@ import java.util.Set;
  * Scans for step implementations.
  */
 public class StepsScanner implements IScanner {
-    private StepRegistry registry;
+    private final StepRegistry registry;
 
     public StepsScanner(StepRegistry registry) {
         this.registry = registry;

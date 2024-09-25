@@ -24,8 +24,8 @@ public class OrMatcherTest {
         assertFalse(matcher.isMatch(Arrays.asList("tag1"), Arrays.asList("tag5", "tag3", "tag4")));
         assertTrue(matcher.isMatch(Arrays.asList("tag1", "tag4", "tag8", "tag9"), Arrays.asList("tag4")));
         assertTrue(matcher.isMatch(Arrays.asList(""), Arrays.asList("")));
-        assertTrue(matcher.isMatch(new ArrayList<String>(), new ArrayList<String>()));
+        assertTrue(matcher.isMatch(new ArrayList<>(), new ArrayList<>()));
         assertFalse(matcher.isMatch(Arrays.asList("tag1"), Arrays.asList("")));
-        assertTrue(matcher.isMatch(new ArrayList<String>(), Arrays.asList("tag1", "tag2", "tag3")));
+        assertTrue(matcher.isMatch(new ArrayList<>(), Arrays.asList("tag1", "tag2", "tag3")));
     }
 }

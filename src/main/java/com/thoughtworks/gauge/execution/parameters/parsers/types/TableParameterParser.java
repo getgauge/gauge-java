@@ -11,7 +11,7 @@ import gauge.messages.Spec.Parameter;
 import gauge.messages.Spec.Parameter.ParameterType;
 
 public class TableParameterParser implements ParameterParser {
-    private TableConverter tableConverter;
+    private final TableConverter tableConverter;
 
     public TableParameterParser(TableConverter tableConverter) {
         this.tableConverter = tableConverter;

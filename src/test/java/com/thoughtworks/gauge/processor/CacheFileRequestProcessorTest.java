@@ -48,7 +48,7 @@ public class CacheFileRequestProcessorTest {
 
         Messages.Message request = Messages.Message.newBuilder()
                 .setMessageType(Messages.Message.MessageType.CacheFileRequest)
-                .setMessageId(1l)
+                .setMessageId(1L)
                 .setCacheFileRequest(cacheFileRequest).build();
         cacheFileRequestProcessor.process(request);
 
@@ -66,7 +66,7 @@ public class CacheFileRequestProcessorTest {
 
         Messages.Message request = Messages.Message.newBuilder()
                 .setMessageType(Messages.Message.MessageType.CacheFileRequest)
-                .setMessageId(1l)
+                .setMessageId(1L)
                 .setCacheFileRequest(cacheFileRequest).build();
 
         assertTrue(staticScanner.getRegistry().contains("new step"));
@@ -84,7 +84,7 @@ public class CacheFileRequestProcessorTest {
 
         Messages.Message request = Messages.Message.newBuilder()
                 .setMessageType(Messages.Message.MessageType.CacheFileRequest)
-                .setMessageId(1l)
+                .setMessageId(1L)
                 .setCacheFileRequest(cacheFileRequest).build();
         String stepValue = "StepValue{stepText='new step', parameterizedStepText='new step', parameters=[]}";
         assertEquals(stepValue, staticScanner.getRegistry().get("new step").getStepValue().toString());
@@ -103,7 +103,7 @@ public class CacheFileRequestProcessorTest {
 
         Messages.Message request = Messages.Message.newBuilder()
                 .setMessageType(Messages.Message.MessageType.CacheFileRequest)
-                .setMessageId(1l)
+                .setMessageId(1L)
                 .setCacheFileRequest(cacheFileRequest).build();
 
         assertTrue(staticScanner.getRegistry().get("new step").getHasAlias());
@@ -121,7 +121,7 @@ public class CacheFileRequestProcessorTest {
 
         Messages.Message request = Messages.Message.newBuilder()
                 .setMessageType(Messages.Message.MessageType.CacheFileRequest)
-                .setMessageId(1l)
+                .setMessageId(1L)
                 .setCacheFileRequest(cacheFileRequest).build();
 
         assertFalse(staticScanner.getRegistry().contains("new step"));

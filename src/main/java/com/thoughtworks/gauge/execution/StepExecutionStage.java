@@ -18,10 +18,10 @@ import java.util.List;
 
 public class StepExecutionStage extends AbstractExecutionStage {
     private ExecutionStage next;
-    private Messages.ExecuteStepRequest executeStepRequest;
-    private ClassInstanceManager manager;
-    private ParametersExtractor parametersExtractor;
-    private StepRegistry registry;
+    private final Messages.ExecuteStepRequest executeStepRequest;
+    private final ClassInstanceManager manager;
+    private final ParametersExtractor parametersExtractor;
+    private final StepRegistry registry;
 
     public StepExecutionStage(Messages.ExecuteStepRequest executeStepRequest, ClassInstanceManager manager, ParameterParsingChain chain, StepRegistry registry) {
         this.manager = manager;

@@ -21,14 +21,13 @@ import org.reflections.util.ConfigurationBuilder;
 import org.reflections.util.FilterBuilder;
 
 import javax.annotation.Nullable;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
 public class ParameterParsingChain implements ParameterParser {
 
-    private List<ParameterParser> chain = new LinkedList<>();
+    private final List<ParameterParser> chain = new LinkedList<>();
 
     public ParameterParsingChain() {
         createReflections().getSubTypesOf(CustomParameterParser.class).stream()

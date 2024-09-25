@@ -11,6 +11,7 @@ import org.mockito.InOrder;
 import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 
@@ -29,7 +30,7 @@ public class ExecutionPipelineTest {
         assertEquals(first.next(), second);
         assertEquals(second.next(), third);
         assertEquals(third.next(), fourth);
-        assertEquals(fourth.next(), null);
+        assertNull(fourth.next());
     }
 
     @Test

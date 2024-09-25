@@ -10,7 +10,7 @@ import gauge.messages.Spec.ProtoExecutionResult;
 public class ParsingException extends Exception {
     private static final long serialVersionUID = -4205182693938362914L;
 
-    private ProtoExecutionResult executionResult;
+    private final ProtoExecutionResult executionResult;
 
     public ParsingException(ProtoExecutionResult executionResult) {
         this.executionResult = executionResult;

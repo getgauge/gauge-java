@@ -23,7 +23,7 @@ import java.lang.reflect.Method;
 public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
 
     private final ParameterParsingChain chain;
-    private StepRegistry registry;
+    private final StepRegistry registry;
 
     public ExecuteStepProcessor(ClassInstanceManager instanceManager, ParameterParsingChain chain, StepRegistry stepRegistry) {
         super(instanceManager);

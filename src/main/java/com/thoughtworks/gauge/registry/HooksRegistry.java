@@ -5,26 +5,12 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.registry;
 
-import com.thoughtworks.gauge.AfterClassSteps;
-import com.thoughtworks.gauge.AfterScenario;
-import com.thoughtworks.gauge.AfterSpec;
-import com.thoughtworks.gauge.AfterStep;
-import com.thoughtworks.gauge.AfterSuite;
-import com.thoughtworks.gauge.BeforeClassSteps;
-import com.thoughtworks.gauge.BeforeScenario;
-import com.thoughtworks.gauge.BeforeSpec;
-import com.thoughtworks.gauge.BeforeStep;
-import com.thoughtworks.gauge.BeforeSuite;
-import com.thoughtworks.gauge.Logger;
-import com.thoughtworks.gauge.Operator;
+import com.thoughtworks.gauge.*;
 import com.thoughtworks.gauge.hook.Hook;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
@@ -35,10 +21,10 @@ public class HooksRegistry {
     private static final String TAGS_METHOD = "tags";
     private static final String TAG_AGGREGATION_METHOD = "tagAggregation";
 
-    private static ConcurrentHashMap<Class, HashSet<Hook>> registryMap = new ConcurrentHashMap<>();
+    private static final Map<Class<?>, HashSet<Hook>> REGISTRY_MAP = new ConcurrentHashMap<>();
 
     public static List<Hook> getBeforeSpecHooks() {
-        return sort(registryMap.get(BeforeSpec.class));
+        return sort(REGISTRY_MAP.get(BeforeSpec.class));
     }
 
     public static void addBeforeSpecHooks(Set<Method> methods) {
@@ -46,7 +32,7 @@ public class HooksRegistry {
     }
 
     public static List<Hook> getAfterSpecHooks() {
-        return sortReverse(registryMap.get(AfterSpec.class));
+        return sortReverse(REGISTRY_MAP.get(AfterSpec.class));
     }
 
     public static void addAfterSpecHooks(Set<Method> methods) {
@@ -54,7 +40,7 @@ public class HooksRegistry {
     }
 
     public static List<Hook> getBeforeScenarioHooks() {
-        return sort(registryMap.get(BeforeScenario.class));
+        return sort(REGISTRY_MAP.get(BeforeScenario.class));
     }
 
     private static List<Hook> sort(Set<Hook> hooks) {
@@ -70,7 +56,7 @@ public class HooksRegistry {
     }
 
     public static List<Hook> getAfterScenarioHooks() {
-        return sortReverse(registryMap.get(AfterScenario.class));
+        return sortReverse(REGISTRY_MAP.get(AfterScenario.class));
     }
 
     public static void addAfterScenarioHooks(Set<Method> methods) {
@@ -78,7 +64,7 @@ public class HooksRegistry {
     }
 
     public static List<Hook> getBeforeStepHooks() {
-        return sort(registryMap.get(BeforeStep.class));
+        return sort(REGISTRY_MAP.get(BeforeStep.class));
     }
 
     public static void addBeforeStepHooks(Set<Method> methods) {
@@ -86,7 +72,7 @@ public class HooksRegistry {
     }
 
     public static List<Hook> getAfterStepHooks() {
-        return sortReverse(registryMap.get(AfterStep.class));
+        return sortReverse(REGISTRY_MAP.get(AfterStep.class));
     }
 
     public static void setAfterStepHooks(Set<Method> methods) {
@@ -94,7 +80,7 @@ public class HooksRegistry {
     }
 
     public static List<Hook> getBeforeSuiteHooks() {
-        return sort(registryMap.get(BeforeSuite.class));
+        return sort(REGISTRY_MAP.get(BeforeSuite.class));
     }
 
     public static void addBeforeSuiteHooks(Set<Method> methods) {
@@ -102,7 +88,7 @@ public class HooksRegistry {
     }
 
     public static List<Hook> getAfterSuiteHooks() {
-        return sortReverse(registryMap.get(AfterSuite.class));
+        return sortReverse(REGISTRY_MAP.get(AfterSuite.class));
     }
 
     public static void addAfterSuiteHooks(Set<Method> methods) {
@@ -130,35 +116,34 @@ public class HooksRegistry {
     }
 
     private static void addHooks(Set<Method> methods, Class hookClass) {
-        registryMap.putIfAbsent(hookClass, new HashSet<>());
-        registryMap.get(hookClass).addAll(methods.stream().map(Hook::new).collect(toList()));
+        REGISTRY_MAP.putIfAbsent(hookClass, new HashSet<>());
+        REGISTRY_MAP.get(hookClass).addAll(methods.stream().map(Hook::new).collect(toList()));
     }
 
     private static void addHooksWithTags(Set<Method> methods, Class hookClass) {
-        registryMap.putIfAbsent(hookClass, new HashSet<>());
+        REGISTRY_MAP.putIfAbsent(hookClass, new HashSet<>());
         for (Method method : methods) {
             Annotation annotation = method.getAnnotation(hookClass);
             try {
                 //Hack: Invoking methods on the annotation to avoid repeating logic. There is no hierarchy possible in annotations
                 String[] tags = (String[]) annotation.getClass().getMethod(TAGS_METHOD).invoke(annotation);
                 Operator tagsAggregation = (Operator) annotation.getClass().getMethod(TAG_AGGREGATION_METHOD).invoke(annotation);
-                registryMap.get(hookClass).add(new Hook(method, tags, tagsAggregation));
+                REGISTRY_MAP.get(hookClass).add(new Hook(method, tags, tagsAggregation));
             } catch (Exception e) {
                 Logger.warning("Unable to add hooks", e);
-                continue;
             }
         }
     }
 
     private static List<Hook> getBeforeClassHooks() {
-        return sort(registryMap.get(BeforeClassSteps.class));
+        return sort(REGISTRY_MAP.get(BeforeClassSteps.class));
     }
 
     private static List<Hook> getAfterClassHooks() {
-        return sortReverse(registryMap.get(AfterClassSteps.class));
+        return sortReverse(REGISTRY_MAP.get(AfterClassSteps.class));
     }
 
     static void remove(Class hookType) {
-        registryMap.remove(hookType);
+        REGISTRY_MAP.remove(hookType);
     }
 }

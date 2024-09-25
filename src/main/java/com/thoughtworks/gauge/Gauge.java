@@ -12,14 +12,14 @@ import java.util.List;
 
 public class Gauge {
 
-    private static ThreadLocal<List<String>> messages = new InheritableThreadLocal<List<String>>() {
+    private static final ThreadLocal<List<String>> MESSAGES = new InheritableThreadLocal<>() {
         @Override
         protected List<String> initialValue() {
             return new ArrayList<>();
         }
     };
     private static ClassInstanceManager instanceManager;
-    private static ThreadLocal<List<String>> screenshots = new InheritableThreadLocal<List<String>>() {
+    private static final ThreadLocal<List<String>> SCREENSHOTS = new InheritableThreadLocal<>() {
         @Override
         protected List<String> initialValue() {
             return new ArrayList<>();
@@ -47,7 +47,7 @@ public class Gauge {
     }
 
     static List<String> getMessages() {
-        return messages.get();
+        return MESSAGES.get();
     }
 
     public static void captureScreenshot() {
@@ -56,6 +56,6 @@ public class Gauge {
     }
 
     static List<String> getScreenshots() {
-        return screenshots.get();
+        return SCREENSHOTS.get();
     }
 }

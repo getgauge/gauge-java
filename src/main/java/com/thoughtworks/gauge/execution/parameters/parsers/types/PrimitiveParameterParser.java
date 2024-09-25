@@ -12,7 +12,7 @@ import gauge.messages.Spec;
 import gauge.messages.Spec.Parameter;
 
 public class PrimitiveParameterParser implements ParameterParser {
-    private PrimitivesConverter primitivesConverter;
+    private final PrimitivesConverter primitivesConverter;
 
     public PrimitiveParameterParser(PrimitivesConverter primitivesConverter) {
         this.primitivesConverter = primitivesConverter;

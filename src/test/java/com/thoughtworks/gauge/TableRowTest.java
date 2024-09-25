@@ -8,7 +8,8 @@ package com.thoughtworks.gauge;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class TableRowTest {
 
@@ -30,7 +31,7 @@ public class TableRowTest {
         TableRow otherRow = new TableRow();
         otherRow.addCell("hello", "world");
         otherRow.addCell("foo", "bar");
-        assertTrue(row.equals(otherRow));
+        assertEquals(row, otherRow);
     }
 
     @Test
@@ -42,7 +43,7 @@ public class TableRowTest {
         TableRow otherRow = new TableRow();
         otherRow.addCell("foo", "bar");
         otherRow.addCell("hello", "world");
-        assertTrue(row.equals(otherRow));
+        assertEquals(row, otherRow);
     }
 
     @Test
@@ -54,6 +55,6 @@ public class TableRowTest {
         TableRow otherRow = new TableRow();
         otherRow.addCell("foo1", "bar1");
         otherRow.addCell("hello1", "world1");
-        assertFalse(row.equals(otherRow));
+        assertNotEquals(row, otherRow);
     }
 }

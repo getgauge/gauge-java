@@ -12,7 +12,7 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 
 public class CacheFileRequestProcessor implements IMessageProcessor {
-    private StaticScanner staticScanner;
+    private final StaticScanner staticScanner;
 
     public CacheFileRequestProcessor(StaticScanner staticScanner) {
         this.staticScanner = staticScanner;

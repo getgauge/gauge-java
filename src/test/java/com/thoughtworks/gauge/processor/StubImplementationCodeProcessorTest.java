@@ -21,7 +21,7 @@ public class StubImplementationCodeProcessorTest {
         Messages.StubImplementationCodeRequest codeRequest = Messages.StubImplementationCodeRequest
                 .newBuilder()
                 .setImplementationFilePath(file)
-                .addAllCodes(new ArrayList<String>() {
+                .addAllCodes(new ArrayList<>() {
                     {
                         add("@Step\npublic void foo(){\n}");
                     }

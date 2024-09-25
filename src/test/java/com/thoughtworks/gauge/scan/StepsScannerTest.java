@@ -32,13 +32,13 @@ import static org.mockito.Mockito.*;
 
 public class StepsScannerTest {
 
-    private StepValue stepValue1 = new StepValue("hello world", "hello world");
-    private StepValue stepValue2 = new StepValue("hello world {}", "hello world <param0>");
-    private StepValue stepValue3 = new StepValue("a step with {} and {}", "a step with <param0> and <param1>");
-    private StepValue aliasStep1 = new StepValue("first step name with name <a>", "first step name with name {}");
-    private StepValue aliasStep2 = new StepValue("second step name with <b>", "second step name with {}");
+    private final StepValue stepValue1 = new StepValue("hello world", "hello world");
+    private final StepValue stepValue2 = new StepValue("hello world {}", "hello world <param0>");
+    private final StepValue stepValue3 = new StepValue("a step with {} and {}", "a step with <param0> and <param1>");
+    private final StepValue aliasStep1 = new StepValue("first step name with name <a>", "first step name with name {}");
+    private final StepValue aliasStep2 = new StepValue("second step name with <b>", "second step name with {}");
 
-    private Method[] methods = TestStepImplClass.class.getMethods();
+    private final Method[] methods = TestStepImplClass.class.getMethods();
     private Method method1;
     private Method method2;
     private Method aliasMethod;

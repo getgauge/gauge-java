@@ -24,9 +24,9 @@ public class JavaRefactoring {
     private final StepValue oldStepValue;
     private final StepValue newStepValue;
     private final List<Messages.ParameterPosition> paramPositions;
-    private StepRegistry registry;
-    private String parameterizedStepValue;
-    private boolean saveChanges;
+    private final StepRegistry registry;
+    private final String parameterizedStepValue;
+    private final boolean saveChanges;
 
     public JavaRefactoring(StepValue oldStepValue, StepValue newStepValue, List<Messages.ParameterPosition> paramPositionsList, StepRegistry registry, String parameterizedStepValue, boolean saveChanges) {
         this.oldStepValue = oldStepValue;

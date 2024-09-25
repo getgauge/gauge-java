@@ -11,31 +11,10 @@ import com.thoughtworks.gauge.GaugeConstant;
 import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
-import com.thoughtworks.gauge.processor.CacheFileRequestProcessor;
-import com.thoughtworks.gauge.processor.DefaultMessageProcessor;
-import com.thoughtworks.gauge.processor.ExecuteStepProcessor;
-import com.thoughtworks.gauge.processor.IMessageProcessor;
-import com.thoughtworks.gauge.processor.KillProcessProcessor;
-import com.thoughtworks.gauge.processor.RefactorRequestProcessor;
-import com.thoughtworks.gauge.processor.ScenarioExecutionEndingProcessor;
-import com.thoughtworks.gauge.processor.ScenarioExecutionStartingProcessor;
-import com.thoughtworks.gauge.processor.SpecExecutionEndingProcessor;
-import com.thoughtworks.gauge.processor.SpecExecutionStartingProcessor;
-import com.thoughtworks.gauge.processor.StepExecutionEndingProcessor;
-import com.thoughtworks.gauge.processor.StepExecutionStartingProcessor;
-import com.thoughtworks.gauge.processor.StepNameRequestProcessor;
-import com.thoughtworks.gauge.processor.StepNamesRequestProcessor;
-import com.thoughtworks.gauge.processor.StepPositionsRequestProcessor;
-import com.thoughtworks.gauge.processor.SuiteExecutionEndingProcessor;
-import com.thoughtworks.gauge.processor.SuiteExecutionStartingProcessor;
-import com.thoughtworks.gauge.processor.ValidateStepProcessor;
+import com.thoughtworks.gauge.processor.*;
 import com.thoughtworks.gauge.registry.ClassInitializerRegistry;
 import com.thoughtworks.gauge.registry.StepRegistry;
-import com.thoughtworks.gauge.scan.ClasspathScanner;
-import com.thoughtworks.gauge.scan.CustomClassInitializerScanner;
-import com.thoughtworks.gauge.scan.HooksScanner;
-import com.thoughtworks.gauge.scan.StaticScanner;
-import com.thoughtworks.gauge.scan.StepsScanner;
+import com.thoughtworks.gauge.scan.*;
 import com.thoughtworks.gauge.screenshot.CustomScreenshotScanner;
 import gauge.messages.Messages;
 
@@ -49,10 +28,10 @@ import java.util.concurrent.Executors;
  */
 public class MessageProcessorFactory {
 
-    private ThreadLocal<HashMap<Messages.Message.MessageType, IMessageProcessor>> messageProcessors;
-    private StepRegistry stepRegistry;
-    private StaticScanner staticScanner;
-    private CountDownLatch scanLatch;
+    private final ThreadLocal<HashMap<Messages.Message.MessageType, IMessageProcessor>> messageProcessors;
+    private final StepRegistry stepRegistry;
+    private final StaticScanner staticScanner;
+    private final CountDownLatch scanLatch;
     private static final int SCAN_POLL_INTERVAL = 500;
 
     public MessageProcessorFactory(StaticScanner staticScanner) {
@@ -94,7 +73,7 @@ public class MessageProcessorFactory {
     }
 
     private ThreadLocal<HashMap<Messages.Message.MessageType, IMessageProcessor>> initializeMessageProcessor() {
-        return ThreadLocal.withInitial(() -> new HashMap<Messages.Message.MessageType, IMessageProcessor>() {
+        return ThreadLocal.withInitial(() -> new HashMap<>() {
             {
                 put(Messages.Message.MessageType.StepNameRequest, new StepNameRequestProcessor(stepRegistry));
                 put(Messages.Message.MessageType.StepNamesRequest, new StepNamesRequestProcessor(stepRegistry));

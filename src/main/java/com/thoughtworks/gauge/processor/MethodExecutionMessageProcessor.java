@@ -20,14 +20,14 @@ import java.util.Set;
 
 public abstract class MethodExecutionMessageProcessor {
 
-    private ClassInstanceManager instanceManager;
+    private final ClassInstanceManager instanceManager;
 
     public MethodExecutionMessageProcessor(ClassInstanceManager instanceManager) {
         this.instanceManager = instanceManager;
     }
 
     public Messages.Message execute(Method method, Messages.Message message, Object... args) {
-        HashSet<Method> methods = new HashSet<Method>();
+        HashSet<Method> methods = new HashSet<>();
         methods.add(method);
         return execute(methods, message, args);
     }

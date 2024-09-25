@@ -25,13 +25,13 @@ public class HookTest {
         final Hook hook3 = new Hook(TestHook.class.getMethod("bar"), new String[0], Operator.AND);
         final Hook hook4 = new Hook(TestHook.class.getMethod("foobar"), new String[]{"hello"}, Operator.AND);
 
-        Set<Hook> hooks = new HashSet<Hook>() {{
+        Set<Hook> hooks = new HashSet<>() {{
             add(hook1);
             add(hook2);
             add(hook3);
             add(hook4);
         }};
-        ArrayList<Hook> hooksList = new ArrayList<Hook>(hooks);
+        ArrayList<Hook> hooksList = new ArrayList<>(hooks);
         Collections.sort(hooksList);
         assertEquals("bar", hooksList.get(0).getMethod().getName());
         assertEquals("foo", hooksList.get(1).getMethod().getName());
@@ -39,7 +39,7 @@ public class HookTest {
         assertEquals("foobar", hooksList.get(3).getMethod().getName());
     }
 
-    private class TestHook {
+    private static class TestHook {
         @BeforeScenario
         public void foo() {
         }

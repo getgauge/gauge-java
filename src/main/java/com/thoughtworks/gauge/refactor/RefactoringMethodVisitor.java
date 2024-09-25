@@ -11,12 +11,7 @@ import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
-import com.github.javaparser.ast.expr.AnnotationExpr;
-import com.github.javaparser.ast.expr.ArrayInitializerExpr;
-import com.github.javaparser.ast.expr.BinaryExpr;
-import com.github.javaparser.ast.expr.SimpleName;
-import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
-import com.github.javaparser.ast.expr.StringLiteralExpr;
+import com.github.javaparser.ast.expr.*;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.Logger;
@@ -33,12 +28,12 @@ import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class RefactoringMethodVisitor extends VoidVisitorAdapter {
-    private StepValue oldStepValue;
-    private StepValue newStepValue;
-    private List<Messages.ParameterPosition> paramPositions;
+    private final StepValue oldStepValue;
+    private final StepValue newStepValue;
+    private final List<Messages.ParameterPosition> paramPositions;
     private boolean refactored;
     private JavaRefactoringElement javaElement;
-    private NodeList<Parameter> newParameters = new NodeList<>();
+    private final NodeList<Parameter> newParameters = new NodeList<>();
     private Range stepSpan;
 
 

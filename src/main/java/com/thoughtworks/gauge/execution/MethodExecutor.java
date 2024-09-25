@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 import java.util.Set;
 
 public class MethodExecutor {
-    private ClassInstanceManager instanceManager;
+    private final ClassInstanceManager instanceManager;
 
     public MethodExecutor(ClassInstanceManager instanceManager) {
         this.instanceManager = instanceManager;

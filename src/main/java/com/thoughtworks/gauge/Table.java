@@ -22,10 +22,10 @@ import java.util.stream.Collectors;
  */
 public class Table {
 
-    private static final String LINE_SEPARATOR = System.getProperty("line.separator");
+    private static final String LINE_SEPARATOR = System.lineSeparator();
     private static final String DASH = "-";
     private static final String PIPE = "|";
-    private static final char SPACE_AS_CHAR = " ".charAt(0);
+    private static final char SPACE_AS_CHAR = ' ';
     private final List<String> headers;
     private final List<List<String>> rows;
     private final List<TableRow> tableRows;

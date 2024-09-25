@@ -17,19 +17,19 @@ import static com.thoughtworks.gauge.GaugeConstant.ENABLE_MULTITHREADING_ENV;
  */
 @Deprecated
 public class DataStoreFactory {
-    private static ThreadLocal<DataStore> suiteDataStore = new InheritableThreadLocal<DataStore>() {
+    private static final ThreadLocal<DataStore> SUITE_DATA_STORE = new InheritableThreadLocal<>() {
         @Override
         protected DataStore initialValue() {
             return new DataStore();
         }
     };
-    private static ThreadLocal<DataStore> specDataStore = new InheritableThreadLocal<DataStore>() {
+    private static final ThreadLocal<DataStore> SPEC_DATA_STORE = new InheritableThreadLocal<>() {
         @Override
         protected DataStore initialValue() {
             return new DataStore();
         }
     };
-    private static ThreadLocal<DataStore> scenarioDataStore = new InheritableThreadLocal<DataStore>() {
+    private static final ThreadLocal<DataStore> SCENARIO_DATA_STORE = new InheritableThreadLocal<>() {
         @Override
         protected DataStore initialValue() {
             return new DataStore();
@@ -44,7 +44,7 @@ public class DataStoreFactory {
         if (isMultithreadingExecution()) {
             throw new RuntimeException("DataStoreFactory cannot be used for multithreaded execution. Use SuiteDataStore.");
         }
-        return suiteDataStore.get();
+        return SUITE_DATA_STORE.get();
     }
 
     /**
@@ -54,7 +54,7 @@ public class DataStoreFactory {
         if (isMultithreadingExecution()) {
             throw new RuntimeException("DataStoreFactory cannot be used for multithreaded execution. Use SpecDataStore.");
         }
-        return specDataStore.get();
+        return SPEC_DATA_STORE.get();
     }
 
 
@@ -65,23 +65,23 @@ public class DataStoreFactory {
         if (isMultithreadingExecution()) {
             throw new RuntimeException("DataStoreFactory cannot be used for multithreaded execution. Use ScenarioDataStore.");
         }
-        return scenarioDataStore.get();
+        return SCENARIO_DATA_STORE.get();
     }
 
     static void clearSuiteDataStore() {
-        suiteDataStore.get().clear();
+        SUITE_DATA_STORE.get().clear();
     }
 
     static void clearSpecDataStore() {
-        specDataStore.get().clear();
+        SPEC_DATA_STORE.get().clear();
     }
 
     static void clearScenarioDataStore() {
-        scenarioDataStore.get().clear();
+        SCENARIO_DATA_STORE.get().clear();
     }
 
     private static boolean isMultithreadingExecution() {
-        return Boolean.valueOf(System.getenv(ENABLE_MULTITHREADING_ENV));
+        return Boolean.parseBoolean(System.getenv(ENABLE_MULTITHREADING_ENV));
     }
 
 }

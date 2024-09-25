@@ -14,8 +14,8 @@ import java.util.List;
 
 
 public class HookExecutionStage extends AbstractExecutionStage {
-    private List<Hook> execHooks;
-    private ClassInstanceManager manager;
+    private final List<Hook> execHooks;
+    private final ClassInstanceManager manager;
     private ExecutionStage next;
 
     public HookExecutionStage(List<Hook> execHooks, ClassInstanceManager manager) {

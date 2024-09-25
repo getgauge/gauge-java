@@ -13,9 +13,9 @@ import java.util.List;
  * Gives the information about the current execution at runtime - spec, scenario, step that is running.
  */
 public class ExecutionContext {
-    private Specification currentSpecification;
-    private Scenario currentScenario;
-    private StepDetails currentStep;
+    private final Specification currentSpecification;
+    private final Scenario currentScenario;
+    private final StepDetails currentStep;
 
     public ExecutionContext(Specification specification, Scenario scenario, StepDetails stepDetails) {
         this.currentSpecification = specification;
