@@ -48,7 +48,7 @@ Ex:
 
 ```diff
      <artifactId>gauge-java</artifactId>
--    <version>0.11.0</version>
-+    <version>0.11.1</version>
+-    <version>0.11.2</version>
++    <version>0.11.3</version>
      <description>Java plugin for Gauge</description>
 ```
