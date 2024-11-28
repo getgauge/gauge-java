@@ -315,6 +315,7 @@
         <java.version>11</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+
         <protobuf.version>4.29.0</protobuf.version>
         <grpc.version>1.68.2</grpc.version>
     </properties>
