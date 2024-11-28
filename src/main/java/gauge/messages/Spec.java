@@ -27950,6 +27950,16 @@ public final class Spec {
      */
     com.google.protobuf.ByteString
         getScreenshotFilesBytes(int index);
+
+    /**
+     * <pre>
+     * &#47; Flag to indicate skipping of the scenario execution
+     * </pre>
+     *
+     * <code>bool skipScenario = 13;</code>
+     * @return The skipScenario.
+     */
+    boolean getSkipScenario();
   }
   /**
    * <pre>
@@ -28519,6 +28529,21 @@ public final class Spec {
       return screenshotFiles_.getByteString(index);
     }
 
+    public static final int SKIPSCENARIO_FIELD_NUMBER = 13;
+    private boolean skipScenario_ = false;
+    /**
+     * <pre>
+     * &#47; Flag to indicate skipping of the scenario execution
+     * </pre>
+     *
+     * <code>bool skipScenario = 13;</code>
+     * @return The skipScenario.
+     */
+    @java.lang.Override
+    public boolean getSkipScenario() {
+      return skipScenario_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -28568,6 +28593,9 @@ public final class Spec {
       }
       for (int i = 0; i < screenshotFiles_.size(); i++) {
         com.google.protobuf.GeneratedMessage.writeString(output, 12, screenshotFiles_.getRaw(i));
+      }
+      if (skipScenario_ != false) {
+        output.writeBool(13, skipScenario_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -28636,6 +28664,10 @@ public final class Spec {
         size += dataSize;
         size += 1 * getScreenshotFilesList().size();
       }
+      if (skipScenario_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(13, skipScenario_);
+      }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
@@ -28674,6 +28706,8 @@ public final class Spec {
           .equals(other.getFailureScreenshotFile())) return false;
       if (!getScreenshotFilesList()
           .equals(other.getScreenshotFilesList())) return false;
+      if (getSkipScenario()
+          != other.getSkipScenario()) return false;
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -28718,6 +28752,9 @@ public final class Spec {
         hash = (37 * hash) + SCREENSHOTFILES_FIELD_NUMBER;
         hash = (53 * hash) + getScreenshotFilesList().hashCode();
       }
+      hash = (37 * hash) + SKIPSCENARIO_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getSkipScenario());
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -28867,6 +28904,7 @@ public final class Spec {
         failureScreenshotFile_ = "";
         screenshotFiles_ =
             com.google.protobuf.LazyStringArrayList.emptyList();
+        skipScenario_ = false;
         return this;
       }
 
@@ -28938,6 +28976,9 @@ public final class Spec {
         if (((from_bitField0_ & 0x00000800) != 0)) {
           screenshotFiles_.makeImmutable();
           result.screenshotFiles_ = screenshotFiles_;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.skipScenario_ = skipScenario_;
         }
       }
 
@@ -29016,6 +29057,9 @@ public final class Spec {
             screenshotFiles_.addAll(other.screenshotFiles_);
           }
           onChanged();
+        }
+        if (other.getSkipScenario() != false) {
+          setSkipScenario(other.getSkipScenario());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
@@ -29106,6 +29150,11 @@ public final class Spec {
                 screenshotFiles_.add(s);
                 break;
               } // case 98
+              case 104: {
+                skipScenario_ = input.readBool();
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 104
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -30124,6 +30173,50 @@ public final class Spec {
         return this;
       }
 
+      private boolean skipScenario_ ;
+      /**
+       * <pre>
+       * &#47; Flag to indicate skipping of the scenario execution
+       * </pre>
+       *
+       * <code>bool skipScenario = 13;</code>
+       * @return The skipScenario.
+       */
+      @java.lang.Override
+      public boolean getSkipScenario() {
+        return skipScenario_;
+      }
+      /**
+       * <pre>
+       * &#47; Flag to indicate skipping of the scenario execution
+       * </pre>
+       *
+       * <code>bool skipScenario = 13;</code>
+       * @param value The skipScenario to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSkipScenario(boolean value) {
+
+        skipScenario_ = value;
+        bitField0_ |= 0x00001000;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * &#47; Flag to indicate skipping of the scenario execution
+       * </pre>
+       *
+       * <code>bool skipScenario = 13;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSkipScenario() {
+        bitField0_ = (bitField0_ & ~0x00001000);
+        skipScenario_ = false;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:gauge.messages.ProtoExecutionResult)
     }
 
@@ -30226,7 +30319,7 @@ public final class Spec {
      *
      * <code>bytes screenShot = 3 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoHookFailure.screenShot is deprecated.
-     *     See spec.proto;l=323
+     *     See spec.proto;l=325
      * @return The screenShot.
      */
     @java.lang.Deprecated com.google.protobuf.ByteString getScreenShot();
@@ -30248,7 +30341,7 @@ public final class Spec {
      *
      * <code>bytes failureScreenshot = 5 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoHookFailure.failureScreenshot is deprecated.
-     *     See spec.proto;l=327
+     *     See spec.proto;l=329
      * @return The failureScreenshot.
      */
     @java.lang.Deprecated com.google.protobuf.ByteString getFailureScreenshot();
@@ -30423,7 +30516,7 @@ public final class Spec {
      *
      * <code>bytes screenShot = 3 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoHookFailure.screenShot is deprecated.
-     *     See spec.proto;l=323
+     *     See spec.proto;l=325
      * @return The screenShot.
      */
     @java.lang.Override
@@ -30455,7 +30548,7 @@ public final class Spec {
      *
      * <code>bytes failureScreenshot = 5 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoHookFailure.failureScreenshot is deprecated.
-     *     See spec.proto;l=327
+     *     See spec.proto;l=329
      * @return The failureScreenshot.
      */
     @java.lang.Override
@@ -31118,7 +31211,7 @@ public final class Spec {
        *
        * <code>bytes screenShot = 3 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoHookFailure.screenShot is deprecated.
-       *     See spec.proto;l=323
+       *     See spec.proto;l=325
        * @return The screenShot.
        */
       @java.lang.Override
@@ -31132,7 +31225,7 @@ public final class Spec {
        *
        * <code>bytes screenShot = 3 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoHookFailure.screenShot is deprecated.
-       *     See spec.proto;l=323
+       *     See spec.proto;l=325
        * @param value The screenShot to set.
        * @return This builder for chaining.
        */
@@ -31150,7 +31243,7 @@ public final class Spec {
        *
        * <code>bytes screenShot = 3 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoHookFailure.screenShot is deprecated.
-       *     See spec.proto;l=323
+       *     See spec.proto;l=325
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearScreenShot() {
@@ -31212,7 +31305,7 @@ public final class Spec {
        *
        * <code>bytes failureScreenshot = 5 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoHookFailure.failureScreenshot is deprecated.
-       *     See spec.proto;l=327
+       *     See spec.proto;l=329
        * @return The failureScreenshot.
        */
       @java.lang.Override
@@ -31226,7 +31319,7 @@ public final class Spec {
        *
        * <code>bytes failureScreenshot = 5 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoHookFailure.failureScreenshot is deprecated.
-       *     See spec.proto;l=327
+       *     See spec.proto;l=329
        * @param value The failureScreenshot to set.
        * @return This builder for chaining.
        */
@@ -31244,7 +31337,7 @@ public final class Spec {
        *
        * <code>bytes failureScreenshot = 5 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoHookFailure.failureScreenshot is deprecated.
-       *     See spec.proto;l=327
+       *     See spec.proto;l=329
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearFailureScreenshot() {
@@ -31714,7 +31807,7 @@ public final class Spec {
      *
      * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-     *     See spec.proto;l=362
+     *     See spec.proto;l=364
      * @return A list containing the preHookMessage.
      */
     @java.lang.Deprecated java.util.List<java.lang.String>
@@ -31726,7 +31819,7 @@ public final class Spec {
      *
      * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-     *     See spec.proto;l=362
+     *     See spec.proto;l=364
      * @return The count of preHookMessage.
      */
     @java.lang.Deprecated int getPreHookMessageCount();
@@ -31737,7 +31830,7 @@ public final class Spec {
      *
      * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-     *     See spec.proto;l=362
+     *     See spec.proto;l=364
      * @param index The index of the element to return.
      * @return The preHookMessage at the given index.
      */
@@ -31749,7 +31842,7 @@ public final class Spec {
      *
      * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-     *     See spec.proto;l=362
+     *     See spec.proto;l=364
      * @param index The index of the value to return.
      * @return The bytes of the preHookMessage at the given index.
      */
@@ -31763,7 +31856,7 @@ public final class Spec {
      *
      * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-     *     See spec.proto;l=364
+     *     See spec.proto;l=366
      * @return A list containing the postHookMessage.
      */
     @java.lang.Deprecated java.util.List<java.lang.String>
@@ -31775,7 +31868,7 @@ public final class Spec {
      *
      * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-     *     See spec.proto;l=364
+     *     See spec.proto;l=366
      * @return The count of postHookMessage.
      */
     @java.lang.Deprecated int getPostHookMessageCount();
@@ -31786,7 +31879,7 @@ public final class Spec {
      *
      * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-     *     See spec.proto;l=364
+     *     See spec.proto;l=366
      * @param index The index of the element to return.
      * @return The postHookMessage at the given index.
      */
@@ -31798,7 +31891,7 @@ public final class Spec {
      *
      * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-     *     See spec.proto;l=364
+     *     See spec.proto;l=366
      * @param index The index of the value to return.
      * @return The bytes of the postHookMessage at the given index.
      */
@@ -31812,7 +31905,7 @@ public final class Spec {
      *
      * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-     *     See spec.proto;l=366
+     *     See spec.proto;l=368
      * @return A list containing the preHookScreenshots.
      */
     @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getPreHookScreenshotsList();
@@ -31823,7 +31916,7 @@ public final class Spec {
      *
      * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-     *     See spec.proto;l=366
+     *     See spec.proto;l=368
      * @return The count of preHookScreenshots.
      */
     @java.lang.Deprecated int getPreHookScreenshotsCount();
@@ -31834,7 +31927,7 @@ public final class Spec {
      *
      * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-     *     See spec.proto;l=366
+     *     See spec.proto;l=368
      * @param index The index of the element to return.
      * @return The preHookScreenshots at the given index.
      */
@@ -31847,7 +31940,7 @@ public final class Spec {
      *
      * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-     *     See spec.proto;l=368
+     *     See spec.proto;l=370
      * @return A list containing the postHookScreenshots.
      */
     @java.lang.Deprecated java.util.List<com.google.protobuf.ByteString> getPostHookScreenshotsList();
@@ -31858,7 +31951,7 @@ public final class Spec {
      *
      * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-     *     See spec.proto;l=368
+     *     See spec.proto;l=370
      * @return The count of postHookScreenshots.
      */
     @java.lang.Deprecated int getPostHookScreenshotsCount();
@@ -31869,7 +31962,7 @@ public final class Spec {
      *
      * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-     *     See spec.proto;l=368
+     *     See spec.proto;l=370
      * @param index The index of the element to return.
      * @return The postHookScreenshots at the given index.
      */
@@ -32551,7 +32644,7 @@ public final class Spec {
      *
      * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-     *     See spec.proto;l=362
+     *     See spec.proto;l=364
      * @return A list containing the preHookMessage.
      */
     @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -32565,7 +32658,7 @@ public final class Spec {
      *
      * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-     *     See spec.proto;l=362
+     *     See spec.proto;l=364
      * @return The count of preHookMessage.
      */
     @java.lang.Deprecated public int getPreHookMessageCount() {
@@ -32578,7 +32671,7 @@ public final class Spec {
      *
      * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-     *     See spec.proto;l=362
+     *     See spec.proto;l=364
      * @param index The index of the element to return.
      * @return The preHookMessage at the given index.
      */
@@ -32592,7 +32685,7 @@ public final class Spec {
      *
      * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-     *     See spec.proto;l=362
+     *     See spec.proto;l=364
      * @param index The index of the value to return.
      * @return The bytes of the preHookMessage at the given index.
      */
@@ -32612,7 +32705,7 @@ public final class Spec {
      *
      * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-     *     See spec.proto;l=364
+     *     See spec.proto;l=366
      * @return A list containing the postHookMessage.
      */
     @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -32626,7 +32719,7 @@ public final class Spec {
      *
      * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-     *     See spec.proto;l=364
+     *     See spec.proto;l=366
      * @return The count of postHookMessage.
      */
     @java.lang.Deprecated public int getPostHookMessageCount() {
@@ -32639,7 +32732,7 @@ public final class Spec {
      *
      * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-     *     See spec.proto;l=364
+     *     See spec.proto;l=366
      * @param index The index of the element to return.
      * @return The postHookMessage at the given index.
      */
@@ -32653,7 +32746,7 @@ public final class Spec {
      *
      * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-     *     See spec.proto;l=364
+     *     See spec.proto;l=366
      * @param index The index of the value to return.
      * @return The bytes of the postHookMessage at the given index.
      */
@@ -32673,7 +32766,7 @@ public final class Spec {
      *
      * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-     *     See spec.proto;l=366
+     *     See spec.proto;l=368
      * @return A list containing the preHookScreenshots.
      */
     @java.lang.Override
@@ -32688,7 +32781,7 @@ public final class Spec {
      *
      * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-     *     See spec.proto;l=366
+     *     See spec.proto;l=368
      * @return The count of preHookScreenshots.
      */
     @java.lang.Deprecated public int getPreHookScreenshotsCount() {
@@ -32701,7 +32794,7 @@ public final class Spec {
      *
      * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-     *     See spec.proto;l=366
+     *     See spec.proto;l=368
      * @param index The index of the element to return.
      * @return The preHookScreenshots at the given index.
      */
@@ -32720,7 +32813,7 @@ public final class Spec {
      *
      * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-     *     See spec.proto;l=368
+     *     See spec.proto;l=370
      * @return A list containing the postHookScreenshots.
      */
     @java.lang.Override
@@ -32735,7 +32828,7 @@ public final class Spec {
      *
      * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-     *     See spec.proto;l=368
+     *     See spec.proto;l=370
      * @return The count of postHookScreenshots.
      */
     @java.lang.Deprecated public int getPostHookScreenshotsCount() {
@@ -32748,7 +32841,7 @@ public final class Spec {
      *
      * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
      * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-     *     See spec.proto;l=368
+     *     See spec.proto;l=370
      * @param index The index of the element to return.
      * @return The postHookScreenshots at the given index.
      */
@@ -35410,7 +35503,7 @@ public final class Spec {
        *
        * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-       *     See spec.proto;l=362
+       *     See spec.proto;l=364
        * @return A list containing the preHookMessage.
        */
       @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -35425,7 +35518,7 @@ public final class Spec {
        *
        * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-       *     See spec.proto;l=362
+       *     See spec.proto;l=364
        * @return The count of preHookMessage.
        */
       @java.lang.Deprecated public int getPreHookMessageCount() {
@@ -35438,7 +35531,7 @@ public final class Spec {
        *
        * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-       *     See spec.proto;l=362
+       *     See spec.proto;l=364
        * @param index The index of the element to return.
        * @return The preHookMessage at the given index.
        */
@@ -35452,7 +35545,7 @@ public final class Spec {
        *
        * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-       *     See spec.proto;l=362
+       *     See spec.proto;l=364
        * @param index The index of the value to return.
        * @return The bytes of the preHookMessage at the given index.
        */
@@ -35467,7 +35560,7 @@ public final class Spec {
        *
        * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-       *     See spec.proto;l=362
+       *     See spec.proto;l=364
        * @param index The index to set the value at.
        * @param value The preHookMessage to set.
        * @return This builder for chaining.
@@ -35488,7 +35581,7 @@ public final class Spec {
        *
        * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-       *     See spec.proto;l=362
+       *     See spec.proto;l=364
        * @param value The preHookMessage to add.
        * @return This builder for chaining.
        */
@@ -35508,7 +35601,7 @@ public final class Spec {
        *
        * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-       *     See spec.proto;l=362
+       *     See spec.proto;l=364
        * @param values The preHookMessage to add.
        * @return This builder for chaining.
        */
@@ -35528,7 +35621,7 @@ public final class Spec {
        *
        * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-       *     See spec.proto;l=362
+       *     See spec.proto;l=364
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearPreHookMessage() {
@@ -35545,7 +35638,7 @@ public final class Spec {
        *
        * <code>repeated string preHookMessage = 15 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookMessage is deprecated.
-       *     See spec.proto;l=362
+       *     See spec.proto;l=364
        * @param value The bytes of the preHookMessage to add.
        * @return This builder for chaining.
        */
@@ -35575,7 +35668,7 @@ public final class Spec {
        *
        * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-       *     See spec.proto;l=364
+       *     See spec.proto;l=366
        * @return A list containing the postHookMessage.
        */
       @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -35590,7 +35683,7 @@ public final class Spec {
        *
        * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-       *     See spec.proto;l=364
+       *     See spec.proto;l=366
        * @return The count of postHookMessage.
        */
       @java.lang.Deprecated public int getPostHookMessageCount() {
@@ -35603,7 +35696,7 @@ public final class Spec {
        *
        * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-       *     See spec.proto;l=364
+       *     See spec.proto;l=366
        * @param index The index of the element to return.
        * @return The postHookMessage at the given index.
        */
@@ -35617,7 +35710,7 @@ public final class Spec {
        *
        * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-       *     See spec.proto;l=364
+       *     See spec.proto;l=366
        * @param index The index of the value to return.
        * @return The bytes of the postHookMessage at the given index.
        */
@@ -35632,7 +35725,7 @@ public final class Spec {
        *
        * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-       *     See spec.proto;l=364
+       *     See spec.proto;l=366
        * @param index The index to set the value at.
        * @param value The postHookMessage to set.
        * @return This builder for chaining.
@@ -35653,7 +35746,7 @@ public final class Spec {
        *
        * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-       *     See spec.proto;l=364
+       *     See spec.proto;l=366
        * @param value The postHookMessage to add.
        * @return This builder for chaining.
        */
@@ -35673,7 +35766,7 @@ public final class Spec {
        *
        * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-       *     See spec.proto;l=364
+       *     See spec.proto;l=366
        * @param values The postHookMessage to add.
        * @return This builder for chaining.
        */
@@ -35693,7 +35786,7 @@ public final class Spec {
        *
        * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-       *     See spec.proto;l=364
+       *     See spec.proto;l=366
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearPostHookMessage() {
@@ -35710,7 +35803,7 @@ public final class Spec {
        *
        * <code>repeated string postHookMessage = 16 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookMessage is deprecated.
-       *     See spec.proto;l=364
+       *     See spec.proto;l=366
        * @param value The bytes of the postHookMessage to add.
        * @return This builder for chaining.
        */
@@ -35739,7 +35832,7 @@ public final class Spec {
        *
        * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-       *     See spec.proto;l=366
+       *     See spec.proto;l=368
        * @return A list containing the preHookScreenshots.
        */
       @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
@@ -35754,7 +35847,7 @@ public final class Spec {
        *
        * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-       *     See spec.proto;l=366
+       *     See spec.proto;l=368
        * @return The count of preHookScreenshots.
        */
       @java.lang.Deprecated public int getPreHookScreenshotsCount() {
@@ -35767,7 +35860,7 @@ public final class Spec {
        *
        * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-       *     See spec.proto;l=366
+       *     See spec.proto;l=368
        * @param index The index of the element to return.
        * @return The preHookScreenshots at the given index.
        */
@@ -35781,7 +35874,7 @@ public final class Spec {
        *
        * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-       *     See spec.proto;l=366
+       *     See spec.proto;l=368
        * @param index The index to set the value at.
        * @param value The preHookScreenshots to set.
        * @return This builder for chaining.
@@ -35802,7 +35895,7 @@ public final class Spec {
        *
        * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-       *     See spec.proto;l=366
+       *     See spec.proto;l=368
        * @param value The preHookScreenshots to add.
        * @return This builder for chaining.
        */
@@ -35821,7 +35914,7 @@ public final class Spec {
        *
        * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-       *     See spec.proto;l=366
+       *     See spec.proto;l=368
        * @param values The preHookScreenshots to add.
        * @return This builder for chaining.
        */
@@ -35841,7 +35934,7 @@ public final class Spec {
        *
        * <code>repeated bytes preHookScreenshots = 17 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.preHookScreenshots is deprecated.
-       *     See spec.proto;l=366
+       *     See spec.proto;l=368
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearPreHookScreenshots() {
@@ -35865,7 +35958,7 @@ public final class Spec {
        *
        * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-       *     See spec.proto;l=368
+       *     See spec.proto;l=370
        * @return A list containing the postHookScreenshots.
        */
       @java.lang.Deprecated public java.util.List<com.google.protobuf.ByteString>
@@ -35880,7 +35973,7 @@ public final class Spec {
        *
        * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-       *     See spec.proto;l=368
+       *     See spec.proto;l=370
        * @return The count of postHookScreenshots.
        */
       @java.lang.Deprecated public int getPostHookScreenshotsCount() {
@@ -35893,7 +35986,7 @@ public final class Spec {
        *
        * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-       *     See spec.proto;l=368
+       *     See spec.proto;l=370
        * @param index The index of the element to return.
        * @return The postHookScreenshots at the given index.
        */
@@ -35907,7 +36000,7 @@ public final class Spec {
        *
        * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-       *     See spec.proto;l=368
+       *     See spec.proto;l=370
        * @param index The index to set the value at.
        * @param value The postHookScreenshots to set.
        * @return This builder for chaining.
@@ -35928,7 +36021,7 @@ public final class Spec {
        *
        * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-       *     See spec.proto;l=368
+       *     See spec.proto;l=370
        * @param value The postHookScreenshots to add.
        * @return This builder for chaining.
        */
@@ -35947,7 +36040,7 @@ public final class Spec {
        *
        * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-       *     See spec.proto;l=368
+       *     See spec.proto;l=370
        * @param values The postHookScreenshots to add.
        * @return This builder for chaining.
        */
@@ -35967,7 +36060,7 @@ public final class Spec {
        *
        * <code>repeated bytes postHookScreenshots = 18 [deprecated = true];</code>
        * @deprecated gauge.messages.ProtoSuiteResult.postHookScreenshots is deprecated.
-       *     See spec.proto;l=368
+       *     See spec.proto;l=370
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearPostHookScreenshots() {
@@ -42912,7 +43005,7 @@ public final class Spec {
       "essages.ProtoHookFailure\0229\n\017postHookFail" +
       "ure\030\003 \001(\0132 .gauge.messages.ProtoHookFail" +
       "ure\022\017\n\007skipped\030\004 \001(\010\022\025\n\rskippedReason\030\005 " +
-      "\001(\t\"\213\003\n\024ProtoExecutionResult\022\016\n\006failed\030\001" +
+      "\001(\t\"\241\003\n\024ProtoExecutionResult\022\016\n\006failed\030\001" +
       " \001(\010\022\030\n\020recoverableError\030\002 \001(\010\022\024\n\014errorM" +
       "essage\030\003 \001(\t\022\022\n\nstackTrace\030\004 \001(\t\022\026\n\nscre" +
       "enShot\030\005 \001(\014B\002\030\001\022\025\n\rexecutionTime\030\006 \001(\003\022" +
@@ -42920,53 +43013,54 @@ public final class Spec {
       "uge.messages.ProtoExecutionResult.ErrorT" +
       "ype\022\035\n\021failureScreenshot\030\t \001(\014B\002\030\001\022\027\n\013sc" +
       "reenshots\030\n \003(\014B\002\030\001\022\035\n\025failureScreenshot" +
-      "File\030\013 \001(\t\022\027\n\017screenshotFiles\030\014 \003(\t\",\n\tE" +
-      "rrorType\022\r\n\tASSERTION\020\000\022\020\n\014VERIFICATION\020" +
-      "\001\"\251\001\n\020ProtoHookFailure\022\022\n\nstackTrace\030\001 \001" +
-      "(\t\022\024\n\014errorMessage\030\002 \001(\t\022\026\n\nscreenShot\030\003" +
-      " \001(\014B\002\030\001\022\025\n\rtableRowIndex\030\004 \001(\005\022\035\n\021failu" +
-      "reScreenshot\030\005 \001(\014B\002\030\001\022\035\n\025failureScreens" +
-      "hotFile\030\006 \001(\t\"\213\005\n\020ProtoSuiteResult\0224\n\013sp" +
-      "ecResults\030\001 \003(\0132\037.gauge.messages.ProtoSp" +
-      "ecResult\0228\n\016preHookFailure\030\002 \001(\0132 .gauge" +
-      ".messages.ProtoHookFailure\0229\n\017postHookFa" +
-      "ilure\030\003 \001(\0132 .gauge.messages.ProtoHookFa" +
-      "ilure\022\016\n\006failed\030\004 \001(\010\022\030\n\020specsFailedCoun" +
-      "t\030\005 \001(\005\022\025\n\rexecutionTime\030\006 \001(\003\022\023\n\013succes" +
-      "sRate\030\007 \001(\002\022\023\n\013environment\030\010 \001(\t\022\014\n\004tags" +
-      "\030\t \001(\t\022\023\n\013projectName\030\n \001(\t\022\021\n\ttimestamp" +
-      "\030\013 \001(\t\022\031\n\021specsSkippedCount\030\014 \001(\005\022\027\n\017pre" +
-      "HookMessages\030\r \003(\t\022\030\n\020postHookMessages\030\016" +
-      " \003(\t\022\032\n\016preHookMessage\030\017 \003(\tB\002\030\001\022\033\n\017post" +
-      "HookMessage\030\020 \003(\tB\002\030\001\022\036\n\022preHookScreensh" +
-      "ots\030\021 \003(\014B\002\030\001\022\037\n\023postHookScreenshots\030\022 \003" +
-      "(\014B\002\030\001\022\017\n\007chunked\030\023 \001(\010\022\021\n\tchunkSize\030\024 \001" +
-      "(\003\022\036\n\026preHookScreenshotFiles\030\025 \003(\t\022\037\n\027po" +
-      "stHookScreenshotFiles\030\026 \003(\t\"\276\002\n\017ProtoSpe" +
-      "cResult\022,\n\tprotoSpec\030\001 \001(\0132\031.gauge.messa" +
-      "ges.ProtoSpec\022\025\n\rscenarioCount\030\002 \001(\005\022\033\n\023" +
-      "scenarioFailedCount\030\003 \001(\005\022\016\n\006failed\030\004 \001(" +
-      "\010\022\033\n\023failedDataTableRows\030\005 \003(\005\022\025\n\rexecut" +
-      "ionTime\030\006 \001(\003\022\017\n\007skipped\030\007 \001(\010\022\034\n\024scenar" +
-      "ioSkippedCount\030\010 \001(\005\022\034\n\024skippedDataTable" +
-      "Rows\030\t \003(\005\022%\n\006errors\030\n \003(\0132\025.gauge.messa" +
-      "ges.Error\022\021\n\ttimestamp\030\013 \001(\t\"m\n\023ProtoSce" +
-      "narioResult\022,\n\tprotoItem\030\001 \001(\0132\031.gauge.m" +
-      "essages.ProtoItem\022\025\n\rexecutionTime\030\002 \001(\003" +
-      "\022\021\n\ttimestamp\030\003 \001(\t\"i\n\017ProtoStepResult\022," +
-      "\n\tprotoItem\030\001 \001(\0132\031.gauge.messages.Proto" +
-      "Item\022\025\n\rexecutionTime\030\002 \001(\003\022\021\n\ttimestamp" +
-      "\030\003 \001(\t\"\241\001\n\005Error\022-\n\004type\030\001 \001(\0162\037.gauge.m" +
-      "essages.Error.ErrorType\022\020\n\010filename\030\002 \001(" +
-      "\t\022\022\n\nlineNumber\030\003 \001(\005\022\017\n\007message\030\004 \001(\t\"2" +
-      "\n\tErrorType\022\017\n\013PARSE_ERROR\020\000\022\024\n\020VALIDATI" +
-      "ON_ERROR\020\001\"W\n\016ProtoStepValue\022\021\n\tstepValu" +
-      "e\030\001 \001(\t\022\036\n\026parameterizedStepValue\030\002 \001(\t\022" +
-      "\022\n\nparameters\030\003 \003(\t*G\n\017ExecutionStatus\022\017" +
-      "\n\013NOTEXECUTED\020\000\022\n\n\006PASSED\020\001\022\n\n\006FAILED\020\002\022" +
-      "\013\n\007SKIPPED\020\003BT\n\016gauge.messagesZ1github.c" +
-      "om/getgauge/gauge-proto/go/gauge_message" +
-      "s\252\002\016Gauge.Messagesb\006proto3"
+      "File\030\013 \001(\t\022\027\n\017screenshotFiles\030\014 \003(\t\022\024\n\014s" +
+      "kipScenario\030\r \001(\010\",\n\tErrorType\022\r\n\tASSERT" +
+      "ION\020\000\022\020\n\014VERIFICATION\020\001\"\251\001\n\020ProtoHookFai" +
+      "lure\022\022\n\nstackTrace\030\001 \001(\t\022\024\n\014errorMessage" +
+      "\030\002 \001(\t\022\026\n\nscreenShot\030\003 \001(\014B\002\030\001\022\025\n\rtableR" +
+      "owIndex\030\004 \001(\005\022\035\n\021failureScreenshot\030\005 \001(\014" +
+      "B\002\030\001\022\035\n\025failureScreenshotFile\030\006 \001(\t\"\213\005\n\020" +
+      "ProtoSuiteResult\0224\n\013specResults\030\001 \003(\0132\037." +
+      "gauge.messages.ProtoSpecResult\0228\n\016preHoo" +
+      "kFailure\030\002 \001(\0132 .gauge.messages.ProtoHoo" +
+      "kFailure\0229\n\017postHookFailure\030\003 \001(\0132 .gaug" +
+      "e.messages.ProtoHookFailure\022\016\n\006failed\030\004 " +
+      "\001(\010\022\030\n\020specsFailedCount\030\005 \001(\005\022\025\n\rexecuti" +
+      "onTime\030\006 \001(\003\022\023\n\013successRate\030\007 \001(\002\022\023\n\013env" +
+      "ironment\030\010 \001(\t\022\014\n\004tags\030\t \001(\t\022\023\n\013projectN" +
+      "ame\030\n \001(\t\022\021\n\ttimestamp\030\013 \001(\t\022\031\n\021specsSki" +
+      "ppedCount\030\014 \001(\005\022\027\n\017preHookMessages\030\r \003(\t" +
+      "\022\030\n\020postHookMessages\030\016 \003(\t\022\032\n\016preHookMes" +
+      "sage\030\017 \003(\tB\002\030\001\022\033\n\017postHookMessage\030\020 \003(\tB" +
+      "\002\030\001\022\036\n\022preHookScreenshots\030\021 \003(\014B\002\030\001\022\037\n\023p" +
+      "ostHookScreenshots\030\022 \003(\014B\002\030\001\022\017\n\007chunked\030" +
+      "\023 \001(\010\022\021\n\tchunkSize\030\024 \001(\003\022\036\n\026preHookScree" +
+      "nshotFiles\030\025 \003(\t\022\037\n\027postHookScreenshotFi" +
+      "les\030\026 \003(\t\"\276\002\n\017ProtoSpecResult\022,\n\tprotoSp" +
+      "ec\030\001 \001(\0132\031.gauge.messages.ProtoSpec\022\025\n\rs" +
+      "cenarioCount\030\002 \001(\005\022\033\n\023scenarioFailedCoun" +
+      "t\030\003 \001(\005\022\016\n\006failed\030\004 \001(\010\022\033\n\023failedDataTab" +
+      "leRows\030\005 \003(\005\022\025\n\rexecutionTime\030\006 \001(\003\022\017\n\007s" +
+      "kipped\030\007 \001(\010\022\034\n\024scenarioSkippedCount\030\010 \001" +
+      "(\005\022\034\n\024skippedDataTableRows\030\t \003(\005\022%\n\006erro" +
+      "rs\030\n \003(\0132\025.gauge.messages.Error\022\021\n\ttimes" +
+      "tamp\030\013 \001(\t\"m\n\023ProtoScenarioResult\022,\n\tpro" +
+      "toItem\030\001 \001(\0132\031.gauge.messages.ProtoItem\022" +
+      "\025\n\rexecutionTime\030\002 \001(\003\022\021\n\ttimestamp\030\003 \001(" +
+      "\t\"i\n\017ProtoStepResult\022,\n\tprotoItem\030\001 \001(\0132" +
+      "\031.gauge.messages.ProtoItem\022\025\n\rexecutionT" +
+      "ime\030\002 \001(\003\022\021\n\ttimestamp\030\003 \001(\t\"\241\001\n\005Error\022-" +
+      "\n\004type\030\001 \001(\0162\037.gauge.messages.Error.Erro" +
+      "rType\022\020\n\010filename\030\002 \001(\t\022\022\n\nlineNumber\030\003 " +
+      "\001(\005\022\017\n\007message\030\004 \001(\t\"2\n\tErrorType\022\017\n\013PAR" +
+      "SE_ERROR\020\000\022\024\n\020VALIDATION_ERROR\020\001\"W\n\016Prot" +
+      "oStepValue\022\021\n\tstepValue\030\001 \001(\t\022\036\n\026paramet" +
+      "erizedStepValue\030\002 \001(\t\022\022\n\nparameters\030\003 \003(" +
+      "\t*G\n\017ExecutionStatus\022\017\n\013NOTEXECUTED\020\000\022\n\n" +
+      "\006PASSED\020\001\022\n\n\006FAILED\020\002\022\013\n\007SKIPPED\020\003BT\n\016ga" +
+      "uge.messagesZ1github.com/getgauge/gauge-" +
+      "proto/go/gauge_messages\252\002\016Gauge.Messages" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -43061,7 +43155,7 @@ public final class Spec {
     internal_static_gauge_messages_ProtoExecutionResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_gauge_messages_ProtoExecutionResult_descriptor,
-        new java.lang.String[] { "Failed", "RecoverableError", "ErrorMessage", "StackTrace", "ScreenShot", "ExecutionTime", "Message", "ErrorType", "FailureScreenshot", "Screenshots", "FailureScreenshotFile", "ScreenshotFiles", });
+        new java.lang.String[] { "Failed", "RecoverableError", "ErrorMessage", "StackTrace", "ScreenShot", "ExecutionTime", "Message", "ErrorType", "FailureScreenshot", "Screenshots", "FailureScreenshotFile", "ScreenshotFiles", "SkipScenario", });
     internal_static_gauge_messages_ProtoHookFailure_descriptor =
       getDescriptor().getMessageTypes().get(15);
     internal_static_gauge_messages_ProtoHookFailure_fieldAccessorTable = new
