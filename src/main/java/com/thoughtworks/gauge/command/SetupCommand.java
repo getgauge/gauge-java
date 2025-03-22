@@ -5,7 +5,8 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.command;
 
-import com.thoughtworks.gauge.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,6 +15,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class SetupCommand implements GaugeJavaCommand {
+
+    private static final Logger LOGGER = LogManager.getLogger(SetupCommand.class);
 
     @Override
     public void execute() throws IOException {
@@ -104,7 +107,7 @@ public class SetupCommand implements GaugeJavaCommand {
     }
 
     private void writeContent(Path templateFilePath, String content) throws IOException {
-        Logger.info(String.format("create %s", templateFilePath.toString()));
+        LOGGER.info("create {}", templateFilePath.toString());
         Files.writeString(templateFilePath, content, StandardOpenOption.APPEND);
     }
 

@@ -13,11 +13,16 @@ import gauge.messages.Messages.Message.MessageType;
 import gauge.messages.RunnerGrpc.RunnerImplBase;
 import io.grpc.Server;
 import io.grpc.stub.StreamObserver;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class RunnerServiceHandler extends RunnerImplBase {
+    private static final Logger LOGGER = LogManager.getLogger(RunnerServiceHandler.class);
+    private static final String ERROR_LOG_FORMAT = "Failed to process {}.\nReason: {}";
+
     private final MessageProcessorFactory messageProcessorFactory;
     private final boolean multithreading;
     private Server server;
@@ -46,7 +51,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.SuiteDataStoreInit, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.SuiteDataStoreInit, e.toString());
             responseObserver.onError(e);
         }
 
@@ -64,7 +69,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.ExecutionStarting, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.ExecutionStarting, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -81,7 +86,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.SpecDataStoreInit, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.SpecDataStoreInit, e.toString());
             responseObserver.onError(e);
         }
 
@@ -99,7 +104,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.SpecExecutionStarting, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.SpecExecutionStarting, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -116,7 +121,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.ScenarioDataStoreInit, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.ScenarioDataStoreInit, e.toString());
             responseObserver.onError(e);
         }
 
@@ -134,7 +139,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.ScenarioExecutionStarting, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.ScenarioExecutionStarting, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -151,7 +156,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.StepExecutionEnding, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.StepExecutionEnding, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -168,7 +173,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.ExecuteStep, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.ExecuteStep, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -185,7 +190,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.StepExecutionEnding, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.StepExecutionEnding, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -202,7 +207,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.ScenarioExecutionEnding, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.ScenarioExecutionEnding, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -219,7 +224,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.SpecExecutionEnding, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.SpecExecutionEnding, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -236,7 +241,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.ExecutionEnding, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.ExecutionEnding, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -254,7 +259,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.StepNameRequest, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.StepNameRequest, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -271,7 +276,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.CacheFileRequest, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.CacheFileRequest, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -288,7 +293,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.StepPositionsRequest, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.StepPositionsRequest, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -302,7 +307,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.ImplementationFileListRequest, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.ImplementationFileListRequest, e.toString());
             responseObserver.onError(e);
         }
 
@@ -320,7 +325,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.StubImplementationCodeRequest, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.StubImplementationCodeRequest, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -337,7 +342,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.StepValidateRequest, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.StepValidateRequest, e.toString());
             responseObserver.onError(e);
         }
 
@@ -355,7 +360,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.RefactorRequest, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.RefactorRequest, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -372,7 +377,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.StepNameRequest, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.StepNameRequest, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -386,7 +391,7 @@ public class RunnerServiceHandler extends RunnerImplBase {
                 responseObserver.onCompleted();
             });
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.ImplementationFileGlobPatternRequest, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.ImplementationFileGlobPatternRequest, e.toString());
             responseObserver.onError(e);
         }
     }
@@ -394,15 +399,15 @@ public class RunnerServiceHandler extends RunnerImplBase {
     @Override
     public void kill(Messages.KillProcessRequest request, StreamObserver<Messages.Empty> responseObserver) {
         try {
-            Logger.debug("Killing Java runner...");
+            LOGGER.debug("Killing Java runner...");
             responseObserver.onNext(Messages.Empty.newBuilder().build());
             responseObserver.onCompleted();
-            Logger.debug("Stopping execution pool...");
+            LOGGER.debug("Stopping execution pool...");
             pool.stopAfterCompletion();
-            Logger.debug("Shutting down grpc server...");
+            LOGGER.debug("Shutting down grpc server...");
             server.shutdownNow();
         } catch (Throwable e) {
-            Logger.error(String.format("Failed to process %s.\nReason: %s", MessageType.KillProcessRequest, e.toString()));
+            LOGGER.error(ERROR_LOG_FORMAT, MessageType.KillProcessRequest, e.toString());
             responseObserver.onError(e);
         }
     }

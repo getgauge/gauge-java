@@ -14,9 +14,11 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.google.protobuf.ProtocolStringList;
 import com.thoughtworks.gauge.FileHelper;
-import com.thoughtworks.gauge.Logger;
+import com.thoughtworks.gauge.GaugeExceptionLogger;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.FileReader;
@@ -26,6 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.processor.IMessageProcessor {
+
+    private static final Logger LOGGER = LogManager.getLogger(StubImplementationCodeProcessor.class);
     private static final String NEW_LINE = "\n";
     private static final List<MethodDeclaration> METHOD_DECLARATIONS = new ArrayList<>();
     private static Range classRange;
@@ -62,7 +66,7 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
             }
             return implementInNewClass(stubs, file);
         } catch (IOException e) {
-            Logger.error("Unable to implement method", e);
+            GaugeExceptionLogger.error(LOGGER, "Unable to implement method", e);
         }
         return null;
     }
@@ -121,7 +125,7 @@ public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.p
             return Messages.FileDiff.newBuilder().setFilePath(file.toString()).addTextDiffs(textDiff).build();
 
         } catch (IOException e) {
-            Logger.error("Unable to implement method", e);
+            GaugeExceptionLogger.error(LOGGER, "Unable to implement method", e);
         }
         return null;
     }

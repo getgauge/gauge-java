@@ -7,6 +7,8 @@ package com.thoughtworks.gauge.registry;
 
 import com.thoughtworks.gauge.*;
 import com.thoughtworks.gauge.hook.Hook;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -17,6 +19,9 @@ import java.util.stream.Collectors;
 import static java.util.stream.Collectors.toList;
 
 public class HooksRegistry {
+
+    private static final Logger LOGGER = LogManager.getLogger(HooksRegistry.class);
+
     // Names of methods defined in each Hook annotation. Do not rename these methods in any Hook Class.
     private static final String TAGS_METHOD = "tags";
     private static final String TAG_AGGREGATION_METHOD = "tagAggregation";
@@ -130,7 +135,7 @@ public class HooksRegistry {
                 Operator tagsAggregation = (Operator) annotation.getClass().getMethod(TAG_AGGREGATION_METHOD).invoke(annotation);
                 REGISTRY_MAP.get(hookClass).add(new Hook(method, tags, tagsAggregation));
             } catch (Exception e) {
-                Logger.warning("Unable to add hooks", e);
+                GaugeExceptionLogger.warning(LOGGER, "Unable to add hooks", e);
             }
         }
     }
