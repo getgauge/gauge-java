@@ -5,10 +5,7 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.processor;
 
-import com.thoughtworks.gauge.ClassInstanceManager;
-import com.thoughtworks.gauge.Logger;
-import com.thoughtworks.gauge.MessageCollector;
-import com.thoughtworks.gauge.ScreenshotCollector;
+import com.thoughtworks.gauge.*;
 import com.thoughtworks.gauge.execution.ExecutionPipeline;
 import com.thoughtworks.gauge.execution.HookExecutionStage;
 import com.thoughtworks.gauge.execution.StepExecutionStage;
@@ -17,10 +14,14 @@ import com.thoughtworks.gauge.registry.HooksRegistry;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Method;
 
 public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implements IMessageProcessor {
+
+    private static final Logger LOGGER = LogManager.getLogger(ExecuteStepProcessor.class);
 
     private final ParameterParsingChain chain;
     private final StepRegistry registry;
@@ -35,9 +36,9 @@ public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implem
         String stepText = message.getExecuteStepRequest().getParsedStepText();
         Method method = registry.get(stepText).getMethodInfo();
         if (method == null) {
-            Logger.fatal("No step definition found. Try compiling the source before execution.");
+            GaugeExceptionLogger.fatal(LOGGER, "No step definition found. Try compiling the source before execution.");
         }
-        Logger.debug("Executing '" + stepText + "' using '" + method.getDeclaringClass() + "." + method.getName());
+        LOGGER.debug("Executing '{}' using '{}.{}", stepText, method.getDeclaringClass(), method.getName());
         ExecutionPipeline pipeline = new ExecutionPipeline(new HookExecutionStage(HooksRegistry.getBeforeClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));
         pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest(), getInstanceManager(), chain, registry),
                 new HookExecutionStage(HooksRegistry.getAfterClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));

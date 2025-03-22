@@ -15,8 +15,9 @@ import com.thoughtworks.gauge.BeforeScenario;
 import com.thoughtworks.gauge.BeforeSpec;
 import com.thoughtworks.gauge.BeforeStep;
 import com.thoughtworks.gauge.BeforeSuite;
-import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.registry.HooksRegistry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.reflections.Reflections;
 
 /**
@@ -24,8 +25,10 @@ import org.reflections.Reflections;
  */
 public class HooksScanner implements IScanner {
 
+    private static final Logger LOGGER = LogManager.getLogger(HooksScanner.class);
+
     public void scan(Reflections reflections) {
-        Logger.debug("Scanning packages for hooks");
+        LOGGER.debug("Scanning packages for hooks");
         buildHooksRegistry(reflections);
     }
 

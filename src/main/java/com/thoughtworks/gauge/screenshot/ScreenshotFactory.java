@@ -7,7 +7,8 @@ package com.thoughtworks.gauge.screenshot;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.GaugeConstant;
-import com.thoughtworks.gauge.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.imageio.ImageIO;
 import java.awt.GraphicsDevice;
@@ -25,6 +26,8 @@ import java.util.UUID;
  * Used to take screenshots on failure.
  */
 public class ScreenshotFactory {
+
+    private static final Logger LOGGER = LogManager.getLogger(ScreenshotFactory.class);
 
     public static final String IMAGE_EXTENSION = "png";
     private static Class<? extends CustomScreenshot> customScreenshotGrabber;
@@ -57,8 +60,8 @@ public class ScreenshotFactory {
                     return file.getName();
                 }
             } catch (Exception e) {
-                Logger.error(String.format("Failed to take Custom screenshot: %s : %s", customScreenshotGrabber.getCanonicalName(), e.getMessage()));
-                Logger.warning("Capturing regular screenshot..");
+                LOGGER.error("Failed to take Custom screenshot: {} : {}", customScreenshotGrabber.getCanonicalName(), e.getMessage());
+                LOGGER.warn("Capturing regular screenshot..");
             }
         }
         return captureScreen();
@@ -81,7 +84,7 @@ public class ScreenshotFactory {
             BufferedImage image = new Robot().createScreenCapture(screenRect);
             ImageIO.write(image, IMAGE_EXTENSION, file);
         } catch (Throwable e) {
-            Logger.error("Failed to take regular screenshot: " + e.getMessage());
+            LOGGER.error("Failed to take regular screenshot: {}", e.getMessage());
         }
         return file.getName();
     }

@@ -5,10 +5,7 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.connection;
 
-import com.thoughtworks.gauge.ClassInstanceManager;
-import com.thoughtworks.gauge.Gauge;
-import com.thoughtworks.gauge.GaugeConstant;
-import com.thoughtworks.gauge.Logger;
+import com.thoughtworks.gauge.*;
 import com.thoughtworks.gauge.datastore.DataStoreInitializer;
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.processor.*;
@@ -17,6 +14,8 @@ import com.thoughtworks.gauge.registry.StepRegistry;
 import com.thoughtworks.gauge.scan.*;
 import com.thoughtworks.gauge.screenshot.CustomScreenshotScanner;
 import gauge.messages.Messages;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
@@ -27,6 +26,8 @@ import java.util.concurrent.Executors;
  * valid response.
  */
 public class MessageProcessorFactory {
+
+    private static final Logger LOGGER = LogManager.getLogger(MessageProcessorFactory.class);
 
     private final ThreadLocal<HashMap<Messages.Message.MessageType, IMessageProcessor>> messageProcessors;
     private final StepRegistry stepRegistry;
@@ -39,17 +40,17 @@ public class MessageProcessorFactory {
         stepRegistry = staticScanner.getRegistry();
         scanLatch = new CountDownLatch(1);
         Executors.newSingleThreadExecutor().submit(() -> {
-            Logger.debug("Using reflection to scan dependencies for gauge implementations...");
+            LOGGER.debug("Using reflection to scan dependencies for gauge implementations...");
             if (String.valueOf(System.getenv(GaugeConstant.PACKAGE_TO_SCAN)).isEmpty()) {
-                Logger.warning("'" + GaugeConstant.PACKAGE_TO_SCAN + "' is not set. "
+                LOGGER.warn("'" + GaugeConstant.PACKAGE_TO_SCAN + "' is not set. "
                         + "This may impact the start up time of gauge-java, and possibly cause a timeout error. "
                         + "Consider setting '" + GaugeConstant.PACKAGE_TO_SCAN + "' property to the packages that contain Gauge implementations.");
             }
             ClasspathScanner classpathScanner = new ClasspathScanner();
             classpathScanner.scan(new StepsScanner(stepRegistry), new HooksScanner(), new CustomScreenshotScanner(), new CustomClassInitializerScanner());
-            Logger.debug("Scanned steps (using static parsing + reflections): ");
+            LOGGER.debug("Scanned steps (using static parsing + reflections): ");
             for (String stepText : stepRegistry.keys()) {
-                Logger.debug("\t" + stepText + " : " + stepRegistry.get(stepText).getName());
+                LOGGER.debug("\t{} : {}", stepText, stepRegistry.get(stepText).getName());
             }
             scanLatch.countDown();
         });
@@ -60,7 +61,7 @@ public class MessageProcessorFactory {
         try {
             scanLatch.await();
         } catch (InterruptedException e) {
-            Logger.error("Reflection scan could not be completed in a separate thread.", e);
+            GaugeExceptionLogger.error(LOGGER, "Reflection scan could not be completed in a separate thread.", e);
         }
         if (!messageProcessors.get().containsKey(Messages.Message.MessageType.SuiteDataStoreInit)) {
             initializeExecutionMessageProcessors();
@@ -68,7 +69,7 @@ public class MessageProcessorFactory {
         if (messageProcessors.get().containsKey(request)) {
             return messageProcessors.get().get(request);
         }
-        Logger.warning("MessageProcessor not found for: " + request);
+        LOGGER.warn("MessageProcessor not found for: {}", request);
         return new DefaultMessageProcessor();
     }
 

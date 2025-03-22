@@ -5,8 +5,13 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.scan;
 
-import com.thoughtworks.gauge.*;
+import com.thoughtworks.gauge.Step;
+import com.thoughtworks.gauge.StepRegistryEntry;
+import com.thoughtworks.gauge.StepValue;
+import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.reflections.Reflections;
 
 import java.lang.reflect.Method;
@@ -17,6 +22,8 @@ import java.util.Set;
  * Scans for step implementations.
  */
 public class StepsScanner implements IScanner {
+
+    private static final Logger LOGGER = LogManager.getLogger(StepsScanner.class);
     private final StepRegistry registry;
 
     public StepsScanner(StepRegistry registry) {
@@ -24,7 +31,7 @@ public class StepsScanner implements IScanner {
     }
 
     public void scan(Reflections reflections) {
-        Logger.debug("Scanning packages for steps");
+        LOGGER.debug("Scanning packages for steps");
         Set<Method> stepImplementations = reflections.getMethodsAnnotatedWith(Step.class);
         buildStepRegistry(stepImplementations);
     }
@@ -40,7 +47,7 @@ public class StepsScanner implements IScanner {
                     if (registry.contains(stepText)) {
                         StepRegistryEntry entry = registry.getForCurrentProject(stepText, method);
                         if (entry != null) {
-                            Logger.debug("Found " + stepText + " in current project scope.");
+                            LOGGER.trace("Found step '{}' in current project scope.", parameterizedStep);
                             entry.setMethodInfo(method);
                         } else {
                             addExternalStepEntryToRegistry(stepsUtil, method, parameterizedStep, stepText);
@@ -54,7 +61,7 @@ public class StepsScanner implements IScanner {
     }
 
     private void addExternalStepEntryToRegistry(StepsUtil stepsUtil, Method method, String parameterizedStep, String stepText) {
-        Logger.debug("Loading " + stepText + "via reflected sources.");
+        LOGGER.trace("Loading step '{}' via reflected sources.", parameterizedStep);
         List<String> parameters = stepsUtil.getParameters(parameterizedStep);
         StepValue stepValue = new StepValue(stepText, parameterizedStep, parameters);
         registry.addStepImplementation(stepValue, method, true);

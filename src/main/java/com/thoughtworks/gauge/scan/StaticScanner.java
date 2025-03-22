@@ -9,8 +9,10 @@ import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseResult;
 import com.github.javaparser.ast.CompilationUnit;
 import com.thoughtworks.gauge.FileHelper;
-import com.thoughtworks.gauge.Logger;
+import com.thoughtworks.gauge.GaugeExceptionLogger;
 import com.thoughtworks.gauge.registry.StepRegistry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -26,6 +28,7 @@ import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
 
 public class StaticScanner {
 
+    private static final Logger LOGGER = LogManager.getLogger(StaticScanner.class);
     private final StepRegistry stepRegistry;
 
     public StaticScanner() {
@@ -83,7 +86,7 @@ public class StaticScanner {
             byte[] contents = Files.readAllBytes(Paths.get(path));
             return new String(contents, encoding);
         } catch (IOException e) {
-            Logger.error("Unable to read file", e);
+            GaugeExceptionLogger.error(LOGGER, "Unable to read file", e);
         }
         return null;
     }

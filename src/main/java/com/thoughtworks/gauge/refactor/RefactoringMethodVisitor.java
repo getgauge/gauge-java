@@ -14,11 +14,13 @@ import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.expr.*;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import com.thoughtworks.gauge.Logger;
+import com.thoughtworks.gauge.GaugeExceptionLogger;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.Util;
 import gauge.messages.Messages;
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -28,6 +30,8 @@ import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class RefactoringMethodVisitor extends VoidVisitorAdapter {
+
+    private static final Logger LOGGER = LogManager.getLogger(RefactoringMethodVisitor.class);
     private final StepValue oldStepValue;
     private final StepValue newStepValue;
     private final List<Messages.ParameterPosition> paramPositions;
@@ -78,7 +82,7 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
                 }
             }
         } catch (Exception e) {
-            Logger.error("Exception while refactoring", e);
+            GaugeExceptionLogger.error(LOGGER, "Exception while refactoring", e);
         }
     }
 

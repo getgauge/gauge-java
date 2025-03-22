@@ -5,12 +5,13 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.command;
 
-import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.RunnerServiceHandler;
 import com.thoughtworks.gauge.connection.MessageProcessorFactory;
 import com.thoughtworks.gauge.scan.StaticScanner;
 import io.grpc.Server;
 import io.grpc.netty.shaded.io.grpc.netty.NettyServerBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.net.InetSocketAddress;
 
@@ -18,20 +19,22 @@ import static com.thoughtworks.gauge.GaugeConstant.*;
 
 public class StartCommand implements GaugeJavaCommand {
 
+    private static final Logger LOGGER = LogManager.getLogger(StartCommand.class);
+
     @Override
     public void execute() throws Exception {
         boolean multithreading = Boolean.parseBoolean(System.getenv(ENABLE_MULTITHREADING_ENV));
-        Logger.debug("multithreading is set to " + multithreading);
+        LOGGER.debug("multithreading is set to {}", multithreading);
         int numberOfStreams = 1;
 
         if (multithreading) {
             String streamsCount = System.getenv(STREAMS_COUNT_ENV);
             try {
                 numberOfStreams = Integer.parseInt(streamsCount);
-                Logger.debug("multithreading enabled, number of threads=" + numberOfStreams);
+                LOGGER.debug("multithreading enabled, number of threads={}", numberOfStreams);
             } catch (NumberFormatException e) {
-                Logger.debug("multithreading enabled, but could not read " + STREAMS_COUNT_ENV + " as int. Got " + STREAMS_COUNT_ENV + "=" + streamsCount);
-                Logger.debug("using numberOfStreams=1, err: " + e.getMessage());
+                LOGGER.debug("multithreading enabled, but could not read " + STREAMS_COUNT_ENV + " as int. Got " + STREAMS_COUNT_ENV + "={}", streamsCount);
+                LOGGER.debug("using numberOfStreams=1, err: {}", e.getMessage());
             }
         }
 
@@ -48,15 +51,15 @@ public class StartCommand implements GaugeJavaCommand {
             .build();
         runnerServiceHandler.addServer(server);
         long elapsed = System.currentTimeMillis() - start;
-        Logger.debug("gauge-java took " + elapsed + "milliseconds to load and scan. This should be less than 'runner_connection_timeout' config value.");
-        Logger.debug("run 'gauge config runner_connection_timeout' and verify that it is < " + elapsed);
-        Logger.debug("starting gRPC server...");
+        LOGGER.debug("gauge-java took {} milliseconds to load and scan. This should be less than 'runner_connection_timeout' config value.", elapsed);
+        LOGGER.debug("run 'gauge config runner_connection_timeout' and verify that it is < {}", elapsed);
+        LOGGER.debug("starting gRPC server...");
         server.start();
         int port = server.getPort();
-        Logger.debug("started gRPC server on port " + port);
-        Logger.info("Listening on port:" + port);
+        LOGGER.debug("started gRPC server on port {}", port);
+        LOGGER.info("Listening on port:{}", port);
         server.awaitTermination();
-        Logger.debug("Runner killed gracefully.");
+        LOGGER.debug("Runner killed gracefully.");
         System.exit(0);
     }
 }

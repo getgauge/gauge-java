@@ -5,6 +5,9 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -22,6 +25,9 @@ import static com.thoughtworks.gauge.GaugeConstant.GAUGE_PROJECT_ROOT;
 import static com.thoughtworks.gauge.GaugeConstant.DEFAULT_SRC_DIRS;
 
 public class FileHelper {
+
+    private static final Logger LOGGER = LogManager.getLogger(FileHelper.class);
+
     private static final String CUSTOM_COMPILE_DIR_SEPARATOR = ",";
     private static final String JAVA_FILE_EXT = ".java";
 
@@ -35,7 +41,7 @@ public class FileHelper {
                     }
                 });
             } catch (IOException e) {
-                Logger.error("", e);
+                GaugeExceptionLogger.error(LOGGER, "", e);
             }
         });
         return outputFiles;

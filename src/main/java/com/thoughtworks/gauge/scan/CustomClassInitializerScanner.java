@@ -7,13 +7,17 @@ package com.thoughtworks.gauge.scan;
 
 import com.thoughtworks.gauge.ClassInitializer;
 import com.thoughtworks.gauge.DefaultClassInitializer;
-import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.registry.ClassInitializerRegistry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.reflections.Reflections;
 
 import java.util.Set;
 
 public class CustomClassInitializerScanner implements IScanner {
+
+    private static final Logger LOGGER = LogManager.getLogger(CustomClassInitializerScanner.class);
+
     @Override
     public void scan(Reflections reflections) {
         scanForInitializer(reflections);
@@ -26,16 +30,16 @@ public class CustomClassInitializerScanner implements IScanner {
             Class<? extends ClassInitializer> initializer = initializers.iterator().next();
             try {
                 ClassInitializerRegistry.classInitializer(initializer.newInstance());
-                Logger.debug(String.format("Using %s as class initializer", initializer.getName()));
+                LOGGER.debug("Using {} as class initializer", initializer.getName());
             } catch (InstantiationException e) {
-                Logger.error(String.format("Could not instantiate %s, continuing using default class initializer", initializer.getName()));
+                LOGGER.error("Could not instantiate {}, continuing using default class initializer", initializer.getName());
             } catch (IllegalAccessException e) {
-                Logger.error(String.format("Could not access %s constructor, continuing using default class initializer", initializer.getName()));
+                LOGGER.error("Could not access {} constructor, continuing using default class initializer", initializer.getName());
             }
         }
 
         if (initializers.size() > 1) {
-            Logger.warning("Multiple class initializers found, switching to default.");
+            LOGGER.warn("Multiple class initializers found, switching to default.");
         }
     }
 }

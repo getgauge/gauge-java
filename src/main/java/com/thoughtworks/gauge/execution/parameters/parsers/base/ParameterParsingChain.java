@@ -6,7 +6,7 @@
 package com.thoughtworks.gauge.execution.parameters.parsers.base;
 
 import com.thoughtworks.gauge.ClasspathHelper;
-import com.thoughtworks.gauge.Logger;
+import com.thoughtworks.gauge.GaugeExceptionLogger;
 import com.thoughtworks.gauge.execution.parameters.ParsingException;
 import com.thoughtworks.gauge.execution.parameters.parsers.converters.TableConverter;
 import com.thoughtworks.gauge.execution.parameters.parsers.types.EnumParameterParser;
@@ -14,6 +14,8 @@ import com.thoughtworks.gauge.execution.parameters.parsers.types.PrimitiveParame
 import com.thoughtworks.gauge.execution.parameters.parsers.types.PrimitivesConverter;
 import com.thoughtworks.gauge.execution.parameters.parsers.types.TableParameterParser;
 import gauge.messages.Spec.Parameter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.reflections.Configuration;
 import org.reflections.Reflections;
 import org.reflections.scanners.Scanners;
@@ -27,6 +29,7 @@ import java.util.Objects;
 
 public class ParameterParsingChain implements ParameterParser {
 
+    private static final Logger LOGGER = LogManager.getLogger(ParameterParsingChain.class);
     private final List<ParameterParser> chain = new LinkedList<>();
 
     public ParameterParsingChain() {
@@ -51,10 +54,10 @@ public class ParameterParsingChain implements ParameterParser {
     ParameterParser asCustomParameterParser(Class<? extends ParameterParser> clazz) {
         try {
             ParameterParser instance = clazz.newInstance();
-            Logger.debug(String.format("Adding %s as custom parameter parser", clazz.getName()));
+            LOGGER.debug("Adding {} as custom parameter parser", clazz.getName());
             return instance;
         } catch (InstantiationException | IllegalAccessException e) {
-            Logger.error(String.format("Cannot add %s as custom parameter parser", clazz.getName()), e);
+            GaugeExceptionLogger.error(LOGGER, String.format("Cannot add %s as custom parameter parser", clazz.getName()), e);
             return null;
         }
     }

@@ -5,8 +5,9 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.screenshot;
 
-import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.scan.IScanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.reflections.Reflections;
 
 import java.util.Set;
@@ -15,12 +16,15 @@ import java.util.Set;
  * Scans for a custom screenshot grabber.
  */
 public class CustomScreenshotScanner implements IScanner {
+
+    private static final Logger LOGGER = LogManager.getLogger(CustomScreenshotScanner.class);
+
     public void scan(Reflections reflections) {
         Set<Class<? extends ICustomScreenshotGrabber>> customScreenshotGrabbers = reflections.getSubTypesOf(ICustomScreenshotGrabber.class);
 
         if (customScreenshotGrabbers.size() > 0) {
             Class<? extends ICustomScreenshotGrabber> customScreenGrabber = customScreenshotGrabbers.iterator().next();
-            Logger.debug(String.format("Using %s as custom screenshot grabber", customScreenGrabber.getName()));
+            LOGGER.debug("Using {} as custom screenshot grabber", customScreenGrabber.getName());
             ScreenshotFactory.setCustomScreenshotGrabber(customScreenGrabber);
         }
 
@@ -28,7 +32,7 @@ public class CustomScreenshotScanner implements IScanner {
 
         if (customScreenshotWriters.size() > 0) {
             Class<? extends CustomScreenshotWriter> customScreenWriter = customScreenshotWriters.iterator().next();
-            Logger.debug(String.format("Using %s as custom screenshot grabber", customScreenWriter.getName()));
+            LOGGER.debug("Using {} as custom screenshot grabber", customScreenWriter.getName());
             ScreenshotFactory.setCustomScreenshotGrabber(customScreenWriter);
         }
     }
