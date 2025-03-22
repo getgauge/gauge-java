@@ -5,11 +5,12 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.registry;
 
-import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.StepRegistryEntry;
 import com.thoughtworks.gauge.StepValue;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -25,6 +26,7 @@ import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toList;
 
 public class StepRegistry {
+    private static final Logger LOGGER = LogManager.getLogger(StepRegistry.class);
     private ConcurrentHashMap<String, CopyOnWriteArrayList<StepRegistryEntry>> registry;
 
     public StepRegistry() {
@@ -43,7 +45,7 @@ public class StepRegistry {
 
     public List<String> keys() {
         return Collections.list(this.registry.keys());
-    };
+    }
 
     public boolean contains(String stepTemplateText) {
         return registry.containsKey(stepTemplateText);
@@ -57,8 +59,7 @@ public class StepRegistry {
         return registry.get(stepTemplateText).stream()
                 .filter(e -> {
                     String reflectedMethodName = method.getDeclaringClass().getName() + "." + method.getName();
-                    Logger.debug("Comparing '" + e.getFullyQualifiedName() + "' and '"
-                            + reflectedMethodName + "'");
+                    LOGGER.trace("Comparing '{}' and '{}'", e.getFullyQualifiedName(), reflectedMethodName);
                     return !e.getIsExternal() && e.getFullyQualifiedName().equals(reflectedMethodName);
                 })
                 .findFirst().orElse(null);
