@@ -5,8 +5,8 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.execution.parameters;
 
+import com.google.common.base.Strings;
 import gauge.messages.Spec;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -21,7 +21,7 @@ public final class DynamicParametersReplacer {
     }
 
     public static String replacePlaceholders(String stepText, List<Spec.Parameter> parameters) {
-        if (StringUtils.isEmpty(stepText) || parameters == null || parameters.isEmpty()) {
+        if (Strings.isNullOrEmpty(stepText) || parameters == null || parameters.isEmpty()) {
             return stepText;
         }
 

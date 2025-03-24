@@ -5,7 +5,7 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.assertj.core.util.Throwables;
 import org.json.JSONObject;
 
 public class Logger {
@@ -18,7 +18,7 @@ public class Logger {
     }
 
     public static void error(String message, Throwable t) {
-        error(String.format("%s\n%s\n%s", message, t.getMessage(), ExceptionUtils.getStackTrace(t)));
+        error(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
     }
 
     public static void warning(String message) {
@@ -26,7 +26,7 @@ public class Logger {
     }
 
     public static void warning(String message, Throwable t) {
-        warning(String.format("%s\n%s\n%s", message, t.getMessage(), ExceptionUtils.getStackTrace(t)));
+        warning(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
     }
 
     public static void debug(String message) {
@@ -39,7 +39,7 @@ public class Logger {
     }
 
     public static void fatal(String message, Throwable t) {
-        fatal(String.format("%s\n%s\n%s", message, t.getMessage(), ExceptionUtils.getStackTrace(t)));
+        fatal(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
 
     }
 

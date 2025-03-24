@@ -9,7 +9,6 @@ import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -117,7 +116,7 @@ public class Table {
         if (maxStringLength >= 0) {
             return formatAsMarkdownTable(maxStringLength);
         }
-        return StringUtils.EMPTY;
+        return "";
     }
 
     private String formatAsMarkdownTable(int maxStringLength) {
@@ -129,7 +128,7 @@ public class Table {
     }
 
     private void addDashes(int maxStringLength, List<String> formattedHeaderAndRows) {
-        String dashesString = Joiner.on(StringUtils.EMPTY).join(Collections.nCopies(maxStringLength, DASH));
+        String dashesString = Joiner.on("").join(Collections.nCopies(maxStringLength, DASH));
         List<String> dashes = Collections.nCopies(headers.size(), dashesString);
         String formattedDashes = formattedRow(dashes, maxStringLength);
         formattedHeaderAndRows.add(formattedDashes);
