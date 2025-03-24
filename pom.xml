@@ -4,7 +4,7 @@
     <name>gauge-java</name>
     <groupId>com.thoughtworks.gauge</groupId>
     <artifactId>gauge-java</artifactId>
-    <version>0.11.2</version>
+    <version>0.11.3</version>
     <description>Java plugin for Gauge</description>
     <url>https://github.com/getgauge/gauge-java</url>
     <dependencyManagement>
@@ -47,11 +47,6 @@
             <groupId>com.github.javaparser</groupId>
             <artifactId>javaparser-core</artifactId>
             <version>3.26.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.17.0</version>
         </dependency>
         <dependency>
             <groupId>org.json</groupId>

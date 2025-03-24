@@ -14,11 +14,11 @@ import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.expr.*;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
+import com.github.javaparser.utils.StringEscapeUtils;
 import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.Util;
 import gauge.messages.Messages;
-import org.apache.commons.lang3.StringEscapeUtils;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;

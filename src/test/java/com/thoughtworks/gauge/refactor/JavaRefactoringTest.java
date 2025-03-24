@@ -224,10 +224,10 @@ public class JavaRefactoringTest {
         JavaRefactoringElement element = refactoring.createJavaRefactoringElement(implFile);
 
         assertEquals(getImplFile(implFile).getName(), element.getFile().getName());
-        assertTrue(element.getText().contains("    @Step(\"\\u2020 \\u2021 \\u00B5 \\u00A2 step with <\\u00DB>\")" + System.lineSeparator() +
+        assertThat(element.getText()).contains("    @Step(\"† ‡ µ ¢ step with <Û>\")" + System.lineSeparator() +
                 "    public void stepWith(String a) {" + System.lineSeparator() +
-                "    }"));
-        assertFalse(element.getText().contains("† ‡ µ ¢ step with <Û> and <į>"));
+                "    }");
+        assertThat(element.getText()).doesNotContain("† ‡ µ ¢ step with <Û> and <į>");
     }
 
     @Test
