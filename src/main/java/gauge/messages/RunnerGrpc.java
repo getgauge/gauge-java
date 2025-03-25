@@ -771,6 +771,21 @@ public final class RunnerGrpc {
   }
 
   /**
+   * Creates a new blocking-style stub that supports all types of calls on the service
+   */
+  public static RunnerBlockingV2Stub newBlockingV2Stub(
+      io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<RunnerBlockingV2Stub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<RunnerBlockingV2Stub>() {
+        @java.lang.Override
+        public RunnerBlockingV2Stub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new RunnerBlockingV2Stub(channel, callOptions);
+        }
+      };
+    return RunnerBlockingV2Stub.newStub(factory, channel);
+  }
+
+  /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
   public static RunnerBlockingStub newBlockingStub(
@@ -1387,6 +1402,287 @@ public final class RunnerGrpc {
 
   /**
    * A stub to allow clients to do synchronous rpc calls to service Runner.
+   */
+  public static final class RunnerBlockingV2Stub
+      extends io.grpc.stub.AbstractBlockingStub<RunnerBlockingV2Stub> {
+    private RunnerBlockingV2Stub(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+      super(channel, callOptions);
+    }
+
+    @java.lang.Override
+    protected RunnerBlockingV2Stub build(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+      return new RunnerBlockingV2Stub(channel, callOptions);
+    }
+
+    /**
+     * <pre>
+     * ValidateStep is a RPC to validate a given step.
+     * Accepts a StepValidateRequest message and returns a StepValidateResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.StepValidateResponse validateStep(gauge.messages.Messages.StepValidateRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getValidateStepMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * SuiteDataStoreInit is a RPC to initialize the suite level data store.
+     * Accepts a Empty message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse initializeSuiteDataStore(gauge.messages.Messages.SuiteDataStoreInitRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getInitializeSuiteDataStoreMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * ExecutionStarting is a RPC to tell runner to execute Suite level hooks.
+     * Accepts a ExecutionStartingRequest message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse startExecution(gauge.messages.Messages.ExecutionStartingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getStartExecutionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * SpecDataStoreInit is a RPC to initialize the spec level data store.
+     * Accepts a Empty message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse initializeSpecDataStore(gauge.messages.Messages.SpecDataStoreInitRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getInitializeSpecDataStoreMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * SpecExecutionStarting is a RPC to tell runner to execute spec level hooks.
+     * Accepts a SpecExecutionStartingRequest message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse startSpecExecution(gauge.messages.Messages.SpecExecutionStartingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getStartSpecExecutionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * ScenarioDataStoreInit is a RPC to initialize the scenario level data store.
+     * Accepts a Empty message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse initializeScenarioDataStore(gauge.messages.Messages.ScenarioDataStoreInitRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getInitializeScenarioDataStoreMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * ScenarioExecutionStarting is a RPC to tell runner to execute scenario level hooks.
+     * Accepts a ScenarioExecutionStartingRequest message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse startScenarioExecution(gauge.messages.Messages.ScenarioExecutionStartingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getStartScenarioExecutionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * StepExecutionStarting is a RPC to tell runner to execute step level hooks.
+     * Accepts a StepExecutionStartingRequest message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse startStepExecution(gauge.messages.Messages.StepExecutionStartingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getStartStepExecutionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * ExecuteStep is a RPC to tell runner to execute a step .
+     * Accepts a ExecuteStepRequest message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse executeStep(gauge.messages.Messages.ExecuteStepRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getExecuteStepMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * StepExecutionEnding is a RPC to tell runner to execute step level hooks.
+     * Accepts a StepExecutionEndingRequest message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse finishStepExecution(gauge.messages.Messages.StepExecutionEndingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getFinishStepExecutionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * ScenarioExecutionEnding is a RPC to tell runner to execute Scenario level hooks.
+     * Accepts a ScenarioExecutionEndingRequest message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse finishScenarioExecution(gauge.messages.Messages.ScenarioExecutionEndingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getFinishScenarioExecutionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * SpecExecutionEnding is a RPC to tell runner to execute spec level hooks.
+     * Accepts a SpecExecutionEndingRequest message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse finishSpecExecution(gauge.messages.Messages.SpecExecutionEndingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getFinishSpecExecutionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * ExecutionEnding is a RPC to tell runner to execute suite level hooks.
+     * Accepts a ExecutionEndingRequest message and returns a ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse finishExecution(gauge.messages.Messages.ExecutionEndingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getFinishExecutionMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * CacheFile is a RPC to tell runner to load/reload/unload a implementation file.
+     * Accepts a CacheFileRequest message and returns a Empty message
+     * </pre>
+     */
+    public gauge.messages.Messages.Empty cacheFile(gauge.messages.Messages.CacheFileRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getCacheFileMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * GetStepName is a RPC to get information about the given step.
+     * Accepts a StepNameRequest message and returns a StepNameResponse message.
+     * </pre>
+     */
+    public gauge.messages.Messages.StepNameResponse getStepName(gauge.messages.Messages.StepNameRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetStepNameMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * GetGlobPatterns is a RPC to get the file path pattern which needs to be cached.
+     * Accepts a Empty message and returns a ImplementationFileGlobPatternResponse message.
+     * </pre>
+     */
+    public gauge.messages.Messages.ImplementationFileGlobPatternResponse getGlobPatterns(gauge.messages.Messages.Empty request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetGlobPatternsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * GetStepNames is a RPC to get all the available steps from the runner.
+     * Accepts a StepNamesRequest message and returns a StepNamesResponse
+     * </pre>
+     */
+    public gauge.messages.Messages.StepNamesResponse getStepNames(gauge.messages.Messages.StepNamesRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetStepNamesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * GetStepPositions is a RPC to get positions of all available steps in a given file.
+     * Accepts a StepPositionsRequest message and returns a StepPositionsResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.StepPositionsResponse getStepPositions(gauge.messages.Messages.StepPositionsRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetStepPositionsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * GetImplementationFiles is a RPC get all the existing implementation files.
+     * Accepts a Empty and returns a ImplementationFileListResponse message.
+     * </pre>
+     */
+    public gauge.messages.Messages.ImplementationFileListResponse getImplementationFiles(gauge.messages.Messages.Empty request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getGetImplementationFilesMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * ImplementStub is a RPC to to ask runner to add a given implementation to given file.
+     * Accepts a StubImplementationCodeRequest and returns a FileDiff message.
+     * </pre>
+     */
+    public gauge.messages.Messages.FileDiff implementStub(gauge.messages.Messages.StubImplementationCodeRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getImplementStubMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Refactor is a RPC to refactor a given step in implementation file.
+     * Accepts a RefactorRequest message and returns a RefactorResponse message.
+     * </pre>
+     */
+    public gauge.messages.Messages.RefactorResponse refactor(gauge.messages.Messages.RefactorRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getRefactorMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * Kill is a RPC tell plugin to stop grpc server and kill the plugin process.
+     * Accepts a KillProcessRequest message and returns a Empty message.
+     * </pre>
+     */
+    public gauge.messages.Messages.Empty kill(gauge.messages.Messages.KillProcessRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getKillMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * NotifyConceptExecutionStarting is a RPC to tell plugins that the concept execution has started.
+     * Accepts a ConceptExecutionStartingRequest message and returns an ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse notifyConceptExecutionStarting(gauge.messages.Messages.ConceptExecutionStartingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getNotifyConceptExecutionStartingMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * NotifyConceptExecutionEnding is a RPC to tell plugins that the concept execution has finished.
+     * Accepts a ConceptExecutionEndingRequest message and returns an ExecutionStatusResponse message
+     * </pre>
+     */
+    public gauge.messages.Messages.ExecutionStatusResponse notifyConceptExecutionEnding(gauge.messages.Messages.ConceptExecutionEndingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getNotifyConceptExecutionEndingMethod(), getCallOptions(), request);
+    }
+  }
+
+  /**
+   * A stub to allow clients to do limited synchronous rpc calls to service Runner.
    */
   public static final class RunnerBlockingStub
       extends io.grpc.stub.AbstractBlockingStub<RunnerBlockingStub> {

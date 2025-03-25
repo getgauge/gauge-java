@@ -5,8 +5,6 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.io.File;
 
 public class Util {
@@ -41,7 +39,7 @@ public class Util {
     }
 
     public static String trimQuotes(String text) {
-        return StringUtils.stripEnd(StringUtils.stripStart(text, "\""), "\"");
+        return text == null ? null : text.replaceFirst("^\"", "").replaceFirst("\"$", "");
     }
 
     public static boolean shouldTakeFailureScreenshot() {

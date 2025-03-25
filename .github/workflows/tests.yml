@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        java_version: ['11', '17']
+        java_version: ['11', '17', '21']
       fail-fast: false
 
     steps:
@@ -35,12 +35,13 @@ jobs:
         run: mvn -q clean test
 
   functional_tests:
-    name: FTs - java 17 ${{ matrix.os }}
+    name: FTs - java ${{ matrix.java_version }} ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs: test
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
+        java_version: ['11', '17', '21']
       fail-fast: false
 
     steps:
@@ -56,7 +57,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: ${{ matrix.java_version }}
 
       - name: Set up Maven
         uses: stCarolas/setup-maven@v5
@@ -98,12 +99,13 @@ jobs:
           path: gauge-tests/testLogs
 
   lsp-tests:
-    name: LSP tests - java 17 ${{ matrix.os }}
+    name: LSP tests - java ${{ matrix.java_version }} ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs: test
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
+        java_version: ['11', '17', '21']
       fail-fast: false
 
     steps:
@@ -119,7 +121,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: ${{ matrix.java_version }}
 
       - name: Set up Maven
         uses: stCarolas/setup-maven@v5

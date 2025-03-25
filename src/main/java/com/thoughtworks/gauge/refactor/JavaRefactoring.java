@@ -9,11 +9,11 @@ import com.github.javaparser.Position;
 import com.github.javaparser.Range;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.Parameter;
+import com.google.common.base.Joiner;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -73,7 +73,7 @@ public class JavaRefactoring {
     }
 
     private String updatedParameters(List<Parameter> parameters) {
-        return new StringBuilder(StringUtils.join(parameters, ", ")).toString();
+        return Joiner.on(", ").join(parameters);
     }
 
     private Range getParamsRange() {

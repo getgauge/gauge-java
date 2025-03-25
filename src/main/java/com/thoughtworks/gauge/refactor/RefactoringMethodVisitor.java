@@ -15,10 +15,10 @@ import com.github.javaparser.ast.expr.*;
 import com.github.javaparser.ast.type.ClassOrInterfaceType;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.thoughtworks.gauge.GaugeExceptionLogger;
+import com.github.javaparser.utils.StringEscapeUtils;
 import com.thoughtworks.gauge.StepValue;
 import com.thoughtworks.gauge.Util;
 import gauge.messages.Messages;
-import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

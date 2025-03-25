@@ -5,9 +5,9 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
+import org.assertj.core.util.Throwables;
 
 /**
  * @deprecated Use a log4j2 {@link org.apache.logging.log4j.Logger} to log any required messages.
@@ -39,7 +39,7 @@ public class Logger {
      */
     @Deprecated
     public static void error(String message, Throwable t) {
-        error(String.format("%s\n%s\n%s", message, t.getMessage(), ExceptionUtils.getStackTrace(t)));
+        error(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
     }
 
     /**
@@ -55,7 +55,7 @@ public class Logger {
      */
     @Deprecated
     public static void warning(String message, Throwable t) {
-        warning(String.format("%s\n%s\n%s", message, t.getMessage(), ExceptionUtils.getStackTrace(t)));
+        warning(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
     }
 
     /**
@@ -80,7 +80,7 @@ public class Logger {
      */
     @Deprecated
     public static void fatal(String message, Throwable t) {
-        fatal(String.format("%s\n%s\n%s", message, t.getMessage(), ExceptionUtils.getStackTrace(t)));
+        fatal(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
 
     }
 
