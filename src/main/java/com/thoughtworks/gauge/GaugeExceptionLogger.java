@@ -5,9 +5,9 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
+import org.assertj.core.util.Throwables;
 
 import java.util.Optional;
 
@@ -75,7 +75,7 @@ public class GaugeExceptionLogger {
         // Don't want any null pointer exceptions
         if (throwable != null) {
             addMessageIfNotNull(logMessageBuilder, "Throwable Message: ", throwable.getMessage());
-            addMessageIfNotNull(logMessageBuilder, "Stacktrace: ", ExceptionUtils.getStackTrace(throwable));
+            addMessageIfNotNull(logMessageBuilder, "Stacktrace: ", Throwables.getStackTrace(throwable));
         }
 
         logger.log(level, logMessageBuilder.toString().strip());
