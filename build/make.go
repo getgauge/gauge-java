@@ -237,7 +237,7 @@ func main() {
 }
 
 func runMavenTests() {
-	runCommand("mvn", "test")
+	runCommand("./mvnw", "test")
 }
 
 func compileGaugeJava() {
@@ -300,9 +300,9 @@ func buildGaugeJavaJar() {
 	os.RemoveAll(targetDir)
 	os.RemoveAll(libsDir)
 	if *profile != "" {
-		runCommand("mvn", "-q", "package", "-P", *profile)
+		runCommand("./mvnw", "-q", "package", "-P", *profile)
 	} else {
-		runCommand("mvn", "-q", "package")
+		runCommand("./mvnw", "-q", "package")
 	}
 }
 
