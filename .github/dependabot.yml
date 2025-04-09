@@ -3,12 +3,26 @@ updates:
   - package-ecosystem: gomod
     directory: "/"
     schedule:
-      interval: weekly
+      interval: monthly
+    allow:
+      - dependency-type: all
+    groups:
+      go:
+        patterns:
+          - "*"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: weekly
+      interval: monthly
+    groups:
+      github-actions:
+        patterns:
+          - "*"
   - package-ecosystem: maven
     directory: "/"
     schedule:
-      interval: weekly
+      interval: monthly
+    groups:
+      maven-dependencies:
+        patterns:
+          - "*"
