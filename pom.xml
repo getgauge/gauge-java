@@ -4,7 +4,7 @@
     <name>gauge-java</name>
     <groupId>com.thoughtworks.gauge</groupId>
     <artifactId>gauge-java</artifactId>
-    <version>0.11.3</version>
+    <version>0.11.4</version>
     <description>Java plugin for Gauge</description>
     <url>https://github.com/getgauge/gauge-java</url>
     <dependencyManagement>
@@ -39,9 +39,20 @@
             <version>3.27.3</version>
         </dependency>
         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.16</version>
+        </dependency>
+        <dependency>
             <groupId>org.reflections</groupId>
             <artifactId>reflections</artifactId>
             <version>0.10.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.github.javaparser</groupId>
