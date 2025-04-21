@@ -39,6 +39,7 @@
             <version>3.27.3</version>
         </dependency>
         <dependency>
+            <!-- The reflections library pulls in version 1.7.36. This overrides it to be 2.0.16 to allow downstream applications to use log4j2-->
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>2.0.16</version>
