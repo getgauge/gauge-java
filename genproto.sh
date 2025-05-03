@@ -14,7 +14,7 @@ for filename in gauge-proto/*.proto; do
   cp "$newName" "$filename"
   rm "$newName"
 done
-mvn protobuf:compile-custom protobuf:compile
+./mvnw protobuf:compile-custom protobuf:compile
 
 
 cp  target/generated-sources/protobuf/java/gauge/messages/Messages.java src/main/java/gauge/messages
