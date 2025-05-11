@@ -1,6 +1,6 @@
 {
   "id": "java",
-  "version": "0.11.3",
+  "version": "0.11.4",
   "description": "Java support for gauge",
   "install": {
     "windows": [],
