@@ -33,7 +33,7 @@ jobs:
           gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys $gpgkey
           rm -rf $HOME/.m2
           mkdir -p $HOME/.m2
-          echo -e "<settings>\n<servers>\n<server>\n<id>ossrh</id>\n<username>$username</username>\n<password>$password</password>\n</server>\n</servers>\n</settings>" > $HOME/.m2/settings.xml
+          echo -e "<settings>\n<servers>\n<server>\n<id>central</id>\n<username>$username</username>\n<password>$password</password>\n</server>\n</servers>\n</settings>" > $HOME/.m2/settings.xml
 
       - name: Setup git
         run: |
