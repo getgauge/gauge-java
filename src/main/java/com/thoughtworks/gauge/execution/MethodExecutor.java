@@ -7,6 +7,7 @@ package com.thoughtworks.gauge.execution;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ContinueOnFailure;
+import com.thoughtworks.gauge.SkipScenarioException;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.screenshot.ScreenshotFactory;
 import gauge.messages.Spec;
@@ -31,6 +32,17 @@ public class MethodExecutor {
             long endTime = System.currentTimeMillis();
             return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(endTime - startTime).build();
         } catch (Throwable e) {
+
+            Throwable actualException = (e.getCause() != null) ? e.getCause() : e;
+
+            if (actualException instanceof SkipScenarioException) {
+                long endTime = System.currentTimeMillis();
+                return Spec.ProtoExecutionResult.newBuilder()
+                        .setSkipScenario(true)
+                        .addMessage("SKIPPED: " + actualException.getMessage())
+                        .setExecutionTime(endTime - startTime)
+                        .build();
+            }
             boolean recoverable = method.isAnnotationPresent(ContinueOnFailure.class);
             Class[] continuableExceptions = new Class[]{};
             if (recoverable) {
