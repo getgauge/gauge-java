@@ -20,10 +20,12 @@ public abstract class AbstractExecutionStage implements ExecutionStage {
     protected Spec.ProtoExecutionResult mergeExecResults(Spec.ProtoExecutionResult previousStageResult, Spec.ProtoExecutionResult execResult) {
         long execTime = execResult.getExecutionTime() + previousStageResult.getExecutionTime();
         boolean failed = execResult.getFailed() | previousStageResult.getFailed();
+        boolean skipped = execResult.getSkipScenario() | previousStageResult.getSkipScenario() ;
 
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder();
         builder.setExecutionTime(execTime);
         builder.setFailed(failed);
+        builder.setSkipScenario(skipped);
         if (previousStageResult.getFailed()) {
             builder.setErrorMessage(previousStageResult.getErrorMessage());
             builder.setErrorType(previousStageResult.getErrorType());
