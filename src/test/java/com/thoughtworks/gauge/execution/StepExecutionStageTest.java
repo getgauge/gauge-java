@@ -19,6 +19,7 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
@@ -181,6 +182,30 @@ public class StepExecutionStageTest {
         assertEquals("java.lang.RuntimeException: my exception", result.getErrorMessage());
     }
 
+    @Test
+    public void testStepMethodExecutionWithSkipScenarioException() throws Exception {
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder()
+                .setParsedStepText("skip me")
+                .setActualStepText("skip me")
+                .build();
+
+        StepExecutionStage executionStage = new StepExecutionStage(
+                executeStepRequest,
+                new ClassInstanceManager(),
+                new ParameterParsingChain(),
+                mock(StepRegistry.class)
+        );
+
+        MethodExecutor methodExecutor = new MethodExecutor(new ClassInstanceManager());
+        Method skipMethod = this.getClass().getMethod("skipScenarioStep");
+
+        Spec.ProtoExecutionResult result = executionStage.executeStepMethod(methodExecutor, skipMethod);
+
+        assertFalse(result.getFailed());
+        assertTrue(result.getSkipScenario());
+        assertThat(result.getMessageList()).containsExactly("skipping this scenario due to unmet condition");
+    }
+
     @ContinueOnFailure
     public void foo() {
         throw new RuntimeException("my exception");
@@ -221,5 +246,9 @@ public class StepExecutionStageTest {
     public Object table(Object table) {
         // Test methods checking methodExecutor with params
         return null;
+    }
+
+    public void skipScenarioStep() {
+        throw new com.thoughtworks.gauge.SkipScenarioException("skipping this scenario due to unmet condition");
     }
 }

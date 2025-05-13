@@ -7,6 +7,7 @@ package com.thoughtworks.gauge.execution;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ContinueOnFailure;
+import com.thoughtworks.gauge.SkipScenarioException;
 import com.thoughtworks.gauge.Util;
 import com.thoughtworks.gauge.screenshot.ScreenshotFactory;
 import gauge.messages.Spec;
@@ -14,7 +15,7 @@ import gauge.messages.Spec;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
-import java.util.Set;
+import java.util.Optional;
 
 public class MethodExecutor {
     private final ClassInstanceManager instanceManager;
@@ -31,17 +32,29 @@ public class MethodExecutor {
             long endTime = System.currentTimeMillis();
             return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(endTime - startTime).build();
         } catch (Throwable e) {
-            boolean recoverable = method.isAnnotationPresent(ContinueOnFailure.class);
-            Class[] continuableExceptions = new Class[]{};
-            if (recoverable) {
-                continuableExceptions = method.getAnnotation(ContinueOnFailure.class).value();
+            long execTime = System.currentTimeMillis() - startTime;
+
+            if (e.getCause() instanceof SkipScenarioException) {
+                return createSkippedExecResult(execTime, (SkipScenarioException) e.getCause());
             }
-            long endTime = System.currentTimeMillis();
-            return createFailureExecResult(endTime - startTime, e, recoverable, continuableExceptions);
+
+            Class<?>[] continuableExceptions = Optional.ofNullable(method.getAnnotation(ContinueOnFailure.class))
+                    .map(ContinueOnFailure::value).
+                    orElseGet(() -> new Class<?>[]{});
+
+            return createFailureExecResult(execTime, e, method.isAnnotationPresent(ContinueOnFailure.class), continuableExceptions);
         }
     }
 
-    private Spec.ProtoExecutionResult createFailureExecResult(long execTime, Throwable e, boolean recoverable, Class[] continuableExceptions) {
+    private Spec.ProtoExecutionResult createSkippedExecResult(long execTime, SkipScenarioException cause) {
+        return Spec.ProtoExecutionResult.newBuilder()
+                .setSkipScenario(true)
+                .addMessage(Optional.ofNullable(cause.getMessage()).orElse("SKIPPED"))
+                .setExecutionTime(execTime)
+                .build();
+    }
+
+    private Spec.ProtoExecutionResult createFailureExecResult(long execTime, Throwable e, boolean recoverable, Class<?>[] continuableExceptions) {
         Spec.ProtoExecutionResult.Builder builder = Spec.ProtoExecutionResult.newBuilder().setFailed(true);
         if (Util.shouldTakeFailureScreenshot()) {
             String screenshotFileName = new ScreenshotFactory(instanceManager).getScreenshotBytes();
@@ -49,7 +62,7 @@ public class MethodExecutor {
         }
         if (e.getCause() != null) {
             builder.setRecoverableError(false);
-            for (Class c : continuableExceptions) {
+            for (Class<?> c : continuableExceptions) {
                 if (c.isAssignableFrom(e.getCause().getClass()) && recoverable) {
                     builder.setRecoverableError(true);
                     break;
@@ -73,17 +86,5 @@ public class MethodExecutor {
         StringWriter out = new StringWriter();
         t.printStackTrace(new PrintWriter(out));
         return out.toString();
-    }
-
-    public Spec.ProtoExecutionResult executeMethods(Set<Method> methods, Object... args) {
-        long totalExecutionTime = 0;
-        for (Method method : methods) {
-            Spec.ProtoExecutionResult result = execute(method, args);
-            totalExecutionTime += result.getExecutionTime();
-            if (result.getFailed()) {
-                return result;
-            }
-        }
-        return Spec.ProtoExecutionResult.newBuilder().setFailed(false).setExecutionTime(totalExecutionTime).build();
     }
 }
