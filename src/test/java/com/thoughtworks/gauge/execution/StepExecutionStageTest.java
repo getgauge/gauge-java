@@ -19,6 +19,7 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.isA;
@@ -202,8 +203,7 @@ public class StepExecutionStageTest {
 
         assertFalse(result.getFailed());
         assertTrue(result.getSkipScenario());
-        assertTrue(result.getMessageList().get(0).startsWith("SKIPPED:"));
-        assertTrue(result.getMessageList().get(0).contains("skipping this scenario"));
+        assertThat(result.getMessageList()).containsExactly("skipping this scenario due to unmet condition");
     }
 
     @ContinueOnFailure
