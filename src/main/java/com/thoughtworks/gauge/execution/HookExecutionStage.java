@@ -28,6 +28,9 @@ public class HookExecutionStage extends AbstractExecutionStage {
     }
 
     public Spec.ProtoExecutionResult execute(Spec.ProtoExecutionResult result) {
+        if (result.getFailed() || result.getSkipScenario()) {
+            return executeNext(result);
+        }
         Spec.ProtoExecutionResult execResult = execute();
         Spec.ProtoExecutionResult stageResult = mergeExecResults(result, execResult);
         return executeNext(stageResult);
