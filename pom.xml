@@ -19,7 +19,7 @@
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>5.13.2</version>
+                <version>5.13.4</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -195,7 +195,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>3.2.7</version>
+                <version>3.2.8</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -317,7 +317,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <protobuf.version>4.31.1</protobuf.version>
-        <grpc.version>1.73.0</grpc.version>
+        <grpc.version>1.74.0</grpc.version>
     </properties>
 
 </project>
