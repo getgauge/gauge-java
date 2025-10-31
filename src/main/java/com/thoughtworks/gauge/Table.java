@@ -181,9 +181,9 @@ public class Table {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((headers == null) ? 0 : headers.hashCode());
-        result = prime * result + ((rows == null) ? 0 : rows.hashCode());
-        result = prime * result + ((tableRows == null) ? 0 : tableRows.hashCode());
+        result = prime * result + (headers == null ? 0 : headers.hashCode());
+        result = prime * result + (rows == null ? 0 : rows.hashCode());
+        result = prime * result + (tableRows == null ? 0 : tableRows.hashCode());
         return result;
     }
 

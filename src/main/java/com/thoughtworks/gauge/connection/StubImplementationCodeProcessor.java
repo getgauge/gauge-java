@@ -15,6 +15,7 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.google.protobuf.ProtocolStringList;
 import com.thoughtworks.gauge.FileHelper;
 import com.thoughtworks.gauge.Logger;
+import com.thoughtworks.gauge.processor.IMessageProcessor;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
 
@@ -25,7 +26,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StubImplementationCodeProcessor implements com.thoughtworks.gauge.processor.IMessageProcessor {
+public class StubImplementationCodeProcessor implements IMessageProcessor {
     private static final String NEW_LINE = "\n";
     private static final List<MethodDeclaration> METHOD_DECLARATIONS = new ArrayList<>();
     private static Range classRange;

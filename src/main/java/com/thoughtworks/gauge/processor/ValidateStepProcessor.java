@@ -49,23 +49,23 @@ public class ValidateStepProcessor implements IMessageProcessor {
 
     private String getMethodName(String stepText) {
         final StringBuilder methodName = new StringBuilder();
-        if (!stepText.equals("")) {
+        if (!"".equals(stepText)) {
             String[] methodNameArray = stepText.split("\\s+");
             List<String> list = new ArrayList<>(Arrays.asList(methodNameArray));
             list.removeAll(Collections.singletonList("{}"));
             int length = list.size();
             if (length == 0) {
-                methodName.append(String.format("implementation%s", (num++).toString()));
+                methodName.append(String.format("implementation%s", num++));
             } else {
                 for (int i = 0; i < length; i++) {
-                    String firstLetter = (i == 0) ? list.get(i).substring(0, 1).toLowerCase() : list.get(i).substring(0, 1).toUpperCase();
+                    String firstLetter = i == 0 ? list.get(i).substring(0, 1).toLowerCase() : list.get(i).substring(0, 1).toUpperCase();
                     methodName.append(firstLetter);
                     methodName.append(list.get(i).substring(1).toLowerCase());
                 }
             }
             return methodName.toString();
         }
-        return methodName.append(String.format("implementation%s", (num++).toString())).toString();
+        return methodName.append(String.format("implementation%s", num++)).toString();
     }
 
     private String getParamList(List<String> params) {

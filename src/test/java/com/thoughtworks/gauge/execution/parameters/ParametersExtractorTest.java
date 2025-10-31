@@ -51,7 +51,7 @@ public class ParametersExtractorTest {
     @Test
     @SuppressWarnings("unchecked")
     public void whenExtractAParameterThenTheParameterIsParsed() throws Exception {
-        parametersExtractor.extract(List.of(aParameter()), new Class<?>[] {ANY_TYPE});
+        parametersExtractor.extract(List.of(aParameter()), new Class<?>[]{ANY_TYPE});
 
         verify(parameterParser).parse(ANY_TYPE, aParameter());
     }
@@ -61,7 +61,7 @@ public class ParametersExtractorTest {
     public void whenExtractAParameterThenTheParsedParameterIsReturned() throws Exception {
         when(parameterParser.parse(ANY_TYPE, aParameter())).thenReturn(SPECIFIC_VALUE);
 
-        Object[] extract = parametersExtractor.extract(singletonList(aParameter()), new Class<?>[] {ANY_TYPE});
+        Object[] extract = parametersExtractor.extract(singletonList(aParameter()), new Class<?>[]{ANY_TYPE});
         assertThat(stream(extract).filter(v -> v == SPECIFIC_VALUE).count()).isEqualTo(Long.valueOf(extract.length));
     }
 
@@ -70,7 +70,7 @@ public class ParametersExtractorTest {
     public void whenExtractMultipleParametersThenTheParsedParametersAreReturned() throws Exception {
         when(parameterParser.parse(ANY_TYPE, aParameter())).thenReturn(SPECIFIC_VALUE, ANOTHER_SPECIFIC_VALUE);
 
-        Object[] extract = parametersExtractor.extract(asList(aParameter(), aParameter()), new Class<?>[] {ANY_TYPE, ANY_TYPE});
+        Object[] extract = parametersExtractor.extract(asList(aParameter(), aParameter()), new Class<?>[]{ANY_TYPE, ANY_TYPE});
         assertThat(stream(extract).filter(v -> v == SPECIFIC_VALUE || v == ANOTHER_SPECIFIC_VALUE).count()).isEqualTo(Long.valueOf(extract.length));
     }
 }

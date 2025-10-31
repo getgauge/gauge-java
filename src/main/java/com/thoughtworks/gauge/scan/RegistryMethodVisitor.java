@@ -6,6 +6,7 @@
 package com.thoughtworks.gauge.scan;
 
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.*;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
@@ -77,7 +78,7 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
     private String getClassName(MethodDeclaration methodDeclaration) {
         AtomicReference<String> className = new AtomicReference<>();
-        methodDeclaration.findAncestor(com.github.javaparser.ast.body.ClassOrInterfaceDeclaration.class)
+        methodDeclaration.findAncestor(ClassOrInterfaceDeclaration.class)
                 .ifPresent(c -> className.set(c.getNameAsString()));
         String classNameStr = className.get() == null ? null : className.get();
         if (classNameStr == null) {
@@ -95,8 +96,8 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
     }
 
     private String getParameterizedStep(Expression expression) {
-        if (expression instanceof BinaryExpr) {
-            return Util.trimQuotes(((BinaryExpr) expression).getLeft().toString()) + Util.trimQuotes(((BinaryExpr) expression).getRight().toString());
+        if (expression instanceof BinaryExpr expr) {
+            return Util.trimQuotes(expr.getLeft().toString()) + Util.trimQuotes(expr.getRight().toString());
         }
         return Util.trimQuotes(expression.toString());
     }

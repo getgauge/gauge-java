@@ -18,7 +18,6 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.UUID;
 
 /**
@@ -46,8 +45,8 @@ public class ScreenshotFactory {
         if (customScreenshotGrabber != null) {
             try {
                 CustomScreenshot customScreenInstance = (CustomScreenshot) manager.get(customScreenshotGrabber);
-                if (customScreenInstance instanceof CustomScreenshotWriter) {
-                     return ((CustomScreenshotWriter) customScreenInstance).takeScreenshot();
+                if (customScreenInstance instanceof CustomScreenshotWriter writer) {
+                     return writer.takeScreenshot();
                 } else {
                     byte[] bytes = ((ICustomScreenshotGrabber) customScreenInstance).takeScreenshot();
                     File file = generateUniqueScreenshotFile();
@@ -66,7 +65,7 @@ public class ScreenshotFactory {
 
     private File generateUniqueScreenshotFile() {
         String fileName = String.format("screenshot-%s.%s", UUID.randomUUID().toString(), IMAGE_EXTENSION);
-        Path path = Paths.get(System.getenv(GaugeConstant.SCREENSHOTS_DIR_ENV), fileName);
+        Path path = Path.of(System.getenv(GaugeConstant.SCREENSHOTS_DIR_ENV), fileName);
         return new File(path.toAbsolutePath().toString());
     }
 

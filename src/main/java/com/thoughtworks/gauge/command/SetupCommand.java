@@ -10,7 +10,6 @@ import com.thoughtworks.gauge.Logger;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class SetupCommand implements GaugeJavaCommand {
@@ -90,16 +89,16 @@ public class SetupCommand implements GaugeJavaCommand {
 
         String projectRoot = System.getenv("GAUGE_PROJECT_ROOT");
 
-        Path implFilePath = Paths.get(projectRoot, "src", "test", "java", "StepImplementation.java");
+        Path implFilePath = Path.of(projectRoot, "src", "test", "java", "StepImplementation.java");
         this.writeContent(implFilePath, implementation);
 
-        Path propFilePath = Paths.get(projectRoot, "env", "default", "java.properties");
+        Path propFilePath = Path.of(projectRoot, "env", "default", "java.properties");
         this.writeContent(propFilePath, properties);
 
-        Path gitIgnoreFilePath = Paths.get(projectRoot, ".gitignore");
+        Path gitIgnoreFilePath = Path.of(projectRoot, ".gitignore");
         this.writeContent(gitIgnoreFilePath, gitIgnore);
 
-        Path libsDirPath = Paths.get(projectRoot, "libs", ".gitkeep");
+        Path libsDirPath = Path.of(projectRoot, "libs", ".gitkeep");
         this.writeContent(libsDirPath, "");
     }
 

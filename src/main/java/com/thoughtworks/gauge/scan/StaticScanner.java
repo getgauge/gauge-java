@@ -17,7 +17,7 @@ import java.io.StringReader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -59,7 +59,7 @@ public class StaticScanner {
             return true;
         }
         List<String> packages = Arrays.stream(packagesToScan.split(",")).map(String::trim).collect(Collectors.toList());
-        return unit.getPackageDeclaration().map((p) -> packages.contains(p.getName().asString())).orElse(false);
+        return unit.getPackageDeclaration().map(p -> packages.contains(p.getName().asString())).orElse(false);
     }
 
     public void addStepsToRegistry() {
@@ -80,7 +80,7 @@ public class StaticScanner {
 
     public String readFile(String path, Charset encoding) {
         try {
-            byte[] contents = Files.readAllBytes(Paths.get(path));
+            byte[] contents = Files.readAllBytes(Path.of(path));
             return new String(contents, encoding);
         } catch (IOException e) {
             Logger.error("Unable to read file", e);

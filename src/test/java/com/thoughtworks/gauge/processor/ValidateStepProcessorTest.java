@@ -47,8 +47,14 @@ public class ValidateStepProcessorTest {
         Message outputMessage = stepProcessor.process(message);
 
         assertEquals(ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, outputMessage.getStepValidateResponse().getErrorType());
-        String suggestion = "\n\t@Step(\"step    with arbitrary text \")\n" + "\tpublic void stepWithArbitraryText(){\n\t\t" +
-                "throw new UnsupportedOperationException(\"Provide custom implementation\");\n\t}";
+        String suggestion = """
+                
+                	@Step("step    with arbitrary text ")
+                	public void stepWithArbitraryText(){
+                		\
+                throw new UnsupportedOperationException("Provide custom implementation");
+                	}\
+                """;
         assertEquals(suggestion, outputMessage.getStepValidateResponse().getSuggestion());
         assertFalse(outputMessage.getStepValidateResponse().getIsValid());
     }
@@ -69,8 +75,14 @@ public class ValidateStepProcessorTest {
         Message outputMessage = stepProcessor.process(message);
 
         assertEquals(ErrorType.STEP_IMPLEMENTATION_NOT_FOUND, outputMessage.getStepValidateResponse().getErrorType());
-        String suggestion = "\n\t@Step(\"<abc> <xyz>\")\n" + "\tpublic void implementation1(Object arg0, Object arg1){\n\t\t" +
-                "throw new UnsupportedOperationException(\"Provide custom implementation\");\n\t}";
+        String suggestion = """
+                
+                	@Step("<abc> <xyz>")
+                	public void implementation1(Object arg0, Object arg1){
+                		\
+                throw new UnsupportedOperationException("Provide custom implementation");
+                	}\
+                """;
         assertEquals(suggestion, outputMessage.getStepValidateResponse().getSuggestion());
         assertFalse(outputMessage.getStepValidateResponse().getIsValid());
     }
