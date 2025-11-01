@@ -92,7 +92,7 @@ jobs:
         run: |
           cat logs/gauge.log
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: failure()
         with:
           name: ft-logs-${{ matrix.os }}-${{ matrix.java_version }}
@@ -138,7 +138,7 @@ jobs:
           go run build/make.go --install
 
       - name: Use Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 22
       - name: Prep LSP tests
@@ -154,7 +154,7 @@ jobs:
         run: |
           cd gauge-lsp-tests
           gauge run --tags="!knownIssue & (actions_on_project_load | actions_on_file_edit)" --env=java-wd
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: failure()
         with:
           name: lsp-logs-${{ matrix.os }}-${{ matrix.java_version }}
@@ -179,7 +179,7 @@ jobs:
         shell: bash
 
       - name: Upload artifacts for ${{ matrix.os }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: gauge-java-artifacts
           path: deploy/*
