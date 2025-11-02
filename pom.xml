@@ -19,7 +19,7 @@
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>5.14.0</version>
+                <version>6.0.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -46,7 +46,7 @@
         <dependency>
             <groupId>com.github.javaparser</groupId>
             <artifactId>javaparser-core</artifactId>
-            <version>3.27.0</version>
+            <version>3.27.1</version>
         </dependency>
         <dependency>
             <groupId>org.json</groupId>
@@ -235,7 +235,7 @@
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
                         <artifactId>checkstyle</artifactId>
-                        <version>10.26.1</version>
+                        <version>12.1.1</version>
                     </dependency>
                 </dependencies>
                 <executions>
@@ -262,7 +262,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.9.0</version>
                 <executions>
                     <execution>
                         <id>copy-dependencies</id>
@@ -316,8 +316,8 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
-        <protobuf.version>4.32.1</protobuf.version>
-        <grpc.version>1.75.0</grpc.version>
+        <protobuf.version>4.33.0</protobuf.version>
+        <grpc.version>1.76.0</grpc.version>
     </properties>
 
 </project>
