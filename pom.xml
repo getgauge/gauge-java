@@ -350,8 +350,8 @@
         <developer>
             <name>Gauge Team</name>
             <email>getgauge@googlegroups.com</email>
-            <organization>ThoughtWorks</organization>
-            <organizationUrl>https://thoughtworks.com/</organizationUrl>
+            <organization>Gauge Team</organization>
+            <organizationUrl>https://gauge.org/</organizationUrl>
         </developer>
     </developers>
     <scm>
