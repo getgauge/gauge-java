@@ -1422,8 +1422,8 @@ public final class RunnerGrpc {
      * Accepts a StepValidateRequest message and returns a StepValidateResponse message
      * </pre>
      */
-    public gauge.messages.Messages.StepValidateResponse validateStep(gauge.messages.Messages.StepValidateRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.StepValidateResponse validateStep(gauge.messages.Messages.StepValidateRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getValidateStepMethod(), getCallOptions(), request);
     }
 
@@ -1433,8 +1433,8 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse initializeSuiteDataStore(gauge.messages.Messages.SuiteDataStoreInitRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse initializeSuiteDataStore(gauge.messages.Messages.SuiteDataStoreInitRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getInitializeSuiteDataStoreMethod(), getCallOptions(), request);
     }
 
@@ -1444,8 +1444,8 @@ public final class RunnerGrpc {
      * Accepts a ExecutionStartingRequest message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse startExecution(gauge.messages.Messages.ExecutionStartingRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse startExecution(gauge.messages.Messages.ExecutionStartingRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getStartExecutionMethod(), getCallOptions(), request);
     }
 
@@ -1455,8 +1455,8 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse initializeSpecDataStore(gauge.messages.Messages.SpecDataStoreInitRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse initializeSpecDataStore(gauge.messages.Messages.SpecDataStoreInitRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getInitializeSpecDataStoreMethod(), getCallOptions(), request);
     }
 
@@ -1466,8 +1466,8 @@ public final class RunnerGrpc {
      * Accepts a SpecExecutionStartingRequest message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse startSpecExecution(gauge.messages.Messages.SpecExecutionStartingRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse startSpecExecution(gauge.messages.Messages.SpecExecutionStartingRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getStartSpecExecutionMethod(), getCallOptions(), request);
     }
 
@@ -1477,8 +1477,8 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse initializeScenarioDataStore(gauge.messages.Messages.ScenarioDataStoreInitRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse initializeScenarioDataStore(gauge.messages.Messages.ScenarioDataStoreInitRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getInitializeScenarioDataStoreMethod(), getCallOptions(), request);
     }
 
@@ -1488,8 +1488,8 @@ public final class RunnerGrpc {
      * Accepts a ScenarioExecutionStartingRequest message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse startScenarioExecution(gauge.messages.Messages.ScenarioExecutionStartingRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse startScenarioExecution(gauge.messages.Messages.ScenarioExecutionStartingRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getStartScenarioExecutionMethod(), getCallOptions(), request);
     }
 
@@ -1499,8 +1499,8 @@ public final class RunnerGrpc {
      * Accepts a StepExecutionStartingRequest message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse startStepExecution(gauge.messages.Messages.StepExecutionStartingRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse startStepExecution(gauge.messages.Messages.StepExecutionStartingRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getStartStepExecutionMethod(), getCallOptions(), request);
     }
 
@@ -1510,8 +1510,8 @@ public final class RunnerGrpc {
      * Accepts a ExecuteStepRequest message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse executeStep(gauge.messages.Messages.ExecuteStepRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse executeStep(gauge.messages.Messages.ExecuteStepRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getExecuteStepMethod(), getCallOptions(), request);
     }
 
@@ -1521,8 +1521,8 @@ public final class RunnerGrpc {
      * Accepts a StepExecutionEndingRequest message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse finishStepExecution(gauge.messages.Messages.StepExecutionEndingRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse finishStepExecution(gauge.messages.Messages.StepExecutionEndingRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getFinishStepExecutionMethod(), getCallOptions(), request);
     }
 
@@ -1532,8 +1532,8 @@ public final class RunnerGrpc {
      * Accepts a ScenarioExecutionEndingRequest message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse finishScenarioExecution(gauge.messages.Messages.ScenarioExecutionEndingRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse finishScenarioExecution(gauge.messages.Messages.ScenarioExecutionEndingRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getFinishScenarioExecutionMethod(), getCallOptions(), request);
     }
 
@@ -1543,8 +1543,8 @@ public final class RunnerGrpc {
      * Accepts a SpecExecutionEndingRequest message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse finishSpecExecution(gauge.messages.Messages.SpecExecutionEndingRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse finishSpecExecution(gauge.messages.Messages.SpecExecutionEndingRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getFinishSpecExecutionMethod(), getCallOptions(), request);
     }
 
@@ -1554,8 +1554,8 @@ public final class RunnerGrpc {
      * Accepts a ExecutionEndingRequest message and returns a ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse finishExecution(gauge.messages.Messages.ExecutionEndingRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse finishExecution(gauge.messages.Messages.ExecutionEndingRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getFinishExecutionMethod(), getCallOptions(), request);
     }
 
@@ -1565,8 +1565,8 @@ public final class RunnerGrpc {
      * Accepts a CacheFileRequest message and returns a Empty message
      * </pre>
      */
-    public gauge.messages.Messages.Empty cacheFile(gauge.messages.Messages.CacheFileRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.Empty cacheFile(gauge.messages.Messages.CacheFileRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getCacheFileMethod(), getCallOptions(), request);
     }
 
@@ -1576,8 +1576,8 @@ public final class RunnerGrpc {
      * Accepts a StepNameRequest message and returns a StepNameResponse message.
      * </pre>
      */
-    public gauge.messages.Messages.StepNameResponse getStepName(gauge.messages.Messages.StepNameRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.StepNameResponse getStepName(gauge.messages.Messages.StepNameRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getGetStepNameMethod(), getCallOptions(), request);
     }
 
@@ -1587,8 +1587,8 @@ public final class RunnerGrpc {
      * Accepts a Empty message and returns a ImplementationFileGlobPatternResponse message.
      * </pre>
      */
-    public gauge.messages.Messages.ImplementationFileGlobPatternResponse getGlobPatterns(gauge.messages.Messages.Empty request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ImplementationFileGlobPatternResponse getGlobPatterns(gauge.messages.Messages.Empty request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getGetGlobPatternsMethod(), getCallOptions(), request);
     }
 
@@ -1598,8 +1598,8 @@ public final class RunnerGrpc {
      * Accepts a StepNamesRequest message and returns a StepNamesResponse
      * </pre>
      */
-    public gauge.messages.Messages.StepNamesResponse getStepNames(gauge.messages.Messages.StepNamesRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.StepNamesResponse getStepNames(gauge.messages.Messages.StepNamesRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getGetStepNamesMethod(), getCallOptions(), request);
     }
 
@@ -1609,8 +1609,8 @@ public final class RunnerGrpc {
      * Accepts a StepPositionsRequest message and returns a StepPositionsResponse message
      * </pre>
      */
-    public gauge.messages.Messages.StepPositionsResponse getStepPositions(gauge.messages.Messages.StepPositionsRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.StepPositionsResponse getStepPositions(gauge.messages.Messages.StepPositionsRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getGetStepPositionsMethod(), getCallOptions(), request);
     }
 
@@ -1620,8 +1620,8 @@ public final class RunnerGrpc {
      * Accepts a Empty and returns a ImplementationFileListResponse message.
      * </pre>
      */
-    public gauge.messages.Messages.ImplementationFileListResponse getImplementationFiles(gauge.messages.Messages.Empty request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ImplementationFileListResponse getImplementationFiles(gauge.messages.Messages.Empty request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getGetImplementationFilesMethod(), getCallOptions(), request);
     }
 
@@ -1631,8 +1631,8 @@ public final class RunnerGrpc {
      * Accepts a StubImplementationCodeRequest and returns a FileDiff message.
      * </pre>
      */
-    public gauge.messages.Messages.FileDiff implementStub(gauge.messages.Messages.StubImplementationCodeRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.FileDiff implementStub(gauge.messages.Messages.StubImplementationCodeRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getImplementStubMethod(), getCallOptions(), request);
     }
 
@@ -1642,8 +1642,8 @@ public final class RunnerGrpc {
      * Accepts a RefactorRequest message and returns a RefactorResponse message.
      * </pre>
      */
-    public gauge.messages.Messages.RefactorResponse refactor(gauge.messages.Messages.RefactorRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.RefactorResponse refactor(gauge.messages.Messages.RefactorRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getRefactorMethod(), getCallOptions(), request);
     }
 
@@ -1653,8 +1653,8 @@ public final class RunnerGrpc {
      * Accepts a KillProcessRequest message and returns a Empty message.
      * </pre>
      */
-    public gauge.messages.Messages.Empty kill(gauge.messages.Messages.KillProcessRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.Empty kill(gauge.messages.Messages.KillProcessRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getKillMethod(), getCallOptions(), request);
     }
 
@@ -1664,8 +1664,8 @@ public final class RunnerGrpc {
      * Accepts a ConceptExecutionStartingRequest message and returns an ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse notifyConceptExecutionStarting(gauge.messages.Messages.ConceptExecutionStartingRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse notifyConceptExecutionStarting(gauge.messages.Messages.ConceptExecutionStartingRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getNotifyConceptExecutionStartingMethod(), getCallOptions(), request);
     }
 
@@ -1675,8 +1675,8 @@ public final class RunnerGrpc {
      * Accepts a ConceptExecutionEndingRequest message and returns an ExecutionStatusResponse message
      * </pre>
      */
-    public gauge.messages.Messages.ExecutionStatusResponse notifyConceptExecutionEnding(gauge.messages.Messages.ConceptExecutionEndingRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+    public gauge.messages.Messages.ExecutionStatusResponse notifyConceptExecutionEnding(gauge.messages.Messages.ConceptExecutionEndingRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
           getChannel(), getNotifyConceptExecutionEndingMethod(), getCallOptions(), request);
     }
   }
