@@ -5,9 +5,16 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
+import com.google.common.base.Splitter;
+
 import java.io.File;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Util {
+    private static final Splitter SPACE_SPLITTER = Splitter.on(" ").trimResults().omitEmptyStrings();
+
     public static File workingDir() {
         String wd = System.getenv(GaugeConstant.GAUGE_PROJECT_ROOT);
         if (wd != null && !wd.isEmpty()) {
@@ -17,15 +24,13 @@ public class Util {
     }
 
     public static String convertToCamelCase(String s) {
-        String[] words = s.trim().split(" ");
-        String text = words[0].toLowerCase();
-        for (int i = 1, wordsLength = words.length; i < wordsLength; i++) {
-            String word = words[i].trim();
-            if (!word.isEmpty()) {
-                text += words[i].substring(0, 1).toUpperCase() + words[i].substring(1).toLowerCase();
-            }
-        }
-        return text;
+        List<String> words = SPACE_SPLITTER.splitToList(s);
+        return IntStream.range(0, words.size())
+                .mapToObj(i -> {
+                    String word = words.get(i);
+                    return i == 0 ? word.toLowerCase() : Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase();
+                })
+                .collect(Collectors.joining());
     }
 
     public static String getValidJavaIdentifier(String s) {
@@ -39,12 +44,20 @@ public class Util {
     }
 
     public static String trimQuotes(String text) {
-        return text == null ? null : text.replaceFirst("^\"", "").replaceFirst("\"$", "");
+        if (text == null || text.isBlank()) {
+            return text;
+        }
+        int start = text.charAt(0) == '"'  ? 1 : 0;
+        int end = text.length();
+        if (end > start && text.charAt(end - 1) == '"') {
+            end--;
+        }
+        return text.substring(start, end);
     }
 
     public static boolean shouldTakeFailureScreenshot() {
         String screenshotOnFailureEnabled = System.getenv(GaugeConstant.SCREENSHOT_ON_FAILURE_ENABLED);
-        return !(screenshotOnFailureEnabled == null || screenshotOnFailureEnabled.equalsIgnoreCase("false"));
+        return !(screenshotOnFailureEnabled == null || "false".equalsIgnoreCase(screenshotOnFailureEnabled));
     }
 
 }

@@ -115,12 +115,12 @@ public class HooksRegistry {
         return allClassHooks.stream().filter(hook -> hook.getMethod().getDeclaringClass().equals(aClass)).collect(Collectors.toSet());
     }
 
-    private static void addHooks(Set<Method> methods, Class hookClass) {
+    private static void addHooks(Set<Method> methods, Class<?> hookClass) {
         REGISTRY_MAP.putIfAbsent(hookClass, new HashSet<>());
-        REGISTRY_MAP.get(hookClass).addAll(methods.stream().map(Hook::new).collect(toList()));
+        REGISTRY_MAP.get(hookClass).addAll(methods.stream().map(Hook::new).toList());
     }
 
-    private static void addHooksWithTags(Set<Method> methods, Class hookClass) {
+    private static void addHooksWithTags(Set<Method> methods, Class<? extends Annotation> hookClass) {
         REGISTRY_MAP.putIfAbsent(hookClass, new HashSet<>());
         for (Method method : methods) {
             Annotation annotation = method.getAnnotation(hookClass);
@@ -143,7 +143,7 @@ public class HooksRegistry {
         return sortReverse(REGISTRY_MAP.get(AfterClassSteps.class));
     }
 
-    static void remove(Class hookType) {
+    static void remove(Class<?> hookType) {
         REGISTRY_MAP.remove(hookType);
     }
 }

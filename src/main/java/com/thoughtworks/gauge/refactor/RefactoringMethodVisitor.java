@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-public class RefactoringMethodVisitor extends VoidVisitorAdapter {
+public class RefactoringMethodVisitor extends VoidVisitorAdapter<Void> {
     private final StepValue oldStepValue;
     private final StepValue newStepValue;
     private final List<Messages.ParameterPosition> paramPositions;
@@ -43,19 +43,18 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
         this.paramPositions = paramPositions;
     }
 
-
-    public void visit(MethodDeclaration methodDeclaration, Object arg) {
+    @Override
+    public void visit(MethodDeclaration methodDeclaration, Void ignored) {
         try {
             List<AnnotationExpr> annotations = methodDeclaration.getAnnotations();
             if (annotations == null) {
                 return;
             }
             for (AnnotationExpr annotationExpr : annotations) {
-                if (!(annotationExpr instanceof SingleMemberAnnotationExpr)) {
+                if (!(annotationExpr instanceof SingleMemberAnnotationExpr annotation)) {
                     continue;
                 }
 
-                SingleMemberAnnotationExpr annotation = (SingleMemberAnnotationExpr) annotationExpr;
                 if (annotation.getMemberValue() instanceof BinaryExpr) {
                     ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
                     try {
@@ -65,12 +64,10 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
                         continue;
                     }
                 }
-                if (annotation.getMemberValue() instanceof StringLiteralExpr) {
-                    StringLiteralExpr memberValue = (StringLiteralExpr) annotation.getMemberValue();
+                if (annotation.getMemberValue() instanceof StringLiteralExpr memberValue) {
                     refactor(methodDeclaration, memberValue, annotation);
                 }
-                if (annotation.getMemberValue() instanceof ArrayInitializerExpr) {
-                    ArrayInitializerExpr memberValue = (ArrayInitializerExpr) annotation.getMemberValue();
+                if (annotation.getMemberValue() instanceof ArrayInitializerExpr memberValue) {
                     if (memberValue.getValues().size() == 1) {
                         StringLiteralExpr expression = (StringLiteralExpr) memberValue.getValues().get(0);
                         refactor(methodDeclaration, expression, annotation);
@@ -84,13 +81,13 @@ public class RefactoringMethodVisitor extends VoidVisitorAdapter {
 
     private void refactor(MethodDeclaration methodDeclaration, StringLiteralExpr memberValue, SingleMemberAnnotationExpr annotation) {
         if (StringEscapeUtils.unescapeJava(memberValue.getValue()).trim().equals(oldStepValue.getStepAnnotationText().trim())) {
-            IntStream.range(0, paramPositions.size()).forEach((i) -> newParameters.add(new Parameter()));
+            IntStream.range(0, paramPositions.size()).forEach(i -> newParameters.add(new Parameter()));
             memberValue.setValue(StringEscapeUtils.escapeJava(newStepValue.getStepAnnotationText()));
             List<Parameter> parameters = methodDeclaration.getParameters();
             for (int i = 0, paramPositionsSize = paramPositions.size(); i < paramPositionsSize; i++) {
                 if (paramPositions.get(i).getOldPosition() < 0) {
                     String paramName = Util.getValidJavaIdentifier(Util.convertToCamelCase("arg " + newStepValue.getParameters().get(paramPositions.get(i).getNewPosition())));
-                    if (paramName.equals("arg")) {
+                    if ("arg".equals(paramName)) {
                         paramName += i;
                     }
                     Parameter param = new Parameter(new ClassOrInterfaceType(null, "Object"), new SimpleName(paramName));

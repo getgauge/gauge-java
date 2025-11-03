@@ -11,7 +11,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -171,7 +170,7 @@ public class HooksRegistryTest {
     }
 
     private HashSet<Method> createSet(Method... methods) {
-        return new HashSet<>(Arrays.asList(methods));
+        return new HashSet<>(List.of(methods));
     }
 
     public static class TestHooksImplClass {

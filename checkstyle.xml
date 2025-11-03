@@ -32,6 +32,11 @@
     <!-- See http://checkstyle.sf.net/config_whitespace.html -->
     <module name="FileTabCharacter"/>
 
+    <module name="SuppressWithPlainTextCommentFilter">
+        <property name="offCommentFormat" value='=\s+"""'/>
+        <property name="onCommentFormat" value='^\s+.*""";'/>
+    </module>
+
     <!-- Miscellaneous other checks.                   -->
     <!-- See http://checkstyle.sf.net/config_misc.html -->
     <module name="RegexpSingleline">

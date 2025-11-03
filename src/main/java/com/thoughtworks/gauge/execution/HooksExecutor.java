@@ -45,7 +45,7 @@ public class HooksExecutor {
         if (method.getParameterTypes().length != arg.length) {
             return false;
         }
-        List<Class> argsClassList = createClassList(arg);
+        List<Class<?>> argsClassList = createClassList(arg);
         Class<?>[] parameterTypes = method.getParameterTypes();
         boolean isValid = true;
         for (int i = 0; i < parameterTypes.length; i++) {
@@ -56,8 +56,8 @@ public class HooksExecutor {
         return isValid;
     }
 
-    private List<Class> createClassList(Object[] objects) {
-        ArrayList<Class> classes = new ArrayList<>();
+    private List<Class<?>> createClassList(Object[] objects) {
+        ArrayList<Class<?>> classes = new ArrayList<>();
         for (Object obj : objects) {
             classes.add(obj.getClass());
         }

@@ -7,6 +7,7 @@ package com.thoughtworks.gauge.execution;
 
 import com.thoughtworks.gauge.ClassInstanceManager;
 import com.thoughtworks.gauge.ContinueOnFailure;
+import com.thoughtworks.gauge.SkipScenarioException;
 import com.thoughtworks.gauge.Table;
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
 import com.thoughtworks.gauge.execution.parameters.parsers.types.EnumParameterParser;
@@ -249,6 +250,6 @@ public class StepExecutionStageTest {
     }
 
     public void skipScenarioStep() {
-        throw new com.thoughtworks.gauge.SkipScenarioException("skipping this scenario due to unmet condition");
+        throw new SkipScenarioException("skipping this scenario due to unmet condition");
     }
 }
