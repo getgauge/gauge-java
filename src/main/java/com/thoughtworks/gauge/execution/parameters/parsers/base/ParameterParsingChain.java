@@ -20,7 +20,6 @@ import org.reflections.scanners.Scanners;
 import org.reflections.util.ConfigurationBuilder;
 import org.reflections.util.FilterBuilder;
 
-import javax.annotation.Nullable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedList;
 import java.util.List;
@@ -48,8 +47,7 @@ public class ParameterParsingChain implements ParameterParser {
         return new Reflections(config);
     }
 
-    private @Nullable
-    ParameterParser asCustomParameterParser(Class<? extends ParameterParser> clazz) {
+    private ParameterParser asCustomParameterParser(Class<? extends ParameterParser> clazz) {
         try {
             ParameterParser instance = clazz.getDeclaredConstructor().newInstance();
             Logger.debug(String.format("Adding %s as custom parameter parser", clazz.getName()));
