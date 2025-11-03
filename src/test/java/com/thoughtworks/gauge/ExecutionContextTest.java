@@ -8,7 +8,6 @@ package com.thoughtworks.gauge;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -61,12 +60,12 @@ public class ExecutionContextTest {
     }
 
     private Specification specWithTags(String... tags) {
-        List<String> tagsList = Arrays.asList(tags);
+        List<String> tagsList = List.of(tags);
         return new Specification("foo", "foo.spec", false, tagsList);
     }
 
     private Scenario scenarioWithTags(String... tags) {
-        List<String> tagsList = Arrays.asList(tags);
+        List<String> tagsList = List.of(tags);
         return new Scenario("foo", false, tagsList);
     }
 }

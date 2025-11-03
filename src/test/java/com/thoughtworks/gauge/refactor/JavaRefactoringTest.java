@@ -13,8 +13,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -105,7 +105,7 @@ public class JavaRefactoringTest {
     public void testJavaElementForRefactoringWithNewParametersWithSameName() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("A step with no params", "A step with no params", new ArrayList<>());
-        StepValue newStepValue = new StepValue("step with {} {}", "step with <n> <n>", Arrays.asList("n", "n"));
+        StepValue newStepValue = new StepValue("step with {} {}", "step with <n> <n>", List.of("n", "n"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
         Messages.ParameterPosition parameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(0).build();
@@ -127,8 +127,8 @@ public class JavaRefactoringTest {
     @Test
     public void testJavaElementForRefactoringWithNewParameterWithSameNameAsExisting() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
-        StepValue oldStepValue = new StepValue("Tell {} {}", "Tell <greeting> <name>", Arrays.asList("greeting", "name"));
-        StepValue newStepValue = new StepValue("Tell {} {} {}", "Tell <greeting> <name> <name>", Arrays.asList("greeting", "name", "name"));
+        StepValue oldStepValue = new StepValue("Tell {} {}", "Tell <greeting> <name>", List.of("greeting", "name"));
+        StepValue newStepValue = new StepValue("Tell {} {} {}", "Tell <greeting> <name> <name>", List.of("greeting", "name", "name"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
         Messages.ParameterPosition parameterPosition1 = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(0).build();
@@ -153,8 +153,8 @@ public class JavaRefactoringTest {
     @Test
     public void testJavaElementForRefactoringWithNewParameterWhenParametersPresent() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
-        StepValue oldStepValue = new StepValue("Tell {} to {}", "Tell <greeting> to <name>", Arrays.asList("greeting", "name"));
-        StepValue newStepValue = new StepValue("Tell {} to {} {}", "Tell <greeting> to <name> <DD>", Arrays.asList("greeting", "name", "DD"));
+        StepValue oldStepValue = new StepValue("Tell {} to {}", "Tell <greeting> to <name>", List.of("greeting", "name"));
+        StepValue newStepValue = new StepValue("Tell {} to {} {}", "Tell <greeting> to <name> <DD>", List.of("greeting", "name", "DD"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
         Messages.ParameterPosition parameterPosition1 = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(0).build();
@@ -184,8 +184,8 @@ public class JavaRefactoringTest {
     @Test
     public void testJavaElementForRefactoringWithParametersAdded() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
-        StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", Arrays.asList("a", "b"));
-        StepValue newStepValue = new StepValue("{} changed {} and added {}", "<table> changed <c> and added <a>", Arrays.asList("b", "c", "a"));
+        StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", List.of("a", "b"));
+        StepValue newStepValue = new StepValue("{} changed {} and added {}", "<table> changed <c> and added <a>", List.of("b", "c", "a"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
         Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(0).setNewPosition(2).build();
@@ -211,7 +211,7 @@ public class JavaRefactoringTest {
     @Test
     public void testJavaElementForRefactoringForStepWithUnicodeCharacters() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
-        StepValue oldStepValue = new StepValue("† ‡ µ ¢ step with {} and {}", "† ‡ µ ¢ step with <Û> and <į>", Arrays.asList("Û", "į"));
+        StepValue oldStepValue = new StepValue("† ‡ µ ¢ step with {} and {}", "† ‡ µ ¢ step with <Û> and <į>", List.of("Û", "į"));
         StepValue newStepValue = new StepValue("† ‡ µ ¢ step with {}", "† ‡ µ ¢ step with <Û>", Collections.singletonList("Û"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
@@ -270,7 +270,7 @@ public class JavaRefactoringTest {
     public void testJavaElementForRefactoringWithParametersRemovedAndAdded() throws Exception {
         StepRegistry registry = mock(StepRegistry.class);
         StepValue oldStepValue = new StepValue("step {} and a table {}", "step <a> and a table <table>", new ArrayList<>());
-        StepValue newStepValue = new StepValue("{} changed {} and added {}", "<b> changed <a> and added <c>", Arrays.asList("b", "a", "c"));
+        StepValue newStepValue = new StepValue("{} changed {} and added {}", "<b> changed <a> and added <c>", List.of("b", "a", "c"));
         String implFile = String.format("test%sfiles%sformatted%sStepImpl.java", File.separator, File.separator, File.separator);
 
         Messages.ParameterPosition firstParameterPosition = Messages.ParameterPosition.newBuilder().setOldPosition(-1).setNewPosition(0).build();

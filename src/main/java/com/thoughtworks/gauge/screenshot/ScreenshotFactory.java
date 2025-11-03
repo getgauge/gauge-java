@@ -10,10 +10,7 @@ import com.thoughtworks.gauge.GaugeConstant;
 import com.thoughtworks.gauge.Logger;
 
 import javax.imageio.ImageIO;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
-import java.awt.Rectangle;
-import java.awt.Robot;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -27,7 +24,7 @@ public class ScreenshotFactory {
 
     public static final String IMAGE_EXTENSION = "png";
     private static Class<? extends CustomScreenshot> customScreenshotGrabber;
-    private static ClassInstanceManager manager;
+    private final ClassInstanceManager manager;
 
     public ScreenshotFactory(ClassInstanceManager manager) {
         this.manager = manager;

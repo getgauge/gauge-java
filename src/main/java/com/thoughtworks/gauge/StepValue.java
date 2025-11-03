@@ -50,11 +50,10 @@ public class StepValue {
             return true;
         }
 
-        if (!(o instanceof StepValue)) {
+        if (!(o instanceof StepValue stepValue)) {
             return false;
         }
 
-        StepValue stepValue = (StepValue) o;
         return Objects.equals(parameterizedStepText, stepValue.parameterizedStepText)
                 && Objects.equals(parameters, stepValue.parameters)
                 && Objects.equals(stepText, stepValue.stepText);

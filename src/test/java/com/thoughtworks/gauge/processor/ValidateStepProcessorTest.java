@@ -17,7 +17,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
@@ -65,7 +65,7 @@ public class ValidateStepProcessorTest {
         Spec.ProtoStepValue.Builder protoStep = Spec.ProtoStepValue.newBuilder()
                 .setStepValue("<abc> <xyz>")
                 .setParameterizedStepValue("<abc> <xyz>")
-                .addAllParameters(Arrays.asList("abc", "xyz"));
+                .addAllParameters(List.of("abc", "xyz"));
         StepValidateRequest stepValidationRequest = StepValidateRequest.newBuilder().setStepText("{} {}").setNumberOfParameters(1).setStepValue(protoStep).build();
         messageBuilder.setStepValidateRequest(stepValidationRequest);
         this.message = messageBuilder.build();

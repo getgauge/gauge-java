@@ -169,12 +169,7 @@ public class Table {
     }
 
     private Comparator<String> maxStringLength() {
-        return (o1, o2) -> {
-            if (o1.length() < o2.length()) {
-                return -1;
-            }
-            return 1;
-        };
+        return Comparator.comparingInt(String::length);
     }
 
     @Override

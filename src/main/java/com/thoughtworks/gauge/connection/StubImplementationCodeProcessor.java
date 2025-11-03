@@ -94,18 +94,17 @@ public class StubImplementationCodeProcessor implements IMessageProcessor {
 
     private Messages.FileDiff implementInExistingClass(ProtocolStringList stubs, File file) {
         try {
-
             JavaParser javaParser = new JavaParser();
             ParseResult<CompilationUnit> compilationUnit = javaParser.parse(file);
             String contents = String.join(NEW_LINE, stubs);
             int lastLine;
             int column;
             MethodVisitor methodVisitor = new MethodVisitor();
-            methodVisitor.visit(compilationUnit.getResult().get(), null);
+            methodVisitor.visit(compilationUnit.getResult().orElseThrow(), null);
             if (!METHOD_DECLARATIONS.isEmpty()) {
                 MethodDeclaration methodDeclaration = METHOD_DECLARATIONS.get(METHOD_DECLARATIONS.size() - 1);
-                lastLine = methodDeclaration.getRange().get().end.line - 1;
-                column = methodDeclaration.getRange().get().end.column + 1;
+                lastLine = methodDeclaration.getRange().orElseThrow().end.line - 1;
+                column = methodDeclaration.getRange().orElseThrow().end.column + 1;
                 contents = NEW_LINE + contents;
             } else {
                 new ClassVisitor().visit(compilationUnit.getResult().get(), null);
@@ -127,17 +126,17 @@ public class StubImplementationCodeProcessor implements IMessageProcessor {
         return null;
     }
 
-    private static final class MethodVisitor extends VoidVisitorAdapter {
+    private static final class MethodVisitor extends VoidVisitorAdapter<Void> {
         @Override
-        public void visit(MethodDeclaration methodDeclaration, Object arg) {
+        public void visit(MethodDeclaration methodDeclaration, Void ignored) {
             METHOD_DECLARATIONS.add(methodDeclaration);
         }
     }
 
-    private static final class ClassVisitor extends VoidVisitorAdapter {
+    private static final class ClassVisitor extends VoidVisitorAdapter<Void> {
         @Override
-        public void visit(ClassOrInterfaceDeclaration node, Object arg) {
-            classRange = node.getRange().get();
+        public void visit(ClassOrInterfaceDeclaration node, Void ignored) {
+            classRange = node.getRange().orElseThrow();
         }
     }
 }

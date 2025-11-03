@@ -20,7 +20,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.thoughtworks.gauge.GaugeConstant.PACKAGE_TO_SCAN;
 
@@ -58,7 +57,7 @@ public class StaticScanner {
         if (packagesToScan == null || packagesToScan.isEmpty() || unit.getPackageDeclaration().isEmpty()) {
             return true;
         }
-        List<String> packages = Arrays.stream(packagesToScan.split(",")).map(String::trim).collect(Collectors.toList());
+        List<String> packages = Arrays.stream(packagesToScan.split(",")).map(String::trim).toList();
         return unit.getPackageDeclaration().map(p -> packages.contains(p.getName().asString())).orElse(false);
     }
 

@@ -5,17 +5,16 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge.processor;
 
+import com.google.common.base.Splitter;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Messages.StepValidateResponse;
 import gauge.messages.Messages.StepValidateResponse.ErrorType;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class ValidateStepProcessor implements IMessageProcessor {
+    private static final Splitter WHITESPACE_SPLITTER = Splitter.onPattern("\\s+").omitEmptyStrings();
     private static Integer num = 1;
     private final StepRegistry registry;
 
@@ -50,9 +49,7 @@ public class ValidateStepProcessor implements IMessageProcessor {
     private String getMethodName(String stepText) {
         final StringBuilder methodName = new StringBuilder();
         if (!"".equals(stepText)) {
-            String[] methodNameArray = stepText.split("\\s+");
-            List<String> list = new ArrayList<>(Arrays.asList(methodNameArray));
-            list.removeAll(Collections.singletonList("{}"));
+            List<String> list = WHITESPACE_SPLITTER.splitToStream(stepText).filter(s -> !"{}".equals(s)).toList();
             int length = list.size();
             if (length == 0) {
                 methodName.append(String.format("implementation%s", num++));
