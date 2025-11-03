@@ -9,7 +9,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import org.assertj.core.util.Throwables;
 
 public class Logger {
     public static void info(String message) {
@@ -21,7 +20,7 @@ public class Logger {
     }
 
     public static void error(String message, Throwable t) {
-        error(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
+        error(String.format("%s\n%s\n%s", message, t.getMessage(), Util.stacktraceFrom(t)));
     }
 
     public static void warning(String message) {
@@ -29,7 +28,7 @@ public class Logger {
     }
 
     public static void warning(String message, Throwable t) {
-        warning(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
+        warning(String.format("%s\n%s\n%s", message, t.getMessage(), Util.stacktraceFrom(t)));
     }
 
     public static void debug(String message) {
@@ -42,7 +41,7 @@ public class Logger {
     }
 
     public static void fatal(String message, Throwable t) {
-        fatal(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
+        fatal(String.format("%s\n%s\n%s", message, t.getMessage(), Util.stacktraceFrom(t)));
     }
 
     private static void logToStdout(String level, String message) {

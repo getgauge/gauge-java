@@ -8,6 +8,8 @@ package com.thoughtworks.gauge;
 import com.google.common.base.Splitter;
 
 import java.io.File;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -58,6 +60,14 @@ public class Util {
     public static boolean shouldTakeFailureScreenshot() {
         String screenshotOnFailureEnabled = System.getenv(GaugeConstant.SCREENSHOT_ON_FAILURE_ENABLED);
         return !(screenshotOnFailureEnabled == null || "false".equalsIgnoreCase(screenshotOnFailureEnabled));
+    }
+
+    public static String stacktraceFrom(Throwable throwable) {
+        StringWriter sw = new StringWriter();
+        try (PrintWriter pw = new PrintWriter(sw, true)) {
+            throwable.printStackTrace(pw);
+            return sw.getBuffer().toString();
+        }
     }
 
 }
