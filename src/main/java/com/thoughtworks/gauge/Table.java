@@ -5,10 +5,8 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,14 +23,13 @@ public class Table {
     private static final String DASH = "-";
     private static final String PIPE = "|";
     private static final char SPACE_AS_CHAR = ' ';
+
     private final List<String> headers;
-    private final List<List<String>> rows;
-    private final List<TableRow> tableRows;
+    private final List<List<String>> rows = new ArrayList<>();
+    private final List<TableRow> tableRows = new ArrayList<>();
 
     public Table(List<String> headers) {
         this.headers = headers;
-        rows = new ArrayList<>();
-        tableRows = new ArrayList<>();
     }
 
     public void addRow(List<String> row) {
@@ -57,7 +54,7 @@ public class Table {
     /**
      * Gets a Column name by index.
      *
-     * @param columnIndex
+     * @param columnIndex 0-indexed column ordinal within the table
      * @return a single column name by given column index.
      */
     public String getColumnName(int columnIndex) {
@@ -72,16 +69,6 @@ public class Table {
      */
     public List<TableRow> getTableRows() {
         return tableRows;
-    }
-
-    /**
-     * @return List of TableRows in the table. Each Row is represented by a List
-     *         of String values according to the order of column names
-     * @deprecated Use getTableRows() method instead of this.
-     */
-    @Deprecated
-    public List<List<String>> getRows() {
-        return rows;
     }
 
     /**
@@ -144,12 +131,8 @@ public class Table {
     }
 
     private String formattedRow(List<String> strings, int maxStringLength) {
-        List<String> formattedStrings = Lists.transform(strings, format(maxStringLength));
+        List<String> formattedStrings = strings.stream().map(s -> Strings.padEnd(s, maxStringLength, SPACE_AS_CHAR)).toList();
         return PIPE + Joiner.on(PIPE).join(formattedStrings) + PIPE;
-    }
-
-    private Function<String, String> format(final int maxStringLength) {
-        return input -> Strings.padEnd(input, maxStringLength, SPACE_AS_CHAR);
     }
 
     private Integer getMaxStringLength() {
@@ -177,8 +160,8 @@ public class Table {
         final int prime = 31;
         int result = 1;
         result = prime * result + (headers == null ? 0 : headers.hashCode());
-        result = prime * result + (rows == null ? 0 : rows.hashCode());
-        result = prime * result + (tableRows == null ? 0 : tableRows.hashCode());
+        result = prime * result + rows.hashCode();
+        result = prime * result + tableRows.hashCode();
         return result;
     }
 
