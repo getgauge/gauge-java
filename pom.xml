@@ -4,7 +4,7 @@
     <name>gauge-java</name>
     <groupId>com.thoughtworks.gauge</groupId>
     <artifactId>gauge-java</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>Java plugin for Gauge</description>
     <url>https://github.com/getgauge/gauge-java</url>
     <dependencyManagement>

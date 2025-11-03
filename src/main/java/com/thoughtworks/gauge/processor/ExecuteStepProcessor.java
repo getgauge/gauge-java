@@ -10,10 +10,8 @@ import com.thoughtworks.gauge.Logger;
 import com.thoughtworks.gauge.MessageCollector;
 import com.thoughtworks.gauge.ScreenshotCollector;
 import com.thoughtworks.gauge.execution.ExecutionPipeline;
-import com.thoughtworks.gauge.execution.HookExecutionStage;
 import com.thoughtworks.gauge.execution.StepExecutionStage;
 import com.thoughtworks.gauge.execution.parameters.parsers.base.ParameterParsingChain;
-import com.thoughtworks.gauge.registry.HooksRegistry;
 import com.thoughtworks.gauge.registry.StepRegistry;
 import gauge.messages.Messages;
 import gauge.messages.Spec;
@@ -38,9 +36,7 @@ public class ExecuteStepProcessor extends MethodExecutionMessageProcessor implem
             Logger.fatal("No step definition found. Try compiling the source before execution.");
         }
         Logger.debug("Executing '" + stepText + "' using '" + method.getDeclaringClass() + "." + method.getName());
-        ExecutionPipeline pipeline = new ExecutionPipeline(new HookExecutionStage(HooksRegistry.getBeforeClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));
-        pipeline.addStages(new StepExecutionStage(message.getExecuteStepRequest(), getInstanceManager(), chain, registry),
-                new HookExecutionStage(HooksRegistry.getAfterClassStepsHooksOfClass(method.getDeclaringClass()), getInstanceManager()));
+        ExecutionPipeline pipeline = new ExecutionPipeline(new StepExecutionStage(message.getExecuteStepRequest(), getInstanceManager(), chain, registry));
         Spec.ProtoExecutionResult executionResult = pipeline.start();
         Spec.ProtoExecutionResult protoExecutionResult = new MessageCollector().addPendingMessagesTo(executionResult);
         protoExecutionResult = new ScreenshotCollector().addPendingScreenshotTo(protoExecutionResult);
