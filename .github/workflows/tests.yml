@@ -174,11 +174,11 @@ jobs:
           check-latest: true
           go-version-file: 'go.mod'
 
-      - name: Build distro for ${{ matrix.os }}
+      - name: Build distro
         run: go run build/make.go --all-platforms && go run build/make.go --all-platforms --distro
         shell: bash
 
-      - name: Upload artifacts for ${{ matrix.os }}
+      - name: Upload artifacts
         uses: actions/upload-artifact@v5
         with:
           name: gauge-java-artifacts
