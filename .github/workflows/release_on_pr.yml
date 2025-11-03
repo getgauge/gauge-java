@@ -22,11 +22,6 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Set up Maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
-
       - name: Setup maven
         run: |
           echo -e "$MAVEN_GPG_SIGN_KEY" | gpg --import --batch -
@@ -67,7 +62,7 @@ jobs:
 
       - name: Deploy on maven central
         run: |
-          mvn -q clean deploy -Dgpg.passphrase=$passphrase
+          ./mvnw -q clean deploy -Dgpg.passphrase=$passphrase
 
 
       - name: Update metadata in gauge-repository
