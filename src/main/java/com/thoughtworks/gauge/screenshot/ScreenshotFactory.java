@@ -12,7 +12,6 @@ import com.thoughtworks.gauge.Logger;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.UUID;
@@ -21,17 +20,17 @@ import java.util.UUID;
  * Used to take screenshots on failure.
  */
 public class ScreenshotFactory {
-
     public static final String IMAGE_EXTENSION = "png";
-    private static Class<? extends CustomScreenshot> customScreenshotGrabber;
+    private static volatile Class<? extends CustomScreenshotWriter> customScreenshotWriter;
+
     private final ClassInstanceManager manager;
 
     public ScreenshotFactory(ClassInstanceManager manager) {
         this.manager = manager;
     }
 
-    static void setCustomScreenshotGrabber(Class<? extends CustomScreenshot> customScreenGrabber) {
-        customScreenshotGrabber = customScreenGrabber;
+    static void setCustomScreenshotGrabber(Class<? extends CustomScreenshotWriter> writerClass) {
+        ScreenshotFactory.customScreenshotWriter = writerClass;
     }
 
     public String getScreenshotBytes() {
@@ -39,21 +38,13 @@ public class ScreenshotFactory {
     }
 
     private String takeScreenshot() {
-        if (customScreenshotGrabber != null) {
+        if (customScreenshotWriter != null) {
             try {
-                CustomScreenshot customScreenInstance = (CustomScreenshot) manager.get(customScreenshotGrabber);
-                if (customScreenInstance instanceof CustomScreenshotWriter writer) {
-                     return writer.takeScreenshot();
-                } else {
-                    byte[] bytes = ((ICustomScreenshotGrabber) customScreenInstance).takeScreenshot();
-                    File file = generateUniqueScreenshotFile();
-                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
-                    BufferedImage bufferedImage = ImageIO.read(byteArrayInputStream);
-                    ImageIO.write(bufferedImage, IMAGE_EXTENSION, file);
-                    return file.getName();
+                if (manager.get(customScreenshotWriter) instanceof CustomScreenshotWriter writer) {
+                    return writer.takeScreenshot();
                 }
             } catch (Exception e) {
-                Logger.error(String.format("Failed to take Custom screenshot: %s : %s", customScreenshotGrabber.getCanonicalName(), e.getMessage()));
+                Logger.error(String.format("Failed to take Custom screenshot: %s : %s", customScreenshotWriter.getCanonicalName(), e.getMessage()));
                 Logger.warning("Capturing regular screenshot..");
             }
         }

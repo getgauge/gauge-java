@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -100,26 +99,6 @@ public class HooksRegistryTest {
     }
 
     @Test
-    public void testAddingBeforeAndAfterClassStepHooks() throws Exception {
-        Method beforeClassSteps1 = TestHooksImplClass.class.getMethod("beforeClassSteps1");
-        Method beforeClassSteps2 = TestHooksImplClass.class.getMethod("beforeClassSteps2");
-        Method afterClassSteps = TestHooksImplClass.class.getMethod("afterClassSteps");
-        HooksRegistry.addBeforeClassStepsHooks(createSet(beforeClassSteps1, beforeClassSteps2));
-        HooksRegistry.addAfterClassStepsHooks(createSet(afterClassSteps));
-
-        List<Hook> beforeHooks = HooksRegistry.getBeforeClassStepsHooksOfClass(TestHooksImplClass.class);
-        assertEquals(2, beforeHooks.size());
-        Set<Method> beforeMethods = hooksMethodList(beforeHooks);
-        assertTrue(beforeMethods.contains(beforeClassSteps1));
-        assertTrue(beforeMethods.contains(beforeClassSteps2));
-
-        List<Hook> afterHooks = HooksRegistry.getAfterClassStepsHooksOfClass(TestHooksImplClass.class);
-        Set<Method> afterHookMethods = hooksMethodList(afterHooks);
-        assertEquals(1, afterHooks.size());
-        assertTrue(afterHookMethods.contains(afterClassSteps));
-    }
-
-    @Test
     public void testSortingOfPreHooks() throws NoSuchMethodException {
         Method beforeScenario = TestHooksImplClass.class.getMethod("beforeScenario");
         Method aBeforeScenario = TestHooksImplClass.class.getMethod("aBeforeScenario");
@@ -147,14 +126,6 @@ public class HooksRegistryTest {
         assertEquals("afterScenario", sortedPostHooks.get(2).getMethod().getName());
     }
 
-    private Set<Method> hooksMethodList(List<Hook> hooks) {
-        HashSet<Method> methods = new HashSet<>();
-        for (Hook hook : hooks) {
-            methods.add(hook.getMethod());
-        }
-        return methods;
-    }
-
     @AfterEach
     protected void tearDown() throws Exception {
         HooksRegistry.remove(BeforeStep.class);
@@ -165,8 +136,6 @@ public class HooksRegistryTest {
         HooksRegistry.remove(AfterSuite.class);
         HooksRegistry.remove(BeforeSpec.class);
         HooksRegistry.remove(AfterSpec.class);
-        HooksRegistry.remove(AfterClassSteps.class);
-        HooksRegistry.remove(BeforeClassSteps.class);
     }
 
     private HashSet<Method> createSet(Method... methods) {
@@ -236,21 +205,6 @@ public class HooksRegistryTest {
 
         @AfterSuite
         public void afterSuite() {
-
-        }
-
-        @BeforeClassSteps(tags = {"tag1", "tag2"})
-        public void beforeClassSteps1() {
-
-        }
-
-        @BeforeClassSteps
-        public void beforeClassSteps2() {
-
-        }
-
-        @AfterClassSteps(tags = {"tag3", "tag4"}, tagAggregation = Operator.OR)
-        public void afterClassSteps() {
 
         }
     }
