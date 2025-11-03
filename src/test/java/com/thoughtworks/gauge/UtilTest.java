@@ -18,7 +18,6 @@ public class UtilTest {
         assertEquals("gaugeJavaProject", Util.convertToCamelCase("gauge Java  project "));
         assertEquals("123Go", Util.convertToCamelCase("12   3 go"));
         assertEquals("allhailTheKing", Util.convertToCamelCase("   AllHaiL tHe king"));
-
     }
 
     @Test
@@ -32,5 +31,18 @@ public class UtilTest {
         assertEquals("_hello", Util.getValidJavaIdentifier("_hello&("));
         assertEquals("2hello", Util.getValidJavaIdentifier("2hello&("));
         assertEquals("ƒ", Util.getValidJavaIdentifier("˚¬∆˙©ƒ∂"));
+    }
+    @Test
+    public void testTrimQuotes() {
+        assertEquals(null, Util.trimQuotes(null));
+        assertEquals("", Util.trimQuotes(""));
+        assertEquals(" ", Util.trimQuotes(" "));
+        assertEquals(" a ", Util.trimQuotes(" a "));
+        assertEquals(" a ", Util.trimQuotes("\" a "));
+        assertEquals(" a ", Util.trimQuotes("\" a \""));
+        assertEquals("a", Util.trimQuotes("\"a"));
+        assertEquals("a", Util.trimQuotes("a\""));
+        assertEquals("a", Util.trimQuotes("a\""));
+        assertEquals(" \"a\" ", Util.trimQuotes(" \"a\" "));
     }
 }
