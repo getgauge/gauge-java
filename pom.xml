@@ -19,14 +19,14 @@
             <dependency>
                 <groupId>org.junit</groupId>
                 <artifactId>junit-bom</artifactId>
-                <version>6.0.2</version>
+                <version>6.0.3</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-bom</artifactId>
-                <version>5.21.0</version>
+                <version>5.22.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -277,7 +277,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.14.1</version>
+                <version>3.15.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -309,12 +309,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.4</version>
+                <version>3.5.5</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.9.0</version>
+                <version>3.10.0</version>
                 <executions>
                     <execution>
                         <id>copy-dependencies</id>
@@ -369,8 +369,8 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
-        <protobuf.version>4.33.5</protobuf.version>
-        <grpc.version>1.78.0</grpc.version>
+        <protobuf.version>4.34.0</protobuf.version>
+        <grpc.version>1.79.0</grpc.version>
     </properties>
 
 </project>
