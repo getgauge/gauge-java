@@ -57,7 +57,7 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.13.2</version>
+            <version>2.14.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.google.errorprone</groupId>
@@ -73,7 +73,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>33.5.0-jre</version>
+            <version>33.6.0-jre</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.google.errorprone</groupId>
@@ -370,7 +370,7 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <protobuf.version>4.34.1</protobuf.version>
-        <grpc.version>1.80.0</grpc.version>
+        <grpc.version>1.81.0</grpc.version>
     </properties>
 
 </project>
