@@ -7,8 +7,11 @@ package com.thoughtworks.gauge.execution.parameters;
 
 import gauge.messages.Spec.ProtoExecutionResult;
 
+import java.io.Serial;
+
 public class ParsingException extends Exception {
-    private static final long serialVersionUID = -4205182693938362914L;
+  @Serial
+  private static final long serialVersionUID = -4205182693938362914L;
 
     private final ProtoExecutionResult executionResult;
 

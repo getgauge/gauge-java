@@ -12,7 +12,6 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
@@ -95,32 +94,12 @@ public class HooksRegistry {
         addHooks(methods, AfterSuite.class);
     }
 
-    public static void addAfterClassStepsHooks(Set<Method> methods) {
-        addHooksWithTags(methods, AfterClassSteps.class);
-    }
-
-    public static void addBeforeClassStepsHooks(Set<Method> methods) {
-        addHooksWithTags(methods, BeforeClassSteps.class);
-    }
-
-    public static List<Hook> getBeforeClassStepsHooksOfClass(Class<?> aClass) {
-        return sort(findClassHooksForClass(getBeforeClassHooks(), aClass));
-    }
-
-    public static List<Hook> getAfterClassStepsHooksOfClass(Class<?> aClass) {
-        return sortReverse(findClassHooksForClass(getAfterClassHooks(), aClass));
-    }
-
-    private static Set<Hook> findClassHooksForClass(List<Hook> allClassHooks, Class<?> aClass) {
-        return allClassHooks.stream().filter(hook -> hook.getMethod().getDeclaringClass().equals(aClass)).collect(Collectors.toSet());
-    }
-
-    private static void addHooks(Set<Method> methods, Class hookClass) {
+    private static void addHooks(Set<Method> methods, Class<?> hookClass) {
         REGISTRY_MAP.putIfAbsent(hookClass, new HashSet<>());
-        REGISTRY_MAP.get(hookClass).addAll(methods.stream().map(Hook::new).collect(toList()));
+        REGISTRY_MAP.get(hookClass).addAll(methods.stream().map(Hook::new).toList());
     }
 
-    private static void addHooksWithTags(Set<Method> methods, Class hookClass) {
+    private static void addHooksWithTags(Set<Method> methods, Class<? extends Annotation> hookClass) {
         REGISTRY_MAP.putIfAbsent(hookClass, new HashSet<>());
         for (Method method : methods) {
             Annotation annotation = method.getAnnotation(hookClass);
@@ -135,15 +114,7 @@ public class HooksRegistry {
         }
     }
 
-    private static List<Hook> getBeforeClassHooks() {
-        return sort(REGISTRY_MAP.get(BeforeClassSteps.class));
-    }
-
-    private static List<Hook> getAfterClassHooks() {
-        return sortReverse(REGISTRY_MAP.get(AfterClassSteps.class));
-    }
-
-    static void remove(Class hookType) {
+    static void remove(Class<?> hookType) {
         REGISTRY_MAP.remove(hookType);
     }
 }

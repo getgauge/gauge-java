@@ -26,7 +26,7 @@ public class StepNameRequestProcessorTest {
 
     private final String anyString = "stepText \\ text";
     private final String anyOtherString = "stepText \\ name";
-    private final Range range = Range.range(1,5,4,5);
+    private final Range range = Range.range(1, 5, 4, 5);
     private Messages.Message message;
 
     @BeforeEach

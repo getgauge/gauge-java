@@ -27,7 +27,7 @@ public class CacheFileRequestProcessorTest {
     private StaticScanner staticScanner;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         staticScanner = new StaticScanner();
         String implFileRelativePath = String.format("src%stest%sresources%stest%sfiles%sfoo.java", File.separator, File.separator, File.separator, File.separator, File.separator);
         implFile = Util.workingDir() + File.separator + implFileRelativePath;

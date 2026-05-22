@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +27,7 @@ public class FileHelper {
     public static List<String> getAllImplementationFiles() {
         ArrayList<String> outputFiles = new ArrayList<>();
         getStepImplDirs().forEach(dir -> {
-            try (Stream<Path> filePathStream = Files.walk(Paths.get(dir))) {
+            try (Stream<Path> filePathStream = Files.walk(Path.of(dir))) {
                 filePathStream.forEach(filePath -> {
                     if (Files.isRegularFile(filePath) && filePath.toString().endsWith(JAVA_FILE_EXT)) {
                         outputFiles.add(filePath.toString());
@@ -42,8 +41,8 @@ public class FileHelper {
     }
 
     private static Path getAbsolutePath(String dir) {
-        Path path = Paths.get(dir);
-        return !path.isAbsolute() ? Paths.get(System.getenv(GAUGE_PROJECT_ROOT), dir) : path;
+        Path path = Path.of(dir);
+        return !path.isAbsolute() ? Path.of(System.getenv(GAUGE_PROJECT_ROOT), dir) : path;
     }
 
     static List<String> getStepImplDirs() {
@@ -65,7 +64,7 @@ public class FileHelper {
 
     public static File getDefaultImplFileName(String suffix, int count) {
         String filename = "StepImplementation" + suffix + JAVA_FILE_EXT;
-        Path filepath = Paths.get(getDefaultStepImplDir(), filename);
+        Path filepath = Path.of(getDefaultStepImplDir(), filename);
         File file = new File(filepath.toString());
         return file.exists() ? getDefaultImplFileName(String.valueOf(++count), count) : file;
     }

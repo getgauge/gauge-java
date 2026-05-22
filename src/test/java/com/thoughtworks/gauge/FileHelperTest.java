@@ -10,7 +10,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 
 import static com.thoughtworks.gauge.GaugeConstant.GAUGE_CUSTOM_COMPILE_DIR;
@@ -32,7 +31,7 @@ public class FileHelperTest {
             .and(GAUGE_PROJECT_ROOT, gaugeProjRoot)
             .execute(FileHelper::getAllImplementationFiles);
         assertEquals(3, implFiles.size());
-        List<String> expectedImplFiles = Arrays.asList(String.format("%s%sfiles%sformatted%sStepImpl.java", gaugeProjRoot, File.separator, File.separator, File.separator),
+        List<String> expectedImplFiles = List.of(String.format("%s%sfiles%sformatted%sStepImpl.java", gaugeProjRoot, File.separator, File.separator, File.separator),
                 String.format("%s%sfiles%sformatted%sStepImplWithComments.java", gaugeProjRoot, File.separator, File.separator, File.separator),
                 String.format("%s%sfiles%sunformatted%sUnFormattedStepImpl.java", gaugeProjRoot, File.separator, File.separator, File.separator));
         assertTrue(expectedImplFiles.containsAll(implFiles));
@@ -48,7 +47,7 @@ public class FileHelperTest {
             .execute(FileHelper::getStepImplDirs);
 
         assertEquals(2, stepImplDirs.size());
-        List<String> expectedImplDirs = Arrays.asList(String.format("%s%sfiles%sformatted", gaugeProjRoot, File.separator, File.separator),
+        List<String> expectedImplDirs = List.of(String.format("%s%sfiles%sformatted", gaugeProjRoot, File.separator, File.separator),
             String.format("%s%sfiles%sunformatted", gaugeProjRoot, File.separator, File.separator)
         );
         assertTrue(expectedImplDirs.containsAll(stepImplDirs));
@@ -72,7 +71,7 @@ public class FileHelperTest {
             .execute(FileHelper::getStepImplDirs);
 
         assertEquals(2, stepImplDirs.size());
-        List<String> expectedImplDirs = Arrays.asList(
+        List<String> expectedImplDirs = List.of(
             String.format("%s%ssrc%smain%sjava", gaugeProjRoot, File.separator, File.separator, File.separator),
             String.format("%s%ssrc%stest%sjava", gaugeProjRoot, File.separator, File.separator, File.separator)
         );

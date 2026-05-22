@@ -6,6 +6,7 @@
 package com.thoughtworks.gauge.scan;
 
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.expr.*;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
@@ -18,10 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class RegistryMethodVisitor extends VoidVisitorAdapter {
+public class RegistryMethodVisitor extends VoidVisitorAdapter<Void> {
 
-    private StepValue stepValue;
-    private StepRegistryEntry entry;
     private final StepRegistry stepRegistry;
     private final String file;
 
@@ -31,19 +30,17 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
     }
 
     @Override
-    public void visit(MethodDeclaration methodDeclaration, Object arg) {
+    public void visit(MethodDeclaration methodDeclaration, Void ignored) {
         List<AnnotationExpr> annotations = methodDeclaration.getAnnotations();
         if (annotations.isEmpty()) {
             return;
         }
 
         for (AnnotationExpr annotationExpr : annotations) {
-            if (!(annotationExpr instanceof SingleMemberAnnotationExpr)) {
+            if (!(annotationExpr instanceof SingleMemberAnnotationExpr annotation)) {
                 continue;
             }
-            SingleMemberAnnotationExpr annotation = (SingleMemberAnnotationExpr) annotationExpr;
-            if (annotation.getMemberValue() instanceof ArrayInitializerExpr) {
-                ArrayInitializerExpr memberValue = (ArrayInitializerExpr) annotation.getMemberValue();
+            if (annotation.getMemberValue() instanceof ArrayInitializerExpr memberValue) {
                 for (Expression expression : memberValue.getValues()) {
                     addStepToRegistry(expression, methodDeclaration, annotation);
                 }
@@ -56,9 +53,9 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
     private void addStepToRegistry(Expression expression, MethodDeclaration methodDeclaration, SingleMemberAnnotationExpr annotation) {
         String parameterizedStep = getParameterizedStep(expression);
         String stepText = new StepsUtil().getStepText(parameterizedStep);
-        stepValue = new StepValue(stepText, parameterizedStep);
+        StepValue stepValue = new StepValue(stepText, parameterizedStep);
 
-        entry = new StepRegistryEntry();
+        StepRegistryEntry entry = new StepRegistryEntry();
         entry.setName(methodDeclaration.getDeclarationAsString());
         String className = getClassName(methodDeclaration);
         String fullyQualifiedName = className == null
@@ -75,9 +72,10 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
         stepRegistry.addStep(stepValue, entry);
     }
 
+    @SuppressWarnings("unchecked")
     private String getClassName(MethodDeclaration methodDeclaration) {
         AtomicReference<String> className = new AtomicReference<>();
-        methodDeclaration.findAncestor(com.github.javaparser.ast.body.ClassOrInterfaceDeclaration.class)
+        methodDeclaration.findAncestor(ClassOrInterfaceDeclaration.class)
                 .ifPresent(c -> className.set(c.getNameAsString()));
         String classNameStr = className.get() == null ? null : className.get();
         if (classNameStr == null) {
@@ -95,8 +93,8 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
     }
 
     private String getParameterizedStep(Expression expression) {
-        if (expression instanceof BinaryExpr) {
-            return Util.trimQuotes(((BinaryExpr) expression).getLeft().toString()) + Util.trimQuotes(((BinaryExpr) expression).getRight().toString());
+        if (expression instanceof BinaryExpr expr) {
+            return Util.trimQuotes(expr.getLeft().toString()) + Util.trimQuotes(expr.getRight().toString());
         }
         return Util.trimQuotes(expression.toString());
     }
@@ -107,8 +105,7 @@ public class RegistryMethodVisitor extends VoidVisitorAdapter {
 
     private List<String> getAliases(SingleMemberAnnotationExpr annotation) {
         List<String> aliases = new ArrayList<>();
-        if (annotation.getMemberValue() instanceof ArrayInitializerExpr) {
-            ArrayInitializerExpr memberValue = (ArrayInitializerExpr) annotation.getMemberValue();
+        if (annotation.getMemberValue() instanceof ArrayInitializerExpr memberValue) {
             for (Expression expression : memberValue.getValues()) {
                 aliases.add(getParameterizedStep(expression));
             }

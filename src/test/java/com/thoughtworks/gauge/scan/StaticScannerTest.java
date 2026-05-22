@@ -32,12 +32,14 @@ public class StaticScannerTest {
 
     @Test
     public void ShouldAddStepsWithConcatenatedAnnotationStep() {
-        String contents = "public class StepTest {\n" +
-                "   @Step(\"This is \" + \"a step\")\n" +
-                "       public void newstep() {\n" +
-                "       assertThat(2).isEqualTo(2);\n" +
-                "   }\n" +
-                "}";
+        String contents = """
+                public class StepTest {
+                   @Step("This is " + "a step")
+                       public void newstep() {
+                       assertThat(2).isEqualTo(2);
+                   }
+                }\
+                """;
         StaticScanner staticScanner = new StaticScanner();
         staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
@@ -46,13 +48,15 @@ public class StaticScannerTest {
 
     @Test
     public void ShouldAddStepsWithFullyQualifiedName() {
-        String contents = "package com.example.foo;\n" +
-                "public class StepTest {\n" +
-                "   @Step(\"This is \" + \"a step\")\n" +
-                "       public void newstep() {\n" +
-                "       assertThat(2).isEqualTo(2);\n" +
-                "   }\n" +
-                "}";
+        String contents = """
+                package com.example.foo;
+                public class StepTest {
+                   @Step("This is " + "a step")
+                       public void newstep() {
+                       assertThat(2).isEqualTo(2);
+                   }
+                }\
+                """;
         StaticScanner staticScanner = new StaticScanner();
         staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();
@@ -63,13 +67,15 @@ public class StaticScannerTest {
 
     @Test
     public void ShouldAddStepsAliases() {
-        String contents ="package foo;"+
-                "public class StepTest {\n" +
-                "   @Step({\"This is \" + \"a step\", \"new step\"})\n" +
-                "       public void newstep() {\n" +
-                "       assertThat(2).isEqualTo(2);\n" +
-                "   }\n" +
-                "}";
+        String contents ="""
+                package foo;\
+                public class StepTest {
+                   @Step({"This is " + "a step", "new step"})
+                       public void newstep() {
+                       assertThat(2).isEqualTo(2);
+                   }
+                }\
+                """;
         StaticScanner staticScanner = new StaticScanner();
         staticScanner.addStepsFromFileContents(IMPL_FILE, contents);
         StepRegistry registry = staticScanner.getRegistry();

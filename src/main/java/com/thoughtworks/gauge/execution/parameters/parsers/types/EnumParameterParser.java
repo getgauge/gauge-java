@@ -34,7 +34,7 @@ public class EnumParameterParser implements ParameterParser {
         }
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public <T extends Enum<T>> Enum<T> getEnumInstance(Class<? extends Enum> clazz, String name) {
         return Enum.valueOf(clazz, name);
     }

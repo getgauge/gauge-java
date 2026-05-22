@@ -5,8 +5,10 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
-import org.assertj.core.util.Throwables;
-import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Logger {
     public static void info(String message) {
@@ -18,7 +20,7 @@ public class Logger {
     }
 
     public static void error(String message, Throwable t) {
-        error(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
+        error(String.format("%s\n%s\n%s", message, t.getMessage(), Util.stacktraceFrom(t)));
     }
 
     public static void warning(String message) {
@@ -26,7 +28,7 @@ public class Logger {
     }
 
     public static void warning(String message, Throwable t) {
-        warning(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
+        warning(String.format("%s\n%s\n%s", message, t.getMessage(), Util.stacktraceFrom(t)));
     }
 
     public static void debug(String message) {
@@ -39,22 +41,27 @@ public class Logger {
     }
 
     public static void fatal(String message, Throwable t) {
-        fatal(String.format("%s\n%s\n%s", message, t.getMessage(), Throwables.getStackTrace(t)));
-
+        fatal(String.format("%s\n%s\n%s", message, t.getMessage(), Util.stacktraceFrom(t)));
     }
 
     private static void logToStdout(String level, String message) {
-        System.out.println(getJsonObject(level, message));
-    }
-
-    private static JSONObject getJsonObject(String level, String message) {
-        JSONObject jsonObj = new JSONObject();
-        jsonObj.put("logLevel", level);
-        jsonObj.put("message", message);
-        return jsonObj;
+        System.out.println(LogMessage.of(level, message));
     }
 
     private static void logToStdErr(String level, String message) {
-        System.err.println(getJsonObject(level, message));
+        System.err.println(LogMessage.of(level, message));
+    }
+
+    private record LogMessage(@Expose @SerializedName("logLevel") String level, @Expose @SerializedName("message") String message) {
+        private static final Gson GSON = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+
+        public static LogMessage of(String level, String message) {
+            return new LogMessage(level, message);
+        }
+
+        @Override
+        public String toString() {
+            return GSON.toJson(this);
+        }
     }
 }

@@ -11,7 +11,7 @@ This project adds java [language plugin](https://gauge.org/plugins/) for [gauge]
 ### Pre-requisite
 
 - [Install Gauge](https://docs.gauge.org/getting_started/installing-gauge.html)
-- [Java](https://www.java.com/en/download/) (Minimum required version is 11)
+- [Java](https://www.java.com/en/download/) (Minimum required version is 17)
 
 ### Installation
 

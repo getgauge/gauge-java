@@ -46,7 +46,7 @@ public class CacheFileRequestProcessor implements IMessageProcessor {
     }
 
     private void loadFromDisk(String fileName) {
-        if ((new File(fileName).exists())) {
+        if (new File(fileName).exists()) {
             staticScanner.reloadSteps(fileName, staticScanner.readFile(fileName, StandardCharsets.UTF_8));
         }
     }

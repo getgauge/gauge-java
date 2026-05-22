@@ -9,6 +9,6 @@ public class DefaultClassInitializer implements ClassInitializer {
 
     @Override
     public Object initialize(Class<?> classToInitialize) throws Exception {
-        return Class.forName(classToInitialize.getName()).newInstance();
+        return Class.forName(classToInitialize.getName()).getDeclaredConstructor().newInstance();
     }
 }
