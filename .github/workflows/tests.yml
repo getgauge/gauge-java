@@ -25,14 +25,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: ${{ matrix.java_version }}
-
-      - name: Set up Maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
+          cache: maven
 
       - name: Run test
-        run: mvn -q clean test
+        run: mvn -B "-Dstyle.color=always" clean test
 
   functional_tests:
     name: FTs - java ${{ matrix.java_version }} ${{ matrix.os }}
@@ -58,11 +54,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: ${{ matrix.java_version }}
-
-      - name: Set up Maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
+          cache: maven
 
       - uses: getgauge/setup-gauge@master
         with:
@@ -75,7 +67,7 @@ jobs:
 
       - name: Install Gauge Java maven package locally
         run: |
-          mvn -q install -DskipTests -"Dgpg.skip" -D"maven.javadoc.skip=true"
+          mvn -B "-Dstyle.color=always" -DskipTests "-Dgpg.skip" "-Dmaven.javadoc.skip=true" install 
 
       - name: Clone gauge-tests
         run: |
@@ -122,11 +114,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: ${{ matrix.java_version }}
-
-      - name: Set up Maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
+          cache: maven
 
       - uses: getgauge/setup-gauge@master
         with:

@@ -4,7 +4,7 @@
     <name>gauge-java</name>
     <groupId>com.thoughtworks.gauge</groupId>
     <artifactId>gauge-java</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <description>Java plugin for Gauge</description>
     <url>https://github.com/getgauge/gauge-java</url>
     <dependencyManagement>
@@ -256,10 +256,7 @@
                             <goal>sign</goal>
                         </goals>
                         <configuration>
-                            <gpgArguments>
-                                <arg>--pinentry-mode</arg>
-                                <arg>loopback</arg>
-                            </gpgArguments>
+                            <bestPractices>true</bestPractices>
                         </configuration>
                     </execution>
                 </executions>
@@ -370,7 +367,7 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <protobuf.version>4.35.1</protobuf.version>
-        <grpc.version>1.83.0</grpc.version>
+        <grpc.version>1.83.1</grpc.version>
     </properties>
 
 </project>
