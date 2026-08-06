@@ -7,10 +7,6 @@ jobs:
     if: github.event.deployment.environment == 'production'
     runs-on: ubuntu-latest
     env:
-      MAVEN_GPG_SIGN_KEY: '${{ secrets.MAVEN_GPG_SIGN_KEY }}'
-      username: '${{ secrets.maven_deploy_username }}'
-      password: '${{ secrets.maven_deploy_password }}'
-      passphrase: '${{ secrets.gpg_passphrase }}'
       GITHUB_TOKEN: '${{ secrets.GAUGEBOT_GITHUB_TOKEN }}'
       CI: true
 
@@ -21,19 +17,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-
-      - name: Set up Maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.9.9
-
-      - name: Setup maven
-        run: |
-          echo -e "$MAVEN_GPG_SIGN_KEY" | gpg --import --batch -
-          gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys $gpgkey
-          rm -rf $HOME/.m2
-          mkdir -p $HOME/.m2
-          echo -e "<settings>\n<servers>\n<server>\n<id>central</id>\n<username>$username</username>\n<password>$password</password>\n</server>\n</servers>\n</settings>" > $HOME/.m2/settings.xml
+          cache: maven
+          server-id: central
+          server-username: MAVEN_CENTRAL_USERNAME
+          server-password: MAVEN_CENTRAL_PASSWORD
+          gpg-private-key: ${{ secrets.MAVEN_GPG_SIGN_KEY }}
 
       - name: Setup git
         run: |
@@ -67,8 +55,11 @@ jobs:
 
       - name: Deploy on maven central
         run: |
-          mvn -q clean deploy -Dgpg.passphrase=$passphrase
-
+          mvn -B "-Dstyle.color=always" clean deploy
+        env:
+          MAVEN_CENTRAL_USERNAME: ${{ secrets.maven_deploy_username }}
+          MAVEN_CENTRAL_PASSWORD: ${{ secrets.maven_deploy_password }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.gpg_passphrase }}
 
       - name: Update metadata in gauge-repository
         run: |
