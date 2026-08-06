@@ -370,7 +370,7 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <protobuf.version>4.35.1</protobuf.version>
-        <grpc.version>1.83.0</grpc.version>
+        <grpc.version>1.83.1</grpc.version>
     </properties>
 
 </project>
