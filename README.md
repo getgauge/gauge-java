@@ -1,7 +1,7 @@
 # Gauge-Java
 
 [![Actions Status](https://github.com/getgauge/gauge-java/workflows/tests/badge.svg)](https://github.com/getgauge/gauge-java/actions)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.thoughtworks.gauge/gauge-java)
+[![Maven Central Version](https://img.shields.io/maven-central/v/com.thoughtworks.gauge/gauge-java)](https://central.sonatype.com/artifact/com.thoughtworks.gauge/gauge-java)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v1.4%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 This project adds java [language plugin](https://gauge.org/plugins/) for [gauge](https://gauge.org/).
