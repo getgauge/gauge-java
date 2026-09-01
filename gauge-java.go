@@ -30,6 +30,7 @@ const (
 	customCompileDirEnv                = "gauge_custom_compile_dir"
 	customClasspathEnv                 = "gauge_custom_classpath"
 	jvmArgsEnv                         = "gauge_jvm_args"
+	javacArgsEnv                       = "gauge_javac_args"
 	defaultBuildDir                    = "gauge_bin"
 	mainClassName                      = "com.thoughtworks.gauge.GaugeRuntime"
 	JavaDebugOptsTemplate              = "-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=%s,timeout=%s"
@@ -60,6 +61,7 @@ var propertiesToPrint = []string{
 	"gauge_custom_build_path",
 	"gauge_additional_libs",
 	"gauge_jvm_args",
+	"gauge_javac_args",
 	"gauge_custom_compile_dir",
 	"gauge_clear_state_level",
 }
@@ -484,6 +486,7 @@ func build(destination string, classpath string) {
 		logMessage("fatal", fmt.Sprintf("failed to create dir %s. %s", destination, err.Error()))
 	}
 	args := []string{"-encoding", "UTF-8", "-d", destination}
+	args = append(args, javacUserArgs()...)
 	javaFiles := make([]string, 0)
 	resourceFiles := make(map[string][]string)
 
@@ -558,6 +561,13 @@ func writeLines(lines []string, path string) error {
 		fmt.Fprintln(w, line)
 	}
 	return w.Flush()
+}
+
+// javacUserArgs returns extra javac flags from gauge_javac_args.
+// Values are space-separated so flags like -g:lines,source stay intact
+// (gauge_jvm_args is comma-separated and cannot express that).
+func javacUserArgs() []string {
+	return strings.Fields(os.Getenv(javacArgsEnv))
 }
 
 func splitByComma(text string) []string {
