@@ -485,8 +485,8 @@ func build(destination string, classpath string) {
 	if err != nil {
 		logMessage("fatal", fmt.Sprintf("failed to create dir %s. %s", destination, err.Error()))
 	}
-	args := []string{"-encoding", "UTF-8", "-d", destination}
-	args = append(args, javacUserArgs()...)
+	args := javacUserArgs()
+	args = append(args, "-encoding", "UTF-8", "-d", destination)
 	javaFiles := make([]string, 0)
 	resourceFiles := make(map[string][]string)
 
