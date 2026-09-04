@@ -34,7 +34,7 @@ public class HooksExecutor {
         for (Hook hook : hooks) {
             result = new TaggedHookExecutor(hook, info).execute();
             totalHooksExecutionTime += result.getExecutionTime();
-            if (result.getFailed()) {
+            if (result.getFailed() || result.getSkipScenario()) {
                 return Spec.ProtoExecutionResult.newBuilder(result).setExecutionTime(totalHooksExecutionTime).build();
             }
         }

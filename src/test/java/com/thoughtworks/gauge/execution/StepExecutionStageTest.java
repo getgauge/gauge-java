@@ -252,4 +252,18 @@ public class StepExecutionStageTest {
     public void skipScenarioStep() {
         throw new SkipScenarioException("skipping this scenario due to unmet condition");
     }
+
+    @Test
+    public void shouldShortCircuitIfPreviousStageSkipped() {
+        Messages.ExecuteStepRequest executeStepRequest = Messages.ExecuteStepRequest.newBuilder()
+            .setParsedStepText("foo bar")
+            .setActualStepText("foo bar")
+            .build();
+        StepExecutionStage executionStage = new StepExecutionStage(
+            executeStepRequest, new ClassInstanceManager(), new ParameterParsingChain(), mock(StepRegistry.class)
+        );
+        Spec.ProtoExecutionResult previous = Spec.ProtoExecutionResult.newBuilder().setSkipScenario(true).build();
+        Spec.ProtoExecutionResult result = executionStage.execute(previous);
+        assertTrue(result.getSkipScenario());
+    }
 }
