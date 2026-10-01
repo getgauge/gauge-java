@@ -26,7 +26,7 @@
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-bom</artifactId>
-                <version>5.23.0</version>
+                <version>5.24.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -274,7 +274,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.15.0</version>
+                <version>3.16.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -306,7 +306,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.6</version>
+                <version>3.6.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -366,8 +366,8 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
-        <protobuf.version>4.36.0</protobuf.version>
-        <grpc.version>1.83.1</grpc.version>
+        <protobuf.version>4.36.2</protobuf.version>
+        <grpc.version>1.84.0</grpc.version>
     </properties>
 
 </project>
