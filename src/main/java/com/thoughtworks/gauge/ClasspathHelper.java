@@ -5,9 +5,12 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
+import org.reflections.vfs.Vfs;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class ClasspathHelper {
 
@@ -20,7 +23,11 @@ public class ClasspathHelper {
             }
             return urls;
         }
-        return org.reflections.util.ClasspathHelper.forJavaClassPath();
+        // Gradle puts source set output dirs on the classpath even if they were never created, e.g. build/classes/java/main in Kotlin-only projects.
+        // Scanning such dirs logs NullPointerException stack traces, so skip entries that don't exist.
+        return org.reflections.util.ClasspathHelper.forJavaClassPath().stream()
+                .filter(url -> Vfs.getFile(url) != null)
+                .collect(Collectors.toList());
     }
 
 }

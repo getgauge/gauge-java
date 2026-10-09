@@ -39,7 +39,7 @@ public class ClasspathScanner {
         Vfs.addDefaultURLTypes(new Vfs.UrlType() {
             @Override
             public boolean matches(URL url) {
-                return "file".equals(url.getProtocol());
+                return "file".equals(url.getProtocol()) && Vfs.getFile(url) != null;
             }
 
             @Override
