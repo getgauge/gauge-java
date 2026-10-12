@@ -32,7 +32,7 @@ jobs:
         uses: actions/setup-go@v7
         with:
           check-latest: true
-          go-version-file: 'go.mod'
+          go-version-file: .tool-versions
 
       - name: Build artifacts
         run: go run build/make.go --all-platforms && go run build/make.go --all-platforms --distro
