@@ -35,6 +35,10 @@ public class SetupCommand implements GaugeJavaCommand {
                 # JVM arguments passed to java while launching. Enter multiple values separated by comma (,) eg. Xmx1024m, Xms128m
                 gauge_jvm_args =
                 
+                # Extra javac arguments used when Gauge compiles project sources.
+                # Space-separated so flags with commas work, e.g. -g:lines,source
+                gauge_javac_args =
+                
                 # specify the directory containing java files to be compiled
                 # you can specify multiple directory names separated with a comma (,)
                 gauge_custom_compile_dir =
