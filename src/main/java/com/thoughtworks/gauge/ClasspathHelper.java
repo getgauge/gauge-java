@@ -5,9 +5,12 @@
  *----------------------------------------------------------------*/
 package com.thoughtworks.gauge;
 
+import org.reflections.vfs.Vfs;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class ClasspathHelper {
 
@@ -20,7 +23,9 @@ public class ClasspathHelper {
             }
             return urls;
         }
-        return org.reflections.util.ClasspathHelper.forJavaClassPath();
+        return org.reflections.util.ClasspathHelper.forJavaClassPath().stream()
+                .filter(url -> Vfs.getFile(url) != null)
+                .collect(Collectors.toList());
     }
 
 }
