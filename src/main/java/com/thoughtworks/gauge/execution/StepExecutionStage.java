@@ -35,7 +35,7 @@ public class StepExecutionStage extends AbstractExecutionStage {
     }
 
     public Spec.ProtoExecutionResult execute(Spec.ProtoExecutionResult previousStageResult) {
-        if (previousStageResult.getFailed()) {
+        if (previousStageResult.getFailed() || previousStageResult.getSkipScenario()) {
             return executeNext(previousStageResult);
         }
         Spec.ProtoExecutionResult stageResult = executeStep();
