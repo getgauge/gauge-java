@@ -73,7 +73,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>33.7.1-jre</version>
+            <version>33.7.2-jre</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.google.errorprone</groupId>
@@ -265,7 +265,7 @@
             <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
-                <version>0.11.0</version>
+                <version>0.12.0</version>
                 <extensions>true</extensions>
                 <configuration>
                     <publishingServerId>central</publishingServerId>
@@ -368,7 +368,7 @@
         <maven.compiler.release>${java.version}</maven.compiler.release>
 
         <protobuf.version>4.36.2</protobuf.version>
-        <grpc.version>1.84.0</grpc.version>
+        <grpc.version>1.85.1</grpc.version>
     </properties>
 
 </project>
